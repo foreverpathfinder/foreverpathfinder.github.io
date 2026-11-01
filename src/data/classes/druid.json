@@ -1,0 +1,963 @@
+{
+ "class": "druid",
+ "name": "Druid",
+ "resource": "Mana (+ Rage in Bear Form, Energy e Combo Point in Cat Form)",
+ "spec": "Feral",
+ "specIcon": "ability_druid_catform",
+ "summary": "Feral (Bear 10–19, Cat dal 20) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez, agg. 30 ott) 'la scelta più veloce e popolare', Mobalytics Ruse_Cruize (Verified, 47 ♥, 28 ott, 0/21/0 = tutti i 21 punti in Feral), games.gg (Larc). Dal 30 ott (build 70707) Blizzard ha rimescolato l'albero Druid: la build qui è l'ordine di wowforever.be, letto dal client 70707, quindi l'unico ordine che rispetta il nuovo albero; coincide con il consenso su Ferocity 10–14, Feral Swiftness entro il 19, Feral Charge al 20 e Leader of the Pack al 30. Le altre guide (Tavern, Method, wowforever.gg) descrivono ancora il vecchio albero con Primal Bite/Shifting Power al 25 e Berserk.",
+ "build": [
+  "Ferocity",
+  "Ferocity",
+  "Ferocity",
+  "Ferocity",
+  "Ferocity",
+  "Feral Instinct",
+  "Feral Instinct",
+  "Feral Instinct",
+  "Feral Swiftness",
+  "Feral Swiftness",
+  "Feral Charge",
+  "Savage Fury",
+  "Savage Fury",
+  "Shredding Attacks",
+  "Shredding Attacks",
+  "Shredding Attacks",
+  "Sharpened Claws",
+  "Sharpened Claws",
+  "Lacerate",
+  "Predatory Discipline",
+  "Leader of the Pack",
+  "Natural Instinct",
+  "Natural Instinct",
+  "Blood Frenzy",
+  "Blood Frenzy",
+  "Furor",
+  "Furor",
+  "Furor",
+  "Furor",
+  "Furor",
+  "Primal Bite",
+  "Shifting Power",
+  "Brutal Impact",
+  "Brutal Impact",
+  "Heart of the Wild",
+  "Heart of the Wild",
+  "Heart of the Wild",
+  "Heart of the Wild",
+  "Heart of the Wild",
+  "Natural Shapeshifter",
+  "Natural Shapeshifter",
+  "Natural Shapeshifter",
+  "Naturalist",
+  "Naturalist",
+  "Naturalist",
+  "Naturalist",
+  "Naturalist",
+  "Reflection",
+  "Reflection",
+  "Reflection",
+  "Swiftmend"
+ ],
+ "buildSource": "wowforever.be (client 1.60.1.70707, letto 1 nov) per 10–60. 10–20 coincide con la guida Mobalytics Bear (Ferocity, Feral Instinct 15–17, Feral Swiftness 18–19, Feral Charge 20; solo snippet) 🟡. 31–60 solo wowforever.be 🟡: nessun'altra fonte ha una build 31–60 sul nuovo albero. Con il Legacy 'Talented' (5 rank) i talent arrivano fino a 5 livelli prima (primo punto al 5 invece del 10 con 5/5).",
+ "why": {
+  "Ferocity": "Costo di Maul, Swipe, Claw e Rake −5 Rage/Energy a 5/5: in Bear Form più Maul, in Cat Form rotazione molto più economica. Unanimità delle fonti: primo talent.",
+  "Feral Instinct": "Swipe +30% e stealth come +3 livelli: con Swipe (16) è il tuo AoE da Bear nel 10–19 (Mobalytics bear + wowforever.be).",
+  "Feral Swiftness": "+30% velocità in Cat Form (anche indoor) e +4% Dodge: 'uno dei migliori talent per il leveling' (Mobalytics, games.gg, Warcraft Tavern).",
+  "Feral Charge": "Da Bear: root + interrupt 4 s; da Cat: salto dietro il bersaglio (apre con Shred, CD 30 s). Il pezzo di mobilità del 20.",
+  "Savage Fury": "+10% danno a Claw, Rake, Shred, Maul, Swipe: danno puro su tutto il kit (prerequisito di Lacerate).",
+  "Shredding Attacks": "Shred costa 18 Energy in meno a 3/3 (e Lacerate −3 Rage): Shred diventa la tua rotazione da dietro il mob.",
+  "Sharpened Claws": "+6% crit in Bear e Cat Form a 2/2: più crit = più Combo Point extra con Blood Frenzy (prerequisito).",
+  "Lacerate": "★ Bleed stackabile fino a 5 (10% weapon damage per stack), tanta threat: utile come Bear in dungeon; in solo cat vale poco (🟡 scelta di wowforever.be).",
+  "Predatory Discipline": "★ Ferocious Bite non converte più Energy extra ma fa danno extra in base all'Energy in eccesso: finisher più semplice.",
+  "Leader of the Pack": "+3% crit a te e al party in Cat/Bear Form, ora su tutti i crit (hotfix 30 ott). Il talent del 30 per tutte le fonti.",
+  "Natural Instinct": "★ +20% crit damage delle abilità melee a 2/2 (e healing da Intellect).",
+  "Blood Frenzy": "100% di +5 Rage sui crit in Bear Form; da Cat i crit dei builder danno un Combo Point extra al 100%.",
+  "Furor": "Cambio forma = 10 Rage (Bear) o restituisce 100% dell'Energy (Cat): rende gestibile il passare da Cat a Bear. Dopo l'hotfix 30 ott è nell'albero Feral.",
+  "Primal Bite": "★ Morso con 42/62/77 di danno extra e tanta threat (hotfix 30 ott), spostato a riga 7: serve 30 punti nell'albero, quindi arriva al 40.",
+  "Shifting Power": "★ Converte 55% del Base Mana in 40 Energy (CD 8 s dopo hotfix 30 ott): Mana come seconda barra Energy. Riga 7 = livello 41 nel client.",
+  "Brutal Impact": "Bash e Pounce stunnano +1 s e Bash −30 s di CD: controllo extra per i pull difficili.",
+  "Heart of the Wild": "+10% Intellect, +20% Stamina in Bear, +10% Strength in Cat a 5/5. Dopo l'hotfix è nell'albero Restoration, perciò arriva dopo il 44.",
+  "Natural Shapeshifter": "−30% costo mana di tutte le trasformazioni: meno tempo a bere se cambi forma spesso.",
+  "Naturalist": "+10% a tutto il danno che infliggi (e Healing Touch/Wild Growth più veloci): danno extra gratis nel Resto.",
+  "Reflection": "Fino al 50% della rigenerazione mana continua mentre lanci: aiuta heal e shift.",
+  "Swiftmend": "Heal istantaneo che consuma il tuo Rejuvenation/Regrowth: capstone del 60 per curarti in solo."
+ },
+ "compare": [
+  {
+   "source": "wowforever.be – build client (albero 70707)",
+   "signal": "dati client, 1 nov",
+   "l10_19": "Ferocity 5/5 (10–14), Feral Instinct 3/3 (15–17), Feral Swiftness 2/2 (18–19)",
+   "l20": "Feral Charge",
+   "l21_30": "Savage Fury 2, Shredding Attacks 3, Sharpened Claws 2, Lacerate, Predatory Discipline, Leader of the Pack al 30"
+  },
+  {
+   "source": "Mobalytics – Ruse_Cruize, Druid Leveling Guide 1-30 (Verified)",
+   "signal": "47 ♥ · 28 ott · 0/21/0 (ordine completo non leggibile; snippet)",
+   "l10_19": "Ferocity primo; poi 3 punti Heart of the Wild (allora nell'albero Feral) + Feral Swiftness 2/2 ('uno dei migliori talent del gioco per il leveling')",
+   "l20": "(non visibile)",
+   "l21_30": "(non visibile) – tutti i 21 punti in Feral"
+  },
+  {
+   "source": "Mobalytics – guida Feral Bear Tank (snippet)",
+   "signal": "ott, ♥ non letti",
+   "l10_19": "Ferocity 2/5 (10–12), Furor 3/5 (13–14), Feral Instinct 3/3 (15–17), Feral Swiftness 2/2 (18–19)",
+   "l20": "Feral Charge",
+   "l21_30": "non visibile"
+  },
+  {
+   "source": "Warcraft Tavern – Luxrah, Druid Leveling Guide (build 'Mid-level Feral', calcolatore decodificato)",
+   "signal": "reputazione alta · albero PRE-hotfix (beta cap 30 + 5 Legacy)",
+   "l10_19": "Ferocity 5/5 (10–14), Feral Swiftness 2/2 (15–16), Heart of the Wild 3/5 (17–19; era nell'albero Feral)",
+   "l20": "Feral Charge",
+   "l21_30": "Sharpened Claws 2 (21–22), Savage Fury 2 (23–24), Blood Frenzy 2 (25–26), Predatory Strikes 3 (27–29), Leader of the Pack (30); salta Shredding Attacks"
+  },
+  {
+   "source": "Method – BirraGzeez, Druid Leveling Guide & Talents",
+   "signal": "agg. 30 ott · albero PRE-hotfix",
+   "l10_19": "Ferocity primo (Maul/Swipe meno Rage), poi Feral Swiftness",
+   "l20": "(Feral Charge)",
+   "l21_30": "Primal Bite + Shifting Power al 25 (OBSOLETO: ora riga 7), Leader of the Pack, Predatory Strikes; Berserk (rimosso)"
+  },
+  {
+   "source": "wowforever.gg (fan site non ufficiale) – Druid Feral Leveling Build",
+   "signal": "agg. 30 ott · albero PRE-hotfix",
+   "l10_19": "Ferocity 5/5 + Heart of the Wild 3/5 + Feral Swiftness 2/2",
+   "l20": "Feral Charge (11 punti)",
+   "l21_30": "Shifting Power 25, Leader of the Pack 30, Primal Bite 35, Berserk 40 (obsoleto)"
+  },
+  {
+   "source": "games.gg – Larc, Feral Druid 1-30",
+   "signal": "17 set (vecchio)",
+   "l10_19": "Ferocity; Heart of the Wild 3 + Feral Swiftness 2",
+   "l20": "Feral Charge",
+   "l21_30": "Sharpened Claws 2, Savage Fury 2, Predatory Strikes 3, 'Primal Fury' 2 (non esiste nel client), Leader of the Pack"
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Perché non Balance e non Restoration",
+   "html": "<p><b>Balance</b> funziona ma è più lenta (Warcraft Tavern: 'molto più debole per leveling'; Mobalytics: 'Feral sarà molto più liscio'; i video di Tekn0de, 55k views, 29 set, e Psybear_tv, 50k, 7 ott, la trattano come opzione). Build: <b>Multi-DoT</b> (Improved Entangling Roots, Overgrowth 2 = 3 root, Insect Swarm al 25) o <b>Eclipse</b> (Improved Starfire + Eclipse: dopo il 30, 2 Starfire per 1 Wrath). <b>Restoration</b>: sconsigliata in solo per i tempi di kill lenti (Tavern); Mobalytics la dà 'abbastanza forte' ma senza danno né mobilità. Balance/Resto servono più come seconda spec da dungeon col Dual Talent Specialization (40).</p>"
+  },
+  {
+   "title": "Variante 'stile Tavern/Method' sul nuovo albero 🟡",
+   "html": "<p>Le guide pre-hotfix sostituiscono Shredding Attacks/Lacerate/Predatory Discipline con <b>Sharpened Claws 2 → Savage Fury 2 → Blood Frenzy 2 → Predatory Strikes 3</b> (Predatory Strikes = AP pari al 150% del tuo livello a 3/3) e Leader of the Pack al 30. Questi talent esistono ancora nel client 70707 (Predatory Strikes e Blood Frenzy richiedono 15 punti; Blood Frenzy richiede Sharpened Claws), ma l'ordine non è stato verificato sul nuovo albero. Tavern salta Shredding Attacks perché 'in solo non si Shredda spesso': Feral Charge da Cat e Prowl però ti mettono dietro al mob.</p><p>Se fai molti dungeon da Bear: Thick Hide, Brutal Impact, Natural Reaction e Lacerate (Tavern 'Hybrid', Method 'tank-leaning').</p>"
+  },
+  {
+   "title": "Cosa è cambiato con l'hotfix del 30 ott (build 70707)",
+   "html": "<ul><li><b>Berserk</b> rimosso dall'albero.</li><li><b>Furor</b> e <b>Heart of the Wild</b> si sono scambiati d'albero: Furor ora in Feral, Heart of the Wild in Restoration.</li><li><b>Primal Bite</b> (42/62/77 danni, prima 26/38/59) e <b>Shifting Power</b> (CD 8 s, prima 16 s) spostati a riga 7: servono 30 punti nell'albero, quindi livello 40/41, non 25 come scrivono ancora Tavern, Method e wowforever.gg.</li><li>Nuovi: <b>Lacerate</b> (talent Feral), <b>Predatory Discipline</b> (Feral), <b>Bloom</b> (Restoration). Rimossi: Improved Shifting Power, Gift of the Earthmother.</li><li>Leader of the Pack ora su tutti i crit; Genesis 2–10%; Naturalist 2–10%; Swiftmend richiede il tuo Rejuvenation/Regrowth; Wild Growth 3 s di cast. (wowforever.be news 31 ott, GitHub wowforever-helper #455, Tactyks 15.8k views 31 ott.)</li><li>Altri 26 talent sono stati spostati senza elenco: <b>controlla i tooltip in gioco</b>.</li></ul>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Mark of the Wild",
+   "spell_nature_regeneration",
+   "Buff stats e resistenze a te e al party; tienilo sempre su (funziona anche sui pet)."
+  ],
+  [
+   1,
+   "Wrath",
+   "spell_nature_abolishmagic",
+   "Danno Nature con cast; il tuo attacco da pull fino al 10."
+  ],
+  [
+   1,
+   "Healing Touch",
+   "spell_nature_healingtouch",
+   "Heal con cast: cura fuori forma tra un pull e l'altro."
+  ],
+  [
+   4,
+   "Moonfire",
+   "spell_nature_starfall",
+   "Danno Arcane + DoT, ★ può fare crit (anche il DoT). Tienilo su 2 mob."
+  ],
+  [
+   4,
+   "Rejuvenation",
+   "spell_nature_rejuvenation",
+   "HoT: ti curi prima di ogni pull."
+  ],
+  [
+   6,
+   "Thorns",
+   "spell_nature_thorns",
+   "Danni a chi ti colpisce; ★ scala con lo spell power. Tienilo sempre su di te."
+  ],
+  [
+   8,
+   "Entangling Roots",
+   "spell_nature_stranglevines",
+   "Root a distanza per tenere lontano un mob extra."
+  ],
+  [
+   10,
+   "Bear Form",
+   "ability_racial_bearform",
+   "★ Class quest (vedi tappe). Armor e HP alti, Rage come risorsa; un po' meno HP che in Classic."
+  ],
+  [
+   10,
+   "Growl",
+   "ability_physical_taunt",
+   "Taunt singolo (dalla quest di Bear Form)."
+  ],
+  [
+   10,
+   "Maul",
+   "ability_druid_maul",
+   "Il tuo spender di Rage a bersaglio singolo (dalla quest)."
+  ],
+  [
+   10,
+   "Demoralizing Roar",
+   "ability_druid_demoralizingroar",
+   "Debuff che riduce il danno dei mob fisici; non usarlo sui caster."
+  ],
+  [
+   10,
+   "Nature's Grasp",
+   "spell_nature_natureswrath",
+   "★ Ora base al 10: roota il prossimo che ti colpisce in melee, per scappare."
+  ],
+  [
+   10,
+   "Teleport: Moonglade",
+   "spell_arcane_teleportmoonglade",
+   "Class quest: teletrasporto a Moonglade (trainer Loganaar a Nighthaven)."
+  ],
+  [
+   12,
+   "Regrowth",
+   "spell_nature_resistnature",
+   "Heal + HoT, più veloce di Healing Touch."
+  ],
+  [
+   12,
+   "Revive",
+   "spell_nature_reincarnation",
+   "★ Ora base al 12: resuscita un giocatore fuori combattimento."
+  ],
+  [
+   12,
+   "Enrage",
+   "ability_druid_enrage",
+   "★ 10 Rage subito + 20 in 10 s (totale 30), CD 1 min; da Bear."
+  ],
+  [
+   14,
+   "Cure Poison",
+   "spell_nature_nullifypoison",
+   "Class quest 'Lessons Anew': rimuove un Poison."
+  ],
+  [
+   14,
+   "Bash",
+   "ability_druid_bash",
+   "Stun da Bear; con Brutal Impact stunna più a lungo e ha CD più corto."
+  ],
+  [
+   16,
+   "Aquatic Form",
+   "ability_druid_aquaticform",
+   "Class quest 'A Lesson to Learn': nuoto veloce e respiro infinito. Ricompensa: Idol of Shifting Tides."
+  ],
+  [
+   16,
+   "Swipe",
+   "inv_misc_monsterclaw_03",
+   "Il tuo AoE da Bear; Feral Instinct +30%."
+  ],
+  [
+   18,
+   "Faerie Fire",
+   "spell_nature_faeriefire",
+   "★ Base (niente talent): debuff armor, pull a distanza; in forma costa 0, CD 6 s e dà threat (15 ott)."
+  ],
+  [
+   18,
+   "Hibernate",
+   "spell_nature_sleep",
+   "Crowd control su Beast e Dragonkin (dato Classic)."
+  ],
+  [
+   20,
+   "Cat Form",
+   "ability_druid_catform",
+   "★ Class quest 'The Great Cat Spirit': DPS melee con Energy e Combo Point. Non abbassa più gli HP massimi."
+  ],
+  [
+   20,
+   "Claw",
+   "ability_druid_rake",
+   "★ Builder Combo Point (dalla quest); ora ~110% weapon damage come Mangle (KamiLabs, 26 set)."
+  ],
+  [
+   20,
+   "Prowl",
+   "ability_ambush",
+   "Stealth in Cat Form: scegli tu quando ingaggiare."
+  ],
+  [
+   20,
+   "Rip",
+   "ability_ghoulfrenzy",
+   "Finisher bleed (dalla quest); usalo solo se il mob vive abbastanza."
+  ],
+  [
+   20,
+   "Shred",
+   "spell_shadow_vampiricaura",
+   "★ Rank 1 al 20 (era 22, 15 ott): builder da dietro, ~155% weapon damage."
+  ],
+  [
+   20,
+   "Starfire",
+   "spell_arcane_starfire",
+   "Danno Arcane con cast lungo (per Balance, raramente per Feral)."
+  ],
+  [
+   20,
+   "Rebirth",
+   "spell_nature_reincarnation",
+   "Resurrezione in combattimento: consuma un reagente (dipende dal Rank)."
+  ],
+  [
+   20,
+   "Omen of Clarity",
+   "spell_nature_crystalball",
+   "★ Ora passiva base: proc di spell/abilità gratis, anche su tick di DoT/HoT."
+  ],
+  [
+   20,
+   "Polearms",
+   "ability_meleedamage",
+   "★ Nuova arma per i Druid: Woo Ping (Stormwind) / Archibald (Undercity)."
+  ],
+  [
+   22,
+   "Soothe Animal",
+   "ability_hunter_beastsoothe",
+   "Calma un animale (dato Classic)."
+  ],
+  [
+   24,
+   "Remove Curse",
+   "spell_nature_removecurse",
+   "Rimuove un Curse."
+  ],
+  [
+   24,
+   "Rake",
+   "ability_druid_disembowel",
+   "Builder + bleed: usalo se il mob vive più di ~6 s."
+  ],
+  [
+   24,
+   "Tiger's Fury",
+   "ability_mount_jungletiger",
+   "★ 🟡 (KamiLabs 26 set, non in Tavern/Method): +15% a tutto il danno per 6 s, DoT inclusi; livello da verificare."
+  ],
+  [
+   26,
+   "Dash",
+   "ability_druid_dash",
+   "Sprint in Cat Form."
+  ],
+  [
+   26,
+   "Abolish Poison",
+   "spell_nature_nullifypoison_02",
+   "Poison rimosso nel tempo."
+  ],
+  [
+   28,
+   "Cower",
+   "ability_druid_cower",
+   "Meno threat da Cat (utile in gruppo)."
+  ],
+  [
+   28,
+   "Challenging Roar",
+   "ability_druid_challangingroar",
+   "Taunt AoE da Bear, CD 10 min."
+  ],
+  [
+   30,
+   "Travel Form",
+   "ability_druid_travelform",
+   "Corsa +40% all'aperto senza mount: sostituisce il mount fino al 40."
+  ],
+  [
+   30,
+   "Tranquility",
+   "spell_nature_tranquility",
+   "Heal di gruppo in channel."
+  ],
+  [
+   32,
+   "Ferocious Bite",
+   "ability_druid_ferociousbite",
+   "Finisher da Cat; con Predatory Discipline fa danno extra sull'Energy in eccesso."
+  ],
+  [
+   32,
+   "Ravage",
+   "ability_druid_ravage",
+   "Opener da stealth da dietro (Cat)."
+  ],
+  [
+   32,
+   "Track Humanoids",
+   "ability_tracking",
+   "Tracking degli umanoidi in Cat Form."
+  ],
+  [
+   36,
+   "Pounce",
+   "ability_druid_supriseattack",
+   "Opener da Prowl con stun."
+  ],
+  [
+   36,
+   "Frenzied Regeneration",
+   "ability_bullrush",
+   "★ Converte Rage in HP in percentuale (10 Rage = 10% HP)."
+  ],
+  [
+   40,
+   "Dire Bear Form",
+   "ability_racial_bearform",
+   "Forma da Bear migliorata (trainer)."
+  ],
+  [
+   40,
+   "Innervate",
+   "spell_nature_lightning",
+   "Mana regen potente; esci dalla forma per lanciarlo."
+  ],
+  [
+   40,
+   "Hurricane",
+   "spell_nature_cyclone",
+   "★ Senza cooldown (Balance)."
+  ],
+  [
+   40,
+   "Feline Grace",
+   "ability_druid_catform",
+   "Passiva da Cat (trainer, dato Tavern; effetto non letto 🟡)."
+  ],
+  [
+   40,
+   "Dual Talent Specialization",
+   "inv_misc_book_09",
+   "★ Seconda spec (es. Feral + Restoration per i dungeon)."
+  ],
+  [
+   44,
+   "Barkskin",
+   "spell_nature_stoneclawtotem",
+   "Riduzione danno in ogni forma."
+  ]
+ ],
+ "talentSpells": [
+  [
+   20,
+   "Feral Charge",
+   "ability_hunter_pet_bear",
+   "Bear: charge + root + interrupt 4 s; Cat: salta dietro il bersaglio (CD 30 s)."
+  ],
+  [
+   28,
+   "Lacerate",
+   "ability_druid_lacerate",
+   "★ Bleed stackabile fino a 5 per threat da Bear (talent su wowforever.be; Tavern/Method lo danno come trainer 42, Zockify come talent 25: 🟡)."
+  ],
+  [
+   30,
+   "Leader of the Pack",
+   "spell_nature_unyeildingstamina",
+   "+3% crit a te e al party in Cat/Bear Form (aura)."
+  ],
+  [
+   40,
+   "Primal Bite",
+   "ability_racial_cannibalize",
+   "★ Morso con 42 danni extra e tanta threat (riga 7 = livello 40)."
+  ],
+  [
+   41,
+   "Shifting Power",
+   "spell_druid_displacement",
+   "★ 55% del Base Mana in 40 Energy, CD 8 s (da Cat)."
+  ],
+  [
+   60,
+   "Swiftmend",
+   "inv_relics_idolofrejuvenation",
+   "Heal istantaneo che consuma il tuo Rejuvenation/Regrowth."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Caster (nessuna forma)",
+   "seq": [
+    [
+     "spell_nature_thorns",
+     "Thorns (dal 6)"
+    ],
+    [
+     "spell_nature_abolishmagic",
+     "Wrath (pull)"
+    ],
+    [
+     "spell_nature_starfall",
+     "Moonfire"
+    ],
+    [
+     "spell_nature_abolishmagic",
+     "Wrath"
+    ],
+    [
+     "ability_meleedamage",
+     "Auto-attack"
+    ]
+   ],
+   "text": "Thorns su di te. Wrath per ingaggiare, Moonfire per il DoT, Wrath finché hai mana, poi finisci in melee. Rejuvenation su di te quando serve. Con Moonfire puoi tenere il DoT su 2 mob (games.gg). Mana finito = auto-attack. Fonti: Warcraft Tavern, games.gg, Method."
+  },
+  {
+   "title": "10–19 · Bear Form",
+   "seq": [
+    [
+     "spell_nature_resistnature",
+     "Heal pre-pull"
+    ],
+    [
+     "ability_racial_bearform",
+     "Bear Form"
+    ],
+    [
+     "ability_druid_enrage",
+     "Enrage"
+    ],
+    [
+     "ability_druid_demoralizingroar",
+     "Demoralizing Roar"
+    ],
+    [
+     "ability_druid_maul",
+     "Maul / Swipe"
+    ]
+   ],
+   "text": "Prima del pull curati (Rejuvenation, Regrowth, Healing Touch), poi Wrath x2 + Moonfire da lontano e Bear Form quando il mob arriva (Method). Enrage per Rage subito, Demoralizing Roar solo su mob fisici, Maul su singolo, Swipe (16) su 2+ mob. Feral Charge arriva solo al 20 sulla build client (games.gg la anticipava: obsoleto). Non pullare più di 2 mob."
+  },
+  {
+   "title": "20–30 · Cat Form",
+   "seq": [
+    [
+     "ability_ambush",
+     "Prowl"
+    ],
+    [
+     "ability_druid_disembowel",
+     "Rake"
+    ],
+    [
+     "spell_shadow_vampiricaura",
+     "Shred (da dietro)"
+    ],
+    [
+     "ability_druid_rake",
+     "Claw"
+    ],
+    [
+     "ability_ghoulfrenzy",
+     "Rip (4–5 CP)"
+    ]
+   ],
+   "text": "Rejuvenation prima del pull, aspetta qualche secondo in Cat Form per riempire l'Energy. Prowl, poi Feral Charge dietro al mob o Shred da dietro; Faerie Fire per tirare da lontano; Rake se il mob vive più di ~6 s; Shred (Claw se non sei dietro) per i Combo Point; Rip solo se il mob vive ancora 10 s, altrimenti continua con Claw/Shred. Dal 24 Tiger's Fury 🟡. Dash per spostarti. Non servono finisher sui mob che muoiono in 3 colpi. Fonti: Tavern, Method, games.gg."
+  },
+  {
+   "title": "30–60 · Cat evoluto",
+   "seq": [
+    [
+     "ability_ambush",
+     "Prowl"
+    ],
+    [
+     "ability_druid_ravage",
+     "Ravage / Pounce"
+    ],
+    [
+     "spell_nature_faeriefire",
+     "Faerie Fire"
+    ],
+    [
+     "ability_druid_disembowel",
+     "Rake"
+    ],
+    [
+     "ability_druid_ferociousbite",
+     "Ferocious Bite (5 CP)"
+    ]
+   ],
+   "text": "Ravage (32) o Pounce (36) da Prowl, Faerie Fire, Rake, Shred/Claw fino a 5 Combo Point, Ferocious Bite (con Predatory Discipline). Al 41 Shifting Power appena sotto 50 Energy. Dal 40 Dire Bear Form per i dungeon e per più mob (Method)."
+  },
+  {
+   "title": "AoE / pull multipli",
+   "seq": [
+    [
+     "ability_racial_bearform",
+     "Bear Form"
+    ],
+    [
+     "ability_druid_enrage",
+     "Enrage"
+    ],
+    [
+     "ability_druid_demoralizingroar",
+     "Demoralizing Roar"
+    ],
+    [
+     "inv_misc_monsterclaw_03",
+     "Swipe"
+    ]
+   ],
+   "text": "Più di 2 mob: Bear Form, Enrage, Roar (solo fisici), Swipe (Feral Instinct +30%). Entangling Roots tiene fuori un extra; Nature's Grasp per scappare; Bash per fermare un mob. Da Cat non c'è AoE: con 3+ mob passa a Bear."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Risorse e downtime",
+   "html": "<ul><li><b>Mana</b> continua a rigenerare in forma ma è nascosto: attiva 'Personal Resource Display' in Options, Combat (Tavern). Il Mana serve per tornare in forma (lo shift costa Mana; Natural Shapeshifter −30%) e per Shifting Power.</li><li>Energy e Rage si rigenerano in continuo; in Bear l'Energy non rigenera, e Powershifting/Bear Weaving non convengono più (Tavern). Furor ridà la risorsa quando cambi forma.</li><li>Pozioni, bende e cibo si usano senza uscire dalla forma ★ (1–8 ott); la maggior parte di oggetti e NPC è usabile in forma, ma heal e utility (Rebirth, Innervate, Cure Poison) richiedono di uscirne.</li><li>Heal tra un pull e l'altro: Rejuvenation (Swiftmend solo al 60). Porta acqua adatta al livello (nuova ogni ~10 livelli).</li><li>Il cambio forma toglie root e slow: shifta invece di aspettare.</li><li>Idol of Shifting Tides (quest Aquatic Form): meno mana per shapeshift.</li></ul>"
+  },
+  {
+   "title": "Posizione e Combo Point",
+   "html": "<p>Shred richiede di stare dietro al mob; da dietro non vieni parato né colpito dagli attacchi frontali. Feral Charge da Cat ti mette dietro automaticamente. Combo Point: Tavern dice che non si trasferiscono tra target, games.gg (17 set) che sì: 🟡 verifica in gioco. I bleed ignorano l'armor: ottimi contro mob corazzati.</p>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Mark of the Wild, Wrath, Healing Touch. Trainer di classe: Alleanza Mardant Strongoak (Shadowglen 58.6 40.4) / Kal (Dolanaar 56.0 61.4); Horde Gart Mistrunner (Red Cloud Mesa, Mulgore 45.0 76.0) / Gennia Runetotem (Bloodhoof 48.4 59.6); Skyborne (Zephras Isle, livelli 3–12) Xyton Silverwind (Thendal Village 41.7 23.4), Naeluna Swiftmend (Shen'dar 45.2 44.3), Lotheluum Starbreeze (Valanaar 64.0 75.1)."
+  ],
+  "4": [
+   "Moonfire e Rejuvenation: passa dal trainer ogni livello pari (Method)."
+  ],
+  "5": [
+   "Apprentice Professions; con Talented (Legacy) 5/5 il primo punto talent arriva già qui."
+  ],
+  "6": [
+   "Thorns."
+  ],
+  "10": [
+   "Class quest Bear Form: 'Heeding the Call' (Night Elf: Darnassus, Mathrengyl Bearwalker, Cenarion Enclave 35.2 8.0; Tauren: Thunder Bluff) oppure 'The Great Ursera Spirit' (Skyborne, Zephras Isle). Dà Bear Form, Growl, Maul, Teleport: Moonglade (Tavern; per gli Skyborne la quest Moonglade a Stormwind/Thunder Bluff 🟡 tabella poco leggibile).",
+   "Nature's Grasp, Demoralizing Roar. Primo punto talent (Ferocity). Journeyman Professions.",
+   "Zone: Westfall, Loch Modan, Darkshore, The Barrens, Silverpine Forest (min 10, Tavern)."
+  ],
+  "12": [
+   "Regrowth, Revive, Enrage."
+  ],
+  "14": [
+   "Class quest Cure Poison 'Lessons Anew' (Darnassus / Thunder Bluff) e Bash."
+  ],
+  "16": [
+   "Class quest Aquatic Form 'A Lesson to Learn' (Darnassus / Thunder Bluff): ricompensa Idol of Shifting Tides. Swipe."
+  ],
+  "18": [
+   "Faerie Fire, Hibernate. Ashenvale consigliata dal 18."
+  ],
+  "20": [
+   "Class quest Cat Form 'The Great Cat Spirit' (Darnassus / Thunder Bluff; Skyborne: 'The Great Windborne Cat Spirit', Zephras Isle, Method) → Cat Form, Claw, Prowl, Rip. KamiLabs (26 set) parlava di una catena a Moonglade 🟡.",
+   "Shred, Starfire, Rebirth, Omen of Clarity, Polearms (Woo Ping a Stormwind per l'Alleanza, Archibald a Undercity per la Horde). Expert Professions. Feral Charge.",
+   "Dungeon: Wailing Caverns 17–24 (set Embrace of the Viper), The Deadmines 17–26, Ruins of Lordaeron 15–20 (mappa Wowhead)."
+  ],
+  "24": [
+   "Rake, Remove Curse, Tiger's Fury 🟡."
+  ],
+  "26": [
+   "Dash, Abolish Poison."
+  ],
+  "28": [
+   "Cower, Challenging Roar, Lacerate (talent)."
+  ],
+  "30": [
+   "Travel Form (trainer), Leader of the Pack, Tranquility. Zone: Stranglethorn Vale, Desolace, Arathi Highlands, Alterac Mountains dal 30 (Tavern). Gnomeregan 29–38 per Manual Crowd Pummeler."
+  ],
+  "35": [
+   "Artisan Professions."
+  ],
+  "40": [
+   "Apprentice Riding (mount), Dire Bear Form, Innervate, Dual Talent Specialization, Feline Grace; talent di riga 7 (Primal Bite 40, Shifting Power 41)."
+  ],
+  "44": [
+   "Barkskin."
+  ]
+ },
+ "camp": [
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP fino al 5% di livello, 1 volta l'ora: il più utile; LW dà anche gear soulbound per il Druid."
+  ],
+  [
+   "Fish Bowl",
+   "Fishing",
+   "inv_magicalfishpet",
+   "+8% a tutte le stats (equivalente Blessing of Kings): scala con AP e HP in Cat e Bear."
+  ],
+  [
+   "Lodestone",
+   "Mining",
+   "inv_misc_rune_01",
+   "Come Blessing of Might: Attack Power per Cat/Bear 🟡 (valore non letto)."
+  ],
+  [
+   "Sharpening Wheel",
+   "Blacksmithing",
+   "inv_stone_sharpeningstone_01",
+   "Come Strength of Earth Totem: Strength, utile in Cat 🟡 (valore non letto)."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_crate_01",
+   "+2% crit fino al 30; poi ridondante con Leader of the Pack, che non si somma (Tavern)."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "spell_arcane_manatap",
+   "Fino a 29 mana/5 s: aiuta Shifting Power, shift e heal; utile ma non essenziale per un Feral."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "inv_misc_candle_02",
+   "Fino a +25 Intellect: poco per Feral; ok per Balance/Resto."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "inv_misc_bandage_11",
+   "Fino a +56 Stamina: HP in più per Bear e dungeon."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "inv_banner_03",
+   "Fino a +32 Spirit: quasi irrilevante per Feral."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "inv_10_enchanting2_magicswirl_bronze",
+   "Come Mark of the Wild e non si somma: inutile, hai già il buff."
+  ]
+ ],
+ "professions": {
+  "gold": "Herbalism + Alchemy o Mining (Method/Birra: Herbalism + Alchemy per gold e consumabili, Mining + Engineering solido). Herbalism con Travel Form (30) raccoglie senza uscire dalla forma; il Tauren può duplicare erbe con Cultivation. Cooking e Fishing su tutti (tier list gold Mobalytics già usata nella guida del Mago: S = Cooking, Fishing, Mining, Herbalism, Skinning, Alchemy, Enchanting) 🟡.",
+  "power": "Skinning + Leatherworking (Tavern, Method 'migliore in solo', wow.gg): gear soulbound per il leveling, Camp Tent e Wolfshead Helm. Cooking per il buff XP e per il Basic Campfire; First Aid per curare bleed/malattie e craftare health potion.",
+  "advice": "Main: Skinning + Leatherworking (power) oppure Herbalism + Mining/Alchemy (gold). Su tutti Cooking, First Aid e Fishing. Il buff del Camp Chair (Skinning) è ridondante dal 30 per Leader of the Pack."
+ },
+ "stats": "Priorità Feral: Strength / Agility / Attack Power > Stamina / Intellect / Spirit > Armor (Tavern, Mid-level Feral); games.gg: Strength > Agility = Stamina > Intellect > Spirit; wow.gg: Weapon Damage > Hit/Expertise > Crit. Prima del 10 (e da Balance): Intellect/Spell Damage. In Forever gli attacchi in Cat/Bear scalano con il DPS dell'arma (velocità 1.0 o 2.5 s a seconda della forma): l'arma col DPS più alto è il miglior upgrade. Polearms dal 20; anche Daggers, Fist Weapons, One/Two-Handed Maces, Staves (trainer arma a Ironforge, Thunder Bluff, Orgrimmar, Undercity, Stormwind). Item citati: Wolfshead Helm (Leatherworking), Manual Crowd Pummeler (Gnomeregan 29–38), Embrace of the Viper (set, Wailing Caverns 17–24, trasforma anche la Cat Form), Idol of Shifting Tides (quest Aquatic Form). Livelli e requisiti dei crafting non letti 🟡.",
+ "races": {
+  "nightelf": "Alleanza. Elune's Light (+10% crit per 15 s, burst), Shadowmeld, Quickness (+1% Dodge, +2% velocità), Wisp Spirit. games.gg: 'il migliore per parse, vicino al Tauren'; Method: scelta all-around dell'Alleanza. Quest druid a Darnassus.",
+  "tauren": "Horde. War Stomp (stun 2 s su 5 nemici, CD 90 s, usabile in forma ★), Cultivation (duplica un'erba, CD 15 min), Plainsrunning (+1% velocità ogni 5 s fino a +30%, +3% mounted), Endurance (+5% HP e +1% Hit). games.gg: 'la più forte' per Druid; Method: ideale per Bear tank e PvP. Quest a Thunder Bluff.",
+  "skyborne_alliance": "High Order (Alleanza). Walk on Air (slow fall, CD 90 s), Wind Blessed (+1–2% haste 🟡 numeri discordanti), Elemental Insight (+5% danno vs Elemental), Read Ley Line (+50%/100% regen HP e Mana per 15 s, CD 2 min, non si somma a Innervate: riduce il downtime tra i pull). Si parte a Zephras Isle (3–12).",
+  "skyborne_horde": "Windshaper (Horde). Walk on Air, Wind Blessed, Elemental Insight, Skysight (+10–15% velocità, 15 s, CD 2 min 🟡 numeri discordanti). Method: Windshaper ottimo per Feral Cat e Balance grazie all'haste. Zephras Isle, poi trainer a Dalaran (Alfina Nightgaze) per la Horde."
+ },
+ "forever": [
+  "★ 30 ott (build 70707; wowforever.be news 31 ott, GitHub #455, Tactyks 15.8k views 31 ott): albero Druid rimescolato: Berserk rimosso, Furor/Heart of the Wild scambiati d'albero, Primal Bite 42/62/77 spostato a riga 7, Shifting Power CD 8 s, Leader of the Pack su tutti i crit, nuovi Lacerate/Predatory Discipline/Bloom.",
+  "★ Pozioni e consumabili (anche Thistle Tea e mana potion) usabili in Bear/Cat senza uscire dalla forma; enchant arma e proc funzionano in forma; immuni a Disarm (1–8 ott, wofwforever 15 ott).",
+  "★ Auto-attack da forma usa il DPS dell'arma (1.0 s Cat / 2.5 s Bear); Polearms nuovi al 20.",
+  "★ Powershifting e Bear Weaving non più convenienti; Furor ridà il 100% dell'Energy al cambio (Tavern, 15 ott).",
+  "★ Nature's Grasp (10), Revive (12), Omen of Clarity (20, passiva), Faerie Fire e Shred (20, 15 ott) base; Dual Talent Specialization al 40.",
+  "★ Claw ~110% weapon damage (come Mangle), Shred 155% (da 225%), Tiger's Fury +15% danno 6 s 🟡, Enrage 30 Rage totali, Frenzied Regeneration a %, tutti i DoT possono fare crit (KamiLabs, 26 set; non riverificato sul client).",
+  "★ Cat Form non abbassa più gli HP massimi (8 ott), +50% threat da Bear (8 ott), Faerie Fire senza costo e 6 s CD in forma con threat (15 ott).",
+  "★ Talented (Legacy): talent point dal livello 5 invece del 10 (client spell 1225474; Tavern: fino a 5 livelli prima).",
+  "★ Nuova race Skyborne (Zephras Isle 3–12, trainer Druid in loco) con quest di forme dedicate."
+ ],
+ "sources": [
+  {
+   "name": "wowforever.be – Druid leveling build (client 1.60.1.70707)",
+   "url": "https://wowforever.be/leveling/druid/",
+   "author": "wowforever.be",
+   "date": "letto 1 nov",
+   "signal": "dati client (albero post-hotfix)",
+   "used": "Talent, ordine 10–60, tooltip"
+  },
+  {
+   "name": "wowforever.be news – Druids and Paladins get reshuffled talent trees",
+   "url": "https://wowforever.be/news/druids-and-paladins-get-reshuffled-talent-trees/",
+   "author": "wowforever.be",
+   "date": "31 ott",
+   "signal": "news pre-lancio",
+   "used": "Elenco hotfix 30 ott"
+  },
+  {
+   "name": "GitHub alsh0083/wowforever-helper issue #455",
+   "url": "https://github.com/alsh0083/wowforever-helper/issues/455",
+   "author": "alsh0083",
+   "date": "31 ott",
+   "signal": "dati client 70707",
+   "used": "Conferma Furor/HotW scambiati, Lacerate/Predatory Discipline/Bloom nuovi, Berserk rimosso"
+  },
+  {
+   "name": "Warcraft Tavern – Druid Leveling Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/druid-leveling/",
+   "author": "Luxrah",
+   "date": "ott (beta), senza data",
+   "signal": "reputazione alta (albero pre-hotfix)",
+   "used": "Spell e milestone per livello, quest, trainer, rotazione, professioni, item, armi"
+  },
+  {
+   "name": "Warcraft Tavern – Feral Druid Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/feral-druid/",
+   "author": "Luxrah",
+   "date": "ott",
+   "signal": "reputazione alta",
+   "used": "Meccaniche di forma, rotazione Cat/Bear, risorse"
+  },
+  {
+   "name": "Method – WoW Forever Druid Leveling Guide & Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-druid-leveling-guide-and-talents",
+   "author": "BirraGzeez",
+   "date": "agg. 30 ott",
+   "signal": "reputazione alta (albero pre-hotfix)",
+   "used": "Tabella quest form con ID, razze, rotazioni, trainer"
+  },
+  {
+   "name": "Mobalytics – Druid Leveling Guide 1-30 (Verified)",
+   "url": "https://mobalytics.gg/wow-forever/classes/druid-leveling-guide",
+   "author": "Ruse_Cruize",
+   "date": "28 ott",
+   "signal": "47 ♥ Verified, 0/21/0",
+   "used": "Spec Feral, Ferocity primo, Feral Swiftness (solo snippet; ordine completo non letto)"
+  },
+  {
+   "name": "Mobalytics – Feral Druid Guide (Bear Tank) + profili community",
+   "url": "https://mobalytics.gg/wow-forever/classes/feral-druid-tank-guide",
+   "author": "vari",
+   "date": "ott",
+   "signal": "snippet WebSearch",
+   "used": "Ordine 10–20 Bear (coincide con wowforever.be)"
+  },
+  {
+   "name": "games.gg – WoW Forever Druid Leveling Guide",
+   "url": "https://games.gg/world-of-warcraft/guides/wow-forever-druid-leveling-guide/",
+   "author": "Larc",
+   "date": "17 set",
+   "signal": "vecchio",
+   "used": "Razze, stat, rotazione per fasi"
+  },
+  {
+   "name": "wowforever.gg – Druid Feral Leveling Build",
+   "url": "https://wowforever.gg/en/builds/druid-feral-leveling/",
+   "author": "fan site non ufficiale",
+   "date": "30 ott",
+   "signal": "albero pre-hotfix",
+   "used": "Confronto build"
+  },
+  {
+   "name": "wow.gg – Feral Combat Druid Guide (Beta)",
+   "url": "https://wow.gg/guides/wow-forever-feral-druid-beta",
+   "author": "Fouren",
+   "date": "1 ott",
+   "signal": "1.6k views",
+   "used": "Professioni, stat priority, alternative"
+  },
+  {
+   "name": "KamiLabs – WoW Forever Druid: Every Reworked Spell and Talent",
+   "url": "https://kami-labs.fr/en/wow-forever/druide-wow-forever-sorts-et-talents-modifies/",
+   "author": "Kami",
+   "date": "26 set",
+   "signal": "reputazione alta, dati beta",
+   "used": "Claw, Shred, Tiger's Fury, Enrage, Frenzied Regeneration"
+  },
+  {
+   "name": "wofwforever – WoW Forever Druid Changes",
+   "url": "https://wofwforever.com/en/guides/wow-forever-druid-changes/",
+   "author": "sconosciuto",
+   "date": "fino al 15 ott",
+   "signal": "🟡 fonte singola",
+   "used": "Livelli base Nature's Grasp/Revive/Omen/Shred, forme"
+  },
+  {
+   "name": "Zockify – WoW Forever Druid Guide",
+   "url": "https://www.zockify.com/forever/druid/",
+   "author": "-",
+   "date": "31 ott",
+   "signal": "🟡",
+   "used": "Livelli forme, razze, armi"
+  },
+  {
+   "name": "YouTube – Tekn0de, Guida al livellamento del Druido",
+   "url": "https://www.youtube.com/watch?v=i_xkspMpv9g",
+   "author": "Tekn0de",
+   "date": "29 set",
+   "signal": "55k views",
+   "used": "Solo capitoli (razze, Feral/Balance/Spellbear/Multi-Root), pre-hotfix, non trascritto"
+  },
+  {
+   "name": "YouTube – Psybear_tv, Come livellare come Druido al giorno 1",
+   "url": "https://www.youtube.com/watch?v=71iEKSLU8sw",
+   "author": "Psybear_tv",
+   "date": "7 ott",
+   "signal": "50.6k views",
+   "used": "Solo descrizione"
+  },
+  {
+   "name": "YouTube – Tactyks, modifiche TANK pre-lancio (Feral Druid)",
+   "url": "https://www.youtube.com/watch?v=DbEq6GIOHbY",
+   "author": "Tactyks",
+   "date": "31 ott",
+   "signal": "15.8k views (video del 28 ott: 26.5k)",
+   "used": "Conferma hotfix albero Feral"
+  },
+  {
+   "name": "YouTube – LostNiceland tv, Feral Druid Leveling 1-60",
+   "url": "https://www.youtube.com/watch?v=4dvLBrsZ23U",
+   "author": "LostNiceland tv",
+   "date": "19 ott",
+   "signal": "8k views",
+   "used": "Esistenza (non trascritto)"
+  },
+  {
+   "name": "Wowhead World Map Forever (wmd.json)",
+   "url": "https://www.wowhead.com/forever/map",
+   "author": "Wowhead",
+   "date": "1 nov",
+   "signal": "dati client",
+   "used": "Trainer, dungeon e livelli zone"
+  },
+  {
+   "name": "Warcraft Tavern – Camping Objects & Buffs / racial guides",
+   "url": "https://www.warcrafttavern.com/forever/guides/camping-objects-buffs/",
+   "author": "Luxrah, Val Hull",
+   "date": "ott",
+   "signal": "reputazione alta",
+   "used": "Camp, racial"
+  },
+  {
+   "name": "Icy Veins – Feral Druid Leveling (WoW Forever)",
+   "url": "https://www.icy-veins.com/wow-forever/feral-druid-leveling",
+   "author": "Icy Veins",
+   "date": "18 ott",
+   "signal": "solo snippet (403)",
+   "used": "Ferocity 5/5 al 20; da controllare"
+  }
+ ],
+ "doubts": [
+  "🟡 Ordine talent 21–60: solo wowforever.be (client). Le guide umane (Tavern, Method, wowforever.gg, games.gg) sono sul vecchio albero. La variante Predatory Strikes/Blood Frenzy non è verificata sul nuovo albero.",
+  "🟡 Lacerate: talent 28 sul client, ma Tavern/Method/wofwforever lo danno come trainer 42 e Zockify come talent 25. Verifica in gioco.",
+  "🟡 Primal Bite e Shifting Power: client = riga 7 (40/41); Tavern/Method/wowforever.gg/Zockify ancora 25 (obsoleto).",
+  "🟡 Tiger's Fury al 24 (KamiLabs 26 set, non in Tavern/Method): dopo l'hotfix potrebbe non esserci; effetto di Feline Grace non letto.",
+  "🟡 Ordine completo della guida Mobalytics Ruse_Cruize (47 ♥) non letto: solo spec e snippet. Icy Veins bloccato (403).",
+  "🟡 Cat Form quest: Tavern/Method = Darnassus/Thunder Bluff; KamiLabs (26 set) = catena a Moonglade. 'The Great Windborne Cat Spirit' (Skyborne) solo Method; quest Teleport: Moonglade degli Skyborne da tabella Tavern poco leggibile.",
+  "🟡 Wind Blessed 1% (tabella racial) vs 2% (guida Skyborne Tavern); Skysight 10% vs 15%; Combo Point trasferibili tra target (games.gg) vs no (Tavern).",
+  "Valori dei camp Lodestone e Sharpening Wheel non letti; icone scelte a mano (verificate con status 200).",
+  "Non trovato: livelli e requisiti esatti di Wolfshead Helm, trainer Horde Druid su Eastern Kingdoms oltre Dalaran, build 31–60 da un'altra fonte, trascrizioni dei video."
+ ]
+}

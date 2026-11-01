@@ -1,0 +1,923 @@
+{
+ "class": "warlock",
+ "name": "Warlock",
+ "resource": "Mana (+ Health via Life Tap) · Soul Shard",
+ "spec": "Affliction",
+ "specIcon": "spell_shadow_deathcoil",
+ "summary": "Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 109 ♥, 1 nov, la guida Warlock più salvata) con Siphon Life al 33 per arrivare a Wrack al 40; è in linea con Warcraft Tavern, Maxroll, wowforeverbuilds e Kargoz (drain tank dal 22–30). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives. Finale 41/10/0, vicino al 40/11/0 di Icy Veins/Skidrow.",
+ "build": [
+  "Improved Corruption",
+  "Improved Corruption",
+  "Improved Corruption",
+  "Improved Corruption",
+  "Improved Corruption",
+  "Suppression",
+  "Suppression",
+  "Suppression",
+  "Suppression",
+  "Suppression",
+  "Grim Reach",
+  "Grim Reach",
+  "Improved Drains",
+  "Improved Drains",
+  "Improved Drains",
+  "Nightfall",
+  "Nightfall",
+  "Fel Concentration",
+  "Fel Concentration",
+  "Fel Concentration",
+  "Soul Siphon",
+  "Soul Siphon",
+  "Soul Siphon",
+  "Siphon Life",
+  "Pandemic",
+  "Shadow Mastery",
+  "Shadow Mastery",
+  "Shadow Mastery",
+  "Shadow Mastery",
+  "Shadow Mastery",
+  "Wrack",
+  "Unholy Power",
+  "Unholy Power",
+  "Unholy Power",
+  "Unholy Power",
+  "Unholy Power",
+  "Demonic Energies",
+  "Demonic Energies",
+  "Malevolence",
+  "Malevolence",
+  "Malevolence",
+  "Malevolence",
+  "Malevolence",
+  "Fel Vitality",
+  "Fel Vitality",
+  "Fel Vitality",
+  "Improved Bane of Agony",
+  "Improved Bane of Agony",
+  "Improved Life Tap",
+  "Improved Life Tap",
+  "Pandemic"
+ ],
+ "buildSource": "Mobalytics Crix (109 ♥) 10–39 con Siphon Life al 33 e Pandemic al 34 (nostro aggiustamento per Wrack al 40); 41–57 da Crix (riassunto); 58–60 nostri (Improved Life Tap ×2, Pandemic) 🟡. wowforever.be (client) e Method 10–40 in alternatives; non coincidono col consenso.",
+ "why": {
+  "Improved Corruption": "5 rank = Corruption istantanea (−2 s di cast) e +10% danno: la applichi in movimento su ogni mob. Tutte le fonti la prendono per prima.",
+  "Suppression": "+1% Hit per rank (5% a 5/5) e meno threat: con 4 rank non manchi mai un mob del tuo livello, con 5 anche quelli più alti.",
+  "Grim Reach": "+10/20% di range sulle spell Affliction (Corruption, Bane of Agony, Drain). Ha sostituito Malediction nelle note del 15 ott; costa 2 punti ma apre la riga 2.",
+  "Improved Drains": "Drain Life/Drain Soul/Wrack +20% a 3/3: Drain Life diventa il tuo heal e il tuo filler dal 30 (drain tanking).",
+  "Nightfall": "4% a 2/2 che Corruption/Drain diano Shadow Trance: Shadow Bolt istantaneo da usare subito.",
+  "Fel Concentration": "70% a 3/3 di non perdere cast quando vieni colpito mentre canalizzi Drain: è ciò che rende il drain tanking sicuro.",
+  "Soul Siphon": "Drain +12% per ogni altro effetto Affliction sul bersaglio (max +36% a 3/3): DoT prima, Drain dopo.",
+  "Siphon Life": "DoT che ti cura (11 HP ogni 3 s per 30 s) e conta come altro effetto per Soul Siphon; prerequisito di Wrack.",
+  "Pandemic": "+33% al bonus crit dei tuoi DoT per rank (+100% a 3/3). Nuovo ★: i DoT possono critare in Forever. Vale solo con crit da Malevolence/Shadow Mastery, per questo viene tardi.",
+  "Shadow Mastery": "+2% per rank (10% a 5/5) a danno e life drain Shadow: il moltiplicatore più grande dell'albero; sblocca la riga di Wrack.",
+  "Wrack": "Capstone Affliction ★ (livello 40): canalizzato 6 s, 36 Shadow/s e +10% ai tuoi altri DoT Shadow. Non testato oltre il 30 🟡.",
+  "Unholy Power": "+2% danno per rank (10% a 5/5) a tutti i demoni: il Succubus uccide più in fretta mentre tu drain-tanki.",
+  "Demonic Energies": "★ Cura il demone dell'8/15% del danno che infliggi e gli passa il mana di Life Tap: meno Health Funnel.",
+  "Malevolence": "★ +1% crit per rank (5% a 5/5) agli incantesimi Shadow: fa rendere DoT critici e Pandemic.",
+  "Fel Vitality": "+5/15% a HP e Mana del demone e al tuo mana massimo: più Life Tap e demone che regge.",
+  "Improved Bane of Agony": "+5/10% danno a Bane of Agony: il DoT più forte sul lungo.",
+  "Improved Life Tap": "+10/20% mana da Life Tap: in combinazione con Drain Life ogni HP drenato vale 1,2 mana."
+ },
+ "compare": [
+  {
+   "source": "Mobalytics – Crix (Verified, 36/12/0)",
+   "signal": "109 ♥ (la guida Warlock più salvata) · agg. 1 nov",
+   "l10_19": "Improved Corruption 5 (10–14), Suppression 5 (15–19)",
+   "l20": "Grim Reach 1/2",
+   "l21_30": "Grim Reach 2/2, Improved Drains 3, Nightfall 2, Fel Concentration 3, Soul Siphon da 30; 33–34 Pandemic, 35–39 Shadow Mastery; poi Unholy Power, Demonic Energies, Malevolence, Fel Vitality, Improved Bane of Agony. Non cita Siphon Life: noi l'abbiamo inserito al 33 perché serve a Wrack."
+  },
+  {
+   "source": "wowforever.be (client 70707) = Method – Roguery",
+   "signal": "dati client · Method agg. 17 ott",
+   "l10_19": "Suppression 4, Improved Corruption 5, Suppression 1",
+   "l20": "Pandemic 1/3",
+   "l21_30": "Pandemic 3, Improved Bane of Agony 2, Malevolence 5, Siphon Life 30; 31–33 Fel Concentration, 34 Soul Siphon, 35–39 Shadow Mastery, 40 Wrack. Solo fino al 40."
+  },
+  {
+   "source": "Mobalytics – Kargoz (Affliction 1–60)",
+   "signal": "8 ♥ · video YouTube 154k views, 3 ott",
+   "l10_19": "Build 'wand' fino al 22 (DoT + Suppression + Improved Corruption)",
+   "l20": "Respec a drain tank al 22",
+   "l21_30": "Drain tank dedicato; finale 31/7/13 (🟡 solo snippet WebSearch)"
+  },
+  {
+   "source": "Warcraft Tavern – Zephan",
+   "signal": "guida 1–60; immagini talent del 10 ott; il testo cita ancora Malediction (obsoleto)",
+   "l10_19": "Improved Corruption 5 + Suppression 4",
+   "l20": "Malediction (vecchio)/Improved Bane of Agony/Nightfall",
+   "l21_30": "Wand fino al 29, al 30 respec: Improved Drains, Fel Concentration, Improved Life Tap, Soul Siphon"
+  },
+  {
+   "source": "Maxroll – Xerwo",
+   "signal": "agg. 30 ott",
+   "l10_19": "Improved Corruption 5, Suppression 4, Unholy Power",
+   "l20": "Unholy Power 2/5 (Succubus come pet)",
+   "l21_30": "Unholy Power 5, Demonic Energies 2, Improved Life Tap 2, Improved Drains 3 (30); non prende Wrack"
+  },
+  {
+   "source": "wowforeverbuilds (Affliction 1–60)",
+   "signal": "6,3k views · agg. 24 ott",
+   "l10_19": "Improved Corruption 5, Soul Harvest 2, Grim Reach 2, Suppression 1",
+   "l20": "Pandemic 1/3",
+   "l21_30": "Improved Drains 3, Fel Concentration 3, Nightfall 2, Malevolence da 29; Siphon Life 34, Wrack 40"
+  },
+  {
+   "source": "WoW Forever Guides – Harenil",
+   "signal": "agg. 21 ott · client 70009",
+   "l10_19": "Improved Corruption 5, Improved Life Tap 2, Improved Drains 3",
+   "l20": "Soul Harvest 2",
+   "l21_30": "Fel Concentration 3, Grim Reach 2 + 3 in Affliction; Siphon Life/Soul Siphon 30–34; Wrack 40"
+  },
+  {
+   "source": "YouTube – Skidrow / Back From AFK",
+   "signal": "25,6k views (5 ott) / 11,3k views (27 ott)",
+   "l10_19": "–",
+   "l20": "–",
+   "l21_30": "Finale 40/11/0 (Skidrow) e 35/16/0 (Back From AFK): conferma Affliction con poco Demonology"
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Ordine alternativo wowforever.be / Method (minoranza)",
+   "html": "<p>Più DoT-crit, drain solo dal 31: <b>10–13</b> Suppression, <b>14–18</b> Improved Corruption, <b>19</b> Suppression, <b>20–22</b> Pandemic, <b>23–24</b> Improved Bane of Agony, <b>25–29</b> Malevolence, <b>30</b> Siphon Life, <b>31–33</b> Fel Concentration, <b>34</b> Soul Siphon, <b>35–39</b> Shadow Mastery, <b>40</b> Wrack. Scelto da wowforever.be (client) e Method (Roguery, 17 ott), ma Mobalytics Crix (109 ♥) e quasi tutte le altre guide anticipano i Drain: non l'abbiamo scelto perché prima del 30 Warcraft Tavern dice che la Wand fa più danno di Drain Life e gli investimenti in Pandemic/Malevolence senza crit rendono poco. Nessuna fonte lo testa oltre il 30.</p>"
+  },
+  {
+   "title": "Perché non Pandemic prima?",
+   "html": "<p>Pandemic (+100% crit dmg dei DoT a 3/3) vale poco senza crit: Warcraft Tavern lo sconsiglia in leveling. Lo mettiamo al 34 (1 punto) e al 60 (2/3), dopo Shadow Mastery/Malevolence.</p>"
+  },
+  {
+   "title": "Demone: Voidwalker o Succubus?",
+   "html": "<ul><li><b>Voidwalker</b> (10): tank, Torment/Suffering; Sacrifice come scudo di emergenza. Per pull multipli e mob che colpiscono duro.</li><li><b>Succubus/Incubus</b> (20): ~1,5× danno, non tiene threat: nel drain tanking prendi tu i colpi (Tavern, Maxroll).</li><li><b>Imp</b>: solo per Blood Pact in gruppo.</li><li><b>Felhunter</b> (30): Spell Lock/Devour Magic, utile vs caster e in PvP.</li></ul>"
+  },
+  {
+   "title": "Demonology",
+   "html": "<p>Più lenta fino al 25; poi comoda: Demonic Brand (Searing Pain marca il bersaglio) fa tenere il threat al Succubus/Felhunter. Core: Suppression 4, Unholy Power 5, Fel Vitality 3, Demonic Energies 2, Master Summoner 2, Demonic Aegis 2, Demonic Brand 3, Demonic Knowledge 3 (Method), Decimation per Soul Fire gratis. Mobalytics Kargoz (10 ♥, 21 ott) lo descrive come ottimo per dungeon cleave. Fonti: Method, Warcraft Tavern.</p>"
+  },
+  {
+   "title": "Destruction",
+   "html": "<p>La più difficile da solista: cast lunghi, mana. Build Method: Suppression 4, Bane 5, Aftermath, Ruin, Conflagrate (25), Agonizing Flames, Fire and Brimstone, Bane of Havoc, Shadow and Flame, Incinerate (40). Forte nei dungeon con Conflagrate e Shadowburn. Voidwalker in open world.</p>"
+  },
+  {
+   "title": "Trainer principali",
+   "html": "<p><b>Alliance:</b> Coldridge Valley (Alamar Grimm 28.6,66.2 · demon: Wren Darkspring), Kharanos (Gimrizz Shadowcog 47.2,53.6), Northshire (Drusilla La Salle), Goldshire (Maximillian Crowe 44.4,66.0), Ironforge Forlorn Cavern (Alexander Calder 50.8,6.4), Stormwind Mage Quarter (Demisette Cloyce, Sandahl, Ursula Deline 39.4,85.0; demon: Spackle Thornberry). <b>Horde:</b> Valley of Trials (Nartok 40.6,68.4), Razor Hill (Dhugru Gorelust 54.2,41.2), Orgrimmar Cleft of Shadow (Grol'dar, Mirket, Zevrost), Deathknell (Maximillion), Brill (Rupert Boch), Undercity Magic Quarter (Kaal Soulreaper, Luther Pickman, Richard Kerwin), Stonard (Kartosh). Fonte: Warcraft Tavern; NPC verificati sulla mappa Wowhead Forever.</p>"
+  },
+  {
+   "title": "Dungeon del Warlock",
+   "html": "<p>Hall of Thanes 13–18, Ragefire Chasm 13–18, Ruins of Lordaeron 15–20, Wailing Caverns 17–24, The Deadmines 17–26, Shadowfang Keep 22–30, Blackfathom Deeps 24–32, The Stockade 24–32, Excavation Site 24–29, Gnomeregan 29–38 (mappa Wowhead Forever). Gear: Hall of Thanes (Golemheart Stave, Ephemeral Choker, Robes of the Disgraced Thane), Ragefire (Robe of Evocation, Crystalline Cuffs), Deadmines (Emberstone Staff, Cookie's Stirring Rod) – Maxroll. La dungeon quest XP è −50% dal 1 ott.</p>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Demon Skin",
+   "spell_shadow_ragingscream",
+   "Buff armor (+40) e +3 HP/5 s per 30 min: tienilo sempre attivo (Demon Armor dal 20)."
+  ],
+  [
+   1,
+   "Summon Imp",
+   "spell_shadow_summonimp",
+   "Il primo demone, dalla class quest di razza (livello 1–4). Firebolt a distanza e Blood Pact dal 4 (Stamina al gruppo)."
+  ],
+  [
+   1,
+   "Shadow Bolt",
+   "spell_shadow_shadowbolt",
+   "Rank 2 al 6, Rank 3 al 12, Rank 4 al 20, Rank 5 al 28, Rank 6 al 36. Costoso: prima del 14 usa la Wand."
+  ],
+  [
+   1,
+   "Immolate",
+   "spell_fire_immolation",
+   "Dal Trainer per 10 copper: aprila subito. Rank 2 al 10, Rank 3 al 20, Rank 4 al 30. Solo su mob che vivono >8 s."
+  ],
+  [
+   4,
+   "Corruption",
+   "spell_shadow_abominationexplosion",
+   "DoT Shadow 12 s, 2 s di cast fino a Improved Corruption 5/5 (14). Rank 2 al 14, Rank 3 al 24, Rank 4 al 34."
+  ],
+  [
+   4,
+   "Curse of Weakness",
+   "spell_shadow_curseofmannoroth",
+   "Riduce l'attack power: utile contro mob melee che picchiano forte. Rank 2 al 12, Rank 3 al 22."
+  ],
+  [
+   6,
+   "Life Tap",
+   "spell_shadow_burningspirit",
+   "★ Converte (30 + Spirit) HP in Mana: lo Spirit conta davvero. Rank 2 al 16, Rank 3 al 26."
+  ],
+  [
+   8,
+   "Bane of Agony",
+   "spell_shadow_curseofsargeras",
+   "★ Sostituisce Curse of Agony: istantaneo, tagga il mob e fa poco danno all'inizio (il demone prende il threat). 72 dmg in 24 s; Rank 2 al 18, Rank 3 al 28."
+  ],
+  [
+   8,
+   "Fear",
+   "spell_shadow_possession",
+   "Range 20 yd ★ (era 24 in beta). 10 s, 1 bersaglio, i danni possono spezzarlo. Rank 2 al 32."
+  ],
+  [
+   10,
+   "Drain Soul",
+   "spell_shadow_haunting",
+   "★ Ogni tick ha una possibilità di dare Soul Shard; un mob non-trivial ucciso con Drain Soul dà sempre una shard. Rank 2 al 24."
+  ],
+  [
+   10,
+   "Create Healthstone",
+   "inv_stone_04",
+   "Emergency heal (Minor: 120 HP) con cooldown proprio. Costa una Soul Shard. Rank 2 al 22, Rank 3 al 34."
+  ],
+  [
+   10,
+   "Summon Voidwalker",
+   "spell_shadow_summonvoidwalker",
+   "Class quest di livello 10 (vedi Milestones). Torment/Suffering/Sacrifice: il tuo tank."
+  ],
+  [
+   12,
+   "Health Funnel",
+   "spell_shadow_lifedrain",
+   "Canalizza HP al demone. Con Demonic Energies ne userai meno."
+  ],
+  [
+   14,
+   "Drain Life",
+   "spell_shadow_lifedrain02",
+   "Canalizzata 5 s: 10 HP/s dal bersaglio (Rank 2 al 22, Rank 3 al 30 = Rank da drain tanking)."
+  ],
+  [
+   14,
+   "Curse of Recklessness",
+   "spell_shadow_unholystrength",
+   "Meno armor e il mob non scappa a basso HP. Rank 2 al 28. ★ Ora è una Curse (una per Warlock, oltre alla Bane)."
+  ],
+  [
+   16,
+   "Unending Breath",
+   "spell_shadow_demonbreath",
+   "Respirazione sott'acqua 10 min: serve per quest sommerse."
+  ],
+  [
+   18,
+   "Searing Pain",
+   "spell_fire_soulburn",
+   "Cast corto, alto threat. Solo per Demonology con Demonic Brand; altrimenti ti toglie il mob dal demone."
+  ],
+  [
+   18,
+   "Create Soulstone",
+   "inv_misc_orb_04",
+   "Resurrezione in combattimento su te stesso o un alleato (Rank 2 al 30)."
+  ],
+  [
+   20,
+   "Summon Succubus",
+   "spell_shadow_summonsuccubus",
+   "Class quest di livello 20: il demone che fa più danno (~1,5× Voidwalker). Senza talent Demonology non tiene threat."
+  ],
+  [
+   20,
+   "Summon Incubus",
+   "ability_warlock_incubus",
+   "★ Versione maschile del Succubus con catena quest propria (stesse abilità)."
+  ],
+  [
+   20,
+   "Demon Armor",
+   "spell_shadow_ragingscream",
+   "Versione migliorata di Demon Skin (Rank 2 al 30, Rank 3 al 40)."
+  ],
+  [
+   20,
+   "Ritual of Summoning",
+   "spell_shadow_twilight",
+   "★ L'unico modo di evocare giocatori: servono 2 compagni e 1 Soul Shard (il Meeting Stone non evoca più)."
+  ],
+  [
+   20,
+   "Curse of the Elements",
+   "warlock_curse_shadow",
+   "−30 resistenze Magic e +4% danno Magic subito per 5 min (Rank 2 al 30). Il client la dà al 20 (Classic: 32) 🟡."
+  ],
+  [
+   20,
+   "Rain of Fire",
+   "spell_shadow_rainoffire",
+   "AoE canalizzata, l'unica con danno ad area vera (Rank 2 al 34)."
+  ],
+  [
+   22,
+   "Eye of Kilrogg",
+   "spell_shadow_evileye",
+   "Occhio volante di esplorazione."
+  ],
+  [
+   24,
+   "Drain Mana",
+   "spell_shadow_siphonmana",
+   "Prosciuga mana dai caster (Rank 2 al 34)."
+  ],
+  [
+   24,
+   "Sense Demons",
+   "spell_shadow_metamorphosis",
+   "Tracking dei demoni sulla minimappa."
+  ],
+  [
+   26,
+   "Curse of Tongues",
+   "spell_shadow_curseoftounges",
+   "Rallenta il cast dei caster (Rank 2 al 50)."
+  ],
+  [
+   26,
+   "Detect Invisibility",
+   "spell_shadow_detectinvisibility",
+   "Vedi i mob invisibili (Rank 2 al 38)."
+  ],
+  [
+   28,
+   "Banish",
+   "spell_shadow_cripple",
+   "Rimuove un Demon o Elemental dal combattimento; i danni non lo interrompono."
+  ],
+  [
+   28,
+   "Create Firestone",
+   "inv_misc_gem_bloodstone_02",
+   "Pietra da arma Fire; per Destruction/Demonology."
+  ],
+  [
+   30,
+   "Summon Felhunter",
+   "spell_shadow_summonfelhunter",
+   "Class quest di livello 30 (Seeking Strahad, Ratchet). Spell Lock (36), Devour Magic."
+  ],
+  [
+   30,
+   "Subjugate Demon",
+   "spell_shadow_enslavedemon",
+   "★ (era Enslave Demon) Controlla un demone fino a livello 45; costa 1 Soul Shard."
+  ],
+  [
+   30,
+   "Hellfire",
+   "spell_fire_incinerate",
+   "AoE intorno a te che danneggia anche te: controlla la vita."
+  ],
+  [
+   30,
+   "Siphon Life",
+   "spell_shadow_requiem",
+   "Talent-spell Affliction (150 mana, 30 yd, 30 s): cura 11 HP ogni 3 s. Si sblocca col talent."
+  ],
+  [
+   32,
+   "Shadow Ward",
+   "spell_shadow_antishadow",
+   "Assorbe danni Shadow (Rank 2 al 42)."
+  ],
+  [
+   36,
+   "Create Spellstone",
+   "inv_misc_gem_sapphire_01",
+   "Pietra da arma: Spell Haste e Shadow damage (Maxroll)."
+  ],
+  [
+   40,
+   "Summon Felsteed",
+   "spell_nature_swiftness",
+   "Mount da class quest (Trainer in capitale → Strahad Farsan, Ratchet)."
+  ],
+  [
+   40,
+   "Wrack",
+   "ability_deathknight_hemorrhagicfever",
+   "★ Capstone Affliction, canalizzato 6 s."
+  ],
+  [
+   40,
+   "Howl of Terror",
+   "spell_shadow_deathscream",
+   "Fear ad area."
+  ],
+  [
+   42,
+   "Death Coil",
+   "spell_shadow_deathcoil",
+   "Fuga istantanea: il bersaglio scappa e ti cura del danno inflitto."
+  ],
+  [
+   48,
+   "Soul Fire",
+   "spell_fire_fireball02",
+   "Cast lungo, danno alto (Decimation lo rende gratis). Rank 2 al 56."
+  ],
+  [
+   50,
+   "Inferno",
+   "spell_shadow_summoninfernal",
+   "Class quest di livello 50: Infernal (Niby the Almighty, Felwood)."
+  ],
+  [
+   60,
+   "Bane of Doom",
+   "spell_shadow_auraofdarkness",
+   "★ Nuova Bane da 60; Ritual of Doom e Dreadsteed dal 60 (post-lancio)."
+  ]
+ ],
+ "talentSpells": [
+  [
+   26,
+   "Nightfall (proc)",
+   "spell_shadow_shadowbolt",
+   "Shadow Trance: il prossimo Shadow Bolt è istantaneo. Spendilo subito."
+  ],
+  [
+   33,
+   "Siphon Life",
+   "spell_shadow_requiem",
+   "DoT che ti cura; usalo su mob che vivono almeno 2/3 della durata (Warcraft Tavern)."
+  ],
+  [
+   40,
+   "Wrack",
+   "ability_deathknight_hemorrhagicfever",
+   "Canalizzato 6 s: +10% ai tuoi altri DoT Shadow."
+  ],
+  [
+   20,
+   "Amplify Curse (non in build)",
+   "spell_shadow_contagion",
+   "Prossima Curse of Weakness/Bane of Agony +50%: scelta opzionale (Affliction riga 3)."
+  ],
+  [
+   25,
+   "Curse of Exhaustion (non in build)",
+   "spell_shadow_grimward",
+   "Slow 30% per 12 s, l'unico slow del Warlock (richiede Amplify Curse)."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Imp + Immolate + Wand",
+   "seq": [
+    [
+     "spell_fire_immolation",
+     "Immolate"
+    ],
+    [
+     "spell_shadow_abominationexplosion",
+     "Corruption (4)"
+    ],
+    [
+     "spell_shadow_shadowbolt",
+     "Shadow Bolt"
+    ],
+    [
+     "ability_marksmanship",
+     "Wand"
+    ]
+   ],
+   "text": "Manda l'Imp, apri con Immolate (comprala a livello 1 dal Trainer, 10 copper), poi Corruption dal 4. Finisci con Wand o con l'auto-attack finché non hai la Wand. Shadow Bolt costa troppo: usala per chiudere. Vendi l'equip di partenza per pagare Immolate. Life Tap dal 6 (poi mangia), Bane of Agony dall'8 per taggare."
+  },
+  {
+   "title": "10–19 · Voidwalker + DoT + Wand",
+   "seq": [
+    [
+     "spell_shadow_summonvoidwalker",
+     "Pet attack"
+    ],
+    [
+     "spell_shadow_curseofsargeras",
+     "Bane of Agony"
+    ],
+    [
+     "spell_shadow_abominationexplosion",
+     "Corruption"
+    ],
+    [
+     "spell_fire_immolation",
+     "Immolate"
+    ],
+    [
+     "ability_marksmanship",
+     "Wand"
+    ]
+   ],
+   "text": "Pet attack, poi Bane of Agony (tagga, il demone prende il threat), Corruption (istantanea al 14 con Improved Corruption 5/5), Immolate se il mob vive >8 s. Finisci con la Wand, che fa più danno di Drain Life fino al 29. Life Tap tra un pull e l'altro. Drain Soul per l'ultimo colpo quando servono Soul Shard."
+  },
+  {
+   "title": "20–29 · Succubus e Drain",
+   "seq": [
+    [
+     "spell_shadow_summonsuccubus",
+     "Pet attack"
+    ],
+    [
+     "spell_shadow_curseofsargeras",
+     "Bane of Agony"
+    ],
+    [
+     "spell_shadow_abominationexplosion",
+     "Corruption"
+    ],
+    [
+     "spell_shadow_lifedrain02",
+     "Drain Life"
+    ],
+    [
+     "spell_shadow_burningspirit",
+     "Life Tap"
+    ]
+   ],
+   "text": "Dal 20 puoi usare il Succubus (più danno ma non tiene threat: prendi tu i colpi). Con Grim Reach, Improved Drains e Fel Concentration (20–29) usa Drain Life quando serve vita; altrimenti Wand. Regola di Warcraft Tavern: più Health che Mana → Life Tap; più Mana che Health → Drain Life. Shadow Bolt solo col proc Nightfall."
+  },
+  {
+   "title": "30+ · Drain tanking",
+   "seq": [
+    [
+     "spell_shadow_summonsuccubus",
+     "Pet attack"
+    ],
+    [
+     "spell_shadow_curseofsargeras",
+     "Bane of Agony"
+    ],
+    [
+     "spell_shadow_abominationexplosion",
+     "Corruption"
+    ],
+    [
+     "spell_shadow_requiem",
+     "Siphon Life"
+    ],
+    [
+     "spell_shadow_lifedrain02",
+     "Drain Life"
+    ]
+   ],
+   "text": "Dal 30 Drain Life Rank 3 + Soul Siphon (+12% per DoT sul bersaglio) rendono il Drain il filler: DoT, poi Drain Life fino alla morte; Wand solo a vita piena o mob quasi morto. Siphon Life dal 33 su mob lunghi. Wrack dal 40."
+  },
+  {
+   "title": "Pull multipli",
+   "seq": [
+    [
+     "spell_shadow_possession",
+     "Fear"
+    ],
+    [
+     "spell_shadow_abominationexplosion",
+     "DoT sul 1°"
+    ],
+    [
+     "spell_shadow_summonvoidwalker",
+     "Demone sul 2°"
+    ],
+    [
+     "spell_shadow_lifedrain02",
+     "Drain"
+    ]
+   ],
+   "text": "Dopo il 22: DoT sul primo mob e Fear, il demone tiene il secondo; torna al primo quando rientra. Con Fel Concentration 3/3 puoi drenare mentre ti colpiscono. Usa un focus target per i DoT. Se Fear scappa verso un altro gruppo, rompilo con Curse of Recklessness."
+  },
+  {
+   "title": "AoE",
+   "seq": [
+    [
+     "spell_shadow_abominationexplosion",
+     "Corruption su tutti"
+    ],
+    [
+     "spell_shadow_curseofsargeras",
+     "Bane of Agony"
+    ],
+    [
+     "spell_fire_incinerate",
+     "Hellfire (30)"
+    ],
+    [
+     "spell_shadow_rainoffire",
+     "Rain of Fire (20)"
+    ]
+   ],
+   "text": "3+ mob: DoT su tutti e Hellfire/Rain of Fire (Maxroll), ma guarda la tua vita. Solo Destruction ha AoE scalabile. Preferisci il Voidwalker per i pull grandi."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Gestione Health/Mana",
+   "html": "<p>Vita e mana sono una risorsa sola: <b>Life Tap</b> converte HP in Mana, <b>Drain Life</b> li ridà. Mantieni Demon Skin/Armor attivo. Stamina conta un po' di più che per gli altri caster. First Aid: bandage tra un pull e l'altro o mentre un mob è in Fear, poi Life Tap. Tieni sempre una Healthstone (cooldown a parte). Fonti: Warcraft Tavern, Method.</p>"
+  },
+  {
+   "title": "Soul Shard",
+   "html": "<p>Servono per Voidwalker, Succubus/Incubus, Felhunter, Healthstone, Soulstone, Ritual of Summoning, Shadowburn. Con il demone che tanka canalizza <b>Drain Soul Rank 1</b> per fare shard ★. Bag: Small Soul Pouch (14 slot, quest Succubus), Box of Souls (16, quest Felhunter); la Soul Shard Bag ora va nello slot reagenti ★ (Warcraft Tavern, forg.gg).</p>"
+  },
+  {
+   "title": "Macro utili (GuideMMO, 15k views, 31 ott)",
+   "html": "<ul><li><code>#showtooltip /castsequence reset=combat/target Immolate, Bane of Agony, Corruption</code></li><li><code>/cast [nochanneling] Drain Life</code></li><li><code>/cast [@mouseover] Fear</code></li></ul><p>Un commento al video avverte: non mettere Pet Attack nella stessa macro di una spell offensiva; tieni i comandi del Pet su tasti separati (rotellina). Il comando Move è nuovo ★.</p>"
+  },
+  {
+   "title": "Quando passare dal Trainer",
+   "html": "<p>Rank pari: Corruption 4/14/24/34, Life Tap 6/16/26/36, Drain Life 14/22/30/38, Bane of Agony 8/18/28/38, Shadow Bolt 6/12/20/28/36. I Grimoire dei demoni (Imp/Voidwalker/Succubus/Felhunter) si comprano dal Demon Trainer e sono costosi (Method). Livelli dai tooltip Wowhead Forever.</p>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Summon Imp: class quest di razza. Human: The Stolen Tome (Drusilla La Salle, Northshire 49.8,42.6). Gnome: Beginnings (Alamar Grimm, Coldridge Valley 28.6,66.2). Orc/Troll: Vile Familiars (Ruzan, Valley of Trials; Troll: Gornek → Nartok 40.6,68.4). Undead: Piercing the Veil (Deathknell). Fonte: forg.gg 🟡 nomi NPC da una sola fonte.",
+   "Compra Immolate al Trainer (10 copper): vendi l'equip di partenza (Method)."
+  ],
+  "4": [
+   "Corruption, Curse of Weakness. Grimoire Blood Pact (Imp) dal Demon Trainer."
+  ],
+  "6": [
+   "Life Tap, Shadow Bolt Rank 2. Porta del cibo: Life Tap + mangia."
+  ],
+  "8": [
+   "Bane of Agony, Fear."
+  ],
+  "10": [
+   "Class quest Voidwalker. Drain Soul, Create Healthstone.",
+   "Human: Gakin's Summons (Remen Marcot, Goldshire) → Gakin the Darkbinder, Mage Quarter di Stormwind → Surena Caledon (Brackwell Pumpkin Patch, Elwynn 71.0,80.8) → The Binding. Gnome: The Slaughtered Lamb (Lago Blackwrench, Ironforge) → Gakin. Orc/Troll: Gan'rul's Summons (Ophek, Razor Hill) → Gan'rul Bloodeye, Cleft of Shadow → Creature of the Void (Tablet of Verga a Skull Rock, caverna pericolosa) → The Binding. Undead (consigliata, più facile): Halgar's Summons (Ageron Kargal, Brill) → Carendin Halgar, Undercity → Egalin's Grimoire (Tirisfal 51.1,67.6) → The Binding. Nella Binding combatti il demone da solo: vita e mana pieni. Fonti: forg.gg (9 ott), Warcraft Tavern, Method."
+  ],
+  "13": [
+   "Wand: Greater Magic Wand (Enchanting/Auction House, 22–41 dmg). Hall of Thanes e Ragefire Chasm (13–18)."
+  ],
+  "14": [
+   "Improved Corruption 5/5 = Corruption istantanea. Drain Life, Curse of Recklessness. Imp: Fire Shield."
+  ],
+  "18": [
+   "Searing Pain, Create Soulstone. Gravestone Scepter (Wand 29 DPS) dalla quest Blackfathom Villainy in Blackfathom Deeps (24–32): serve più livello."
+  ],
+  "20": [
+   "Class quest Succubus o Incubus. Demon Armor, Ritual of Summoning, Rain of Fire, Curse of the Elements. Grim Reach.",
+   "Horde Succubus (Orgrimmar): Devourer of Souls (Gan'rul) → Cazul → Zankaja (News of Dogran) → Crossroads → Ken'zigla (Stonetalon) → Grunt Logmar (Camp Taurajo) → libera Grunt Dogran → The Binding (catena di 7–8 quest: prima prendi i flight path). Undead: Devourer of Souls (Carendin Halgar) → Godrick Farsan, Hearts of the Pure (cuori in Silverpine e Wetlands) → The Binding (corta). Alliance: Devourer of Souls (Gakin) → Takar the Seer (Barrens, vicino Camp Taurajo; evita il Crossroads) → Heartswood in Ashenvale 31,31 → The Binding. Incubus: Alliance What Is Love? (Takar), Orgrimmar Love Hurts → Wish You Were Here (Magar, Ashenvale), Undercity Hearts of the Lovers. Ricompensa: Small Soul Pouch (14 slot). Fonte: forg.gg, Warcraft Tavern, WGE 🟡 baseline Classic.",
+   "<b>The Orb of Soran'ruk</b> (Doan Karhan, The Barrens 49.2,57.2; dal 20, anche Horde): 3 Soran'ruk Fragment da Twilight Acolytes in Blackfathom Deeps + 1 Large Soran'ruk Fragment da Shadowfang Darksoul in Shadowfang Keep. Scegli Staff of Soran'ruk (2H, +34 Shadow/Fire dmg, 14 Stamina) o Orb of Soran'ruk (off-hand +9 dmg, cura in 30 s). Warcraft Tavern, forg.gg."
+  ],
+  "22": [
+   "Staff of the Shade (Razorfen Kraul, +37 Shadow dmg, 15 Stamina) è un drop molto raro ma ottimo per Affliction (Tavern)."
+  ],
+  "24": [
+   "Drain Mana, Sense Demons, Corruption Rank 3. Blackfathom Deeps e The Stockade."
+  ],
+  "28": [
+   "Banish, Create Firestone. Conflagrate/Shadowburn solo Destruction."
+  ],
+  "30": [
+   "<b>Felhunter</b>: Seeking Strahad (Gakin a Stormwind / Gan'rul a Orgrimmar / Carendin Halgar a Undercity) → Strahad Farsan, Ratchet (The Barrens 62.6,35.5) → Tome of the Cabal (Alliance: Krom Stoutarm, Ironforge; Horde: Jorah Annison, Undercity): Moldy Tome (costa Hillsbrad), Tattered Manuscript (Thousand Needles), 3 Rod of Channeling dai Dragonmaw (Wetlands) → The Binding. Ricompensa Box of Souls (16 slot). Alliance: A Noble Brew (🟡 baseline Classic).",
+   "Drain Life Rank 3, Siphon Life, Hellfire, Subjugate Demon. Greater Mystic Wand (30)."
+  ],
+  "32": [
+   "Shadow Ward, Fear Rank 2, Curse of Weakness Rank 4."
+  ],
+  "36": [
+   "Create Spellstone, Spell Lock del Felhunter."
+  ],
+  "40": [
+   "Wrack, Howl of Terror. Class quest Summon Felsteed (Trainer capitale → Strahad Farsan). Apprentice Riding."
+  ],
+  "42": [
+   "Death Coil."
+  ],
+  "50": [
+   "Inferno: What Niby Commands (Niby the Almighty, Felwood)."
+  ],
+  "60": [
+   "Bane of Doom, Ritual of Doom (Daio the Decrepit, Blasted Lands), Dreadsteed. Dati WGE = baseline Classic 🟡."
+  ]
+ },
+ "camp": [
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP (fino al 5% di livello, 1 volta/ora): il migliore in assoluto per salire; il Warlock ha poco downtime e ne approfitta."
+  ],
+  [
+   "Fish Bowl",
+   "Fishing",
+   "inv_magicalfishpet",
+   "+8% a tutte le stats: Stamina (più HP = più Life Tap), Intellect e Spirit insieme. Ottimo per il Warlock."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "inv_banner_03",
+   "Spirit (fino a +32 nella guida Mago): nel client Life Tap scala col Spirit ★. Maxroll lo raccomanda con Tailoring."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "inv_misc_candle_02",
+   "Intellect (fino a +25): mana pool più grande. Non si somma ad Arcane Intellect."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "inv_misc_bandage_11",
+   "Stamina (fino a +56): più HP per Life Tap e drain tanking. Non si somma a Power Word: Fortitude."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_crate_01",
+   "+2% crit: i DoT possono critare ★ (Malevolence, Pandemic). Buono, non fondamentale."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "inv_10_enchanting2_magicswirl_bronze",
+   "Armor/stats/resistenze: poco per un cloth caster. Maxroll lo cita soprattutto perché Enchanting dà le Wand."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "spell_arcane_manatap",
+   "mana/5: poco utile, Life Tap e Drain Life ti danno già tutto il mana."
+  ]
+ ],
+ "professions": {
+  "gold": "Herbalism + Skinning (o Mining): si vende all'Auction House e paga ogni Rank; Skinning dà anche il Camp Chair. Cooking (cibo con XP buff + serve per il Basic Campfire) e First Aid (bandage + Life Tap) su tutti. Fonti: Warcraft Tavern, Method.",
+  "power": "Tailoring + Enchanting: concordi Method, Warcraft Tavern, Maxroll ✔. Tailoring fa gear BoP con Shadow/Fire Damage (Filigreed Shadow Gown per Affliction, Filigreed Flame Gown per Destro/Demo; Shadow Gown e Shadow Gloves con Merchant's Favor) e il Faction Banner (Spirit); Enchanting fa Lesser/Greater Magic Wand, staff e disenchant dei pezzi crafted.",
+  "advice": "Per la forza: Tailoring + Enchanting sul main. Per il gold: Herbalism + Skinning con bank alt Tailoring/Enchanting. Cooking, First Aid e Fishing su tutti."
+ },
+ "stats": "Priorità in leveling: Spell Power/Shadow Damage > Wand DPS (fino al 30) > Intellect/Spirit > Stamina (Warcraft Tavern; Maxroll: Spellpower, Intellect, Spirit; Spirit scala Life Tap). Il main-hand è uno 'stat stick': conta lo Spell Power, non il suo danno. Wand: Novice's Practice Wand (1), Lesser Magic Wand (5, ~11,3 DPS), Greater Magic Wand (13, ~17,5 DPS), Gravestone Scepter (Blackfathom Deeps, 29 DPS), Greater Mystic Wand (30). Armi: Staff of Soran'ruk o Orb of Soran'ruk (quest 20), Staff of the Shade (Razorfen Kraul, drop raro), Golemheart Stave (Hall of Thanes), Emberstone Staff e Cookie's Stirring Rod (Deadmines) (Maxroll). Le Wand non beneficiano più dello Spell Power ★.",
+ "races": {
+  "human": "Human (Alliance): Ruthless (+crit, 2% secondo Method), The Human Spirit (+Spirit, scala Life Tap), Will to Survive, Perception. Method: tier S. Sword Specialization è stata rimossa (la guida Warcraft Tavern è obsoleta su questo).",
+  "gnome": "Gnome (Alliance): Expansive Mind (+5% mana), Eureka! (−10% mana e +10% danno sulle spell non periodiche per 8 s: inutile per Affliction), Escape Artist, Engineering Specialization. Method: tier B, il più debole per Affliction.",
+  "orc": "Orc (Horde): Command (+5% danno dei Pet, Warcraft Tavern ✔), Blood Fury (+Spell Power), Shatter Curse (rimuove Curse/Bane e riduce danno Magic), Hardiness (−20% durata stun). Method: tier A; Maxroll consiglia l'Orc come Horde.",
+  "undead": "Undead (Horde): Cannibalize (7% HP+MP al secondo per 10 s su corpi Humanoid/Undead ★: meno cibo/bevande), Touch of the Grave (danno che ti cura, anche sul colpo iniziale dei DoT), Will of the Forsaken (rimuove Fear/Charm/Sleep, non immune), Underwater Breathing. Method: tier B, ottimo per sostenersi.",
+  "troll": "Troll (Horde, nuovo Warlock ★): Berserking (+10% haste, non vale sui DoT), Rapid Regeneration (canale che cura, ottimo con Life Tap), Regeneration (regen HP in combat), Beast Slaying (+5% danno su Beast, utile nel Barrens). Method: tier C. Inizia nella Valley of Trials come l'Orc."
+ },
+ "forever": [
+  "★ I DoT (Corruption, Bane of Agony, Siphon Life, Drain...) possono critare: Pandemic e Malevolence ne aumentano il valore (Method 17 ott; wowforeverbuilds 24 ott).",
+  "★ Bane of Agony (livello 8) sostituisce Curse of Agony: istantaneo e tagga il mob. Curse e Bane sono separate: una di ciascuna per bersaglio (Warcraft Tavern).",
+  "★ Life Tap scala con lo Spirit: converte (30 + Spirit) HP in Mana (tooltip client Wowhead Forever).",
+  "★ Drain Soul può dare Soul Shard a ogni tick; mob non-trivial ucciso = shard garantita (Warcraft Tavern, WoW Forever Guides su client 70009).",
+  "★ Soul Shard Bag nello slot reagenti; Small Soul Pouch 14 slot (era 12), Box of Souls 16 slot (forg.gg).",
+  "★ Fear ora ha 20 yd (era 24 in beta): forum Blizzard via wowforeverbuilds. Resta a un bersaglio, 10 s.",
+  "★ Incubus come demone separato dal Succubus (Sayaad) con catena quest propria (forg.gg 9 ott).",
+  "★ Il Meeting Stone non evoca più: solo Ritual of Summoning (Method, Warcraft Tavern).",
+  "★ Talent nuovi/cambiati nel client 70707: Improved Corruption (Changed), Suppression (Changed: +1% Hit e −4% threat per rank), Pandemic, Malevolence, Soul Harvest, Improved Drains, Wrack (New), Soul Siphon, Fel Concentration, Siphon Life (Changed), Demonic Energies, Demonic Brand, Decimation (New).",
+  "Grim Reach (2 rank) ha sostituito Malediction 5/5 nelle note del 15 ott; Soul Harvesting rinominato Soul Harvest il 1 ott (WoW Forever Guides, Harenil 21 ott).",
+  "Voidwalker: Torment +threat per 5 livelli dopo ogni nuovo Rank, poi fisso; dal 25 al 30 perde mob più spesso fino a Torment Rank 3 (30). Sacrifice scala col 10% dello spell healing (note 24 set).",
+  "Le Wand non scalano più con lo Spell Power: la Wand DPS conta fino al 30 (Warcraft Tavern, WoW Forever Guides).",
+  "Legacy 🟡 (non confermato, wowforeverbuilds 24 ott): Talented (5 punti) dà talent dal livello 5 anziché 10; Well Rested; Thrill of Adventure (5% HP/mana a ogni kill).",
+  "Non trovato: Dark Pact non è nelle tabelle beta (WoW Forever Guides 🟡)."
+ ],
+ "sources": [
+  {
+   "name": "Mobalytics – Warlock Leveling Guide 1–60 (Crix, Verified)",
+   "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
+   "author": "Crix",
+   "date": "1 nov 2026",
+   "signal": "109 ♥ · 36/12/0",
+   "used": "Ordine dei talent 10–39 (base della build) e 41–57 (riassunto di mobalytics.md)"
+  },
+  {
+   "name": "wowforever.be – Warlock leveling (dati client 1.60.1.70707)",
+   "url": "https://wowforever.be/leveling/warlock/",
+   "author": "wowforever.be",
+   "date": "1 nov 2026",
+   "signal": "dati client",
+   "used": "Nomi/prerequisiti dei talent; ordine 10–40 (alternativo)"
+  },
+  {
+   "name": "Method – Warlock Leveling Guide & Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents",
+   "author": "Roguery",
+   "date": "17 ott 2026",
+   "signal": "Method (reputazione alta)",
+   "used": "Ordine Method, razze, professioni, tier list razze"
+  },
+  {
+   "name": "Warcraft Tavern – Warlock Leveling Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/warlock-leveling/",
+   "author": "Zephan",
+   "date": "ott 2026 (immagini 10 ott)",
+   "signal": "reputazione alta, in parte obsoleta",
+   "used": "Milestones, class quest, trainer, rotation, professioni, Wand/armi, demoni, Soul Shard"
+  },
+  {
+   "name": "Maxroll – Warlock Leveling Guide",
+   "url": "https://maxroll.gg/wow-forever/class-guides/warlock-leveling-guide",
+   "author": "Xerwo",
+   "date": "30 ott 2026",
+   "signal": "Maxroll (reputazione alta)",
+   "used": "Rotazione, camp, razze, Wand, dungeon gear"
+  },
+  {
+   "name": "ForG – Warlock demon quests by level",
+   "url": "https://forg.gg/en/forever/tips/warlock-demons",
+   "author": "ForG",
+   "date": "verificato 9 ott 2026",
+   "signal": "dati ForeverChanges/Wowhead",
+   "used": "Catene quest Imp/Voidwalker/Succubus/Incubus/Felhunter con NPC e coordinate"
+  },
+  {
+   "name": "WoW Forever Guides – Warlock Leveling",
+   "url": "https://wowforeverguides.com/leveling/warlock",
+   "author": "Harenil",
+   "date": "21 ott 2026",
+   "signal": "client 70009",
+   "used": "Tabella livelli spell, note beta, ordine alternativo"
+  },
+  {
+   "name": "WoWForeverBuilds – Affliction Warlock 1–60",
+   "url": "https://wowforeverbuilds.com/guide/beta-20-affliction-warlock-leveling",
+   "author": "WoWForeverBuilds",
+   "date": "24 ott 2026",
+   "signal": "6,3k views",
+   "used": "Ordine alternativo, Legacy, cambi XP"
+  },
+  {
+   "name": "Wowhead Forever tooltip (nether.wowhead.com/forever) + forever.warcraftdb.com",
+   "url": "https://nether.wowhead.com/forever/tooltip/spell/1454",
+   "author": "Wowhead",
+   "date": "1 nov 2026",
+   "signal": "dati client",
+   "used": "Livelli e rank di ogni spell, icone, testi di Life Tap, Corruption, Bane of Agony"
+  },
+  {
+   "name": "YouTube – Kargoz: 1–60 Affliction Warlock Leveling Guide",
+   "url": "https://www.youtube.com/watch?v=Z1089BICDCA",
+   "author": "Kargoz",
+   "date": "3 ott 2026",
+   "signal": "154k views",
+   "used": "Solo segnale di qualità (la sua guida su Mobalytics ha 8 ♥)"
+  },
+  {
+   "name": "YouTube – Crix Forever: Leveling Warlock in WoW Forever",
+   "url": "https://www.youtube.com/watch?v=0qyG-IJNXxw",
+   "author": "Crix Forever",
+   "date": "18 set 2026",
+   "signal": "122k views",
+   "used": "Conferma Affliction + Voidwalker"
+  },
+  {
+   "name": "YouTube – GuideMMO: Warlock Leveling Guide 1–60",
+   "url": "https://www.youtube.com/watch?v=ZSckGly3iHw",
+   "author": "GuideMMO",
+   "date": "31 ott 2026",
+   "signal": "15k views",
+   "used": "Macro"
+  },
+  {
+   "name": "YouTube – Skidrow: Is It Still S Tier?",
+   "url": "https://www.youtube.com/watch?v=VHwvVXZIQSY",
+   "author": "Skidrow",
+   "date": "5 ott 2026",
+   "signal": "25k views",
+   "used": "Build 40/11/0"
+  },
+  {
+   "name": "YouTube – Back From AFK: Warlock leveling guide",
+   "url": "https://www.youtube.com/watch?v=5uCqHfwbaI0",
+   "author": "Back From AFK",
+   "date": "27 ott 2026",
+   "signal": "11k views",
+   "used": "Split 35/16/0"
+  },
+  {
+   "name": "Worst Guides Ever – Warlock class quests",
+   "url": "https://worstguidesever.com/wow-forever-warlock-class-quests/",
+   "author": "Worst Guides Ever",
+   "date": "ott 2026",
+   "signal": "dichiara baseline Classic",
+   "used": "Dettagli quest 🟡 (Orb of Soran'ruk, Felsteed, post-30)"
+  },
+  {
+   "name": "wowforever.gg – Warlock Affliction Leveling Build",
+   "url": "https://wowforever.gg/en/builds/warlock-affliction-leveling/",
+   "author": "wowforever.gg",
+   "date": "30 ott 2026",
+   "signal": "build 31/20",
+   "used": "Conferma Siphon Life 30, Wrack 40"
+  },
+  {
+   "name": "Warcraft Tavern – Racial Abilities (Orc/Undead/Troll)",
+   "url": "https://www.warcrafttavern.com/forever/guides/racial-abilities/",
+   "author": "Nevermore / Val Hull",
+   "date": "ott 2026",
+   "signal": "reputazione alta",
+   "used": "Racial"
+  }
+ ],
+ "doubts": [
+  "Build 10–60: l'ordine di Mobalytics Crix (109 ♥) è letto solo da un riassunto (mobalytics.md): non cita Siphon Life né il livello 40 e i totali 36/12/0 non tornano con l'ordine. Siphon Life al 33, Pandemic al 34 e i livelli 58–60 sono nostre scelte 🟡. La build 41–60 è proiettata (il beta si ferma al 30).",
+  "Wrack non testato oltre il 30 (wowforever.gg). Alcune guide non lo prendono (Maxroll).",
+  "Il testo di Warcraft Tavern cita Malediction (rimosso il 15 ott) e Sword Specialization (rimosso): sono dati obsoleti.",
+  "Nome NPC Imp Undead: il trainer a Deathknell è Maximillion (Tavern), il quest-giver Venya Marthand (forg.gg) 🟡. Le catene Succubus/Felhunter sono baseline Classic secondo forg.gg e WGE (verificate da forg.gg il 9 ott).",
+  "Orc: Method cita Savage (+1% crit) che non compare nei racial di Warcraft Tavern; Human Ruthless 2% da sola Method 🟡.",
+  "Curse of the Elements al 20 (client) contro 32 di Classic: non risolto. Dark Pact non trovato.",
+  "Icy Veins e il testo Mobalytics (Kargoz/Hadoogin) non leggibili: solo snippet di WebSearch. Icy Veins: 40/11/0, Siphon Life al 30, 1 punto in Grim Reach 🟡.",
+  "L'ordine dei Camp object è una nostra valutazione: nessuna fonte li ordina per il Warlock. I numeri (Spirit +32, Intellect +25, Stamina +56) vengono dalla guida del Mago.",
+  "Livelli dei dungeon dalla mappa Wowhead Forever; Maxroll dà range diversi (es. Deadmines 18–23)."
+ ]
+}

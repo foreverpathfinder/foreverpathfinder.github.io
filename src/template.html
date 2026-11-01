@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1422">
+<title>WoW Forever Leveling Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/*STYLE*/
+</style></head><body>
+
+<header class="hero">
+ <div class="herobg" aria-hidden="true"><div id="herobg"></div></div>
+ <h1 id="htitle"></h1>
+ <p id="hsub"></p>
+ <p>Uscita: <b id="hlaunch"></b> · <span class="cd" id="cd"></span></p>
+ <div class="chips" id="hchips"></div>
+</header>
+
+<nav id="nav">
+ <a href="#pg">Personaggio</a><a href="#oggi">Il mio livello</a><a href="#build">Talents</a><a href="#rot">Rotation</a><a href="#spell">Spell</a><a href="#razza">Razza</a><a href="#mappa">Mappa</a><a href="#viaggi">Viaggi</a><a href="#xp">Bonus XP</a><a href="#borse">Bags</a><a href="#prof">Professions</a><a href="#crates">Crates</a><a href="#campo">Camping</a><a href="#dungeon">Dungeon</a><a href="#video">Video</a><a href="#fonti">Fonti</a>
+</nav>
+
+<main>
+<p class="note">Legenda: <span class="pill p-ok">✔</span> confermato da più fonti o dal client · <span class="pill p-wa">🟡</span> una sola fonte · <span class="pill p-new">★</span> novità di Forever. Tocca le icone per vedere la descrizione.</p>
+
+<section id="pg">
+ <h2>Il tuo personaggio</h2>
+ <div class="card pick">
+  <div><div class="lab">Fazione</div><div class="opts fac" id="pkF"></div></div>
+  <div><div class="lab">Razza</div><div class="opts" id="pkR"></div></div>
+  <div><div class="lab">Classe</div><div class="opts" id="pkC"></div></div>
+ </div>
+ <p class="note">Tutta la guida si adatta: rotta, talent, spell, mappa, bag, dungeon. La scelta resta salvata su questo dispositivo.</p>
+</section>
+
+<section id="oggi">
+ <h2>Cosa faccio al mio livello?</h2>
+ <p>Imposta il livello: vedi la zona, il talent da prendere, le spell da imparare e le cose da non perdere.</p>
+ <div class="card">
+  <div class="lvctl"><button id="lvm" aria-label="Livello meno">−</button><span class="lvnum" id="lvn">1</span><button id="lvp" aria-label="Livello più">+</button><input type="range" id="lvr" min="1" max="30" value="1" aria-label="Livello"></div>
+  <div class="plan" id="plan"></div>
+ </div>
+ <details><summary id="tlsum">Tutto il percorso in una riga temporale</summary><div class="tl" id="tl"></div></details>
+</section>
+
+<section id="build">
+ <h2 id="bTitle">Talents</h2>
+ <div class="callout g" id="bSum"></div>
+ <div class="card">
+  <div class="wfhead">
+   <div><span class="note" id="wfLab">Talent tree al livello</span><br><span class="lv" id="wfLv">10</span></div>
+   <div class="btns" style="margin:0"><button class="btn" id="wfm" aria-label="Livello meno">−</button><button class="btn" id="wfp" aria-label="Livello più">+</button><a class="btn" id="wfLink" target="_blank" rel="noopener">Apri ↗</a></div>
+  </div>
+  <div class="wfmodes" id="wfModes"><button data-m="tree" class="on" id="wfTreeBtn">Talent tree</button><button data-m="all">Tutti e 3 i talent tree</button></div>
+  <div class="wfbox" id="wfBox"><div class="wait">Carico il calcolatore di wowforever.be…</div><iframe title="Talent tree – wowforever.be"></iframe><iframe title="Talent tree – wowforever.be" style="visibility:hidden"></iframe></div>
+  <p class="note">Calcolatore di <a href="https://wowforever.be/it/talents/" target="_blank" rel="noopener">wowforever.be</a> con i dati del client 1.60.1.70707, caricato con <b>questa</b> build al livello impostato. Tocca un talent per il tooltip.</p>
+  <h3 style="margin-top:.6em">Ordine dei talent point</h3>
+  <div class="order" id="order"></div>
+ </div>
+ <h3>Confronto tra le build più seguite</h3>
+ <div class="wrap"><table id="bCmp"></table></div>
+ <div id="bAlt"></div>
+ <details><summary>Perk Legacy “Talented” 🟡</summary><p>Talented dà fino a 5 talent point in più: segui lo <b>stesso ordine</b> con 5 livelli di anticipo (primo talent point al 5). Al livello L avrai la build del livello L+5.</p></details>
+</section>
+
+<section id="rot">
+ <h2>Rotation</h2>
+ <div class="rot" id="rotc"></div>
+ <div id="rotn"></div>
+</section>
+
+<section id="spell">
+ <h2>Spell per livello</h2>
+ <p class="note">Vai dal Trainer ogni 2 livelli: il tuo danno viene dai Rank.</p>
+ <div class="grid" id="spells"></div>
+</section>
+
+<section id="razza">
+ <h2 id="rTitle">Razza</h2>
+ <div id="rBody"></div>
+</section>
+
+<section id="mappa">
+ <h2>Mappa interattiva</h2>
+ <p>La vera mappa di gioco di Forever, con le posizioni esatte di Flight Master, Trainer, dungeon, quest della guida, herb e ore node. Tocca una tappa per volarci sopra; trascina e pizzica per muoverti.</p>
+ <div class="msteps" id="msteps"></div>
+ <div class="lwrap" id="lwrap">
+  <div id="lmap" role="region" aria-label="Mappa"></div>
+  <button class="lfs" id="lfs" type="button">⛶ Schermo intero</button>
+ </div>
+ <div class="lchips" id="lchips"></div>
+ <div class="box" id="mpanel"><b class="t">Tappa</b>Scegli una tappa.</div>
+ <details><summary>Altre mappe online</summary><div class="btns">
+  <a class="btn" href="https://www.wowhead.com/forever/world-map" target="_blank" rel="noopener">Wowhead – mappa completa ↗</a>
+  <a class="btn" href="https://mobalytics.gg/wow-forever/guides/zone-map-level-ranges" target="_blank" rel="noopener">Livelli zone (Mobalytics) ↗</a></div></details>
+</section>
+
+<section id="viaggi">
+ <h2>Viaggi</h2>
+ <div class="wrap card"><table id="vFp"></table></div>
+ <div class="grid" id="vCards"></div>
+</section>
+
+<section id="xp">
+ <h2>Bonus XP e consigli da speedrunner</h2>
+ <p class="note">Dal video di Kargoz (91 000 visualizzazioni, 24 ott, co-fondatore di RestedXP) e dalle guide Icy Veins/Mobalytics.</p>
+ <div class="grid" id="xpc"></div>
+ <div class="card"><h3>Regole d’oro</h3><ul id="xpr"></ul></div>
+</section>
+
+<section id="borse">
+ <h2>Bags</h2>
+ <div class="wrap card"><table id="bagt"></table></div>
+ <p class="note" id="bagn"></p>
+</section>
+
+<section id="prof">
+ <h2>Professions e gold</h2>
+ <div class="grid" id="profc"></div>
+ <details><summary>Tier list gold e errori da evitare</summary><p id="proft"></p><ul id="profe"></ul></details>
+</section>
+
+<section id="crates">
+ <h2>Waylaid Crates</h2>
+ <div class="card"><div class="row"><img class="ic" src="https://wow.zamimg.com/images/wow/icons/large/inv_crate_01.jpg" alt=""><div id="crc"></div></div></div>
+</section>
+
+<section id="campo">
+ <h2>Camping</h2>
+ <figure><img class="shot" loading="lazy" src="https://bnetcmsus-a.akamaihd.net/cms/blog_header/mi/MIORB2TEVZIK1792455672807.png" alt="Campfire con giocatori seduti"><figcaption>Immagine ufficiale Blizzard dall’annuncio del Camping.</figcaption></figure>
+ <div class="card"><ol id="camps"></ol></div>
+ <h3 id="campT">Priorità</h3>
+ <div class="grid" id="camp"></div>
+</section>
+
+<section id="dungeon">
+ <h2>Dungeon</h2>
+ <div class="wrap card"><table id="dtab"></table></div>
+ <p class="note">Livelli dalla mappa Wowhead di Forever. XP delle quest dei dungeon dimezzata il 1° ottobre: entra una volta, con tutte le quest.</p>
+</section>
+
+<section id="video">
+ <h2 id="vtitle">Video</h2>
+ <p class="note">In inglese; i pulsanti saltano al punto giusto.</p>
+ <div class="vchap" id="vchap"></div>
+ <iframe class="emb" id="yt" title="Video" style="aspect-ratio:16/9;height:auto" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+ <details><summary>Riassunto in italiano</summary><ol id="vsum"></ol></details>
+</section>
+
+<section id="fonti">
+ <h2>Fonti e affidabilità</h2>
+ <div class="wrap card"><table id="srct"></table></div>
+ <div class="callout w" id="limits"></div>
+</section>
+</main>
+<footer id="foot"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+var DATA=/*DATA*/;
+</script>
+<script>
+/*ENGINE*/
+</script>
+</body></html>

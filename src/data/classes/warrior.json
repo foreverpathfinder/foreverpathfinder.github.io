@@ -1,0 +1,765 @@
+{
+ "class": "warrior",
+ "name": "Warrior",
+ "resource": "Rage",
+ "spec": "Protection",
+ "specIcon": "ability_warrior_defensivestance",
+ "summary": "Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 82 ♥, 30 ott), Icy Veins la chiama \"the fastest Warrior spec for leveling\" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 48 ♥); Fury non decolla prima del 36–40.",
+ "build": [
+  "Shield Specialization",
+  "Shield Specialization",
+  "Shield Specialization",
+  "Shield Specialization",
+  "Shield Specialization",
+  "Improved Revenge",
+  "Improved Revenge",
+  "Improved Revenge",
+  "Improved Thunder Clap",
+  "Improved Thunder Clap",
+  "Master of Defense",
+  "Master of Defense",
+  "Improved Thunder Clap",
+  "Improved Bloodrage",
+  "Improved Bloodrage",
+  "Vanguard",
+  "Defiance",
+  "Defiance",
+  "Defiance",
+  "Improved Sunder Armor",
+  "Concussion Blow",
+  "Focused Rage",
+  "Focused Rage",
+  "Focused Rage",
+  "Improved Sunder Armor",
+  "Bastion",
+  "Bastion",
+  "Bastion",
+  "Bastion",
+  "Bastion",
+  "Shield Slam",
+  "Cruelty",
+  "Cruelty",
+  "Cruelty",
+  "Cruelty",
+  "Cruelty",
+  "Deflection",
+  "Deflection",
+  "Deflection",
+  "Deflection",
+  "Deflection",
+  "Improved Tactical Mastery",
+  "Improved Tactical Mastery",
+  "Improved Tactical Mastery",
+  "Improved Tactical Mastery",
+  "Improved Tactical Mastery",
+  "Anger Management",
+  "Improved Sunder Armor",
+  "Improved Charge",
+  "Improved Charge",
+  "Unbridled Wrath"
+ ],
+ "buildSource": "wowforever.be (client) = consenso Protection: Shield Specialization → Improved Revenge → Defiance (Icy Veins, snippet) / Master of Defense + Vanguard + Bastion + Focused Rage (Method, Zockify); Concussion Blow al 30 e Shield Slam al 40 (Zockify, Icy Veins). 31–60: solo wowforever.be (nessun'altra fonte con ordine 31–60 trovata): finisce Protection (Shield Slam 40), poi passa a Cruelty 41–45, Deflection 46–50, Improved Tactical Mastery 51–55, Anger Management 56, Improved Sunder Armor 57, Improved Charge 58–59, Unbridled Wrath 60 (pensata per Dual Spec dal 40 / respec).",
+ "why": {
+  "Shield Specialization": "+5% Block e 5 Rage a ogni Block: è tutta la Rage economy della build, quindi va al 5/5 per primo (Method, Icy Veins, wowforever.be).",
+  "Improved Revenge": "+60% danno di Revenge (14+), la tua abilità principale in Defensive Stance dopo block/dodge/parry.",
+  "Improved Thunder Clap": "-6 Rage di costo (Thunder Clap base 20 Rage): rende il Thunder Clap sostenibile contro pack e mob forti.",
+  "Master of Defense": "★ 5 Rage su ogni Dodge/Parry con scudo: seconda fonte di Rage dai colpi subiti (richiede Shield Specialization).",
+  "Improved Bloodrage": "+50% Rage da Bloodrage al 2/2: più Rage a inizio pull.",
+  "Vanguard": "★ Charge usabile in Defensive Stance: niente più stance dance per aprire il pull (prima del 25 resti in Defensive per non perdere Rage).",
+  "Defiance": "Threat extra in Defensive Stance con scudo: serve soprattutto nei dungeon; da solo è il punto più debole (vedi dubbi).",
+  "Improved Sunder Armor": "-3 Rage su Sunder Armor (3/3 entro il 57): Sunder più economico per threat e danni di gruppo.",
+  "Concussion Blow": "Stun di 5 s (45 s CD, 10 Rage): panic button solo e prerequisito di Shield Slam.",
+  "Focused Rage": "★ -3 Rage su tutte le abilità offensive: più danno per la stessa Rage, tappa fissa 31–33.",
+  "Bastion": "+10% a tutti i danni inflitti con scudo equipaggiato (5/5): il vero aumento di DPS della build.",
+  "Shield Slam": "Seconda abilità forte (dal 40, 6 s CD, danno + Block Value, threat altissimo): Icy Veins dice che qui il leveling accelera.",
+  "Cruelty": "+5% crit al 5/5 (41–45): primo passo verso Fury/Dual Spec dopo il 40.",
+  "Deflection": "+5% Parry (46–50): ponte verso Improved Tactical Mastery e Anger Management.",
+  "Improved Tactical Mastery": "Fino a 25 Rage mantenuti nei cambi di Stance (10 base + 15): stance dance meno costosa.",
+  "Anger Management": "★ 1 Rage ogni 3 s in combat e -30% Rage persa fuori combat.",
+  "Improved Charge": "+6 Rage da Charge (2/2): apertura pull più ricca.",
+  "Unbridled Wrath": "60% di avere 1 Rage in più per colpo con arma (5 punti): Rage extra da auto-attack."
+ },
+ "compare": [
+  {
+   "source": "wowforever.be – build di leveling (client 1.60.1.70707)",
+   "signal": "dati client, 1 nov",
+   "l10_19": "Shield Specialization 5/5 (10–14), Improved Revenge 3/3 (15–17), Improved Thunder Clap 2/3 (18–19)",
+   "l20": "Master of Defense 1/2",
+   "l21_30": "Master of Defense 2/2 (21), Improved Thunder Clap 3/3 (22), Improved Bloodrage 2/2 (23–24), Vanguard (25), Defiance 3/3 (26–28), Improved Sunder Armor (29), Concussion Blow (30)"
+  },
+  {
+   "source": "Mobalytics – KallTorak, Protection Warrior Guide (leveling + end game)",
+   "signal": "82 ♥ (guida Warrior più salvata), 30 ott, finisce 0/0/21 al 30",
+   "l10_19": "ordine per livello non letto (pagina bloccata)",
+   "l20": "non trovato",
+   "l21_30": "totale 0/0/21 come wowforever.be (stesso numero di punti in Protection)"
+  },
+  {
+   "source": "Icy Veins – Protection Warrior Leveling (WoW Forever)",
+   "signal": "reputazione alta; snippet WebSearch 1 nov, build in immagine (non letta)",
+   "l10_19": "Shield Specialization 5 punti per primo, poi Improved Revenge",
+   "l20": "non trovato",
+   "l21_30": "\"then Defiance and so on\"; Revenge al centro della rotazione; accelera dopo il 40 con Shield Slam"
+  },
+  {
+   "source": "Method – Babyhoof (Protection = build \"solo/grinding\")",
+   "signal": "agg. 9 ott (prima delle hotfix di fine ott)",
+   "l10_19": "Shield Specialization subito, Improved Thunder Clap, Improved Bloodrage",
+   "l20": "Master of Defense + Improved Revenge \"intorno al 20\"",
+   "l21_30": "Vanguard, poi Bastion e Focused Rage (livelli esatti non dati)"
+  },
+  {
+   "source": "Zockify – Warrior Leveling",
+   "signal": "agg. 28 ott, autore non indicato",
+   "l10_19": "Shield Block al 16; Improved Revenge",
+   "l20": "Master of Defense",
+   "l21_30": "Vanguard 25, Shield Wall 28, Concussion Blow 30; Cruelty/Enrage/Blood Craze dal 41"
+  },
+  {
+   "source": "Mobalytics – Kargoz, 1-60 Protection Warrior (community)",
+   "signal": "15 ♥, 14 ott, finisce 5/6/40 al 60",
+   "l10_19": "non letto",
+   "l20": "non trovato",
+   "l21_30": "a 60 punti: 40 Protection, 6 Fury, 5 Arms (stessa impostazione \"Prot + spezzoni\")"
+  },
+  {
+   "source": "Mobalytics – Ahlaundoh, Warrior Leveling 1-60 (Verified, Arms-heavy)",
+   "signal": "48 ♥, 30 ott, finisce 35/14/2",
+   "l10_19": "Arms: Improved Rend, Improved Charge, Improved Tactical Mastery (snippet)",
+   "l20": "Slam; Sweeping Strikes come ultimo punto al 30",
+   "l21_30": "Arms 21/0/0 al 30; Mortal Strike al 40; Weaponmaster 31–40 (assi/polearm per il crit)"
+  },
+  {
+   "source": "Warcraft Tavern – Passion",
+   "signal": "senza data (dopo 1 ott); nessun ordine per livello nel testo",
+   "l10_19": "dà 3 build a 30: Arms 26/0/0, Fury 0/26/0, Prot 0/0/26 (26 = con Legacy Talented)",
+   "l20": "Prot: sposta punti da Defiance a Improved Thunder Clap se fai pochi dungeon",
+   "l21_30": "Prot \"forte per AoE e perde poca vita\"; Arms \"classica scelta, burst e stabilità\""
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Arms (due mani) – gruppo / duo con healer",
+   "html": "<p><b>Chi la consiglia:</b> Method (Babyhoof, 9 ott: \"build di gruppo\"), Icy Veins (26 ott), Mobalytics Ahlaundoh (48 ♥), Maxroll (Soda, 30 ott: build a due mani \"forte nei dungeon e su 2 target ma senza sustain\"). Sweeping Strikes è \"il talent più importante\" per Mobalytics.</p><ul><li>Ordine Icy Veins (snippet): Slam al 20, Spearing Strike al 25, Sweeping Strikes al 30, Mortal Strike al 40, Weaponmaster 37–39 e 41–42.</li><li>Ordine Method: Cruelty (Fury) prima di tutto, poi Improved Rend, Tactical Mastery, Deep Wounds, Bloodthrill, Sweeping Strikes, Weaponmaster, Mortal Strike, Unbridled Wrath.</li><li>Warcraft Tavern: Overpower, Sweeping Strikes, Deflection; Spearing Strike utile solo contro Giants/Dragonkin: saltarlo e maxare Two-Handed Weapon Specialization. Bloodthrill prima di Weaponmaster.</li><li>Weapon: assi e polearm danno +5% crit con Weaponmaster; mace/staff ignorano il 15% armor; spade hanno proc di extra attack.</li></ul><p>Pro: danni singolo più alti. Contro: nessun sustain, serve First Aid e/o un healer.</p>"
+  },
+  {
+   "title": "Fury (dual wield) – seconda spec dal 40",
+   "html": "<p>Fury non può dual wield prima del 20 e secondo Maxroll è debole fino al 36 (Whirlwind); Bloodthirst arriva al 40. Mobalytics (Kargoz, video 90k views, 8 ott) e Zockify (28 ott) la usano soprattutto come seconda spec per il questing all'aperto dopo il 40 (Dual Specialization al 40).</p><ul><li>Build a 30 (Mobalytics, snippet): 0/21/0 con Cruelty, Unbridled Wrath, Lingering Rage, Enrage tutti 5/5 e l'ultimo punto in Death Wish. Warcraft Tavern: Furious Precision, Piercing Howl, Raging Blows con Whirlwind.</li><li>Gore Drinker (★) cura l'1% max HP per 3 colpi dopo Enrage/Berserker Rage/Bloodrage/Death Wish/Bloodthirst: sustain gratuito.</li><li>Mobalytics consiglia Dwarf per Fury fino al 30 (snippet).</li></ul>"
+  },
+  {
+   "title": "Legacy talent: Thrill of Adventure",
+   "html": "<p>Zockify consiglia i primi 5 punti Legacy in <b>Thrill of Adventure</b> (recupera salute dopo i kill all'aperto, meno downtime): utile a un Warrior senza heal. 🟡 fonte singola, non verificata nel client. Nota Warcraft Tavern: i Legacy Points (Talented) anticipano i talent fino a 5 livelli.</p>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Battle Shout",
+   "ability_warrior_battleshout",
+   "Buff di Attack Power a tutto il party/raid (3 min, 10 Rage). ★ Raid-wide dal 15 ott. Tienilo sempre attivo."
+  ],
+  [
+   1,
+   "Heroic Strike",
+   "ability_rogue_ambush",
+   "Colpo extra al prossimo swing, spende la Rage in eccesso (15 Rage al Rank 1)."
+  ],
+  [
+   4,
+   "Rend",
+   "ability_gouge",
+   "Bleed (10 Rage) che ignora l'armor; non usarlo su mob che muoiono subito. Si usa in Battle e Defensive Stance."
+  ],
+  [
+   4,
+   "Charge",
+   "ability_warrior_charge",
+   "Carica + stun 1 s, genera 9 Rage (Rank 1); solo fuori combat, in Battle Stance (in Defensive dopo Vanguard al 25)."
+  ],
+  [
+   6,
+   "Thunder Clap",
+   "spell_nature_thunderclap",
+   "20 Rage, +20% tra gli attacchi di fino a 4 nemici, 6 s CD: pack e mob forti. Battle o Defensive."
+  ],
+  [
+   8,
+   "Hamstring",
+   "ability_shockwave",
+   "-40% movimento per 15 s: kite e fuga da pull sbagliati."
+  ],
+  [
+   10,
+   "Bloodrage",
+   "ability_racial_bloodrage",
+   "10 Rage subito + 10 in 10 s al costo di salute (20% base HP), 1 min CD."
+  ],
+  [
+   10,
+   "Sunder Armor",
+   "ability_warrior_sunder",
+   "Class quest al 10 (Defensive Stance, Taunt, Sunder Armor): -armor fino a 5 stack, threat alto."
+  ],
+  [
+   10,
+   "Defensive Stance",
+   "ability_warrior_defensivestance",
+   "Class quest: -10% danni subiti e inflitti, +30% threat; base della build Protection. Taunt (8 s CD) dalla stessa quest."
+  ],
+  [
+   12,
+   "Overpower",
+   "ability_meleedamage",
+   "Solo dopo che il bersaglio schiva, Battle Stance, 5 Rage. ★ Dal 16 ott funziona anche su mob molto più bassi."
+  ],
+  [
+   12,
+   "Shield Bash",
+   "ability_warrior_shieldbash",
+   "Interrompe un cast (10 Rage, 12 s CD), Battle o Defensive."
+  ],
+  [
+   14,
+   "Revenge",
+   "ability_warrior_revenge",
+   "Solo Defensive Stance, dopo block/dodge/parry: 5 Rage, 5 s CD, tuo danno principale in Protection."
+  ],
+  [
+   14,
+   "Demoralizing Shout",
+   "ability_warrior_warcry",
+   "Riduce l'Attack Power dei nemici entro 10 yd (10 Rage). ★ Dall'8 ott genera threat."
+  ],
+  [
+   14,
+   "Tactical Mastery",
+   "spell_nature_enchantarmor",
+   "★ Ora spell base: mantieni fino a 10 Rage nei cambi di Stance (Improved Tactical Mastery porta a 25)."
+  ],
+  [
+   16,
+   "Shield Block",
+   "ability_defend",
+   "★ +75% Block per 7 s ma solo 2 attacchi (Classic: 5 s, 1 attacco). Defensive Stance, 10 Rage, 5 s CD: attiva Revenge e dà Rage con Shield Specialization."
+  ],
+  [
+   16,
+   "Mocking Blow",
+   "ability_warrior_punishingblow",
+   "Forza il bersaglio a colpire te per 6 s (2 min CD, Battle Stance)."
+  ],
+  [
+   18,
+   "Disarm",
+   "ability_warrior_disarm",
+   "Disarma il nemico per 10 s (Defensive Stance, 1 min CD)."
+  ],
+  [
+   20,
+   "Slam",
+   "ability_warrior_decisivestrike",
+   "★ Al 20 invece del 30 di Classic: cast di 1,5 s, 15 Rage, 18 s CD (Improved Slam in Arms). Poco usato in Protection."
+  ],
+  [
+   20,
+   "Cleave",
+   "ability_warrior_cleave",
+   "Come Heroic Strike ma colpisce un secondo bersaglio: spender per 2+ mob."
+  ],
+  [
+   20,
+   "Victory Rush",
+   "ability_warrior_devastate",
+   "★ Spell base al 20: attacco gratis dopo un kill (entro 20 s) che cura il 10% della salute massima. Fondamentale per il downtime."
+  ],
+  [
+   20,
+   "Retaliation",
+   "ability_warrior_challange",
+   "Contrattacca ogni melee per 15 s (15 min CD, Battle Stance)."
+  ],
+  [
+   20,
+   "Dual Wield",
+   "ability_dualwield",
+   "Si impara al 20 (Warcraft Tavern, Zockify): inutile in Protection, serve a Fury."
+  ],
+  [
+   22,
+   "Intimidating Shout",
+   "ability_golemthunderclap",
+   "Fear su fino a 5 nemici (25 Rage, 3 min CD): fuga d'emergenza."
+  ],
+  [
+   24,
+   "Execute",
+   "inv_sword_48",
+   "Sotto il 20% di salute del bersaglio, Battle o Berserker Stance; non spendere tutta la Rage se il mob sta per morire."
+  ],
+  [
+   26,
+   "Challenging Shout",
+   "ability_bullrush",
+   "Forza i nemici vicini ad attaccarti per 6 s (10 min CD)."
+  ],
+  [
+   28,
+   "Shield Wall",
+   "ability_warrior_shieldwall",
+   "-60% danni subiti per 12 s (Defensive Stance, 15 min CD base)."
+  ],
+  [
+   30,
+   "Berserker Stance",
+   "ability_racial_avatar",
+   "Class quest (vedi milestones): +3% crit, +10% danni subiti. ★ Berserker Rage al 30 (Classic: 32)."
+  ],
+  [
+   30,
+   "Berserker Rage",
+   "spell_nature_ancestralguardian",
+   "Immune a Fear e Incapacitate, Rage extra dai danni subiti (30 s CD, Berserker Stance)."
+  ],
+  [
+   30,
+   "Intercept",
+   "ability_rogue_sprint",
+   "Carica + stun 3 s (Berserker Stance, 10 Rage, 30 s CD)."
+  ],
+  [
+   36,
+   "Whirlwind",
+   "ability_whirlwind",
+   "Berserker Stance, 25 Rage, 10 s CD, colpisce fino a 4 nemici (31–60)."
+  ],
+  [
+   38,
+   "Pummel",
+   "inv_gauntlets_04",
+   "Interrupt in Berserker Stance (31–60)."
+  ],
+  [
+   50,
+   "Recklessness",
+   "ability_criticalstrike",
+   "+100% crit e immune a Fear per 15 s, +20% danni subiti (31–60)."
+  ]
+ ],
+ "talentSpells": [
+  [
+   25,
+   "Vanguard",
+   "ability_warrior_shieldcharge",
+   "★ Charge usabile in Defensive Stance: apri i pull senza cambiare Stance."
+  ],
+  [
+   30,
+   "Concussion Blow",
+   "ability_thunderbolt",
+   "Stun di 5 s, 10 Rage, 45 s CD; richiesto per Shield Slam."
+  ],
+  [
+   40,
+   "Shield Slam",
+   "inv_shield_05",
+   "Colpo di scudo (danno + Block Value, 6 s CD, threat altissimo, 50% dispel di un effetto magico)."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Battle Stance, Rage da auto-attack",
+   "seq": [
+    [
+     "ability_warrior_battleshout",
+     "Battle Shout"
+    ],
+    [
+     "ability_warrior_charge",
+     "Charge (4)"
+    ],
+    [
+     "ability_gouge",
+     "Rend (4)"
+    ],
+    [
+     "ability_rogue_ambush",
+     "Heroic Strike"
+    ],
+    [
+     "ability_shockwave",
+     "Hamstring (8)"
+    ]
+   ],
+   "text": "Battle Shout, Charge per aprire (9 Rage), Rend se il mob vive almeno qualche tick, poi Heroic Strike con la Rage in eccesso. Thunder Clap (6) sui pack, Hamstring (8) per scappare. Rage da weapon speed, non dal danno: arma lenta e grossa = più Rage per colpo (Warcraft Tavern, Kami)."
+  },
+  {
+   "title": "10–19 · Defensive Stance, scudo, Revenge",
+   "seq": [
+    [
+     "ability_warrior_defensivestance",
+     "Defensive Stance"
+    ],
+    [
+     "ability_defend",
+     "Shield Block (16)"
+    ],
+    [
+     "ability_warrior_revenge",
+     "Revenge (14)"
+    ],
+    [
+     "ability_warrior_sunder",
+     "Sunder Armor"
+    ],
+    [
+     "spell_nature_thunderclap",
+     "Thunder Clap"
+    ],
+    [
+     "ability_rogue_ambush",
+     "Heroic Strike"
+    ]
+   ],
+   "text": "Dopo la class quest (10) passa a arma 1H + scudo. Apri con Charge in Battle Stance (stance dance, Tactical Mastery al 14 tiene fino a 10 Rage) oppure senza Charge in Defensive finché non hai Vanguard. Shield Block (16) → Revenge appena si attiva → Sunder Armor o Thunder Clap → Heroic Strike con Rage in eccesso. Con Shield Specialization ogni Block dà 5 Rage."
+  },
+  {
+   "title": "20–30 · Revenge + Victory Rush + Concussion Blow",
+   "seq": [
+    [
+     "ability_warrior_charge",
+     "Charge (da 25 in Defensive)"
+    ],
+    [
+     "ability_defend",
+     "Shield Block"
+    ],
+    [
+     "ability_warrior_revenge",
+     "Revenge"
+    ],
+    [
+     "ability_warrior_devastate",
+     "Victory Rush"
+    ],
+    [
+     "ability_warrior_cleave",
+     "Cleave (2+)"
+    ],
+    [
+     "ability_thunderbolt",
+     "Concussion Blow (30)"
+    ]
+   ],
+   "text": "Dal 25 (Vanguard) apri con Charge senza uscire da Defensive. Ciclo: Shield Block → Revenge → Sunder Armor/Thunder Clap → Heroic Strike. Appena un mob muore usa Victory Rush sul successivo (cura 10%). Execute (24) richiede Battle/Berserker Stance: in Protection di solito non vale il cambio di Stance (🟡 mia valutazione, nessuna fonte lo dice). Concussion Blow (30) come stun d'emergenza. Da 40: Shield Slam a ogni cooldown."
+  },
+  {
+   "title": "AoE / pull multipli",
+   "seq": [
+    [
+     "ability_warrior_warcry",
+     "Demoralizing Shout"
+    ],
+    [
+     "spell_nature_thunderclap",
+     "Thunder Clap"
+    ],
+    [
+     "ability_warrior_revenge",
+     "Revenge"
+    ],
+    [
+     "ability_warrior_cleave",
+     "Cleave"
+    ],
+    [
+     "ability_warrior_shieldwall",
+     "Shield Wall (28)"
+    ]
+   ],
+   "text": "Protection è la spec che regge meglio i pack (Warcraft Tavern, Zockify): Demoralizing Shout (14) + Thunder Clap (-20% velocità d'attacco, 4 bersagli), poi Revenge e Cleave (20) al posto di Heroic Strike. Cooldown da usare per pullare di più: Intimidating Shout (22), Retaliation, Shield Wall (28), Last Stand (se preso)."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Rage e downtime",
+   "html": "<ul><li>★ Rage normalizzata: i colpi danno Rage in base alla weapon speed e non al danno, e l'armor non riduce più la Rage dai danni subiti (build 8 ott). I critici danno +100% Rage.</li><li>Anger Management (56) e Unbridled Wrath (60) arrivano tardi nella build di wowforever.be; prima del 30 la Rage viene da Block, Dodge/Parry, Bloodrage e Charge.</li><li>Il Warrior non ha heal: <b>Victory Rush</b> (20+), First Aid bandages tra un pull e l'altro, Cooking per il buff XP. Consiglio condiviso da Maxroll, Method e Zockify.</li><li>Non spendere tutta la Rage in Execute se il mob ha pochi HP: tienila per il prossimo (Warcraft Tavern).</li></ul>"
+  },
+  {
+   "title": "Stance",
+   "html": "<ul><li><b>Battle:</b> Charge, Overpower, Execute, Mocking Blow, Retaliation. <b>Defensive:</b> Revenge, Shield Block, Disarm, Taunt. <b>Berserker (30):</b> Whirlwind, Pummel, Intercept, Berserker Rage.</li><li>Maxroll: resta in Battle Stance prima di Improved Tactical Mastery e in Defensive prima di Vanguard (il cambio per Charge porta a 10 Rage).</li></ul>"
+  },
+  {
+   "title": "Kite e fuga",
+   "html": "<p>Hamstring (8) e Intimidating Shout (22) per uscire dai pull sbagliati, Shield Bash/Pummel per i caster. Sconsigliato dalla maggior parte delle guide: pullare più mob del dovuto prima di avere Shield Block.</p>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Battle Shout e Heroic Strike. Scegli la zona di partenza della tua razza (Dun Morogh, Elwynn Forest, Teldrassil, Zephras Isle, ecc.)."
+  ],
+  "4": [
+   "Rend e Charge dal Trainer."
+  ],
+  "6": [
+   "Thunder Clap."
+  ],
+  "8": [
+   "Hamstring."
+  ],
+  "10": [
+   "<b>Class quest Defensive Stance</b> (Taunt + Sunder Armor): nella tua area di partenza (Maxroll: Alliance \"A Warrior's Training\", Elanaria, Muren Stormpike a Goldshire/Dolanaar/Kharanos; Horde Veteran Uzzek e Dillinger a Razor Hill/Bloodhoof/Brill; mappatura esatta per razza non verificata, segui il marker). La quest di follow-up dà un'arma 1H (a scelta tra più tipi) – Method. Bloodrage dal Trainer. Primo talent point: Shield Specialization."
+  ],
+  "12": [
+   "Overpower e Shield Bash."
+  ],
+  "14": [
+   "Revenge, Demoralizing Shout, Tactical Mastery: la Protection inizia a funzionare."
+  ],
+  "16": [
+   "Shield Block e Mocking Blow. Per Conquest Capped è il livello da cui Protection \"ripaga\" (prima non c'è vantaggio). Quest reward Welding Shield (Zockify, \"Q16\"; quest non identificata)."
+  ],
+  "18": [
+   "Disarm."
+  ],
+  "20": [
+   "Slam, Cleave, Retaliation, Victory Rush, Dual Wield, Polearms. Class quest armor: Brutal Hauberk o Fire Hardened Hauberk (Warcraft Tavern 🟡)."
+  ],
+  "22": [
+   "Intimidating Shout."
+  ],
+  "24": [
+   "Execute."
+  ],
+  "25": [
+   "Vanguard: Charge in Defensive Stance."
+  ],
+  "26": [
+   "Challenging Shout."
+  ],
+  "28": [
+   "Shield Wall."
+  ],
+  "30": [
+   "<b>Class quest Berserker Stance</b> (Intercept): il Trainer ti manda a Fray Island vicino a Ratchet (quest \"The Islander\" / \"The Affray\", Maxroll / Warcraft Tavern). <b>Whirlwind Axe</b> (item 6975): catena da Alterac Mountains, quest \"The Summoning\", quest level 40, accettabile dal 30 – molto dura (Method, Zockify). Concussion Blow."
+  ],
+  "36": [
+   "Whirlwind (Berserker Stance)."
+  ],
+  "40": [
+   "Shield Slam, Plate Armor, Apprentice Riding (mount) e Dual Talent Specialization. Skinning/Mining aiutano per l'oro del mount. Seconda spec Fury consigliata da Zockify/Mobalytics."
+  ],
+  "50": [
+   "Recklessness."
+  ]
+ },
+ "camp": [
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP: per Maxroll il migliore per XP/ora; il Warrior non ha buff di mana da cercare, quindi XP prima di tutto."
+  ],
+  [
+   "Fish Bowl",
+   "Fishing",
+   "trade_fishing",
+   "+8% stats (non cumula con Blessing of Kings): Strength e Stamina utili in leveling (Maxroll)."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_misc_pelt_wolf_01",
+   "+2% crit (non cumula con Moonkin Aura), conferma di Method e Maxroll; Skinning è anche profession da gold."
+  ],
+  [
+   "(oggetto non trovato) Strength buff",
+   "Blacksmithing",
+   "trade_blacksmithing",
+   "Maxroll: buff di Strength (non cumula con Strength of Earth Totem). Nome dell'oggetto e valore non trovati 🟡."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "spell_holy_sealofsacrifice",
+   "+Stamina (non cumula con Power Word: Fortitude): più sicurezza per un Warrior senza heal."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "trade_engraving",
+   "Armor aggiuntivo (non cumula con Mark of the Wild): utile per tank ma Enchanting è costoso in leveling."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "trade_alchemy",
+   "Mana/5: inutile al Warrior, tienilo solo se il party ha caster."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "trade_tailoring",
+   "Spirit: inutile per Rage."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "trade_herbalism",
+   "Intellect: inutile per Rage."
+  ]
+ ],
+ "professions": {
+  "gold": "Mining + Skinning (Method: Skinning \"easy early money\", utile per il mount al 40; Mining spesso passivo mentre fai quest). Tier list gold Mobalytics (già usata nella guida Mage): Mining e Skinning in S.",
+  "power": "Mining + Blacksmithing (Zockify, Method): Weapon Stones/sharpening stone e weightstone danno +2 danni per 30 min e contano molto presto; Blacksmithing produce anche item BoP con Defense (Warcraft Tavern). First Aid e Cooking su tutti.",
+  "advice": "Main Mining + Skinning; Blacksmithing su un alt/bank o come seconda se vuoi il massimo danno. First Aid (bandages > cibo, Maxroll) è la secondary più importante per un Warrior; Cooking per Basic Campfire e buff XP. Leatherworking solo se vuoi Camp Tent per Rested XP (Maxroll)."
+ },
+ "stats": "Priorità in leveling (Warcraft Tavern): Weapon DPS → Strength/Attack Power → Stamina → Agility → Armor. Protection: 1H + scudo; indossa l'armor più alto possibile rispettando Strength/Stamina (Maxroll). Armi 1H (Zockify): Alliance Durgen's Crescent Axe (13), Cruel Barb (19), Hamhock's Cleaver (25); Horde Thick War Axe (12, craftata), Hammer of Orgrimmar (quest 16), Wingblade (quest 22); poi Pronged Reaver (30), Glutton's Cleaver (37), Thrash Blade (quest 51). Scudi: Welding Shield (quest 16), Commander's Crest (21), Bonepile Gaze (28), Aegis of the Scarlet Commander (39), Stoneshell Guard (47), Draconian Deflector (58). 2H per Arms: Copper Battle Axe (8, craftata), Corpse Chopper (16), Strike of the Hydra (26), Corpsemaker (29), Whirlwind Axe (quest 40). Dove si ottengono i singoli item: non trovato (Zockify dà solo livello/tipo). Dungeon da chase (Maxroll, livello consigliato): Hall of Thanes 13–18, Ragefire Chasm 13–18, Ruins of Lordaeron 15–20, Shadowfang Keep 17–22, Deadmines e Wailing Caverns 18–23, Stockade e City of Dalaran 25–30, Blackfathom Deeps e Scarlet Monastery Graveyard 27–32, Gnomeregan 29–34, Excavation Site: Wetlands 31–36 (il client Forever dice 26–31 dall'1 ott).",
+ "races": {
+  "human": "Ruthless +1% crit su tutto (Warcraft Tavern; nelle note del 16 ott era +2%), Will to Survive rimuove ogni stun, Perception, The Human Spirit +10% Spirit (poco per Warrior). Niente più Sword/Mace Specialization.",
+  "dwarf": "Stoneform (3 min, -10% danni fisici per 8 s e cleanse di bleed/poison/disease), Artisan's Precision +1% Hit, Big Game Hunter +5% danni ai Beast (ottimo in quest all'aperto), Find Treasure. Mobalytics (snippet) consiglia Dwarf per i Warrior Alliance fino al 30 🟡.",
+  "gnome": "Escape Artist (rimuove slow/root + 3 s di immunità), Eureka! (8 s: costi ridotti e +10% danni), Expansive Mind +5% Rage massima (poco utile con Rage normalizzata), Engineering Specialization (-20% backfire).",
+  "night-elf": "Quickness: +1% Dodge (aiuta Revenge e Master of Defense) e +2% velocità; Elune's Light +10% crit per 15 s (3 min CD); Shadowmeld ora riduce anche il threat (2 min CD); Wisp Spirit.",
+  "skyborne_alliance": "High Order: Wind Blessed +2% Haste, Elemental Insight +5% danni agli Elemental, Walk on Air (90 s CD, slow fall), Read Ley Line (+50% regen HP/mana per 15 s, 2 min CD, 100% se Attuned). Maxroll consiglia entrambe le Skyborne.",
+  "orc": "Blood Fury +10% Attack Power/Spell Power per 15 s (tooltip: 2 min CD; note 16 ott: 3 min 🟡), Hardiness -20% durata stun, Shatter Curse, Command (inutile). Savage rimosso.",
+  "troll": "Berserking +10% attack/cast speed per 15 s (3 min CD; nerf rispetto al 30% di Classic), Beast Slaying +5% danni ai Beast, Regeneration (20% dal 16 ott 🟡), Rapid Regeneration (canalizzata).",
+  "tauren": "Endurance +5% Health (utile al tank), War Stomp (0,5 s cast, stun 2 s su 5 nemici a 8 yd, 90 s CD), Plainsrunning fino a +30% velocità dopo 150 s di corsa e +3% mount, Cultivation (herbalism).",
+  "undead": "Will of the Forsaken (2 min CD, rimuove Charm/Fear/Sleep), Cannibalize (7% HP e mana ogni 2 s per 10 s da cadaveri Humanoid/Undead: heal gratis), Touch of the Grave (30% di drenare fino al 5% HP max, 15 s CD), Underwater Breathing.",
+  "skyborne_horde": "Windshaper: Wind Blessed, Elemental Insight, Walk on Air e Skysight (+15% velocità 15 s, 30% se Charged, 2 min CD) invece di Read Ley Line."
+ },
+ "forever": [
+  "★ Rage normalizzata: Rage dai colpi per weapon speed e non per danno; l'armor non riduce più la Rage dai danni subiti, critici +100% Rage (Kami 30 set; Blizzard 1/8 ott).",
+  "★ Protection: Shield Specialization dà 5 Rage per Block e 100% di chance; Master of Defense, Vanguard e Focused Rage sono nuovi; Bastion +10% danni con scudo; Shield Block blocca 2 attacchi per 7 s (Kami 30 set).",
+  "★ Dal 24 set Bastion e Focused Rage si sono scambiati di riga; dall'1 ott Iron Will, Anticipation e Improved Bloodrage sono nelle prime due righe e Toughness è stato rimosso (note Blizzard).",
+  "★ Tactical Mastery e Victory Rush (20) sono spell base; Berserker Rage al 30 (era 32); Slam al 20; Battle Shout raid-wide dal 15 ott (Blizzard / wowforever.be).",
+  "★ Nuovi talent Arms: Spearing Strike (dall'1 ott niente 2H, richiede Battle Stance), Bloodthrill (4–20%, solo Main Hand), Weaponmaster; Fury: Lingering Rage, Furious Precision, Raging Blows, Gore Drinker (1 ott).",
+  "★ 8 ott: Rage per quest warrior ribilanciata (circa 20–40% per livello); Demoralizing Shout genera threat; 16 ott: Overpower funziona su mob molto più bassi, Slam non subisce pushback.",
+  "★ Dungeon: quest bonus XP -50% (1 ott), creature XP in dungeon +20% (8 ott); Excavation Site: Wetlands 26–31 aggiunto (1 ott).",
+  "★ Dual Talent Specialization al livello 40 (wowforever.be, Warcraft Tavern). Zephras Isle ha nuovi Warrior Trainer (Warcraft Tavern).",
+  "🟡 Hotfix server del 30 ott (216 talent/spell toccati, aggregatore non verificato): impossibile sapere se riguardano il Warrior; ricontrolla i tooltip in gioco."
+ ],
+ "sources": [
+  {
+   "name": "wowforever.be – Build di leveling Warrior",
+   "url": "https://wowforever.be/leveling/warrior/",
+   "author": "wowforever.be",
+   "date": "1 nov (client 1.60.1.70707)",
+   "signal": "dati client",
+   "used": "talent, ordine 10–60, flag New/Changed"
+  },
+  {
+   "name": "Mobalytics – classifica preferiti (mobalytics.md)",
+   "url": "https://mobalytics.gg/wow-forever/classes/protection-warrior-guide-kalltorak",
+   "author": "KallTorak (Prot 82 ♥, 30 ott, 0/0/21); Ahlaundoh (Warrior 1-60 Verified 48 ♥, 35/14/2); Kargoz (Prot 15 ♥, 14 ott, 5/6/40)",
+   "date": "14–30 ott",
+   "signal": "82 / 48 / 15 ♥",
+   "used": "segnale di qualità, finali dei punti; dettagli da snippet WebSearch (pagine 403)"
+  },
+  {
+   "name": "Icy Veins – Protection / Arms / Fury Warrior Leveling (WoW Forever)",
+   "url": "https://www.icy-veins.com/wow-forever/protection-warrior-leveling",
+   "author": "non letto",
+   "date": "Arms/Fury 26 ott",
+   "signal": "reputazione alta; solo snippet",
+   "used": "raccomandazione Prot, Shield Specialization → Improved Revenge → Defiance; Arms: Slam 20, Sweeping Strikes 30, Mortal Strike 40"
+  },
+  {
+   "name": "Method – WoW Forever Warrior Leveling Guide & Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-warrior-leveling-guide-and-talents",
+   "author": "Babyhoof",
+   "date": "9 ott",
+   "signal": "reputazione alta, ordine solo parziale",
+   "used": "build Arms 2H e Prot, class quest, professioni, spell per livello"
+  },
+  {
+   "name": "Warcraft Tavern – Warrior Leveling Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/warrior-leveling/",
+   "author": "Passion",
+   "date": "dopo 1 ott, senza data",
+   "signal": "reputazione alta",
+   "used": "spell per livello, build a 30, stat priority, zone, racial"
+  },
+  {
+   "name": "Maxroll – Warrior Leveling Guide for WoW: Forever",
+   "url": "https://maxroll.gg/wow-forever/class-guides/warrior-leveling-guide",
+   "author": "Soda",
+   "date": "30 ott",
+   "signal": "nessun ordine talent",
+   "used": "camp, professioni, dungeon, rotazioni, razze"
+  },
+  {
+   "name": "Zockify – Warrior Leveling Guide",
+   "url": "https://www.zockify.com/forever/warrior/leveling/",
+   "author": "non indicato",
+   "date": "28 ott",
+   "signal": "fonte singola per le armi 🟡",
+   "used": "armi/scudi, Legacy, rotazioni"
+  },
+  {
+   "name": "KamiLabs – Warrior spells e talents modificati",
+   "url": "https://kami-labs.fr/en/wow-forever/guerrier-wow-forever-sorts-et-talents-modifies/",
+   "author": "Kami",
+   "date": "30 set",
+   "signal": "reputazione alta",
+   "used": "novità ★ di Forever"
+  },
+  {
+   "name": "Blizzard – WoW Forever Beta Development Notes",
+   "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-development-notes-%E2%80%93-updated-october-26/2360696",
+   "author": "Blizzard",
+   "date": "24 set–16 ott (pagina tagliata)",
+   "signal": "fonte primaria",
+   "used": "cambi Warrior e leveling"
+  },
+  {
+   "name": "Wowhead Forever tooltip (nether.wowhead.com)",
+   "url": "https://nether.wowhead.com/forever/tooltip/spell/<id>",
+   "author": "Wowhead",
+   "date": "1 nov",
+   "signal": "dati client",
+   "used": "livelli e testi delle spell, racial"
+  },
+  {
+   "name": "YouTube – Kargoz Fury 1-60",
+   "url": "https://www.youtube.com/watch?v=QW5KfTN714w",
+   "author": "Kargoz",
+   "date": "8 ott",
+   "signal": "90k views",
+   "used": "segnale Fury (sottotitoli non letti)"
+  },
+  {
+   "name": "YouTube – KallTorak \"Protection Warrior Feels AMAZING To Level\"",
+   "url": "https://www.youtube.com/watch?v=deKzhh6OUPM",
+   "author": "KallTorak",
+   "date": "19 set",
+   "signal": "108k views",
+   "used": "segnale Protection (video non letto)"
+  },
+  {
+   "name": "YouTube – GuideMMO Warrior 1-60 / Siax Prot / Tactyks Prot / WoW at Night Prot",
+   "url": "https://www.youtube.com/watch?v=ZuV3J8q7uUg",
+   "author": "GuideMMO 43k (21 ott); Siax 34k (28 ott, 1 h, lista talent per livello); Tactyks 9k (29 ott); WoW at Night 11k (30 ott)",
+   "date": "21–30 ott",
+   "signal": "views",
+   "used": "solo titoli/capitoli: trascrizioni non lette"
+  },
+  {
+   "name": "Warcraft Tavern – Racial Abilities (Dwarf/Human/Gnome/Night Elf/Skyborne/Orc/Troll/Tauren)",
+   "url": "https://www.warcrafttavern.com/forever/guides/racial-abilities/",
+   "author": "Val Hull, Nevermore, Cyradys, Sponge",
+   "date": "ott",
+   "signal": "reputazione alta",
+   "used": "racial"
+  }
+ ],
+ "doubts": [
+  "🟡 Ordine per livello di Icy Veins, Mobalytics (KallTorak, Kargoz), Siax e Tactyks non letto (pagine bloccate / video senza sottotitoli): verifica dell'ordine solo tramite totali e snippet; wowforever.be è l'unico ordine completo.",
+  "🟡 31–60: unica fonte wowforever.be; la build torna a spezzoni Fury/Arms dopo il 40 (Cruelty, Deflection, Improved Tactical Mastery), probabile pensiero per respec/Dual Spec. Non confermata altrove.",
+  "🟡 Defiance 3/3 (26–28) è tank-oriented; per solo leveling potrebbe valere altro, ma nessuna fonte propone un'alternativa con ordine; Warcraft Tavern suggerisce di spostare punti su Improved Thunder Clap (già 3/3 qui).",
+  "Last Stand (talent) non è nella build di wowforever.be; nessuna fonte letta spiega perché.",
+  "Dove ottenere le armi/scudi elencati da Zockify: non trovato. Nome e valore del camp object di Blacksmithing: non trovato.",
+  "Racial: Human Ruthless 1% (Tavern, tooltip) vs 2% (note 16 ott); Orc Blood Fury CD 2 min (tooltip) vs 3 min (note 16 ott); Berserking durata 15 s (tooltip) vs 10 s (Tavern).",
+  "Zockify vs Warcraft Tavern: Zockify dice Whirlwind Weapon quest livello 40; Method/Zockify citano Alterac Mountains; nome quest Berserker Stance diverso tra fonti (The Islander / The Affray).",
+  "Class quest livello 10: NPC per razza non verificati uno per uno (Maxroll dà un elenco parziale); controlla il marker in gioco.",
+  "Dati pre-lancio (beta cap 30): i tooltip in gioco hanno la precedenza."
+ ]
+}

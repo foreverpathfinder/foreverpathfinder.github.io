@@ -1,0 +1,826 @@
+{
+ "class": "rogue",
+ "name": "Rogue",
+ "resource": "Energy",
+ "spec": "Combat",
+ "specIcon": "ability_backstab",
+ "summary": "Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Ho preso l'ordine di wowforever.be (10–35), che coincide con Method e Warcraft Tavern (Remorseless Attacks ×2 all'inizio, Puncturing Wounds per Backstab col pugnale, Deflection + Riposte). Il 36–60 NON esiste in nessuna fonte con un ordine per livello: l'ho composto io dalle liste di Method e dalle build 60 di Warcraft Tavern e di Rogue's Diary (vedi buildSource).",
+ "build": [
+  "Remorseless Attacks",
+  "Remorseless Attacks",
+  "Improved Sinister Strike",
+  "Improved Sinister Strike",
+  "Improved Eviscerate",
+  "Improved Eviscerate",
+  "Improved Eviscerate",
+  "Puncturing Wounds",
+  "Puncturing Wounds",
+  "Puncturing Wounds",
+  "Deflection",
+  "Deflection",
+  "Deflection",
+  "Riposte",
+  "Precision",
+  "Precision",
+  "Precision",
+  "Flawless Execution",
+  "Dual Wield Specialization",
+  "Dual Wield Specialization",
+  "Dual Wield Specialization",
+  "Dual Wield Specialization",
+  "Blade Flurry",
+  "Opportunity",
+  "Opportunity",
+  "Hack and Slash",
+  "Hack and Slash",
+  "Hack and Slash",
+  "Hack and Slash",
+  "Weapon Expertise",
+  "Weapon Expertise",
+  "Aggression",
+  "Aggression",
+  "Aggression",
+  "Adrenaline Rush",
+  "Hack and Slash",
+  "Dual Wield Specialization",
+  "Malice",
+  "Malice",
+  "Malice",
+  "Malice",
+  "Malice",
+  "Ruthlessness",
+  "Ruthlessness",
+  "Ruthlessness",
+  "Relentless Strikes",
+  "Lethality",
+  "Lethality",
+  "Improved Slice and Dice",
+  "Improved Slice and Dice",
+  "Improved Slice and Dice"
+ ],
+ "buildSource": "Livelli 10–35: wowforever.be (dati client 1.60.1.70707, pagina 'Build di livellamento Rogue', letta 1 nov) = Warcraft Tavern (build 30 Combat, senza Remorseless Attacks) = Method (Remorseless Attacks ×2 fino al 30). Livelli 36–60 🟡 composti da me, NON copiati da una fonte: wowforever.be si ferma al 35; Warcraft Tavern dà solo il punteggio finale (60 Combat 18/33/0 e versione dagger 16/33/2, preliminari) senza ordine; Method elenca la priorità 'Hack and Slash 5/5, Weapon Expertise 2/2, Aggression 3/3, Adrenaline Rush'; Rogue's Diary (Mobalytics, 28 ♥) dà un ordine 31–60 completo ma per una build senza Puncturing Wounds (con Endurance), non compatibile punto per punto. Ho seguito la priorità di Method nel Combat, poi il ramo Assassination come nelle build 60 (Malice → Ruthlessness → Relentless Strikes → Lethality → Improved Slice and Dice, ordine di Rogue's Diary). Totale finale 16/33/2 (Remorseless Attacks 2, Malice 5, Ruthlessness 3, Relentless Strikes 1, Lethality 2, Improved SnD 3 / Combat 33 / Opportunity 2). Prerequisiti verificati con uno script sui dati client. Adrenaline Rush arriva al 44 (non al 40) perché servono 30 punti in Combat e 4 punti sono in Assassination/Subtlety.",
+ "why": {
+  "Remorseless Attacks": "Dopo ogni kill, +20% / +40% crit sul prossimo Sinister Strike, Backstab, Ambush… per 20 s: ideale per catene di mob singoli (Method e Rogue's Diary la prendono per prima; Method la sposta al 30).",
+  "Improved Sinister Strike": "Sinister Strike costa 5 Energy in meno: è il builder principale di Combat.",
+  "Improved Eviscerate": "+20% danno a Eviscerate, il finisher più usato in leveling.",
+  "Puncturing Wounds": "★ Nuovo in Forever: +30% crit a Backstab e 45% di Combo Point extra; per chi usa un pugnale (Blade of Cunning, quest del 10). Se non hai pugnali, Method sposta questi 3 punti su Endurance 2 + Lightning Reflexes 1.",
+  "Deflection": "Parry +6%: meno danni in mischia e attiva Riposte.",
+  "Riposte": "Colpo 150% danno + Disarm 6 s dopo un Parry; Rogue's Diary la considerava il miglior talent da leveling prima di Endurance. Si mette in macro con Sinister Strike.",
+  "Precision": "★ Ora 3 rank, +3% Hit totale: meno Miss su attacchi e Poison.",
+  "Flawless Execution": "★ Eviscerate costa 10 Energy in meno: più Eviscerate, più Energy per i Combo Point.",
+  "Dual Wield Specialization": "Danno della off-hand +25% a 5 rank: i colpi automatici sono metà del tuo danno.",
+  "Blade Flurry": "+20% velocità d'attacco e colpisci un secondo bersaglio per 15 s: l'unico cleave del Rogue, perfetto con Evasion (mob multipli).",
+  "Opportunity": "Backstab, Garrote, Ambush +10% (2 rank): solo wowforever.be lo prende (33–34) per il ramo Backstab; alternative sono Endurance o Improved Sprint.",
+  "Hack and Slash": "★ Un solo talent per tutte le armi: Dagger/Fist +5% crit, Spada/Ascia 5% di colpo extra, Mace ignora 15% armor. Per Method e Warcraft Tavern è 'make-or-break'.",
+  "Weapon Expertise": "Meno Dodge/Parry sui tuoi attacchi (−2%).",
+  "Aggression": "Sinister Strike, Backstab ed Eviscerate +6%.",
+  "Adrenaline Rush": "Energy regen +100% per 15 s: il tuo burst per i pull da 3–5 mob.",
+  "Malice": "+5% crit su tutti gli attacchi e anche sui Poison (che ora possono critare).",
+  "Ruthlessness": "60% di Combo Point extra con i finisher: meno Energy sprecata.",
+  "Relentless Strikes": "Finisher con 20% per Combo Point di restituire 25 Energy.",
+  "Lethality": "Più danno sui crit di Sinister Strike, Backstab e Gouge.",
+  "Improved Slice and Dice": "+45% di durata a Slice and Dice: meno refresh."
+ },
+ "compare": [
+  {
+   "source": "wowforever.be – build di livellamento (client)",
+   "signal": "dati client 1.60.1.70707, letta 1 nov",
+   "l10_19": "Remorseless Attacks 2 → Improved Sinister Strike 2 → Improved Eviscerate 3 → Puncturing Wounds 3 (10–19)",
+   "l20": "Deflection 1/3 al 20",
+   "l21_30": "Deflection 3 → Riposte (23) → Precision 3 (24–26) → Flawless Execution (27) → Dual Wield Spec 3/5 (28–30); 31 DWS 4, 32 Blade Flurry, 33–34 Opportunity, 35 Hack and Slash"
+  },
+  {
+   "source": "Warcraft Tavern – Nevermore (guida 1–60, build 30 Combat)",
+   "signal": "agg. ott 2026, immagini dei talent; 60 \"provvisoria\"",
+   "l10_19": "Improved Eviscerate 3, Improved Sinister Strike 2, Puncturing Wounds 3 (senza Remorseless Attacks)",
+   "l20": "Deflection 3 + Riposte",
+   "l21_30": "Precision 3, Flawless Execution, Dual Wield Spec 4, Blade Flurry (21 punti tutti in Combat)"
+  },
+  {
+   "source": "Method – Reholy",
+   "signal": "agg. 9 ott 2026",
+   "l10_19": "Remorseless Attacks 2 fino al 30",
+   "l20": "idem",
+   "l21_30": "al 30 respec: Dual Wield Spec 4/5 + Blade Flurry (se non hai Legacy Points); senza pugnali: Endurance 2 + Lightning Reflexes 1 al posto di Puncturing Wounds. Dopo: Hack and Slash 5, Weapon Expertise 2, Aggression 3, Adrenaline Rush"
+  },
+  {
+   "source": "Mobalytics – DonTheCrown (Combat 0/21/0, 1–30 e 31–60 tab)",
+   "signal": "37 ♥ (lista) / 34 ♥ (pagina), Verified, 28 ott; video 62k views (29 set)",
+   "l10_19": "Improved Sinister Strike 2, Improved Eviscerate 3, Precision 2, Deflection 3, Riposte",
+   "l20": "Riposte, Precision 3/3",
+   "l21_30": "Endurance 2, Improved Sprint 1, Flawless Execution, Dual Wield Spec 4, Blade Flurry. NIENTE Puncturing Wounds, niente Remorseless Attacks"
+  },
+  {
+   "source": "Mobalytics – Rogue's Diary (Combat 1–60 con ordine, 20/31/0)",
+   "signal": "28 ♥ (lista) / 23 ♥ (pagina), Verified, 30 ott",
+   "l10_19": "Remorseless Attacks 2 (10–11), Improved Sinister Strike 2, Improved Eviscerate 3, Precision 3",
+   "l20": "respec al 20: Improved Eviscerate 3, Improved Sinister Strike 2, Precision 2, Deflection 3, Riposte",
+   "l21_30": "Endurance 2 (21–22), Precision 3, Lightning Reflexes/Improved Sprint, DWS 26–29, Blade Flurry al 30; 31–34 Hack and Slash, 35–36 Weapon Expertise, 37 H&S, 38–39 Aggression, 40 Adrenaline Rush, poi Remorseless Attacks, Malice, Ruthlessness, Relentless Strikes, Lethality, Cold Blood, Improved Slice and Dice"
+  },
+  {
+   "source": "WoW Forever (canale ufficiale) – Ultimate Rogue Guide",
+   "signal": "17k views, 18 ott",
+   "l10_19": "Combat 0/21/0: Improved Eviscerate 3, Improved Sinister Strike 2",
+   "l20": "Deflection 3",
+   "l21_30": "Precision 3, Endurance 2, Riposte, Improved Sprint 1, Flawless Execution, DWS 4, Blade Flurry"
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Variante senza pugnali (Mobalytics 37 ♥ e 28 ♥): Endurance al posto di Puncturing Wounds",
+   "html": "<p>Se in mano hai spade, asce o mace (per esempio Ruby-Adorned Blade) Puncturing Wounds serve a poco: Backstab richiede un pugnale. DonTheCrown e Rogue's Diary prendono invece <b>Endurance 2/2</b> (Sprint ed Evasion ogni 2 minuti: 'il miglior talent da leveling' per Rogue's Diary) e <b>Improved Sprint</b>. Method dà la stessa indicazione: 3 punti da Puncturing Wounds a <b>Endurance 2 + Lightning Reflexes 1</b>.</p><p>wowforever.be e Warcraft Tavern restano sul ramo pugnale + Backstab perché <b>Blade of Cunning</b> (quest di livello 10) è un pugnale e perché Mobalytics/Method dicono che Backstab è molto più comodo in gruppo.</p>"
+  },
+  {
+   "title": "Assassination (Mutilate) – più lenta, meglio dopo il 30",
+   "html": "<p>Warcraft Tavern: 'non consigliata come spec di partenza', cresce con Mutilate (talent al 30, solo con due pugnali) e Poison. Gaunerh (65k views, 7 ott) dice che Mutilate al 30 è 'a corto di Energy'; il suo video del 27 ott (13k) consiglia un respec a Mutilate intorno al <b>32</b> se hai buoni pugnali. Method e Icy Veins la tengono come alternativa.</p>"
+  },
+  {
+   "title": "Subtlety (Ambush / Hemorrhage) – solo per curiosità o PvP",
+   "html": "<p>Mobalytics la descrive come la spec da PvP: in solo i mob ti guardano in faccia e Ambush richiede Stealth. Warcraft Tavern: la build Ambush 'non va bene in dungeon' finché non arriva Cutthroat (35, ma 'le build beta non hanno abbastanza punti'). Gaunerh (65k views) trova Hemorrhage/Subtlety 'sorprendentemente forte' ma non ho letto la sua conclusione finale (nessuna trascrizione).</p>"
+  },
+  {
+   "title": "Legacy Points e \"Talented\" (+5 livelli prima)",
+   "html": "<p>DonTheCrown: i primi 5 Legacy Points in <b>Thrill of Adventure</b> (5% della salute massima per kill). Se rileveli un alt, <b>Well Rested</b> sblocca Talented: Riposte, Blade Flurry e Adrenaline Rush 5 livelli prima. Warcraft Tavern: i talent arrivano fino a 5 livelli prima con Talented.</p>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Sinister Strike",
+   "spell_shadow_ritualofsacrifice",
+   "Builder principale: dà 1 Combo Point. Base di tutta la rotation Combat."
+  ],
+  [
+   1,
+   "Eviscerate",
+   "ability_rogue_eviscerate",
+   "Finisher: danno aumenta con i Combo Point. Finisce il mob."
+  ],
+  [
+   1,
+   "Stealth",
+   "ability_stealth",
+   "Invisibilità, ma rallenta molto ai livelli bassi (−50%). Usala solo contro mob pericolosi."
+  ],
+  [
+   4,
+   "Backstab",
+   "ability_backstab",
+   "Builder da dietro, solo con pugnale in main hand (Dagger)."
+  ],
+  [
+   4,
+   "Pick Pocket",
+   "inv_misc_bag_11",
+   "Borseggio da Stealth: monete e loot extra."
+  ],
+  [
+   6,
+   "Gouge",
+   "ability_gouge",
+   "Incapacita il bersaglio e ferma l'auto-attack: tempo per una bandage."
+  ],
+  [
+   8,
+   "Evasion",
+   "spell_shadow_shadowward",
+   "Dodge molto più alto per alcuni secondi: usala con più mob addosso."
+  ],
+  [
+   10,
+   "Dual Wield",
+   "ability_dualwield",
+   "Passiva: puoi usare un'arma nella off-hand. (Prima di questo, solo una)."
+  ],
+  [
+   10,
+   "Sap",
+   "ability_sap",
+   "★ Non rompe più lo Stealth: incapacita un mob umanoide/elite per isolare un pull."
+  ],
+  [
+   10,
+   "Slice and Dice",
+   "ability_rogue_slicedice",
+   "Finisher: aumenta l'attack speed per qualche secondo. Priorità sui combattimenti lunghi."
+  ],
+  [
+   10,
+   "Sprint",
+   "ability_rogue_sprint",
+   "Aumenta la velocità di corsa per pochi secondi; con Endurance ogni 2 minuti."
+  ],
+  [
+   12,
+   "Kick",
+   "ability_kick",
+   "Interrompe i cast. Usa sui caster, costa Energy."
+  ],
+  [
+   12,
+   "Parry",
+   "ability_parry",
+   "Passiva: puoi parare i colpi frontali (serve per Riposte)."
+  ],
+  [
+   14,
+   "Expose Armor",
+   "ability_warrior_riposte",
+   "★ Come 5 Sunder Armor (e non blocca più Sunder): usalo solo se il mob vive per tutta la durata."
+  ],
+  [
+   14,
+   "Garrote",
+   "ability_rogue_garrote",
+   "Opener da Stealth con sanguinamento (alcuni mob sono immuni). Ignora l'armor."
+  ],
+  [
+   16,
+   "Feint",
+   "ability_rogue_feint",
+   "★ Riduce la minaccia (ora doppia): per i gruppi."
+  ],
+  [
+   16,
+   "Pick Lock",
+   "spell_nature_moonkey",
+   "Scassina i lockbox. Per la quest dei Poison servono 80 di skill (Pick Lock)."
+  ],
+  [
+   18,
+   "Ambush",
+   "ability_rogue_ambush",
+   "Opener da Stealth con pugnale: grande danno. Method: meglio di Garrote o Backstab iniziale."
+  ],
+  [
+   20,
+   "Rupture",
+   "ability_rogue_rupture",
+   "Finisher con DoT (ignora armor): per mob con tanta armor. In Combat, ignorala."
+  ],
+  [
+   20,
+   "Poisons (quest)",
+   "trade_brewpoison",
+   "Quest di classe: sblocca la skill Poisons + Instant Poison e la ricetta di Thistle Tea. Poi Crippling Poison al 20."
+  ],
+  [
+   22,
+   "Distract",
+   "ability_rogue_distract",
+   "★ Distrae un gruppo e abbassa la loro detection di Stealth per 10 s."
+  ],
+  [
+   22,
+   "Vanish",
+   "ability_vanish",
+   "Esci dal combattimento e rientra in Stealth. Reagent: Flash Powder."
+  ],
+  [
+   24,
+   "Mind-numbing Poison",
+   "spell_nature_nullifydisease",
+   "Allunga i cast dei caster (ricetta al Trainer)."
+  ],
+  [
+   26,
+   "Cheap Shot",
+   "ability_cheapshot",
+   "Stun da Stealth con 2 Combo Point (DonTheCrown: ottimo per farmare)."
+  ],
+  [
+   30,
+   "Kidney Shot",
+   "ability_rogue_kidneyshot",
+   "Finisher: stun lungo quanto i Combo Point."
+  ],
+  [
+   30,
+   "Deadly Poison",
+   "ability_rogue_dualweild",
+   "DoT cumulabile fino a 5; per i combattimenti lunghi. Per leveling quasi sempre Instant Poison."
+  ],
+  [
+   30,
+   "Disarm Trap",
+   "spell_shadow_grimward",
+   "Disinnesca trappole (utile in dungeon)."
+  ],
+  [
+   32,
+   "Wound Poison",
+   "inv_misc_herb_16",
+   "Riduce le cure ricevute; utile soprattutto in PvP."
+  ],
+  [
+   34,
+   "Blind",
+   "spell_shadow_mindsteal",
+   "Disorienta un bersaglio (rompe al danno). Reagent: Blinding Powder. Completa il kit del Rogue."
+  ],
+  [
+   40,
+   "Safe Fall",
+   "spell_magic_featherfall",
+   "Passiva: niente danni da caduta. Lo stesso livello: Apprentice Riding e Dual Talent Specialization."
+  ]
+ ],
+ "talentSpells": [
+  [
+   10,
+   "Remorseless Attacks",
+   "ability_fiegndead",
+   "Dopo un kill, prossimo Sinister Strike/Backstab/Ambush con +40% crit per 20 s."
+  ],
+  [
+   23,
+   "Riposte",
+   "ability_warrior_challange",
+   "Si attiva dopo un Parry: 150% weapon damage e Disarm 6 s. Metti in macro: /cast Riposte /cast Sinister Strike."
+  ],
+  [
+   27,
+   "Flawless Execution",
+   "inv_sword_35",
+   "Eviscerate costa 10 Energy in meno."
+  ],
+  [
+   32,
+   "Blade Flurry",
+   "ability_warrior_punishingblow",
+   "+20% attack speed e colpi su un bersaglio extra per 15 s. Cooldown 2 minuti con Endurance, in coppia con Evasion."
+  ],
+  [
+   35,
+   "Hack and Slash",
+   "inv_sword_27",
+   "Passiva: Dagger/Fist +5% crit, Sword/Axe 5% colpo extra, Mace ignora 15% armor."
+  ],
+  [
+   44,
+   "Adrenaline Rush",
+   "spell_shadow_shadowworddominate",
+   "Energy regen +100% per 15 s (20 Energy al secondo): burst per 3–5 mob."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Sinister Strike + Eviscerate",
+   "seq": [
+    [
+     "ability_throw",
+     "Throw (pull)"
+    ],
+    [
+     "spell_shadow_ritualofsacrifice",
+     "Sinister Strike"
+    ],
+    [
+     "spell_shadow_ritualofsacrifice",
+     "Sinister Strike"
+    ],
+    [
+     "ability_rogue_eviscerate",
+     "Eviscerate"
+    ]
+   ],
+   "text": "Apri con Throw (arma da lancio iniziale) per tagare a distanza, poi Sinister Strike per i Combo Point ed Eviscerate sul mob quasi morto. Con pugnale puoi aprire con Backstab dal 4 (da Stealth), ma Warcraft Tavern dice di non usare Stealth su ogni mob: è lento. Evasion al 8 per i mob forti. Gouge (6) per interrompere un cast o scappare."
+  },
+  {
+   "title": "10–19 · Slice and Dice entra in rotation",
+   "seq": [
+    [
+     "ability_rogue_slicedice",
+     "Slice and Dice"
+    ],
+    [
+     "spell_shadow_ritualofsacrifice",
+     "Sinister Strike"
+    ],
+    [
+     "ability_backstab",
+     "Backstab (pugnale)"
+    ],
+    [
+     "ability_rogue_eviscerate",
+     "Eviscerate"
+    ]
+   ],
+   "text": "Con Dual Wield e Slice and Dice (10): Sinister Strike due volte, poi Slice and Dice, poi continua a Sinister Strike e finisci con Eviscerate (DonTheCrown). Slice and Dice ha priorità solo se il combattimento durerà abbastanza o se attacchi subito un altro mob. Con Remorseless Attacks attacca il prossimo mob prima che scadano i 20 s. Usa Kick (12) sui caster. Da 14 puoi usare Expose Armor solo su mob che vivono tutta la durata. Con pugnale in main hand: Ambush da Stealth (18)."
+  },
+  {
+   "title": "20–31 · Poison, Riposte, Cheap Shot",
+   "seq": [
+    [
+     "ability_poisons",
+     "Instant Poison"
+    ],
+    [
+     "ability_cheapshot",
+     "Cheap Shot"
+    ],
+    [
+     "ability_rogue_slicedice",
+     "Slice and Dice"
+    ],
+    [
+     "spell_shadow_ritualofsacrifice",
+     "Sinister Strike"
+    ],
+    [
+     "ability_warrior_challange",
+     "Riposte"
+    ],
+    [
+     "ability_rogue_eviscerate",
+     "Eviscerate"
+    ]
+   ],
+   "text": "Dal 20, Instant Poison su entrambe le armi (quasi sempre meglio di Deadly Poison per mob che muoiono presto, DonTheCrown e Rogue's Diary). Dal 26, Stealth → Cheap Shot (2 Combo Point) → Slice and Dice, e se possibile aggrega i mob mentre entri in Stealth. Riposte quando si attiva (macro con Sinister Strike). Rupture non serve. Kidney Shot dal 30 per i mob pericolosi."
+  },
+  {
+   "title": "32+ · Blade Flurry e mob multipli",
+   "seq": [
+    [
+     "ability_warrior_punishingblow",
+     "Blade Flurry"
+    ],
+    [
+     "spell_shadow_shadowward",
+     "Evasion"
+    ],
+    [
+     "spell_shadow_ritualofsacrifice",
+     "Sinister Strike"
+    ],
+    [
+     "ability_rogue_slicedice",
+     "Slice and Dice"
+    ],
+    [
+     "ability_rogue_eviscerate",
+     "Eviscerate 5 punti"
+    ]
+   ],
+   "text": "Con 2–4 mob: Sap per isolare, poi Blade Flurry + Evasion (con Endurance hanno entrambi 2 minuti di cooldown), concentra Sinister Strike sul mob più forte per salire a 5 Combo Point: l'Eviscerate colpisce anche il secondo bersaglio. Dal 44, Adrenaline Rush permette pull da 3–5 mob (Rogue's Diary). Sprint e Evasion si sincronizzano col Blade Flurry (Rogue's Diary)."
+  },
+  {
+   "title": "Energy, Combo Point e downtime",
+   "seq": [
+    [
+     "inv_drink_milk_05",
+     "Thistle Tea"
+    ],
+    [
+     "inv_misc_bandage_01",
+     "Bandage"
+    ]
+   ],
+   "text": "Energy 100, ora si rigenera in modo continuo (1 ogni 0,1 s = 10 al secondo, Warcraft Tavern). Mai un builder con 5 Combo Point e mai un finisher con pochi punti. Non cambiare bersaglio mentre costruisci Combo Point: li perdi. Thistle Tea (+100 Energy, ricetta dalla quest del 20 oppure Smudge Thunderwood a Ravenholdt Manor): usala vicino a 0 Energy, meglio dentro Blade Flurry. Senza self-heal: bandage (First Aid) dopo Gouge/Blind/Kidney Shot, ma solo se non ci sono DoT sul mob. Food con +5% XP prima di pullare."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Opener e Stealth",
+   "html": "<p>Warcraft Tavern: usa Stealth contro i mob forti, gli altri vai a muso duro, altrimenti rallenti il leveling. Dal 26 in poi Cheap Shot → Slice and Dice è la rotazione di farm di DonTheCrown. Con pugnale: Ambush (dal 18) è migliore di Garrote o di un Backstab iniziale (Method).</p>"
+  },
+  {
+   "title": "Pick Pocket, Sap, Distract",
+   "html": "<p>★ Sap non rompe più lo Stealth e Distract (22) abbassa la detection per 10 s: li usi per muoverti dentro gli accampamenti. Pick Pocket prima dell'opener (macro): può mancare e farti uscire da Stealth.</p>"
+  },
+  {
+   "title": "Macro utili (Mobalytics)",
+   "html": "<ul><li><b>Riposte/Sinister Strike</b>: <code>#showtooltip Sinister Strike</code> / <code>/startattack</code> / <code>/cast Riposte</code> / <code>/cast Sinister Strike</code> (DonTheCrown, Rogue's Diary).</li><li><b>Poison e stone con un click</b>: sinistro main hand, destro off-hand (Rogue's Diary).</li></ul>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Sinister Strike, Eviscerate, Stealth. Throw (arma da lancio iniziale) per il pull. Cooking: Basic Campfire per i camp object."
+  ],
+  "4": [
+   "Backstab e Pick Pocket dal Rogue Trainer."
+  ],
+  "5": [
+   "Apprentice Professions: Skinning (nella starting zone), Cooking e First Aid."
+  ],
+  "6": [
+   "Gouge (poi Sinister Strike R2)."
+  ],
+  "8": [
+   "Evasion."
+  ],
+  "10": [
+   "Dual Wield, Sap, Slice and Dice, Sprint: vai al Trainer (priorità: Dual Wield e Slice and Dice, Method).",
+   "Class quest di livello 10: ricompensa Blade of Cunning, pugnale (Mobalytics Rogue's Diary, Method). Il nome della quest cambia per razza; non trovato per ogni razza in Forever.",
+   "Primi talent: Remorseless Attacks ×2.",
+   "Journeyman Professions."
+  ],
+  "12": [
+   "Kick e Parry."
+  ],
+  "14": [
+   "Expose Armor e Garrote."
+  ],
+  "16": [
+   "Feint e Pick Lock (serve 80 di Lockpicking per la quest dei Poison)."
+  ],
+  "18": [
+   "Ambush (serve un Dagger in main hand)."
+  ],
+  "20": [
+   "Quest dei Poison (Alleanza: Mathias and the Defias da Master Mathias Shaw a Stormwind → Klaven's Tower (Agent Kearnen, Westfall, a est di Sentinel Hill) → The Touch of Zanzil · Orda: The Shattered Salute / Deep Cover da Shenthul a Orgrimmar → Mission: Possible But Not Probable (Barrens, Venture Co. tower) → Hinott's Assistance a Tarren Mill). Alleanza: più facile. Orda: molto più difficile. Consigliato farla dal 22 (con Vanish e Distract). Riceverai Poisons, Instant Poison e la ricetta di Thistle Tea (Warcraft Tavern, Poisons guide).",
+   "The Horn of Xelthos (lettera da \"C\" quando sei in una città): da solo dentro Shadowfang Keep; ricompensa Pyrewood Signet Ring (+4 Agility, +4 Stamina, 0,4% Hit) (ConquestCapped, 24 ott 🟡; Method).",
+   "Rupture, Crippling Poison, Expert Professions. Camp object di professione si craftano a 20 di skill.",
+   "Deadmines (17–26): Cruel Barb da Edwin VanCleef (Method)."
+  ],
+  "22": [
+   "Distract e Vanish."
+  ],
+  "23": [
+   "Riposte (talent)."
+  ],
+  "24": [
+   "Mind-numbing Poison."
+  ],
+  "26": [
+   "Cheap Shot."
+  ],
+  "27": [
+   "Flawless Execution (talent)."
+  ],
+  "30": [
+   "Kidney Shot, Deadly Poison, Disarm Trap.",
+   "The Eye of Bhossca (seconda lettera di \"C\", db livello 25, in beta ricevuta a 30): da solo in Scarlet Monastery, Graveyard, con la Scarlet Initiate's Uniform; ricompensa Ruby-Adorned Blade (spada 1H rara, 38–72 danni, vel. 2,30, +3 Agility +8 Stamina) (ConquestCapped 🟡; Method; video ufficiale: \"da livello 25\")."
+  ],
+  "32": [
+   "Blade Flurry (talent). Wound Poison."
+  ],
+  "34": [
+   "Blind (+ Blinding Powder)."
+  ],
+  "35": [
+   "Hack and Slash (talent)."
+  ],
+  "40": [
+   "Apprentice Riding (mount), Safe Fall, Dual Talent Specialization. DonTheCrown: aspetta a imparare le ranks nuove finché non hai il mount."
+  ],
+  "44": [
+   "Adrenaline Rush (talent, nella build proposta)."
+  ]
+ },
+ "camp": [
+  [
+   "Fish Bowl",
+   "Fishing",
+   "inv_misc_fish_02",
+   "Il migliore per un Rogue: +8% a tutte le stat primarie (come Blessing of Kings). Fishing 20. Rogue's Diary lo definisce il miglior rapporto qualità/costo; Method lo consiglia."
+  ],
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP (5% di un livello, una volta ogni ora, solo se non hai già Rested). Per leveling è fortissimo; con Skinning + Leatherworking è la scelta di Method e Warcraft Tavern."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_misc_pelt_wolf_01",
+   "+2% crit (come Leader of the Pack / Moonkin Aura). Skinning va con Leatherworking."
+  ],
+  [
+   "Lodestone",
+   "Mining",
+   "inv_stone_15",
+   "Buff di Attack Power (come Blessing of Might). Chiedi a un miner del tuo gruppo di camp (Method)."
+  ],
+  [
+   "Sharpening Wheel",
+   "Blacksmithing",
+   "inv_stone_sharpeningstone_01",
+   "Strength (come Strength of Earth Totem): ok, ma non conviene prendere Blacksmithing per questo."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "inv_misc_orb_01",
+   "Come Mark of the Wild (non cumula con un Druid): armor, stat e resist; meno utile se hai già il Druid."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "inv_misc_bandage_01",
+   "Stamina (non cumula con Power Word: Fortitude): utile ma secondaria; First Aid la impari comunque."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "inv_banner_01",
+   "Spirit (come Divine Spirit): solo per rigenerare HP fuori dal combattimento."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "inv_misc_candle_02",
+   "Intellect: inutile per il Rogue (DonTheCrown)."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "inv_potion_76",
+   "Mana/5: inutile (Energy), come scrive DonTheCrown e Warcraft Tavern."
+  ],
+  [
+   "Reagent Bot",
+   "Engineering",
+   "inv_misc_gear_01",
+   "Compra reagenti sul campo; non vende i reagent dei Poison, scrive DonTheCrown."
+  ]
+ ],
+ "professions": {
+  "gold": "Skinning + Mining (o Herbalism) per il gold: i mob sono tutti beast da scuoiare, Mining/Herbalism sono i farm migliori al 60 (Rogue's Diary 🟡, DonTheCrown: lascia Leatherworking per Mining dopo i 50). Enchanting come terza via 'pigra' per il gold in città.",
+  "power": "Skinning + Leatherworking (Method, Warcraft Tavern, DonTheCrown): gear economico con Agility (Skulker's Leather Belt, Brawler's Leather Belt, Dark Leather Boots, Handstitched Leather Pants/Belt, Embossed Leather Gloves/Cloak), Light Armor Kit, Camp Tent e Camp Chair. Alternativa per il DPS: Engineering (Warcraft Tavern).",
+  "advice": "Secondarie sempre: Cooking (food +5% XP; Thistle Tea fino a ~60 di skill), First Aid (bandage con Gouge/Blind/Kidney Shot) e Fishing a 20 per il Fish Bowl. Rogue's Diary: chi vuole solo velocità non prende professioni a parte Cooking/First Aid/Fishing 20. Comprare le consumable (Elixir of Minor Agility/Strength/Force) all'Auction House: economici."
+ },
+ "stats": "Priorità: Agility > Attack Power / Strength > Stamina (Rogue's Diary, Warcraft Tavern). Secondarie: Expertise > Hit > Crit (Rogue's Diary); DonTheCrown pesa Agility 1,8, AP 1, Strength 1, Hit 18, Crit 23 per punto; servono 5–8% di Hit presto (9% per mai mancare gli special). Agility: 29 → 1% crit, 14,5 → 1% dodge. Arma: Main Hand lenta e forte (Sinister Strike usa il danno dell'arma: Cruel Barb 30–57 contro Thief's Blade 17–32), off-hand veloce o con più DPS. Method: usa sempre l'arma col DPS più alto in MH; Sinister Strike sempre meglio con non-pugnale. Pugnale solo per Backstab/Ambush/Mutilate. Weapon upgrade (Rogue's Diary e DonTheCrown): Blade of Cunning (quest 10), Copper Dagger / Copper Shortsword (Blacksmithing 25); Notched Shortsword, Carving Knife, Curved Dagger (world drop BoE all'Auction House: le varianti con Int/Spirit costano meno); Hall of Thanes: Durgen's Crescent Axe; Deadmines (17–26): Cruel Barb, Thief's Blade, Buzz Saw, Dull Sawblade; Wailing Caverns: Stinging Viper, Tail Spike (Wingblade quest Orda); Ruins of Lordaeron: Meathook Slicer, Vileblood Scimitar, Edward's Knife, Plaguefang; Shadowfang Keep: Butcher's Cleaver/Slicer, Meteor Shard; Stockade: Hamhock's Cleaver, Prison Shank (rare); BFD: Darkwater Talwar, Bite of Serra'kis; Excavation Site: Excavated Dagger, Golemsight Long Gun (+6 Agility); Gnomeregan: Toxic Revenger; SM Graveyard: Torturing Poker, Bloody Brass Knuckles, Ironspine's Fist; Ruby-Adorned Blade (class quest, 30). Warcraft Tavern cita anche Assassin's Blade, Shadowfang. Set da cercare: Defias Leather. Armi: Rogue ora può usare asce a una mano (★): Trainer Buliwyf Stonehand a Ironforge; Hanashi/Sayoc a Orgrimmar; Swords: Woo Ping (Stormwind) / Archibald (Undercity); Maces: Buliwyf (Ironforge) / Ansekhwa (Thunder Bluff); Fist: Ilyenia Moonfire (Darnassus) / Sayoc (Orgrimmar). Poison: Instant Poison su entrambe le armi in leveling; ora si cumulano con Sharpening Stones: Rough Sharpening Stone / Coarse Sharpening Stone (economici all'AH). Camp: Fish Bowl +8% stat.",
+ "races": {
+  "human": "Ruthless: +1% crit su tutto (Warcraft Tavern dice 2% — fonti discordanti; il tooltip decide), The Human Spirit +10% Spirit, Perception e Will to Survive soprattutto PvP. Warcraft Tavern: migliore Alleanza in PvE. Mobalytics Rogue's Diary: tier B per la velocità di leveling.",
+  "dwarf": "Stoneform (−10% danni fisici, toglie Bleed/Poison/Disease), Artisan's Precision +1% Hit, Big Game Hunter +5% su Beast, Find Treasure (chest extra). Più PvP che PvE per Warcraft Tavern; tier C per velocità (Rogue's Diary).",
+  "gnome": "Eureka! (10% meno Energy e +10% danno per 8 s ogni 2 min), Expansive Mind +5% Energy massima (105), Escape Artist, Engineering Specialization. DonTheCrown: 'la mia razza Alleanza preferita'; Rogue's Diary: A-tier per leveling; Warcraft Tavern: 'viabile ma non la migliore'.",
+  "nightelf": "Elune's Light (+10% crit per 15 s, ogni 3 min, in coppia con Blade Flurry e Adrenaline Rush), Quickness (+1% Dodge, +2% velocità di corsa), Shadowmeld usabile in combat, Wisp Spirit. Warcraft Tavern: secondo posto in PvE; Rogue's Diary A-tier; Method la raccomanda (Elune's Light).",
+  "skyborne_alliance": "High Order: Wind Blessed (+2% Haste, il tooltip mostra 3% in Warcraft Tavern), Walk on Air (plana), Read Ley Line (+50% regen HP/mana per 15 s), Elemental Insight (+5% vs Elemental). Debole per il Rogue (Warcraft Tavern, DonTheCrown); Rogue's Diary la mette dietro agli altri.",
+  "orc": "Blood Fury (+10% Attack Power per 15 s, 3 min) è il burst migliore; Hardiness (−20% durata stun), Shatter Curse. Warcraft Tavern: la migliore razza Orda in PvE; Method la consiglia; Rogue's Diary tier B per il leveling puro (poca mobilità/guarigione).",
+  "undead": "Cannibalize (35% HP da un cadavere), Touch of the Grave (20% per colpo, drena fino al 5% della vita), Will of the Forsaken. Method la consiglia; Rogue's Diary: meno downtime = leveling stabile.",
+  "troll": "Berserking (+10% haste), Rapid Regeneration (50% HP in 6 s, no cadavere), Regeneration (20% regen in combat), Beast Slaying (+5% vs Beast). Warcraft Tavern: seconda in PvE Orda; Rogue's Diary: 'meno downtime di quasi tutti'.",
+  "skyborne_horde": "Windshapers: Wind Blessed (+2% Haste), Walk on Air, Skysight (+15% velocità 15 s ogni 2 min; con Elemental Convergence 'Charged' +30% per 1 ora). Rogue's Diary la mette in S-tier per leveling ('nulla si avvicina'); Warcraft Tavern la considera debole per il Rogue. Fonti in disaccordo 🟡; da verificare in gioco."
+ },
+ "forever": [
+  "★ Energia continua: 1 ogni 0,1 s, 10 al secondo (Warcraft Tavern, ott 2026; video ufficiale 18 ott).",
+  "★ Poison: scalano con Attack Power, possono fare crit, hanno più cariche (Instant Poison 175, Deadly Poison 180 al rank massimo) e si cumulano con Sharpening Stones, Weightstones e Windfury Totem (video ufficiale WoW Forever 18 ott; Warcraft Tavern; Blizzard class deep dive Rogue/Warlock).",
+  "★ Sap non rompe più lo Stealth; Distract abbassa la detection per 10 s; Feint riduce il doppio della minaccia; Expose Armor vale 5 Sunder Armor e non blocca Sunder (video ufficiale 18 ott).",
+  "★ Il Rogue può imparare le asce a una mano (Buliwyf Stonehand a Ironforge, Hanashi/Sayoc a Orgrimmar) (Warcraft Tavern, video ufficiale).",
+  "★ Talent nuovi (Combat): Flawless Execution, Hack and Slash, Puncturing Wounds (client: 'New in Forever'). Cambiati: Deflection 3 rank (6% Parry), Precision 3 rank (3% Hit), Dual Wield Specialization +25% off-hand, Weapon Expertise −2% dodge/parry, Improved Eviscerate nel tree Combat (+20%), Endurance −60% cooldown Sprint/Evasion, Improved Kick silence 2 s.",
+  "★ Assassination: Mutilate (richiede due pugnali) e Venom (finisher); Subtlety: Cutthroat, Quietus, Thousand Cuts, Dirty Tricks, Improved Distract. Opportunity ha solo 2 rank (nerf).",
+  "★ Cibo con stat dà anche +5% XP; la Thistle Tea ricarica 100 Energy; i dungeon danno molta meno XP (DonTheCrown).",
+  "★ Cambi alle razze del 15 ottobre e del 27 ottobre (video ufficiale; changelog di Rogue's Diary): rileggi i racial in gioco.",
+  "★ Cooking dà accesso ai Camp object (campfire, Fish Bowl ecc.).",
+  "Dati pre-lancio: tutti i numeri dal client 1.60.1.70707 e dalla beta (cap 30). Warcraft Tavern: build 60 'in arrivo al lancio'."
+ ],
+ "sources": [
+  {
+   "name": "wowforever.be – Build di livellamento Rogue",
+   "url": "https://wowforever.be/it/leveling/rogue/?level=10",
+   "author": "wowforever.be",
+   "date": "letta 1 nov 2026",
+   "signal": "dati client 1.60.1.70707",
+   "used": "Ordine 10–35, nomi dei talent, flag New/Changed"
+  },
+  {
+   "name": "Warcraft Tavern – Rogue Leveling Guide (1–60)",
+   "url": "https://www.warcrafttavern.com/forever/guides/rogue-leveling/",
+   "author": "Nevermore",
+   "date": "ott 2026",
+   "signal": "sito di riferimento, build 30 e 60 con immagini",
+   "used": "Spec, milestone, razze, professioni, class quest, camping"
+  },
+  {
+   "name": "Warcraft Tavern – Rogue Poisons Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/poisons/",
+   "author": "Nevermore",
+   "date": "ott 2026",
+   "signal": "sito di riferimento",
+   "used": "Catene quest dei Poison, livelli delle ricette"
+  },
+  {
+   "name": "Warcraft Tavern – Combat Rogue",
+   "url": "https://www.warcrafttavern.com/forever/guides/combat-rogue/",
+   "author": "Nevermore",
+   "date": "ott 2026",
+   "signal": "sito di riferimento",
+   "used": "Rotation, build 60 Combat (immagini), razze, professioni"
+  },
+  {
+   "name": "Warcraft Tavern – Camping Objects & Buffs",
+   "url": "https://www.warcrafttavern.com/forever/guides/camping-objects-buffs/",
+   "author": "Luxrah",
+   "date": "ott 2026",
+   "signal": "sito di riferimento",
+   "used": "Effetti dei camp object"
+  },
+  {
+   "name": "Method – WoW Forever Rogue Leveling Guide & Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-rogue-leveling-guide-and-talents",
+   "author": "Reholy",
+   "date": "agg. 9 ott 2026",
+   "signal": "Method (reputazione alta)",
+   "used": "Ordine Combat, Remorseless Attacks ×2, priorità 36–60, quest, professioni, camping"
+  },
+  {
+   "name": "Mobalytics – Rogue Leveling – Everything You Need to Know",
+   "url": "https://mobalytics.gg/wow-forever/classes/rogue-leveling-donthecrown",
+   "author": "DonTheCrown (Verified)",
+   "date": "28 ott 2026",
+   "signal": "37 ♥ (lista) / 34 ♥ (pagina)",
+   "used": "Build 1–30 Combat, rotazione, armi, dungeon, professioni, Legacy"
+  },
+  {
+   "name": "Mobalytics – Complete Combat Leveling 1-60",
+   "url": "https://mobalytics.gg/wow-forever/classes/combat-rogue-leveling-guide",
+   "author": "Rogue's Diary (Verified)",
+   "date": "30 ott 2026",
+   "signal": "28 ♥ (lista) / 23 ♥ (pagina)",
+   "used": "Ordine completo 10–60 (Endurance), armi, razze, consumable, camping, macro"
+  },
+  {
+   "name": "YouTube – Ultimate Rogue Guide – WoW Forever",
+   "url": "https://www.youtube.com/watch?v=_sff_7_VOvQ",
+   "author": "WoW Forever (canale)",
+   "date": "18 ott 2026",
+   "signal": "17k views",
+   "used": "Build 30 di tutte le spec, novità, class quest"
+  },
+  {
+   "name": "YouTube – Rogue Leveling Made Easy in WoW Forever",
+   "url": "https://www.youtube.com/watch?v=lgfAydRLgPY",
+   "author": "DonTheCrown",
+   "date": "29 set 2026",
+   "signal": "62k views",
+   "used": "Solo titolo e descrizione (guida su Mobalytics)"
+  },
+  {
+   "name": "YouTube – How to play Combat Rogue in 4 Minutes",
+   "url": "https://www.youtube.com/watch?v=qTq3ucvbzhY",
+   "author": "Ragequitting Gaming",
+   "date": "12 ott 2026",
+   "signal": "69k views",
+   "used": "Solo titolo: Combat. Nessuna trascrizione"
+  },
+  {
+   "name": "YouTube – I Tested Every Rogue Leveling Build at Level 30",
+   "url": "https://www.youtube.com/watch?v=ouH1LfW1X44",
+   "author": "Gaunerh",
+   "date": "7 ott 2026",
+   "signal": "65k views",
+   "used": "Descrizione: Combat ovvio, Subtlety/Hemorrhage sorprendente, Mutilate a corto di Energy"
+  },
+  {
+   "name": "YouTube – BEST Rogue Leveling Build in WoW Forever? (4 Builds)",
+   "url": "https://www.youtube.com/watch?v=cbc7g7OJ9_g",
+   "author": "Gaunerh",
+   "date": "27 ott 2026",
+   "signal": "13k views",
+   "used": "Descrizione: respec a Mutilate intorno al 32"
+  },
+  {
+   "name": "YouTube – The Best Combat Rogue Leveling Build for PvP & PvE",
+   "url": "https://www.youtube.com/watch?v=7DzjLch6Thk",
+   "author": "Navnor",
+   "date": "21 ott 2026",
+   "signal": "29k views",
+   "used": "Solo titolo: Combat"
+  },
+  {
+   "name": "YouTube – WoW Forever Rogue Leveling Talent Guide 1–30",
+   "url": "https://www.youtube.com/watch?v=EDLiYC3KBiY",
+   "author": "LostNiceland tv",
+   "date": "18 set 2026",
+   "signal": "17k views",
+   "used": "Solo descrizione: build Combat"
+  },
+  {
+   "name": "ConquestCapped – Rogue Weapon Quest",
+   "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-rogue-weapon-quest/",
+   "author": "Sibop",
+   "date": "24 ott 2026",
+   "signal": "sito di boost, meno affidabile",
+   "used": "The Horn of Xelthos / The Eye of Bhossca, Ruby-Adorned Blade"
+  },
+  {
+   "name": "Wowhead – Combat Rogue Leveling Guide (non leggibile)",
+   "url": "https://www.wowhead.com/forever/guide/classes/rogue/combat/dps-leveling-tips",
+   "author": "warstry, rev. Simonize",
+   "date": "agg. 30 ott 2026, patch 1.60.1",
+   "signal": "Wowhead",
+   "used": "Solo metadati: corpo della guida bloccato (403)"
+  },
+  {
+   "name": "Icy Veins – Combat Rogue leveling (solo snippet)",
+   "url": "https://www.icy-veins.com/wow-forever/combat-rogue-leveling",
+   "author": "—",
+   "date": "agg. 17 ott 2026",
+   "signal": "Icy Veins",
+   "used": "Solo snippet WebSearch: esiste una guida Combat con livelli breakpoint"
+  }
+ ],
+ "doubts": [
+  "🟡 Il 36–60 è composto da me (nessuna fonte dà l'ordine per la build wowforever.be). Warcraft Tavern dice che le build 60 sono provvisorie e saranno rilasciate al lancio.",
+  "🟡 Remorseless Attacks: wowforever.be e Method la prendono ×2; Warcraft Tavern e le build ufficiali no (Mobalytics Rogue's Diary la prende ma fa respec al 20). Se hai pochi Legacy Points, Method suggerisce il respec al 30.",
+  "🟡 Puncturing Wounds (wowforever.be, Warcraft Tavern) o Endurance + Improved Sprint (Mobalytics ×2, video ufficiale, Method per chi non usa pugnali): scegli in base all'arma.",
+  "🟡 Livello e nome della class quest del 10 non verificati per ogni razza in Forever: Mobalytics e Method dicono solo che dà Blade of Cunning (pugnale). Le catene di Classic: Human 'Seek out SI:7', Dwarf/Gnome 'Snatch and Grab', Night Elf 'Destiny Calls' (warcraft.wiki.gg, Classic, non Forever).",
+  "🟡 The Eye of Bhossca: db livello 25, in beta mail a 30; The Horn of Xelthos livello 20 (ConquestCapped); un'altra fonte lo mette a 23 (Wiki, Classic).",
+  "🟡 Alcuni racial hanno numeri diversi tra le fonti (Human Ruthless +1% vs +2%, Wind Blessed +2% vs 3%); Skyborne Horde S-tier (Rogue's Diary) contro 'debole' (Warcraft Tavern).",
+  "Non trovato: Icy Veins e Wowhead (corpo guida) bloccati; nessuna trascrizione dei video. Non trovato: elenco spell con ranks per livello da Wowhead; ho preso le abilità dal Trainer da Warcraft Tavern (nuove) e DonTheCrown (rank-up, 🟡): Backstab al 4, Gouge al 6, Evasion all'8, ecc. La tabella di DonTheCrown mostra Stealth R2 al 20.",
+  "Non trovato: mount del Rogue (nessuna quest di classe per il mount); Apprentice Riding al 40.",
+  "Non verificato: effetto esatto di Hack and Slash con più armi (due armi diverse: usa le abilità per tipo; Rogue's Diary dice 'tutto viabile').",
+  "Warcraft Tavern, sezione class quest del Rogue: contiene righe copiate dal Mage; ignorate. Le liste Mage non sono state usate."
+ ]
+}
