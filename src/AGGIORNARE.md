@@ -24,12 +24,16 @@ Il build stampa "Da controllare": talent inesistenti o oltre il rank, prerequisi
 Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren skyborne_h`. Rotte: `elwynn dunmorogh teldrassil zephras_a durotar mulgore tirisfal zephras_h`.
 Il motore compone il percorso: rotta naturale, oppure zona iniziale fino a `junction` + passaggio + rotta d'arrivo (dal livello dopo l'ultimo del passaggio). Opzioni dell'utente: percorso, 2 profession, dungeon sì/no, Talented. Calcola anche: talent per livello, link `?t=` del calcolatore wowforever.be (ranghi per albero in ordine di `data-index`, zeri finali tolti, alberi separati da `-`), tappa della mappa, dungeon nel range.
 
+## Milestone (cose da fare per livello)
+In `classes/*.json` e nelle rotte: lista di voci `{"l":10,"t":"<b>Quest</b>: passi… Ricompensa: …","r":["dwarf"],"f":"A","npc":["Nome NPC esatto"]}`. `r`/`f` filtrano per razza/fazione (la pagina mostra solo la versione del giocatore), `npc` diventa un pulsante 📍 (il build avvisa se un NPC non è sulla mappa).
+Prima di scrivere una quest verificala su `node src/tools/quests.js <file>` (indice di tutte le quest di Forever con NPC e luogo). Niente liste di spell, talent, profession o dungeon generici: la pagina li aggiunge da sola. Niente note sulle fonti nel testo.
+
 ## Regole sulle fonti (richieste dall'utente)
 - Scegli spec e build per **upvote/preferiti/recensioni**: Mobalytics ♥ (pagine `leveling-guides`, `creator-leveling-guides`, `community-leveling-guides`), views YouTube, data. A parità, i dati del client (wowforever.be, Wowhead) decidono i dettagli.
 - ✔ più fonti o client · 🟡 una sola fonte · ★ novità di Forever. Mai dati di Classic Era spacciati per Forever.
 - Reddit è bloccato. Mobalytics e Icy Veins: 403 con WebFetch e Cloudflare in headless → leggerli dal **browser integrato** (`javascript_tool`, estrarre solo il necessario; su Mobalytics il testo dopo "Points Invested" contiene "Level X-Y — Talent").
 - wowforever.be, Wowhead, Warcraft Tavern, Method: `curl`/WebFetch o `scratchpad/tools/read.js` (Chrome headless via playwright-core in `%LOCALAPPDATA%/npm-cache/_npx/9833c18b2d85bc59`).
-- Agenti di ricerca su Sonnet: brief e formato in `scratchpad/BRIEF.md`, `CLASS_TASK.md`, `ROUTE_TASK.md` della sessione del 1 nov (ricrearli se servono: schema = chiavi dei file in `data/`).
+- Agenti di ricerca: al massimo 2–3 in parallelo, modello più economico (Haiku), con brief preciso; poi revisione mia (togliere note interne tipo "indice", "JSON", voci "non trovato"). Brief precedenti: brief e formato in `scratchpad/BRIEF.md`, `CLASS_TASK.md`, `ROUTE_TASK.md` della sessione del 1 nov (ricrearli se servono: schema = chiavi dei file in `data/`).
 
 ## Dopo il lancio (4 nov 2026) — cosa ricontrollare
 1. `node src/tools/wf.js <classe>` per tutte le classi (hotfix ai talent) e `node src/tools/map.js`; rigenera e guarda gli avvisi.

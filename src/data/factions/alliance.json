@@ -251,7 +251,7 @@
      "levels": "1–5",
      "town": "Northshire Abbey",
      "zoneIcon": "achievement_zone_elwynnforest",
-     "text": "Marshal McBride (lettera di classe), Brother Neals e Eagan Peltskinner. Quest kobold/Defias, Echo Ridge Mine e Northshire Vineyards; chiudi con Report to Goldshire. Dai kobold cade la prima quest della catena del Book Bag (Nibbled-On Book).",
+     "text": "Prendi la lettera di classe da Marshal McBride, poi The Adventurer dallo stesso NPC (liv. 6). Fai le quest kobold e Defias a Echo Ridge Mine e Northshire Vineyards, consegnando a Brother Neals ed Eagan Peltskinner. Chiudi con Report to Goldshire da Marshal McBride.",
      "fp": ""
     },
     {
@@ -259,7 +259,7 @@
      "levels": "5–8",
      "town": "Goldshire",
      "zoneIcon": "achievement_zone_elwynnforest",
-     "text": "Hearthstone da Innkeeper Farley. Marshal Dughan chiude Book Return (Book Bag, 6 slot). Sam Sarsaparilla dà The Great Outdoors, Tomas insegna Cooking. Poi Stonefield Farm, Maclure Vineyards, Fargodeep Mine e Goldtooth.",
+     "text": "Goldshire (liv. 5–8). Prendi la Hearthstone da Innkeeper Farley. Da Sam Sarsaparilla prendi The Great Outdoors (serve liv. 4) e Camping 101: Cooking. Consegna Book Return a Marshal Dughan per la bag da 6 slot. Poi Stonefield Farm e Maclure Vineyards.",
      "fp": ""
     },
     {
@@ -267,7 +267,7 @@
      "levels": "8–10",
      "town": "Eastvale Logging Camp",
      "zoneIcon": "achievement_zone_elwynnforest",
-     "text": "Guard Thomas al ponte est, Jasperlode Mine, Eastvale (Sara Timberlain: Red Linen; Supervisor Raelen), Brackwell Pumpkin Patch e la Princess. Torna da Marshal Dughan per le quest di armor e garrison.",
+     "text": "Prendi Red Linen Goods da Sara Timberlain. Fai Jasperlode Mine, Brackwell Pumpkin Patch e il ponte est con Guard Thomas. Prendi Report to Gryan Stoutmantle da Marshal Haggard, poi vai a ovest verso Westbrook.",
      "fp": ""
     },
     {
@@ -275,7 +275,7 @@
      "levels": "10–11",
      "town": "Westbrook Garrison",
      "zoneIcon": "achievement_zone_elwynnforest",
-     "text": "Deputy Rainer: Defias Bandits, gnoll e Hogger (elite, 25 92.9). Prendi Report to Gryan Stoutmantle e vai a ovest verso Westfall. Tieni Elmore's Task per il 15 (Redridge).",
+     "text": "Westbrook Garrison (liv. 10–11). Da Deputy Rainer fai Defias Bandits, gnoll e Hogger (elite a liv. 11: meglio in 2–3). Tieni Elmore's Task (Verner Osgood, Lakeshire, liv. 15) per dopo. Poi prosegui verso Westfall.",
      "fp": ""
     },
     {
@@ -283,7 +283,7 @@
      "levels": "10–14",
      "town": "Sentinel Hill",
      "zoneIcon": "achievement_zone_westfall_01",
-     "text": "Jansen Stead (Verna Furlbrow: Poor Old Blanchy, bag 8 slot; The Forgotten Heirloom) e Saldean's Farm. Gryan Stoutmantle: People's Militia e Defias Brotherhood. Prendi il Flight Path di Sentinel Hill (Thor).",
+     "text": "Sentinel Hill, Westfall (liv. 10–14). Prendi il Flight Path di Sentinel Hill (Thor). Consegna Report to Gryan Stoutmantle e prendi The People's Militia da Gryan Stoutmantle. Da Farmer Furlbrow (The Jansen Stead) prendi The Forgotten Heirloom. Verna Furlbrow dà Poor Old Blanchy (liv. 14).",
      "fp": "Sentinel Hill"
     },
     {
@@ -291,7 +291,7 @@
      "levels": "14–18",
      "town": "Stormwind City",
      "zoneIcon": "achievement_zone_westfall_01",
-     "text": "Militia 2/3, Moonbrook, Alexston Farmstead (inizio Cozy Sleeping Bag), faro (Captain Grayson). Vola a Stormwind (Dungar Longdrink) per Wiley/Mathias Shaw (catena Defias); tram per Ironforge e Hall of Thanes (13-18) se hai gruppo.",
+     "text": "Westfall (liv. 14–18) e Stormwind. Completa The People's Militia e The Defias Brotherhood (Gryan Stoutmantle, liv. 18) fra Moonbrook, Alexston Farmstead e il faro (Captain Grayson). Poi vola a Stormwind con Dungar Longdrink. Inizia la catena Defias da Wiley the Black o Master Mathias Shaw.",
      "fp": "Stormwind"
     },
     {
@@ -299,7 +299,7 @@
      "levels": "18–23",
      "town": "Lakeshire",
      "zoneIcon": "achievement_zone_redridgemountains",
-     "text": "Deadmines (17-26) con The Defias Brotherhood e Red Silk Bandanas; prima l'escort The Defias Traitor. Lakeshire: Ariena Stormfeather (Flight Master), Innkeeper Brianna. Three Corners: Marcy Baker per le Waylaid Crates.",
+     "text": "Lakeshire, Redridge (liv. 18–23). Flight Path di Lakeshire da Ariena Stormfeather, Hearthstone da Innkeeper Brianna. Prima di entrare nelle Deadmines (liv. 17–26) prendi Red Silk Bandanas da Scout Riell a Sentinel Hill. Fai le quest di Three Corners.",
      "fp": "Lakeshire"
     },
     {
@@ -307,7 +307,7 @@
      "levels": "22–27",
      "town": "Darkshire",
      "zoneIcon": "achievement_zone_duskwood",
-     "text": "Consegna Messenger to Darkshire (Magistrate Solomon, Redridge) a Lord Ello Ebonlocke. Night Watch, Stalvan, Embalmer e worgen; Flight Path di Darkshire (Felicia Maline). Compra Stormwind Seasoning Herbs a Stormwind prima di entrare.",
+     "text": "Darkshire, Duskwood (liv. 22–27). Prendi Messenger to Darkshire da Magistrate Solomon (Lakeshire) e consegnala a Lord Ello Ebonlocke. Poi Night Watch, Stalvan, Embalmer e worgen. Flight Path di Darkshire da Felicia Maline.",
      "fp": "Darkshire"
     },
     {
@@ -315,50 +315,80 @@
      "levels": "27–30",
      "town": "Menethil Harbor",
      "zoneIcon": "achievement_zone_wetlands_01",
-     "text": "Menethil Harbor: Innkeeper Helbrek, Shellei Brondir. Excavation Site: Wetlands (24-29) con 5 quest Alleanza; nuove boat Menethil → Southshore → Auberdine. A 30 vai a Hillsbrad o Arathi Highlands.",
+     "text": "Menethil Harbor, Wetlands (liv. 27–30). Hearthstone da Innkeeper Helbrek e Flight Path di Menethil Harbor. Fai le quest Alleanza di Excavation Site: Wetlands. A liv. 30 vai a Hillsbrad o Arathi Highlands; la boat da Menethil porta a Southshore e Auberdine.",
      "fp": "Menethil Harbor"
     }
    ],
-   "milestones": {
-    "1": [
-     "Prendi la lettera di classe da Marshal McBride"
-    ],
-    "4": [
-     "Bag da 6 slot: continua la catena del Book Bag (non contare sul drop di una Small Pouch)",
-     "Puoi prendere The Great Outdoors (serve liv. 4)"
-    ],
-    "6": [
-     "The Great Outdoors + Camping 101: Cooking da Tomas (Goldshire)",
-     "Basic Campfire richiede Cooking 1"
-    ],
-    "10": [
-     "Primo talent point",
-     "Le Waylaid Crates diventano utilizzabili (consegna: Marcy Baker, Three Corners, Redridge)"
-    ],
-    "13": [
-     "Hall of Thanes (13-18) sbloccata: ingresso sotto Ironforge"
-    ],
-    "14": [
-     "Poor Old Blanchy (Westfall, Verna Furlbrow) completabile: Old Blanchy's Feed Pouch, 8 slot",
-     "Parte la catena Cozy Sleeping Bag (Nailed Plank, Alexston Farmstead, Westfall 37 50)"
-    ],
-    "17": [
-     "The Deadmines si apre (17-26): prendi prima tutte le quest a Sentinel Hill"
-    ],
-    "20": [
-     "Redridge e Duskwood in pieno; Teleport dei Mage; sposta la Hearthstone nella zona di quest",
-     "Waylaid Crates di livello Expert utilizzabili"
-    ],
-    "24": [
-     "Excavation Site: Wetlands (24-29) e The Stockade (24-32) aperte"
-    ],
-    "28": [
-     "City of Dalaran (28-33) aperta: ingresso dalle fogne in Silverpine Forest"
-    ],
-    "29": [
-     "Gnomeregan (29-38) con gruppo"
-    ]
-   },
+   "milestones": [
+    {
+     "l": 1,
+     "t": "<b>Lettera di classe</b>: Marshal McBride, Northshire Abbey.",
+     "npc": [
+      "Marshal McBride"
+     ]
+    },
+    {
+     "l": 4,
+     "t": "<b>Bag da 6 slot (Book Bag)</b>: catena che parte da Nibbled-On Book dei kobold a Northshire, fino a Book Return (Marshal Dughan, Goldshire). Non contare sul drop di una Small Pouch. 🟡",
+     "npc": [
+      "Marshal Dughan"
+     ]
+    },
+    {
+     "l": 4,
+     "t": "<b>The Great Outdoors</b> (Sam Sarsaparilla, Goldshire): prendila appena puoi (serve liv. 4). Prerequisito The Adventurer da Marshal McBride (liv. 6). 🟡 prerequisito non confermato per questa razza.",
+     "npc": [
+      "Sam Sarsaparilla",
+      "Marshal McBride"
+     ]
+    },
+    {
+     "l": 6,
+     "t": "<b>Camping 101: Cooking</b> (Sam Sarsaparilla, Goldshire): sblocca Basic Campfire.",
+     "npc": [
+      "Sam Sarsaparilla"
+     ]
+    },
+    {
+     "l": 10,
+     "t": "<b>Flight Path di Sentinel Hill</b> (Thor, Westfall): sblocca Westfall e la strada verso Stormwind."
+    },
+    {
+     "l": 14,
+     "t": "<b>Poor Old Blanchy</b> (Verna Furlbrow, The Jansen Stead): completala per la bag Old Blanchy's Feed Pouch (8 slot).",
+     "npc": [
+      "Verna Furlbrow"
+     ]
+    },
+    {
+     "l": 14,
+     "t": "<b>Cozy Sleeping Bag</b>: catena che parte da Alexston Farmstead (Westfall, circa 37 50), con Nailed Plank. Facoltativa. 🟡"
+    },
+    {
+     "l": 17,
+     "t": "<b>The Deadmines</b> (liv. 17–26): prima prendi The Defias Brotherhood da Gryan Stoutmantle e Red Silk Bandanas da Scout Riell, a Sentinel Hill.",
+     "npc": [
+      "Gryan Stoutmantle",
+      "Scout Riell"
+     ]
+    },
+    {
+     "l": 18,
+     "t": "<b>Messenger to Darkshire</b>: Magistrate Solomon (Lakeshire) la dà, Lord Ello Ebonlocke (Darkshire) la chiude.",
+     "npc": [
+      "Magistrate Solomon",
+      "Lord Ello Ebonlocke"
+     ]
+    },
+    {
+     "l": 24,
+     "t": "<b>Excavation Site: Wetlands</b>: quest Alleanza come Songblade Search (Dorin Songblade, Lakeshire) e For Further Study (Prospector Whelgar). (quest di livello 31–32) 🟡",
+     "npc": [
+      "Dorin Songblade",
+      "Prospector Whelgar"
+     ]
+    }
+   ],
    "bags": [
     {
      "lvl": "1",
@@ -401,10 +431,6 @@
     {
      "npc": "Sam Sarsaparilla",
      "text": "The Great Outdoors (Goldshire 44.8 63.2): liv. 6, serve 4, 410 XP, prerequisito The Adventurer. Siediti presso un Basic Campfire fino a Boosted Rest. ✔ warcraft.wiki.gg (client 1.60.1)"
-    },
-    {
-     "npc": "Tomas",
-     "text": "Cooking trainer a Goldshire (44.2 66.0): chiude Camping 101: Cooking (270 XP)."
     },
     {
      "npc": "Marshal Dughan",
@@ -550,7 +576,7 @@
      "levels": "1–5",
      "town": "Anvilmar",
      "zoneIcon": "achievement_zone_dunmorogh",
-     "text": "Sten Stoutarm (lettera di classe), Balir Frosthammer, Felix Whindlebolt. Grund Drokda (Anvilmar) dà Grund and Gozwin: Canvas Latchbag, 6 slot, a livello 4. Mage Trainer: Marryk Nurribit.",
+     "text": "Prendi la lettera di classe da Sten Stoutarm. Fai le quest di Balir Frosthammer e Felix Whindlebolt. The Adventurer da Mountaineer Thalos (Coldridge Pass). Da Grund Drokda (Anvilmar) prendi Grund and Gozwin per la bag da 6 slot.",
      "fp": ""
     },
     {
@@ -558,7 +584,7 @@
      "levels": "5–9",
      "town": "Kharanos",
      "zoneIcon": "achievement_zone_dunmorogh",
-     "text": "Innkeeper Belm (Hearthstone). Eric Brighthammer (46.6 53.8) dà The Great Outdoors; Gremlock Pilsnor insegna Cooking (Camping 101). Steelgrill's Depot, Brewnall Village (Barleybrew), Frostmane Hold.",
+     "text": "Hearthstone da Innkeeper Belm. Da Eric Brighthammer prendi The Great Outdoors (serve liv. 4) e Camping 101: Cooking. Cooking si impara da Gremlock Pilsnor. Poi Brewnall Village e Frostmane Hold.",
      "fp": ""
     },
     {
@@ -566,7 +592,7 @@
      "levels": "9–12",
      "town": "Ironforge",
      "zoneIcon": "achievement_zone_dunmorogh",
-     "text": "Mangeclaw (Pilot Hammerfoot) a est. Consegna The Reports a Senator Barin Redstone a Ironforge e prendi il Flight Path (Gryth Thurden, 55.5 47.7). Vagash e Old Icebeard (11 elite) solo con pet o gruppo.",
+     "text": "Prendi The Reports da Senir Whitebeard (Kharanos) e consegnala a Senator Barin Redstone a Ironforge. 🟡 consegna non verificata. Prendi il Flight Path di Ironforge (Gryth Thurden). Ad est fai The Lost Pilot (Pilot Hammerfoot, North Gate Outpost).",
      "fp": "Ironforge"
     },
     {
@@ -574,7 +600,7 @@
      "levels": "10–16",
      "town": "Thelsamar",
      "zoneIcon": "achievement_zone_lochmodan",
-     "text": "Thelsamar: Flight Master Thorgrum Borrelson (33.9 51.0). Quest sul lago e a Farstrider Lodge; Vyrin Swiftwind dà Vyrin's Revenge (Hunting Satchel, 10 slot, elite).",
+     "text": "Flight Path di Thelsamar (Thorgrum Borrelson). Fai le quest del lago e del Farstrider Lodge. Vyrin Swiftwind dà Vyrin's Revenge al Farstrider Lodge: è elite, usa il pet o un gruppo. (quest di livello 20) 🟡",
      "fp": "Thelsamar"
     },
     {
@@ -582,7 +608,7 @@
      "levels": "13–18",
      "town": "Ironforge",
      "zoneIcon": "achievement_zone_dunmorogh",
-     "text": "Entrata dietro la High Seat (43.5 52.0). Quest: Important Heirlooms, The Restless Dead, Old Ironforge Incursion, An Ancient Grudge, The Treaty of Understanding. Una sola volta con tutte le quest.",
+     "text": "Hall of Thanes, Ironforge (liv. 13–18). Entra dietro la High Seat (43.5 52.0). Prendi Important Heirlooms (Thom Filch), The Restless Dead (Afadra Dunwall) e Old Ironforge Incursion (Earthseer Farsen, Gol'Bolar Quarry). Torna a Ironforge e prendi il tram per Stormwind.",
      "fp": ""
     },
     {
@@ -590,7 +616,7 @@
      "levels": "14–20",
      "town": "Sentinel Hill",
      "zoneIcon": "achievement_zone_westfall_01",
-     "text": "Tram per Stormwind, Flight Path con Dungar Longdrink, poi Sentinel Hill. Verna Furlbrow: Old Blanchy's Feed Pouch (8 slot). Deadmines dal 17 con le quest.",
+     "text": "Dal tram vai da Dungar Longdrink per il Flight Path di Stormwind, poi Sentinel Hill. Da Verna Furlbrow (The Jansen Stead) prendi Poor Old Blanchy per la bag Old Blanchy's Feed Pouch (8 slot). Dal liv. 17 fai le quest delle Deadmines.",
      "fp": "Stormwind"
     },
     {
@@ -598,7 +624,7 @@
      "levels": "18–23",
      "town": "Lakeshire",
      "zoneIcon": "achievement_zone_redridgemountains",
-     "text": "Lakeshire: Flight Master Ariena Stormfeather, Innkeeper Brianna. Three Corners: Marcy Baker per le Waylaid Crates. Dorin Songblade dà Songblade Search (Excavation Site).",
+     "text": "Lakeshire, Redridge (liv. 18–23). Flight Path di Lakeshire da Ariena Stormfeather, Hearthstone da Innkeeper Brianna. Dorin Songblade a Lakeshire dà Songblade Search (Excavation Site: Wetlands). Fai le quest di Three Corners e Redridge.",
      "fp": "Lakeshire"
     },
     {
@@ -606,7 +632,7 @@
      "levels": "22–27",
      "town": "Darkshire",
      "zoneIcon": "achievement_zone_duskwood",
-     "text": "Messenger to Darkshire a Lord Ello Ebonlocke. Flight Path di Darkshire. Night Watch, Stalvan, worgen. Opzione: Ashenvale con la boat Stormwind Harbor → Auberdine.",
+     "text": "Darkshire, Duskwood (liv. 22–27). Prendi Messenger to Darkshire da Magistrate Solomon (Lakeshire) e consegnala a Lord Ello Ebonlocke. Flight Path di Darkshire da Felicia Maline. Poi Night Watch, Stalvan, Embalmer e worgen. Opzione: boat da Stormwind Harbor ad Auberdine per Ashenvale.",
      "fp": "Darkshire"
     },
     {
@@ -614,49 +640,85 @@
      "levels": "27–30",
      "town": "Menethil Harbor",
      "zoneIcon": "achievement_zone_wetlands_01",
-     "text": "Vola Ironforge → Menethil. Excavation Site: Wetlands (24-29, 5 quest Alleanza). Dal 29-30 Gnomeregan (29-38) in gruppo.",
+     "text": "Menethil Harbor, Wetlands (liv. 27–30). Vai da Ironforge a Menethil Harbor, poi Hearthstone da Innkeeper Helbrek. Fai le quest Alleanza di Excavation Site: Wetlands. A liv. 30 vai a Hillsbrad o Arathi Highlands.",
      "fp": "Menethil Harbor"
     }
    ],
-   "milestones": {
-    "4": [
-     "Quest della bag gratuita: Grund Drokda (Anvilmar), Canvas Latchbag 6 slot",
-     "Puoi prendere The Great Outdoors (serve liv. 4)"
-    ],
-    "5": [
-     "The Great Outdoors da Eric Brighthammer (Kharanos)"
-    ],
-    "6": [
-     "Camping 101: Cooking da Gremlock Pilsnor; Basic Campfire con Cooking 1"
-    ],
-    "10": [
-     "Primo talent point",
-     "Le Waylaid Crates diventano utilizzabili (consegna: Marcy Baker, Three Corners, Redridge)"
-    ],
-    "13": [
-     "Hall of Thanes (13-18) sbloccata: ingresso sotto Ironforge"
-    ],
-    "14": [
-     "Poor Old Blanchy (Westfall, Verna Furlbrow) completabile: Old Blanchy's Feed Pouch, 8 slot",
-     "Parte la catena Cozy Sleeping Bag (Nailed Plank, Alexston Farmstead, Westfall 37 50)"
-    ],
-    "17": [
-     "The Deadmines si apre (17-26): prendi prima tutte le quest a Sentinel Hill"
-    ],
-    "20": [
-     "Redridge e Duskwood in pieno; Teleport dei Mage; sposta la Hearthstone nella zona di quest",
-     "Waylaid Crates di livello Expert utilizzabili"
-    ],
-    "24": [
-     "Excavation Site: Wetlands (24-29) e The Stockade (24-32) aperte"
-    ],
-    "28": [
-     "City of Dalaran (28-33) aperta: ingresso dalle fogne in Silverpine Forest"
-    ],
-    "29": [
-     "Gnomeregan (29-38) con gruppo"
-    ]
-   },
+   "milestones": [
+    {
+     "l": 1,
+     "t": "<b>Lettera di classe</b>: Sten Stoutarm, Anvilmar.",
+     "npc": [
+      "Sten Stoutarm"
+     ]
+    },
+    {
+     "l": 4,
+     "t": "<b>Bag da 6 slot (Canvas Latchbag)</b>: Grund and Gozwin da Grund Drokda (Anvilmar). Quest di livello 6. prendila appena puoi. 🟡",
+     "npc": [
+      "Grund Drokda"
+     ]
+    },
+    {
+     "l": 4,
+     "t": "<b>The Adventurer</b> (Mountaineer Thalos, Coldridge Pass, liv. 6): prerequisito di The Great Outdoors. 🟡",
+     "npc": [
+      "Mountaineer Thalos"
+     ]
+    },
+    {
+     "l": 5,
+     "t": "<b>The Great Outdoors</b> (Eric Brighthammer, Kharanos): prendila appena puoi (serve liv. 4). Poi Camping 101: Cooking dallo stesso NPC, per Basic Campfire.",
+     "npc": [
+      "Eric Brighthammer"
+     ]
+    },
+    {
+     "l": 10,
+     "t": "<b>Flight Path di Ironforge e Thelsamar</b>: sblocca Dun Morogh e Loch Modan."
+    },
+    {
+     "l": 13,
+     "t": "<b>Hall of Thanes</b> (liv. 13–18): Important Heirlooms (Thom Filch), The Restless Dead (Afadra Dunwall), Old Ironforge Incursion (Earthseer Farsen).",
+     "npc": [
+      "Thom Filch",
+      "Afadra Dunwall",
+      "Earthseer Farsen"
+     ]
+    },
+    {
+     "l": 14,
+     "t": "<b>Poor Old Blanchy</b> (Verna Furlbrow, The Jansen Stead): bag Old Blanchy's Feed Pouch (8 slot).",
+     "npc": [
+      "Verna Furlbrow"
+     ]
+    },
+    {
+     "l": 14,
+     "t": "<b>Cozy Sleeping Bag</b>: catena da Alexston Farmstead (Westfall), facoltativa. 🟡"
+    },
+    {
+     "l": 16,
+     "t": "<b>Vyrin's Revenge</b> (Vyrin Swiftwind, Farstrider Lodge): bag Hunting Satchel (10 slot). 🟡; quest liv. 20.",
+     "npc": [
+      "Vyrin Swiftwind"
+     ]
+    },
+    {
+     "l": 17,
+     "t": "<b>The Deadmines</b> (liv. 17–26): prima prendi The Defias Brotherhood da Gryan Stoutmantle a Sentinel Hill.",
+     "npc": [
+      "Gryan Stoutmantle"
+     ]
+    },
+    {
+     "l": 24,
+     "t": "<b>Excavation Site: Wetlands</b>: quest Alleanza come Songblade Search (Dorin Songblade, Lakeshire). (quest di livello 31). 🟡",
+     "npc": [
+      "Dorin Songblade"
+     ]
+    }
+   ],
    "bags": [
     {
      "lvl": "4",
@@ -703,10 +765,6 @@
     {
      "npc": "Eric Brighthammer",
      "text": "The Great Outdoors (Kharanos 46.6 53.8): liv. 6, serve 4, 410 XP, prerequisito The Adventurer. ✔ warcraft.wiki.gg"
-    },
-    {
-     "npc": "Gremlock Pilsnor",
-     "text": "Cooking trainer a Kharanos (47.6 52.4): chiude Camping 101: Cooking (270 XP)."
     },
     {
      "npc": "Innkeeper Belm",
@@ -850,7 +908,7 @@
      "levels": "1–6",
      "town": "Shadowglen",
      "zoneIcon": "achievement_zone_darnassus",
-     "text": "Conservator Ilthalaine (58.7 44.3) dà The Balance of Nature. Melithar Staghelm, Tarindrella, Dirania Silvershine, Iverron. Chiudi con Crown of the Earth e vai a Dolanaar.",
+     "text": "Conservator Ilthalaine (58.7 44.3) dà The Balance of Nature. Fai le quest di Melithar Staghelm, Tarindrella, Dirania Silvershine (A Good Friend) e Iverron (A Friend in Need). Chiudi Crown of the Earth con Tenaron Stormgrip (Aldrassil), poi vai a Dolanaar.",
      "fp": ""
     },
     {
@@ -858,7 +916,7 @@
      "levels": "5–9",
      "town": "Dolanaar",
      "zoneIcon": "achievement_zone_darnassus",
-     "text": "Innkeeper Keldamyr (55.6 59.8). Aldia (55.4 57.2) dà Soft Saber Pelts: Soft Saber Sack, 6 slot, a liv. 4. Lyreena Duskblade (57.6 56.6) dà The Great Outdoors; Zarrin insegna Cooking. Zenn Foulhoof e Athridas Bearmantle.",
+     "text": "Hearthstone da Innkeeper Keldamyr (55.6 59.8). Aldia (55.4 57.2) dà Soft Saber Pelts: bag Soft Saber Sack (6 slot). Da Lyreena Duskblade (57.6 56.6) prendi The Great Outdoors e Camping 101: Cooking. Fai le quest di Zenn Foulhoof e Athridas Bearmantle.",
      "fp": ""
     },
     {
@@ -866,7 +924,7 @@
      "levels": "7–11",
      "town": "Starbreeze Village",
      "zoneIcon": "achievement_zone_darnassus",
-     "text": "Denalan (60.9 68.5): Timberling Seeds, Tumors, Oakenscowl. Gaerolas Talvethren a Starbreeze Village (dreamcatcher). Fel Rock: Lord Melenas.",
+     "text": "Denalan (60.9 68.5) dà le quest su Timberling Seeds, Tumors e Oakenscowl. Gaerolas Talvethren a Starbreeze Village per il dreamcatcher. Fel Rock: Lord Melenas.",
      "fp": ""
     },
     {
@@ -874,7 +932,7 @@
      "levels": "9–12",
      "town": "Darnassus",
      "zoneIcon": "achievement_zone_darnassus",
-     "text": "Ban'ethil Barrow Den, Oracle Glade e Mist (escort). Una visita a Darnassus: trainer di classe (liv. 10), Arch Druid Fandral Staghelm per chiudere Teldrassil. Nessa Shadowsong / The Bounty of Teldrassil per il volo gratis ad Auberdine.",
+     "text": "Fai Ban'ethil Barrow Den, Oracle Glade e l'escort Mist. Ritira Crown of the Earth da Arch Druid Fandral Staghelm (Cenarion Enclave) se non l'hai fatta. The Bounty of Teldrassil (Nessa Shadowsong, Lake Al'Ameth) dà il volo gratis ad Auberdine. 🟡",
      "fp": ""
     },
     {
@@ -882,7 +940,7 @@
      "levels": "11–16",
      "town": "Auberdine",
      "zoneIcon": "achievement_zone_darkshore_01",
-     "text": "Arrivo con Vesprystus da Rut'theran Village (58.4 94.0). Hearthstone da Innkeeper Shaussiy; Flight Path Caylais Moonfeather. Wizbang Cranktoggle (Buzzbox 827) avvia la catena della bag.",
+     "text": "Volo gratis da Rut'theran Village (58.4 94.0) con Vesprystus. Hearthstone da Innkeeper Shaussiy e Flight Path di Caylais Moonfeather. Wizbang Cranktoggle (Buzzbox 827, liv. 10) avvia la catena della bag.",
      "fp": "Auberdine"
     },
     {
@@ -890,7 +948,7 @@
      "levels": "16–19",
      "town": "Auberdine",
      "zoneIcon": "achievement_zone_darkshore_01",
-     "text": "Murkdeep (WANTED), Prospector Remtravel, Kerlonian Evershade (escort fino a Maestra's Post, a ~19). Buzzbox 525: Wizbang's Gunnysack, 8 slot. Opzione: boat per Stormwind Harbor e Westfall.",
+     "text": "Fai Murkdeep (WANTED), Prospector Remtravel e Kerlonian Evershade (escort fino a Maestra's Post, liv. 20). Continua la catena Buzzbox per la bag Wizbang's Gunnysack (8 slot). 🟡 Opzione: boat da Auberdine a Stormwind Harbor o Westfall.",
      "fp": ""
     },
     {
@@ -898,7 +956,7 @@
      "levels": "19–24",
      "town": "Astranaar",
      "zoneIcon": "achievement_zone_ashenvale_01",
-     "text": "Maestra's Post: Delgren the Purifier. Astranaar: Flight Master Daelyshia (34.4 48.0), Raene's Cleansing, Culling the Threat; Zoram Strand, Ilkrud Magthrull, Silverwind Refuge.",
+     "text": "Da Delgren the Purifier a Maestra's Post. Flight Path di Astranaar (Daelyshia, 34.4 48.0). Fai An Aggressive Defense (Raene Wolfrunner, liv. 24) e Culling the Threat (liv. 25). Poi Zoram Strand, Ilkrud Magthrull e Silverwind Refuge.",
      "fp": "Astranaar"
     },
     {
@@ -906,7 +964,7 @@
      "levels": "24–27",
      "town": "Stonetalon Peak",
      "zoneIcon": "achievement_zone_ashenvale_01",
-     "text": "Journey to Stonetalon Peak (breadcrumb di Astranaar). Fai Pridewings of Stonetalon e On Guard in Stonetalon, poi torna ad Ashenvale a 27.",
+     "text": "Stonetalon Peak e ritorno (liv. 24–27). Se non l'hai fatta, prendi Journey to Stonetalon Peak da Faldreas Goeth'Shael ad Astranaar. Fai Pridewings of Stonetalon (Shindrell Swiftfire) e On Guard in Stonetalon (Sentinel Thenysil). Torna ad Astranaar a liv. 27.",
      "fp": ""
     },
     {
@@ -914,44 +972,61 @@
      "levels": "27–30",
      "town": "Astranaar",
      "zoneIcon": "achievement_zone_ashenvale_01",
-     "text": "Finisci Raene's Cleansing, Forest Song (Kayneth Stillwind), Geltharis, Xavian. Blackfathom Deeps (24-32) con le quest. A 30: boat Auberdine → Stormwind e Duskwood, o Hillsbrad.",
+     "text": "Consegna le quest di Raene Wolfrunner. Fai Forest Song (Kayneth Stillwind) 🟡, Geltharis e Xavian. A liv. 30 prendi la boat da Auberdine verso Stormwind e Duskwood, oppure verso Hillsbrad.",
      "fp": ""
     }
    ],
-   "milestones": {
-    "4": [
-     "Soft Saber Pelts: Soft Saber Sack, 6 slot (Aldia, Dolanaar)",
-     "Puoi prendere The Great Outdoors (serve liv. 4)"
-    ],
-    "6": [
-     "The Great Outdoors + Camping 101: Cooking (Zarrin a Dolanaar)"
-    ],
-    "10": [
-     "Primo talent point",
-     "Trainer di classe a Darnassus"
-    ],
-    "11": [
-     "Volo gratis ad Auberdine con Vesprystus; imposta la Hearthstone"
-    ],
-    "15": [
-     "Catena Buzzbox (bag 8 slot) in corso; Darkshore sud"
-    ],
-    "19": [
-     "Escort Kerlonian: arrivi ad Ashenvale; Flight Path di Astranaar"
-    ],
-    "20": [
-     "Ashenvale in pieno; Teleport dei Mage"
-    ],
-    "24": [
-     "Blackfathom Deeps (24-32, Zoram Strand) con le quest; Stonetalon breadcrumb"
-    ],
-    "27": [
-     "Torna ad Ashenvale per le catene est (Raene, Forest Song)"
-    ],
-    "29": [
-     "Blackfathom Deeps e The Stockade (24-32) sono i dungeon più comodi"
-    ]
-   },
+   "milestones": [
+    {
+     "l": 4,
+     "t": "<b>Bag da 6 slot (Soft Saber Sack)</b>: Soft Saber Pelts da Aldia (Dolanaar). Quest di livello 7.",
+     "npc": [
+      "Aldia"
+     ]
+    },
+    {
+     "l": 4,
+     "t": "<b>The Great Outdoors</b> (Lyreena Duskblade, Dolanaar): prendila appena puoi (serve liv. 4). Poi Camping 101: Cooking dallo stesso NPC, per Basic Campfire.",
+     "npc": [
+      "Lyreena Duskblade"
+     ]
+    },
+    {
+     "l": 10,
+     "t": "<b>The Bounty of Teldrassil</b> (Nessa Shadowsong): volo gratis verso Auberdine. 🟡",
+     "npc": [
+      "Nessa Shadowsong"
+     ]
+    },
+    {
+     "l": 15,
+     "t": "<b>Buzzbox 827</b> (Wizbang Cranktoggle, Auberdine, liv. 10): catena che porta alla bag Wizbang's Gunnysack (8 slot). 🟡",
+     "npc": [
+      "Wizbang Cranktoggle"
+     ]
+    },
+    {
+     "l": 19,
+     "t": "<b>Escort Kerlonian</b>: porta Kerlonian Evershade fino a Maestra's Post, poi ad Astranaar. Flight Path di Astranaar (Daelyshia).",
+     "npc": [
+      "Kerlonian Evershade"
+     ]
+    },
+    {
+     "l": 24,
+     "t": "<b>Raene Wolfrunner</b> (Astranaar): An Aggressive Defense (liv. 24) e Culling the Threat (liv. 25).",
+     "npc": [
+      "Raene Wolfrunner"
+     ]
+    },
+    {
+     "l": 24,
+     "t": "<b>Journey to Stonetalon Peak</b> (Faldreas Goeth'Shael, Astranaar): breadcrumb per Stonetalon Peak.",
+     "npc": [
+      "Faldreas Goeth'Shael"
+     ]
+    }
+   ],
    "bags": [
     {
      "lvl": "4",
@@ -1133,7 +1208,7 @@
      "levels": "1–5",
      "town": "Thendal Village",
      "zoneIcon": "inv_elemental_primal_air",
-     "text": "Ailee Farheart dà Coming of Age, poi Rorian the Dayseeker (42.1 23.5). Trainer di classe in paese: Dorii Brightwhisper (Mage, 41.6 23.7) e gli altri (insegnano fino al 6). Windstone Clusters: voucher per una gathering profession.",
+     "text": "Ailee Farheart dà Coming of Age (ricevi l'Ancient Heirloom 🟡). Poi Rorian the Dayseeker (42.1 23.5) dà Aetheen of the Gales. I trainer di classe del paese arrivano fino al liv. 6: poi passa a Shen'dar Village.",
      "fp": ""
     },
     {
@@ -1141,7 +1216,7 @@
      "levels": "4–7",
      "town": "Shen'dar Village",
      "zoneIcon": "inv_elemental_primal_air",
-     "text": "Aetheen of the Gales: The Adventurer / The Next Step. Raan Wildwind (41.7 44.7) dà The Great Outdoors. Hearthstone da Coriella Calmbreeze (43.1 43.3). Indari Sunseam (44.6 44.4): The Problem With Prideclaws, Simple Leather Satchel, 6 slot, liv. 4. Rathiril Sunlance (45.0 46.4): High Order.",
+     "text": "Hearthstone da Coriella Calmbreeze (43.1 43.3). Indari Sunseam (44.6 44.4) dà The Problem With Prideclaws: bag da 6 slot. Prendi The Adventurer da Aetheen of the Gales (liv. 6) e consegnala a Raan Wildwind (41.7 44.7), che dà The Great Outdoors e Camping 101: Cooking.",
      "fp": ""
     },
     {
@@ -1149,7 +1224,7 @@
      "levels": "7–9",
      "town": "Falaath Village",
      "zoneIcon": "inv_elemental_primal_air",
-     "text": "Infiltrating the Cult con Sania Silverstream; Missionary Jasaan (46.8 56.2); Commander Cyclas (50.4 56.9); Peacekeeper Vaaniel e la torre ovest (A Last Request). Vulgara the Insatiable (elite, 42.5 53.0) a ~7.",
+     "text": "Missionary Jasaan (46.8 56.2) dà Among the Faithful. Peacekeeper Vaaniel (42.4 62.0) dà A Last Request. Commander Cyclas (50.4 56.9) per le quest del villaggio 🟡. Vulgara the Insatiable (elite, 42.5 53.0): meglio con il pet o in gruppo.",
      "fp": ""
     },
     {
@@ -1157,7 +1232,7 @@
      "levels": "9–11",
      "town": "Valanaar",
      "zoneIcon": "inv_elemental_primal_air",
-     "text": "Valennia Stormfist e Talaanis Shadowsong (66.2 76.6); Elaadrin Evengale (66.6 79.9) per la catena High Order (The Missing Scholar). Windfield Orchard, Shriekling Den. Galestrider e Riding a Fairweather Stables (53.8 81.3).",
+     "text": "Valennia Stormfist (66.2 76.6) dà Bugged e Tower Defense. Elaadrin Evengale (66.6 79.9) dà Catching Wind e Avenged Tenfold. Talaanis Shadowsong dà The Turncoat e Desperate Times.",
      "fp": ""
     },
     {
@@ -1165,7 +1240,7 @@
      "levels": "11–13",
      "town": "Shadowgale Forest",
      "zoneIcon": "inv_elemental_primal_air",
-     "text": "Elegael Thornpaw (61.7 39.2): Tears of the Lady, Feathers for Binding, Unwanted and Unworthy. Strange Hermit (54.0 38.9): Engineering. Vayn Moongaze: Nightclaw Druids; cura 7 druidi nella Nightclaw Cavern.",
+     "text": "Elegael Thornpaw (61.7 39.2) dà Feathers for Binding, Tears of the Lady e Unwanted and Unworthy. Completa le quest in zona e torna a Valanaar.",
      "fp": ""
     },
     {
@@ -1173,7 +1248,7 @@
      "levels": "13–14",
      "town": "Shrine of Akir",
      "zoneIcon": "inv_elemental_primal_air",
-     "text": "Tower Defense: Yorana Windyreed all'East Pylon Watchtower (69.6 67.1), The Turncoat, Desperate Times. Making Our Move allo Shrine of Akir (60.2 50.4), The Inner Sanctum e Confront Lorthuna.",
+     "text": "Yorana Windyreed (East Pylon Watchtower, 69.6 67.1) dà Breaking the Breaker e Disrupting Logistics. Valennia Stormfist dà Making Our Move e Confront Lorthuna (liv. 12) allo Shrine of Akir (60.2 50.4).",
      "fp": ""
     },
     {
@@ -1181,7 +1256,7 @@
      "levels": "12–14",
      "town": "Valanaar",
      "zoneIcon": "inv_elemental_primal_air",
-     "text": "Skyship del High Order (lato sinistro del porto, 64.9 80.9) → Dalaran. Nella Violet Citadel (nord, vicino al dock) c'è il portale per Stormwind (Mage Tower). Da Stormwind: Dungar Longdrink, tram, Hall of Thanes, poi a piedi a Westfall.",
+     "text": "Dal lato sinistro del porto (64.9 80.9) prendi lo Skyship del High Order verso Dalaran. Nella Violet Citadel, vicino al dock nord, c'è il portale per Stormwind. Da Stormwind: Dungar Longdrink, tram, poi a piedi verso Westfall.",
      "fp": ""
     },
     {
@@ -1189,7 +1264,7 @@
      "levels": "13–18",
      "town": "Sentinel Hill",
      "zoneIcon": "achievement_zone_westfall_01",
-     "text": "Entri nella rotta comune: Sentinel Hill (Thor), Jansen Stead (Old Blanchy's Feed Pouch), Saldean's Farm, People's Militia. Hall of Thanes (13-18) con il tram da Stormwind come primo dungeon.",
+     "text": "Prendi il Flight Path di Sentinel Hill (Thor). Consegna Report to Gryan Stoutmantle e prendi The People's Militia. Da Verna Furlbrow (The Jansen Stead) prendi Poor Old Blanchy, bag Old Blanchy's Feed Pouch (8 slot). Saldean's Farm è vicina.",
      "fp": "Sentinel Hill"
     },
     {
@@ -1197,39 +1272,64 @@
      "levels": "18–30",
      "town": "Lakeshire",
      "zoneIcon": "achievement_zone_redridgemountains",
-     "text": "Come Elwynn: Deadmines + Lakeshire (18-23), Darkshire (22-27), Menethil Harbor (27-30) con Excavation Site: Wetlands.",
+     "text": "Deadmines, Lakeshire, Darkshire e Wetlands (liv. 18–30). Fai le quest Deadmines (liv. 17–26) a Sentinel Hill, poi Lakeshire: Flight Path di Ariena Stormfeather e Hearthstone da Innkeeper Brianna. Messenger to Darkshire a Darkshire. Poi Menethil Harbor (Innkeeper Helbrek) per Excavation Site: Wetlands. A 30 vai a Hillsbrad o Arathi Highlands.",
      "fp": "Lakeshire"
     }
    ],
-   "milestones": {
-    "1": [
-     "Coming of Age (Ailee Farheart): ricevi l'Ancient Heirloom (anello)",
-     "Walk on Air e Read Leyline sono racial da subito"
-    ],
-    "4": [
-     "The Problem With Prideclaws: Simple Leather Satchel 6 slot (Indari Sunseam)",
-     "The Adventurer → The Great Outdoors (Raan Wildwind, serve liv. 4)"
-    ],
-    "6": [
-     "Camping 101: Cooking da Zerril Softbreeze (Shen'dar Village 43.8 43.8)",
-     "I trainer di Thendal insegnano solo fino al 6: passa ai trainer di Shen'dar"
-    ],
-    "10": [
-     "Primo talent point"
-    ],
-    "12": [
-     "Puoi lasciare l'isola con la Skycutter da Valanaar (~12-14)"
-    ],
-    "13": [
-     "Hall of Thanes (13-18) via Stormwind → tram"
-    ],
-    "14": [
-     "Cozy Sleeping Bag e Poor Old Blanchy (Westfall) disponibili"
-    ],
-    "17": [
-     "The Deadmines (17-26)"
-    ]
-   },
+   "milestones": [
+    {
+     "l": 1,
+     "t": "<b>Coming of Age</b> (Ailee Farheart, Thendal Village): ricevi l'Ancient Heirloom. 🟡",
+     "npc": [
+      "Ailee Farheart"
+     ]
+    },
+    {
+     "l": 4,
+     "t": "<b>Bag da 6 slot (Simple Leather Satchel)</b>: The Problem With Prideclaws da Indari Sunseam (Shen'dar Village). 🟡",
+     "npc": [
+      "Indari Sunseam"
+     ]
+    },
+    {
+     "l": 5,
+     "t": "<b>The Adventurer → The Great Outdoors</b>: The Adventurer da Aetheen of the Gales (Zephras Isle), poi consegna a Raan Wildwind, che dà The Great Outdoors (serve liv. 4).",
+     "npc": [
+      "Aetheen of the Gales",
+      "Raan Wildwind"
+     ]
+    },
+    {
+     "l": 6,
+     "t": "<b>Camping 101: Cooking</b> da Raan Wildwind (Shen'dar Village): sblocca Basic Campfire.",
+     "npc": [
+      "Raan Wildwind"
+     ]
+    },
+    {
+     "l": 12,
+     "t": "<b>Skycutter da Valanaar</b>: lascia l'isola con lo Skyship del High Order (lato sinistro del porto) verso Dalaran."
+    },
+    {
+     "l": 14,
+     "t": "<b>Poor Old Blanchy</b> (Verna Furlbrow, The Jansen Stead): bag Old Blanchy's Feed Pouch (8 slot).",
+     "npc": [
+      "Verna Furlbrow",
+      "Farmer Furlbrow"
+     ]
+    },
+    {
+     "l": 14,
+     "t": "<b>Cozy Sleeping Bag</b>: catena facoltativa. 🟡"
+    },
+    {
+     "l": 17,
+     "t": "<b>The Deadmines</b> (liv. 17–26): prima prendi The Defias Brotherhood da Gryan Stoutmantle a Sentinel Hill.",
+     "npc": [
+      "Gryan Stoutmantle"
+     ]
+    }
+   ],
    "bags": [
     {
      "lvl": "4",
@@ -1520,7 +1620,20 @@
   "Flight Path di Stormwind via quest A Swift Message (Quartermaster Lewis): solo games.gg; wmd conferma Dungar Longdrink.",
   "Coordinate /way: percentuali di zona prese dalle guide; i valori di wmd sono coordinate di mondo non convertibili. Thor (Sentinel Hill) ~56 52 approssimato.",
   "Non ho potuto leggere Icy Veins, Mobalytics, RestedXP o Kargoz: le tappe di Elwynn, Dun Morogh, Teldrassil e della rotta comune sono quasi tutte 🟡 (games.gg + Overgear + snippet Mobalytics), salvo bag/Camping/racial/dungeon ✔.",
-  "Zone icon di Teldrassil: non esiste achievement_zone_teldrassil, uso achievement_zone_darnassus. Icona razza Skyborne: usata quella Blood Elf (non trovata una Skyborne)."
+  "Zone icon di Teldrassil: non esiste achievement_zone_teldrassil, uso achievement_zone_darnassus. Icona razza Skyborne: usata quella Blood Elf (non trovata una Skyborne).",
+  "Camping 101: Cooking. L'indice dà questi NPC: Sam Sarsaparilla (Goldshire), Eric Brighthammer (Kharanos), Lyreena Duskblade (Dolanaar), Raan Wildwind (Zephras Isle), Brakk (Durotar), Eleanor Shackleton (Brill), Kaga Wildhoof (Bloodhoof Village). Sostituiscono Tomas, Gremlock Pilsnor, Zarrin e Zerril Softbreeze, che restano come trainer di Cooking solo dove indicato.",
+  "The Great Outdoors per i Tauren: l'indice dà Kaga Wildhoof a Bloodhoof Village (liv. 6). Il dubbio precedente su questo NPC è risolto.",
+  "The Adventurer: l'indice dà Marshal McBride (Northshire Abbey) per Elwynn, Mountaineer Thalos (Coldridge Pass) per Dun Morogh, Aetheen of the Gales (Zephras Isle) per Skyborne, Executor Arren (Deathknell) per Tirisfal, Chief Hawkwind (Camp Narache) per Mulgore. Non è chiaro se sia prerequisito di The Great Outdoors per tutte le razze.",
+  "Livelli di quest diversi tra indice e rotte: Carry Your Weight (indice 7, rotta 4), Soft Saber Pelts (7 vs 4), Sticks and Bones (7 vs 4), Grund and Gozwin (6 vs 4), Vyrin's Revenge (20 vs 15), Helcular's Revenge (33 vs 29), Ruins of Lordaeron (21–22 vs 15–20), Excavation Site Wetlands (31–32 vs 24–29), Stronger than Steel (29 vs 23). Ho segnato 🟡 nei punti in cui il livello conta.",
+  "Book of Ur: l'indice dà liv. 26, Keeper Bel'dugur, Undercity. La rotta diceva 16 e Silverpine. Non usato come tappa a 16.",
+  "Varimathras: l'indice lo mette a The Shining Strand (Ragefire Chasm), non a Undercity o Alterac. Tolto dalle tappe.",
+  "Hillsbrad: Journey to Hillsbrad Foothills è di Apothecary Renferrel (The Sepulcher, liv. 20), non Deathstalker Lesh. Corretto.",
+  "Bag non trovate nell'indice (🟡): Nibbled-On Book e Book Bag (Elwynn), Cozy Sleeping Bag (tutte le razze), Simple Leather Satchel (Skyborne A/H), Wizbang's Gunnysack (Teldrassil), Deviate Hide Pack (Durotar, Mulgore, Zephras H), Hunting Satchel (Dun Morogh), Canvas Latchbag (Dun Morogh), la bag da 8 slot di Wrenix (Durotar, Mulgore, Zephras H).",
+  "Quest non trovate nell'indice (🟡): Forest Song (Kayneth Stillwind), Commander Cyclas (Stolen Supplies è di Danarii Bellowveil), Ancient Heirloom (Coming of Age), Walk on Air e Read Leyline (racial, non inserite), Blessing of Zephras (non inserito), Ancient Grudge e Treaty of Understanding (Hall of Thanes, non inserite).",
+  "Crates e Waylaid Crates, Scuffed Shipping Crate, dungeon generici (Blackfathom Deeps, Razorfen Kraul, Gnomeregan, Stockade, Ragefire Chasm, Hall of Thanes come blocco di dungeon), Primo talent point e Teleport dei Mage: tolti come da brief. Le quest specifiche del Hall of Thanes sono rimaste nella tappa Dun Morogh.",
+  "Tappe Teldrassil: The Bounty of Teldrassil (Nessa Shadowsong) è all'indice a Lake Al'Ameth, liv. 10; il volo gratis con Vesprystus viene da solo games.gg. Entrambi 🟡.",
+  "Zephras Alleanza: Valennia Stormfist dà Tower Defense (indice) e non Yorana Windyreed; Yorana dà Breaking the Breaker e Disrupting Logistics. Riportato nell'ordine dell'indice.",
+  "Zephras Horde: Ayessa Dawnsinger è solo Horde (A Firm Response, Blood for Blood, A Grand Adventure). Tolta dalla versione Alleanza."
  ],
  "crates": "Marcy Baker, Three Corners (Redridge) <code>/way 9.5 71.1</code>"
 }

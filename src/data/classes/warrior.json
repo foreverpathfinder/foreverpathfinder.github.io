@@ -493,65 +493,80 @@
    "html": "<p>Hamstring (8) e Intimidating Shout (22) per uscire dai pull sbagliati, Shield Bash/Pummel per i caster. Sconsigliato dalla maggior parte delle guide: pullare più mob del dovuto prima di avere Shield Block.</p>"
   }
  ],
- "milestones": {
-  "1": [
-   "Battle Shout e Heroic Strike. Scegli la zona di partenza della tua razza (Dun Morogh, Elwynn Forest, Teldrassil, Zephras Isle, ecc.)."
-  ],
-  "4": [
-   "Rend e Charge dal Trainer."
-  ],
-  "6": [
-   "Thunder Clap."
-  ],
-  "8": [
-   "Hamstring."
-  ],
-  "10": [
-   "<b>Class quest Defensive Stance</b> (Taunt + Sunder Armor): nella tua area di partenza (Maxroll: Alliance \"A Warrior's Training\", Elanaria, Muren Stormpike a Goldshire/Dolanaar/Kharanos; Horde Veteran Uzzek e Dillinger a Razor Hill/Bloodhoof/Brill; mappatura esatta per razza non verificata, segui il marker). La quest di follow-up dà un'arma 1H (a scelta tra più tipi) – Method. Bloodrage dal Trainer. Primo talent point: Shield Specialization."
-  ],
-  "12": [
-   "Overpower e Shield Bash."
-  ],
-  "14": [
-   "Revenge, Demoralizing Shout, Tactical Mastery: la Protection inizia a funzionare."
-  ],
-  "16": [
-   "Shield Block e Mocking Blow. Per Conquest Capped è il livello da cui Protection \"ripaga\" (prima non c'è vantaggio). Quest reward Welding Shield (Zockify, \"Q16\"; quest non identificata)."
-  ],
-  "18": [
-   "Disarm."
-  ],
-  "20": [
-   "Slam, Cleave, Retaliation, Victory Rush, Dual Wield, Polearms. Class quest armor: Brutal Hauberk o Fire Hardened Hauberk (Warcraft Tavern 🟡)."
-  ],
-  "22": [
-   "Intimidating Shout."
-  ],
-  "24": [
-   "Execute."
-  ],
-  "25": [
-   "Vanguard: Charge in Defensive Stance."
-  ],
-  "26": [
-   "Challenging Shout."
-  ],
-  "28": [
-   "Shield Wall."
-  ],
-  "30": [
-   "<b>Class quest Berserker Stance</b> (Intercept): il Trainer ti manda a Fray Island vicino a Ratchet (quest \"The Islander\" / \"The Affray\", Maxroll / Warcraft Tavern). <b>Whirlwind Axe</b> (item 6975): catena da Alterac Mountains, quest \"The Summoning\", quest level 40, accettabile dal 30 – molto dura (Method, Zockify). Concussion Blow."
-  ],
-  "36": [
-   "Whirlwind (Berserker Stance)."
-  ],
-  "40": [
-   "Shield Slam, Plate Armor, Apprentice Riding (mount) e Dual Talent Specialization. Skinning/Mining aiutano per l'oro del mount. Seconda spec Fury consigliata da Zockify/Mobalytics."
-  ],
-  "50": [
-   "Recklessness."
-  ]
- },
+ "milestones": [
+  {
+   "l": 10,
+   "r": [
+    "human",
+    "dwarf",
+    "gnome",
+    "skyborne_a"
+   ],
+   "t": "<b>Defensive Stance</b> (Taunt, Sunder Armor): 1) <i>A Warrior's Training</i> da Lyria Du Lac (Goldshire) o Ilsa Corbin (Stormwind, Valley of Heroes). 2) <i>Bartleby the Drunk</i> da Harry Burlguard (Valley of Heroes). 3) <i>Beat Bartleby</i>: sconfiggi Bartleby, si arrende da solo. 4) <i>Bartleby's Mug</i> a Harry Burlguard → impari Defensive Stance.",
+   "npc": [
+    "Lyria Du Lac",
+    "Ilsa Corbin",
+    "Harry Burlguard"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "nightelf"
+   ],
+   "t": "<b>Defensive Stance</b>: 1) <i>Elanaria</i> da Kyra Windblade (Dolanaar). 2) <i>Smith Mathiel</i> da Elanaria (Darnassus, Warrior's Terrace) e segui la catena fino a Defensive Stance (Taunt, Sunder Armor). 🟡",
+   "npc": [
+    "Kyra Windblade",
+    "Elanaria"
+   ]
+  },
+  {
+   "l": 10,
+   "f": "H",
+   "t": "<b>Defensive Stance</b>: 1) <i>Path of Defense</i> da Uzzek (Far Watch Post, ingresso dei Barrens da Durotar). 2) <i>Thun'grim Firegaze</i>: vai da Thun'grim (Thorn Hill, Barrens nord-est). 3) <i>Forged Steel</i> da Thun'grim → impari Defensive Stance (Taunt, Sunder Armor). Tauren e Undead: vale la pena farla quando arrivi nei Barrens.",
+   "npc": [
+    "Uzzek",
+    "Thun'grim Firegaze"
+   ]
+  },
+  {
+   "l": 20,
+   "f": "H",
+   "t": "<i>Speak with Thun'grim</i> (Camp Taurajo, da Ruga Ragetotem): ti rimanda da Thun'grim Firegaze, che al 30 dà le quest dell'armatura <i>Brutal Hauberk/Brutal Armor</i>.",
+   "npc": [
+    "Ruga Ragetotem",
+    "Thun'grim Firegaze"
+   ]
+  },
+  {
+   "l": 28,
+   "f": "A",
+   "t": "<i>Mathiel</i> da Furen Longbeard (Stormwind): ti manda da Mathiel (Darnassus, Warrior's Terrace), che dal 30 dà le quest dell'armatura (<i>Mathiel's Armor</i>, <i>Sunscorched Shells</i>).",
+   "npc": [
+    "Furen Longbeard",
+    "Mathiel"
+   ]
+  },
+  {
+   "l": 30,
+   "t": "<b>Berserker Stance</b> (Intercept, Berserker Rage): <i>The Islander</i> dal Warrior Trainer della capitale (Wu Shen a Stormwind, Kelv Sternhammer a Ironforge, Sorek a Orgrimmar, Torm Ragetotem a Thunder Bluff, Baltus Fowler a Undercity) → Klannoc Macleod sulla Fray Island (Barrens, a nord-est di Ratchet, Kolkar Crag) → <i>The Affray</i>: sconfiggi le ondate di sfidanti e poi Big Will → Berserker Stance.",
+   "npc": [
+    "Klannoc Macleod"
+   ]
+  },
+  {
+   "l": 36,
+   "t": "Whirlwind (Berserker Stance)."
+  },
+  {
+   "l": 40,
+   "t": "Shield Slam, Plate Armor, Apprentice Riding (mount) e Dual Talent Specialization. Skinning/Mining aiutano per l'oro del mount. Seconda spec Fury consigliata da Zockify/Mobalytics."
+  },
+  {
+   "l": 50,
+   "t": "Recklessness."
+  }
+ ],
  "camp": [
   [
    "Camp Tent",
@@ -749,6 +764,13 @@
    "date": "ott",
    "signal": "reputazione alta",
    "used": "racial"
+  },
+  {
+   "name": "Indice Forever (forever_quests.txt)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Dati mappa Forever: nome quest, livello, NPC, fazione, zona",
+   "used": "Nomi NPC e livelli di A Warrior's Training, Path of Defense, The Islander, The Affray, The Summoning"
   }
  ],
  "doubts": [
@@ -760,6 +782,10 @@
   "Racial: Human Ruthless 1% (Tavern, tooltip) vs 2% (note 16 ott); Orc Blood Fury CD 2 min (tooltip) vs 3 min (note 16 ott); Berserking durata 15 s (tooltip) vs 10 s (Tavern).",
   "Zockify vs Warcraft Tavern: Zockify dice Whirlwind Weapon quest livello 40; Method/Zockify citano Alterac Mountains; nome quest Berserker Stance diverso tra fonti (The Islander / The Affray).",
   "Class quest livello 10: NPC per razza non verificati uno per uno (Maxroll dà un elenco parziale); controlla il marker in gioco.",
-  "Dati pre-lancio (beta cap 30): i tooltip in gioco hanno la precedenza."
+  "Dati pre-lancio (beta cap 30): i tooltip in gioco hanno la precedenza.",
+  "🟡 Il nome 'A Warrior's Training' / 'Path of Defense' è l'indice; il fatto che la quest dia Defensive Stance viene dalle fonti di classe, non riletto.",
+  "🟡 Mapping NPC per razza per il 10: indice dà Lyria Du Lac e Ilsa Corbin (A) e Uzzek (H), ma non lega ogni NPC a una razza.",
+  "🟡 Quest armatura/arma al 20 (Brutal Hauberk, Fire Hardened Hauberk, Welding Shield): nessuna trovata nell'indice Forever. Non inserite come quest finché non confermate in gioco.",
+  "🟡 Whirlwind Axe: l'indice dà The Summoning a livello 40, non 30 come nel JSON precedente."
  ]
 }

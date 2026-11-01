@@ -577,86 +577,220 @@
    "html": "<ul><li>Dal 15 ott serve restare fermi 0,5 s prima che la wand spari (ConquestCapped); non scala più con lo spell power secondo CC, ma Scriblet/KamiLabs (23 set) la vedeva scalare ~0,3 🟡 conflitto: verifica dopo il lancio.</li></ul>"
   }
  ],
- "milestones": {
-  "1": [
-   "Smite, Lesser Heal e Power Word: Fortitude dal Trainer di zona (vedi sotto per i trainer). Prendi Cooking (food +5% XP) e, se vuoi la wand al 5, Enchanting + Tailoring. Novice’s Practice Wand (livello 1) da Enchanting/AH."
-  ],
-  "4": [
-   "Shadow Word: Pain (Rank 1) + Lesser Heal Rank 2 ✔ (client)."
-  ],
-  "5": [
-   "Lesser Magic Wand (item 11287): craft Enchanting (10 skill; Runed Copper Rod + disenchant di Brown Linen Robe) o AH. ~11 DPS, req. livello 5 ✔ (client item tooltip + Method). Professioni Apprentice."
-  ],
-  "6": [
-   "Power Word: Shield + Smite Rank 2."
-  ],
-  "8": [
-   "Fade + Renew: Renew diventa la cura tra i pull."
-  ],
-  "10": [
-   "Mind Blast, Resurrection, Journeyman professions. Racial #1 via class quest (nome quest non trovato 🟡): Human Divine Grace = Priestess Josetta (Goldshire, Elwynn) o High Priestess Laurena (Stormwind) (Maxroll). Per le altre razze Maxroll cita NPC senza mapping chiaro (Maxan Anvol, Toldren Deepiron, Laurna Morninglight, Astarii Starseeker, Lankester, Cobb, Zayus, Var’jun, Ken’jai, Ur’kyo): parla col Priest Trainer della tua città. Se fai Ragefire Chasm: staff di quest (18 spell power) garantita al completamento della catena (KamiLabs 🟡)."
-  ],
-  "12": [
-   "Inner Fire (Rank 1), PW:S Rank 2, PW:Fortitude Rank 2."
-  ],
-  "13": [
-   "Greater Magic Wand (item 11288, Enchanting/AH): ~17,5 DPS, ~50% più della Lesser (Method) ✔. Craft appena hai soldi e Enchanting."
-  ],
-  "14": [
-   "Psychic Scream + Cure Disease. Training prioritario: SW:P, Renew, PW:S (DoubleZug)."
-  ],
-  "15": [
-   "Wailing Caverns: Sizzle Stick come wand (WT, “earliest 15”) e staff di quest WC con 5 spell power garantita (KamiLabs: Scriblet la preferisce alla Greater Magic Wand 🟡)."
-  ],
-  "16": [
-   "Heal + Mind Blast Rank 2."
-  ],
-  "18": [
-   "Dispel Magic, SW:P Rank 3. Blackfathom Deeps/Blackfathom Villainy: Gravestone Scepter (livello 18, wand Shadow 30–57, +3 Spirit, +4 Shadow res; Maxroll lo dà come drop “Blackfathom Villainy”, WT e ConquestCapped come quest reward 🟡). Must-do secondo ConquestCapped."
-  ],
-  "20": [
-   "Racial #2 + Devouring Plague, Fear Ward, Flash Heal, Holy Fire, Mind Soothe, Shackle Undead. Expert professions. Feedback (Human): Brother Joshua (Stormwind), High Priest Rohan (Ironforge) o Priestess Alathea (Darnassus) secondo Maxroll 🟡 (non coerente con la razza: nomi quest non trovati)."
-  ],
-  "24": [
-   "Mind Flay (talento) + inizio Improved Mind Flay (25–26). Mana Burn, PW:Fortitude Rank 3, PW:S Rank 4, Holy Fire Rank 2."
-  ],
-  "25": [
-   "Binding Heal (talento Holy). Legacy Point al 25 (wowforeverguides 🟡)."
-  ],
-  "26": [
-   "Lesser Mystic Wand (Method “Mystic wand option”, 🟡 Enchanting), SW:P Rank 4, Renew Rank 4."
-  ],
-  "27": [
-   "Vampiric Embrace (talento): auto-cura + party heal, abbinato a Devouring Plague. Wand of Eventide (WT): wand BoE da drop mondo, livello 27."
-  ],
-  "28": [
-   "Shadow Weaving 1/3 (Shadow Weaving 3/3 al 30). Mind Blast Rank 4, Psychic Scream Rank 2, Devouring Plague Rank 2."
-  ],
-  "30": [
-   "Inner Fire Rank 3, PW:S Rank 5, Divine Spirit, Prayer of Healing, Mind Control. Greater Mystic Wand (Maxroll, Enchanting/AH 🟡)."
-  ],
-  "32": [
-   "Silence (talento) e Shadow Word: Death al Trainer, Abolish Disease. Risparmia oro per il mount al 40: non rankare ogni spell subito (Method)."
-  ],
-  "33": [
-   "Devouring Contagion 2/2 (33–34): DP salta tra i mob. Wand/arma: tienila aggiornata (DoubleZug)."
-  ],
-  "36": [
-   "Improved Mind Blast 1/5 (per Mind Flay ×2 → Blast ne servono 4/5 più avanti). Devouring Plague Rank 3, PW:S Rank 6."
-  ],
-  "40": [
-   "Apprentice Riding e mount; Dual Talent Specialization (WT). DoubleZug: aspetta il 42 per Shadowform e risparmia oro per il mount (oppure respec al 40 con lo stesso build ma Darkness 5/5 al posto di Wand Spec)."
-  ],
-  "42": [
-   "Shadowform (talento): grande salto di danno, Mind Blast/Flay competitivi con la wand. PW:S Rank 7, SW:P Rank 6."
-  ],
-  "50": [
-   "Meditation arriva ai 51–53 (Disc: Twin 5/5 + Mental Strength 3/3 prima). Mind Blast/SW:P nuovi rank 46–58."
-  ],
-  "60": [
-   "Inner Focus: ultimo punto; poi respec a piacere (DoubleZug)."
-  ]
- },
+ "milestones": [
+  {
+   "l": 10,
+   "r": [
+    "human"
+   ],
+   "f": "A",
+   "npc": [
+    "Priestess Josetta",
+    "High Priestess Laurena"
+   ],
+   "t": "<b>Divine Grace</b> (10): quest razziale di classe Human. Prendila da Priestess Josetta (Goldshire) o High Priestess Laurena (Stormwind). Ricompensa: Divine Grace (cura alleato sotto il 50%, rimuove Weakened Soul; non cura te)."
+  },
+  {
+   "l": 10,
+   "r": [
+    "dwarf"
+   ],
+   "f": "A",
+   "npc": [
+    "Maxan Anvol"
+   ],
+   "t": "<b>Desperate Prayer</b> (10): quest razziale Dwarf. Prendila da Maxan Anvol (Kharanos). Ricompensa: Desperate Prayer (self-heal, cooldown 10 min)."
+  },
+  {
+   "l": 10,
+   "r": [
+    "gnome"
+   ],
+   "f": "A",
+   "npc": [
+    "Maxan Anvol",
+    "High Priestess Mims"
+   ],
+   "t": "<b>Confounding Flash</b> (10): quest razziale Gnome. Prendila da Maxan Anvol (Kharanos) o High Priestess Mims (Ironforge). Ricompensa: Confounding Flash (confonde fino a 5 nemici per 3 s, cooldown 2 min)."
+  },
+  {
+   "l": 10,
+   "r": [
+    "nightelf"
+   ],
+   "f": "A",
+   "npc": [
+    "Laurna Morninglight"
+   ],
+   "t": "<b>Starshards</b> (10): quest razziale Night Elf. NPC indicato dalle fonti: Laurna Morninglight (Dolanaar). 🟡 Ricompensa: Starshards."
+  },
+  {
+   "l": 10,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "npc": [
+    "Aelthalyste",
+    "Miles Welsh",
+    "Tai'jin",
+    "Ur'kyo",
+    "Var'jun"
+   ],
+   "t": "<b>Touch of Weakness</b> (10): quest razziale Undead. Prendila da Aelthalyste (Undercity) o Miles Welsh (Spirit Rise). Ricompensa: Touch of Weakness."
+  },
+  {
+   "l": 10,
+   "r": [
+    "troll"
+   ],
+   "f": "H",
+   "npc": [
+    "Tai'jin",
+    "Var'jun",
+    "Aelthalyste",
+    "Ur'kyo"
+   ],
+   "t": "<b>Hex of Weakness</b> (10): quest razziale Troll. Prendila da Tai'jin (Razor Hill), Var'jun (Bloodhoof Village), Aelthalyste (Undercity) o Ur'kyo (Rocktusk Farm). Ricompensa: Hex of Weakness."
+  },
+  {
+   "l": 5,
+   "r": [
+    "human",
+    "dwarf",
+    "gnome",
+    "nightelf",
+    "undead",
+    "troll"
+   ],
+   "t": "<b>Wand al 5</b>: <b>Lesser Magic Wand</b> (item 11287, livello 5, ~11 DPS). Si crea con Enchanting (skill 10) o si compra all'Auction House. Enchanting si prende in città con il Trainer della tua razza. ✔."
+  },
+  {
+   "l": 13,
+   "r": [
+    "human",
+    "dwarf",
+    "gnome",
+    "nightelf",
+    "undead",
+    "troll"
+   ],
+   "t": "<b>Greater Magic Wand</b> (item 11288, ~17,5 DPS, circa 50% più della Lesser). Si crea con Enchanting o si compra all'Auction House. Compralo appena puoi. 🟡"
+  },
+  {
+   "l": 15,
+   "t": "<b>Sizzle Stick</b> (Wailing Caverns): wand presa dalla quest della caverna, 'earliest 15' (Warcraft Tavern). 🟡 Verifica in gioco."
+  },
+  {
+   "l": 18,
+   "t": "<b>Gravestone Scepter</b> (livello 18, wand Shadow 30–57): da Blackfathom Deeps, drop o quest reward secondo le fonti. 🟡"
+  },
+  {
+   "l": 20,
+   "r": [
+    "human"
+   ],
+   "f": "A",
+   "npc": [
+    "Brother Joshua",
+    "High Priest Rohan"
+   ],
+   "t": "<b>Feedback</b> (20): quest razziale Human. NPC dalle fonti: Brother Joshua (Stormwind) o High Priest Rohan (Ironforge). 🟡"
+  },
+  {
+   "l": 20,
+   "r": [
+    "dwarf"
+   ],
+   "f": "A",
+   "npc": [
+    "High Priest Rohan",
+    "High Priestess Laurena",
+    "Priestess Alathea"
+   ],
+   "t": "<b>Chastise</b> (20): quest razziale Dwarf. Prendila da High Priest Rohan (Ironforge), High Priestess Laurena (Stormwind) o Priestess Alathea (The Temple Gardens). Ricompensa: Chastise (root 2 s su umanoidi)."
+  },
+  {
+   "l": 20,
+   "r": [
+    "gnome"
+   ],
+   "f": "A",
+   "npc": [
+    "High Priestess Laurena",
+    "High Priestess Mims"
+   ],
+   "t": "<b>Contingency Plan</b> (20): quest razziale Gnome. Prendila da High Priestess Laurena (Stormwind) o High Priestess Mims (Ironforge). Ricompensa: Contingency Plan (ward 30 s)."
+  },
+  {
+   "l": 20,
+   "r": [
+    "nightelf"
+   ],
+   "f": "A",
+   "npc": [
+    "High Priest Rohan",
+    "High Priestess Laurena",
+    "Nara Meideros",
+    "Priestess Alathea"
+   ],
+   "t": "<b>Elune's Grace</b> (20): quest razziale Night Elf. Prendila da High Priest Rohan (Ironforge), Nara Meideros o High Priestess Laurena (Stormwind), o Priestess Alathea (The Temple Gardens). Ricompensa: Elune's Grace (−50% di chance di essere colpito per 15 s)."
+  },
+  {
+   "l": 20,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "npc": [
+    "Aelthalyste",
+    "Miles Welsh",
+    "Ur'kyo"
+   ],
+   "t": "<b>Dark Sacrifice</b> (20): quest razziale Undead. Prendila da Aelthalyste (Undercity), Miles Welsh (Spirit Rise) o Ur'kyo (Rocktusk Farm). Ricompensa: Dark Sacrifice (perdi vita, guadagni mana)."
+  },
+  {
+   "l": 20,
+   "r": [
+    "troll"
+   ],
+   "f": "H",
+   "npc": [
+    "Aelthalyste",
+    "Miles Welsh",
+    "Ur'kyo"
+   ],
+   "t": "<b>Shadowguard</b> (20): quest razziale Troll. Prendila da Aelthalyste (Undercity), Miles Welsh (Spirit Rise) o Ur'kyo (Rocktusk Farm). Ricompensa: Shadowguard (3 cariche, 10 min)."
+  },
+  {
+   "l": 32,
+   "t": "Silence (talento) e Shadow Word: Death al Trainer, Abolish Disease. Risparmia oro per il mount al 40: non rankare ogni spell subito (Method)."
+  },
+  {
+   "l": 33,
+   "t": "Devouring Contagion 2/2 (33–34): DP salta tra i mob. Wand/arma: tienila aggiornata (DoubleZug)."
+  },
+  {
+   "l": 36,
+   "t": "Improved Mind Blast 1/5 (per Mind Flay ×2 → Blast ne servono 4/5 più avanti). Devouring Plague Rank 3, PW:S Rank 6."
+  },
+  {
+   "l": 40,
+   "t": "Apprentice Riding e mount; Dual Talent Specialization (WT). DoubleZug: aspetta il 42 per Shadowform e risparmia oro per il mount (oppure respec al 40 con lo stesso build ma Darkness 5/5 al posto di Wand Spec)."
+  },
+  {
+   "l": 42,
+   "t": "Shadowform (talento): grande salto di danno, Mind Blast/Flay competitivi con la wand. PW:S Rank 7, SW:P Rank 6."
+  },
+  {
+   "l": 50,
+   "t": "Meditation arriva ai 51–53 (Disc: Twin 5/5 + Mental Strength 3/3 prima). Mind Blast/SW:P nuovi rank 46–58."
+  },
+  {
+   "l": 60,
+   "t": "Inner Focus: ultimo punto; poi respec a piacere (DoubleZug)."
+  }
+ ],
  "camp": [
   [
    "Camp Tent",
@@ -852,6 +986,20 @@
    "date": "ott 2026",
    "signal": "non letto (403)",
    "used": "“Deep Shadow”: Shadow Reach/Weaving/ISWP/IMB; Blackout > Shadow Focus"
+  },
+  {
+   "name": "Indice Forever (forever_quests.txt)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Nomi quest, livelli, NPC, zona",
+   "used": "Divine Grace, Desperate Prayer, Confounding Flash, Touch/Hex of Weakness, Elune's Grace, Chastise, Contingency Plan, Dark Sacrifice, Shadowguard"
+  },
+  {
+   "name": "Warcraft Tavern – Priest Leveling Guide",
+   "url": "https://warcrafttavern.com/wow-forever/priest-leveling-guide/",
+   "date": "2026-11-01",
+   "signal": "Letta: pagina risulta WotLK, nessun dato utile per Forever",
+   "used": "Nessuno: pagina sbagliata"
   }
  ],
  "doubts": [
@@ -868,6 +1016,10 @@
   "Mobalytics Twicks/Kargoz e Icy Veins non letti (Cloudflare/403).",
   "Devouring Contagion: icona non presente in wf/priest.json (talento senza icon).",
   "Build 43–60: il testo DoubleZug (IPWS 45–48, Mental Agility 58, Soul Warding 59) contraddice sia la sua griglia finale (17/3/31 con Mental Strength 3/5) sia i prerequisiti attuali di IPWS (10 punti Disc): ho seguito griglia + prerequisiti 🟡. Range di livello sovrapposti nella sua guida risolti a un punto per livello 🟡.",
-  "Twicks (27 ♥, 2/0/9 = 11 punti al 20, Shadow) e Kargoz (8 ♥) non letti: li uso solo come segnale che la comunità favorisce Shadow."
+  "Twicks (27 ♥, 2/0/9 = 11 punti al 20, Shadow) e Kargoz (8 ♥) non letti: li uso solo come segnale che la comunità favorisce Shadow.",
+  "🟡 Night Elf Starshards (10) non trovata nell'indice: NPC non confermato.",
+  "🟡 Human Feedback (20) non trovata nell'indice: NPC non confermato.",
+  "🟡 Greater Magic Wand al 13 e Sizzle Stick al 15 e Gravestone Scepter al 18: non verificate in fonte leggibile.",
+  "🟡 La pagina Warcraft Tavern priest è WotLK: nessun dato Forever utile."
  ]
 }

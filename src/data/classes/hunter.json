@@ -566,121 +566,131 @@
    "html": "<p>Il Hunter eccelle nel chain pull: passi al mob successivo mentre il precedente muore per DoT o trappole, ma attento ai mob vivi che vagano verso altri pack (Warcraft Tavern). <b>Feign Death</b> (30) resetta un pull sbagliato: metti prima il Pet in passivo e richiamalo, poi resta giù finché i mob si allontanano (Zockify). Prima del 30 usa Scare Beast, Freezing Trap o Distracting Shot.</p>"
   }
  ],
- "milestones": {
-  "1": [
-   "Raptor Strike, <b>Auto Shot</b>, Track Beasts. Compra Ammo (arrows/bullets) e un Quiver/Ammo Pouch: senza proiettili non spari.",
-   "Armi: bow, gun, crossbow più una melee. Se cambi tipo di arma devi allenare la skill dal Weapon Trainer."
-  ],
-  "4": [
-   "Serpent Sting e Aspect of the Monkey (Dodge +8%) dal Class Trainer."
-  ],
-  "5": [
-   "Apprentice Professions. Quest <b>The Great Outdoors</b> (Camping): Cooking → Basic Campfire."
-  ],
-  "6": [
-   "Arcane Shot e Hunter’s Mark."
-  ],
-  "8": [
-   "Concussive Shot: la tua arma di kiting prima del Pet. Raptor Strike 2."
-  ],
-  "10": [
-   "<b>Class quest Taming the Beast</b> (vedi riquadro \"Primo Pet per razza\"): imparerai Tame Beast, Beast Training, Feed Pet, Revive Pet, Call Pet, Dismiss Pet.",
-   "Aspect of the Hawk, Track Humanoids, Serpent Sting 2. Pet Trainer: Growl 2, Great Stamina, Natural Armor.",
-   "Primi talent: <b>Deadly Aspects</b> ×5. Journeyman Professions.",
-   "<b>Pet consigliato (livello 10 o meno):</b> Cat – The Rake (10 · Mulgore) o Ghostfang (10 · Dun Morogh); Boar – Scarred Crag Boar (9–10 · Dun Morogh) o Longsnout (10–11 · Elwynn Forest)."
-  ],
-  "12": [
-   "Mend Pet, Wing Clip, Distracting Shot, Arcane Shot 2. Pet livello 12: Charge 2, Dismember/Dust Cloud/Web 1.",
-   "<b>Pet:</b> Savannah Prowler (14–15 · The Barrens) per un Cat nuovo; Grizzled Black Bear (13–14 · Loch Modan) per Swipe."
-  ],
-  "14": [
-   "Scare Beast, Eyes of the Beast, Eagle Eye."
-  ],
-  "15": [
-   "<b>Focused Fire</b> ×2 (15–16)."
-  ],
-  "16": [
-   "Immolation Trap, Mongoose Bite, Raptor Strike 3. Pet livello 16: Bite 3 / Claw 3.",
-   "<b>Pet:</b> Greater Fleshripper (16–17 · Westfall, Carrion Bird); Elder Mountain Boar (16–17 · Loch Modan) o Great Goretusk (16–17 · Redridge Mountains)."
-  ],
-  "17": [
-   "Improved Revive Pet (1° punto)."
-  ],
-  "18": [
-   "<b>Multi-Shot</b>, Aspect of the Hawk 2, Serpent Sting 3. Endurance Training ×2 (18–19).",
-   "<b>Pet:</b> Moonstalker Sire (17–18 · Darkshore), Savannah Matriarch (17–18 · The Barrens)."
-  ],
-  "20": [
-   "<b>Aimed Shot</b> ★ (base, non più talent), Freezing Trap, Aspect of the Cheetah, Disengage, Arcane Shot 3, Mend Pet 2. Dual Wield e Polearms. Expert Professions.",
-   "Primo punto in <b>Unleashed Fury</b> (20–24). Pet livello 20: Growl 3, resistenze, Shell Shield e Mine! 2.",
-   "<b>Pet:</b> Ghost Saber o Moonstalker Matriarch (19–20 · Darkshore, Cat); Kresh (20 · Wailing Caverns, Turtle con Shell Shield) 🟡.",
-   "Arma: Venomstrike (19–22, Wailing Caverns) (Warcraft Tavern)."
-  ],
-  "22": [
-   "Scorpid Sting ★ (−2% chance di colpire), Hunter’s Mark 2.",
-   "Arma: Naga Heartpiercer (22–29, Blackfathom Deeps) (Warcraft Tavern)."
-  ],
-  "24": [
-   "Track Hidden, Beast Lore, Raptor Strike 4. Pet livello 24: <b>Bite 4 / Claw 4 / Charge 3 / Furious Howl 2</b>.",
-   "Arma: Fallenroot Longbow (23–29, Blackfathom Deeps).",
-   "<b>Pet:</b> Starving Mountain Lion (23–24 · Hillsbrad Foothills) o Humar the Pridelord (23 · The Barrens, rare elite). Per le abilità: Giant Moss Creeper (24–25 · Hillsbrad Foothills), Bellygrub (24 · Redridge Mountains)."
-  ],
-  "25": [
-   "<b>Summon Hawk</b> ★ (talent): 2 hawk e Pet su ogni mob; cooldown 6 s condiviso con Arcane Shot.",
-   "<b>Pet:</b> Crag Stalker (25–26 · Thousand Needles), Elder Ashenvale Bear (25–26 · Ashenvale), Black Ravager Mastiff (25–26 · Duskwood)."
-  ],
-  "26": [
-   "<b>Rapid Fire</b> (cooldown 5 min), Track Elementals, Serpent Sting 4, Immolation Trap 2.",
-   "Improved Revive Pet 2/2."
-  ],
-  "27": [
-   "Ferocity ×2 (27–28)."
-  ],
-  "28": [
-   "Frost Trap, Aimed Shot 2, Arcane Shot 4, Aspect of the Hawk 3, Mend Pet 3."
-  ],
-  "29": [
-   "Bestial Swiftness (+30% velocità al Pet)."
-  ],
-  "30": [
-   "<b>Intimidation</b> (talent), <b>Feign Death</b>, Aspect of the Beast, Mongoose Bite 2, Scare Beast 2, Distracting Shot 3. Pet livello 30: Growl 4, Great Stamina 5, Natural Armor 5.",
-   "Class quest <b>Big Game Hunter</b> → Master Hunter’s Bow (30). Quilboar Blaster (29–30, quest Razorfen Kraul).",
-   "Pet: Dive 1 (Kraul Bat, 30–31 · Razorfen Kraul); Dash 1 dai tigri di Stranglethorn Vale a 32–33 (non raggiungibile al 30)."
-  ],
-  "32": [
-   "Flare, Track Demons. Bite/Claw 5. Dash 1: Stranglethorn Tiger o Kurzen War Tiger (32–33 · Stranglethorn Vale).",
-   "Ferocity ×3 (31–33)."
-  ],
-  "34": [
-   "Explosive Trap, Serpent Sting 5, Disengage 2. Improved Mend Pet."
-  ],
-  "35": [
-   "Frenzy ×5 (35–39). Artisan Professions."
-  ],
-  "36": [
-   "Viper Sting, Summon Hawk 2, Aimed Shot 3, Arcane Shot 5, Mend Pet 4. Pet: Charge 4, Great Stamina 6."
-  ],
-  "40": [
-   "<b>Bestial Wrath</b>, Aspect of the Pack, Volley, Track Giants, Freezing Trap 2, Hunter’s Mark 3. Apprentice Riding (mount), Dual Specialization.",
-   "Pet: Bite 6, Furious Howl 3 e Dash 2 (Longtooth Runner · Feralas, 40–41); Claw 6 (Silt Crawler · Swamp of Sorrows).",
-   "Da qui i punti vanno in Marksmanship: Lethal Attacks, Careful Aim, Hawk Eye, Rapid Killing, Trueshot Aura, Mortal Shots."
-  ],
-  "46": [
-   "Aspect of the Wild, Viper Sting 2."
-  ],
-  "48": [
-   "Summon Hawk 3, Bite/Claw 7 (Ironfur Patriarch, Rekk’tilac), Charge 5."
-  ],
-  "50": [
-   "Track Dragonkin, Dash 3 (Vilebranch Raiding Wolf · The Hinterlands)."
-  ],
-  "56": [
-   "Trueshot Aura (talent). Bite/Claw 8 (Elder Shardtooth · Winterspring; Bloodaxe Worg · Blackrock Spire), Furious Howl 4."
-  ],
-  "60": [
-   "Tranquilizing Shot, Summon Hawk 4, Growl 7, Great Stamina 10, Natural Armor 10."
-  ]
- },
+ "milestones": [
+  {
+   "l": 1,
+   "t": "<b>Ammo e quiver</b>: prima di uscire compra arrows o bullets e un Quiver/Ammo Pouch dal vendor di munizioni della tua capitale. Senza proiettili non spari. 🟡"
+  },
+  {
+   "l": 10,
+   "r": [
+    "human"
+   ],
+   "t": "<b>Pet</b>: <i>Taming the Beast</i> da Josephine Carson (Goldshire): ti dà una Taming Rod per domare 3 bestie della zona, una dopo l'altra (3 quest con lo stesso nome; la bestia è scritta nella quest). Poi <i>Training the Beast</i>: vai dal Pet Trainer della capitale → impari Tame Beast, Call Pet, Feed Pet, Revive Pet e Beast Training. Dopo, doma il Pet che vuoi (sotto).",
+   "npc": [
+    "Josephine Carson"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "dwarf",
+    "gnome"
+   ],
+   "t": "<b>Pet</b>: <i>Taming the Beast</i> da Grif Wildheart (Kharanos): ti dà una Taming Rod per domare 3 bestie della zona, una dopo l'altra (3 quest con lo stesso nome; la bestia è scritta nella quest). Poi <i>Training the Beast</i>: vai dal Pet Trainer della capitale → impari Tame Beast, Call Pet, Feed Pet, Revive Pet e Beast Training. Dopo, doma il Pet che vuoi (sotto).",
+   "npc": [
+    "Grif Wildheart"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "nightelf"
+   ],
+   "t": "<b>Pet</b>: <i>Taming the Beast</i> da Dazalar (Dolanaar): ti dà una Taming Rod per domare 3 bestie della zona, una dopo l'altra (3 quest con lo stesso nome; la bestia è scritta nella quest). Poi <i>Training the Beast</i>: vai dal Pet Trainer della capitale → impari Tame Beast, Call Pet, Feed Pet, Revive Pet e Beast Training. Dopo, doma il Pet che vuoi (sotto).",
+   "npc": [
+    "Dazalar"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "t": "<b>Pet</b>: <i>Taming the Beast</i> da Thotar (Razor Hill): ti dà una Taming Rod per domare 3 bestie della zona, una dopo l'altra (3 quest con lo stesso nome; la bestia è scritta nella quest). Poi <i>Training the Beast</i>: vai dal Pet Trainer della capitale → impari Tame Beast, Call Pet, Feed Pet, Revive Pet e Beast Training. Dopo, doma il Pet che vuoi (sotto).",
+   "npc": [
+    "Thotar"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Pet</b>: <i>Taming the Beast</i> da Yaw Sharpmane (Bloodhoof Village): ti dà una Taming Rod per domare 3 bestie della zona, una dopo l'altra (3 quest con lo stesso nome; la bestia è scritta nella quest). Poi <i>Training the Beast</i>: vai dal Pet Trainer della capitale → impari Tame Beast, Call Pet, Feed Pet, Revive Pet e Beast Training. Dopo, doma il Pet che vuoi (sotto).",
+   "npc": [
+    "Yaw Sharpmane"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "skyborne_a",
+    "skyborne_h"
+   ],
+   "t": "<b>Pet</b>: <i>Taming the Beast</i> da Elayaa Easewind (Zephras Isle): ti dà una Taming Rod per domare 3 bestie della zona, una dopo l'altra (3 quest con lo stesso nome; la bestia è scritta nella quest). Poi <i>Training the Beast</i>: vai dal Pet Trainer della capitale → impari Tame Beast, Call Pet, Feed Pet, Revive Pet e Beast Training. Dopo, doma il Pet che vuoi (sotto).",
+   "npc": [
+    "Elayaa Easewind"
+   ]
+  },
+  {
+   "l": 10,
+   "t": "<b>Pet consigliato al 10</b>: Cat The Rake (10, Mulgore) o Ghostfang (10, Dun Morogh); Boar Scarred Crag Boar (9–10, Dun Morogh) o Longsnout (10–11, Elwynn Forest). 🟡"
+  },
+  {
+   "l": 32,
+   "t": "Flare, Track Demons. Bite/Claw 5. Dash 1: Stranglethorn Tiger o Kurzen War Tiger (32–33 · Stranglethorn Vale)."
+  },
+  {
+   "l": 32,
+   "t": "Ferocity ×3 (31–33)."
+  },
+  {
+   "l": 34,
+   "t": "Explosive Trap, Serpent Sting 5, Disengage 2. Improved Mend Pet."
+  },
+  {
+   "l": 35,
+   "t": "Frenzy ×5 (35–39). Artisan Professions."
+  },
+  {
+   "l": 36,
+   "t": "Viper Sting, Summon Hawk 2, Aimed Shot 3, Arcane Shot 5, Mend Pet 4. Pet: Charge 4, Great Stamina 6."
+  },
+  {
+   "l": 40,
+   "t": "<b>Bestial Wrath</b>, Aspect of the Pack, Volley, Track Giants, Freezing Trap 2, Hunter’s Mark 3. Apprentice Riding (mount), Dual Specialization."
+  },
+  {
+   "l": 40,
+   "t": "Pet: Bite 6, Furious Howl 3 e Dash 2 (Longtooth Runner · Feralas, 40–41); Claw 6 (Silt Crawler · Swamp of Sorrows)."
+  },
+  {
+   "l": 40,
+   "t": "Da qui i punti vanno in Marksmanship: Lethal Attacks, Careful Aim, Hawk Eye, Rapid Killing, Trueshot Aura, Mortal Shots."
+  },
+  {
+   "l": 46,
+   "t": "Aspect of the Wild, Viper Sting 2."
+  },
+  {
+   "l": 48,
+   "t": "Summon Hawk 3, Bite/Claw 7 (Ironfur Patriarch, Rekk’tilac), Charge 5."
+  },
+  {
+   "l": 50,
+   "t": "Track Dragonkin, Dash 3 (Vilebranch Raiding Wolf · The Hinterlands)."
+  },
+  {
+   "l": 56,
+   "t": "Trueshot Aura (talent). Bite/Claw 8 (Elder Shardtooth · Winterspring; Bloodaxe Worg · Blackrock Spire), Furious Howl 4."
+  },
+  {
+   "l": 60,
+   "t": "Tranquilizing Shot, Summon Hawk 4, Growl 7, Great Stamina 10, Natural Armor 10."
+  }
+ ],
  "camp": [
   [
    "Camp Tent",
@@ -896,6 +906,20 @@
    "date": "26 ott",
    "signal": "4,6k views",
    "used": "solo il segnale"
+  },
+  {
+   "name": "Indice Forever (forever_quests.txt)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Nomi quest, livelli, NPC, zona",
+   "used": "Taming the Beast NPC per razza, The Great Outdoors NPC, Big Game Hunter 43, The Hunter's Path NPC"
+  },
+  {
+   "name": "Warcraft Tavern – Hunter Leveling Guide",
+   "url": "https://warcrafttavern.com/wow-forever/hunter-leveling-guide/",
+   "date": "2026-11-01",
+   "signal": "Letta solo in parte: troncata prima delle class quest",
+   "used": "Nessun dettaglio di quest utilizzabile: conferma solo che Taming è al 10"
   }
  ],
  "doubts": [
@@ -906,6 +930,10 @@
   "🟡 Tame Beast: il cast time è contraddittorio tra le fonti (canalizzato con armor −100% per Warcraft Tavern). La Happiness è buggata in beta (cala solo quando il Pet muore).",
   "🟡 Quest del 10: Human (Josephine Carson, Elwynn Forest) e Skyborne (Quel’ana Quickgale) vengono da ForeverWisp e wowforeverguides; la tabella di Warcraft Tavern non elenca i Human. Il Troll ha la stessa catena degli Orc (Durotar).",
   "Non trovato: elenco dei tre tame della class quest per ogni razza (solo l’ultimo); ammo, Quiver e Ammo Pouch consigliati; chi dà la quest Big Game Hunter e dove.",
-  "Tavern separa gli spell per spec (Immolation Trap e Mongoose Bite sotto Survival) ma il client li dà a tutti i Hunter al 16."
+  "Tavern separa gli spell per spec (Immolation Trap e Mongoose Bite sotto Survival) ma il client li dà a tutti i Hunter al 16.",
+  "🟡 Le 3 bestie da domare per Taming the Beast (nome, livello, zona) non trovate in fonte leggibile. Il JSON precedente non le dà per razza.",
+  "🟡 Vendor di ammo e quiver non verificato per razza.",
+  "🟡 The Hunter's Path (10) e Taming the Beast (10) hanno NPC simili nell'indice: non chiaro se sono la stessa quest.",
+  "🟡 Big Game Hunter: l'indice la dà a livello 43, il JSON precedente la dava al 30."
  ]
 }
