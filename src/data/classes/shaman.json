@@ -1079,5 +1079,332 @@
   "Call of Fire Dwarf: il ritorno della torcia accesa a Bruegs non è confermato dai tooltip.",
   "Call of Earth lvl 10 Dwarf (quest 96243, Find Teo Hammerstorm in Dun Morogh, da Eldrun Stormbreaker o Ingrid Dunwald): non chiaro se fa parte della catena. Non inserito.",
   "Il vecchio testo Call of Fire Dwarf elencava il Searing Totem come ricompensa: non verificato, non inserito."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Enhancement (2H)",
+   "spec": "Enhancement",
+   "icon": "ability_shaman_stormstrike",
+   "when": "Leveling in solitaria con melee e totem: la build che le fonti indicano come la più pulita.",
+   "pros": [
+    "La più forte per il leveling da solo (Method)",
+    "Rotazione semplice: Stormstrike, Flame Shock, Earth Shock",
+    "Ghost Wolf istantaneo dal 20 per muoversi veloce"
+   ],
+   "cons": [
+    "Nessun crowd control (Method)",
+    "Danno legato ai proc di Windfury, più irregolare",
+    "Serve un 2H dal 30"
+   ],
+   "ratings": {
+    "speed": [
+     4,
+     "Method: la spec più forte per il leveling di Shaman; Tavern: la via più pulita.",
+     "Method (Erik); Warcraft Tavern"
+    ],
+    "ease": [
+     4,
+     "Method: la rotazione base è semplice (Flame Shock, Searing Totem, melee, Frost/Earth Shock).",
+     "Method (Erik)"
+    ],
+    "versatility": [
+     4,
+     "Method: DPS, tank con 1H + shield e heal in dungeon; Tavern la indica per il solo.",
+     "Method (Erik); Warcraft Tavern"
+    ],
+    "survival": [
+     3,
+     "Method: nessun CC; Tavern: sopravvivenza decente.",
+     "Method (Erik); Warcraft Tavern"
+    ],
+    "aoe": [
+     3,
+     "Method: Fire Nova è il burst AoE principale; Magma Totem dal 26.",
+     "Method (Erik)"
+    ],
+    "gear": [
+     3,
+     "Method: Rockbiter fino al 30, poi 2H con Windfury; stat priority Agility > Strength.",
+     "Method (Erik)"
+    ]
+   },
+   "sources": [
+    {
+     "name": "Method – Shaman Leveling (Erik)",
+     "url": "https://www.method.gg/wow-forever/wow-forever-shaman-leveling-guide-and-talents",
+     "date": "23 ott 2026",
+     "signal": "guida Method",
+     "used": "spec, rotazione, stat priority"
+    },
+    {
+     "name": "wowforever.be – Shaman leveling (client 1.60.1.70707)",
+     "url": "https://wowforever.be/leveling/shaman/",
+     "date": "1 nov 2026",
+     "signal": "dati client",
+     "used": "ordine talent Enhancement"
+    },
+    {
+     "name": "Warcraft Tavern – Shaman Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/shaman-leveling/",
+     "date": "ott 2026",
+     "signal": "testata di riferimento",
+     "used": "rotazioni, ratings"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Elemental (caster)",
+   "spec": "Elemental",
+   "icon": "spell_nature_lightning",
+   "when": "Se preferisci stare a distanza con spell e Lava Burst: più lenta e con più mana da gestire (Tavern).",
+   "pros": [
+    "Lava Burst e Flame Shock con crit garantito (Tavern)",
+    "Lightning Overload ed Elemental Fury aumentano il danno delle spell",
+    "Nessun melee da gestire"
+   ],
+   "cons": [
+    "Mana: i problemi sono più gravi che in Enhancement (Tavern)",
+    "Proc irregolari",
+    "Lava Burst solo dal 30"
+   ],
+   "ratings": {
+    "speed": [
+     2,
+     "Tavern: mana starvation e proc irregolari rallentano il leveling.",
+     "Warcraft Tavern"
+    ],
+    "ease": [
+     2,
+     "Tavern: Enhancement è il percorso più facile; Elemental richiede timing di Lava Burst e Flame Shock.",
+     "Warcraft Tavern"
+    ],
+    "survival": [
+     2,
+     "Tavern: il mana è il limite principale, quindi più pause tra i pull.",
+     "Warcraft Tavern"
+    ],
+    "aoe": [
+     3,
+     "Tavern: per l'AoE usa Magma Totem; Chain Lightning dal 32.",
+     "Warcraft Tavern"
+    ],
+    "gear": [
+     2,
+     "Tavern: priorità Spell Damage / Intellect, quindi il danno dipende dal gear caster.",
+     "Warcraft Tavern"
+    ]
+   },
+   "build": [
+    "Concussion",
+    "Concussion",
+    "Concussion",
+    "Concussion",
+    "Concussion",
+    "Elemental Alacrity",
+    "Elemental Alacrity",
+    "Elemental Alacrity",
+    "Call of Flame",
+    "Call of Flame",
+    "Elemental Focus",
+    "Call of Flame",
+    "Convection",
+    "Convection",
+    "Convection",
+    "Trial by Fire",
+    "Trial by Fire",
+    "Eye of the Storm",
+    "Eye of the Storm",
+    "Eye of the Storm",
+    "Lava Burst",
+    "Lightning Overload",
+    "Lightning Overload",
+    "Lightning Overload",
+    "Elemental Reach",
+    "Elemental Fury"
+   ],
+   "rotation": [
+    {
+     "title": "10–29 · Lightning Bolt e Flame Shock",
+     "seq": [
+      [
+       "spell_nature_lightning",
+       "Lightning Bolt"
+      ],
+      [
+       "spell_fire_flameshock",
+       "Flame Shock"
+      ],
+      [
+       "spell_fire_searingtotem",
+       "Searing Totem"
+      ]
+     ],
+     "text": "Prima del 30 non c'è Lava Burst: pulla con Lightning Bolt, Flame Shock e Searing Totem. Lightning Shield sempre attivo (Tavern)."
+    },
+    {
+     "title": "30+ · Lava Burst",
+     "seq": [
+      [
+       "spell_fire_fireball02",
+       "Lava Burst"
+      ],
+      [
+       "spell_fire_flameshock",
+       "Flame Shock"
+      ],
+      [
+       "spell_nature_lightning",
+       "Lightning Bolt"
+      ]
+     ],
+     "text": "Lava Burst per pullare, Flame Shock subito dopo per il crit garantito, Lightning Bolt come filler (Tavern)."
+    }
+   ],
+   "sources": [
+    {
+     "name": "Warcraft Tavern – Talent Calculator Shaman",
+     "url": "https://www.warcrafttavern.com/forever/tools/talent-calculator/shaman",
+     "date": "ott 2026",
+     "signal": "build del calc (Elemental e Restoration)",
+     "used": "ordine talent livelli 10–35"
+    },
+    {
+     "name": "Warcraft Tavern – Shaman Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/shaman-leveling/",
+     "date": "ott 2026",
+     "signal": "testata di riferimento",
+     "used": "rotazioni, ratings"
+    }
+   ]
+  },
+  {
+   "id": "c",
+   "name": "Restoration (Water Shield)",
+   "spec": "Restoration",
+   "icon": "spell_nature_magicimmunity",
+   "when": "Se levelli in gruppo o vuoi l'healing: da solo Tavern la considera sub-ottimale, meglio la dual spec dal 40.",
+   "pros": [
+    "Water Shield e Healing Wave: cura solida in gruppo",
+    "Mana Tide Totem e Restorative Totems aiutano il mana del gruppo",
+    "Dual spec dal 40 per tenerla come backup healer"
+   ],
+   "cons": [
+    "Sub-ottimale per il leveling da solo (Tavern)",
+    "Rotazione DPS poco incisiva",
+    "Mana stretto: servono Mana Spring Totem e drink"
+   ],
+   "ratings": {
+    "speed": [
+     2,
+     "Tavern: build sub-ottimale per il leveling da solo.",
+     "Warcraft Tavern"
+    ],
+    "ease": [
+     3,
+     "Tavern: rotazione DPS semplice (Lightning Bolt, Flame Shock, Searing Totem) ma il mana è stretto.",
+     "Warcraft Tavern"
+    ],
+    "versatility": [
+     3,
+     "Tavern: utile se levelli in gruppo o per l'healing; da solo meno.",
+     "Warcraft Tavern"
+    ],
+    "survival": [
+     3,
+     "Healing Wave e Lesser Healing Wave per tenersi in vita; costo mana alto.",
+     "Warcraft Tavern"
+    ]
+   },
+   "build": [
+    "Improved Healing Wave",
+    "Improved Healing Wave",
+    "Improved Healing Wave",
+    "Improved Healing Wave",
+    "Improved Healing Wave",
+    "Mindfulness",
+    "Mindfulness",
+    "Mindfulness",
+    "Tidal Focus",
+    "Tidal Focus",
+    "Water Shield",
+    "Ancestral Healing",
+    "Ancestral Healing",
+    "Ancestral Healing",
+    "Tidal Focus",
+    "Mana Tide Totem",
+    "Tidal Mastery",
+    "Tidal Mastery",
+    "Tidal Mastery",
+    "Tidal Mastery",
+    "Nature's Swiftness",
+    "Tidal Mastery",
+    "Restorative Totems",
+    "Restorative Totems",
+    "Restorative Totems",
+    "Restorative Totems"
+   ],
+   "rotation": [
+    {
+     "title": "DPS · pull",
+     "seq": [
+      [
+       "spell_nature_lightning",
+       "Lightning Bolt"
+      ],
+      [
+       "spell_fire_flameshock",
+       "Flame Shock"
+      ],
+      [
+       "spell_fire_searingtotem",
+       "Searing Totem"
+      ]
+     ],
+     "text": "Water Shield sempre attivo; Searing Totem e Flame Shock; Lightning Bolt per pullare e come filler (Tavern)."
+    },
+    {
+     "title": "Healing · fine pull",
+     "seq": [
+      [
+       "spell_nature_magicimmunity",
+       "Healing Wave"
+      ],
+      [
+       "spell_nature_healingwavelesser",
+       "Lesser Healing Wave"
+      ],
+      [
+       "spell_nature_manaregentotem",
+       "Mana Spring"
+      ]
+     ],
+     "text": "Healing Wave come cura standard, Lesser Healing Wave nelle emergenze; Mana Spring Totem se il gruppo è a secco di mana (Tavern)."
+    }
+   ],
+   "sources": [
+    {
+     "name": "Warcraft Tavern – Talent Calculator Shaman",
+     "url": "https://www.warcrafttavern.com/forever/tools/talent-calculator/shaman",
+     "date": "ott 2026",
+     "signal": "build del calc (Elemental e Restoration)",
+     "used": "ordine talent livelli 10–35"
+    },
+    {
+     "name": "Warcraft Tavern – Shaman Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/shaman-leveling/",
+     "date": "ott 2026",
+     "signal": "testata di riferimento",
+     "used": "rotazioni, ratings"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "Elemental (B) e Restoration (C): ordine decodificato dall'hash del talent calculator di Warcraft Tavern (pick in ordine di livello, 10–35). La guida è costruita per la beta fino al 30 più 5 punti Legacy: dal 36 in poi nessun ordine.",
+  "Enhancement (A): 24 Anticipation e 30 Improved Stormstrike (Tiqqle) invece di Ancestral Knowledge e Spirit Weapons del client, come già segnalato.",
+  "Stat priority in conflitto: Method (Agility > Strength > Stamina > Intellect) e Tavern (Hit/Expertise > Strength > Intellect > Crit) divergono.",
+  "Icy Veins (Enhancement) bloccata da Cloudflare; Mobalytics Tiqqle non letta direttamente, solo come riportato dalla guida precedente."
  ]
 }

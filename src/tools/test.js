@@ -8,6 +8,8 @@ const r=await p.evaluate(async()=>{const bad=[];let n=0;
   try{renderAll();if(x&&!PT&&transferFor(D.routes[RA.start]))bad.push(r+c+' no transfer');
    for(const L of [1,10,15,20,30]){S.L=L;renderLevel();const t=document.getElementById('plan').innerText+document.getElementById('chaps').innerText;if(/undefined|NaN|\[object/.test(t))bad.push(r+'-'+c+'-'+x+'@'+L)}
    if(!document.querySelectorAll('#chaps .chap').length)bad.push(r+c+' nochap');n++}catch(e){bad.push(r+'-'+c+'-'+x+' '+e.message)}}
+ // ogni build (A/B/C) di ogni classe: talent, calcolatore, planner
+ for(const r of Object.keys(D.races))for(const c of D.races[r].classes)for(const B of (D.classes[c].builds||[])){S.r=r;S.c=c;S.o.x=0;S.o.b[c]=B.id;try{renderAll();for(const L of [10,20,30]){S.L=L;renderLevel();if(document.getElementById('wfLink').href.indexOf('?t=')<0)bad.push(r+c+B.id+'@'+L+' enc');if(/undefined|NaN/.test(document.getElementById('plan').innerText))bad.push(r+c+B.id+'@'+L)}n++}catch(e){bad.push(r+c+B.id+' '+e.message)}S.o.b[c]='a'}
  // checklist + go
  const cb=document.querySelector('#chaps input[data-id]');cb.click();const okc=!!S.done[CK][cb.dataset.id];
  const go=document.querySelector('#qgo .go[data-x]');go.click();await new Promise(r=>setTimeout(r,800));

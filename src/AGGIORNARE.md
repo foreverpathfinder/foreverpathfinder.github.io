@@ -24,6 +24,15 @@ Il build stampa "Da controllare": talent inesistenti o oltre il rank, prerequisi
 Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren skyborne_h`. Rotte: `elwynn dunmorogh teldrassil zephras_a durotar mulgore tirisfal zephras_h`.
 Il motore compone il percorso: rotta naturale, oppure zona iniziale fino a `junction` + passaggio + rotta d'arrivo (dal livello dopo l'ultimo del passaggio). Opzioni dell'utente: percorso, 2 profession, dungeon sì/no, Talented. Calcola anche: talent per livello, link `?t=` del calcolatore wowforever.be (ranghi per albero in ordine di `data-index`, zeri finali tolti, alberi separati da `-`), tappa della mappa, dungeon nel range.
 
+## Build A/B/C (`classes/*.json` → `builds`)
+`[{id, name, spec, icon, when, pros, cons, ratings:{speed|ease|versatility|survival|aoe|gear: [1–5, motivo, fonte]}, build:[nomi talent dal 10] (vuoto per A = usa `build`), rotation?, sources}]`. A = la più votata. Voti solo se una fonte li giustifica (altrimenti niente barra). Il build valida ogni ordine sul client come la build principale.
+
+## Controlli automatici
+`node src/tools/quests.js src/data/quests.txt` aggiorna l'indice delle quest di Forever; il build confronta ogni `<b>`/`<i>` citato in milestone e tappe e scrive `src/check-report.txt` (quest inesistenti o con livello molto diverso). `node src/tools/test.js` prova tutte le combinazioni e tutte le build (deve dire nbad 0, errors []).
+
+## Interfaccia (v10)
+6 schede (Livello, Talent, Mappa, Classe, Profession, Info); procedura iniziale in `<dialog>` alla prima visita; mini-mappa in Livello (lo stesso `#lwrap` spostato tra le schede); filtro 🟡 (classe `.unsure`); link/QR `#s=<base64>` con stato e checklist; pulsante issue GitHub.
+
 ## Milestone (cose da fare per livello)
 In `classes/*.json` e nelle rotte: lista di voci `{"l":10,"t":"<b>Quest</b>: passi… Ricompensa: …","r":["dwarf"],"f":"A","npc":["Nome NPC esatto"]}`. `r`/`f` filtrano per razza/fazione (la pagina mostra solo la versione del giocatore), `npc` diventa un pulsante 📍 (il build avvisa se un NPC non è sulla mappa).
 Prima di scrivere una quest verificala su `node src/tools/quests.js <file>` (indice di tutte le quest di Forever con NPC e luogo). Niente liste di spell, talent, profession o dungeon generici: la pagina li aggiunge da sola. Niente note sulle fonti nel testo.

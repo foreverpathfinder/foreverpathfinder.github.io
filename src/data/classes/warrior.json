@@ -787,5 +787,238 @@
   "🟡 Mapping NPC per razza per il 10: indice dà Lyria Du Lac e Ilsa Corbin (A) e Uzzek (H), ma non lega ogni NPC a una razza.",
   "🟡 Quest armatura/arma al 20 (Brutal Hauberk, Fire Hardened Hauberk, Welding Shield): nessuna trovata nell'indice Forever. Non inserite come quest finché non confermate in gioco.",
   "🟡 Whirlwind Axe: l'indice dà The Summoning a livello 40, non 30 come nel JSON precedente."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Protection (scudo)",
+   "spec": "Protection",
+   "icon": "ability_warrior_defensivestance",
+   "when": "Livellare da soli con scudo: è la spec più raccomandata per il solo leveling sulle fonti Forever fino al ~40.",
+   "pros": [
+    "Build 10–40 completa dal client wowforever.be",
+    "Revenge e Shield Specialization danno Rage e tengono il ritmo nei pack",
+    "Consenso di Mobalytics, Icy Veins e Zockify per il solo leveling"
+   ],
+   "cons": [
+    "Revenge richiede block, dodge o parry per dare Rage",
+    "Oltre il 40 la build torna a spezzoni Fury/Arms, poco verificati"
+   ],
+   "ratings": {
+    "speed": [
+     5,
+     "Icy Veins la definisce 'the fastest Warrior spec for leveling' (snippet)",
+     "Icy Veins – Protection Warrior Leveling"
+    ],
+    "versatility": [
+     3,
+     "Ottima da solo, meno per gruppo e duo: Method e Icy Veins preferiscono Arms per il gruppo",
+     "Method – Warrior Leveling Guide"
+    ],
+    "survival": [
+     4,
+     "Shield Block blocca 2 attacchi per 7 s e Shield Wall torna a 4 min (beta)",
+     "KamiLabs – Warrior talent modificati"
+    ],
+    "aoe": [
+     4,
+     "Improved Thunder Clap: -20% velocità di attacco a fino a 4 bersagli per 30 s (beta)",
+     "KamiLabs – Warrior talent modificati"
+    ],
+    "gear": [
+     3,
+     "Richiede lo scudo: 1H + scudo, armor il più alto possibile rispettando Strength/Stamina",
+     "Maxroll – Warrior Leveling Guide"
+    ]
+   },
+   "sources": [
+    {
+     "name": "wowforever.be – Build di leveling Warrior",
+     "url": "https://wowforever.be/leveling/warrior/",
+     "date": "1 nov 2026 (client 1.60.1.70707)",
+     "signal": "dati client, ordine 10–60",
+     "used": "build 10–60"
+    },
+    {
+     "name": "Icy Veins – Protection Warrior Leveling",
+     "url": "https://www.icy-veins.com/wow-forever/protection-warrior-leveling",
+     "date": "26 ott (snippet)",
+     "signal": "'the fastest Warrior spec for leveling'",
+     "used": "speed"
+    },
+    {
+     "name": "Zockify – Warrior Leveling Guide",
+     "url": "https://www.zockify.com/forever/warrior/leveling/",
+     "date": "28 ott 2026",
+     "signal": "Protection più forte fino al ~40",
+     "used": "contesto"
+    },
+    {
+     "name": "KamiLabs – Warrior spells e talents modificati",
+     "url": "https://kami-labs.fr/en/wow-forever/guerrier-wow-forever-sorts-et-talents-modifies/",
+     "date": "30 set 2026",
+     "signal": "dati beta",
+     "used": "survival, aoe"
+    },
+    {
+     "name": "Maxroll – Warrior Leveling Guide",
+     "url": "https://maxroll.gg/wow-forever/class-guides/warrior-leveling-guide",
+     "date": "30 ott 2026",
+     "signal": "stat e armor per Protection",
+     "used": "gear"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Arms (due mani)",
+   "spec": "Arms",
+   "icon": "ability_warrior_savageblow",
+   "when": "Gruppo o duo con healer, dungeon e danni single-target alti: la scelta che Method e Icy Veins danno per il gruppo.",
+   "pros": [
+    "Danni single-target più alti del Protection (Method, Icy Veins)",
+    "Sweeping Strikes e Weaponmaster per 2 target e crit con asce e aste (Maxroll, Mobalytics)"
+   ],
+   "cons": [
+    "Nessun sustain: serve First Aid o un healer (Maxroll)",
+    "Il crit di Weaponmaster dipende dall'arma a due mani (Warcraft Tavern)",
+    "Ordine 31–40 ricostruito da fonti parziali (vedi doubts)"
+   ],
+   "ratings": {
+    "speed": [
+     3,
+     "Icy Veins dice che Protection è la più veloce; Arms non ha un confronto numerico 🟡",
+     "Icy Veins – Protection Warrior Leveling"
+    ],
+    "versatility": [
+     3,
+     "Forte su 2 target e nei dungeon, ma da solo senza sustain",
+     "Maxroll – Warrior Leveling Guide"
+    ],
+    "survival": [
+     2,
+     "Nessun sustain: serve First Aid o un healer",
+     "Maxroll – Warrior Leveling Guide"
+    ],
+    "aoe": [
+     3,
+     "Sweeping Strikes è il talent più importante per Mobalytics; forte su 2 target (Maxroll)",
+     "Mobalytics – Ahlaundoh (48 ♥)"
+    ],
+    "gear": [
+     2,
+     "Bonus Weaponmaster solo su asce e aste; mace e staff ignorano il 15% armor",
+     "Warcraft Tavern – Warrior Leveling Guide"
+    ]
+   },
+   "build": [
+    "Improved Rend",
+    "Improved Rend",
+    "Improved Rend",
+    "Deflection",
+    "Deflection",
+    "Deflection",
+    "Deflection",
+    "Deflection",
+    "Improved Charge",
+    "Improved Charge",
+    "Improved Tactical Mastery",
+    "Improved Tactical Mastery",
+    "Improved Tactical Mastery",
+    "Improved Tactical Mastery",
+    "Improved Tactical Mastery",
+    "Improved Overpower",
+    "Improved Overpower",
+    "Deep Wounds",
+    "Deep Wounds",
+    "Deep Wounds",
+    "Sweeping Strikes",
+    "Bloodthrill",
+    "Bloodthrill",
+    "Bloodthrill",
+    "Bloodthrill",
+    "Bloodthrill",
+    "Improved Slam",
+    "Improved Slam",
+    "Weaponmaster",
+    "Weaponmaster",
+    "Mortal Strike"
+   ],
+   "rotation": [
+    {
+     "title": "Single target",
+     "seq": [
+      [
+       "ability_meleedamage",
+       "Overpower"
+      ],
+      [
+       "ability_warrior_savageblow",
+       "Mortal Strike (40)"
+      ]
+     ],
+     "text": "Overpower quando disponibile; Mortal Strike dal 40 (Icy Veins, Mobalytics). Dettagli di rotazione non letti nelle fonti 🟡."
+    },
+    {
+     "title": "Due target",
+     "seq": [
+      [
+       "ability_warrior_cleave",
+       "Sweeping Strikes"
+      ]
+     ],
+     "text": "Sweeping Strikes sui pack a 2 target (Maxroll, Warcraft Tavern)."
+    }
+   ],
+   "sources": [
+    {
+     "name": "Method – Warrior Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-warrior-leveling-guide-and-talents",
+     "date": "9 ott 2026",
+     "signal": "Arms per gruppo; ordine Cruelty, Rend, Tactical Mastery, Deep Wounds, Bloodthrill, Sweeping, Weaponmaster, Mortal Strike",
+     "used": "when, pros"
+    },
+    {
+     "name": "Warcraft Tavern – Warrior Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/warrior-leveling/",
+     "date": "senza data (beta cap 30)",
+     "signal": "Arms 26/0/0 a 30; Bloodthrill preferito a Weaponmaster",
+     "used": "cons, gear"
+    },
+    {
+     "name": "Icy Veins – Protection Warrior Leveling (snippet)",
+     "url": "https://www.icy-veins.com/wow-forever/protection-warrior-leveling",
+     "date": "26 ott (snippet)",
+     "signal": "Mortal Strike al 40, Sweeping Strikes al 30 (Arms)",
+     "used": "ordine 30–40"
+    },
+    {
+     "name": "Maxroll – Warrior Leveling Guide",
+     "url": "https://maxroll.gg/wow-forever/class-guides/warrior-leveling-guide",
+     "date": "30 ott 2026",
+     "signal": "Arms forte nei dungeon e su 2 target, senza sustain",
+     "used": "versatility, survival"
+    },
+    {
+     "name": "Mobalytics – Ahlaundoh, Warrior Leveling 1-60",
+     "url": "",
+     "date": "30 ott 2026",
+     "signal": "48 ♥; Arms 21/0/0 a 30 con Sweeping Strikes ultimo punto; Mortal Strike al 40",
+     "used": "ordine 10–40, aoe"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "🟡 Ordine Arms 10–30 ricostruito: Mobalytics Ahlaundoh (Arms 21/0/0 a 30, Sweeping Strikes ultimo) e Warcraft Tavern danno solo i talent chiave. Deflection 13–17, Improved Overpower 25–26 e Deep Wounds 27–29 servono a rispettare needs e req, non sono indicati dalle fonti.",
+  "🟡 Ordine 31–40 (Bloodthrill, Improved Slam, Weaponmaster, Mortal Strike) costruito da Icy Veins e Mobalytics. Icy Veins indica Weaponmaster 37–39 e 41–42, non compatibile con la sequenza scelta, che rispetta needs.",
+  "Icy Veins dice Slam al 20 e Spearing Strike al 25: non usato, perché Improved Slam richiede 25 punti Arms.",
+  "Method cita Cruelty come primo talent e Unbridled Wrath a fine build: non inserito in B. Unbridled Wrath richiede 5 punti in Fury.",
+  "Fury (Kargoz, 0/21/0 a 30): solo totali, nessun ordine per livello leggibile. Non proposta come C.",
+  "Ordine per livello dal 41 al 60 non disponibile per Arms: build B si ferma a 40.",
+  "Icy Veins (pagina Arms) risponde 403: l'ordine Arms non è stato letto direttamente.",
+  "Mobalytics Ahlaundoh (48 ♥) non ha URL registrato: fonte citata dal testo dei dati esistenti in classes/warrior.json.",
+  "Il file mobalytics.md indicato nel brief non esiste nella cartella scratchpad: la classifica ♥ è quella già presente in classes/warrior.json.",
+  "🟡 Protection (A): 31–60 solo da wowforever.be; la sequenza dopo il 40 non è confermata da altre fonti."
  ]
 }

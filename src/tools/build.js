@@ -43,27 +43,39 @@ for (const [k, cl] of dir('classes')) {
   const wf = J(path.join(DATA, 'talents', k + '.json'));
   const byName = {};
   wf.trees.forEach((t, ti) => Object.entries(t.nodes).forEach(([nk, n]) => (byName[n.name.toLowerCase()] = byName[n.name.toLowerCase()] || []).push({ key: t.key + '/' + nk, ti, n })));
-  // l'albero della spec = quello con più punti nella build fino al livello massimo
-  const cnt = [0, 0, 0];
-  cl.build.slice(0, MAXL - 9).forEach(nm => { const c = byName[nm.toLowerCase()]; if (c) cnt[c[0].ti]++; });
-  const treeIndex = cnt.indexOf(Math.max(...cnt));
-  const used = {}, build = [], ranks = {};
-  cl.build.forEach((nm, i) => {
-    const c = byName[nm.toLowerCase()];
-    if (!c) return W(`${k}: talent "${nm}" (liv. ${10 + i}) non esiste nel client`);
-    const t = c.find(x => x.ti === treeIndex) || c[0];
-    ranks[t.key] = (ranks[t.key] || 0) + 1;
-    if (ranks[t.key] > t.n.max) W(`${k}: "${nm}" oltre il rank massimo al liv. ${10 + i}`);
-    const spent = build.filter(b => b.split('/')[0] === t.key.split('/')[0]).length;
-    if (spent < t.n.needs) W(`${k}: "${nm}" al liv. ${10 + i} richiede ${t.n.needs} punti nell'albero (ne hai ${spent})`);
-    used[t.key] = [t.n.name, t.n.icon, t.n.max, t.n.rmax, t.n.flag];
-    build.push(t.key);
+  const used = {};
+  // nomi dei talent (1 per livello dal 10) → chiavi del client; l'albero della spec = quello con più punti fino al livello massimo
+  function resolve(names, ctx) {
+    const cnt = [0, 0, 0];
+    names.slice(0, MAXL - 9).forEach(nm => { const c = byName[String(nm).toLowerCase()]; if (c) cnt[c[0].ti]++; });
+    const treeIndex = cnt.indexOf(Math.max(...cnt)), build = [], ranks = {};
+    names.forEach((nm, i) => {
+      const c = byName[String(nm).toLowerCase()];
+      if (!c) return W(`${ctx}: talent "${nm}" (liv. ${10 + i}) non esiste nel client`);
+      const t = c.find(x => x.ti === treeIndex) || c[0];
+      ranks[t.key] = (ranks[t.key] || 0) + 1;
+      if (ranks[t.key] > t.n.max) W(`${ctx}: "${nm}" oltre il rank massimo al liv. ${10 + i}`);
+      const spent = build.filter(b => b.split('/')[0] === t.key.split('/')[0]).length;
+      if (spent < t.n.needs) W(`${ctx}: "${nm}" al liv. ${10 + i} richiede ${t.n.needs} punti nell'albero (ne hai ${spent})`);
+      used[t.key] = [t.n.name, t.n.icon, t.n.max, t.n.rmax, t.n.flag];
+      build.push(t.key);
+    });
+    return { build, treeIndex };
+  }
+  const { build, treeIndex } = resolve(cl.build, k);
+  // build A/B/C: A = quella principale; B e C con il loro ordine (se manca, ereditano quello di A)
+  const srcB = s => Array.isArray(s) ? s : [s.name, s.url, [s.date, s.signal].filter(Boolean).join(' · '), s.used];
+  const builds = (cl.builds && cl.builds.length ? cl.builds : [{ id: 'a', name: cl.spec }]).map((b, i) => {
+    const o = Object.assign({}, b, { id: b.id || 'abc'[i], sources: (b.sources || []).map(srcB) });
+    if (i && b.build && b.build.length) Object.assign(o, resolve(b.build, k + ' build ' + o.id)); else { o.build = []; delete o.treeIndex; }
+    if (i && o.build.length && o.build.length < MAXL - 9) W(`${k} build ${o.id}: ordine corto (${o.build.length} punti)`);
+    return o;
   });
   talents[k] = { trees: wf.trees.map(t => [t.key, t.name, Object.entries(t.nodes).sort((a, b) => a[1].index - b[1].index).map(e => e[0])]), n: used };
   const src = s => Array.isArray(s) ? s : [s.name + (s.author && !s.name.includes(s.author) ? ' (' + s.author + ')' : ''), s.url, [s.date, s.signal].filter(Boolean).join(' · '), s.used];
   const chips = (cl.chips || cl.talentSpells.filter(x => x[0] <= MAXL && !/non in build/i.test(x[1])).slice(0, 2).map(x => [x[2], x[1].replace(/ \(talent\)/i, '') + ' al ' + x[0]]));
   const races = {}; Object.entries(cl.races || {}).forEach(([rk, v]) => { const n = rk.toLowerCase().replace(/[^a-z_]/g, '').replace(/^skyborne_?(alliance|a)$/, 'skyborne_a').replace(/^skyborne_?(horde|h)$/, 'skyborne_h'); if (n === 'skyborne') { races.skyborne_a = races.skyborne_h = v; } else races[n] = v; });
-  classes[k] = Object.assign({}, cl, { build, treeIndex, color: cl.color || COLORS[k], chips, sources: cl.sources.map(src), milestones: normMs(cl.milestones, 0, k), talentSpells: cl.talentSpells || [], rotNotes: cl.rotNotes || [], alternatives: cl.alternatives || [], compare: cl.compare || [], races, camp: (cl.camp || []).filter(c => !/non trovat/i.test(c[0])) });
+  classes[k] = Object.assign({}, cl, { build, treeIndex, builds, color: cl.color || COLORS[k], chips, sources: cl.sources.map(src), milestones: normMs(cl.milestones, 0, k), talentSpells: cl.talentSpells || [], rotNotes: cl.rotNotes || [], alternatives: cl.alternatives || [], compare: cl.compare || [], races, camp: (cl.camp || []).filter(c => !/non trovat/i.test(c[0])) });
   ['buildSource', 'doubts', 'class'].forEach(x => delete classes[k][x]);
   if (build.length < MAXL - 9) W(`${k}: build corta (${build.length} punti)`);
 }
@@ -74,6 +86,7 @@ for (const [c, M] of Object.entries(WM)) {
   M.places.forEach(p => placeIdx.push({ n: p[0].toLowerCase(), c, x: p[3], y: p[4], kind: p[1] }));
   M.zones.forEach(z => placeIdx.push({ n: z[0].toLowerCase(), c, x: z[2], y: z[3], kind: 'zone' }));
 }
+const lv0r = s => parseInt(s) || 0;
 const txtOnly = h => String(h).replace(/<[^>]+>/g, '').slice(0, 140);
 const norm = s => (s || '').toLowerCase().replace(/[’']/g, "'").trim();
 function findPlace(name, pref) {
@@ -109,7 +122,7 @@ for (const [fk, F] of dir('factions')) {
       if (hit) fpNames.push(hit[0]); else W(`${key}: flight path "${fl.name}" non trovato`); });
     const zoneNames = new Set(); Object.values(WM).forEach(M => M.zones.forEach(z => { if (R.segments.some(s => (s.zone + ' ' + s.hub).includes(z[0])) || R.steps.some(s => (s.zone || '').includes(z[0]))) zoneNames.add(z[0]); }));
     const s0 = steps[0], c0 = Math.floor((s0[2] - WM[s0[8]].ox) / 1024), r0 = Math.floor((s0[3] - WM[s0[8]].oy) / 1024), hero = [];
-    for (let rr = r0 - 1; rr <= r0; rr++) for (let cc = c0 - 1; cc <= c0 + 2; cc++) hero.push(`https://wow.zamimg.com/images/wow/classicplus/world-map/v3/${s0[8]}/5/${rr}/${cc}.webp`);
+    for (let rr = r0 - 1; rr <= r0; rr++) for (let cc = c0 - 1; cc <= c0 + 2; cc++) { const T = WM[s0[8]].tiles['5'][rr]; if (T && T.some(a => cc >= a[0] && cc <= a[1])) hero.push(`https://wow.zamimg.com/images/wow/classicplus/world-map/v3/${s0[8]}/5/${rr}/${cc}.webp`); else hero.push('data:image/gif;base64,R0lGODlhAQABAIAAAAgSHQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='); }
     routes[key] = { name: R.name, icon: s0[5], trunk: steps[steps.length - 1][8], junction: 0, segments: R.segments.map(s => [s.from, s.to, s.zone, s.hub, s.note]), steps, quests, fpNames, zones: [...zoneNames], hero,
       milestones: normMs(R.milestones, side, key), bags: R.bags || [], flights: R.flights || [], transport: R.transport || [] };
     const last = R.segments[R.segments.length - 1]; if (!last || last.to < MAXL) W(`${key}: la rotta non arriva al ${MAXL}`);
@@ -149,6 +162,29 @@ for (const [c, M] of Object.entries(WM)) {
   Object.entries(M.trainers).forEach(([k, a]) => (map.trainers[k] = map.trainers[k] || []).push(...a));
   Object.entries(M.prof).forEach(([k, a]) => (map.prof[k] = map.prof[k] || []).push(...a));
   Object.entries(M.nodes).forEach(([k, a]) => (map.nodes[k] = map.nodes[k] || []).push(...a));
+}
+
+/* ---- controllo quest: ogni <b>/<i> citato che sembra una quest deve esistere in Forever (data/quests.txt, da tools/quests.js) ---- */
+const QF = path.join(DATA, 'quests.txt'), report = [];
+if (fs.existsSync(QF)) {
+  const Q = {}; fs.readFileSync(QF, 'utf8').split('\n').forEach(l => { const p = l.split(' | '); if (p[0]) (Q[p[0].toLowerCase()] = Q[p[0].toLowerCase()] || []).push(+p[1]); });
+  const known = new Set(); // nomi che non sono quest: talent, spell, zone, città, NPC, item noti
+  Object.values(talents).forEach(t => Object.values(t.n).forEach(n => known.add(n[0].toLowerCase())));
+  Object.values(classes).forEach(c => (c.spells || []).concat(c.talentSpells || []).forEach(x => known.add(String(x[1]).toLowerCase())));
+  placeIdx.forEach(p => known.add(p.n)); NPCS.forEach(n => known.add(n[0].toLowerCase()));
+  Object.values(factions).forEach(F => F.dungeons.forEach(d => known.add(d[0].replace(/[★✔🟡]/g, '').trim().toLowerCase()))); known.add('hearthstone');
+  let ok = 0;
+  const check = (t, l, ctx) => (String(t).match(/<(b|i)>([^<]{4,60})<\/\1>/g) || []).forEach(m => {
+    const n = m.replace(/<[^>]+>/g, '').replace(/[:.]$/, '').trim(), k = n.toLowerCase();
+    if (known.has(k)) return; // spell, talent, zona, NPC o dungeon con lo stesso nome di una quest
+    if (Q[k]) { ok++; if (l && Math.min(...Q[k].map(q => Math.abs(q - l))) > 6) report.push(`${ctx} liv. ${l}: "${n}" in Forever è di livello ${Q[k].join('/')}`); return; }
+    if (/🟡/.test(t) || /Flight Path|Lettera|Escort|Skycutter|Ammo/.test(n) || !/^[A-Z][\w'’!-]*( [\w'’!:-]+){0,6}$/.test(n) || /\d|Bag|Wand|Totem$|Form$|slot|Trainer/.test(n)) return;
+    report.push(`${ctx} liv. ${l || '-'}: "${n}" non è una quest di Forever (o è un item/spell): controlla`);
+  });
+  Object.entries(classes).forEach(([k, c]) => Object.entries(c.milestones).forEach(([l, a]) => a.forEach(m => check(m.t, +l, k))));
+  Object.entries(routes).forEach(([k, r]) => { Object.entries(r.milestones).forEach(([l, a]) => a.forEach(m => check(m.t, +l, k))); r.steps.forEach(st => check(st[6], lv0r(st[1]), k)); });
+  fs.writeFileSync(path.join(SRC, 'check-report.txt'), report.join('\n'));
+  console.log('Quest verificate sull\'indice di Forever:', ok, '· da controllare:', report.length, '(src/check-report.txt)');
 }
 
 /* ---- scrittura ---- */

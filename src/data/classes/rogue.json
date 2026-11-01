@@ -829,5 +829,405 @@
   "🟡 Dove imparare Lockpicking non verificato.",
   "🟡 Lettera 'C' di The Horn of Xelthos e The Eye of Bhossca: non trovate nell'indice, non inserite.",
   "🟡 Quest Orda Mission: Possible But Not Probable: WT dà la Lockpicking 70 per il forziere; il JSON precedente diceva 'Barrens, Venture Co. tower' per la location, indice dice Sludge Fen."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Combat (con Puncturing Wounds)",
+   "spec": "Combat",
+   "icon": "ability_backstab",
+   "when": "Vuoi levellare da solo in modo veloce e semplice: è la scelta di tutte le fonti.",
+   "pros": [
+    "Tutte le fonti scelgono Combat per il leveling solo (Tavern, Method, wowforever.be, Mobalytics).",
+    "Sinister Strike, Slice and Dice ed Eviscerate: rotazione semplice.",
+    "Hack and Slash: usi qualsiasi arma."
+   ],
+   "cons": [
+    "Puncturing Wounds (3 punti) vale solo con un pugnale (Method).",
+    "Aoe limitata: Blade Flurry per un bersaglio extra.",
+    "Dungeon e gruppo: non verificati."
+   ],
+   "ratings": {
+    "speed": [
+     4,
+     "Tavern: Combat \"quickly kill one mob after another without downtime\"; Method e wowforever.be la scelgono 🟡.",
+     "Warcraft Tavern – Rogue; Method – Rogue (9 ott)"
+    ],
+    "ease": [
+     4,
+     "Rotazione Sinister Strike, Slice and Dice, Eviscerate (DonTheCrown, nota precedente) 🟡.",
+     "Mobalytics – DonTheCrown (28 ott)"
+    ],
+    "versatility": [
+     4,
+     "Hack and Slash: usa qualsiasi arma (client); solo e duo ok, dungeon non verificate 🟡.",
+     "wowforever.be – build Rogue (client)"
+    ],
+    "survival": [
+     4,
+     "Tavern: Combat \"boosts survivability\" (difesa e offesa); Deflection +6% parry 🟡.",
+     "Warcraft Tavern – Rogue"
+    ],
+    "aoe": [
+     2,
+     "Blade Flurry: un bersaglio extra per 15 s (client); la rotazione è single target 🟡.",
+     "wowforever.be (talent client); Warcraft Tavern – Rogue"
+    ],
+    "gear": [
+     3,
+     "Puncturing Wounds richiede un pugnale (Method); con poco equip Tavern suggerisce Lightning Reflexes 🟡.",
+     "Method – Rogue (9 ott); Warcraft Tavern – Rogue"
+    ]
+   },
+   "sources": [
+    {
+     "name": "wowforever.be – Build di livellamento Rogue",
+     "url": "https://wowforever.be/it/leveling/rogue/?level=10",
+     "date": "letta 1 nov",
+     "signal": "dati client 1.60.1.70707; solo fino al 35",
+     "used": "ordine 10–35"
+    },
+    {
+     "name": "Method – Rogue Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-rogue-leveling-guide-and-talents",
+     "date": "9 ott 2026",
+     "signal": "Method (reputazione alta)",
+     "used": "PW → Endurance se non usi pugnali (letta 2 nov)"
+    },
+    {
+     "name": "Warcraft Tavern – Rogue Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/rogue-leveling/",
+     "date": "nessuna data; beta cap 30",
+     "signal": "sito di riferimento",
+     "used": "Combat \"boosts survivability\"; LR come alternativa (letta 2 nov)"
+    },
+    {
+     "name": "Mobalytics – Rogue Leveling (DonTheCrown)",
+     "url": "https://mobalytics.gg/wow-forever/classes/rogue-leveling-donthecrown",
+     "date": "28 ott",
+     "signal": "37 ♥ (lista), nota precedente; pagina bloccata oggi",
+     "used": "rotazione (nota precedente)"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Subtlety (Hemorrhage)",
+   "spec": "Subtlety",
+   "icon": "ability_stealth",
+   "when": "Ti piace aprire da Stealth e isolare i mob; non per velocità né per dungeon.",
+   "pros": [
+    "Hemorrhage a 30 come builder principale (Tavern).",
+    "Opener da Stealth: Ambush e Vanish (wowforever.gg).",
+    "Ordine 10–60 validato sul client (checkpoint wowforever.gg)."
+   ],
+   "cons": [
+    "Lenta all'inizio: i punti servono a raggiungere Hemorrhage (Icy Veins, snippet).",
+    "Vanish in combattimento fino a Cutthroat, e Stealth rallenta (Tavern).",
+    "Peggiore in dungeon (Tavern); più dipendente dal pugnale (Tavern)."
+   ],
+   "ratings": {
+    "speed": [
+     3,
+     "Tavern: la build Ambush è veloce, ma questa è la build Hemorrhage; Icy Veins: punti usati per arrivare a Hemorrhage 🟡.",
+     "Warcraft Tavern – Rogue; Icy Veins (snippet ricerca)"
+    ],
+    "ease": [
+     2,
+     "Opener da Stealth e controllo da pianificare prima del pull (wowforever.gg); Stealth è −50% di velocità ai livelli bassi 🟡.",
+     "wowforever.gg – Subtlety; Warcraft Tavern – Rogue"
+    ],
+    "versatility": [
+     2,
+     "Tavern: l'Ambush build \"doesn't fare as well in dungeons\"; wowforever.gg: forte nelle quest dove i nemici si isolano 🟡.",
+     "Warcraft Tavern – Rogue; wowforever.gg – Subtlety"
+    ],
+    "survival": [
+     3,
+     "Vanish e Preparation come fuga sicura (wowforever.gg); Vanish è obbligato in combattimento fino a Cutthroat (Tavern) 🟡.",
+     "wowforever.gg – Subtlety; Warcraft Tavern – Rogue"
+    ],
+    "gear": [
+     2,
+     "Tavern: Subtlety \"usually favors daggers\" 🟡.",
+     "Warcraft Tavern – Rogue"
+    ]
+   },
+   "build": [
+    "Opportunity",
+    "Opportunity",
+    "Camouflage",
+    "Camouflage",
+    "Camouflage",
+    "Setup",
+    "Setup",
+    "Improved Ambush",
+    "Improved Ambush",
+    "Improved Ambush",
+    "Ghostly Strike",
+    "Setup",
+    "Dirty Tricks",
+    "Initiative",
+    "Initiative",
+    "Initiative",
+    "Premeditation",
+    "Serrated Blades",
+    "Serrated Blades",
+    "Serrated Blades",
+    "Hemorrhage",
+    "Camouflage",
+    "Camouflage",
+    "Dirty Tricks",
+    "Master of Deception",
+    "Master of Deception",
+    "Master of Deception",
+    "Preparation",
+    "Cutthroat",
+    "Cutthroat",
+    "Thousand Cuts",
+    "Improved Gouge",
+    "Improved Gouge",
+    "Improved Gouge",
+    "Remorseless Attacks",
+    "Remorseless Attacks",
+    "Ruthlessness",
+    "Ruthlessness",
+    "Ruthlessness",
+    "Murder",
+    "Murder",
+    "Improved Slice and Dice",
+    "Improved Slice and Dice",
+    "Relentless Strikes",
+    "Improved Expose Armor",
+    "Improved Expose Armor",
+    "Vile Poisons",
+    "Vile Poisons",
+    "Vile Poisons",
+    "Vile Poisons",
+    "Vile Poisons"
+   ],
+   "rotation": [
+    {
+     "title": "Apertura da Stealth (10–29)",
+     "seq": [
+      [
+       "ability_rogue_ambush",
+       "Ambush"
+      ],
+      [
+       "spell_shadow_lifedrain",
+       "Hemorrhage"
+      ],
+      [
+       "ability_vanish",
+       "Vanish"
+      ]
+     ],
+     "text": "Scegli target e apertura prima del pull (wowforever.gg). Ambush da Stealth con Improved Ambush 3/3 (dal 19). Vanish per uscire se va male."
+    },
+    {
+     "title": "Dal 30 · Hemorrhage come builder",
+     "seq": [
+      [
+       "spell_shadow_lifedrain",
+       "Hemorrhage"
+      ],
+      [
+       "ability_rogue_rupture",
+       "Rupture"
+      ],
+      [
+       "ability_rogue_eviscerate",
+       "Eviscerate"
+      ]
+     ],
+     "text": "Hemorrhage è il builder principale (Tavern). Rupture sui mob ad alti HP o sui boss; Garrote e Vanish nei boss (Tavern)."
+    }
+   ],
+   "sources": [
+    {
+     "name": "wowforever.gg – Rogue Subtlety Leveling Build",
+     "url": "https://wowforever.gg/en/builds/rogue-subtlety-leveling/",
+     "date": "Updated 30 ott 2026",
+     "signal": "sito fan non ufficiale; calcolatore con checkpoint 10–60",
+     "used": "ordine 10–60, core talents (Ghostly Strike 20, Premeditation 28, Hemorrhage 30, Preparation 37, Thousand Cuts 40), rotazione"
+    },
+    {
+     "name": "Warcraft Tavern – Rogue Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/rogue-leveling/",
+     "date": "nessuna data; beta cap 30",
+     "signal": "sito di riferimento",
+     "used": "build Hemorrhage, Ambush build, dungeon, dagger (letta 2 nov)"
+    },
+    {
+     "name": "Icy Veins – Subtlety Rogue Leveling (snippet ricerca)",
+     "url": "https://www.icy-veins.com/wow-forever/subtlety-rogue-leveling",
+     "date": "17 ott",
+     "signal": "Icy Veins; pagina bloccata da Cloudflare, letto solo snippet",
+     "used": "punti early per arrivare a Hemorrhage; reset a 30 possibile"
+    },
+    {
+     "name": "Conquest Capped – Rogue Leveling (snippet ricerca)",
+     "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-rogue-leveling/",
+     "date": "24 ott",
+     "signal": "sito di boost, meno affidabile",
+     "used": "raccomanda Combat; Subtlety/Hemorrhage alternativa (snippet)"
+    }
+   ]
+  },
+  {
+   "id": "c",
+   "name": "Combat senza pugnali (Endurance)",
+   "spec": "Combat",
+   "icon": "ability_backstab",
+   "when": "Non usi pugnali o cambi arma spesso: Endurance ti dà Sprint ed Evasion ogni 2 minuti.",
+   "pros": [
+    "Niente pugnale richiesto: Method consiglia questa variante per chi non lo usa.",
+    "Endurance: Sprint ed Evasion ogni 2 min (Mobalytics Rogue's Diary, nota precedente).",
+    "Stessa rotazione di A."
+   ],
+   "cons": [
+    "Niente Puncturing Wounds: meno danno con pugnale (+30% crit a Backstab, client).",
+    "Ordine 10–60 derivato da checkpoint di wowforever.gg: fonte fan, non confermata da Method.",
+    "Remorseless Attacks solo dal 44 (wowforever.gg): nei primi livelli non c'è il suo crit extra."
+   ],
+   "ratings": {
+    "speed": [
+     4,
+     "Stessa spec di A: Tavern \"quickly kill one mob after another\"; senza PW non cambia la rotazione 🟡.",
+     "Warcraft Tavern – Rogue"
+    ],
+    "ease": [
+     4,
+     "Stessa rotazione di A (Sinister Strike, Slice and Dice, Eviscerate) 🟡.",
+     "Mobalytics – DonTheCrown (28 ott)"
+    ],
+    "versatility": [
+     4,
+     "Senza pugnale nessun vincolo di arma; Method consiglia la variante per chi non lo usa 🟡.",
+     "Method – Rogue (9 ott)"
+    ],
+    "survival": [
+     4,
+     "Endurance: Sprint ed Evasion ogni 2 min, \"il miglior talent da leveling\" per Rogue's Diary 🟡.",
+     "Mobalytics – Rogue's Diary (30 ott)"
+    ],
+    "aoe": [
+     3,
+     "Blade Flurry con Endurance: cooldown 2 min in coppia con Evasion (talent client) 🟡.",
+     "wowforever.be (talent client); Mobalytics – Rogue's Diary"
+    ],
+    "gear": [
+     4,
+     "Niente Puncturing Wounds: nessun pugnale richiesto (Method) 🟡.",
+     "Method – Rogue (9 ott)"
+    ]
+   },
+   "build": [
+    "Improved Sinister Strike",
+    "Improved Sinister Strike",
+    "Improved Eviscerate",
+    "Improved Eviscerate",
+    "Improved Eviscerate",
+    "Deflection",
+    "Deflection",
+    "Deflection",
+    "Precision",
+    "Precision",
+    "Precision",
+    "Endurance",
+    "Endurance",
+    "Riposte",
+    "Improved Sprint",
+    "Dual Wield Specialization",
+    "Dual Wield Specialization",
+    "Dual Wield Specialization",
+    "Dual Wield Specialization",
+    "Dual Wield Specialization",
+    "Blade Flurry",
+    "Hack and Slash",
+    "Hack and Slash",
+    "Hack and Slash",
+    "Hack and Slash",
+    "Weapon Expertise",
+    "Weapon Expertise",
+    "Aggression",
+    "Aggression",
+    "Aggression",
+    "Adrenaline Rush",
+    "Improved Gouge",
+    "Improved Gouge",
+    "Improved Gouge",
+    "Remorseless Attacks",
+    "Remorseless Attacks",
+    "Ruthlessness",
+    "Ruthlessness",
+    "Ruthlessness",
+    "Murder",
+    "Murder",
+    "Improved Slice and Dice",
+    "Improved Slice and Dice",
+    "Relentless Strikes",
+    "Improved Expose Armor",
+    "Improved Expose Armor",
+    "Vile Poisons",
+    "Vile Poisons",
+    "Vile Poisons",
+    "Vile Poisons",
+    "Vile Poisons"
+   ],
+   "rotation": [
+    {
+     "title": "Dal 21 · Endurance",
+     "seq": [
+      [
+       "spell_shadow_ritualofsacrifice",
+       "Sinister Strike"
+      ],
+      [
+       "ability_rogue_eviscerate",
+       "Eviscerate"
+      ],
+      [
+       "spell_shadow_shadowward",
+       "Evasion"
+      ]
+     ],
+     "text": "Endurance (dal 21) dà Sprint ed Evasion ogni 2 min. Evasion sui mob forti o con più mob addosso, come in A."
+    }
+   ],
+   "sources": [
+    {
+     "name": "Method – Rogue Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-rogue-leveling-guide-and-talents",
+     "date": "9 ott 2026",
+     "signal": "Method (reputazione alta)",
+     "used": "\"Puncturing Wounds → Endurance 2/2 se non usi pugnali\" (letta 2 nov)"
+    },
+    {
+     "name": "wowforever.gg – Rogue Combat Leveling Build",
+     "url": "https://wowforever.gg/en/builds/rogue-combat-leveling/",
+     "date": "nessuna data visibile",
+     "signal": "sito fan non ufficiale; calcolatore con checkpoint 10–60",
+     "used": "ordine 10–60 senza Puncturing Wounds (checkpoint)"
+    },
+    {
+     "name": "Mobalytics – Complete Combat Leveling 1-60 (Rogue's Diary)",
+     "url": "https://mobalytics.gg/wow-forever/classes/combat-rogue-leveling-guide",
+     "date": "30 ott",
+     "signal": "28 ♥ (lista), nota precedente; pagina bloccata oggi",
+     "used": "Endurance \"il miglior talent da leveling\" (nota precedente)"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "🟡 Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥) e Icy Veins sono bloccati dal controllo Cloudflare: i dati Mobalytics vengono dalle note precedenti del progetto, non riletti oggi.",
+  "🟡 Build B e C: ordine per livello dai checkpoint wowforever.gg (10–60), dentro ogni finestra di 10 livelli l'ordine è mio, nel rispetto di needs e req. Tutti i 51 punti passano il controllo node.",
+  "🟡 Il ramo Subtlety di wowforever.gg coincide con i core talent del sito (Ghostly Strike 20, Hemorrhage 30, Preparation 37, Thousand Cuts 40), ma il 28 di Premeditation non è riprodotto: è a 26 nel mio ordine.",
+  "🟡 C è la variante \"Combat senza pugnali\" di wowforever.gg: prende Improved Sprint 1 e non Lightning Reflexes come suggerisce Method. Method dice Endurance 2 + LR 1: scelta mia di restare sul checkpoint.",
+  "🟡 Tavern: la guida è per la beta con cap 30; le build 60 sono provvisorie (dichiarato nella fonte).",
+  "🟡 Icona di B: \"ability_stealth\" è l'icona dello spell Stealth (client), non l'icona spec Wowhead, che non ho verificato.",
+  "🟡 Nessuna fonte dà un voto aoe per Subtlety: aoe null."
  ]
 }

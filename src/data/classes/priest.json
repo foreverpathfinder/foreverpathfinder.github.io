@@ -1021,5 +1021,174 @@
   "🟡 Human Feedback (20) non trovata nell'indice: NPC non confermato.",
   "🟡 Greater Magic Wand al 13 e Sizzle Stick al 15 e Gravestone Scepter al 18: non verificate in fonte leggibile.",
   "🟡 La pagina Warcraft Tavern priest è WotLK: nessun dato Forever utile."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Shadow (deep)",
+   "spec": "Shadow",
+   "icon": "spell_shadow_shadowform",
+   "when": "Se vuoi giocare wand + Shadow fino al 60 senza respec: è la guida Priest più salvata su Mobalytics.",
+   "pros": [
+    "Mobalytics DoubleZug 47 ♥, Verified: la guida Shadow più salvata",
+    "Nessun respec: il build resta su Shadow dall'inizio (Warcraft Tavern, Icy Veins)"
+   ],
+   "cons": [
+    "Il wand richiede 0,5 s fermo prima di sparare (ConquestCapped, beta)",
+    "Nessun Penance né Power Infusion nel build"
+   ],
+   "ratings": {
+    "ease": [
+     4,
+     "Wand Specialization e Spirit Tap: il wand sostituisce Smite (KamiLabs su video Scriblet)",
+     "KamiLabs – Priest, The Wand Replaces Smite"
+    ],
+    "gear": [
+     2,
+     "Spell power e Spirit sono gli stat che contano: dipende dall'equip (DoubleZug, ConquestCapped)",
+     "Mobalytics – Priest Leveling Guide 1–60"
+    ],
+    "speed": [
+     3,
+     "Il picco di potenza arriva solo con Shadowform oltre il 40; prima il leveling e lento. Icy Veins: 'Difficult mana management before level 40'",
+     "Mobalytics – Priest Leveling Guide 1-60 (snippet); Icy Veins – Shadow Priest Leveling (snippet)"
+    ],
+    "versatility": [
+     4,
+     "Solo autosufficiente: 'one of the most consistent and self-sufficient leveling classes' (🟡 guida utente Mobalytics); utility di gruppo con tre buff (Icy Veins)",
+     "Mobalytics – Kargoz Shadow Priest 1-60 (guida utente, snippet); Icy Veins – Shadow Priest Leveling (snippet)"
+    ],
+    "survival": [
+     3,
+     "Icy Veins: 'Low to no downtime when leveling', ma 'Difficult mana management before level 40' impone pause fino al 40",
+     "Icy Veins – Shadow Priest Leveling (snippet)"
+    ],
+    "aoe": [
+     1,
+     "Icy Veins: 'No AoE abilities' nel leveling dello Shadow Priest",
+     "Icy Veins – Shadow Priest Leveling (snippet)"
+    ]
+   },
+   "sources": [
+    {
+     "name": "Mobalytics – Priest Leveling Guide 1–60",
+     "url": "https://mobalytics.gg/wow-forever/classes/priest-leveling-guide-1-60",
+     "date": "29 ott 2026",
+     "signal": "DoubleZug, Mid Game Shadow, 47 ♥",
+     "used": "when, pros, gear"
+    },
+    {
+     "name": "KamiLabs – WoW Forever Priest: The Wand Replaces Smite",
+     "url": "https://kami-labs.fr/en/wow-forever/pretre-wow-forever-leveling-baguette/",
+     "date": "23 set 2026",
+     "signal": "wand e Spirit Tap al 20",
+     "used": "ease"
+    },
+    {
+     "name": "ConquestCapped – Priest Leveling",
+     "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-priest-leveling/",
+     "date": "28 ott 2026",
+     "signal": "wand 0,5 s",
+     "used": "cons"
+    },
+    {
+     "name": "Warcraft Tavern – Priest Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/priest-leveling/",
+     "date": "ott 2026 (beta cap 30)",
+     "signal": "build 1–39 e Shadow dal 40, respec al 40",
+     "used": "pros"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Discipline prima, poi Shadow (respec al 40)",
+   "spec": "Discipline",
+   "icon": "spell_holy_powerwordshield",
+   "when": "Scegli B invece di A solo se vuoi l'ordine del client wowforever.be fino al 39: Discipline con Meditation e Mental Strength, respec Shadow al 40. Non c'e una fonte affidabile che dica che livella piu veloce di A.",
+   "pros": [
+    "Ordine per livello dal client 70707 fino al 39, nessun dato stimato",
+    "Wand e Spirit Tap restano nella sequenza anche con Discipline"
+   ],
+   "cons": [
+    "Solo 7 punti Shadow fino al 39 e respec Shadow al 40 (client): il punto debole 🟡",
+    "Dopo il 39 il client non dà una sequenza per livello leggibile"
+   ],
+   "ratings": {
+    "speed": [
+     3,
+     "Danni buoni ma calano verso la fine dei 30; con Meditation rende in modo simile alla Shadow secondo DoubleZug.",
+     "Method – Amaxagon (29 ott); Mobalytics DoubleZug"
+    ],
+    "survival": [
+     4,
+     "“Mana efficient e tanky”: Power Word: Shield e Martyrdom reggono bene da soli.",
+     "Method – Amaxagon (29 ott)"
+    ]
+   },
+   "build": [
+    "Wand Specialization",
+    "Wand Specialization",
+    "Spirit Tap",
+    "Spirit Tap",
+    "Spirit Tap",
+    "Spirit Tap",
+    "Spirit Tap",
+    "Improved Shadow Word: Pain",
+    "Improved Shadow Word: Pain",
+    "Twin Disciplines",
+    "Twin Disciplines",
+    "Twin Disciplines",
+    "Twin Disciplines",
+    "Twin Disciplines",
+    "Martyrdom",
+    "Martyrdom",
+    "Mental Strength",
+    "Inner Focus",
+    "Meditation",
+    "Meditation",
+    "Meditation",
+    "Mental Agility",
+    "Mental Agility",
+    "Improved Inner Fire",
+    "Improved Inner Fire",
+    "Improved Inner Fire",
+    "Improved Power Word: Shield",
+    "Penance",
+    "Improved Power Word: Shield",
+    "Improved Power Word: Shield"
+   ],
+   "sources": [
+    {
+     "name": "wowforever.be – Build di leveling Priest",
+     "url": "https://wowforever.be/leveling/priest/",
+     "date": "1 nov 2026",
+     "signal": "dati client, ordine 10–39",
+     "used": "build B"
+    },
+    {
+     "name": "Method – WoW Forever Priest Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-priest-leveling-guide-and-talents",
+     "date": "29 ott 2026",
+     "signal": "ibrido Disc, Shadow al 40 (talent solo come immagini)",
+     "used": "when, cons"
+    },
+    {
+     "name": "ConquestCapped – Priest Leveling",
+     "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-priest-leveling/",
+     "date": "28 ott 2026",
+     "signal": "ibrido Disc con Meditation",
+     "used": "pros"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "Ordine di Method e Warcraft Tavern non leggibile per livello (talent solo come immagini): la build B usa il client wowforever.be, l'unica sequenza per livello.",
+  "Nel client wowforever.be il blocco al 40 è un respec (oltre 40 voci per un livello): B si ferma al 39 perché oltre non è una sequenza per livello.",
+  "Discipline pura (Warcraft Tavern, Maxroll, Mobalytics) non proposta come C: nessun ordine per livello leggibile.",
+  "Rotazione non fornita per B: nessuna fonte testuale descrive la rotazione dell'ibrido.",
+  "Shadowform al 40 o al 42 (A) non risolto: Warcraft Tavern indica il respec al 40, classes/priest.json riporta 42. Confermare in gioco.",
+  "Il file mobalytics.md indicato nel brief non esiste nella cartella scratchpad."
  ]
 }
