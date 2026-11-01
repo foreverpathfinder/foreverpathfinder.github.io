@@ -1,0 +1,389 @@
+{
+ "junctions": {
+  "elwynn": 11,
+  "dunmorogh": 14,
+  "teldrassil": 11,
+  "zephras_a": 14,
+  "durotar": 10,
+  "mulgore": 10,
+  "tirisfal": 10,
+  "zephras_h": 12
+ },
+ "transfers": {
+  "A:eastern-kingdoms>kalimdor": {
+   "title": "Da Stormwind a Darkshore con la barca Auberdine",
+   "when": "Ideale a livello 12–14, dopo Westfall (10–14) e prima di Stormwind (14–18). A 12 entri in Darkshore nord, che la rotta Teldrassil apre a 11–16, senza saltare quest utili. Umano, Dwarf e Gnome partono da Stormwind (Dwarf e Gnome arrivano dal Deeprun Tram da Ironforge). Skyborne Alliance: portale da Dalaran (Violet Citadel) a Stormwind, poi barca. Motivo: la barca Stormwind Harbor ↔ Auberdine è il collegamento più diretto tra EK e Kalimdor per l'Alleanza ★ ✔. L'alternativa è Menethil Harbor → Auberdine, ma è più lontana e passa dalle Wetlands (27+).",
+   "joinRoute": "teldrassil",
+   "joinLevel": 12,
+   "steps": [
+    {
+     "title": "Stormwind: Harbor e Hearthstone",
+     "levels": "12–14",
+     "town": "Stormwind City",
+     "zone": "Stormwind City",
+     "zoneIcon": "achievement_zone_westfall_01",
+     "text": "Dal Westfall (Sentinel Hill) vola a Stormwind con Dungar Longdrink (66.3 62.1) oppure cammina. Imposta la Hearthstone a Stormwind. Stormwind Harbor è un landmark della mappa Forever ✔. Dwarf e Gnome: Deeprun Tram da Ironforge (Ironforge ↔ Stormwind ✔).",
+     "fp": "Stormwind (Dungar Longdrink)"
+    },
+    {
+     "title": "Barca Stormwind Harbor → Auberdine",
+     "levels": "12–14",
+     "town": "Auberdine",
+     "zone": "Darkshore",
+     "zoneIcon": "achievement_zone_darkshore_01",
+     "text": "Barca Stormwind Harbor ↔ Auberdine ★ (nuova in Forever; wmd voyage, dwell 120 s, 2837 yard). Nessun requisito di livello o quest indicato dalle fonti 🟡. Ad Auberdine: Flight Master Caylais Moonfeather (36.3 45.6). Hearthstone da Innkeeper Shaussiy (rotta Teldrassil).",
+     "fp": "Auberdine (Caylais Moonfeather)"
+    },
+    {
+     "title": "Darkshore nord e catena Buzzbox",
+     "levels": "12–16",
+     "town": "Auberdine",
+     "zone": "Darkshore",
+     "zoneIcon": "achievement_zone_darkshore_01",
+     "text": "Da qui segui la rotta dei Night Elf. Wizbang Cranktoggle (Buzzbox 827) avvia la catena della bag da 8 slot Wizbang's Gunnysack 🟡 (games.gg, rotta Teldrassil). Segui Darkshore nord come da.",
+     "fp": ""
+    },
+    {
+     "title": "Darkshore sud e uscita verso Ashenvale",
+     "levels": "16–19",
+     "town": "Auberdine",
+     "zone": "Darkshore",
+     "zoneIcon": "achievement_zone_darkshore_01",
+     "text": "Murkdeep (WANTED), Prospector Remtravel, Kerlonian Evershade: escort fino a Maestra's Post (~19) 🟡. Poi Astranaar (Daelyshia 34.4 48.0) come da.",
+     "fp": "Astranaar (Daelyshia)"
+    }
+   ],
+   "unlocks": [
+    "Hearthstone su Stormwind prima della barca, poi su Auberdine all'arrivo.",
+    "Flight Path di Sentinel Hill (Thor) e Stormwind (Dungar Longdrink) già presi nella rotta Elwynn/Westfall.",
+    "The Great Outdoors e Cooking (Camping) già fatti nella rotta Elwynn (liv. 4–6): valgono anche in Darkshore.",
+    "Waylaid Crates: se ne hai, consegnale a Marcy Baker (Three Corners, Redridge) prima di partire, dove la consegna è disponibile (rotta Elwynn liv. 10)."
+   ],
+   "quests": [
+    [
+     "Wizbang's Gunnysack (catena Buzzbox 827 → 525)",
+     "Wizbang Cranktoggle",
+     "Auberdine",
+     "11–16",
+     "Bag da 8 slot; la catena è lunga, avviala appena arrivi."
+    ],
+    [
+     "Escort Kerlonian Evershade",
+     "Kerlonian Evershade",
+     "Darkshore sud → Maestra's Post",
+     "16–19",
+     "Escort fino a Maestra's Post (~19), chiude la Darkshore 🟡 (games.gg)."
+    ],
+    [
+     "Quest di Maestra's Post",
+     "Delgren the Purifier",
+     "Maestra's Post",
+     "19–24",
+     "Primo NPC di Ashenvale nella rotta Teldrassil (nome quest non trovato)."
+    ],
+    [
+     "A Swift Message",
+     "Quartermaster Lewis",
+     "Stormwind",
+     "non trovato",
+     "Alternativa al Flight Path di Stormwind; solo games.gg 🟡."
+    ]
+   ],
+   "pros": "Barca diretta da Stormwind a Darkshore, niente walk nelle Wetlands. Darkshore e Ashenvale (19–30) con Flight Path Auberdine e Astranaar; Blackfathom Deeps (24–32) accessibile da Zoram Strand.",
+   "cons": "Salti Redridge, Deadmines (17–26) e Duskwood della rotta comune. Per il resto della leveling sei in Kalimdor, quindi per tornare in EK serve di nuovo la barca (o Stormwind via Auberdine)."
+  },
+  "A:kalimdor>eastern-kingdoms": {
+   "title": "Da Auberdine a Westfall e Redridge con la barca",
+   "when": "Ideale a livello 15–16: chiudi la Darkshore nord con la catena Buzzbox e prendi la barca da Auberdine. A 15 entri in Westfall e segui la rotta degli Human. La Deadmines apre a 17 ✔ (guida Elwynn) e Redridge va 15–25 (mappa Wowhead ✔). Lasciare a 15 salta Ashenvale 19–30 e Blackfathom Deeps. Restare in Darkshore fino a 19 porta invece in Ashenvale, cioè un'altra zona di Kalimdor.",
+   "joinRoute": "elwynn",
+   "joinLevel": 15,
+   "steps": [
+    {
+     "title": "Darkshore nord e fine Buzzbox",
+     "levels": "15–16",
+     "town": "Auberdine",
+     "zone": "Darkshore",
+     "zoneIcon": "achievement_zone_darkshore_01",
+     "text": "Chiudi la catena Buzzbox (bag da 8 slot Wizbang's Gunnysack; la rotta Teldrassil la indica in corso a 15). Imposta la Hearthstone ad Auberdine. Darkshore sud (16–19) la salti.",
+     "fp": ""
+    },
+    {
+     "title": "Barca Auberdine → Stormwind Harbor",
+     "levels": "15–16",
+     "town": "Stormwind City",
+     "zone": "Stormwind City",
+     "zoneIcon": "achievement_zone_westfall_01",
+     "text": "Barca Auberdine ↔ Stormwind Harbor ★ (wmd voyage, dwell 120 s). Da Stormwind: Dungar Longdrink (66.3 62.1) per il Flight Path verso Sentinel Hill. Dwarf e Gnome: tram Deeprun da Stormwind a Ironforge per Loch Modan (Thelsamar, Thorgrum Borrelson) se vuoi quella zona.",
+     "fp": "Stormwind (Dungar Longdrink)"
+    },
+    {
+     "title": "Westfall 2 e Stormwind",
+     "levels": "15–18",
+     "town": "Sentinel Hill",
+     "zone": "Westfall",
+     "zoneIcon": "achievement_zone_westfall_01",
+     "text": "Vola a Sentinel Hill con Thor (56 52) e completa Westfall 2: Militia, Moonbrook, Alexston Farmstead (inizio Cozy Sleeping Bag da 14), faro (Captain Grayson). Defias con Wiley e Mathias Shaw da Stormwind. Prendi le quest Deadmines a Sentinel Hill prima di 17.",
+     "fp": "Sentinel Hill (Thor)"
+    },
+    {
+     "title": "Redridge e Deadmines",
+     "levels": "17–23",
+     "town": "Lakeshire",
+     "zone": "Redridge Mountains",
+     "zoneIcon": "achievement_zone_redridgemountains",
+     "text": "The Deadmines si apre a 17 (17–26). Poi Redridge verso Lakeshire (Ariena Stormfeather 30.6 59.4) e Three Corners per la consegna delle Waylaid Crates (Marcy Baker). Prosegui la rotta Elwynn (18–23).",
+     "fp": "Lakeshire (Ariena Stormfeather)"
+    }
+   ],
+   "unlocks": [
+    "Hearthstone su Auberdine prima della barca, poi su Stormwind.",
+    "Camping e Cooking già fatti nella rotta Teldrassil (liv. 4–6).",
+    "Flight Path Auberdine (Caylais Moonfeather) preso all'arrivo in Darkshore.",
+    "Catena Buzzbox finita prima di salire sulla barca (bag da 8 slot)."
+   ],
+   "quests": [
+    [
+     "Wizbang's Gunnysack (catena Buzzbox 525)",
+     "Wizbang Cranktoggle",
+     "Auberdine",
+     "11–16",
+     "Bag da 8 slot: chiudila prima di lasciare la Darkshore."
+    ],
+    [
+     "Poor Old Blanchy",
+     "Verna Furlbrow",
+     "Westfall 1 (zona Jansen Stead)",
+     "14",
+     "Old Blanchy's Feed Pouch, bag da 8 slot 🟡 (rotta Elwynn, liv. 14)."
+    ],
+    [
+     "Deadmines (quest di Sentinel Hill)",
+     "vari NPC di Sentinel Hill",
+     "Sentinel Hill",
+     "17",
+     "La Deadmines apre a 17: prendile tutte prima di scendere 🟡 (rotta Elwynn, milestone 17)."
+    ],
+    [
+     "A Swift Message",
+     "Quartermaster Lewis",
+     "Stormwind",
+     "non trovato",
+     "Alternativa al Flight Path di Stormwind; solo games.gg 🟡."
+    ]
+   ],
+   "pros": "Westfall e Redridge con le quest Deadmines (17–26). Stormwind è il ponte per Ironforge e Loch Modan con il tram. Chi lascia Darkshore a 15 non deve tornare in Kalimdor per Ashenvale.",
+   "cons": "Perdi Ashenvale 19–30, Stonetalon e Blackfathom Deeps (24–32) della rotta Teldrassil. Recuperi Duskwood e Wetlands solo più tardi, dalla rotta comune."
+  },
+  "H:kalimdor>eastern-kingdoms": {
+   "title": "Da Orgrimmar a Silverpine e Hillsbrad con lo zeppelin Undercity",
+   "when": "Ideale a livello 14–15: lascia il Barrens dopo il Crossroads (10–14), senza passare da Ratchet e Camp Taurajo. Vai da Orgrimmar a Undercity con lo zeppelin ✔ e segui la rotta degli Undead. Motivo: Silverpine (10–20) e Hillsbrad (19–25) sono nella rotta Tirisfal, e Undercity è il punto di ingresso naturale. Skyborne Windshaper: da Zephras Isle a 12 con lo Skycutter per Thunder Bluff, poi Orgrimmar e lo zeppelin.",
+   "joinRoute": "tirisfal",
+   "joinLevel": 15,
+   "steps": [
+    {
+     "title": "Crossroads → Orgrimmar",
+     "levels": "14",
+     "town": "The Crossroads",
+     "zone": "The Barrens",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Dal Crossroads (Devrak 51.4 30.2) prendi il Flight Path verso Orgrimmar 🟡 (il collegamento non è verificato nelle fonti Forever). Ad Orgrimmar: Doras (FP in città). Imposta la Hearthstone su Orgrimmar. Ragefire Chasm (13–18) si può fare da Orgrimmar 🟡.",
+     "fp": "Orgrimmar (Doras)"
+    },
+    {
+     "title": "Zeppelin Orgrimmar → Undercity",
+     "levels": "14–15",
+     "town": "Undercity",
+     "zone": "Undercity",
+     "zoneIcon": "achievement_zone_tirisfalglades_01",
+     "text": "Zeppelin Orgrimmar ↔ Undercity ✔ (wmd voyage, dwell 120 s; Method: partenza fuori dal cancello di Orgrimmar). Ad Undercity: Flight Path Michael Garrett (in città). Primo viaggio a Undercity a 13–15 con Faranell, Zinge e Gordon Wendham (rotta Tirisfal).",
+     "fp": "Undercity (Michael Garrett)"
+    },
+    {
+     "title": "Ruins of Lordaeron ",
+     "levels": "15–20",
+     "town": "Undercity",
+     "zone": "Silverpine Forest / Ruins of Lordaeron",
+     "zoneIcon": "achievement_zone_silverpine_01",
+     "text": "Da qui segui la rotta degli Undead: Ruins of Lordaeron ★ (15–20, 6 boss, ingresso fuori dal portone di Undercity ~72.4 11.6) 🟡 Warcraft Tavern. Poi Silverpine nord e sud e Journey to Hillsbrad Foothills (493) a 19, verso Tarren Mill.",
+     "fp": ""
+    }
+   ],
+   "unlocks": [
+    "Hearthstone su Orgrimmar (o Undercity) prima di salire sullo zeppelin.",
+    "Ragefire Chasm: quest da Varimathras (Undercity) e da Thrall e Neeru Fireblade (Orgrimmar) 🟡, da completare prima se vuoi chiuderla.",
+    "Camping e Basic Campfire (Cooking) già fatti nella rotta Horde Kalimdor (liv. 5–6).",
+    "Primo talent point (liv. 10) assegnato prima di lasciare il Barrens."
+   ],
+   "quests": [
+    [
+     "The Power to Destroy… (Ragefire Chasm)",
+     "Varimathras",
+     "Undercity",
+     "13",
+     "Quest dungeon 🟡 (tirisfal questNPCs)."
+    ],
+    [
+     "Light's Justice, The New Plague, The Wrath of Rath'mael (e altre)",
+     "non trovato",
+     "Ruins of Lordaeron, ingresso fuori da Undercity",
+     "15–20",
+     "Catena dungeon 🟡 Warcraft Tavern; NPC non elencati."
+    ],
+    [
+     "Journey to Hillsbrad Foothills (493)",
+     "Deathstalker Lesh",
+     "Silverpine (20.8 47.4)",
+     "19",
+     "Porta a Tarren Mill (rotta Tirisfal milestone 19) 🟡."
+    ],
+    [
+     "Cozy Sleeping Bag (catena Horde, facoltativa)",
+     "oggetto: Burned-Out Remains",
+     "The Barrens (46 74)",
+     "14",
+     "Barrens → Westfall → Stonetalon → Loch Modan → Hillsbrad. Warcraft Tavern: liv. 14 minimo. Method: versione Horde difficile, consigliato ~30 🟡."
+    ]
+   ],
+   "pros": "Zeppelin diretto e veloce. Silverpine e Hillsbrad (19–31) hanno FP Sepulcher (Karos Razok), Undercity (Michael Garrett) e Tarren Mill (Zarise 60.2 18.6) ✔. Scarlet Monastery (26–45) e Arathi restano nella rotta.",
+   "cons": "Perdi Ashenvale, Stonetalon e Thousand Needles (22–30) della rotta Orc/Troll/Tauren. Southshore è ostile per Horde. Il ritorno ai Barrens richiede lo zeppelin."
+  },
+  "H:eastern-kingdoms>kalimdor": {
+   "title": "Da Undercity a Orgrimmar e ai Barrens con lo zeppelin",
+   "when": "Ideale a livello 14: fai Undercity a 13–14 (primo viaggio, Faranell, Zinge, Gordon Wendham) e prendi lo zeppelin Undercity → Orgrimmar. Da qui segui la rotta di Orc e Troll. Motivo: i Barrens sono la zona Horde 10–25 🟡 (games.gg), e gli Undead passano a Kalimdor solo con lo zeppelin ✔. Alternativa: finisci Ruins of Lordaeron (15–20) e parti a 20, ma così arrivi ai Barrens oltre il.",
+   "joinRoute": "durotar",
+   "joinLevel": 14,
+   "steps": [
+    {
+     "title": "Undercity e torre zeppelin",
+     "levels": "13–14",
+     "town": "Undercity",
+     "zone": "Tirisfal Glades",
+     "zoneIcon": "achievement_zone_tirisfalglades_01",
+     "text": "Quest di Varimathras per Ragefire Chasm (The Power to Destroy…) 🟡. Imposta la Hearthstone su Undercity. Torre zeppelin fuori da Undercity/Brill, Tirisfal (~61 59 da guida Horde 🟡; posizione da verificare in gioco).",
+     "fp": "Undercity (Michael Garrett)"
+    },
+    {
+     "title": "Zeppelin Undercity → Orgrimmar",
+     "levels": "14",
+     "town": "Orgrimmar",
+     "zone": "Durotar",
+     "zoneIcon": "achievement_zone_durotar",
+     "text": "Zeppelin Undercity ↔ Orgrimmar ✔ (wmd voyage, dwell 120 s). Ad Orgrimmar: Flight Path Doras (FP in città). Imposta la Hearthstone su Orgrimmar. Sei su Kalimdor: dirigiti ai Barrens.",
+     "fp": "Orgrimmar (Doras)"
+    },
+    {
+     "title": "Crossroads e Ratchet",
+     "levels": "14–18",
+     "town": "Ratchet",
+     "zone": "The Barrens",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Da Orgrimmar prendi il FP del Crossroads (Devrak 51.4 30.2) 🟡, poi Ratchet (Bragok 63.0 37.2). Da qui segui la rotta di Orc e Troll 14–18: bag da 8 slot di Wrenix the Wretched (dal 9), centauri e harpies.",
+     "fp": "Ratchet (Bragok)"
+    }
+   ],
+   "unlocks": [
+    "Hearthstone su Undercity poi su Orgrimmar, prima di salire sullo zeppelin.",
+    "The Power to Destroy… (Ragefire Chasm) preso da Varimathras prima di partire 🟡.",
+    "Silverpine nord (10–15) completata: Flight Path The Sepulcher (Karos Razok) già preso.",
+    "Primo talent point (liv. 10) assegnato."
+   ],
+   "quests": [
+    [
+     "The Power to Destroy… (Ragefire Chasm)",
+     "Varimathras",
+     "Undercity",
+     "13",
+     "Quest dungeon 🟡 (tirisfal questNPCs)."
+    ],
+    [
+     "Ragefire Chasm (quest Orgrimmar)",
+     "Thrall e Neeru Fireblade",
+     "Orgrimmar",
+     "13–18",
+     "Quest dungeon 🟡 (durotar milestone 10)."
+    ],
+    [
+     "Wrenix the Wretched (bag da 8 slot)",
+     "Wrenix the Wretched",
+     "Ratchet",
+     "9+ (completabile a 14–18)",
+     "Bag da 8 slot 🟡 (rotta di Orc e Troll (14–18))."
+    ],
+    [
+     "Cozy Sleeping Bag (catena Horde, facoltativa)",
+     "oggetto: Burned-Out Remains",
+     "The Barrens (46 74)",
+     "14",
+     "Inizia nel Barrens, quindi dopo il ritorno. Warcraft Tavern: liv. 14. Method: difficile, consigliato ~30 🟡."
+    ]
+   ],
+   "pros": "Zeppelin Undercity ↔ Orgrimmar diretto, e la rotta di Orc e Troll porta in Barrens (Ratchet 14–18, Wailing Caverns 17–24, Stonetalon 18–25) con i compagni Orc, Troll e Tauren.",
+   "cons": "Perdi Silverpine (dopo 15), Hillsbrad, Arathi e Scarlet Monastery (26–45). Il trasporto Undercity → Orgrimmar è a pagamento 🟡 (tariffa non verificata)."
+  }
+ },
+ "sources": [
+  {
+   "name": "Method, All Travel Routes in WoW Forever (Boats, Zeppelins, Trams & Portals) di Geekmandem",
+   "url": "https://www.method.gg/wow-forever/all-travel-routes-in-wow-forever-boats-zeppelins",
+   "date": "14 ott 2026 (data da pagina)",
+   "signal": "Method, guida dedicata a Forever",
+   "used": "Barca Stormwind Harbor ↔ Auberdine ★, zeppelin Orgrimmar ↔ Undercity, Undercity ↔ Grom'gol; nessun requisito di livello o quest dichiarato"
+  },
+  {
+   "name": "Warcraft Tavern, Cozy Sleeping Bag Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/cozy-sleeping-bag/",
+   "date": "non trovata (copyright 2026)",
+   "signal": "reputazione alta",
+   "used": "Catena Horde: oggetto Burned-Out Remains nel Barrens (46 74), liv. 14 minimo, Barrens → Westfall → Stonetalon → Loch Modan → Hillsbrad"
+  },
+  {
+   "name": "Method, How to Unlock the Cozy Sleeping Bag in WoW Forever",
+   "url": "https://www.method.gg/wow-forever/how-to-unlock-the-cozy-sleeping-bag-in-wow-forever",
+   "date": "non trovata",
+   "signal": "Method (solo snippet di WebSearch, pagina non letta)",
+   "used": "Versione Horde più difficile, consigliato ~30"
+  },
+  {
+   "name": "games.gg, WoW Forever Barrens Leveling Guide",
+   "url": "https://games.gg/world-of-warcraft/guides/wow-forever-barrens-leveling-guide/",
+   "date": "set 2026",
+   "signal": "singola fonte, guida beta",
+   "used": "Barrens come zona Horde 10–25, arrivo 10–12, uscita 20–22 (solo snippet di WebSearch)"
+  },
+  {
+   "name": "games.gg, WoW Forever Darkshore Leveling Guide",
+   "url": "https://games.gg/world-of-warcraft/guides/wow-forever-darkshore-leveling-guide/",
+   "date": "set-ott 2026 (come da fonti già nelle rotte)",
+   "signal": "singola fonte",
+   "used": "Darkshore 11–19 (solo titolo e snippet di WebSearch; dettagli già nelle rotte esistenti)"
+  },
+  {
+   "name": "Warcraft Tavern, Zephras Isle Walkthrough (Val Hull)",
+   "url": "https://www.warcrafttavern.com/forever/guides/zephras-isle-walkthrough/",
+   "date": "ott 2026",
+   "signal": "reputazione alta",
+   "used": "Skycutter Valanaar → Thunder Bluff, portale Dalaran → Stormwind (già nelle rotte esistenti)"
+  },
+  {
+   "name": "Wowhead World Map Forever (wmd.json)",
+   "url": "https://www.wowhead.com/forever/maps",
+   "date": "client 1.60.1.70707",
+   "signal": "dati del client",
+   "used": "Voyages: Auberdine ↔ Stormwind Harbor (dwell 120), Orgrimmar ↔ Undercity, Menethil ↔ Auberdine, Valanaar ↔ Thunder Bluff (airship); Flight Master e livelli di zona"
+  }
+ ],
+ "doubts": [
+  "Nessuna fonte Forever dichiara requisiti di livello o quest per barche, zeppelin o skycutter. Ho usato solo il livello del segmento di rotta.",
+  "Barca Menethil ↔ Auberdine: wmd ha sia la rotta diretta (3924 yard) sia Menethil → Southshore → Auberdine (ad anello, dwell 180). Method la descrive a senso unico. Non verificato.",
+  "Zephras Isle ↔ Dalaran: Method la indica come barca Skyborne, wmd come airship Dalaran ↔ Valanaar Skydocks. Per il tipo di mezzo ho seguito wmd.",
+  "Zeppelin Undercity ↔ Orgrimmar: Method dice partenza fuori dal cancello di Orgrimmar, a nord di Undercity; la guida Horde dice torre fuori da Brill (~61 59); il POI wmd è vicino a Undercity. Posizione da verificare in gioco.",
+  "Collegamento FP Crossroads (Devrak) ↔ Orgrimmar (Doras) non confermato nelle fonti Forever: lo marco 🟡 in entrambi i transfer Horde.",
+  "Tempo d'attesa dei traghetti e tariffa dello zeppelin non trovati nelle fonti Forever (ho usato solo dwell wmd).",
+  "Cozy Sleeping Bag Horde: Warcraft Tavern dice liv. 14 e inizio da un oggetto nel Barrens, Method dice ~30 consigliato, e le note esistenti dicono lunga e in zone Alleanza. Il percorso attraverso Westfall e Loch Modan non è un passaggio di continente: l'ho citato solo come quest opzionale.",
+  "Correzioni dei junctions rispetto ai valori di partenza: dunmorogh 12 → 14 (il tram a Stormwind è segnato a 14 nella rotta), tirisfal 12 → 10 (Silverpine inizia a 10 nella rotta), zephras_h 14 → 12 (la storia di Zephras finisce a 12 secondo il milestone). zephras_a resta 14.",
+  "zoneIcon: non esistono icone achievement_zone per Stormwind né per Undercity nelle rotte esistenti. Ho usato achievement_zone_westfall_01 per Stormwind e achievement_zone_tirisfalglades_01 per Undercity.",
+  "Nomi quest di Ruins of Lordaeron e Ragefire Chasm presi da Warcraft Tavern senza NPC esatti: NPC marcati come non trovato dove mancano.",
+  "A Swift Message (Quartermaster Lewis) è solo in games.gg: alternativa 🟡 al FP di Stormwind.",
+  "Forever lancia il 4 nov 2026: tutti i dati sono beta o pre-lancio. Va ricontrollato al lancio, soprattutto barche e zeppelin."
+ ]
+}

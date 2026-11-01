@@ -106,7 +106,7 @@ input[type=range]{flex:1;min-width:160px;accent-color:var(--ac);height:30px}
 .gpin img{width:100%;height:100%;border-radius:50%;border:2px solid #c9a24a;box-shadow:0 0 0 2px #000,0 2px 6px #000;display:block;background:#000}
 .gpin.on img{border-color:#fff;box-shadow:0 0 0 2px var(--gold),0 0 12px var(--gold)}
 .gpin.dim img{border-color:#777;filter:saturate(.6)}
-.spin{position:relative}
+/* .spin: niente position (Leaflet la mette absolute; "relative" spostava ogni tappa di 19 px in più) */
 .spin img{width:100%;height:100%;border-radius:10px;border:3px solid var(--gold);box-shadow:0 0 0 2px #000,0 3px 10px #000;display:block}
 .spin b{position:absolute;right:-8px;top:-8px;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#1a1205;font:800 12px/20px Inter;text-align:center;box-shadow:0 0 0 2px #000}
 .spin.on img{border-color:#fff;box-shadow:0 0 0 3px var(--gold),0 0 18px var(--gold)}
@@ -147,3 +147,32 @@ footer{color:var(--mu);font-size:.8rem;text-align:center;padding:24px 16px 40px}
 .pick .fac button{padding:6px 14px}
 .pick .fac button.on.H{border-color:#e05a4a;background:#2a1412}
 .pill.p-soon{color:var(--mu)}
+/* percorso guidato, opzioni, click and go */
+#pkO{display:grid;gap:10px}
+.prog{height:10px;border-radius:99px;background:#0b1828;border:1px solid var(--bd);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ok),var(--gold));transition:width .3s}
+.chap{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);margin:10px 0}
+.chap>summary{display:flex;gap:10px;align-items:center;padding:10px 12px;cursor:pointer;list-style:none}
+.chap>summary::-webkit-details-marker{display:none}
+.chap>summary img{width:40px;height:40px;border-radius:9px;border:2px solid #5a4a22;flex:none}
+.chap>summary b{display:block}.chap>summary small{color:var(--mu)}
+.chap.cur{border-color:var(--gold)}.chap.done{opacity:.6}
+.chap .body{padding:0 12px 12px}
+.chap .pct{margin-left:auto;font:800 .8rem Inter;color:var(--mu);white-space:nowrap}
+.task{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--bd)}
+.task:last-child{border-bottom:0}
+.task input{width:20px;height:20px;accent-color:var(--ok);flex:none;margin-top:2px}
+.task .tx{flex:1}.task.ok .tx{text-decoration:line-through;color:var(--mu)}
+.task .lv{flex:none;min-width:38px;font:800 .78rem Inter;color:var(--ac);padding-top:3px}
+.task .ic{width:24px;height:24px;border-radius:5px;border-width:1px}
+.go{display:inline-flex;align-items:center;gap:4px;background:#173a5c;color:var(--tx);border:1px solid var(--ac);border-radius:99px;padding:2px 9px;font:600 .76rem Inter,sans-serif;cursor:pointer;margin:2px 4px 2px 0;white-space:nowrap}
+.go:hover{background:var(--ac);color:#04121f}
+.qgo{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.qgo .go{padding:6px 11px;font-size:.82rem}
+.box .go{margin-top:6px}
+/* mappa da lontano: meno icone e testi sovrapposti */
+#lmap.zfar .gpin,#lmap.zfar .qm{display:none}
+#lmap.zfar .zlab b{font-size:10px}
+#lmap.zmid .gpin.dim{display:none}
+#lmap.zmid .zlab small{display:none}
+#lmap.zfar .zlab:not(.r){display:none}

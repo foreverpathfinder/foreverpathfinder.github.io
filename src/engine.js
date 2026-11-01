@@ -1,4 +1,4 @@
-// Motore della guida: legge DATA (unito da tools/build.js) e disegna tutto per razza + classe + livello.
+// Motore della guida: legge DATA (unito da tools/build.js) e disegna tutto per razza + classe + opzioni + livello.
 var D=DATA,C=D.common,LF=window.L; // Leaflet: L resta il nome globale di Leaflet
 var IC=function(n){return 'https://wow.zamimg.com/images/wow/icons/large/'+n+'.jpg'};
 function img(n,c,alt){return '<img class="ic'+(c?' '+c:'')+'" src="'+IC(n)+'" alt="'+(alt||'')+'" loading="lazy" onerror="this.onerror=null;this.src=\'https://wowforever.be/icons/'+n+'.jpg\'">'}
@@ -7,56 +7,136 @@ function $(id){return document.getElementById(id)}
 function li(a){return a.map(function(x){return '<li>'+x+'</li>'}).join('')}
 function card(icon,title,body,pill){return '<div class="card" style="margin:0;padding:10px"><div class="row">'+img(icon)+'<div><b>'+title+'</b>'+(pill?' '+pill:'')+'<br><span class="note">'+body+'</span></div></div></div>'}
 function srcRow(s){return '<tr><td>'+(s[1]?'<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a>':s[0])+'</td><td>'+(s[2]||'')+'</td><td>'+(s[3]||'')+'</td></tr>'}
-var MAXL=C.maxLevel,FN={A:'Alleanza',H:'Orda'};
+function txt(h){return String(h||'').replace(/<[^>]+>/g,'')}
+function hash(s){var h=0;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return (h>>>0).toString(36)}
+var MAXL=C.maxLevel,FN={A:'Alleanza',H:'Orda'},CN={kalimdor:'Kalimdor','eastern-kingdoms':'Eastern Kingdoms','zephras-isle':'Zephras Isle'};
+var PROFS=D.profs?D.profs.professions.filter(function(p){return p.type!=='secondary'}).map(function(p){return [p.name,p.icon]}):[['Alchemy','trade_alchemy'],['Blacksmithing','trade_blacksmithing'],['Enchanting','trade_engraving'],['Engineering','trade_engineering'],['Herbalism','trade_herbalism'],['Leatherworking','trade_leatherworking'],['Mining','trade_mining'],['Skinning','inv_misc_pelt_wolf_01'],['Tailoring','trade_tailoring']];
+var pkey=function(n){return n.toLowerCase().replace(/ /g,'-')};
+function lv0(s){return parseInt(s)||1}
+function lv1(s){var p=String(s).split(/[–-]/);return parseInt(p[1]||p[0])||MAXL}
 
-/* ---- stato: razza, classe, livello ---- */
+/* ---- stato: razza, classe, opzioni, livello, checklist ---- */
 var S=(function(){var s={};try{s=JSON.parse(store('wfc')||'{}')}catch(e){}var h=location.hash.match(/^#(\w+)-(\w+)$/);if(h){s.r=h[1];s.c=h[2]}
- if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';s.L=Math.max(1,Math.min(MAXL,+s.L||1));return s})();
+ if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
+ s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.done=s.done||{};return s})();
 function ok(r,c){return D.races[r]&&D.races[r].classes.indexOf(c)>-1&&!!D.classes[c]}
-var RA,CL,TAL,RT,FA;
-function bind(){RA=D.races[S.r];CL=D.classes[S.c];TAL=D.talents[S.c];RT=D.routes[RA.start];FA=D.factions[RA.faction];store('wfc',JSON.stringify(S))}
+function save(){store('wfc',JSON.stringify(S))}
+var RA,CL,TAL,RT,FA,PT,CK;
+function bind(){RA=D.races[S.r];CL=D.classes[S.c];TAL=D.talents[S.c];FA=D.factions[RA.faction];RT=compose();CK=S.r+'-'+S.c+(PT?'-x':'');S.done[CK]=S.done[CK]||{};save()}
 
-/* ---- scelta del personaggio ---- */
+/* ---- percorso: rotta naturale, oppure zona iniziale + cambio di continente + rotta dell'altro continente ---- */
+function transferFor(R){var to=R.trunk==='kalimdor'?'eastern-kingdoms':'kalimdor',t=D.transfers&&D.transfers[RA.faction+':'+R.trunk+'>'+to];return t&&D.routes[t.joinRoute]?t:null}
+function compose(){
+ var R=D.routes[RA.start];PT=S.o.x?transferFor(R):null;if(!PT)return R;
+ // la rotta d'arrivo riprende dopo l'ultimo livello coperto dal passaggio (niente tappe doppie)
+ var J=D.routes[PT.joinRoute],jn=lv0(PT.steps[0][1]),ms={},jl=Math.max(PT.joinLevel||jn,Math.max.apply(null,PT.steps.map(function(s){return lv1(s[1])}))+1);
+ [[R.milestones,0,jn-1],[J.milestones,jl,99]].forEach(function(a){Object.keys(a[0]).forEach(function(k){if(+k>=a[1]&&+k<=a[2])ms[k]=(ms[k]||[]).concat(a[0][k])})});
+ var tseg=PT.steps.map(function(s){return [lv0(s[1]),lv1(s[1]),s[0],'',s[6]]});
+ return {name:R.name,icon:R.icon,hero:R.hero,trunk:J.trunk,junction:jn,
+  segments:R.segments.filter(function(s){return s[0]<jn}).map(function(s){return [s[0],Math.min(s[1],jn-1),s[2],s[3],s[4]]}).concat(tseg,J.segments.filter(function(s){return s[1]>=jl}).map(function(s){return [Math.max(s[0],jl),s[1],s[2],s[3],s[4]]})),
+  steps:R.steps.filter(function(s){return lv0(s[1])<jn}).concat(PT.steps,J.steps.filter(function(s){return lv1(s[1])>=jl})),
+  quests:R.quests.concat(J.quests),fpNames:R.fpNames.concat(J.fpNames),zones:R.zones.concat(J.zones),milestones:ms,
+  bags:R.bags.concat(J.bags.filter(function(b){return !R.bags.some(function(x){return x.name===b.name})})),
+  flights:R.flights.concat(J.flights.filter(function(f){return !R.flights.some(function(x){return x.name===f.name})})),transport:R.transport.concat(J.transport)};
+}
+
+/* ---- talent (con il perk Talented i punti arrivano 5 livelli prima) ---- */
+function off(){return S.o.tal?5:0}
+function rankAt(l){var s={},n=Math.min(CL.build.length,Math.max(0,l-9+off()));for(var i=0;i<n;i++)s[CL.build[i]]=(s[CL.build[i]]||0)+1;return s}
+function tEnc(l){var s=rankAt(l);return TAL.trees.map(function(t){return t[2].map(function(n){return s[t[0]+'/'+n]||0}).join('').replace(/0+$/,'')}).join('-').replace(/-+$/,'')}
+function tAt(l){var i=l-10+off();return i>=0&&i<CL.build.length?CL.build[i]:null}
+
+/* ---- click and go: pulsanti che portano sulla mappa ---- */
+function mine(side){return !side||side===(RA.faction==='A'?1:2)}
+function near(list,x,y){var b=null,d=1e12;(list||[]).forEach(function(p){if(!mine(p[1]))return;var e=(p[2]-x)*(p[2]-x)+(p[3]-y)*(p[3]-y);if(e<d){d=e;b=p}});return b}
+function goBtn(label,x,y,z,pop){return '<button class="go" data-x="'+Math.round(x)+'" data-y="'+Math.round(y)+'" data-z="'+(z||6)+'" data-t="'+String(pop||label).replace(/"/g,'&quot;')+'">📍 '+label+'</button>'}
+function npcBtn(p,label){return p?goBtn(label||p[0],p[2],p[3],6.25,'<b>'+(label||p[0])+'</b><br>'+p[0]):''}
+function hubBtns(s){var x=s[2],y=s[3],h=goBtn(s[0],x,y,s[4],'<b>'+s[0]+'</b>');
+ h+=npcBtn(near(D.map.trainers[S.c],x,y),CL.name+' Trainer')+npcBtn(near(D.map.fp,x,y),'Flight Master')+npcBtn(near(D.map.inn,x,y),'Inn');
+ S.o.prof.forEach(function(p){h+=npcBtn(near(D.map.prof[pkey(p)],x,y),p+' Trainer')});return h}
+function npcLinks(html){var t=txt(html),h='';RT.quests.forEach(function(q){if(t.indexOf(q[0])>-1)h+=goBtn(q[0],q[2],q[3],6.25,'<b>'+q[0]+'</b><br>'+q[1])});return h}
+function dgBtn(name){var n=name.replace(/[★✔🟡]/g,'').trim().toLowerCase(),d=D.map.dg.filter(function(x){return x[0].toLowerCase()===n||n.indexOf(x[0].toLowerCase())>-1||x[0].toLowerCase().indexOf(n)>-1})[0];return d?goBtn(name,d[2],d[3],5.5,'<b>⚔ '+d[0]+'</b><br>Livelli '+d[1]):''}
+document.addEventListener('click',function(e){var b=e.target.closest('.go');if(!b)return;e.preventDefault();
+ if(b.dataset.lv){S.L=+b.dataset.lv;renderLevel();return}
+ if(b.dataset.sec){$(b.dataset.sec).scrollIntoView({behavior:'smooth'});return}
+ if(MAPI.fly){$('mappa').scrollIntoView({behavior:'smooth',block:'start'});MAPI.fly(+b.dataset.x,+b.dataset.y,+b.dataset.z,b.dataset.t)}});
+
+/* ---- attività per livello: usate da percorso e planner ---- */
+function stepRange(i){var a=lv0(RT.steps[i][1]),n=RT.steps[i+1];return [i?a:1,n?Math.max(a,lv0(n[1])-1):MAXL]}
+function stepAt(l){var k=0;RT.steps.forEach(function(s,i){if(lv0(s[1])<=l)k=i});return k}
+function profTasks(l){var P=S.o.prof;if(!P.length)return [];var a=P.join(' e ');
+ if(l===5)return ['Impara <b>'+a+'</b> dal Trainer (Apprentice, skill 1–75)'+(P.some(function(p){return /Mining|Herbalism|Skinning/.test(p)})?': raccogli lungo la rotta mentre fai quest.':'.')];
+ if(l===10)return ['<b>'+a+'</b>: Journeyman (skill 50 → max 150) dal Trainer.'];
+ if(l===20)return ['<b>'+a+'</b>: Expert (skill 125 → max 225) dal Trainer.'];
+ if(l===35)return ['<b>'+a+'</b>: Artisan (skill 200 → max 300).'];return []}
+function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]===l}),b=tAt(l);
+ if(b){var n=TAL.n[b];t.push([img(n[1])+'<b>Talent:</b> '+n[0]+' '+rankAt(l)[b]+'/'+n[2]+' <span class="note">'+(CL.why[n[0]]||'')+'</span>','<button class="go" data-sec="build">Calcolatore ›</button>'])}
+ if(sp.length)t.push([img(sp[0][2])+'<b>Trainer:</b> '+sp.map(function(x){return x[1]}).join(', '),npcBtn(near(D.map.trainers[S.c],RT.steps[stepAt(l)][2],RT.steps[stepAt(l)][3]),CL.name+' Trainer')]);
+ [].concat(RT.milestones[l]||[],CL.milestones[l]||[],(FA.milestones&&FA.milestones[l])||[]).forEach(function(m){t.push([m,npcLinks(m)])});
+ profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(near(D.map.prof[pkey(p)],s[2],s[3]),p+' Trainer')}).join('')])});
+ if(l===10)t.push(['Le <b>Waylaid Crates</b> diventano utilizzabili (consegna: '+(FA.crates||'—')+')','']);
+ if(S.o.dg)FA.dungeons.forEach(function(d){if(/non consigliat/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest. '+(d[4]||''),dgBtn(d[0])])});
+ return t}
+function taskRow(t,l,key){var id=hash(key+t[0]),on=!!S.done[CK][id];return '<label class="task'+(on?' ok':'')+'"><input type="checkbox" data-id="'+id+'"'+(on?' checked':'')+'><span class="lv">Liv. '+l+'</span><span class="tx">'+t[0]+(t[1]?'<br>'+t[1]:'')+'</span></label>'}
+document.addEventListener('change',function(e){var c=e.target;if(!c.dataset||!c.dataset.id)return;if(c.checked)S.done[CK][c.dataset.id]=1;else delete S.done[CK][c.dataset.id];save();c.parentNode.classList.toggle('ok',c.checked);progress()});
+
+/* ---- scelta del personaggio e opzioni ---- */
 function drawPick(){
  $('pkF').innerHTML=['A','H'].filter(function(f){return Object.keys(D.races).some(function(k){return D.races[k].faction===f})}).map(function(f){return '<button data-f="'+f+'" class="'+f+(RA.faction===f?' on':'')+'">'+FN[f]+'</button>'}).join('');
  $('pkR').innerHTML=Object.keys(D.races).filter(function(k){return D.races[k].faction===RA.faction}).map(function(k){var r=D.races[k];return '<button data-r="'+k+'"'+(k===S.r?' class="on"':'')+'><img src="'+IC(r.icon)+'" alt="">'+r.name+'</button>'}).join('');
- $('pkC').innerHTML=RA.classes.map(function(k){var c=D.classes[k];return '<button data-c="'+k+'"'+(k===S.c?' class="on"':'')+(c?'':' disabled title="Dati in arrivo"')+'><img src="'+IC('classicon_'+k)+'" alt="">'+(c?c.name:k[0].toUpperCase()+k.slice(1)+' (in arrivo)')+'</button>'}).join('');
+ $('pkC').innerHTML=RA.classes.map(function(k){var c=D.classes[k];return '<button data-c="'+k+'"'+(k===S.c?' class="on"':'')+(c?'':' disabled')+'><img src="'+IC('classicon_'+k)+'" alt="">'+(c?c.name:k)+'</button>'}).join('');
+ var R=D.routes[RA.start],T=transferFor(R),to=R.trunk==='kalimdor'?'eastern-kingdoms':'kalimdor',pick=D.profs&&D.profs.classPicks&&D.profs.classPicks[S.c]||'';
+ var row=function(n,lab,btns,note){return '<div><div class="lab">'+n+' · '+lab+'</div><div class="opts">'+btns+'</div>'+(note?'<p class="note" style="margin:.3em 0 0">'+note+'</p>':'')+'</div>'};
+ var b=function(k,v,on,label,dis){return '<button data-o="'+k+'" data-v="'+v+'"'+(on?' class="on"':'')+(dis?' disabled':'')+'>'+label+'</button>'};
+ $('pkO').innerHTML=row(4,'Percorso',b('x',0,!S.o.x,'Resta in '+CN[R.trunk])+b('x',1,!!S.o.x,T?'Passa in '+CN[to]:'Passa in '+CN[to]+' (in arrivo)',!T),T?(S.o.x?T.title+' · '+T.when:'Puoi spostarti in '+CN[to]+' dopo la zona iniziale: il percorso aggiunge quest, Flight Path e viaggi per arrivarci.'):'')+
+  row(5,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ consigliate per il '+CL.name+': '+pick:'')+
+  row(6,'Dungeon',b('dg',1,S.o.dg,'Sì, con le quest')+b('dg',0,!S.o.dg,'No, solo quest all’aperto'))+
+  row(7,'Perk Legacy “Talented”',b('tal',0,!S.o.tal,'Non ce l’ho')+b('tal',1,!!S.o.tal,'Ce l’ho: talent 5 livelli prima'));
 }
-$('pg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;
+$('pg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled||b.closest('#pkO')&&!b.dataset.o&&!b.dataset.p)return;
  if(b.dataset.f&&b.dataset.f!==RA.faction){var r=Object.keys(D.races).filter(function(k){return D.races[k].faction===b.dataset.f});S.r=r.filter(function(k){return ok(k,S.c)})[0]||r[0]}
  if(b.dataset.r)S.r=b.dataset.r;if(b.dataset.c)S.c=b.dataset.c;
- if(!ok(S.r,S.c))S.c=RA&&D.races[S.r].classes.filter(function(c){return D.classes[c]})[0];
+ if(b.dataset.o)S.o[b.dataset.o]=+b.dataset.v;
+ if(b.dataset.p){var P=S.o.prof,i=P.indexOf(b.dataset.p);if(i>-1)P.splice(i,1);else{P.push(b.dataset.p);if(P.length>2)P.shift()}}
+ if(!ok(S.r,S.c))S.c=D.races[S.r].classes.filter(function(c){return D.classes[c]})[0];
  history.replaceState(null,'','#'+S.r+'-'+S.c);renderAll()});
 
-/* ---- talent ---- */
-function rankAt(l){var s={};for(var i=0;i<Math.max(0,l-9)&&i<CL.build.length;i++)s[CL.build[i]]=(s[CL.build[i]]||0)+1;return s}
-function tEnc(l){var s=rankAt(l);return TAL.trees.map(function(t){return t[2].map(function(n){return s[t[0]+'/'+n]||0}).join('').replace(/0+$/,'')}).join('-').replace(/-+$/,'')}
-function tAt(l){return l>=10&&l-10<CL.build.length?CL.build[l-10]:null}
+/* ---- il tuo percorso: capitoli lineari con checklist ---- */
+function renderPath(){var h='';
+ RT.steps.forEach(function(s,i){var r=stepRange(i),rows='',key=i+':';
+  if(PT&&PT.steps.indexOf(s)>-1&&PT.steps.indexOf(s)===0)rows+=taskRow(['<b>Prima di partire:</b><ul>'+li(PT.unlocks)+'</ul>'+(PT.quests.length?'<b>Quest:</b><ul>'+li(PT.quests.map(function(q){return '<i>'+q[0]+'</i> – '+q[1]+', '+q[2]+' (liv. '+q[3]+'): '+q[4]}))+'</ul>':''),''],r[0],key);
+  if(s[7])rows+=taskRow(['✈ Prendi il Flight Path: <b>'+s[7]+'</b>',npcBtn(near(D.map.fp,s[2],s[3]),'Flight Master')],r[0],key);
+  for(var l=r[0];l<=r[1];l++)tasksFor(l,l===r[0]).forEach(function(t){rows+=taskRow(t,l,key)});
+  var cur=S.L>=r[0]&&S.L<=r[1];
+  h+='<details class="chap'+(cur?' cur':'')+'" data-i="'+i+'"'+(cur?' open':'')+'><summary><img src="'+IC(s[5])+'" alt=""><span><b>'+(i+1)+'. '+s[0]+'</b><small>Livelli '+r[0]+(r[1]>r[0]?'–'+r[1]:'')+(PT&&PT.steps.indexOf(s)>-1?' · cambio continente':'')+'</small></span><span class="pct"></span></summary><div class="body"><p>'+s[6]+'</p><div class="btns" style="margin:6px 0">'+hubBtns(s)+'<button class="go" data-lv="'+r[0]+'">Sono qui</button></div>'+rows+'</div></details>'});
+ $('chaps').innerHTML=h;progress()}
+function progress(){var all=0,ok=0;[].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var t=c.querySelectorAll('input[data-id]'),d=c.querySelectorAll('input[data-id]:checked');all+=t.length;ok+=d.length;
+  c.querySelector('.pct').textContent=d.length+'/'+t.length;c.classList.toggle('done',t.length>0&&d.length===t.length)});
+ $('pgBar').style.width=(all?ok/all*100:0)+'%';$('pgTxt').textContent=ok+' di '+all+' cose fatte · '+RA.name+' '+CL.name+' '+CL.spec+(PT?' · '+PT.title:'')+(S.o.prof.length?' · '+S.o.prof.join(' + '):'')}
 
-/* ---- planner ---- */
-function segAt(l){var a=RT.segments;for(var i=0;i<a.length;i++)if(l>=a[i][0]&&l<=a[i][1])return a[i];return a[a.length-1]}
-function todoAt(l){var t=[].concat((RT.milestones[l]||[]),(CL.milestones[l]||[]),(FA.milestones&&FA.milestones[l])||[]);
- if(l===10)t.push('Primo talent point','Le <b>Waylaid Crates</b> diventano utilizzabili');if(l===20)t.push('Crates Expert utilizzabili');return t}
+/* ---- planner per livello ---- */
+function segAt(l){var a=RT.segments,b=null;a.forEach(function(s){if(l>=s[0]&&l<=s[1])b=s});return b||a.filter(function(s){return s[0]<=l}).pop()||a[0]}
 function renderLevel(){
- S.L=Math.max(1,Math.min(MAXL,S.L));store('wfc',JSON.stringify(S));
- var L=S.L;$('lvn').textContent=L;$('lvr').value=L;
- var z=segAt(L),s=rankAt(L),nx=tAt(L);
- var h='<div class="box"><b class="t">Zona</b><div style="font:800 1.15rem Cinzel,serif;color:var(--ice)">'+z[2]+'</div><div class="note">'+z[3]+'</div><p style="margin:.4em 0 0">'+z[4]+'</p><a href="#mappa" class="note">Vedi sulla mappa ›</a></div>';
+ S.L=Math.max(1,Math.min(MAXL,S.L));save();
+ var L=S.L,z=segAt(L),s=rankAt(L),nx=tAt(L),si=stepAt(L),st=RT.steps[si];$('lvn').textContent=L;$('lvr').value=L;
+ $('qgo').innerHTML=hubBtns(st)+(si?'<button class="go" data-lv="'+stepRange(si-1)[0]+'">‹ Tappa '+si+'</button>':'')+(si<RT.steps.length-1?'<button class="go" data-lv="'+stepRange(si+1)[0]+'">Tappa '+(si+2)+' ›</button>':'');
+ var h='<div class="box"><b class="t">Zona · tappa '+(si+1)+' di '+RT.steps.length+'</b><div style="font:800 1.15rem Cinzel,serif;color:var(--ice)">'+z[2]+'</div><div class="note">'+z[3]+'</div><p style="margin:.4em 0 0">'+z[4]+'</p>'+npcLinks(z[4]+' '+st[6])+'</div>';
  h+='<div class="box"><b class="t">Talent a questo livello</b>';
- if(nx){var t=TAL.n[nx];h+='<div class="it">'+img(t[1])+'<div><b>'+t[0]+'</b> '+s[nx]+'/'+t[2]+'<small>'+(CL.why[t[0]]||t[3])+'</small></div></div>'}
+ if(nx){var t=TAL.n[nx];h+='<div class="it">'+img(t[1])+'<div><b>'+t[0]+'</b> '+s[nx]+'/'+t[2]+'<small>'+(CL.why[t[0]]||t[3])+'</small></div></div><button class="go" data-sec="build">Vedi nel calcolatore ›</button>'}
  else h+='<p class="note">I talent iniziano al livello 10 (al 5 con il perk Talented).</p>';
  h+='</div>';
  var ns=CL.spells.filter(function(x){return x[0]===L});
- h+='<div class="box"><b class="t">Spell nuove dal Trainer</b>'+(ns.length?ns.map(function(x){return '<div class="it">'+img(x[2],'s')+'<div><b>'+x[1]+'</b><small>'+x[3]+'</small></div></div>'}).join(''):'<p class="note">Nessuna spell nuova: '+(L%2?'aggiorna i Rank al prossimo livello pari.':'aggiorna i Rank dal Trainer.')+'</p>')+'</div>';
- var td=[];for(var k=Math.max(1,L-1);k<=L;k++)td=td.concat(todoAt(k));
+ h+='<div class="box"><b class="t">Spell nuove dal Trainer</b>'+(ns.length?ns.map(function(x){return '<div class="it">'+img(x[2],'s')+'<div><b>'+x[1]+'</b><small>'+x[3]+'</small></div></div>'}).join('')+npcBtn(near(D.map.trainers[S.c],st[2],st[3]),CL.name+' Trainer più vicino'):'<p class="note">Nessuna spell nuova: '+(L%2?'aggiorna i Rank al prossimo livello pari.':'aggiorna i Rank dal Trainer.')+'</p>')+'</div>';
+ var td='';for(var k=Math.max(1,L-1);k<=L;k++)tasksFor(k).filter(function(t){return !/^<img/.test(t[0])}).forEach(function(t){td+=taskRow(t,k,stepAt(k)+':')});
  var dg=FA.dungeons.filter(function(d){return L>=d[1]&&L<=d[2]});
- h+='<div class="box"><b class="t">Da non perdere</b>'+(td.length?'<ul>'+li(td)+'</ul>':'<p class="note">Quest nella zona e raccolta lungo la strada.</p>')+(dg.length?'<p class="note">⚔ Dungeon nel range: '+dg.map(function(d){return d[0]}).join(', ')+'</p>':'')+'</div>';
+ h+='<div class="box"><b class="t">Da non perdere</b>'+(td||'<p class="note">Quest nella zona e raccolta lungo la strada.</p>')+(dg.length&&S.o.dg?'<p class="note" style="margin-bottom:0">⚔ Dungeon nel range:</p>'+dg.map(function(d){return dgBtn(d[0])}).join(''):'')+'</div>';
  $('plan').innerHTML=h;
  var tl='';for(var l=1;l<=MAXL;l++){var it=[],b=tAt(l);if(b)it.push(img(TAL.n[b][1],'s')+' '+TAL.n[b][0]);
-  CL.spells.filter(function(x){return x[0]===l}).forEach(function(x){it.push(x[1])});it=it.concat(todoAt(l));if(!it.length)continue;
+  CL.spells.filter(function(x){return x[0]===l}).forEach(function(x){it.push(x[1])});it=it.concat((RT.milestones[l]||[]).concat(CL.milestones[l]||[]));if(!it.length)continue;
   tl+='<div class="ev'+(l<L?' done':l===L?' cur':'')+'"><span class="lv">Liv. '+l+'</span><span>'+it.join(' · ')+'</span></div>'}
  $('tl').innerHTML=tl;
- drawOrder();wfSet();if(mapSync)mapSync();
+ [].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var r=stepRange(+c.dataset.i),cur=L>=r[0]&&L<=r[1];c.classList.toggle('cur',cur);if(cur)c.open=true});
+ drawOrder();wfSet();if(MAPI.sync)MAPI.sync();
 }
 $('lvm').onclick=function(){S.L--;renderLevel()};
 $('lvp').onclick=function(){S.L++;renderLevel()};
@@ -64,8 +144,8 @@ $('lvr').oninput=function(){S.L=+this.value;renderLevel()};
 
 /* ---- talent: ordine + calcolatore di wowforever.be ---- */
 function drawOrder(){
- var g=[],cnt={},o='';
- CL.build.forEach(function(b,i){if(10+i>MAXL)return;if(g.length&&g[g.length-1].k===b)g[g.length-1].n++;else g.push({k:b,n:1,from:10+i})});
+ var g=[],cnt={},o='',f=10-off();
+ CL.build.forEach(function(b,i){if(f+i>MAXL)return;if(g.length&&g[g.length-1].k===b)g[g.length-1].n++;else g.push({k:b,n:1,from:f+i})});
  g.forEach(function(x){cnt[x.k]=(cnt[x.k]||0)+x.n;var a=x.from,e=x.from+x.n-1,t=TAL.n[x.k];
   o+='<div class="o'+(S.L>e?' past':'')+(S.L>=a&&S.L<=e?' cur':'')+'" data-lv="'+a+'">'+img(t[1],'s')+'<div><b>'+t[0]+'</b>'+cnt[x.k]+'/'+t[2]+' · liv. '+(a===e?a:a+'–'+e)+'</div></div>'});
  $('order').innerHTML=o;
@@ -85,16 +165,16 @@ function wfLoad(){if(!WF.vis||WF.loading!==null||WF.want===WF.shown)return;
  clearTimeout(WF.to);WF.to=setTimeout(function(){if(WF.loading===u){WF.loading=null;wfBadge.textContent='wowforever.be non risponde: tocca “Apri ↗”'}},15000);
  f.onload=function(){if(WF.loading!==u)return;f.style.visibility='visible';wfF[wfA].style.visibility='hidden';wfA=1-wfA;WF.shown=u;WF.loading=null;wfBadge.hidden=true;wfLoad()};
  f.src=u}
-function wfSet(){var lv=Math.max(10,S.L);$('wfLv').textContent=lv;var u=wfUrl(tEnc(lv));$('wfLink').href=u;
+function wfSet(){var lv=Math.max(10-off(),S.L);$('wfLv').textContent=lv;var u=wfUrl(tEnc(lv));$('wfLink').href=u;
  WF.want=u;clearTimeout(WF.t);WF.t=setTimeout(wfLoad,WF.shown?700:0)}
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){WF.vis=es[0].isIntersecting;wfLoad()},{rootMargin:'400px'}).observe(wfBox);else WF.vis=true;
-$('wfm').onclick=function(){S.L=Math.max(10,Math.max(10,S.L)-1);renderLevel()};
-$('wfp').onclick=function(){S.L=Math.max(10,S.L)+1;renderLevel()};
+$('wfm').onclick=function(){S.L=Math.max(10-off(),S.L-1);renderLevel()};
+$('wfp').onclick=function(){S.L=Math.max(10-off(),S.L)+1;renderLevel()};
 $('wfModes').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;WF.mode=b.dataset.m;
  [].forEach.call(this.children,function(c){c.classList.toggle('on',c===b)});wfFit()});
 addEventListener('resize',wfFit);
 
-/* ---- sezioni che dipendono da razza e classe ---- */
+/* ---- sezioni che dipendono da razza, classe e opzioni ---- */
 function renderClass(){
  var tree=TAL.trees[CL.treeIndex][1];
  $('bTitle').textContent='Talents: '+CL.spec+' 1–'+MAXL;$('bSum').innerHTML='<b>Scelta:</b> '+CL.summary;
@@ -112,29 +192,48 @@ function renderClass(){
   '<details><summary>Le altre razze per '+CL.name+'</summary><ul>'+Object.keys(CL.races).filter(function(k){return D.races[k]&&k!==S.r}).map(function(k){return '<li><b>'+D.races[k].name+'</b> ('+FN[D.races[k].faction]+'): '+CL.races[k]+'</li>'}).join('')+'</ul></details>';
  // viaggi
  $('vFp').innerHTML='<tr><th>#</th><th>Flight path</th><th>Flight Master</th><th>Quando</th></tr>'+RT.flights.map(function(f,i){return '<tr><td>'+(i+1)+'</td><td><b>'+f.name+'</b></td><td>'+(f.master||'—')+(f.way?' <code>/way '+f.way+'</code>':'')+'</td><td>'+(f.when||'')+'</td></tr>'}).join('');
- $('vCards').innerHTML='<div class="card"><h3>Tram, Boat, Zeppelin</h3><ul>'+li(RT.transport.concat(FA.transport||[]))+'</ul></div>'+(CL.travel?'<div class="card"><h3>Perk del '+CL.name+'</h3>'+CL.travel+'</div>':'');
+ $('vCards').innerHTML=(PT?'<div class="card"><h3>'+PT.title+'</h3><p>'+PT.when+'</p><ul>'+li(PT.unlocks)+'</ul>'+(PT.pros?'<p class="note"><b>Pro:</b> '+PT.pros+'<br><b>Contro:</b> '+PT.cons+'</p>':'')+'</div>':'')+
+  '<div class="card"><h3>Tram, Boat, Zeppelin</h3><ul>'+li(RT.transport.concat(FA.transport||[]))+'</ul></div>'+(CL.travel?'<div class="card"><h3>Perk del '+CL.name+'</h3>'+CL.travel+'</div>':'');
  // bag
  $('bagt').innerHTML='<tr><th>Liv.</th><th>Bag</th><th>Slot</th><th>Come</th></tr>'+RT.bags.map(function(b){return '<tr><td>'+b.lvl+'</td><td><b>'+b.name+'</b></td><td>'+b.slots+'</td><td>'+b.how+'</td></tr>'}).join('')+C.bagsCommon.map(function(b){return '<tr><td>'+b.join('</td><td>')+'</td></tr>'}).join('');
- // professioni
- var P=CL.professions;$('profc').innerHTML='<div class="card"><h3>Main: gold subito</h3><p>'+(P.gold||C.profGold)+'</p></div><div class="card"><h3>Main: più forza in leveling</h3><p>'+P.power+'</p></div><div class="card"><h3>Il consiglio</h3><p>'+P.advice+'</p></div>';
+ renderProf();
  // crates
  $('crc').innerHTML='<p>'+C.crates+'</p><ul>'+li(C.cratesList.concat(FA.crates?['Consegna: <b>'+FA.crates+'</b>']:[]))+'</ul>';
  // camping
  $('campT').textContent='Priorità per il '+CL.name;
  $('camp').innerHTML=CL.camp.map(function(c,i){return card(c[2],c[0],c[3],'<span class="note">· '+c[1]+'</span>'+(i<3?' <span class="pill p-ok">priorità '+(i+1)+'</span>':''))}).join('');
  // dungeon
- $('dtab').innerHTML='<tr><th>Dungeon</th><th>Livelli</th><th>Dove</th><th>Note</th></tr>'+FA.dungeons.filter(function(d){return d[1]<=MAXL+2}).map(function(d){return '<tr><td><b>'+d[0]+'</b></td><td>'+d[1]+'–'+d[2]+'</td><td>'+d[3]+'</td><td>'+(d[4]||'')+'</td></tr>'}).join('');
+ $('dtab').innerHTML='<tr><th>Dungeon</th><th>Livelli</th><th>Dove</th><th>Note</th></tr>'+FA.dungeons.filter(function(d){return d[1]<=MAXL+2}).map(function(d){return '<tr><td><b>'+d[0]+'</b><br>'+dgBtn('mappa '.trim()&&d[0])+'</td><td>'+d[1]+'–'+d[2]+'</td><td>'+d[3]+'</td><td>'+(d[4]||'')+'</td></tr>'}).join('');
  // fonti
- $('srct').innerHTML='<tr><th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th></tr>'+CL.sources.concat(FA.sources,C.sources).map(srcRow).join('');
+ $('srct').innerHTML='<tr><th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th></tr>'+CL.sources.concat(FA.sources,C.sources,D.profs?D.profs.sources:[]).map(srcRow).join('');
  // testata
- var tl=RA.name+' '+CL.name;document.title=tl+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
+ document.title=RA.name+' '+CL.name+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
  $('htitle').innerHTML=img('classicon_'+S.c,'')+' '+RA.name+' '+CL.name+' <span>'+CL.spec+'</span>';
  $('hsub').innerHTML='Guida leveling 1–'+MAXL+' per WoW: Forever · '+FN[RA.faction]+' · <b>'+C.version+'</b> · '+C.updated;
- $('hchips').innerHTML='<span class="chip">'+img(CL.specIcon,'')+'Build: '+CL.spec+'</span><span class="chip">'+img(RT.icon,'')+'Inizio: '+RT.name+'</span>'+CL.chips.map(function(c){return '<span class="chip">'+img(c[0],'')+c[1]+'</span>'}).join('')+'<span class="chip">✔ dati dal client 1.60.1.70707</span>';
+ $('hchips').innerHTML='<span class="chip">'+img(CL.specIcon,'')+'Build: '+CL.spec+'</span><span class="chip">'+img(RT.icon,'')+'Inizio: '+RT.name+'</span>'+(PT?'<span class="chip">🧭 '+PT.title+'</span>':'')+CL.chips.map(function(c){return '<span class="chip">'+img(c[0],'')+c[1]+'</span>'}).join('')+'<span class="chip">✔ dati dal client 1.60.1.70707</span>';
  $('herobg').innerHTML=RT.hero.map(function(u){return '<img src="'+u+'" alt="">'}).join('');
  $('foot').textContent='Guida personale · WoW: Forever Leveling Companion · '+C.version+' ('+C.updated+'). Non affiliata a Blizzard. Icone © Blizzard via Wowhead.';
  $('lvr').max=MAXL;$('tlsum').textContent='Tutto il percorso 1–'+MAXL+' in una riga temporale';
  WF.shown=null;wfFit();
+}
+
+/* ---- professioni e alt ---- */
+function renderProf(){var P=CL.professions,X=D.profs;
+ $('profc').innerHTML='<div class="card"><h3>Main: gold subito</h3><p>'+(P.gold||C.profGold)+'</p></div><div class="card"><h3>Main: più forza in leveling</h3><p>'+P.power+'</p></div><div class="card"><h3>Il consiglio per il '+CL.name+'</h3><p>'+P.advice+(X&&X.classPicks&&X.classPicks[S.c]?'<br>'+X.classPicks[S.c]:'')+'</p></div>';
+ if(!X){$('profx').innerHTML='';$('altx').innerHTML='<p class="note">In arrivo.</p>';return}
+ var sel=S.o.prof,ps=X.professions,pc=function(p){return '<details'+(sel.indexOf(p.name)>-1?' open':'')+'><summary>'+img(p.icon,'s')+' '+p.name+' <span class="note">· '+({gathering:'raccolta',crafting:'crafting',secondary:'secondaria'}[p.type]||p.type)+(sel.indexOf(p.name)>-1?' · scelta da te':'')+'</span></summary>'+
+  '<p><b>In leveling:</b> '+p.leveling+'</p><p><b>Gold:</b> '+p.gold+'</p>'+(p.pairs&&p.pairs.length?'<p><b>Si abbina con:</b> '+p.pairs.join(', ')+'</p>':'')+(p.camp?'<p><b>Camping:</b> '+p.camp+'</p>':'')+(p.skillByLevel?'<p><b>Trainer e cap:</b> '+p.skillByLevel+'</p>':'')+
+  (p.recipes&&p.recipes.length?'<div class="wrap"><table><tr><th>Item / recipe</th><th>Skill</th><th>Perché</th></tr>'+p.recipes.map(function(r){return '<tr><td>'+r.join('</td><td>')+'</td></tr>'}).join('')+'</table></div>':'')+
+  (p.forever&&p.forever.length?'<p><b>Novità di Forever:</b></p><ul>'+li(p.forever)+'</ul>':'')+(p.tips&&p.tips.length?'<ul>'+li(p.tips)+'</ul>':'')+'</details>'};
+ $('profx').innerHTML='<h3>Le coppie migliori</h3><div class="wrap card"><table><tr><th>Coppia</th><th>Per chi</th><th>Perché</th><th>Fonti</th></tr>'+X.pairs.map(function(p){return '<tr><td><b>'+p.pair+'</b></td><td>'+p.for+'</td><td>'+p.why+'</td><td class="note">'+(p.signal||'')+'</td></tr>'}).join('')+'</table></div>'+
+  (X.plan&&X.plan.length?'<h3>Come livellarle mentre livelli</h3><div class="card"><ol>'+li(X.plan)+'</ol></div>':'')+
+  '<h3>Tutte le profession</h3>'+ps.filter(function(p){return sel.indexOf(p.name)>-1}).concat(ps.filter(function(p){return sel.indexOf(p.name)<0})).map(pc).join('')+
+  (X.gold&&X.gold.length?'<h3>Gold</h3><div class="card"><ul>'+li(X.gold)+'</ul></div>':'');
+ var A=X.alts||{};
+ $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
+  (A.legacy&&A.legacy.length?'<h3>Legacy: cosa resta all’account</h3><div class="wrap card"><table><tr><th>Perk</th><th>Effetto</th><th>Note</th></tr>'+A.legacy.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r[2]||'')+'</td></tr>'}).join('')+'</table></div>':'')+
+  '<div class="grid">'+[['Bank alt',A.bankAlt],['Alt per il crafting',A.craftAlts],['Quale alt fare e quando',A.order]].filter(function(x){return x[1]&&x[1].length}).map(function(x){return '<div class="card"><h3>'+x[0]+'</h3><ul>'+li(x[1])+'</ul></div>'}).join('')+'</div>'+
+  (A.tips&&A.tips.length?'<div class="card"><h3>Consigli</h3><ul>'+li(A.tips)+'</ul></div>':'');
 }
 
 /* ---- sezioni fisse ---- */
@@ -149,79 +248,83 @@ function renderClass(){
  var end=Date.parse(C.launchUTC),el=$('cd');function t(){var d=end-Date.now();if(d<=0){el.textContent='Forever è uscito!';return}var h=Math.floor(d/36e5);el.textContent='mancano '+Math.floor(h/24)+' g '+(h%24)+' h'}t();setInterval(t,6e4);
 })();
 
-/* ---- mappa del gioco: tessere e dati della World Map Forever di Wowhead (pixel locali del continente, zoom 7) ---- */
-var mapSync=null,MAP=null;
+/* ---- mappa del mondo: i 3 continenti sulla stessa tela (coordinate globali di Wowhead, pixel a zoom 7) ---- */
+// Una sola mappa per tutta la pagina: le tessere e i nomi delle zone si creano una volta; al cambio di personaggio si rifanno solo i livelli che dipendono da fazione/classe/rotta.
+// Le tessere che non esistono (oceano) non vengono chieste al server: niente 404, molto meno lag.
+var MAP=null,MAPI={},MG={};
+var ll=function(x,y){return [-y/128,x/128]},PL=function(a){return a.map(function(p){return ll(p[0],p[1])})};
+var BLANK='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',WORLD=[ll(8192,0),ll(44544,29700)];
+var NODE={cu:['ore','Copper Vein','#e08a3c'],sn:['ore','Tin Vein','#c3ccd2'],ag:['ore','Silver Vein','#e6eef5'],fe:['ore','Iron Deposit','#9aa3ad'],pb:['herb','Peacebloom','#fff6d8'],sl:['herb','Silverleaf','#a6e3a1'],er:['herb','Earthroot','#c8925a'],mr:['herb','Mageroyal','#c9a3ff'],bt:['herb','Briarthorn','#ff7d7d'],bw:['herb','Bruiseweed','#6fcf6f'],sk:['herb','Stranglekelp','#3fa58a'],ws:['herb','Wild Steelbloom','#b7c4cf'],kb:['herb','Kingsblood','#d0473f']};
+function pin(n,sz,cls){return LF.divIcon({className:'gpin '+(cls||''),html:'<img src="'+IC(n)+'" alt="">',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],popupAnchor:[0,-sz/2]})}
+function initMap(){
+ var box=$('lmap');if(!LF){box.innerHTML='<p class="note" style="padding:16px">La mappa ha bisogno di internet (Leaflet e le immagini della mappa).</p>';return}
+ var map=MAP=LF.map(box,{crs:LF.CRS.Simple,minZoom:1,maxZoom:7,zoomSnap:.25,zoomDelta:.5,preferCanvas:true,maxBounds:[ll(4000,-4000),ll(48000,34000)],maxBoundsViscosity:.6});
+ var TL=LF.TileLayer.extend({getTileUrl:function(c){var K=this.options.k,M=D.map.conts[K],f=256*Math.pow(2,7-c.z),x=c.x-M.ox/f,y=c.y-M.oy/f,r=M.tiles[c.z]&&M.tiles[c.z][y];
+  if(!r||!r.some(function(a){return x>=a[0]&&x<=a[1]}))return BLANK;return 'https://wow.zamimg.com/images/wow/classicplus/world-map/v3/'+K+'/'+c.z+'/'+y+'/'+x+'.webp'}});
+ Object.keys(D.map.conts).forEach(function(k,i){var M=D.map.conts[k];new TL('',{k:k,tileSize:256,minZoom:1,maxZoom:7,minNativeZoom:2,maxNativeZoom:7,noWrap:true,keepBuffer:1,updateWhenZooming:false,bounds:[ll(M.ox,M.oy),ll(M.ox+M.w,M.oy+M.h)],
+  attribution:i?'':'Mappa © Blizzard Entertainment · tessere e dati <a href="https://www.wowhead.com/forever/world-map" target="_blank" rel="noopener">Wowhead</a>'}).addTo(map)});
+ var zl=LF.layerGroup().addTo(map),tl=LF.layerGroup();MG.zl=zl;
+ MG.zm=D.map.zones.map(function(z){return [z[0],LF.marker(ll(z[2],z[3]),{interactive:false,keyboard:false,icon:LF.divIcon({className:'zlab',html:'<span><b>'+z[0]+'</b><small>'+z[1]+'</small></span>',iconSize:[0,0]})}).addTo(zl)]});
+ D.map.places.forEach(function(t){LF.marker(ll(t[1],t[2]),{interactive:false,keyboard:false,icon:LF.divIcon({className:'tlab',html:'<span>'+(t[3]?'<b>'+t[0]+'</b>':t[0])+'</span>',iconSize:[0,0]})}).addTo(tl)});
+ function zcls(){var z=map.getZoom();box.classList.toggle('zfar',z<2.75);box.classList.toggle('zmid',z<3.75);if(z>=4.25)tl.addTo(map);else map.removeLayer(tl)}
+ map.on('zoomend',zcls);map.fitBounds(WORLD);zcls();
+ var wrap=$('lwrap'),fs=$('lfs');
+ fs.onclick=function(){var f=wrap.classList.toggle('full');fs.textContent=f?'✕ Chiudi':'⛶ Schermo intero';document.body.style.overflow=f?'hidden':'';setTimeout(function(){map.invalidateSize()},50)};
+ $('lworld').onclick=function(){map.flyToBounds(WORLD,{duration:.6})};
+ MAPI.fly=function(x,y,z,html){var to=ll(x,y),far=map.distance(map.getCenter(),to)>60;if(far)map.setView(to,z,{animate:false});else map.flyTo(to,z,{duration:.5});
+  if(html)LF.popup({autoPan:false}).setLatLng(to).setContent(html).openOn(map)};
+}
 function drawMap(){
- var box=$('lmap'),steps=RT.steps,side=RA.faction==='A'?1:2,mine=function(s){return !s||s===side};
- $('msteps').innerHTML=steps.map(function(s,i){return '<button class="mstep" data-i="'+i+'"><img src="'+IC(s[5])+'" alt=""><span>'+(i+1)+'. '+s[0]+'<small>liv. '+s[1]+'</small></span></button>'}).join('');
- if(!LF){box.innerHTML='<p class="note" style="padding:16px">La mappa ha bisogno di internet (Leaflet e le immagini della mappa).</p>';return}
- // Una sola mappa per tutta la pagina: al cambio di personaggio si svuota (ricrearla rompe il renderer canvas di Leaflet).
- if(MAP){MAP.stop();MAP.off('zoomend');MAP.eachLayer(function(l){if(!(l instanceof LF.Renderer))MAP.removeLayer(l)})}
- else MAP=LF.map(box,{crs:LF.CRS.Simple,minZoom:2,maxZoom:7,zoomSnap:.25,zoomDelta:.5,preferCanvas:true});
- var ll=function(x,y){return [-y/128,x/128]},P=function(a){return a.map(function(p){return ll(p[0],p[1])})};
- var map=MAP;
- var tiles=null,cont=null,G={},gold='#f2c14e';
- var pin=function(n,sz,cls){return LF.divIcon({className:'gpin '+(cls||''),html:'<img src="'+IC(n)+'" alt="">',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],popupAnchor:[0,-sz/2]})};
- var qm=function(){return LF.divIcon({className:'',html:'<span class="qm">!</span>',iconSize:[20,26],iconAnchor:[10,13]})};
+ var map=MAP;if(!map)return;
+ Object.keys(MG).forEach(function(k){if(k!=='zl'&&MG[k] instanceof LF.Layer)map.removeLayer(MG[k])});
+ MG.zm.forEach(function(z){var el=z[1].getElement();if(el)el.classList.toggle('r',RT.zones.indexOf(z[0])>-1)});
+ var steps=RT.steps,G={},hidden=store('wfcLay')?JSON.parse(store('wfcLay')):{};
  var LAY=[['route','Rotta',RT.icon,1],['fp','Flight Master','ability_mount_gryphon_01',1],['q','Quest della guida','',1],['dg','Dungeons','achievement_dungeon_classicdungeonmaster',1],
-  ['boat','Boat, Zeppelin, Tram','inv_misc_anchor',1],['tr',CL.name+' Trainer','classicon_'+S.c,0],['inn','Innkeeper','inv_misc_rune_01',0],['fly','Flight Path','',0],
+  ['boat','Boat, Zeppelin, Tram','inv_misc_anchor',1],['tr',CL.name+' Trainer','classicon_'+S.c,1],['inn','Innkeeper','inv_misc_rune_01',0],['fly','Flight Path','',0],
   ['ore','Ore','inv_ore_copper_01',0],['herb','Herbalism','inv_misc_flower_02',0]];
  if(S.c==='hunter')LAY.push(['pet','Pet da tame','ability_hunter_beasttaming',0]);
- LAY.forEach(function(l){G[l[0]]=LF.layerGroup()});
- var lab=LF.layerGroup().addTo(map);
- var NODE={cu:['ore','Copper Vein','#e08a3c'],sn:['ore','Tin Vein','#c3ccd2'],ag:['ore','Silver Vein','#e6eef5'],fe:['ore','Iron Deposit','#9aa3ad'],pb:['herb','Peacebloom','#fff6d8'],sl:['herb','Silverleaf','#a6e3a1'],er:['herb','Earthroot','#c8925a'],mr:['herb','Mageroyal','#c9a3ff'],bt:['herb','Briarthorn','#ff7d7d'],bw:['herb','Bruiseweed','#6fcf6f'],sk:['herb','Stranglekelp','#3fa58a'],ws:['herb','Wild Steelbloom','#b7c4cf'],kb:['herb','Kingsblood','#d0473f']};
- function fill(c){var M=D.map[c];cont=c;lab.clearLayers();LAY.forEach(function(l){G[l[0]].clearLayers()});
-  if(tiles)map.removeLayer(tiles);
-  tiles=LF.tileLayer('https://wow.zamimg.com/images/wow/classicplus/world-map/v3/'+c+'/{z}/{y}/{x}.webp',{tileSize:256,minZoom:2,maxZoom:7,maxNativeZoom:7,noWrap:true,bounds:[ll(0,0),ll(M.w,M.h)],
-   errorTileUrl:'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',attribution:'Mappa © Blizzard Entertainment · tessere e dati <a href="https://www.wowhead.com/forever/world-map" target="_blank" rel="noopener">Wowhead</a>'}).addTo(map);
-  map.setMaxBounds([ll(-2000,-2000),ll(M.w+2000,M.h+2000)]);
-  var rz=RT.zones;
-  M.zones.forEach(function(z){LF.marker(ll(z[2],z[3]),{interactive:false,keyboard:false,icon:LF.divIcon({className:'zlab'+(rz.indexOf(z[0])>-1?' r':''),html:'<span><b>'+z[0]+'</b><small>'+z[1]+'</small></span>',iconSize:[0,0]})}).addTo(lab)});
-  M.places.forEach(function(t){LF.marker(ll(t[1],t[2]),{interactive:false,keyboard:false,icon:LF.divIcon({className:'tlab',html:'<span>'+t[0]+'</span>',iconSize:[0,0]})}).addTo(lab)});
-  // rotta: linea tra le tappe dello stesso continente
-  var pts=steps.filter(function(s){return s[8]===c}).map(function(s){return [s[2],s[3]]});
-  if(pts.length>1){LF.polyline(P(pts),{color:'#000',weight:7,opacity:.4}).addTo(G.route);LF.polyline(P(pts),{color:gold,weight:3.5,dashArray:'2 9',lineCap:'round',opacity:.95}).addTo(G.route)}
-  steps.forEach(function(s,i){if(s[8]!==c)return;var m=LF.marker(ll(s[2],s[3]),{zIndexOffset:1000,icon:LF.divIcon({className:'spin'+(i===cur?' on':''),html:'<img src="'+IC(s[5])+'" alt=""><b>'+(i+1)+'</b>',iconSize:[38,38],iconAnchor:[19,19]})}).addTo(G.route);m.on('click',function(){go(i,true)})});
-  M.fp.filter(function(f){return mine(f[1])}).forEach(function(f){var on=RT.fpNames.indexOf(f[4])>-1;LF.marker(ll(f[2],f[3]),{icon:pin('ability_mount_gryphon_01',on?28:22,on?'':'dim'),zIndexOffset:on?500:0}).bindPopup('<b>✈ '+f[4]+'</b><br>Flight Master: '+f[0]+(on?'<br><span style="color:#7dff9a">Sulla tua rotta</span>':'')).addTo(G.fp)});
-  M.dg.forEach(function(d){var lv=parseInt(d[1])||99,near=lv<=MAXL+2;LF.marker(ll(d[2],d[3]),{icon:pin('achievement_dungeon_classicdungeonmaster',near?28:20,near?'':'dim')}).bindPopup('<b>⚔ '+d[0]+'</b>'+(d[4]?' ★ nuovo':'')+(d[5]?' (raid)':'')+'<br>Livelli '+(d[1]||'—')).addTo(G.dg)});
-  RT.quests.filter(function(q){return q[4]===c}).forEach(function(q){LF.marker(ll(q[2],q[3]),{zIndexOffset:1200,icon:qm()}).bindPopup('<b>'+q[0]+'</b><br>'+q[1]).addTo(G.q)});
-  M.ships.forEach(function(s){LF.polyline(P(s[1]),{color:s[0]==='zeppelin'?'#ffb070':'#7fd3ff',weight:2.5,dashArray:'6 6',opacity:.8}).addTo(G.boat)});
-  M.boat.filter(function(b){return mine(b[2])}).forEach(function(b){LF.marker(ll(b[3],b[4]),{icon:pin(b[1]==='tram'?'inv_gizmo_02':b[1]==='zeppelin'?'inv_misc_enggizmos_06':'inv_misc_anchor',24)}).bindPopup('<b>'+({tram:'Deeprun Tram',zeppelin:'Zeppelin',ship:'Boat'}[b[1]]||b[1])+'</b><br>'+b[0]).addTo(G.boat)});
-  M.flights.filter(function(f){return mine(f[0])}).forEach(function(f){LF.polyline(P(f[1]),{color:'#cfe8ff',weight:1.5,opacity:.55}).addTo(G.fly)});
-  (M.trainers[S.c]||[]).filter(function(t){return mine(t[1])}).forEach(function(t){LF.marker(ll(t[2],t[3]),{icon:pin('classicon_'+S.c,24)}).bindPopup('<b>'+CL.name+' Trainer</b><br>'+t[0]).addTo(G.tr)});
-  M.inn.filter(function(t){return mine(t[1])}).forEach(function(t){LF.marker(ll(t[2],t[3]),{icon:pin('inv_misc_rune_01',20)}).bindPopup('<b>Innkeeper</b><br>'+t[0]).addTo(G.inn)});
-  if(G.pet)M.pets.forEach(function(p){LF.circleMarker(ll(p[3],p[4]),{radius:4,color:'#000',weight:1,fillColor:'#ffd75a',fillOpacity:.95}).bindTooltip(p[0]+' ('+p[1]+(p[2]?', liv. '+p[2]:'')+')').addTo(G.pet)});
-  Object.keys(NODE).forEach(function(k){var a=M.nodes[k]||[],n=NODE[k];for(var i=0;i<a.length;i+=2)LF.circleMarker(ll(a[i],a[i+1]),{radius:3.5,color:'#000',weight:1,fillColor:n[2],fillOpacity:.95}).bindTooltip(n[1]).addTo(G[n[0]])});
- }
- var chips=$('lchips');
- chips.innerHTML=LAY.map(function(l){var dot=l[0]==='fly'?'<i style="background:#cfe8ff"></i>':l[0]==='q'?'<span class="qm" style="width:14px;font-size:16px;line-height:18px">!</span>':'<img src="'+IC(l[2])+'" alt="">';
+ // i livelli pesanti (nodi, pet, rotte di volo) si creano solo quando li accendi
+ var make={
+  route:function(g){var pts=steps.map(function(s){return [s[2],s[3]]});
+   for(var i=1;i<pts.length;i++){var a=pts[i-1],b=pts[i],travel=steps[i][8]!==steps[i-1][8]||Math.hypot(a[0]-b[0],a[1]-b[1])>3500;
+    LF.polyline(PL([a,b]),{color:'#000',weight:travel?5:8,opacity:.35,interactive:false}).addTo(g);LF.polyline(PL([a,b]),{color:'#f2c14e',weight:travel?2.5:4.5,dashArray:travel?'4 10':null,lineCap:'round',opacity:.95,interactive:false}).addTo(g)}
+   MG.stepM=steps.map(function(s,i){var m=LF.marker(ll(s[2],s[3]),{zIndexOffset:1000,icon:LF.divIcon({className:'spin',html:'<img src="'+IC(s[5])+'" alt=""><b>'+(i+1)+'</b>',iconSize:[38,38],iconAnchor:[19,19]})}).addTo(g);m.on('click',function(){go(i,true)});return m})},
+  fp:function(g){D.map.fp.filter(function(f){return mine(f[1])}).forEach(function(f){var on=RT.fpNames.indexOf(f[0])>-1;LF.marker(ll(f[2],f[3]),{icon:pin('ability_mount_gryphon_01',on?28:20,on?'':'dim'),zIndexOffset:on?500:0}).bindPopup('<b>✈ '+(f[4]||f[0])+'</b><br>Flight Master: '+f[0]+(on?'<br><span style="color:#7dff9a">Sulla tua rotta</span>':'')).addTo(g)})},
+  q:function(g){RT.quests.forEach(function(q){LF.marker(ll(q[2],q[3]),{zIndexOffset:1200,icon:LF.divIcon({className:'',html:'<span class="qm">!</span>',iconSize:[20,26],iconAnchor:[10,13]})}).bindPopup('<b>'+q[0]+'</b><br>'+q[1]).addTo(g)})},
+  dg:function(g){D.map.dg.forEach(function(d){var lv=parseInt(d[1])||99,nr=lv<=MAXL+2;LF.marker(ll(d[2],d[3]),{icon:pin('achievement_dungeon_classicdungeonmaster',nr?28:20,nr?'':'dim')}).bindPopup('<b>⚔ '+d[0]+'</b>'+(d[4]?' ★ nuovo':'')+(d[5]?' (raid)':'')+'<br>Livelli '+(d[1]||'—')).addTo(g)})},
+  boat:function(g){D.map.ships.forEach(function(s){LF.polyline(PL(s[1]),{color:s[0]==='zeppelin'?'#ffb070':'#7fd3ff',weight:2.5,dashArray:'6 6',opacity:.8,interactive:false}).addTo(g)});
+   D.map.boat.filter(function(b){return mine(b[2])}).forEach(function(b){LF.marker(ll(b[3],b[4]),{icon:pin(b[1]==='tram'?'inv_gizmo_02':b[1]==='zeppelin'?'inv_misc_enggizmos_06':'inv_misc_anchor',24)}).bindPopup('<b>'+({tram:'Deeprun Tram',zeppelin:'Zeppelin',ship:'Boat'}[b[1]]||b[1])+'</b><br>'+b[0]).addTo(g)})},
+  tr:function(g){(D.map.trainers[S.c]||[]).filter(function(t){return mine(t[1])}).forEach(function(t){LF.marker(ll(t[2],t[3]),{icon:pin('classicon_'+S.c,24)}).bindPopup('<b>'+CL.name+' Trainer</b><br>'+t[0]).addTo(g)})},
+  inn:function(g){D.map.inn.filter(function(t){return mine(t[1])}).forEach(function(t){LF.marker(ll(t[2],t[3]),{icon:pin('inv_misc_rune_01',20)}).bindPopup('<b>Innkeeper</b><br>'+t[0]).addTo(g)})},
+  fly:function(g){D.map.flights.filter(function(f){return mine(f[0])}).forEach(function(f){LF.polyline(PL(f[1]),{color:'#cfe8ff',weight:1.5,opacity:.55,interactive:false}).addTo(g)})},
+  pet:function(g){D.map.pets.forEach(function(p){LF.circleMarker(ll(p[3],p[4]),{radius:4,color:'#000',weight:1,fillColor:'#ffd75a',fillOpacity:.95}).bindTooltip(p[0]+' ('+p[1]+(p[2]?', liv. '+p[2]:'')+')').addTo(g)})},
+  ore:function(g){nodes(g,'ore')},herb:function(g){nodes(g,'herb')}};
+ function nodes(g,t){Object.keys(NODE).forEach(function(k){if(NODE[k][0]!==t)return;var a=D.map.nodes[k]||[],n=NODE[k];for(var i=0;i<a.length;i+=2)LF.circleMarker(ll(a[i],a[i+1]),{radius:3.5,color:'#000',weight:1,fillColor:n[2],fillOpacity:.95}).bindTooltip(n[1]).addTo(g)})}
+ function show(k,on){if(on){if(!G[k]){G[k]=MG[k]=LF.layerGroup();make[k](G[k])}G[k].addTo(map)}else if(G[k])map.removeLayer(G[k])}
+ var vis=function(l){return hidden[l[0]]===undefined?!!l[3]:!hidden[l[0]]};
+ $('lchips').innerHTML=LAY.map(function(l){var dot=l[0]==='fly'?'<i style="background:#cfe8ff"></i>':l[0]==='q'?'<span class="qm" style="width:14px;font-size:16px;line-height:18px">!</span>':'<img src="'+IC(l[2])+'" alt="">';
   if(l[0]==='ore')dot+='<i style="background:#e08a3c"></i><i style="background:#c3ccd2"></i>';if(l[0]==='herb')dot+='<i style="background:#fff6d8"></i><i style="background:#a6e3a1"></i><i style="background:#c9a3ff"></i>';
-  return '<button data-k="'+l[0]+'" class="'+(l[3]?'on':'')+'">'+dot+l[1]+'</button>'}).join('');
- LAY.forEach(function(l){if(l[3])G[l[0]].addTo(map)});
- chips.onclick=function(e){var b=e.target.closest('button');if(!b)return;var g=G[b.dataset.k];if(map.hasLayer(g)){map.removeLayer(g);b.classList.remove('on')}else{g.addTo(map);b.classList.add('on')}};
- function zcls(){var z=map.getZoom();box.classList.toggle('zlow',z<4.25);box.classList.toggle('zfar',z<3)}
- map.on('zoomend',zcls);
+  return '<button data-k="'+l[0]+'" class="'+(vis(l)?'on':'')+'">'+dot+l[1]+'</button>'}).join('');
+ LAY.forEach(function(l){show(l[0],vis(l))});
+ $('lchips').onclick=function(e){var b=e.target.closest('button');if(!b)return;var k=b.dataset.k,on=!b.classList.contains('on');b.classList.toggle('on',on);hidden[k]=!on;store('wfcLay',JSON.stringify(hidden));show(k,on)};
+ $('msteps').innerHTML=steps.map(function(s,i){return '<button class="mstep" data-i="'+i+'"><img src="'+IC(s[5])+'" alt=""><span>'+(i+1)+'. '+s[0]+'<small>liv. '+s[1]+'</small></span></button>'}).join('');
  var cur=-1;
- function go(i,fly){var s=steps[i],prev=cur;cur=i;if(s[8]!==cont)fill(s[8]);
+ function go(i,fly){var s=steps[i];cur=i;
   [].forEach.call(document.querySelectorAll('.mstep'),function(b){b.classList.toggle('on',+b.dataset.i===i);if(+b.dataset.i===i&&fly)b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
-  G.route.eachLayer(function(m){var el=m.getElement&&m.getElement();if(el&&el.classList.contains('spin'))el.classList.toggle('on',m.getLatLng().equals(LF.latLng(ll(s[2],s[3]))))});
-  if(fly&&prev>=0&&steps[prev][8]===s[8])map.flyTo(ll(s[2],s[3]),s[4],{duration:.8});else map.setView(ll(s[2],s[3]),s[4]);
-  var hi=parseInt(s[1].split('–')[1]||s[1]),lo=parseInt(s[1]);
-  var dg=FA.dungeons.filter(function(d){return d[1]<=hi+2&&d[2]>=lo}).map(function(d){return d[0]+' ('+d[1]+'–'+d[2]+')'});
-  $('mpanel').innerHTML='<div class="mpanel2"><img class="z" src="'+IC(s[5])+'" alt=""><div><b class="t">Tappa '+(i+1)+' di '+steps.length+' · livelli '+s[1]+'</b><div style="font:800 1.2rem Cinzel,serif;color:var(--ice)">'+s[0]+'</div><p style="margin:.35em 0">'+s[6]+'</p>'+
-   (s[7]?'<p class="note">✈ Flight path da prendere: <b>'+s[7]+'</b></p>':'')+(dg.length?'<p class="note">⚔ Dungeon nel range: '+dg.join(', ')+'</p>':'')+
+  (MG.stepM||[]).forEach(function(m,j){var el=m.getElement();if(el)el.classList.toggle('on',j===i)});
+  if(fly)MAPI.fly(s[2],s[3],s[4]);else map.setView(ll(s[2],s[3]),s[4],{animate:false});
+  var r=stepRange(i),dg=S.o.dg?FA.dungeons.filter(function(d){return d[1]<=r[1]+2&&d[2]>=r[0]}):[];
+  $('mpanel').innerHTML='<div class="mpanel2"><img class="z" src="'+IC(s[5])+'" alt=""><div><b class="t">Tappa '+(i+1)+' di '+steps.length+' · livelli '+s[1]+' · '+CN[s[8]]+'</b><div style="font:800 1.2rem Cinzel,serif;color:var(--ice)">'+s[0]+'</div><p style="margin:.35em 0">'+s[6]+'</p>'+
+   (s[7]?'<p class="note">✈ Flight path da prendere: <b>'+s[7]+'</b></p>':'')+'<div>'+hubBtns(s).replace(new RegExp('📍 '+s[0].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')),'📍 Centra')+npcLinks(s[6])+(dg.length?dg.map(function(d){return dgBtn(d[0])}).join(''):'')+'</div>'+
    '<div class="btns" style="margin-bottom:0">'+(i?'<button class="btn" data-go="'+(i-1)+'">‹ Tappa '+i+'</button>':'')+(i<steps.length-1?'<button class="btn pr" data-go="'+(i+1)+'">Tappa '+(i+2)+' ›</button>':'')+'</div></div></div>'}
  $('msteps').onclick=function(e){var b=e.target.closest('.mstep');if(b)go(+b.dataset.i,true)};
  $('mpanel').onclick=function(e){var b=e.target.closest('[data-go]');if(b)go(+b.dataset.go,true)};
- var stepFor=function(){var i=0;steps.forEach(function(s,j){if(S.L>=parseInt(s[1]))i=j});return i};
- mapSync=function(){var i=stepFor();if(i!==cur)go(i,false)};
- go(stepFor(),false);zcls();
- var wrap=$('lwrap'),fs=$('lfs');
- fs.onclick=function(){var f=wrap.classList.toggle('full');fs.textContent=f?'✕ Chiudi':'⛶ Schermo intero';document.body.style.overflow=f?'hidden':'';setTimeout(function(){map.invalidateSize()},50)};
+ MAPI.sync=function(){var i=stepAt(S.L);if(i!==cur)go(i,false)};
+ go(stepAt(S.L),false);
 }
 
 /* ---- nav attiva ---- */
 (function(){var links=[].slice.call(document.querySelectorAll('nav a'));var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){var on=a.getAttribute('href')==='#'+e.target.id;a.classList.toggle('on',on);if(on){var n=a.parentNode;n.scrollLeft=a.offsetLeft-n.clientWidth/2+a.offsetWidth/2}})}})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('section').forEach(function(s){io.observe(s)})})();
 
-function renderAll(){bind();drawPick();renderClass();mapSync=null;drawMap();renderLevel()}
-renderAll();
+function renderAll(){bind();drawPick();renderClass();renderPath();drawMap();renderLevel()}
+initMap();renderAll();

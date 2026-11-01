@@ -8,6 +8,15 @@ const warn = [], W = m => warn.push(m);
 const common = J(path.join(DATA, 'common.json')), WM = J(path.join(DATA, 'worldmap.json')).continents;
 const COLORS = { warrior: '#C69B6D', paladin: '#F48CBA', hunter: '#AAD372', rogue: '#FFF468', priest: '#FFFFFF', shaman: '#0070DD', mage: '#3FC7EB', warlock: '#8788EE', druid: '#FF7C0A' };
 const MAXL = common.maxLevel;
+// Tutte le coordinate diventano globali (tela del mondo di Wowhead): i 3 continenti stanno sulla stessa mappa.
+for (const M of Object.values(WM)) {
+  const g = (a, i) => { a[i] += M.ox; a[i + 1] += M.oy; };
+  M.zones.forEach(z => g(z, 2)); M.places.forEach(p => g(p, 3)); M.fp.forEach(p => g(p, 2)); M.dg.forEach(p => g(p, 2));
+  Object.values(M.trainers).forEach(a => a.forEach(p => g(p, 2))); Object.values(M.prof).forEach(a => a.forEach(p => g(p, 2))); M.inn.forEach(p => g(p, 2)); M.boat.forEach(p => g(p, 3));
+  M.quests.forEach(p => g(p, 2)); M.pets.forEach(p => g(p, 3));
+  M.flights.forEach(r => r[1].forEach(p => g(p, 0))); M.ships.forEach(r => r[1].forEach(p => g(p, 0)));
+  Object.values(M.nodes).forEach(a => { for (let i = 0; i < a.length; i += 2) g(a, i); });
+}
 
 /* ---- classi + talent dal client ---- */
 const talents = {}, classes = {};
@@ -78,9 +87,9 @@ for (const [fk, F] of dir('factions')) {
     (R.flights || []).forEach(fl => { let hit = null; for (const M of Object.values(WM)) { hit = M.fp.find(x => (x[1] === side || !x[1]) && (norm(x[0]) === norm(fl.master) || (norm(x[4]).includes(norm(fl.name)) || norm(fl.name).includes(norm(x[4])) && x[4]))); if (hit) break; }
       if (hit) fpNames.push(hit[0]); else W(`${key}: flight path "${fl.name}" non trovato`); });
     const zoneNames = new Set(); Object.values(WM).forEach(M => M.zones.forEach(z => { if (R.segments.some(s => (s.zone + ' ' + s.hub).includes(z[0])) || R.steps.some(s => (s.zone || '').includes(z[0]))) zoneNames.add(z[0]); }));
-    const s0 = steps[0], c0 = Math.floor(s0[2] / 1024), r0 = Math.floor(s0[3] / 1024), hero = [];
+    const s0 = steps[0], c0 = Math.floor((s0[2] - WM[s0[8]].ox) / 1024), r0 = Math.floor((s0[3] - WM[s0[8]].oy) / 1024), hero = [];
     for (let rr = r0 - 1; rr <= r0; rr++) for (let cc = c0 - 1; cc <= c0 + 2; cc++) hero.push(`https://wow.zamimg.com/images/wow/classicplus/world-map/v3/${s0[8]}/5/${rr}/${cc}.webp`);
-    routes[key] = { name: R.name, icon: s0[5], segments: R.segments.map(s => [s.from, s.to, s.zone, s.hub, s.note]), steps, quests, fpNames, zones: [...zoneNames], hero,
+    routes[key] = { name: R.name, icon: s0[5], trunk: steps[steps.length - 1][8], junction: 0, segments: R.segments.map(s => [s.from, s.to, s.zone, s.hub, s.note]), steps, quests, fpNames, zones: [...zoneNames], hero,
       milestones: R.milestones || {}, bags: R.bags || [], flights: R.flights || [], transport: R.transport || [] };
     const last = R.segments[R.segments.length - 1]; if (!last || last.to < MAXL) W(`${key}: la rotta non arriva al ${MAXL}`);
   }
@@ -92,15 +101,37 @@ for (const [rk, r] of Object.entries(races)) {
   r.classes.forEach(c => { if (!classes[c]) W(`classe ${c} (${rk}) senza dati: comparirà "in arrivo"`); });
 }
 
+/* ---- cambi di continente (data/transfers.json) e guida professioni/alt (data/profs.json) ---- */
+const opt = f => fs.existsSync(path.join(DATA, f)) ? J(path.join(DATA, f)) : null;
+const srcRow = s => Array.isArray(s) ? s : [s.name, s.url, [s.date, s.signal].filter(Boolean).join(' · '), s.used];
+const transfers = {}, TF = opt('transfers.json');
+if (TF) {
+  Object.entries(TF.junctions || {}).forEach(([k, v]) => { if (routes[k]) routes[k].junction = v; });
+  for (const [k, t] of Object.entries(TF.transfers || {})) {
+    const steps = (t.steps || []).map(s => { const p = findPlace(s.town) || findPlace(s.zone); if (!p) { W(`cambio ${k}: città "${s.town}" non trovata`); return null; }
+      if (p.kind !== 'zone') usedPlaces.add(p.c + '|' + p.n); return [s.title, s.levels, p.x, p.y, s.zoom || 4.75, s.zoneIcon, s.text, s.fp || '', p.c]; }).filter(Boolean);
+    if (!routes[t.joinRoute]) W(`cambio ${k}: rotta "${t.joinRoute}" inesistente`);
+    transfers[k] = { title: t.title, when: t.when, joinRoute: t.joinRoute, joinLevel: t.joinLevel, steps, unlocks: t.unlocks || [], quests: t.quests || [], pros: t.pros || '', cons: t.cons || '' };
+  }
+  common.sources = common.sources.concat((TF.sources || []).map(srcRow));
+}
+const profs = opt('profs.json');
+if (profs) profs.sources = (profs.sources || []).map(srcRow);
+
 /* ---- mappa ridotta a ciò che serve ---- */
-const map = {};
+const map = { conts: {}, zones: [], places: [], fp: [], dg: [], trainers: {}, prof: {}, inn: [], boat: [], flights: [], ships: [], nodes: {}, pets: [] };
 for (const [c, M] of Object.entries(WM)) {
-  map[c] = { w: M.w, h: M.h, zones: M.zones, places: M.places.filter(p => p[1] === 'capital' || p[1] === 'town' || usedPlaces.has(c + '|' + p[0].toLowerCase())).map(p => [p[0], p[3], p[4]]),
-    fp: M.fp, dg: M.dg, trainers: M.trainers, inn: M.inn, boat: M.boat, flights: M.flights, ships: M.ships, nodes: M.nodes, pets: M.pets };
+  map.conts[c] = { ox: M.ox, oy: M.oy, w: M.w, h: M.h, tiles: M.tiles };
+  map.zones.push(...M.zones);
+  map.places.push(...M.places.filter(p => p[1] === 'capital' || p[1] === 'town' || usedPlaces.has(c + '|' + p[0].toLowerCase())).map(p => [p[0], p[3], p[4], p[1] === 'capital' ? 1 : 0]));
+  ['fp', 'dg', 'inn', 'boat', 'flights', 'ships', 'pets'].forEach(k => map[k].push(...M[k]));
+  Object.entries(M.trainers).forEach(([k, a]) => (map.trainers[k] = map.trainers[k] || []).push(...a));
+  Object.entries(M.prof).forEach(([k, a]) => (map.prof[k] = map.prof[k] || []).push(...a));
+  Object.entries(M.nodes).forEach(([k, a]) => (map.nodes[k] = map.nodes[k] || []).push(...a));
 }
 
 /* ---- scrittura ---- */
-const DATAJS = JSON.stringify({ common, classes, talents, races, routes, factions, map });
+const DATAJS = JSON.stringify({ common, classes, talents, races, routes, factions, transfers, profs, map });
 let html = fs.readFileSync(path.join(SRC, 'template.html'), 'utf8');
 html = html.replace('/*STYLE*/', () => fs.readFileSync(path.join(SRC, 'style.css'), 'utf8'))
   .replace('/*DATA*/', () => DATAJS.replace(/<\/script/gi, '<\\/script'))
