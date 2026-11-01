@@ -1175,5 +1175,246 @@
   "Cat Form: la zona dello Stormrage Barrow Den non è verificata.",
   "Cure Poison: la ricompensa è dalla fonte Classic, non confermata in Forever.",
   "Moonglade (lvl 10) per Skyborne: nessuna quest trovata. Non inserita per Skyborne."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Feral",
+   "spec": "Feral",
+   "icon": "ability_druid_catform",
+   "when": "Vuoi il leveling più rapido e vuoi poter tankare in Bear Form: è la scelta di Method e Tavern.",
+   "pros": [
+    "Method: Feral è \"the fastest and most popular choice for leveling\".",
+    "Tavern: Cat è \"the smoothest route\".",
+    "Nessun healing talent per le dungeon (Method)."
+   ],
+   "cons": [
+    "Dipende dall'equip: Intellect e Spirit (Method).",
+    "Method, Tavern e wowforever.gg descrivono l'albero vecchio (Berserk, Primal Bite a 25): l'ordine A è dal client 70707.",
+    "Aoe non valutata: le fonti parlano di Berserk, non più nel client."
+   ],
+   "ratings": {
+    "speed": [
+     5,
+     "Method: Feral è \"the fastest and most popular choice for leveling\" (30 ott) 🟡 (albero pre-hotfix).",
+     "Method – Druid (30 ott)"
+    ],
+    "ease": [
+     4,
+     "Tavern: Feral cats \"the smoothest route\"; Method: cicli Bear/Cat con energia e rage 🟡.",
+     "Warcraft Tavern – Druid; Method – Druid"
+    ],
+    "versatility": [
+     4,
+     "Method: nessun talent healing per le dungeon; Bear Form per tankare 🟡.",
+     "Method – Druid (30 ott)"
+    ],
+    "survival": [
+     3,
+     "Method: Feline Swiftness dà dodge extra (A la prende al 18–19) 🟡.",
+     "Method – Druid (30 ott); wowforever.be – build Druid"
+    ],
+    "gear": [
+     2,
+     "Method: Feral \"leans on gear with Intellect and Spirit\" 🟡.",
+     "Method – Druid (30 ott)"
+    ]
+   },
+   "sources": [
+    {
+     "name": "wowforever.be – Druid leveling build (client 70707)",
+     "url": "https://wowforever.be/leveling/druid/",
+     "date": "letto 1 nov",
+     "signal": "dati client, albero post-hotfix; 10–60",
+     "used": "ordine 10–60"
+    },
+    {
+     "name": "Method – Druid Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-druid-leveling-guide-and-talents",
+     "date": "Last Updated 30 ott 2026",
+     "signal": "Method (reputazione alta); albero pre-hotfix",
+     "used": "Feral più veloce; gear Int/Spirit; nessun healing (letta 2 nov)"
+    },
+    {
+     "name": "Warcraft Tavern – Druid Leveling Guide (Luxrah)",
+     "url": "https://www.warcrafttavern.com/forever/guides/druid-leveling/",
+     "date": "nessuna data; beta cap 30",
+     "signal": "sito di riferimento; albero pre-hotfix",
+     "used": "Feral \"smoothest route\" (letta 2 nov)"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Balance (Eclipse)",
+   "spec": "Balance",
+   "icon": "ability_druid_eclipse",
+   "when": "Ti piace giocare caster con root e kiting dal range; non per il leveling più rapido.",
+   "pros": [
+    "Safer: la build Eclipse è più sicura del multi-DoT (Tavern).",
+    "Root dal range e kiting: poco danno ricevuto (Tavern).",
+    "Ordine 10–60 validato sul client (checkpoint wowforever.gg)."
+   ],
+   "cons": [
+    "Lenta: \"a lot weaker for leveling than Feral\" (Tavern); \"isn't the most efficient leveling spec\" (Method).",
+    "Dipende da Intellect e Spell Damage (Tavern).",
+    "A 60 è 31 Balance + 20 Restoration (wowforever.gg): non è una build pura."
+   ],
+   "ratings": {
+    "speed": [
+     2,
+     "Tavern: Balance \"a lot weaker for leveling than Feral\"; Method: \"isn't the most efficient leveling spec\" 🟡.",
+     "Warcraft Tavern – Druid; Method – Druid (30 ott)"
+    ],
+    "ease": [
+     3,
+     "Method: DoT da tenere su e rotazione con Eclipse; Tavern: \"should get easier as you gain tools\" 🟡.",
+     "Method – Druid (30 ott); Warcraft Tavern – Druid"
+    ],
+    "versatility": [
+     3,
+     "Solo: root e kiting dal range (Tavern); dungeon non valutate 🟡.",
+     "Warcraft Tavern – Druid"
+    ],
+    "survival": [
+     4,
+     "Tavern: la build Eclipse è \"safer\", root dal range senza danno 🟡.",
+     "Warcraft Tavern – Druid"
+    ],
+    "aoe": [
+     2,
+     "Tavern: i gruppi si gestiscono con root e DoT, con Overgrowth 2, che in B non c'è: B è single target 🟡.",
+     "Warcraft Tavern – Druid"
+    ],
+    "gear": [
+     2,
+     "Tavern: priorità Intellect e Spell Damage, poi Stamina e Spirit 🟡.",
+     "Warcraft Tavern – Druid"
+    ]
+   },
+   "build": [
+    "Improved Wrath",
+    "Improved Wrath",
+    "Improved Wrath",
+    "Improved Wrath",
+    "Improved Wrath",
+    "Genesis",
+    "Moonglow",
+    "Moonglow",
+    "Moonglow",
+    "Nature's Reach",
+    "Nature's Reach",
+    "Improved Moonfire",
+    "Improved Moonfire",
+    "Nature's Majesty",
+    "Nature's Majesty",
+    "Insect Swarm",
+    "Vengeance",
+    "Vengeance",
+    "Vengeance",
+    "Vengeance",
+    "Nature's Grace",
+    "Genesis",
+    "Genesis",
+    "Genesis",
+    "Genesis",
+    "Vengeance",
+    "Eclipse",
+    "Eclipse",
+    "Eclipse",
+    "Moonfury",
+    "Moonkin Form",
+    "Nature's Focus",
+    "Nature's Focus",
+    "Nature's Focus",
+    "Nature's Focus",
+    "Nature's Focus",
+    "Naturalist",
+    "Naturalist",
+    "Naturalist",
+    "Naturalist",
+    "Naturalist",
+    "Reflection",
+    "Reflection",
+    "Reflection",
+    "Gift of Nature",
+    "Gift of Nature",
+    "Tranquil Spirit",
+    "Tranquil Spirit",
+    "Tranquil Spirit",
+    "Tranquil Spirit",
+    "Tranquil Spirit"
+   ],
+   "rotation": [
+    {
+     "title": "Single target · Eclipse",
+     "seq": [
+      [
+       "spell_nature_abolishmagic",
+       "Wrath"
+      ],
+      [
+       "spell_arcane_starfire",
+       "Starfire"
+      ],
+      [
+       "spell_nature_starfall",
+       "Moonfire"
+      ],
+      [
+       "spell_nature_insectswarm",
+       "Insect Swarm"
+      ]
+     ],
+     "text": "Build Eclipse (Tavern): Starfire e Wrath single target. Moonfire e Insect Swarm tengono il DoT; Insect Swarm dal 25."
+    },
+    {
+     "title": "Mob in arrivo · Root e kiting",
+     "seq": [
+      [
+       "spell_nature_stranglevines",
+       "Entangling Roots"
+      ],
+      [
+       "spell_nature_starfall",
+       "Moonfire"
+      ]
+     ],
+     "text": "Root dal range e kiting: Tavern: il kiting è un punto forte del Druid; rootare dal range fa perdere al mob tempo senza farti danno."
+    }
+   ],
+   "sources": [
+    {
+     "name": "wowforever.gg – Druid Balance Leveling Build",
+     "url": "https://wowforever.gg/en/builds/druid-balance-leveling/",
+     "date": "nessuna data visibile",
+     "signal": "sito fan non ufficiale; calcolatore con checkpoint 10–60",
+     "used": "ordine 10–60 (checkpoint); convalidato sull'albero client"
+    },
+    {
+     "name": "Method – Druid Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-druid-leveling-guide-and-talents",
+     "date": "Last Updated 30 ott 2026",
+     "signal": "Method (reputazione alta)",
+     "used": "Balance \"not the most efficient\" (letta 2 nov)"
+    },
+    {
+     "name": "Warcraft Tavern – Druid Leveling Guide (Luxrah)",
+     "url": "https://www.warcrafttavern.com/forever/guides/druid-leveling/",
+     "date": "nessuna data; beta cap 30",
+     "signal": "sito di riferimento",
+     "used": "Balance \"weaker\", Eclipse \"safer\", multi-DoT, gear (letta 2 nov)"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "🟡 Mobalytics (Ruse 47 ♥, Stoyven) e Icy Veins sono bloccati dal controllo Cloudflare: non letti oggi.",
+  "🟡 Le guide Feral di Method, Tavern e wowforever.gg (albero pre-hotfix) parlano di Berserk e Primal Bite a 25: per questo aoe di A è null.",
+  "🟡 wowforever.gg Feral (druid-feral-leveling) non è coerente con l'albero client: Shifting Power richiede 30 punti Feral e a 30 ne ha 18. Scartato, non è usato.",
+  "🟡 Balance (B): ordine dai checkpoint wowforever.gg; l'ordine dentro i 10 livelli l'ho ricostruito io con needs e req del client. Tutti i 51 punti passano il controllo node.",
+  "🟡 Leprestore (38/0/13) e Zockify (36/0/15) hanno build Balance diverse e non le ho usate: il confronto sarebbe tra fonti in conflitto.",
+  "🟡 Solo due build per Druid: nessuna fonte affidabile per una terza serie (Restoration non è leveling).",
+  "🟡 Icona di B: \"ability_druid_eclipse\" è l'icona del talent Eclipse (client), non l'icona spec Wowhead, che non ho verificato."
  ]
 }

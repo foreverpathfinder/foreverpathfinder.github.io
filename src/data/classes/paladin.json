@@ -4,35 +4,35 @@
  "resource": "Mana",
  "spec": "Retribution",
  "specIcon": "spell_holy_auraoflight",
- "summary": "Retribution con Two-Handed lenta: è il consenso per livellare da soli. Mobalytics (yumytv, 102 ♥, agg. 1 nov, split 12/8/31), Zockify (agg. 30 ott, 12/8/31), wowforeverbuilds (agg. 24 ott), wowforeverguides (agg. 21 ott), Leprestore (agg. 21 ott), Conquest Capped (28 ott), Maxroll (30 ott) e Icy Veins (snippet). L'ordine 10–35 segue il consenso (Benediction → Conviction → Seal of Command al 20 → Sanctified Judgement → Pursuit of Justice → Sacred Arbiter → Vindication → Vengeance → Two-Handed Weapon Specialization) riscritto per i rank e i prerequisiti del client 70707 (hotfix del 31 ott: Conviction ora 3 rank, Holy Conduit nel Holy tree, Divine Intellect nel Protection tree). Lo split finale 12 Holy / 8 Protection / 31 Retribution coincide con Mobalytics e Zockify. wowforever.be (client) apre invece in Holy (Divine Strength → Improved Seals) senza Seal of Command fino al 35: riportata come alternativa. 36–60 sono una mia proiezione 🟡.",
+ "summary": "Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordine dei talent è quello della guida Paladin più votata, <b>Mobalytics yumytv (102 ♥, agg. 1 nov)</b>: Deflection 10–14, Conviction, Improved Judgement, Pursuit of Justice e Seal of Command al 22, poi Sanctified Judgement e Two-Handed Weapon Specialization; split finale 12 Holy / 8 Protection / 31 Retribution, come Zockify. Concordano sulla spec anche Maxroll, Conquest Capped e Icy Veins. wowforever.be (dati client) apre invece in Holy: la trovi come build B.",
  "build": [
-  "Benediction",
-  "Benediction",
-  "Benediction",
-  "Benediction",
-  "Benediction",
+  "Deflection",
+  "Deflection",
+  "Deflection",
+  "Deflection",
+  "Deflection",
+  "Conviction",
+  "Conviction",
+  "Conviction",
   "Improved Judgement",
   "Improved Judgement",
-  "Conviction",
-  "Conviction",
-  "Conviction",
+  "Pursuit of Justice",
+  "Pursuit of Justice",
   "Seal of Command",
   "Sanctified Judgement",
   "Sanctified Judgement",
-  "Sanctified Judgement",
-  "Pursuit of Justice",
-  "Pursuit of Justice",
+  "Two-Handed Weapon Specialization",
+  "Two-Handed Weapon Specialization",
+  "Two-Handed Weapon Specialization",
   "Sacred Arbiter",
-  "Vindication",
-  "Vindication",
-  "Vindication",
+  "Sanctified Judgement",
   "Vengeance",
   "Vengeance",
   "Vengeance",
-  "Two-Handed Weapon Specialization",
-  "Two-Handed Weapon Specialization",
-  "Two-Handed Weapon Specialization",
   "Repentance",
+  "Benediction",
+  "Champion of the Light",
+  "Champion of the Light",
   "Champion of the Light",
   "Champion of the Light",
   "Champion of the Light",
@@ -42,13 +42,13 @@
   "Divine Strength",
   "Divine Strength",
   "Divine Strength",
+  "Reverence",
+  "Reverence",
   "Improved Seals",
   "Improved Seals",
   "Improved Seals",
   "Improved Seals",
   "Improved Seals",
-  "Holy Conduit",
-  "Holy Conduit",
   "Divine Intellect",
   "Divine Intellect",
   "Divine Intellect",
@@ -58,7 +58,7 @@
   "Precision",
   "Precision"
  ],
- "buildSource": "10–35: ordine di consenso (wowforeverbuilds Ret 15 set e 19 set, agg. 24 ott; wowforeverguides/Harenil agg. 21 ott; Leprestore agg. 21 ott) riscritto per rispettare max rank, prerequisiti e punti-per-riga dell'albero del client 70707 (validato con wf/paladin.json). Split 12/8/31 = Mobalytics yumytv (102 ♥) = Zockify. 36–60: PROIEZIONE 🟡 (Repentance 36, Champion of the Light 1-3, Unsealed Wrath al 40 come quasi tutte le fonti; poi Holy per Strength/Seals/Conduit e Protection per Intellect/Precision). Nessuna fonte ha un ordine 31–60 aggiornato dopo il 31 ott; wowforever.be arriva solo al 35.",
+ "buildSource": "Ordine per livello della guida Paladin più votata: Mobalytics yumytv (102 ♥, agg. 1 nov), letto dal browser il 2 nov.",
  "why": {
   "Benediction": "−10% mana su tutte le spell e abilità istantanee (Seal, Judgement, Holy Strike, Consecration): il mana è il vero limite del Paladin, non il danno.",
   "Improved Judgement": "Judgement ricarica 2 s prima: più Judgement per ogni mob.",
@@ -77,9 +77,17 @@
   "Improved Seals": "+15% al danno di Seal e Judgement (5 rank dopo l'hotfix).",
   "Holy Conduit": "★ −40% mana a Consecration, Holy Wrath, Exorcism e Hammer of Wrath: Consecration sostenibile.",
   "Divine Intellect": "+10% Intellect (ora nel Protection tree): più mana e più danno con Champion of the Light.",
-  "Precision": "+3% Hit con tutti gli attacchi: elimina i Miss sui mob del tuo livello."
+  "Precision": "+3% Hit con tutti gli attacchi: elimina i Miss sui mob del tuo livello.",
+  "Deflection": "Più Parry nei primi livelli: prendi meno danni e mangi meno tra un pull e l’altro."
  },
  "compare": [
+  {
+   "source": "<b>Questa guida</b> = Mobalytics – yumytv",
+   "signal": "102 ♥ · agg. 1 nov",
+   "l10_19": "Deflection 5 · Conviction 3 · Improved Judgement 2",
+   "l20": "Pursuit of Justice 2 · Seal of Command (22)",
+   "l21_30": "Sanctified Judgement 3 · Two-Handed Weapon Spec 3 · Sacred Arbiter · Vengeance"
+  },
   {
    "source": "Mobalytics – yumytv (Paladin Leveling Guide 1-60)",
    "signal": "102 ♥ (la guida Paladin più salvata) / agg. 1 nov / 12/8/31",
@@ -439,19 +447,19 @@
  ],
  "talentSpells": [
   [
-   20,
+   22,
    "Seal of Command",
    "ability_warrior_innerrage",
    "Seal talent: 65 Mana, 70% di danno-arma extra come Holy. Il suo Judgement fa 69–73 Holy (138–146 se il target è stunnato)."
   ],
   [
-   26,
+   28,
    "Sacred Arbiter",
    "inv_sword_08",
    "★ Passivo: Holy Strike +20% di danno e rinfresca tutti i Judgement sul target."
   ],
   [
-   36,
+   33,
    "Repentance",
    "spell_holy_prayerofhealing",
    "Incapacita un Humanoid per 6 s, 60 Mana, 1 min di cooldown."
@@ -517,7 +525,7 @@
    "text": "Con Benediction il mana dura di più. Ordine: Seal → Judgement → Holy Strike a cooldown, auto-attack nel mezzo. Retribution Aura dal 16. Lay on Hands (10) e Divine Protection (6) sono le emergenze; Redemption (12) per i compagni. Da soli lascia spento Righteous Fury: è solo threat."
   },
   {
-   "title": "20–30 · Seal of Command e Consecration",
+   "title": "22–30 · Seal of Command e Consecration",
    "seq": [
     [
      "spell_holy_holysmite",
@@ -1022,5 +1030,154 @@
   "🟡 Catena arma Undead: 'Wolfsbane' non nell'indice; ordine 25/26 e NPC Danitha Morr per il 20 non verificati.",
   "🟡 Il JSON precedente metteva A Second Home al 10: l'indice dice 11.",
   "🟡 Il JSON precedente metteva Big Game Hunter 30 per l'Hunter: non qui, vedi sezione hunter."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Retribution (due mani)",
+   "spec": "Retribution",
+   "icon": "spell_holy_auraoflight",
+   "when": "Livellare da soli con arma a due mani lenta: consenso di Mobalytics, Zockify e Maxroll.",
+   "pros": [
+    "Consenso per il solo leveling (Mobalytics yumytv 102 ♥, Zockify, Maxroll)",
+    "Split 12/8/31 a 60 coincide con Mobalytics e Zockify"
+   ],
+   "cons": [
+    "Ordine 36–60 è una proiezione: nessuna fonte valida dopo l'hotfix del 31 ott",
+    "Fonti 10–35 precedenti all'hotfix (Conviction ridotta a 3 rank)",
+    "Poca mobilità e nessun gap closer affidabile (yumytv)"
+   ],
+   "ratings": {
+    "speed": [
+     3,
+     "“Slower than average kill speed”: uccide più lento della media, compensato dal sustain.",
+     "Mobalytics – yumytv (102 ♥, 1 nov)"
+    ],
+    "ease": [
+     4,
+     "“Simple leveling gameplay”: rotation semplice con Seal e Judgement.",
+     "Mobalytics – yumytv (102 ♥, 1 nov)"
+    ],
+    "versatility": [
+     4,
+     "Può fare tank, healer o DPS e porta buff di gruppo preziosi.",
+     "Mobalytics – yumytv (102 ♥, 1 nov)"
+    ],
+    "survival": [
+     4,
+     "Molto sustain per ridurre le pause; abilità d’emergenza potenti.",
+     "Mobalytics – yumytv (102 ♥, 1 nov)"
+    ]
+   },
+   "sources": [
+    {
+     "name": "Mobalytics – Paladin Leveling Guide 1-60",
+     "url": "https://mobalytics.gg/wow-forever/classes/paladin-leveling-guide",
+     "date": "1 nov 2026",
+     "signal": "102 ♥; split 12/8/31",
+     "used": "speed, pros"
+    },
+    {
+     "name": "Zockify – Paladin Leveling",
+     "url": "https://www.zockify.com/forever/paladin/leveling/",
+     "date": "30 ott 2026",
+     "signal": "split 12/8/31",
+     "used": "pros"
+    },
+    {
+     "name": "Maxroll – Paladin Leveling",
+     "url": "https://maxroll.gg/wow-forever/class-guides/paladin-leveling-guide",
+     "date": "30 ott 2026",
+     "signal": "consenso Retribution",
+     "used": "when"
+    },
+    {
+     "name": "Method – Paladin Leveling",
+     "url": "https://www.method.gg/wow-forever/wow-forever-paladin-leveling-guide-and-talents",
+     "date": "10 ott 2026",
+     "signal": "build 10–30 (o 35 con Talented), senza livelli per talent",
+     "used": "contesto"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Holy prima, poi Retribution",
+   "spec": "Holy",
+   "icon": "spell_holy_holybolt",
+   "when": "Scegli B invece di A se vuoi partire con Holy (Divine Strength, Improved Seals) e una rotazione semplicissima. Non ci sono dati che dicano che B livelli piu veloce di A: la differenza e la facilita di gioco.",
+   "pros": [
+    "Rotazione 'extremely straightforward' (Icy Veins, Holy Paladin Leveling)",
+    "Ordine per livello dal client 70707 fino al 35, nessun dato stimato"
+   ],
+   "cons": [
+    "Nessun Seal of Command fino al 35 (client), contro A che lo prende al 20",
+    "Dal 36 nessun ordine disponibile: wowforever.be si ferma al 35"
+   ],
+   "ratings": {
+    "speed": [
+     3,
+     "🟡 Icy Veins la definisce 'fairly solid leveling spec': dice che e valida, non misura la velocita",
+     "Icy Veins – Holy Paladin Leveling (snippet)"
+    ],
+    "ease": [
+     4,
+     "Icy Veins: rotazione 'extremely straightforward', uguale per healing o damage",
+     "Icy Veins – Holy Paladin Leveling (snippet)"
+    ]
+   },
+   "build": [
+    "Divine Strength",
+    "Divine Strength",
+    "Divine Strength",
+    "Divine Strength",
+    "Divine Strength",
+    "Improved Seals",
+    "Improved Seals",
+    "Improved Seals",
+    "Benediction",
+    "Benediction",
+    "Benediction",
+    "Benediction",
+    "Benediction",
+    "Improved Judgement",
+    "Improved Judgement",
+    "Conviction",
+    "Conviction",
+    "Conviction",
+    "Pursuit of Justice",
+    "Pursuit of Justice",
+    "Sanctified Judgement",
+    "Sanctified Judgement",
+    "Sanctified Judgement",
+    "Unyielding Faith",
+    "Unyielding Faith",
+    "Sacred Arbiter"
+   ],
+   "sources": [
+    {
+     "name": "wowforever.be – Build di livellamento Paladin",
+     "url": "https://wowforever.be/leveling/paladin/",
+     "date": "1 nov 2026 (client 70707)",
+     "signal": "ordine esatto fino al 35",
+     "used": "build B"
+    },
+    {
+     "name": "Method – Paladin Leveling",
+     "url": "https://www.method.gg/wow-forever/wow-forever-paladin-leveling-guide-and-talents",
+     "date": "10 ott 2026",
+     "signal": "Divine Strength, Improved Seals, Holy Conduit, Pursuit of Justice",
+     "used": "contesto"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "🟡 Mobalytics yumytv (102 ♥) non letto in pagina: l'ordine Ret 10–35 è quello di classes/paladin.json, scritto prima dell'hotfix del 31 ott.",
+  "🟡 Il client wowforever.be (B) non prende Seal of Command fino al 35, mentre Method e le guide Ret lo prendono prima. Le due fonti non sono riconciliabili.",
+  "Ordine oltre il 35 non disponibile per nessuna build B: wowforever.be si ferma a 35 e Method indica solo 10–30 (o 35 con Talented).",
+  "Protection/Shockadin non proposta come C: nessun ordine per livello leggibile (Warcraft Tavern mostra i talent solo come immagini).",
+  "Ratings di B lasciati null: nessuna fonte giudica velocità, facilità o sopravvivenza di questa build.",
+  "Il file mobalytics.md indicato nel brief non esiste nella cartella scratchpad."
  ]
 }

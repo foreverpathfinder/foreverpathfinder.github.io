@@ -1,6 +1,6 @@
-# WoW Forever – Leveling Companion 1–30 (v9)
+# WoW Forever – Leveling Companion 1–30 (v10)
 
-> Aggiornato: **1 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **2 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: 5 novembre, mezzanotte (ora italiana). Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -61,16 +61,17 @@ Frost puro, tutti i talent point nel talent tree Frost. È la build della guida 
 - 30: Fingers of Frost 1/2
 
 ### Paladin – Retribution
-Retribution con Two-Handed lenta: è il consenso per livellare da soli. Mobalytics (yumytv, 102 ♥, agg. 1 nov, split 12/8/31), Zockify (agg. 30 ott, 12/8/31), wowforeverbuilds (agg. 24 ott), wowforeverguides (agg. 21 ott), Leprestore (agg. 21 ott), Conquest Capped (28 ott), Maxroll (30 ott) e Icy Veins (snippet). L'ordine 10–35 segue il consenso (Benediction → Conviction → Seal of Command al 20 → Sanctified Judgement → Pursuit of Justice → Sacred Arbiter → Vindication → Vengeance → Two-Handed Weapon Specialization) riscritto per i rank e i prerequisiti del client 70707 (hotfix del 31 ott: Conviction ora 3 rank, Holy Conduit nel Holy tree, Divine Intellect nel Protection tree). Lo split finale 12 Holy / 8 Protection / 31 Retribution coincide con Mobalytics e Zockify. wowforever.be (client) apre invece in Holy (Divine Strength → Improved Seals) senza Seal of Command fino al 35: riportata come alternativa. 36–60 sono una mia proiezione 🟡.
+Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordine dei talent è quello della guida Paladin più votata, Mobalytics yumytv (102 ♥, agg. 1 nov): Deflection 10–14, Conviction, Improved Judgement, Pursuit of Justice e Seal of Command al 22, poi Sanctified Judgement e Two-Handed Weapon Specialization; split finale 12 Holy / 8 Protection / 31 Retribution, come Zockify. Concordano sulla spec anche Maxroll, Conquest Capped e Icy Veins. wowforever.be (dati client) apre invece in Holy: la trovi come build B.
 
-- 10–14: Benediction 5/5
-- 15–16: Improved Judgement 2/2
-- 17–19: Conviction 3/3
-- 20: Seal of Command 1/1
-- 21–23: Sanctified Judgement 3/3
-- 24–25: Pursuit of Justice 2/2
-- 26: Sacred Arbiter 1/1
-- 27–29: Vindication 3/3
+- 10–14: Deflection 5/5
+- 15–17: Conviction 3/3
+- 18–19: Improved Judgement 2/2
+- 20–21: Pursuit of Justice 2/2
+- 22: Seal of Command 1/1
+- 23–24: Sanctified Judgement 2/3
+- 25–27: Two-Handed Weapon Specialization 3/3
+- 28: Sacred Arbiter 1/1
+- 29: Sanctified Judgement 3/3
 - 30: Vengeance 1/3
 
 ### Priest – Shadow

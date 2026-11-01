@@ -16,13 +16,20 @@ function lv0(s){return parseInt(s)||1}
 function lv1(s){var p=String(s).split(/[–-]/);return parseInt(p[1]||p[0])||MAXL}
 
 /* ---- stato: razza, classe, opzioni, livello, checklist ---- */
+var FIRST=!store('wfc'),SHARED=null;
 var S=(function(){var s={};try{s=JSON.parse(store('wfc')||'{}')}catch(e){}var h=location.hash.match(/^#(\w+)-(\w+)$/);if(h){s.r=h[1];s.c=h[2]}
+ // link da un altro dispositivo: #s=<base64 di {r,c,L,o,d}>
+ var m=location.hash.match(/^#s=([\w\-]+)/);if(m){try{var j=JSON.parse(decodeURIComponent(escape(atob(m[1].replace(/-/g,'+').replace(/_/g,'/')))));s.r=j.r;s.c=j.c;s.L=j.L;s.o=j.o;SHARED=j.d||[];FIRST=false}catch(e){}}
  if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
- s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.done=s.done||{};return s})();
+ s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.b=s.o.b||{};s.done=s.done||{};return s})();
 function ok(r,c){return D.races[r]&&D.races[r].classes.indexOf(c)>-1&&!!D.classes[c]}
 function save(){store('wfc',JSON.stringify(S))}
 var RA,CL,TAL,RT,FA,PT,CK;
-function bind(){RA=D.races[S.r];CL=D.classes[S.c];TAL=D.talents[S.c];FA=D.factions[RA.faction];RT=compose();CK=S.r+'-'+S.c+(PT?'-x':'');S.done[CK]=S.done[CK]||{};save()}
+// build scelta (A/B/C): sovrascrive ordine dei talent, albero, spec e rotation della classe
+function buildView(base){var bs=base.builds||[],B=bs.filter(function(b){return b.id===S.o.b[S.c]})[0]||bs[0];if(!B)return base;
+ var o=Object.create(base);o.B=B;if(B.build&&B.build.length){o.build=B.build;o.treeIndex=B.treeIndex}if(B.spec)o.spec=B.spec;if(B.icon)o.specIcon=B.icon;if(B.rotation&&B.rotation.length)o.rotation=B.rotation;return o}
+function bind(){RA=D.races[S.r];CL=buildView(D.classes[S.c]);TAL=D.talents[S.c];FA=D.factions[RA.faction];RT=compose();CK=S.r+'-'+S.c+(PT?'-x':'');S.done[CK]=S.done[CK]||{};
+ if(SHARED){SHARED.forEach(function(id){S.done[CK][id]=1});SHARED=null;history.replaceState(null,'','#'+S.r+'-'+S.c)}save()}
 
 /* ---- percorso: rotta naturale, oppure zona iniziale + cambio di continente + rotta dell'altro continente ---- */
 function transferFor(R){var to=R.trunk==='kalimdor'?'eastern-kingdoms':'kalimdor',t=D.transfers&&D.transfers[RA.faction+':'+R.trunk+'>'+to];return t&&D.routes[t.joinRoute]?t:null}
@@ -61,8 +68,8 @@ function msBtns(m){var seen={},h=(m.n||[]).map(function(n){seen[n[0]]=1;return g
 function dgBtn(name){var n=name.replace(/[★✔🟡]/g,'').trim().toLowerCase(),d=D.map.dg.filter(function(x){return x[0].toLowerCase()===n||n.indexOf(x[0].toLowerCase())>-1||x[0].toLowerCase().indexOf(n)>-1})[0];return d?goBtn(name,d[2],d[3],5.5,'<b>⚔ '+d[0]+'</b><br>Livelli '+d[1]):''}
 document.addEventListener('click',function(e){var b=e.target.closest('.go');if(!b)return;e.preventDefault();
  if(b.dataset.lv){S.L=+b.dataset.lv;renderLevel();return}
- if(b.dataset.sec){$(b.dataset.sec).scrollIntoView({behavior:'smooth'});return}
- if(MAPI.fly){$('mappa').scrollIntoView({behavior:'smooth',block:'start'});MAPI.fly(+b.dataset.x,+b.dataset.y,+b.dataset.z,b.dataset.t)}});
+ if(b.dataset.sec){showTab('talent');$(b.dataset.sec).scrollIntoView({behavior:'smooth'});return}
+ if(!MAPI.fly)return;if(S.tab!=='livello')showTab('mappa');$('lwrap').scrollIntoView({behavior:'smooth',block:'center'});MAPI.fly(+b.dataset.x,+b.dataset.y,+b.dataset.z,b.dataset.t)});
 
 /* ---- attività per livello: usate da percorso e planner ---- */
 function stepRange(i){var a=lv0(RT.steps[i][1]),n=RT.steps[i+1];return [i?a:1,n?Math.max(a,lv0(n[1])-1):MAXL]}
@@ -91,15 +98,17 @@ function drawPick(){
  var R=D.routes[RA.start],T=transferFor(R),to=R.trunk==='kalimdor'?'eastern-kingdoms':'kalimdor',pick=D.profs&&D.profs.classPicks&&D.profs.classPicks[S.c]||'';
  var row=function(n,lab,btns,note){return '<div><div class="lab">'+n+' · '+lab+'</div><div class="opts">'+btns+'</div>'+(note?'<p class="note" style="margin:.3em 0 0">'+note+'</p>':'')+'</div>'};
  var b=function(k,v,on,label,dis){return '<button data-o="'+k+'" data-v="'+v+'"'+(on?' class="on"':'')+(dis?' disabled':'')+'>'+label+'</button>'};
- $('pkO').innerHTML=row(4,'Percorso',b('x',0,!S.o.x,'Resta in '+CN[R.trunk])+b('x',1,!!S.o.x,T?'Passa in '+CN[to]:'Passa in '+CN[to]+' (in arrivo)',!T),T?(S.o.x?T.title+' · '+T.when:'Puoi spostarti in '+CN[to]+' dopo la zona iniziale: il percorso aggiunge quest, Flight Path e viaggi per arrivarci.'):'')+
-  row(5,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ consigliate per il '+CL.name+': '+pick:'')+
-  row(6,'Dungeon',b('dg',1,S.o.dg,'Sì, con le quest')+b('dg',0,!S.o.dg,'No, solo quest all’aperto'))+
-  row(7,'Perk Legacy “Talented”',b('tal',0,!S.o.tal,'Non ce l’ho')+b('tal',1,!!S.o.tal,'Ce l’ho: talent 5 livelli prima'));
+ $('pkB').innerHTML=(D.classes[S.c].builds||[]).length>1?'<div class="lab">4 · Build</div><div class="bsel">'+bCards(true)+'</div>':'';
+ $('pkO').innerHTML=row(5,'Percorso',b('x',0,!S.o.x,'Resta in '+CN[R.trunk])+b('x',1,!!S.o.x,T?'Passa in '+CN[to]:'Passa in '+CN[to]+' (in arrivo)',!T),T?(S.o.x?T.title+' · '+T.when:'Puoi spostarti in '+CN[to]+' dopo la zona iniziale: il percorso aggiunge quest, Flight Path e viaggi per arrivarci.'):'')+
+  row(6,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ consigliate per il '+CL.name+': '+pick:'')+
+  row(7,'Dungeon',b('dg',1,S.o.dg,'Sì, con le quest')+b('dg',0,!S.o.dg,'No, solo quest all’aperto'))+
+  row(8,'Perk Legacy “Talented”',b('tal',0,!S.o.tal,'Non ce l’ho')+b('tal',1,!!S.o.tal,'Ce l’ho: talent 5 livelli prima'));
 }
-$('pg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled||b.closest('#pkO')&&!b.dataset.o&&!b.dataset.p)return;
+$('pg').addEventListener('click',function(e){if(e.target.closest('details.bwhy'))return;var b=e.target.closest('button');if(!b||b.disabled||b.closest('#pkO')&&!b.dataset.o&&!b.dataset.p)return;e.preventDefault();
  if(b.dataset.f&&b.dataset.f!==RA.faction){var r=Object.keys(D.races).filter(function(k){return D.races[k].faction===b.dataset.f});S.r=r.filter(function(k){return ok(k,S.c)})[0]||r[0]}
  if(b.dataset.r)S.r=b.dataset.r;if(b.dataset.c)S.c=b.dataset.c;
  if(b.dataset.o)S.o[b.dataset.o]=+b.dataset.v;
+ if(b.dataset.bid)S.o.b[S.c]=b.dataset.bid;
  if(b.dataset.p){var P=S.o.prof,i=P.indexOf(b.dataset.p);if(i>-1)P.splice(i,1);else{P.push(b.dataset.p);if(P.length>2)P.shift()}}
  if(!ok(S.r,S.c))S.c=D.races[S.r].classes.filter(function(c){return D.classes[c]})[0];
  history.replaceState(null,'','#'+S.r+'-'+S.c);renderAll()});
@@ -111,8 +120,8 @@ function renderPath(){var h='';
   if(s[7])rows+=taskRow(['✈ Prendi il Flight Path: <b>'+s[7]+'</b>',npcBtn(near(D.map.fp,s[2],s[3]),'Flight Master')],r[0],key);
   var fpn=s[7]?s[7].split(' (')[0]:'';
   for(var l=r[0];l<=r[1];l++)tasksFor(l,l===r[0]).forEach(function(t){if(fpn&&/Flight Path/i.test(t[0])&&txt(t[0]).indexOf(fpn)>-1)return;rows+=taskRow(t,l,key)}); // il Flight Path della tappa c'è già
-  var cur=S.L>=r[0]&&S.L<=r[1];
-  h+='<details class="chap'+(cur?' cur':'')+'" data-i="'+i+'"'+(cur?' open':'')+'><summary><img src="'+IC(s[5])+'" alt=""><span><b>'+(i+1)+'. '+s[0]+'</b><small>Livelli '+r[0]+(r[1]>r[0]?'–'+r[1]:'')+(PT&&PT.steps.indexOf(s)>-1?' · cambio continente':'')+'</small></span><span class="pct"></span></summary><div class="body"><p>'+s[6]+'</p><div class="btns" style="margin:6px 0">'+hubBtns(s)+'<button class="go" data-lv="'+r[0]+'">Sono qui</button></div>'+rows+'</div></details>'});
+  var cur=S.L>=r[0]&&S.L<=r[1],nxt=i===stepAt(S.L)+1;
+  h+='<details class="chap'+(cur?' cur':'')+(nxt?' nxt':'')+'" data-i="'+i+'"'+(cur?' open':'')+'><summary><img src="'+IC(s[5])+'" alt=""><span><b>'+(i+1)+'. '+s[0]+'</b><small>Livelli '+r[0]+(r[1]>r[0]?'–'+r[1]:'')+(PT&&PT.steps.indexOf(s)>-1?' · cambio continente':'')+'</small></span><span class="pct"></span></summary><div class="body"><p>'+s[6]+'</p><div class="btns" style="margin:6px 0">'+hubBtns(s)+'<button class="go" data-lv="'+r[0]+'">Sono qui</button></div>'+rows+'</div></details>'});
  $('chaps').innerHTML=h;progress()}
 function progress(){var all=0,ok=0;[].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var t=c.querySelectorAll('input[data-id]'),d=c.querySelectorAll('input[data-id]:checked');all+=t.length;ok+=d.length;
   c.querySelector('.pct').textContent=d.length+'/'+t.length;c.classList.toggle('done',t.length>0&&d.length===t.length)});
@@ -131,15 +140,15 @@ function renderLevel(){
  h+='</div>';
  var ns=CL.spells.filter(function(x){return x[0]===L});
  h+='<div class="box"><b class="t">Spell nuove dal Trainer</b>'+(ns.length?ns.map(function(x){return '<div class="it">'+img(x[2],'s')+'<div><b>'+x[1]+'</b><small>'+x[3]+'</small></div></div>'}).join('')+npcBtn(near(D.map.trainers[S.c],st[2],st[3]),CL.name+' Trainer più vicino'):'<p class="note">Nessuna spell nuova: '+(L%2?'aggiorna i Rank al prossimo livello pari.':'aggiorna i Rank dal Trainer.')+'</p>')+'</div>';
- var td='';for(var k=Math.max(1,L-1);k<=L;k++)tasksFor(k).filter(function(t){return !/^<img/.test(t[0])}).forEach(function(t){td+=taskRow(t,k,stepAt(k)+':')});
  var dg=FA.dungeons.filter(function(d){return L>=d[1]&&L<=d[2]});
- h+='<div class="box"><b class="t">Da non perdere</b>'+(td||'<p class="note">Quest nella zona e raccolta lungo la strada.</p>')+(dg.length&&S.o.dg?'<p class="note" style="margin-bottom:0">⚔ Dungeon nel range:</p>'+dg.map(function(d){return dgBtn(d[0])}).join(''):'')+'</div>';
+ if(dg.length&&S.o.dg)h+='<div class="box"><b class="t">Dungeon nel range</b>'+dg.map(function(d){return dgBtn(d[0])}).join('')+'</div>';
  $('plan').innerHTML=h;
  var tl='';for(var l=1;l<=MAXL;l++){var it=[],b=tAt(l);if(b)it.push(img(TAL.n[b][1],'s')+' '+TAL.n[b][0]);
   CL.spells.filter(function(x){return x[0]===l}).forEach(function(x){it.push(x[1])});it=it.concat(msFor(l).map(function(m){return m.t}));if(!it.length)continue;
   tl+='<div class="ev'+(l<L?' done':l===L?' cur':'')+'"><span class="lv">Liv. '+l+'</span><span>'+it.join(' · ')+'</span></div>'}
  $('tl').innerHTML=tl;
- [].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var r=stepRange(+c.dataset.i),cur=L>=r[0]&&L<=r[1];c.classList.toggle('cur',cur);if(cur)c.open=true});
+ [].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var i=+c.dataset.i,r=stepRange(i),cur=L>=r[0]&&L<=r[1];c.classList.toggle('cur',cur);c.classList.toggle('nxt',i===si+1);if(cur)c.open=true});
+ unsure();
  drawOrder();wfSet();if(MAPI.sync)MAPI.sync();
 }
 $('lvm').onclick=function(){S.L--;renderLevel()};
@@ -328,8 +337,41 @@ function drawMap(){
  go(stepAt(S.L),false);
 }
 
-/* ---- nav attiva ---- */
-(function(){var links=[].slice.call(document.querySelectorAll('nav a'));var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){var on=a.getAttribute('href')==='#'+e.target.id;a.classList.toggle('on',on);if(on){var n=a.parentNode;n.scrollLeft=a.offsetLeft-n.clientWidth/2+a.offsetWidth/2}})}})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('section').forEach(function(s){io.observe(s)})})();
 
-function renderAll(){bind();drawPick();renderClass();renderPath();drawMap();renderLevel()}
-initMap();renderAll();
+/* ---- build: schede con barre rosso → verde (voti 1–5 dalle fonti, col perché) ---- */
+var CRIT=[['speed','Velocità'],['ease','Facilità'],['versatility','Versatilità'],['survival','Sopravvivenza'],['aoe','AoE / pull multipli'],['gear','Indipendenza dall’equip']];
+function bars(B){var R=B.ratings||{};return '<div class="bars">'+CRIT.map(function(c){var v=R[c[0]]&&R[c[0]][0];return '<div class="bar'+(v?'':' na')+'"><span>'+c[1]+'</span><span class="tr"><i style="width:'+(v?v*20:0)+'%;background:hsl('+(v?(v-1)*30:0)+',72%,46%)"></i></span><b>'+(v||'–')+'</b></div>'}).join('')+'</div>'+
+ '<details class="bwhy"><summary>Perché questi voti</summary><ul>'+CRIT.filter(function(c){return R[c[0]]&&R[c[0]][0]}).map(function(c){var r=R[c[0]];return '<li><b>'+c[1]+' '+r[0]+'/5:</b> '+r[1]+(r[2]?' <span class="note">('+r[2]+')</span>':'')+'</li>'}).join('')+'</ul></details>'}
+function bCards(small){var bs=D.classes[S.c].builds||[],cur=CL.B&&CL.B.id;return bs.map(function(B){return '<button type="button" class="bcard'+(B.id===cur?' on':'')+'" data-bid="'+B.id+'"><span class="bh">'+img(B.icon||CL.specIcon)+'<span><b>'+B.name+'</b>'+(B.id===bs[0].id?' <span class="pill p-ok">più votata</span>':'')+'<br><span class="note">'+(B.when||'')+'</span></span></span>'+
+ (small?'':(B.pros&&B.pros.length?'<ul>'+li(B.pros.map(function(p){return '✔ '+p}))+li((B.cons||[]).map(function(p){return '✖ '+p}))+'</ul>':''))+bars(B)+'</button>'}).join('')}
+document.addEventListener('click',function(e){var b=e.target.closest('#bSel .bcard');if(!b||e.target.closest('details'))return;S.o.b[S.c]=b.dataset.bid;renderAll()});
+
+/* ---- schede ---- */
+function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('nav button'),function(b){b.classList.toggle('on',b.dataset.tab===t)});
+ [].forEach.call(document.querySelectorAll('.tab'),function(d){d.classList.toggle('on',d.id==='t-'+t)});
+ var w=$('lwrap');if(t==='livello')$('miniHost').appendChild(w);else if(w.parentNode.id==='miniHost')$('mappa').insertBefore(w,$('lchips'));
+ if(MAP)setTimeout(function(){MAP.invalidateSize()},30);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}
+$('nav').addEventListener('click',function(e){var b=e.target.closest('button');if(b)showTab(b.dataset.tab)});
+$('bAllChaps').onclick=function(){var c=$('chaps').classList.toggle('all');this.textContent=c?'Mostra solo il capitolo attuale':'Mostra tutto il percorso'};
+
+/* ---- filtro "solo dati confermati": nasconde ogni voce che contiene 🟡 ---- */
+function unsure(){[].forEach.call(document.querySelectorAll('main li, main .task, main tr, main .rc, main .card, main .box p, main details.chap .body>p'),function(e){e.classList.toggle('unsure',e.textContent.indexOf('🟡')>-1&&!e.querySelector('.task,.card,li'))})}
+$('bSure').onchange=function(){S.sure=this.checked;save();document.body.classList.toggle('sure',S.sure)};
+
+/* ---- passa i progressi a un altro dispositivo: link + QR ---- */
+function shareUrl(){var j={r:S.r,c:S.c,L:S.L,o:S.o,d:Object.keys(S.done[CK]||{})},b=btoa(unescape(encodeURIComponent(JSON.stringify(j)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');return location.href.split('#')[0]+'#s='+b}
+$('bShare').onclick=function(){var u=shareUrl();$('shareUrl').value=u;var q=$('qr');q.innerHTML='';$('shareCopy').textContent='Copia il link';
+ if(window.qrcode){try{var g=qrcode(0,'L');g.addData(u);g.make();q.innerHTML=g.createSvgTag({cellSize:4,margin:2,scalable:true})}catch(e){q.textContent='Link troppo lungo per il QR: copia il link.'}}else q.textContent='QR non disponibile offline: copia il link.';
+ $('shareDlg').showModal()};
+$('shareCopy').onclick=function(){var i=$('shareUrl');i.select();try{navigator.clipboard.writeText(i.value)}catch(e){document.execCommand('copy')}this.textContent='Copiato ✔'};
+
+/* ---- segnala un errore: issue già compilata nel repo GitHub ---- */
+function bugLink(){var t='Errore: '+RA.name+' '+CL.name+' liv. '+S.L+' ('+(S.tab||'livello')+')',b='**Personaggio:** '+RA.name+' '+CL.name+' – build '+(CL.B?CL.B.name:CL.spec)+'\n**Livello:** '+S.L+'\n**Scheda:** '+(S.tab||'livello')+'\n**Percorso:** '+RT.name+(PT?' + '+PT.title:'')+'\n\n**Cosa non torna:**\n\n\n**Cosa dovrebbe dire (se lo sai):**\n';
+ $('bBug').href='https://github.com/Stalioot/wow-forever-leveling-companion/issues/new?title='+encodeURIComponent(t)+'&body='+encodeURIComponent(b)}
+
+/* ---- procedura iniziale ---- */
+$('bWiz').onclick=function(){$('wiz').showModal()};
+
+function renderAll(){bind();drawPick();renderClass();$('bSel').innerHTML=bCards(false);renderPath();drawMap();renderLevel();bugLink();unsure()}
+initMap();renderAll();showTab(S.tab||'livello');$('bSure').checked=!!S.sure;document.body.classList.toggle('sure',!!S.sure);
+if(FIRST)$('wiz').showModal();

@@ -528,5 +528,161 @@
   "Teleport: il livello di apprendimento non è verificato. Il vecchio testo diceva che Teleport sposta la Hearthstone, ma non è vero: Teleport non cambia la Hearthstone. Rimosso.",
   "Lesser e Greater Magic Wand: livelli 5 e 13 e fonte (Auction House o Enchanting) dalla vecchia versione, non verificati.",
   "Mage's Wand (Tabetha, The Quagmire) è livello 40: escluso dalla revisione 1-30."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Frost (freeze e kite)",
+   "spec": "Frost",
+   "icon": "spell_frost_frostbolt02",
+   "when": "Leveling in solitaria con freeze e kite: la scelta più solida per il mago, confermata da più fonti.",
+   "pros": [
+    "Freeze e Frost Nova tengono i mob a distanza",
+    "Ice Lance e Fingers of Frost danno burst forte",
+    "Sopravvivenza alta: freeze e chill"
+   ],
+   "cons": [
+    "Ice Lance ora ha 8 s di cooldown",
+    "Mana: servono Wand e pause tra i pull",
+    "Il danno cresce con lo Spell Power del gear crafted"
+   ],
+   "ratings": {
+    "speed": [
+     4,
+     "Method indica il Frost come spec preferita per il leveling; Tavern lo considera la via classica.",
+     "Method (Celz); Warcraft Tavern"
+    ],
+    "ease": [
+     4,
+     "Kiting con Frostbolt e Chill, Frost Nova come fuga: semplice se gestisci la distanza.",
+     "Warcraft Tavern"
+    ],
+    "versatility": [
+     4,
+     "Method: regge da solo le quest più dure e ha AoE e single target.",
+     "Method (Celz)"
+    ],
+    "survival": [
+     4,
+     "Method: sopravvivenza molto alta grazie a freeze e chill; Ice Block dal 28.",
+     "Method (Celz)"
+    ],
+    "aoe": [
+     3,
+     "Method: AoE discreto con Blizzard e Cone of Cold; Blizzard è stato nerfato in Forever.",
+     "Method (Celz)"
+    ],
+    "gear": [
+     3,
+     "Method: lo Spell Power conta; il set Filigreed Silky rinforza i Frost spell.",
+     "Method (Celz)"
+    ]
+   },
+   "sources": [
+    {
+     "name": "Mobalytics – Mage Leveling (Asuna_qt)",
+     "url": "https://mobalytics.gg/wow-forever/classes/mage-leveling-guide",
+     "date": "31 ott 2026",
+     "signal": "40 ♥, Verified",
+     "used": "build A"
+    },
+    {
+     "name": "wowforever.be – Mage leveling",
+     "url": "https://wowforever.be/it/leveling/mage/",
+     "date": "1 nov 2026",
+     "signal": "dati client",
+     "used": "ordine talent build A"
+    },
+    {
+     "name": "Method – Mage Leveling (Celz)",
+     "url": "https://www.method.gg/wow-forever/wow-forever-mage-leveling-guide-and-talents",
+     "date": "21 ott 2026",
+     "signal": "guida Method",
+     "used": "ratings, Frost come spec preferita"
+    },
+    {
+     "name": "Warcraft Tavern – Mage Leveling",
+     "url": "https://www.warcrafttavern.com/forever/guides/mage-leveling/",
+     "date": "ott 2026",
+     "signal": "testata di riferimento",
+     "used": "kiting Frost, commenti build"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Partenza Arcane (mana)",
+   "spec": "Frost",
+   "icon": "spell_nature_starfall",
+   "when": "Se resti spesso senza mana e usi molto la Wand: bevi meno, ma Ice Lance arriva al 27 invece che al 20.",
+   "pros": [
+    "Wand Specialization: +25% di danno con la Wand per finire i mob senza spendere mana",
+    "Missile Barrage ★: Frostbolt può rendere gratis Arcane Missiles",
+    "Meno pause per bere nei primi livelli"
+   ],
+   "cons": [
+    "Ice Lance solo al 27 e Fingers of Frost al 37: più debole nell'1–30",
+    "Meno Freeze e crit sui target Frozen fino al 30"
+   ],
+   "ratings": {
+    "speed": [
+     3,
+     "Più parsimoniosa ma più lenta nell'1–30: Ice Lance arriva 7 livelli dopo.",
+     "Icy Veins (Teloril, 30 ott)"
+    ],
+    "survival": [
+     4,
+     "Meno pause per bere grazie a Wand Specialization e Missile Barrage.",
+     "Icy Veins (Teloril, 30 ott)"
+    ],
+    "ease": [
+     4,
+     "Frostbolt e Wand, con Arcane Missiles gratis quando scatta Missile Barrage.",
+     "Icy Veins (Teloril, 30 ott) 🟡"
+    ],
+    "versatility": [
+     3,
+     "🟡 Method (mage in generale): profilo di danno vario e buona mobilita, utility e crowd control; non specifico per Arcane",
+     "Method – WoW Forever Mage Leveling Guide (snippet)"
+    ]
+   },
+   "build": [
+    "Wand Specialization",
+    "Wand Specialization",
+    "Improved Channeling",
+    "Improved Channeling",
+    "Improved Channeling",
+    "Missile Barrage",
+    "Missile Barrage",
+    "Precision",
+    "Precision",
+    "Precision",
+    "Improved Frostbolt",
+    "Improved Frostbolt",
+    "Improved Frostbolt",
+    "Improved Frostbolt",
+    "Improved Frostbolt",
+    "Frostbite",
+    "Frostbite",
+    "Ice Lance",
+    "Ice Shards",
+    "Ice Shards",
+    "Ice Shards"
+   ],
+   "sources": [
+    {
+     "name": "Icy Veins – Frost Mage Leveling (Teloril)",
+     "url": "https://www.icy-veins.com/wow-forever/frost-mage-leveling",
+     "date": "30 ott",
+     "signal": "letta nella sessione del 1 nov",
+     "used": "Partenza Arcane, Ice Lance al 27; ordine 20–30 ricostruito sul riepilogo 🟡"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "Arcane (Icy Veins) non inserita: la pagina Icy Veins è bloccata dalla verifica Cloudflare, quindi nessun ordine di talent verificabile. Dallo snippet: Wand Specialization 2, Improved Channeling 3, Missile Barrage 2, Precision 3 nei livelli 10–19; Ice Lance al 27.",
+  "Fire (Tavern) non inserita: la guida Warcraft Tavern mostra i talent solo come immagine, senza dati leggibili.",
+  "Build A: ordine verificato contro i dati client wowforever.be (nomi, max, needs e req)."
  ]
 }

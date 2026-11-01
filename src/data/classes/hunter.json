@@ -935,5 +935,250 @@
   "🟡 Vendor di ammo e quiver non verificato per razza.",
   "🟡 The Hunter's Path (10) e Taming the Beast (10) hanno NPC simili nell'indice: non chiaro se sono la stessa quest.",
   "🟡 Big Game Hunter: l'indice la dà a livello 43, il JSON precedente la dava al 30."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Beast Mastery",
+   "spec": "Beast Mastery",
+   "icon": "ability_hunter_beasttaming",
+   "when": "Vuoi levellare da solo con il Pet che porta il mob: è la spec che tutte le fonti consigliano.",
+   "pros": [
+    "Il Pet tiene il mob: poche morti e poco downtime.",
+    "Dal 25 Summon Hawk e Intimidation: danno extra senza tirare tu il mob.",
+    "Build 10–35 legale sul client (wowforever.be)."
+   ],
+   "cons": [
+    "Un mob alla volta: meno efficace su pack.",
+    "Dipendi dal Pet: Happiness, Mend Pet e Revive Pet da gestire.",
+    "Pathfinding a 18–19 non è legale sul client: la build usa Endurance Training (Method)."
+   ],
+   "ratings": {
+    "speed": [
+     4,
+     "Method: BM è la \"preferred option for leveling\" (21 ott); nessuna fonte misura i tempi 🟡.",
+     "Method – Hunter (21 ott)"
+    ],
+    "ease": [
+     4,
+     "Tavern: BM offre \"the smoothest levelling experience\"; il Pet tiene il mob 🟡.",
+     "Warcraft Tavern – Hunter"
+    ],
+    "versatility": [
+     4,
+     "Method: BM è \"an amazing choice for any player, but especially solo levelers\"; duo e dungeon non valutati 🟡.",
+     "Method – Hunter (21 ott)"
+    ],
+    "survival": [
+     4,
+     "Tavern: danno a distanza \"with minimal interruptions\" e Pet che tiene il mob 🟡.",
+     "Warcraft Tavern – Hunter"
+    ],
+    "aoe": [
+     2,
+     "Rotazione \"un mob alla volta\" (Tavern, Zockify): il Pet tiene un bersaglio 🟡.",
+     "Warcraft Tavern – Hunter; Zockify – Hunter (25 ott)"
+    ],
+    "gear": [
+     3,
+     "Tavern: l'arma a distanza è il primo upgrade; il Pet prende stat dall'equip dal 15 ott 🟡.",
+     "Warcraft Tavern – Hunter (stats)"
+    ]
+   },
+   "sources": [
+    {
+     "name": "wowforever.be – build di leveling Hunter",
+     "url": "https://wowforever.be/leveling/hunter/",
+     "date": "client 1.60.1.70707, 1 nov",
+     "signal": "dati client; solo fino al 35",
+     "used": "ordine 10–35"
+    },
+    {
+     "name": "Method – Hunter Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-hunter-leveling-guide-and-talents",
+     "date": "21 ott 2026",
+     "signal": "Method (reputazione alta)",
+     "used": "BM preferita per il leveling (letta 2 nov)"
+    },
+    {
+     "name": "Warcraft Tavern – Hunter Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/hunter-leveling/",
+     "date": "nessuna data; beta cap 30",
+     "signal": "sito di riferimento",
+     "used": "BM \"smoothest\"; MM e Survival (letta 2 nov)"
+    },
+    {
+     "name": "Mobalytics – BM Hunter Leveling Guide 1-30 (Crix)",
+     "url": "https://mobalytics.gg/wow-forever/classes/beast-mastery-leveling-guide",
+     "date": "28 ott",
+     "signal": "62 ♥ (dato da note precedenti, pagina bloccata oggi)",
+     "used": "ordine 10–30 già nel progetto"
+    },
+    {
+     "name": "Zockify – Hunter Leveling Guide",
+     "url": "https://www.zockify.com/forever/hunter/leveling/",
+     "date": "agg. 25 ott",
+     "signal": "build 31 BM / 20 MM fino al 60 (nota precedente)",
+     "used": "ordine 31–60 (nel progetto)"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Marksmanship (tiro mirato)",
+   "spec": "Marksmanship",
+   "icon": "ability_trueshot",
+   "when": "Vuoi più danno da fermo a distanza e accetti di kitare di più: non per il leveling più tranquillo.",
+   "pros": [
+    "Danno più alto della spec Hunter, dice Tavern.",
+    "Efficiency dà un buon Mana (Tavern): meno pause.",
+    "Trueshot Aura: buff per party e raid dal 25 (client)."
+   ],
+   "cons": [
+    "Meno indulgente di BM: più kiting e più morti (Tavern).",
+    "Il danno viene soprattutto dai tuoi colpi, non dal Pet.",
+    "Ordine validato ma solo da una guida fan (wowforever.gg), non confermato da altre fonti."
+   ],
+   "ratings": {
+    "speed": [
+     4,
+     "Tavern: MM ha \"some of the highest damage potential\" di Hunter, ma il danno viene dai tuoi colpi 🟡.",
+     "Warcraft Tavern – Hunter"
+    ],
+    "ease": [
+     2,
+     "Tavern: MM è \"a less forgiving choice than Beast Mastery\": più threat sul tuo colpo e più kiting 🟡.",
+     "Warcraft Tavern – Hunter"
+    ],
+    "survival": [
+     2,
+     "Tavern: \"less forgiving\" e kiting più frequente; Efficiency aiuta il Mana 🟡.",
+     "Warcraft Tavern – Hunter"
+    ]
+   },
+   "build": [
+    "Hawk Eye",
+    "Hawk Eye",
+    "Hawk Eye",
+    "Lethal Attacks",
+    "Lethal Attacks",
+    "Lethal Attacks",
+    "Lethal Attacks",
+    "Lethal Attacks",
+    "Careful Aim",
+    "Careful Aim",
+    "Careful Aim",
+    "Careful Aim",
+    "Careful Aim",
+    "Rapid Killing",
+    "Rapid Killing",
+    "Trueshot Aura",
+    "Mortal Shots",
+    "Mortal Shots",
+    "Mortal Shots",
+    "Mortal Shots",
+    "Mortal Shots",
+    "Efficiency",
+    "Efficiency",
+    "Efficiency",
+    "Efficiency",
+    "Ranged Weapon Specialization",
+    "Ranged Weapon Specialization",
+    "Ranged Weapon Specialization",
+    "Ranged Weapon Specialization",
+    "Ranged Weapon Specialization",
+    "Sniper Shot",
+    "Deadly Aspects",
+    "Deadly Aspects",
+    "Deadly Aspects",
+    "Deadly Aspects",
+    "Deadly Aspects",
+    "Focused Fire",
+    "Focused Fire",
+    "Improved Aspect of the Monkey",
+    "Improved Aspect of the Monkey",
+    "Improved Aspect of the Monkey",
+    "Bestial Swiftness",
+    "Unleashed Fury",
+    "Unleashed Fury",
+    "Unleashed Fury",
+    "Unleashed Fury",
+    "Unleashed Fury",
+    "Ferocity",
+    "Ferocity",
+    "Ferocity",
+    "Ferocity"
+   ],
+   "rotation": [
+    {
+     "title": "10–24 · Hawk Eye, Lethal Attacks, Careful Aim",
+     "seq": [
+      [
+       "ability_whirlwind",
+       "Auto Shot"
+      ],
+      [
+       "ability_impalingbolt",
+       "Arcane Shot"
+      ],
+      [
+       "ability_townwatch",
+       "Hawk Eye"
+      ]
+     ],
+     "text": "Auto Shot da fermo (0,5 s) come base; Arcane Shot a cooldown. Hunter's Mark e Serpent Sting restano nel kit, ma le fonti non dettagliano la rotazione MM."
+    },
+    {
+     "title": "25–40 · Trueshot Aura e Aimed Shot",
+     "seq": [
+      [
+       "spell_nature_ravenform",
+       "Aspect of the Hawk"
+      ],
+      [
+       "ability_trueshot",
+       "Trueshot Aura"
+      ],
+      [
+       "inv_spear_07",
+       "Aimed Shot"
+      ]
+     ],
+     "text": "Tavern: Aspect of the Hawk e Trueshot Aura su te sempre. Aimed Shot è baseline dal 20 (wowforever.gg): usalo sui mob che restano."
+    }
+   ],
+   "sources": [
+    {
+     "name": "wowforever.gg – Hunter Marksmanship Leveling Build",
+     "url": "https://wowforever.gg/en/builds/hunter-marksmanship-leveling/",
+     "date": "nessuna data visibile",
+     "signal": "sito fan non ufficiale (dichiarato in footer); calcolatore con checkpoint 10–60",
+     "used": "ordine per livello 10–60 (checkpoint 10,20,…,60)"
+    },
+    {
+     "name": "Warcraft Tavern – Hunter Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/hunter-leveling/",
+     "date": "nessuna data; beta cap 30",
+     "signal": "sito di riferimento",
+     "used": "MM \"highest damage\", \"less forgiving\", Trueshot in rotation (letta 2 nov)"
+    },
+    {
+     "name": "wowforeverguides.com – Hunter Leveling (snippet di ricerca)",
+     "url": "https://wowforeverguides.com/leveling/hunter",
+     "date": "19 ott",
+     "signal": "teoria dichiarata; snippet, non letta",
+     "used": "dice che le fonti non classificano BM/MM/Survival per velocità"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "🟡 Mobalytics (Crix 62 ♥, Feor 38 ♥, Kargoz 30 ♥) è bloccato dal controllo Cloudflare sia per WebFetch sia nel browser headless: i ♥ e gli ordini vengono dalle note precedenti del progetto, non riletti oggi. Il file $S/mobalytics.md citato nel brief non esiste nello scratchpad.",
+  "🟡 Icy Veins non è leggibile (Cloudflare): nessun dato da Icy Veins per Hunter.",
+  "🟡 Build B: ordine per livello preso dai checkpoint di wowforever.gg (10/20/30/40/50/60). Dentro ogni finestra di 10 livelli l'ordine l'ho ricostruito io, rispettando needs e req del client: tutti i 51 punti passano il controllo node.",
+  "🟡 wowforever.gg è un fan site non ufficiale. Il suo calcolatore BM (hunter-beast-mastery-leveling) NON è valido sul client: Pathfinding richiede 10 punti in BM e a 20 se ne hanno 9. Scartato.",
+  "🟡 Solo due build per Hunter: Survival non ha guide di leveling leggibili (Method non la confronta, Tavern la dice \"challenging\"). Nessuna fonte affidabile per una terza serie.",
+  "🟡 Icona di B: \"ability_trueshot\" è l'icona del talent Trueshot Aura (client), non l'icona spec Wowhead, che non ho verificato.",
+  "🟡 B ha quasi tutti i voti null: nessuna fonte giudica MM su versatility, aoe o gear."
  ]
 }

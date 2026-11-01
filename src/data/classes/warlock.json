@@ -1105,5 +1105,320 @@
   "News of Dogran e Love's Gift: ordine dei passi non confermato dai tooltip.",
   "Tome of the Cabal: NPC e ingredienti non riverificati.",
   "Ricompense (Summon X) dedotte dal nome della catena, non verificate sui tooltip."
+ ],
+ "builds": [
+  {
+   "id": "a",
+   "name": "Affliction (drain tank)",
+   "spec": "Affliction",
+   "icon": "spell_shadow_deathcoil",
+   "when": "Leveling con DoT e Life Tap, poi drain tank dal 30: la spec più consigliata nelle fonti.",
+   "pros": [
+    "DoT istantanei: Corruption e Bane of Agony tagano subito",
+    "Life Tap e Drain Life tengono HP e mana",
+    "Sopravvivenza alta da solo"
+   ],
+   "cons": [
+    "AoE quasi assente (Rain of Fire e Hellfire)",
+    "Wrack (40) non testato oltre il 30",
+    "Il pet va gestito per i pull grossi (Fear, Voidwalker)"
+   ],
+   "ratings": {
+    "speed": [
+     4,
+     "Method consiglia l'Affliction per il leveling; Mobalytics Crix è la guida più salvata.",
+     "Method (Roguery); Mobalytics Crix"
+    ],
+    "ease": [
+     3,
+     "Rotazione semplice (DoT, Wand, Life Tap) ma serve gestire HP, mana e pet.",
+     "Method (Roguery)"
+    ],
+    "versatility": [
+     4,
+     "Da solo con Voidwalker o Succubus; Tavern: Voidwalker per i pull grandi.",
+     "Warcraft Tavern"
+    ],
+    "survival": [
+     4,
+     "Method: il warlock è molto tanky per un caster in cloth; Siphon Life e Drain Life curano.",
+     "Method (Roguery)"
+    ],
+    "aoe": [
+     2,
+     "Method: solo Destruction ha AoE scalabile.",
+     "Method (Roguery)"
+    ],
+    "gear": [
+     3,
+     "Method: il crafting (Filigreed Shadow Gown) conta, ma DoT e Life Tap non dipendono dall'arma.",
+     "Method (Roguery)"
+    ]
+   },
+   "sources": [
+    {
+     "name": "Mobalytics – Warlock Leveling (Crix)",
+     "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
+     "date": "1 nov 2026",
+     "signal": "109 ♥",
+     "used": "build A"
+    },
+    {
+     "name": "wowforever.be – Warlock leveling (client 1.60.1.70707)",
+     "url": "https://wowforever.be/leveling/warlock/",
+     "date": "1 nov 2026",
+     "signal": "dati client",
+     "used": "ordine talent Affliction"
+    },
+    {
+     "name": "Method – Warlock Leveling (Roguery)",
+     "url": "https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents",
+     "date": "17 ott 2026",
+     "signal": "guida Method",
+     "used": "ordine Demonology, ratings, razze"
+    },
+    {
+     "name": "Warcraft Tavern – Warlock Leveling (Zephan)",
+     "url": "https://www.warcrafttavern.com/forever/guides/warlock-leveling/",
+     "date": "ott 2026",
+     "signal": "testata di riferimento",
+     "used": "Pet, Drain tank, rotazione"
+    }
+   ]
+  },
+  {
+   "id": "b",
+   "name": "Demonology (pet)",
+   "spec": "Demonology",
+   "icon": "spell_shadow_metamorphosis",
+   "when": "Se vuoi un pet forte, accettando un leveling più lento fino al 25: Method la dice non ideale per partire.",
+   "pros": [
+    "Unholy Power 5 e Fel Vitality 3 potenziano il demone",
+    "Demonic Brand dal 29 fa tenere il threat al pet",
+    "Demonic Energies e Master Summoner tengono il pet vivo e lo richiamano"
+   ],
+   "cons": [
+    "Più lenta fino al 25 (Method)",
+    "Molto dipendente dal pet",
+    "AoE limitato (Method)"
+   ],
+   "ratings": {
+    "speed": [
+     2,
+     "Method: Demonology si attiva più tardi e non è la scelta migliore per il leveling iniziale.",
+     "Method (Roguery)"
+    ],
+    "ease": [
+     3,
+     "Method: dipendente dal pet; Searing Pain va usato con cautela finché non c'è Demonic Brand.",
+     "Method (Roguery)"
+    ],
+    "survival": [
+     3,
+     "Demonic Aegis e Demonic Embrace aumentano la tua tankiness e aiutano il pet a restare vivo.",
+     "Method (Roguery)"
+    ],
+    "aoe": [
+     2,
+     "Method: solo Destruction ha AoE scalabile; Demonology si appoggia al pet per i pull multipli.",
+     "Method (Roguery)"
+    ],
+    "gear": [
+     3,
+     "Method: per Demonology si craftano Filigreed Flame Gown (fire); il pet scala con i talent.",
+     "Method (Roguery)"
+    ]
+   },
+   "build": [
+    "Suppression",
+    "Suppression",
+    "Suppression",
+    "Suppression",
+    "Unholy Power",
+    "Unholy Power",
+    "Unholy Power",
+    "Unholy Power",
+    "Unholy Power",
+    "Fel Vitality",
+    "Fel Vitality",
+    "Fel Vitality",
+    "Demonic Energies",
+    "Demonic Energies",
+    "Master Summoner",
+    "Master Summoner",
+    "Demonic Aegis",
+    "Demonic Aegis",
+    "Demonic Embrace",
+    "Demonic Brand",
+    "Demonic Brand",
+    "Demonic Brand",
+    "Demonic Embrace",
+    "Fel Domination",
+    "Demonic Knowledge",
+    "Demonic Knowledge",
+    "Demonic Knowledge",
+    "Demonic Sacrifice",
+    "Soul Link"
+   ],
+   "rotation": [
+    {
+     "title": "10–28 · Pet, DoT e Shadow Bolt",
+     "seq": [
+      [
+       "spell_shadow_summonvoidwalker",
+       "Pet attack"
+      ],
+      [
+       "spell_fire_immolation",
+       "Immolate"
+      ],
+      [
+       "spell_shadow_curseofsargeras",
+       "Bane of Agony"
+      ],
+      [
+       "spell_shadow_shadowbolt",
+       "Shadow Bolt"
+      ],
+      [
+       "ability_marksmanship",
+       "Wand"
+      ]
+     ],
+     "text": "Pet attack prima di ogni attacco, poi Immolate e Bane of Agony; finisci con Shadow Bolt e Wand (Method)."
+    },
+    {
+     "title": "29+ · Demonic Brand",
+     "seq": [
+      [
+       "spell_shadow_metamorphosis",
+       "Demonic Brand"
+      ],
+      [
+       "spell_fire_soulburn",
+       "Searing Pain"
+      ]
+     ],
+     "text": "Searing Pain solo dopo Demonic Brand: prima può togliere il mob dal pet (Method)."
+    }
+   ],
+   "sources": [
+    {
+     "name": "Method – Warlock Leveling (Roguery)",
+     "url": "https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents",
+     "date": "17 ott 2026",
+     "signal": "guida Method",
+     "used": "ordine Demonology, ratings, razze"
+    },
+    {
+     "name": "wowforever.be – Warlock leveling (client 1.60.1.70707)",
+     "url": "https://wowforever.be/leveling/warlock/",
+     "date": "1 nov 2026",
+     "signal": "dati client",
+     "used": "ordine talent Affliction"
+    }
+   ]
+  },
+  {
+   "id": "c",
+   "name": "Affliction (ordine dei dati client)",
+   "spec": "Affliction",
+   "icon": "spell_shadow_deathcoil",
+   "when": "Stessa spec di A con Pandemic e Malevolence prima dei drain: per chi vuole l'ordine del client wowforever.be.",
+   "pros": [
+    "Ordine letto dal client wowforever.be, concorde con il testo Method",
+    "Suppression 5 entro il 19: niente miss sui mob del tuo livello",
+    "Pandemic e Malevolence arrivano prima: più crit sui DoT"
+   ],
+   "cons": [
+    "Fel Concentration e Siphon Life solo dal 30/31",
+    "Crit investiti prima dei drain: rendono poco senza crit (Tavern, 🟡)",
+    "Soul Siphon solo al 34"
+   ],
+   "ratings": {
+    "speed": [
+     3,
+     "Pandemic e Malevolence prima dei drain: Warcraft Tavern li dà a basso rendimento senza crit (🟡 riportato dalla guida).",
+     "Warcraft Tavern"
+    ],
+    "survival": [
+     3,
+     "Fel Concentration arriva al 31, quindi il drain tank parte più tardi che in A (Method: serve per il drain tank).",
+     "Method (Roguery)"
+    ],
+    "aoe": [
+     2,
+     "Come A: solo Destruction ha AoE scalabile (Method).",
+     "Method (Roguery)"
+    ],
+    "versatility": [
+     4,
+     "🟡 Mobalytics (Vale): Affliction descritta come 'strong solo-leveling spec' (fonte singola)",
+     "Mobalytics – Warlock Leveling Guide, Vale (snippet)"
+    ]
+   },
+   "build": [
+    "Suppression",
+    "Suppression",
+    "Suppression",
+    "Suppression",
+    "Improved Corruption",
+    "Improved Corruption",
+    "Improved Corruption",
+    "Improved Corruption",
+    "Improved Corruption",
+    "Suppression",
+    "Pandemic",
+    "Pandemic",
+    "Pandemic",
+    "Improved Bane of Agony",
+    "Improved Bane of Agony",
+    "Malevolence",
+    "Malevolence",
+    "Malevolence",
+    "Malevolence",
+    "Malevolence",
+    "Siphon Life",
+    "Fel Concentration",
+    "Fel Concentration",
+    "Fel Concentration",
+    "Soul Siphon",
+    "Shadow Mastery",
+    "Shadow Mastery",
+    "Shadow Mastery",
+    "Shadow Mastery",
+    "Shadow Mastery",
+    "Wrack"
+   ],
+   "sources": [
+    {
+     "name": "wowforever.be – Warlock leveling (client 1.60.1.70707)",
+     "url": "https://wowforever.be/leveling/warlock/",
+     "date": "1 nov 2026",
+     "signal": "dati client",
+     "used": "ordine talent Affliction"
+    },
+    {
+     "name": "Method – Warlock Leveling (Roguery)",
+     "url": "https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents",
+     "date": "17 ott 2026",
+     "signal": "guida Method",
+     "used": "ordine Demonology, ratings, razze"
+    },
+    {
+     "name": "Warcraft Tavern – Warlock Leveling (Zephan)",
+     "url": "https://www.warcrafttavern.com/forever/guides/warlock-leveling/",
+     "date": "ott 2026",
+     "signal": "testata di riferimento",
+     "used": "Pet, Drain tank, rotazione"
+    }
+   ]
+  }
+ ],
+ "buildDoubts": [
+  "Demonology (B): ordine dei livelli 10–38 dal testo Method (la calc di Method non è leggibile). Decimation e Soul Fire non sono nel nostro ordine; livelli 39+ non dati.",
+  "Affliction A: ordine dal riassunto Mobalytics Crix; Siphon Life al 33 e Pandemic al 34 sono scelte nostre.",
+  "Wrack non testato oltre il 30 (wowforever.gg). Alcune guide non lo prendono (Maxroll).",
+  "Affliction C: uguale nel client wowforever.be e nel testo Method fino al 40; le valutazioni di speed sono 🟡 perché l'effetto dei crit prima dei drain viene da una sola guida."
  ]
 }

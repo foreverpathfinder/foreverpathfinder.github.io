@@ -16,45 +16,64 @@
  <p id="hsub"></p>
  <p>Uscita: <b id="hlaunch"></b> · <span class="cd" id="cd"></span></p>
  <div class="chips" id="hchips"></div>
+ <div class="hbtns"><button class="btn pr" id="bWiz" type="button">⚙ Personaggio e opzioni</button><button class="btn" id="bShare" type="button">⇄ Passa a un altro dispositivo</button>
+  <label class="btn tgl"><input type="checkbox" id="bSure"> Solo dati confermati</label><a class="btn" id="bBug" target="_blank" rel="noopener">⚑ Segnala un errore</a></div>
 </header>
 
-<nav id="nav">
- <a href="#pg">Crea la guida</a><a href="#percorso">Percorso</a><a href="#oggi">Il mio livello</a><a href="#build">Talents</a><a href="#rot">Rotation</a><a href="#spell">Spell</a><a href="#razza">Razza</a><a href="#mappa">Mappa</a><a href="#viaggi">Viaggi</a><a href="#xp">Bonus XP</a><a href="#borse">Bags</a><a href="#prof">Professions</a><a href="#alt">Alt</a><a href="#crates">Crates</a><a href="#campo">Camping</a><a href="#dungeon">Dungeon</a><a href="#video">Video</a><a href="#fonti">Fonti</a>
+<nav id="nav" role="tablist">
+ <button data-tab="livello" class="on">Livello</button><button data-tab="talent">Talent</button><button data-tab="mappa">Mappa</button><button data-tab="classe">Classe</button><button data-tab="prof">Profession</button><button data-tab="info">Info</button>
 </nav>
 
+<dialog id="wiz">
+ <form method="dialog" class="wizin">
+  <h2>Crea la tua guida</h2>
+  <p class="note">Scegli una opzione per riga: rotta, talent, spell, mappa, bag, dungeon e profession seguono le tue scelte. Tutto resta salvato su questo dispositivo.</p>
+  <section id="pg" class="pick">
+   <div><div class="lab">1 · Fazione</div><div class="opts fac" id="pkF"></div></div>
+   <div><div class="lab">2 · Razza</div><div class="opts" id="pkR"></div></div>
+   <div><div class="lab">3 · Classe</div><div class="opts" id="pkC"></div></div>
+   <div id="pkB"></div>
+   <div id="pkO"></div>
+  </section>
+  <div class="btns" style="margin:12px 0 0"><button class="btn pr" value="ok">Inizia ›</button></div>
+ </form>
+</dialog>
+
+<dialog id="shareDlg">
+ <form method="dialog" class="wizin">
+  <h2>Passa a un altro dispositivo</h2>
+  <p>Inquadra il QR con l'altro dispositivo, oppure copia il link e mandatelo: si apre con personaggio, livello, opzioni e checklist già impostati.</p>
+  <div id="qr" class="qr"></div>
+  <p><input id="shareUrl" readonly style="width:100%"></p>
+  <div class="btns"><button class="btn pr" type="button" id="shareCopy">Copia il link</button><button class="btn" value="x">Chiudi</button></div>
+ </form>
+</dialog>
+
 <main>
-<p class="note">Legenda: <span class="pill p-ok">✔</span> confermato da più fonti o dal client · <span class="pill p-wa">🟡</span> una sola fonte · <span class="pill p-new">★</span> novità di Forever. Tocca le icone per vedere la descrizione.</p>
+<p class="note">Legenda: <span class="pill p-ok">✔</span> confermato da più fonti o dal client · <span class="pill p-wa">🟡</span> una sola fonte o pre-lancio · <span class="pill p-new">★</span> novità di Forever.</p>
 
-<section id="pg">
- <h2>Crea la tua guida</h2>
- <p>Scegli una opzione per riga: la guida diventa un percorso unico, da seguire in ordine dal livello 1.</p>
- <div class="card pick">
-  <div><div class="lab">1 · Fazione</div><div class="opts fac" id="pkF"></div></div>
-  <div><div class="lab">2 · Razza</div><div class="opts" id="pkR"></div></div>
-  <div><div class="lab">3 · Classe</div><div class="opts" id="pkC"></div></div>
-  <div id="pkO"></div>
-  <div class="btns" style="margin:4px 0 0"><a class="btn pr" href="#percorso">Inizia il percorso ›</a></div>
- </div>
- <p class="note">Rotta, talent, spell, mappa, bag, dungeon e profession seguono le tue scelte. Tutto resta salvato su questo dispositivo.</p>
-</section>
-
-<section id="percorso">
- <h2>Il tuo percorso</h2>
- <div class="card"><div class="prog"><i id="pgBar"></i></div><p class="note" id="pgTxt" style="margin:.4em 0 0"></p></div>
- <div id="chaps"></div>
-</section>
-
+<div class="tab on" id="t-livello">
 <section id="oggi">
- <h2>Cosa faccio al mio livello?</h2>
- <p>Imposta il livello: vedi la zona, il talent da prendere, le spell da imparare e le cose da non perdere.</p>
+ <h2>Il mio livello</h2>
  <div class="card">
   <div class="lvctl"><button id="lvm" aria-label="Livello meno">−</button><span class="lvnum" id="lvn">1</span><button id="lvp" aria-label="Livello più">+</button><input type="range" id="lvr" min="1" max="30" value="1" aria-label="Livello"></div>
+  <div class="prog" style="margin-top:10px"><i id="pgBar"></i></div><p class="note" id="pgTxt" style="margin:.3em 0 0"></p>
   <div class="qgo" id="qgo"></div>
   <div class="plan" id="plan"></div>
  </div>
+ <div id="miniHost"></div>
+ <h3>Cosa fare adesso</h3>
+ <div id="chaps"></div>
+ <div class="btns"><button class="btn" type="button" id="bAllChaps">Mostra tutto il percorso</button></div>
  <details><summary id="tlsum">Tutto il percorso in una riga temporale</summary><div class="tl" id="tl"></div></details>
 </section>
+</div>
 
+<div class="tab" id="t-talent">
+<section id="bsel">
+ <h2>Scegli la build</h2>
+ <div class="bsel" id="bSel"></div>
+</section>
 <section id="build">
  <h2 id="bTitle">Talents</h2>
  <div class="callout g" id="bSum"></div>
@@ -74,24 +93,9 @@
  <div id="bAlt"></div>
  <details><summary>Perk Legacy “Talented” 🟡</summary><p>Talented dà fino a 5 talent point in più: segui lo <b>stesso ordine</b> con 5 livelli di anticipo (primo talent point al 5). Al livello L avrai la build del livello L+5.</p></details>
 </section>
+</div>
 
-<section id="rot">
- <h2>Rotation</h2>
- <div class="rot" id="rotc"></div>
- <div id="rotn"></div>
-</section>
-
-<section id="spell">
- <h2>Spell per livello</h2>
- <p class="note">Vai dal Trainer ogni 2 livelli: il tuo danno viene dai Rank.</p>
- <div class="grid" id="spells"></div>
-</section>
-
-<section id="razza">
- <h2 id="rTitle">Razza</h2>
- <div id="rBody"></div>
-</section>
-
+<div class="tab" id="t-mappa">
 <section id="mappa">
  <h2>Mappa interattiva</h2>
  <p>La vera mappa di gioco di Forever, con le posizioni esatte di Flight Master, Trainer, dungeon, quest della guida, herb e ore node. Tocca una tappa per volarci sopra; trascina e pizzica per muoverti.</p>
@@ -107,43 +111,59 @@
   <a class="btn" href="https://www.wowhead.com/forever/world-map" target="_blank" rel="noopener">Wowhead – mappa completa ↗</a>
   <a class="btn" href="https://mobalytics.gg/wow-forever/guides/zone-map-level-ranges" target="_blank" rel="noopener">Livelli zone (Mobalytics) ↗</a></div></details>
 </section>
+</div>
 
-<section id="viaggi">
- <h2>Viaggi</h2>
- <div class="wrap card"><table id="vFp"></table></div>
- <div class="grid" id="vCards"></div>
+<div class="tab" id="t-classe">
+<section id="rot">
+ <h2>Rotation</h2>
+ <div class="rot" id="rotc"></div>
+ <div id="rotn"></div>
 </section>
-
-<section id="xp">
- <h2>Bonus XP e consigli da speedrunner</h2>
- <p class="note">Dal video di Kargoz (91 000 visualizzazioni, 24 ott, co-fondatore di RestedXP) e dalle guide Icy Veins/Mobalytics.</p>
- <div class="grid" id="xpc"></div>
- <div class="card"><h3>Regole d’oro</h3><ul id="xpr"></ul></div>
+<section id="spell">
+ <h2>Spell per livello</h2>
+ <p class="note">Vai dal Trainer ogni 2 livelli: il tuo danno viene dai Rank.</p>
+ <div class="grid" id="spells"></div>
 </section>
-
-<section id="borse">
- <h2>Bags</h2>
- <div class="wrap card"><table id="bagt"></table></div>
- <p class="note" id="bagn"></p>
+<section id="razza">
+ <h2 id="rTitle">Razza</h2>
+ <div id="rBody"></div>
 </section>
+</div>
 
+<div class="tab" id="t-prof">
 <section id="prof">
  <h2>Professions e gold</h2>
  <div class="grid" id="profc"></div>
  <div id="profx"></div>
  <details><summary>Tier list gold e errori da evitare</summary><p id="proft"></p><ul id="profe"></ul></details>
 </section>
-
 <section id="alt">
  <h2>Guida agli alt</h2>
  <div id="altx"></div>
 </section>
+</div>
 
+<div class="tab" id="t-info">
+<section id="xp">
+ <h2>Bonus XP e consigli da speedrunner</h2>
+ <p class="note">Dal video di Kargoz (91 000 visualizzazioni, 24 ott, co-fondatore di RestedXP) e dalle guide Icy Veins/Mobalytics.</p>
+ <div class="grid" id="xpc"></div>
+ <div class="card"><h3>Regole d’oro</h3><ul id="xpr"></ul></div>
+</section>
+<section id="borse">
+ <h2>Bags</h2>
+ <div class="wrap card"><table id="bagt"></table></div>
+ <p class="note" id="bagn"></p>
+</section>
+<section id="viaggi">
+ <h2>Viaggi</h2>
+ <div class="wrap card"><table id="vFp"></table></div>
+ <div class="grid" id="vCards"></div>
+</section>
 <section id="crates">
  <h2>Waylaid Crates</h2>
  <div class="card"><div class="row"><img class="ic" src="https://wow.zamimg.com/images/wow/icons/large/inv_crate_01.jpg" alt=""><div id="crc"></div></div></div>
 </section>
-
 <section id="campo">
  <h2>Camping</h2>
  <figure><img class="shot" loading="lazy" src="https://bnetcmsus-a.akamaihd.net/cms/blog_header/mi/MIORB2TEVZIK1792455672807.png" alt="Campfire con giocatori seduti"><figcaption>Immagine ufficiale Blizzard dall’annuncio del Camping.</figcaption></figure>
@@ -151,13 +171,11 @@
  <h3 id="campT">Priorità</h3>
  <div class="grid" id="camp"></div>
 </section>
-
 <section id="dungeon">
  <h2>Dungeon</h2>
  <div class="wrap card"><table id="dtab"></table></div>
  <p class="note">Livelli dalla mappa Wowhead di Forever. XP delle quest dei dungeon dimezzata il 1° ottobre: entra una volta, con tutte le quest.</p>
 </section>
-
 <section id="video">
  <h2 id="vtitle">Video</h2>
  <p class="note">In inglese; i pulsanti saltano al punto giusto.</p>
@@ -165,16 +183,17 @@
  <iframe class="emb" id="yt" title="Video" style="aspect-ratio:16/9;height:auto" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
  <details><summary>Riassunto in italiano</summary><ol id="vsum"></ol></details>
 </section>
-
 <section id="fonti">
  <h2>Fonti e affidabilità</h2>
  <div class="wrap card"><table id="srct"></table></div>
  <div class="callout w" id="limits"></div>
 </section>
+</div>
 </main>
 <footer id="foot"></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
 <script>
 var DATA=/*DATA*/;
 </script>
