@@ -514,15 +514,16 @@ function drawOrder(){
  $('order').innerHTML=o;
 }
 $('order').addEventListener('click',function(e){var b=e.target.closest('.o');if(b){S.L=+b.dataset.lv;renderLevel()}});
-// Calcolatore wowforever.be a 380 px: alberi a y=763/1297/1832 (alti 512), pagina 2552 (misurato il 1/11/2026, uguale per tutte le classi).
+// Calcolatore wowforever.be a 380 px: alberi a y=763/1297/1832 (alti 512) (misurato il 1/11/2026, uguale per tutte le classi).
 // ponytail: offset fissi; se il sito cambia impaginazione, c'è il pulsante "Tutti e 3 i talent tree".
 // La pagina legge ?t= solo all'apertura: due iframe (il vecchio resta visibile finché il nuovo è pronto), un caricamento alla volta, solo se visibile.
 var WF={mode:'tree',want:'',shown:null,loading:null,t:null,to:null,vis:false},WFY=[763,1297,1832];
 var wfBox=$('wfBox'),wfF=[].slice.call(wfBox.querySelectorAll('iframe')),wfA=0,wfBadge=wfBox.querySelector('.wait');
 function wfUrl(enc){return 'https://wowforever.be/it/talents/'+S.c+'/'+(enc?'?t='+enc:'')}
-function wfFit(){var s=Math.min(1,(wfBox.parentNode.clientWidth||380)/380),m=WF.mode==='tree'?[WFY[CL.treeIndex],520]:[0,2552];
- wfBox.style.width=Math.round(380*s)+'px';wfBox.style.height=Math.round(m[1]*s)+'px';
- wfF.forEach(function(f){f.style.transform='scale('+s+') translateY('+(-m[0])+'px)'})}
+// "Tutti e 3": la pagina caricata larga 1100 px mette gli alberi affiancati (riga a x=30, y=452, 1029×512, uguale per tutte le classi): ritaglio quella riga e la rimpicciolisco.
+function wfFit(){var W=wfBox.parentNode.clientWidth||380,all=WF.mode==='all',c=all?[22,444,1045,528]:[0,WFY[CL.treeIndex],380,520],s=Math.min(1,W/c[2]);
+ wfBox.style.width=Math.round(c[2]*s)+'px';wfBox.style.height=Math.round(c[3]*s)+'px';
+ wfF.forEach(function(f){f.style.width=(all?1100:380)+'px';f.style.height=(all?1400:2600)+'px';f.style.transform='scale('+s+') translate('+(-c[0])+'px,'+(-c[1])+'px)'})}
 function wfLoad(){if(!WF.vis||WF.loading!==null||WF.want===WF.shown)return;
  var u=WF.want,f=wfF[1-wfA];WF.loading=u;wfBadge.textContent='Carico il talent tree…';wfBadge.hidden=false;
  clearTimeout(WF.to);WF.to=setTimeout(function(){if(WF.loading===u){WF.loading=null;wfBadge.textContent='wowforever.be non risponde: tocca “Apri ↗”'}},15000);
