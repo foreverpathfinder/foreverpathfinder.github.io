@@ -600,79 +600,223 @@
    "html": "<ul><li>Lightning Shield, Searing Totem/Magma Totem, Mana Spring Totem.</li><li>Lava Burst per pullare e Flame Shock subito dopo (crit garantito, Tavern).</li><li>Lightning Bolt come filler.</li></ul><p>Tavern: problemi di Mana più gravi e bilanciamento ancora in flusso.</p>"
   }
  ],
- "milestones": {
-  "1": [
-   "Rockbiter Weapon sull'arma, Lightning Bolt come attacco principale",
-   "Prendi Cooking, First Aid, Fishing + gathering"
-  ],
-  "3": [
-   "Solo Skyborne (Horde): <b>Call of Earth</b> a Zephras Isle (Windshaper Boro, Thendal Village 42.8, 23.6)"
-  ],
-  "4": [
-   "Earth Shock",
-   "<b>Call of Earth</b> (Dwarf: Teo Hammerstorm, Anvilmar 28.8, 66.2): 2 Iceclaw Bear Pendants da Frostmane Troll Whelps (27.3, 79.6) → Earth Sapta → Spirit Stone (25.0, 62.4; sentiero da 25.8, 69.3) → Rough Quartz a Teo = <b>Earth Totem</b> + Stoneskin Totem",
-   "Orc/Troll: Call of Earth a Durotar; Tauren: Mulgore (Tavern, passi non trovati)"
-  ],
-  "6": [
-   "Earthbind Totem (serve l'Earth Totem)"
-  ],
-  "8": [
-   "Lightning Shield, Stoneclaw Totem"
-  ],
-  "10": [
-   "Primo talent point: Thundering Strikes",
-   "Flame Shock, Flametongue Weapon, Strength of Earth Totem",
-   "<b>Call of Fire</b> (dal Trainer; Dwarf): Bruegs Kindleborn (Dun Morogh, sentiero da 86.7, 47.0) → Braldir Ashmantle (Loch Modan 32.0, 66.3) → Fire Tar (Tunnel Rat Geomancers, Silver Stream Mine 35.6, 20.2) + Reagent Pouch (Stonesplinter Seers 31.0, 77.4; mob fino al 14) → Fire Sapta → cima (31.9, 64.5): Minor Manifestation of Fire + Brazier → Torch of Eternal Flame a Bruegs = <b>Fire Totem</b> + Searing Totem. Tavern: meglio in gruppo o dopo il 14.",
-   "Orc/Troll/Tauren: Call of Fire a Durotar; Skyborne: Zephras Isle (Olariaan Swiftburn, Shrine of Flames, Gustberry Lowlands)"
-  ],
-  "12": [
-   "Fire Nova, Purge, Ancestral Spirit"
-  ],
-  "16": [
-   "Cure Poison, Rockbiter Rank 3, Lightning Shield Rank 2"
-  ],
-  "18": [
-   "Tremor Totem, Flame Shock Rank 2"
-  ],
-  "19": [
-   "Improved Ghost Wolf 2/2 (prima del 20)"
-  ],
-  "20": [
-   "<b>Ghost Wolf</b>, Frost Shock, Frostbrand, Lesser Healing Wave, Call of the Elements, Totemic Recall",
-   "Shamanistic Focus",
-   "<b>Call of Water</b> (Dwarf): Norric Lochthane (Loch Modan 41.9, 19.0) → Hervdana Saegrund (Wetlands, grotta dietro la cascata 65.7, 76.4) → 3 waterskin: cascata, Redridge Stonewatch Falls (73.7, 61.6), Ashenvale Astranaar (37.0, 51.6) → Water Sapta → Forgotten Shrine, Stendel's Pond, Westfall (47.5, 60.4) → Corrupt Minor Manifestation of Water → Shard of Water a Norric = Water Totem + Healing Stream Totem. Circa 2 ore di giro (Tavern); la barca Menethil → Darkshore fa tappa a Southshore.",
-   "Orc/Troll/Tauren: Call of Water a Orgrimmar o Thunder Bluff"
-  ],
-  "22": [
-   "Totemic Projection, Cure Disease, Poison Cleansing Totem"
-  ],
-  "24": [
-   "Rockbiter Rank 4, Earth Shock Rank 4, Lightning Shield Rank 3, Strength of Earth Rank 2, Frost Resistance Totem"
-  ],
-  "25": [
-   "<b>Stormstrike</b> (talent): la tua rotation cambia"
-  ],
-  "26": [
-   "Magma Totem, Mana Spring Totem, Flametongue Weapon Rank 3"
-  ],
-  "28": [
-   "Fire Resistance Totem, Flametongue Totem, Frostbrand Rank 2, Flame Shock Rank 3"
-  ],
-  "30": [
-   "<b>Windfury Weapon</b> (passa a 2H), Call of the Ancestors, Grounding Totem, Reincarnation, Astral Recall",
-   "<b>Call of Air</b> (Dwarf): Eldrun Stormbreaker (Ironforge) → Veyric Thunderhame (Arathi Highlands 59.8, 27.6; sentiero da 60.5, 35.2 e 60.5, 31.5) = Air Totem + 2450 XP. Tavern: il Call of Air dà anche un'arma di spec (Rage of the Storm per Enhancement) 🟡; nel database la quest del Dwarf mostra solo Air Totem + XP.",
-   "Orc/Troll/Tauren: Call of Air a Orgrimmar o Thunder Bluff"
-  ],
-  "32": [
-   "Chain Lightning, Windfury Totem"
-  ],
-  "35": [
-   "Maelstrom Weapon (build)"
-  ],
-  "40": [
-   "Rage of the Farseer, Dual Talent Specialization, Apprentice Riding"
-  ]
- },
+ "milestones": [
+  {
+   "l": 2,
+   "r": [
+    "skyborne_h"
+   ],
+   "t": "<b>Embracing the Elements</b> (Skyborne): quest di classe da Rorian the Dayseeker (Zephras Isle), consegna a Windshaper Boro e prosegue in Call of Earth. 🟡",
+   "npc": [
+    "Rorian the Dayseeker",
+    "Windshaper Boro"
+   ]
+  },
+  {
+   "l": 4,
+   "r": [
+    "dwarf"
+   ],
+   "t": "<b>Call of Earth</b> (Dwarf): parla con Teo Hammerstorm ad Anvilmar. Porta 2 Bear Pendant (Iceclaw o Frostmane, nome 🟡) dai Frostmane Troll Whelp (27.3 79.6). Trova lo Spirit Stone (25.0 62.4) e bevi l'Earth Sapta. Porta il Rough Quartz a Teo. Ricompensa: Earth Totem.",
+   "npc": [
+    "Teo Hammerstorm",
+    "Minor Manifestation of Earth"
+   ]
+  },
+  {
+   "l": 4,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "t": "<b>Call of Earth</b> (Orc/Troll): parla con Canaga Earthcaller nella Valley of Trials. Porta 2 Felstalker Hoof. Trova uno Spirit Rock e bevi l'Earth Sapta. Porta il Rough Quartz a Canaga. Ricompensa: Earth Totem.",
+   "npc": [
+    "Canaga Earthcaller",
+    "Minor Manifestation of Earth"
+   ]
+  },
+  {
+   "l": 4,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Call of Earth</b> (Tauren): parla con Seer Ravenfeather a Camp Narache (Mulgore). Porta 2 Ritual Salve. Trova il Kodo Rock e bevi l'Earth Sapta. Porta il Rough Quartz a Ravenfeather. Ricompensa: Earth Totem.",
+   "npc": [
+    "Seer Ravenfeather",
+    "Minor Manifestation of Earth"
+   ]
+  },
+  {
+   "l": 4,
+   "r": [
+    "skyborne_h"
+   ],
+   "t": "<b>Call of Earth</b> (Skyborne): parla con Windshaper Boro a Thendal Grove (Zephras Isle). Porta un Signet of Akir. Trova il Rise of Spirits e bevi l'Earth Sapta. Porta il Rough Quartz a Boro. Ricompensa: Earth Totem 🟡.",
+   "npc": [
+    "Windshaper Boro",
+    "Minor Manifestation of Earth"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "dwarf"
+   ],
+   "t": "<b>Call of Fire</b> (Dwarf): parti da Eldrun Stormbreaker (Ironforge) e cerca Bruegs Kindleborn (Dun Morogh). Bruegs ti affida il Torch of the Dormant Flame da portare a Braldir Ashmantle (Loch Modan). Braldir chiede 1 Fire Tar (Silver Stream Mine) e 1 Reagent Pouch (Stonesplinter Seers, fino a livello 14). Accendi il Glowing Ember al Minor Manifestation of Fire e mettilo nel brazier sul Fire Sapta (31.9 64.5). Riporta la torcia accesa a Bruegs. Ricompensa: Fire Totem 🟡.",
+   "npc": [
+    "Eldrun Stormbreaker",
+    "Bruegs Kindleborn",
+    "Braldir Ashmantle"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "t": "<b>Call of Fire</b> (Orc/Troll): parla con Searn Firewarder (Orgrimmar) o Swart (Razor Hill). Trova Kranal Fiss nelle Barrens (Grol'dom Farm) e prendi da lui il Torch of the Dormant Flame. Portala a Telf Joolam (Shrine of the Dormant Flame, Durotar) con 1 Fire Tar e 1 Reagent Pouch. Poi accendi il Glowing Ember sul Minor Manifestation of Fire e mettilo nel brazier sul Shrine of Eternal Flame. Ricompensa: Fire Totem 🟡.",
+   "npc": [
+    "Searn Firewarder",
+    "Swart",
+    "Kranal Fiss",
+    "Telf Joolam"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Call of Fire</b> (Tauren): parla con Xanis Flameweaver (Spirit Rise, Thunder Bluff) o Narm Skychaser (Bloodhoof Village). Trova Kranal Fiss nelle Barrens e segui la stessa catena Orc/Troll (torcia, Telf Joolam, Fire Tar e Reagent Pouch, Glowing Ember). Ricompensa: Fire Totem 🟡.",
+   "npc": [
+    "Xanis Flameweaver",
+    "Narm Skychaser",
+    "Kranal Fiss",
+    "Telf Joolam"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "skyborne_h"
+   ],
+   "t": "<b>Call of Fire</b> (Skyborne): parla con Aarnor Galestrike o Sessaria Skystride (Zephras Isle). Porta il Torch of the Dormant Flame a Olariaan Swiftburn (Shrine of Flames, Gustberry Lowlands). Uccidi lo Skypriest Faladiel (Gustberry Lowlands) e prendi il Faladiel's Heart. Trova Kuramaa nella casa a Shen'dar Highlands, sconfiggi lo spirito e porta Kuramaa's Mask a Olariaan. Resta al Brazier of Offering: Olariaan avvia il rituale. Porta l'Eternal Flame a Valanaar prima che scada il timer. Ricompensa: Fire Totem 🟡.",
+   "npc": [
+    "Aarnor Galestrike",
+    "Sessaria Skystride",
+    "Olariaan Swiftburn"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "dwarf"
+   ],
+   "t": "<b>Call of Water</b> (Dwarf): parla con Eldrun Stormbreaker (Ironforge), poi con Norric Lochthane (Loch Modan). Norric ti manda da Hervdana Saegrund (Wetlands). Riempi 3 waterskin: rossa a Stonewatch Falls (vicino ai Nightcrawler Murloc), blu ad Astranaar (Ashenvale), terza 🟡. Porta il Vial of Purest Water a Norric. A Stendel's Pond (Westfall) drink il Water Sapta e pulisci la corruzione con le Corrupt Manifestation's Bracers. Torna da Norric e consegna lo Shard of Water. Ricompensa: Water Totem (Healing Stream Totem 🟡).",
+   "npc": [
+    "Eldrun Stormbreaker",
+    "Norric Lochthane",
+    "Hervdana Saegrund"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "t": "<b>Call of Water</b> (Orc/Troll): parla con Searn Firewarder (Orgrimmar) o Swart (Razor Hill). Trova Islen Waterseer nelle Barrens. Islen ti manda da Brine (Southern Barrens). Riempi 3 waterskin: rossa al pozzo di Tarren Mill, marrone alla pozza sotto la capanna di Brine, blu alle Ruins of Stardust (Ashenvale). Porta il Vial of Purest Water a Islen. A Silverpine Forest (brazier di Everfount) distruggi il Corrupt Manifestation of Water e metti le sue Bracers. Consegna lo Shard of Water a Islen. Ricompensa: Water Totem 🟡.",
+   "npc": [
+    "Searn Firewarder",
+    "Swart",
+    "Islen Waterseer",
+    "Brine"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Call of Water</b> (Tauren): parla con Narm Skychaser (Bloodhoof Village) o Xanis Flameweaver (Spirit Rise). Segui la stessa catena Horde: Islen Waterseer nelle Barrens, Brine, 3 waterskin, Vial of Purest Water, Silverpine Forest, Shard of Water a Islen. Ricompensa: Water Totem 🟡.",
+   "npc": [
+    "Narm Skychaser",
+    "Xanis Flameweaver",
+    "Islen Waterseer",
+    "Brine"
+   ]
+  },
+  {
+   "l": 30,
+   "r": [
+    "dwarf"
+   ],
+   "t": "<b>Call of Air</b> (Dwarf): parla con Eldrun Stormbreaker (Ironforge). Trova Veyric Thunderhame in Arathi Highlands (59.8 27.6). Segui la catena sui sentieri 60.5 35.2 e 60.5 31.5 🟡 Ricompensa: Air Totem e 2450 XP 🟡.",
+   "npc": [
+    "Eldrun Stormbreaker",
+    "Veyric Thunderhame"
+   ]
+  },
+  {
+   "l": 30,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "t": "<b>Call of Air</b> (Orc/Troll): parla con Searn Firewarder (Orgrimmar). Trova Prate Cloudseer a Thousand Needles e segui la catena 🟡 Ricompensa: Air Totem 🟡.",
+   "npc": [
+    "Searn Firewarder",
+    "Prate Cloudseer"
+   ]
+  },
+  {
+   "l": 30,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Call of Air</b> (Tauren): parla con Xanis Flameweaver (Spirit Rise, Thunder Bluff). Trova Prate Cloudseer a Thousand Needles, come per Orc/Troll 🟡 Ricompensa: Air Totem 🟡.",
+   "npc": [
+    "Xanis Flameweaver",
+    "Prate Cloudseer"
+   ]
+  },
+  {
+   "l": 32,
+   "t": "Chain Lightning, Windfury Totem"
+  },
+  {
+   "l": 35,
+   "t": "Maelstrom Weapon (build)"
+  },
+  {
+   "l": 40,
+   "t": "Rage of the Farseer, Dual Talent Specialization, Apprentice Riding"
+  },
+  {
+   "l": 20,
+   "r": [
+    "skyborne_h"
+   ],
+   "t": "<b>Call of Water</b>: da Xanis Flameweaver (Spirit Rise, Thunder Bluff), stessa catena dei Tauren: Islen Waterseer nei Barrens → Brine → 3 waterskin → Vial of Purest Water → Shard of Water a Islen → Water Totem. 🟡",
+   "npc": [
+    "Xanis Flameweaver",
+    "Islen Waterseer",
+    "Brine"
+   ]
+  },
+  {
+   "l": 30,
+   "r": [
+    "skyborne_h"
+   ],
+   "t": "<b>Call of Air</b>: da Xanis Flameweaver (Spirit Rise, Thunder Bluff), poi Prate Cloudseer a Thousand Needles → Air Totem. 🟡",
+   "npc": [
+    "Xanis Flameweaver",
+    "Prate Cloudseer"
+   ]
+  }
+ ],
  "camp": [
   [
    "Camp Tent",
@@ -875,6 +1019,48 @@
    "date": "ott 2026",
    "signal": "snippet WebSearch",
    "used": "ordine razze"
+  },
+  {
+   "name": "Wowhead Forever tooltip quest API",
+   "url": "https://nether.wowhead.com/forever/tooltip/quest/<id>",
+   "date": "2026-11-01",
+   "signal": "Testo obiettivo di 126 quest per ID, raccolte da wmd.json",
+   "used": "Passi e NPC di Call of Earth/Fire/Water/Air, Moonglade, Lessons Anew, Cat Spirit"
+  },
+  {
+   "name": "Indice quest Forever",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Nome, livello, NPC, fazione e luogo di ogni quest in Forever",
+   "used": "Verifica esistenza, livello e NPC di ogni quest di classe"
+  },
+  {
+   "name": "Dati mappa Wowhead Forever (wmd.json)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/wmd.json",
+   "date": "2026-11-01",
+   "signal": "POI quest-giver con ID quest e coordinate",
+   "used": "Associazione NPC/razza tramite coordinate e ID"
+  },
+  {
+   "name": "Warcraft Wiki Skyborne starting experience",
+   "url": "https://warcraft.wiki.gg/wiki/Skyborne_starting_experience",
+   "date": "2026-11-01",
+   "signal": "Snippet di ricerca, dati beta-era: Embracing the Elements (Rorian, lvl 2) poi Call of Earth",
+   "used": "Passo lvl 2 Skyborne Shaman 🟡"
+  },
+  {
+   "name": "Warcraft Tavern Zephras Isle walkthrough",
+   "url": "https://www.warcrafttavern.com/forever/guides/zephras-isle-walkthrough/",
+   "date": "2026-11-01",
+   "signal": "Solo snippet di ricerca, nessun dettaglio di quest Call of Water/Air",
+   "used": "Nessuno, solo conferma che Windshaper Boro è trainer Skyborne"
+  },
+  {
+   "name": "Class JSON esistente (src/data/classes)",
+   "url": "~/Desktop/CLAUDE/WoW Forever leveling companion/src/data/classes/shaman.json",
+   "date": "2026-11-01",
+   "signal": "Fonti dichiarate nel testo (Warcraft Tavern, Method, forg.gg) non riverificate",
+   "used": "Coordinate di Spirit Stone, Fire Sapta, Veyric; ricompense Totem 🟡"
   }
  ],
  "doubts": [
@@ -885,6 +1071,13 @@
   "Non trovato: Water Walking/Water Breathing, Far Sight, Sentry Totem (livello e se esistono in Forever).",
   "Stat priority in conflitto (Method vs Tavern). Non guardato il video Caitlin_UK (4.7k views, 30 ott, armi Alleanza al 17:44).",
   "Icy Veins e Mobalytics letti solo da snippet e da mobalytics.md; i video solo da descrizioni.",
-  "Camp: la classifica è una mia valutazione dai talent (Mental Dexterity/Quickness), nessuna fonte specifica per Shaman."
+  "Camp: la classifica è una mia valutazione dai talent (Mental Dexterity/Quickness), nessuna fonte specifica per Shaman.",
+  "Call of Water e Call of Air per Skyborne Horde: nessuna quest nell'indice Forever. Lasciate 🟡.",
+  "Call of Air per Orc/Troll e Tauren: i passi dopo Prate Cloudseer non sono verificati.",
+  "Call of Air Dwarf: l'indice dice Veyric Thunderhame, il tooltip dice Thundervein. Usato Thunderhame perché è il nome nell'indice.",
+  "Ricompense (Earth/Fire/Water/Air Totem) dalla vecchia versione, non confermate dai tooltip.",
+  "Call of Fire Dwarf: il ritorno della torcia accesa a Bruegs non è confermato dai tooltip.",
+  "Call of Earth lvl 10 Dwarf (quest 96243, Find Teo Hammerstorm in Dun Morogh, da Eldrun Stormbreaker o Ingrid Dunwald): non chiaro se fa parte della catena. Non inserito.",
+  "Il vecchio testo Call of Fire Dwarf elencava il Searing Totem come ricompensa: non verificato, non inserito."
  ]
 }

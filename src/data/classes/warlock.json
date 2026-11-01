@@ -628,70 +628,221 @@
    "html": "<p>Rank pari: Corruption 4/14/24/34, Life Tap 6/16/26/36, Drain Life 14/22/30/38, Bane of Agony 8/18/28/38, Shadow Bolt 6/12/20/28/36. I Grimoire dei demoni (Imp/Voidwalker/Succubus/Felhunter) si comprano dal Demon Trainer e sono costosi (Method). Livelli dai tooltip Wowhead Forever.</p>"
   }
  ],
- "milestones": {
-  "1": [
-   "Summon Imp: class quest di razza. Human: The Stolen Tome (Drusilla La Salle, Northshire 49.8,42.6). Gnome: Beginnings (Alamar Grimm, Coldridge Valley 28.6,66.2). Orc/Troll: Vile Familiars (Ruzan, Valley of Trials; Troll: Gornek → Nartok 40.6,68.4). Undead: Piercing the Veil (Deathknell). Fonte: forg.gg 🟡 nomi NPC da una sola fonte.",
-   "Compra Immolate al Trainer (10 copper): vendi l'equip di partenza (Method)."
-  ],
-  "4": [
-   "Corruption, Curse of Weakness. Grimoire Blood Pact (Imp) dal Demon Trainer."
-  ],
-  "6": [
-   "Life Tap, Shadow Bolt Rank 2. Porta del cibo: Life Tap + mangia."
-  ],
-  "8": [
-   "Bane of Agony, Fear."
-  ],
-  "10": [
-   "Class quest Voidwalker. Drain Soul, Create Healthstone.",
-   "Human: Gakin's Summons (Remen Marcot, Goldshire) → Gakin the Darkbinder, Mage Quarter di Stormwind → Surena Caledon (Brackwell Pumpkin Patch, Elwynn 71.0,80.8) → The Binding. Gnome: The Slaughtered Lamb (Lago Blackwrench, Ironforge) → Gakin. Orc/Troll: Gan'rul's Summons (Ophek, Razor Hill) → Gan'rul Bloodeye, Cleft of Shadow → Creature of the Void (Tablet of Verga a Skull Rock, caverna pericolosa) → The Binding. Undead (consigliata, più facile): Halgar's Summons (Ageron Kargal, Brill) → Carendin Halgar, Undercity → Egalin's Grimoire (Tirisfal 51.1,67.6) → The Binding. Nella Binding combatti il demone da solo: vita e mana pieni. Fonti: forg.gg (9 ott), Warcraft Tavern, Method."
-  ],
-  "13": [
-   "Wand: Greater Magic Wand (Enchanting/Auction House, 22–41 dmg). Hall of Thanes e Ragefire Chasm (13–18)."
-  ],
-  "14": [
-   "Improved Corruption 5/5 = Corruption istantanea. Drain Life, Curse of Recklessness. Imp: Fire Shield."
-  ],
-  "18": [
-   "Searing Pain, Create Soulstone. Gravestone Scepter (Wand 29 DPS) dalla quest Blackfathom Villainy in Blackfathom Deeps (24–32): serve più livello."
-  ],
-  "20": [
-   "Class quest Succubus o Incubus. Demon Armor, Ritual of Summoning, Rain of Fire, Curse of the Elements. Grim Reach.",
-   "Horde Succubus (Orgrimmar): Devourer of Souls (Gan'rul) → Cazul → Zankaja (News of Dogran) → Crossroads → Ken'zigla (Stonetalon) → Grunt Logmar (Camp Taurajo) → libera Grunt Dogran → The Binding (catena di 7–8 quest: prima prendi i flight path). Undead: Devourer of Souls (Carendin Halgar) → Godrick Farsan, Hearts of the Pure (cuori in Silverpine e Wetlands) → The Binding (corta). Alliance: Devourer of Souls (Gakin) → Takar the Seer (Barrens, vicino Camp Taurajo; evita il Crossroads) → Heartswood in Ashenvale 31,31 → The Binding. Incubus: Alliance What Is Love? (Takar), Orgrimmar Love Hurts → Wish You Were Here (Magar, Ashenvale), Undercity Hearts of the Lovers. Ricompensa: Small Soul Pouch (14 slot). Fonte: forg.gg, Warcraft Tavern, WGE 🟡 baseline Classic.",
-   "<b>The Orb of Soran'ruk</b> (Doan Karhan, The Barrens 49.2,57.2; dal 20, anche Horde): 3 Soran'ruk Fragment da Twilight Acolytes in Blackfathom Deeps + 1 Large Soran'ruk Fragment da Shadowfang Darksoul in Shadowfang Keep. Scegli Staff of Soran'ruk (2H, +34 Shadow/Fire dmg, 14 Stamina) o Orb of Soran'ruk (off-hand +9 dmg, cura in 30 s). Warcraft Tavern, forg.gg."
-  ],
-  "22": [
-   "Staff of the Shade (Razorfen Kraul, +37 Shadow dmg, 15 Stamina) è un drop molto raro ma ottimo per Affliction (Tavern)."
-  ],
-  "24": [
-   "Drain Mana, Sense Demons, Corruption Rank 3. Blackfathom Deeps e The Stockade."
-  ],
-  "28": [
-   "Banish, Create Firestone. Conflagrate/Shadowburn solo Destruction."
-  ],
-  "30": [
-   "<b>Felhunter</b>: Seeking Strahad (Gakin a Stormwind / Gan'rul a Orgrimmar / Carendin Halgar a Undercity) → Strahad Farsan, Ratchet (The Barrens 62.6,35.5) → Tome of the Cabal (Alliance: Krom Stoutarm, Ironforge; Horde: Jorah Annison, Undercity): Moldy Tome (costa Hillsbrad), Tattered Manuscript (Thousand Needles), 3 Rod of Channeling dai Dragonmaw (Wetlands) → The Binding. Ricompensa Box of Souls (16 slot). Alliance: A Noble Brew (🟡 baseline Classic).",
-   "Drain Life Rank 3, Siphon Life, Hellfire, Subjugate Demon. Greater Mystic Wand (30)."
-  ],
-  "32": [
-   "Shadow Ward, Fear Rank 2, Curse of Weakness Rank 4."
-  ],
-  "36": [
-   "Create Spellstone, Spell Lock del Felhunter."
-  ],
-  "40": [
-   "Wrack, Howl of Terror. Class quest Summon Felsteed (Trainer capitale → Strahad Farsan). Apprentice Riding."
-  ],
-  "42": [
-   "Death Coil."
-  ],
-  "50": [
-   "Inferno: What Niby Commands (Niby the Almighty, Felwood)."
-  ],
-  "60": [
-   "Bane of Doom, Ritual of Doom (Daio the Decrepit, Blasted Lands), Dreadsteed. Dati WGE = baseline Classic 🟡."
-  ]
- },
+ "milestones": [
+  {
+   "l": 4,
+   "r": [
+    "human"
+   ],
+   "f": "A",
+   "t": "<b>The Stolen Tome</b> (Human, livello 4): parla con Drusilla La Salle, Northshire Abbey. Recupera i Powers of the Void per lei. Ricompensa: Summon Imp 🟡.",
+   "npc": [
+    "Drusilla La Salle"
+   ]
+  },
+  {
+   "l": 4,
+   "r": [
+    "gnome"
+   ],
+   "f": "A",
+   "t": "<b>Beginnings</b> (Gnome, livello 4): parla con Alamar Grimm ad Anvilmar. Porta 3 Feather Charm a Alamar. Ricompensa: Summon Imp 🟡.",
+   "npc": [
+    "Alamar Grimm"
+   ]
+  },
+  {
+   "l": 4,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "f": "H",
+   "t": "<b>Vile Familiars</b> (Orc/Troll, livello 4): parla con Ruzan o Zureetha Fargaze (The Den). Uccidi 12 Vile Familiar e riportali a Zureetha Fargaze fuori dal Den. Porta 6 Vile Familiar Head a Ruzan. Ricompensa: Summon Imp 🟡.",
+   "npc": [
+    "Ruzan",
+    "Zureetha Fargaze"
+   ]
+  },
+  {
+   "l": 3,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "t": "<b>Piercing the Veil</b> (Undead, livello 3): parla con Venya Marthand a Deathknell. Porta 3 Rattlecage Skull. Ricompensa: Summon Imp 🟡.",
+   "npc": [
+    "Venya Marthand"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "human"
+   ],
+   "f": "A",
+   "t": "<b>Gakin's Summons</b> (Human, livello 10): parla con Remen Marcot a Goldshire, poi riporta a Gakin the Darkbinder nella Mage Quarter di Stormwind. Poi <b>Surena Caledon</b>: recupera il Surena's Choker per Gakin (zona Brackwell Pumpkin Patch 🟡). Torna da Gakin e fai <b>The Binding</b>: usa il Bloodstone Choker per evocare e sottomettere un Voidwalker, poi riporta il choker a Gakin. Sblocca Summon Voidwalker 🟡.",
+   "npc": [
+    "Remen Marcot",
+    "Gakin the Darkbinder"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "gnome"
+   ],
+   "f": "A",
+   "t": "<b>The Slaughtered Lamb</b> (Gnome): parla con Lago Blackwrench a Ironforge e riporta a Gakin the Darkbinder a Stormwind. Poi la catena di Gakin: Surena's Choker, poi The Binding (Bloodstone Choker, Voidwalker). 🟡",
+   "npc": [
+    "Lago Blackwrench",
+    "Gakin the Darkbinder"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "f": "H",
+   "t": "<b>Gan'rul's Summons</b> (Orc/Troll, livello 10): parla con Ophek a Razor Hill, poi con Gan'rul Bloodeye a Orgrimmar. Poi <b>Creature of the Void</b>: recupera il Tablet of Verga per Gan'rul (Skull Rock 🟡). Poi <b>The Binding</b>: usa i Glyphs of Summoning per evocare e sottomettere un Voidwalker, riporta i glifi a Gan'rul. Ricompensa: Summon Voidwalker 🟡.",
+   "npc": [
+    "Ophek",
+    "Gan'rul Bloodeye"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "t": "<b>Halgar's Summons</b> (Undead, livello 10): parla con Ageron Kargal a Brill, poi con Carendin Halgar a Undercity. Poi <b>Creature of the Void</b>: recupera Egalin's Grimoire (Tirisfal 🟡) e riportalo a Halgar nel Temple of the Damned. Poi <b>The Binding</b>: usa le Runes of Summoning per evocare e sottomettere un Voidwalker, riporta le rune a Halgar nella Magic Quarter di Undercity. Ricompensa: Summon Voidwalker 🟡.",
+   "npc": [
+    "Ageron Kargal",
+    "Carendin Halgar"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "human",
+    "gnome"
+   ],
+   "f": "A",
+   "t": "<b>Devourer of Souls</b> (Alliance, livello 20): parla con Gakin the Darkbinder, poi con Takar the Seer nelle Barrens. Prendi l'Heartswood ad Ashenvale (31 31 🟡) e portalo a Gakin nella Mage Quarter. Poi <b>The Binding</b> (Heartswood Core): evoca e sottometti un Succubus, riporta il core a Gakin (The Slaughtered Lamb). Ricompensa: Summon Succubus 🟡.",
+   "npc": [
+    "Gakin the Darkbinder",
+    "Takar the Seer"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "f": "H",
+   "t": "<b>Devourer of Souls</b> (Orc/Troll, Succubus): parla con Gan'rul Bloodeye a Orgrimmar, poi con Cazul nel Cleft of Shadow. Poi <b>News of Dogran</b>: parla con Zankaja (Orgrimmar) e Gazrog (Crossroads), poi con Ken'zigla al Malaka'jin 🟡 ordine. Poi <b>Love's Gift</b>: porta il Dirt-caked Pendant a Gan'rul (da Grunt Dogran, Agama'gor). Infine <b>The Binding</b>: usa Dogran's Pendant per evocare e sottomettere un Succubus, riporta il pendente a Gan'rul. Ricompensa: Summon Succubus 🟡.",
+   "npc": [
+    "Gan'rul Bloodeye",
+    "Cazul",
+    "Zankaja",
+    "Gazrog",
+    "Ken'zigla",
+    "Grunt Dogran"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "orc",
+    "troll"
+   ],
+   "f": "H",
+   "t": "<b>Love Hurts</b> (Orc/Troll, Incubus): parla con Cazul a Orgrimmar, poi con Magar a Orgrimmar. Poi <b>The Binding</b>: usa il Withered Scarf per evocare e sottomettere un Incubus, riporta lo scarf a Gan'rul Bloodeye. Ricompensa: Summon Incubus 🟡.",
+   "npc": [
+    "Cazul",
+    "Magar",
+    "Gan'rul Bloodeye"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "t": "<b>Devourer of Souls</b> (Undead, Succubus): parla con Carendin Halgar a Undercity, poi con Godrick Farsan nel Temple of the Damned. Porta i cuori di Dalin Forgewright e Corma Villard a Halgar (Hearts of the Pure). Poi <b>The Binding</b>: usa i Pure Hearts per evocare e sottomettere un Succubus, riporta i cuori a Halgar nella Magic Quarter. Ricompensa: Summon Succubus 🟡.",
+   "npc": [
+    "Carendin Halgar",
+    "Godrick Farsan"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "t": "<b>Hearts of the Lovers</b> (Undead, Incubus): porta i cuori di Avelina Lilly e Isaac Pearson a Carendin Halgar nel Temple of the Damned. Poi <b>The Binding</b>: usa i Lovers' Hearts per evocare e sottomettere un Incubus, riporta i cuori a Halgar nella Magic Quarter. Ricompensa: Summon Incubus 🟡.",
+   "npc": [
+    "Carendin Halgar",
+    "Godrick Farsan"
+   ]
+  },
+  {
+   "l": 20,
+   "t": "<b>The Orb of Soran'ruk</b> (da Doan Karhan, The Barrens 49.2 57.2): porta 3 Soran'ruk Fragment dai Twilight Acolyte in Blackfathom Deeps e 1 Large Soran'ruk Fragment dallo Shadowfang Darksoul in Shadowfang Keep. Scegli tra Staff of Soran'ruk (2H) e Orb of Soran'ruk (off-hand). 🟡",
+   "npc": [
+    "Doan Karhan"
+   ]
+  },
+  {
+   "l": 30,
+   "t": "<b>Seeking Strahad</b>: parla con Gakin the Darkbinder (Stormwind), Gan'rul Bloodeye (Orgrimmar) o Carendin Halgar (Undercity). Trova Strahad Farsan a Ratchet. Poi <b>Tome of the Cabal</b>: Alliance da Krom Stoutarm (Ironforge), Horde da Jorah Annison (Undercity) 🟡. Ingredienti 🟡: Moldy Tome (Hillsbrad), Tattered Manuscript (Thousand Needles), 3 Rod of Channeling dai Dragonmaw (Wetlands).",
+   "npc": [
+    "Gakin the Darkbinder",
+    "Gan'rul Bloodeye",
+    "Carendin Halgar",
+    "Strahad Farsan",
+    "Krom Stoutarm",
+    "Jorah Annison"
+   ]
+  },
+  {
+   "l": 30,
+   "t": "<b>The Binding</b> (Felhunter): usa il Tome of the Cabal per evocare e sottomettere un Felhunter, poi riporta il tomo a Strahad Farsan a Ratchet. Ricompensa: Summon Felhunter 🟡 e Box of Souls 🟡.",
+   "npc": [
+    "Strahad Farsan"
+   ]
+  },
+  {
+   "l": 32,
+   "t": "Shadow Ward, Fear Rank 2, Curse of Weakness Rank 4."
+  },
+  {
+   "l": 36,
+   "t": "Create Spellstone, Spell Lock del Felhunter."
+  },
+  {
+   "l": 40,
+   "t": "Wrack, Howl of Terror. Class quest Summon Felsteed (Trainer capitale → Strahad Farsan). Apprentice Riding."
+  },
+  {
+   "l": 42,
+   "t": "Death Coil."
+  },
+  {
+   "l": 50,
+   "t": "Inferno: What Niby Commands (Niby the Almighty, Felwood)."
+  },
+  {
+   "l": 60,
+   "t": "Bane of Doom, Ritual of Doom (Daio the Decrepit, Blasted Lands), Dreadsteed. Dati WGE = baseline Classic 🟡."
+  }
+ ],
  "camp": [
   [
    "Camp Tent",
@@ -907,6 +1058,34 @@
    "date": "ott 2026",
    "signal": "reputazione alta",
    "used": "Racial"
+  },
+  {
+   "name": "Wowhead Forever tooltip quest API",
+   "url": "https://nether.wowhead.com/forever/tooltip/quest/<id>",
+   "date": "2026-11-01",
+   "signal": "Testo obiettivo quest per ID: Stolen Tome, Beginnings, Vile Familiars, Piercing the Veil, Summons, Binding, Devourer of Souls, Seeking Strahad",
+   "used": "Passi e NPC delle catene warlock per Imp, Voidwalker, Succubus/Incubus, Felhunter"
+  },
+  {
+   "name": "Indice quest Forever",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Nome, livello, NPC, fazione e luogo di ogni quest in Forever",
+   "used": "Livelli e NPC: The Stolen Tome lvl 4, Beginnings Anvilmar, Piercing the Veil lvl 3"
+  },
+  {
+   "name": "Dati mappa Wowhead Forever (wmd.json)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/wmd.json",
+   "date": "2026-11-01",
+   "signal": "POI quest-giver con ID quest e coordinate",
+   "used": "Associazione NPC e fazione, Strahad Farsan a Ratchet"
+  },
+  {
+   "name": "Class JSON esistente (src/data/classes)",
+   "url": "~/Desktop/CLAUDE/WoW Forever leveling companion/src/data/classes/warlock.json",
+   "date": "2026-11-01",
+   "signal": "Fonti dichiarate nel testo (forg.gg, Warcraft Tavern, Method, WGE) non riverificate",
+   "used": "Orb of Soran'ruk, Tome of the Cabal, ingredienti e ricompense 🟡"
   }
  ],
  "doubts": [
@@ -918,6 +1097,13 @@
   "Curse of the Elements al 20 (client) contro 32 di Classic: non risolto. Dark Pact non trovato.",
   "Icy Veins e il testo Mobalytics (Kargoz/Hadoogin) non leggibili: solo snippet di WebSearch. Icy Veins: 40/11/0, Siphon Life al 30, 1 punto in Grim Reach 🟡.",
   "L'ordine dei Camp object è una nostra valutazione: nessuna fonte li ordina per il Warlock. I numeri (Spirit +32, Intellect +25, Stamina +56) vengono dalla guida del Mago.",
-  "Livelli dei dungeon dalla mappa Wowhead Forever; Maxroll dà range diversi (es. Deadmines 18–23)."
+  "Livelli dei dungeon dalla mappa Wowhead Forever; Maxroll dà range diversi (es. Deadmines 18–23).",
+  "Correzione: The Stolen Tome è livello 4 (non 1). Beginnings (Gnome) è ad Anvilmar, non Coldridge Valley.",
+  "Gnome Voidwalker: The Slaughtered Lamb con Lago Blackwrench, livello non chiaro. Nell'indice Gakin's Summons via Lago è lvl 20.",
+  "Alliance Incubus: non verificato. Non inserito.",
+  "Orb of Soran'ruk: quest non nell'indice Forever, dati dalla vecchia versione.",
+  "News of Dogran e Love's Gift: ordine dei passi non confermato dai tooltip.",
+  "Tome of the Cabal: NPC e ingredienti non riverificati.",
+  "Ricompense (Summon X) dedotte dal nome della catena, non verificate sui tooltip."
  ]
 }

@@ -493,81 +493,69 @@
    "html": "<ul><li><b>Riposte/Sinister Strike</b>: <code>#showtooltip Sinister Strike</code> / <code>/startattack</code> / <code>/cast Riposte</code> / <code>/cast Sinister Strike</code> (DonTheCrown, Rogue's Diary).</li><li><b>Poison e stone con un click</b>: sinistro main hand, destro off-hand (Rogue's Diary).</li></ul>"
   }
  ],
- "milestones": {
-  "1": [
-   "Sinister Strike, Eviscerate, Stealth. Throw (arma da lancio iniziale) per il pull. Cooking: Basic Campfire per i camp object."
-  ],
-  "4": [
-   "Backstab e Pick Pocket dal Rogue Trainer."
-  ],
-  "5": [
-   "Apprentice Professions: Skinning (nella starting zone), Cooking e First Aid."
-  ],
-  "6": [
-   "Gouge (poi Sinister Strike R2)."
-  ],
-  "8": [
-   "Evasion."
-  ],
-  "10": [
-   "Dual Wield, Sap, Slice and Dice, Sprint: vai al Trainer (priorità: Dual Wield e Slice and Dice, Method).",
-   "Class quest di livello 10: ricompensa Blade of Cunning, pugnale (Mobalytics Rogue's Diary, Method). Il nome della quest cambia per razza; non trovato per ogni razza in Forever.",
-   "Primi talent: Remorseless Attacks ×2.",
-   "Journeyman Professions."
-  ],
-  "12": [
-   "Kick e Parry."
-  ],
-  "14": [
-   "Expose Armor e Garrote."
-  ],
-  "16": [
-   "Feint e Pick Lock (serve 80 di Lockpicking per la quest dei Poison)."
-  ],
-  "18": [
-   "Ambush (serve un Dagger in main hand)."
-  ],
-  "20": [
-   "Quest dei Poison (Alleanza: Mathias and the Defias da Master Mathias Shaw a Stormwind → Klaven's Tower (Agent Kearnen, Westfall, a est di Sentinel Hill) → The Touch of Zanzil · Orda: The Shattered Salute / Deep Cover da Shenthul a Orgrimmar → Mission: Possible But Not Probable (Barrens, Venture Co. tower) → Hinott's Assistance a Tarren Mill). Alleanza: più facile. Orda: molto più difficile. Consigliato farla dal 22 (con Vanish e Distract). Riceverai Poisons, Instant Poison e la ricetta di Thistle Tea (Warcraft Tavern, Poisons guide).",
-   "The Horn of Xelthos (lettera da \"C\" quando sei in una città): da solo dentro Shadowfang Keep; ricompensa Pyrewood Signet Ring (+4 Agility, +4 Stamina, 0,4% Hit) (ConquestCapped, 24 ott 🟡; Method).",
-   "Rupture, Crippling Poison, Expert Professions. Camp object di professione si craftano a 20 di skill.",
-   "Deadmines (17–26): Cruel Barb da Edwin VanCleef (Method)."
-  ],
-  "22": [
-   "Distract e Vanish."
-  ],
-  "23": [
-   "Riposte (talent)."
-  ],
-  "24": [
-   "Mind-numbing Poison."
-  ],
-  "26": [
-   "Cheap Shot."
-  ],
-  "27": [
-   "Flawless Execution (talent)."
-  ],
-  "30": [
-   "Kidney Shot, Deadly Poison, Disarm Trap.",
-   "The Eye of Bhossca (seconda lettera di \"C\", db livello 25, in beta ricevuta a 30): da solo in Scarlet Monastery, Graveyard, con la Scarlet Initiate's Uniform; ricompensa Ruby-Adorned Blade (spada 1H rara, 38–72 danni, vel. 2,30, +3 Agility +8 Stamina) (ConquestCapped 🟡; Method; video ufficiale: \"da livello 25\")."
-  ],
-  "32": [
-   "Blade Flurry (talent). Wound Poison."
-  ],
-  "34": [
-   "Blind (+ Blinding Powder)."
-  ],
-  "35": [
-   "Hack and Slash (talent)."
-  ],
-  "40": [
-   "Apprentice Riding (mount), Safe Fall, Dual Talent Specialization. DonTheCrown: aspetta a imparare le ranks nuove finché non hai il mount."
-  ],
-  "44": [
-   "Adrenaline Rush (talent, nella build proposta)."
-  ]
- },
+ "milestones": [
+  {
+   "l": 16,
+   "t": "<b>Lockpicking</b>: serve per aprire i forzieri della quest dei Poison. Warcraft Tavern dice 70 per entrambe le fazioni; un commento dice 80. Imparala dal trainer della tua capitale e alza la skill prima del 20. 🟡"
+  },
+  {
+   "l": 20,
+   "r": [
+    "human",
+    "dwarf",
+    "gnome",
+    "nightelf",
+    "skyborne_a"
+   ],
+   "f": "A",
+   "npc": [
+    "Master Mathias Shaw",
+    "Agent Kearnen",
+    "Doc Mixilpixil"
+   ],
+   "t": "<b>Quest dei Poison (Alleanza)</b>: 1) <b>Mathias and the Defias</b> (20) da Master Mathias Shaw (SI:7 HQ, Valley of Heroes). 2) <b>Klaven's Tower</b> (24) da Agent Kearnen (Westfall, a est di Sentinel Hill). Ruba la Defias Tower Key da un Malformed Drone (livello 23) vicino all'ingresso, sali la torre, stordisci o uccidi Klaven (élite 24) e apri il forziere. 3) <b>The Touch of Zanzil</b> (20) è opzionale: rimuove la maledizione. 4) Torna da Master Mathias Shaw a Stormwind: da qui puoi comprare i veleni. Alleanza più facile."
+  },
+  {
+   "l": 20,
+   "r": [
+    "orc",
+    "troll",
+    "tauren",
+    "undead",
+    "skyborne_h"
+   ],
+   "f": "H",
+   "npc": [
+    "Shenthul",
+    "Serge Hinott"
+   ],
+   "t": "<b>Quest dei Poison (Orda)</b>: 1) <b>The Shattered Salute</b> (20) da Shenthul (Orgrimmar), esegui il saluto indicato. 2) <b>Deep Cover</b> (20) da Shenthul, nel nord-est di The Barrens (Sludge Fen). 3) <b>Mission: Possible But Not Probable</b> (24, Taskmaster Fizzule, Sludge Fen): usa la pistola a razzo sulla Venture Co. Tower, uccidi 2 Mutated Drone, 2 Lookout e 2 Patroller, ruba la chiave di Silixiz da Foreman Silixiz, uccidi Grand Foreman Puzik Gallywix (élite 23) e apri il suo forziere con Lockpicking 70. 4) <b>Hinott's Assistance</b> (20, Serge Hinott, Tarren Mill): rimuove il debuff di 7 giorni e sblocca la creazione dei veleni. Orda molto più difficile."
+  },
+  {
+   "l": 22,
+   "t": "Consiglio (Warcraft Tavern): fai la quest dei Poison dal 22, non prima, perché serve la skill Lockpicking 70 e il personaggio più forte per gli élite."
+  },
+  {
+   "l": 32,
+   "t": "Blade Flurry (talent). Wound Poison."
+  },
+  {
+   "l": 34,
+   "t": "Blind (+ Blinding Powder)."
+  },
+  {
+   "l": 35,
+   "t": "Hack and Slash (talent)."
+  },
+  {
+   "l": 40,
+   "t": "Apprentice Riding (mount), Safe Fall, Dual Talent Specialization. DonTheCrown: aspetta a imparare le ranks nuove finché non hai il mount."
+  },
+  {
+   "l": 44,
+   "t": "Adrenaline Rush (talent, nella build proposta)."
+  }
+ ],
  "camp": [
   [
    "Fish Bowl",
@@ -809,6 +797,20 @@
    "date": "agg. 17 ott 2026",
    "signal": "Icy Veins",
    "used": "Solo snippet WebSearch: esiste una guida Combat con livelli breakpoint"
+  },
+  {
+   "name": "Indice Forever (forever_quests.txt)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Nomi quest, livelli, NPC, zona",
+   "used": "Mathias and the Defias 20, Klaven's Tower 24, The Touch of Zanzil 20, The Shattered Salute 20, Deep Cover 20, Mission 24, Hinott's Assistance 20 e 26"
+  },
+  {
+   "name": "Warcraft Tavern – Rogue Poisons Guide",
+   "url": "https://warcrafttavern.com/wow-forever/rogue-poisons-guide/",
+   "date": "2026-11-01",
+   "signal": "Letta: passi dei Poison per Alleanza e Orda, Lockpicking 70",
+   "used": "Passi della quest dei Poison e la soglia Lockpicking"
   }
  ],
  "doubts": [
@@ -821,6 +823,11 @@
   "Non trovato: Icy Veins e Wowhead (corpo guida) bloccati; nessuna trascrizione dei video. Non trovato: elenco spell con ranks per livello da Wowhead; ho preso le abilità dal Trainer da Warcraft Tavern (nuove) e DonTheCrown (rank-up, 🟡): Backstab al 4, Gouge al 6, Evasion all'8, ecc. La tabella di DonTheCrown mostra Stealth R2 al 20.",
   "Non trovato: mount del Rogue (nessuna quest di classe per il mount); Apprentice Riding al 40.",
   "Non verificato: effetto esatto di Hack and Slash con più armi (due armi diverse: usa le abilità per tipo; Rogue's Diary dice 'tutto viabile').",
-  "Warcraft Tavern, sezione class quest del Rogue: contiene righe copiate dal Mage; ignorate. Le liste Mage non sono state usate."
+  "Warcraft Tavern, sezione class quest del Rogue: contiene righe copiate dal Mage; ignorate. Le liste Mage non sono state usate.",
+  "🟡 Quest di classe al 10 (Blade of Cunning) non trovata nell'indice: non inserita come quest sicura.",
+  "🟡 Lockpicking: WT dice 70, un commento 80, il JSON precedente 80. Non risolto.",
+  "🟡 Dove imparare Lockpicking non verificato.",
+  "🟡 Lettera 'C' di The Horn of Xelthos e The Eye of Bhossca: non trovate nell'indice, non inserite.",
+  "🟡 Quest Orda Mission: Possible But Not Probable: WT dà la Lockpicking 70 per il forziere; il JSON precedente diceva 'Barrens, Venture Co. tower' per la location, indice dice Sludge Fen."
  ]
 }

@@ -637,63 +637,231 @@
    "html": "<p>Shred richiede di stare dietro al mob; da dietro non vieni parato né colpito dagli attacchi frontali. Feral Charge da Cat ti mette dietro automaticamente. Combo Point: Tavern dice che non si trasferiscono tra target, games.gg (17 set) che sì: 🟡 verifica in gioco. I bleed ignorano l'armor: ottimi contro mob corazzati.</p>"
   }
  ],
- "milestones": {
-  "1": [
-   "Mark of the Wild, Wrath, Healing Touch. Trainer di classe: Alleanza Mardant Strongoak (Shadowglen 58.6 40.4) / Kal (Dolanaar 56.0 61.4); Horde Gart Mistrunner (Red Cloud Mesa, Mulgore 45.0 76.0) / Gennia Runetotem (Bloodhoof 48.4 59.6); Skyborne (Zephras Isle, livelli 3–12) Xyton Silverwind (Thendal Village 41.7 23.4), Naeluna Swiftmend (Shen'dar 45.2 44.3), Lotheluum Starbreeze (Valanaar 64.0 75.1)."
-  ],
-  "4": [
-   "Moonfire e Rejuvenation: passa dal trainer ogni livello pari (Method)."
-  ],
-  "5": [
-   "Apprentice Professions; con Talented (Legacy) 5/5 il primo punto talent arriva già qui."
-  ],
-  "6": [
-   "Thorns."
-  ],
-  "10": [
-   "Class quest Bear Form: 'Heeding the Call' (Night Elf: Darnassus, Mathrengyl Bearwalker, Cenarion Enclave 35.2 8.0; Tauren: Thunder Bluff) oppure 'The Great Ursera Spirit' (Skyborne, Zephras Isle). Dà Bear Form, Growl, Maul, Teleport: Moonglade (Tavern; per gli Skyborne la quest Moonglade a Stormwind/Thunder Bluff 🟡 tabella poco leggibile).",
-   "Nature's Grasp, Demoralizing Roar. Primo punto talent (Ferocity). Journeyman Professions.",
-   "Zone: Westfall, Loch Modan, Darkshore, The Barrens, Silverpine Forest (min 10, Tavern)."
-  ],
-  "12": [
-   "Regrowth, Revive, Enrage."
-  ],
-  "14": [
-   "Class quest Cure Poison 'Lessons Anew' (Darnassus / Thunder Bluff) e Bash."
-  ],
-  "16": [
-   "Class quest Aquatic Form 'A Lesson to Learn' (Darnassus / Thunder Bluff): ricompensa Idol of Shifting Tides. Swipe."
-  ],
-  "18": [
-   "Faerie Fire, Hibernate. Ashenvale consigliata dal 18."
-  ],
-  "20": [
-   "Class quest Cat Form 'The Great Cat Spirit' (Darnassus / Thunder Bluff; Skyborne: 'The Great Windborne Cat Spirit', Zephras Isle, Method) → Cat Form, Claw, Prowl, Rip. KamiLabs (26 set) parlava di una catena a Moonglade 🟡.",
-   "Shred, Starfire, Rebirth, Omen of Clarity, Polearms (Woo Ping a Stormwind per l'Alleanza, Archibald a Undercity per la Horde). Expert Professions. Feral Charge.",
-   "Dungeon: Wailing Caverns 17–24 (set Embrace of the Viper), The Deadmines 17–26, Ruins of Lordaeron 15–20 (mappa Wowhead)."
-  ],
-  "24": [
-   "Rake, Remove Curse, Tiger's Fury 🟡."
-  ],
-  "26": [
-   "Dash, Abolish Poison."
-  ],
-  "28": [
-   "Cower, Challenging Roar, Lacerate (talent)."
-  ],
-  "30": [
-   "Travel Form (trainer), Leader of the Pack, Tranquility. Zone: Stranglethorn Vale, Desolace, Arathi Highlands, Alterac Mountains dal 30 (Tavern). Gnomeregan 29–38 per Manual Crowd Pummeler."
-  ],
-  "35": [
-   "Artisan Professions."
-  ],
-  "40": [
-   "Apprentice Riding (mount), Dire Bear Form, Innervate, Dual Talent Specialization, Feline Grace; talent di riga 7 (Primal Bite 40, Shifting Power 41)."
-  ],
-  "44": [
-   "Barkskin."
-  ]
- },
+ "milestones": [
+  {
+   "l": 1,
+   "r": [
+    "nightelf"
+   ],
+   "t": "<b>Trainer di classe</b> Night Elf: Mardant Strongoak (Shadowglen) o Kal (Dolanaar). 🟡",
+   "npc": [
+    "Mardant Strongoak",
+    "Kal"
+   ]
+  },
+  {
+   "l": 1,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Trainer di classe</b> Tauren: Gart Mistrunner (Red Cloud Mesa, Mulgore) o Gennia Runetotem (Bloodhoof Village).",
+   "npc": [
+    "Gart Mistrunner",
+    "Gennia Runetotem"
+   ]
+  },
+  {
+   "l": 1,
+   "r": [
+    "skyborne_a",
+    "skyborne_h"
+   ],
+   "t": "<b>Trainer di classe</b> Skyborne: Xyton Silverwind (Thendal Village), Naeluna Swiftmend (Shen'dar), Lotheluum Starbreeze (Valanaar).",
+   "npc": [
+    "Xyton Silverwind",
+    "Naeluna Swiftmend",
+    "Lotheluum Starbreeze"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "nightelf"
+   ],
+   "t": "<b>Heeding the Call</b> (Night Elf, livello 10): parla con Denatharion o Kal 🟡 Poi parla con Mathrengyl Bearwalker nel Cenarion Enclave, Darnassus. Ricompensa: Bear Form.",
+   "npc": [
+    "Denatharion",
+    "Mathrengyl Bearwalker"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Heeding the Call</b> (Tauren, livello 10): parla con Gennia Runetotem a Bloodhoof Village. Poi parla con Turak Runetotem sull'Elder Rise di Thunder Bluff. Ricompensa: Bear Form.",
+   "npc": [
+    "Gennia Runetotem",
+    "Turak Runetotem"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "skyborne_a",
+    "skyborne_h"
+   ],
+   "t": "<b>The Great Ursera Spirit</b> (Skyborne, livello 10): parla con Lotheluum Starbreeze, poi con Urs'endris vicino alle cascate a nord-est di Valanaar. Ricompensa: Bear Form 🟡.",
+   "npc": [
+    "Lotheluum Starbreeze",
+    "Urs'endris"
+   ]
+  },
+  {
+   "l": 10,
+   "r": [
+    "nightelf",
+    "tauren"
+   ],
+   "t": "<b>Moonglade</b> (livello 10): la quest sblocca Teleport: Moonglade. Si prende da Mathrengyl Bearwalker (Night Elf) o Turak Runetotem (Tauren). Usa il teleport e parla con Dendrite Starblaze nel villaggio di Nighthaven. Serve per Lessons Anew, A Lesson to Learn e Cat Spirit.",
+   "npc": [
+    "Mathrengyl Bearwalker",
+    "Turak Runetotem",
+    "Dendrite Starblaze"
+   ]
+  },
+  {
+   "l": 14,
+   "r": [
+    "nightelf"
+   ],
+   "t": "<b>Lessons Anew</b> (Night Elf, livello 14, Cure Poison): parla con Mathrengyl Bearwalker a Darnassus. Usa Teleport: Moonglade e parla con Dendrite Starblaze a Nighthaven. Ricompensa: Cure Poison 🟡.",
+   "npc": [
+    "Mathrengyl Bearwalker",
+    "Dendrite Starblaze"
+   ]
+  },
+  {
+   "l": 14,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>Lessons Anew</b> (Tauren, livello 14, Cure Poison): parla con Turak Runetotem sull'Elder Rise. Usa Teleport: Moonglade e parla con Dendrite Starblaze a Nighthaven. Ricompensa: Cure Poison 🟡.",
+   "npc": [
+    "Turak Runetotem",
+    "Dendrite Starblaze"
+   ]
+  },
+  {
+   "l": 16,
+   "r": [
+    "nightelf"
+   ],
+   "t": "<b>A Lesson to Learn</b> (Night Elf, livello 16, Aquatic Form): parla con Mathrengyl Bearwalker a Darnassus. Usa Teleport: Moonglade e parla con Dendrite Starblaze a Nighthaven. Ricompensa: Aquatic Form (Idol of Shifting Tides 🟡).",
+   "npc": [
+    "Mathrengyl Bearwalker",
+    "Dendrite Starblaze"
+   ]
+  },
+  {
+   "l": 16,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>A Lesson to Learn</b> (Tauren, livello 16, Aquatic Form): parla con Turak Runetotem sull'Elder Rise. Usa Teleport: Moonglade e parla con Dendrite Starblaze a Nighthaven. Ricompensa: Aquatic Form (Idol of Shifting Tides 🟡).",
+   "npc": [
+    "Turak Runetotem",
+    "Dendrite Starblaze"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "nightelf"
+   ],
+   "t": "<b>The Great Cat Spirit</b> (Night Elf, livello 20, Cat Form): parla con Mathrengyl Bearwalker a Darnassus. Usa Teleport: Moonglade e parla con Dendrite Starblaze. Vai nel sud di Moonglade dal Great Cat Spirit. Recupera le tre reliquie allo Stormrage Barrow Den (Relic of the Fang, Relic of the Claw, Relic of the Silent Shadow 🟡 zona) e riportale allo spirito. Ricompensa: Cat Form 🟡.",
+   "npc": [
+    "Mathrengyl Bearwalker",
+    "Dendrite Starblaze",
+    "Great Cat Spirit"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "tauren"
+   ],
+   "t": "<b>The Great Cat Spirit</b> (Tauren, livello 20, Cat Form): parla con Turak Runetotem sull'Elder Rise. Usa Teleport: Moonglade e parla con Dendrite Starblaze. Vai nel sud di Moonglade dal Great Cat Spirit. Recupera le tre reliquie allo Stormrage Barrow Den e riportale allo spirito. Ricompensa: Cat Form 🟡.",
+   "npc": [
+    "Turak Runetotem",
+    "Dendrite Starblaze",
+    "Great Cat Spirit"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "skyborne_a",
+    "skyborne_h"
+   ],
+   "t": "<b>The Great Windborne Cat Spirit</b> (Skyborne, livello 20, Cat Form): parla con Dendrite Starblaze a Nighthaven. Cerca l'Avatar of Saeyleenan nel sud di Moonglade. Recupera le tre reliquie allo Stormrage Barrow Den e portale all'Avatar. Ricompensa: Cat Form 🟡.",
+   "npc": [
+    "Dendrite Starblaze",
+    "Avatar of Saeyleenan"
+   ]
+  },
+  {
+   "l": 30,
+   "r": [
+    "nightelf",
+    "tauren",
+    "skyborne_a",
+    "skyborne_h"
+   ],
+   "t": "<b>Travel Form</b>: si impara dal trainer di classe della tua capitale o zona Skyborne, senza quest. Livello 30 da una sola fonte 🟡 (un'altra fonte dice 20). Trainer: Mardant Strongoak o Kal (Night Elf), Gart Mistrunner o Gennia Runetotem (Tauren), Xyton Silverwind (Skyborne).",
+   "npc": [
+    "Mardant Strongoak",
+    "Gart Mistrunner",
+    "Gennia Runetotem",
+    "Xyton Silverwind"
+   ]
+  },
+  {
+   "l": 35,
+   "t": "Artisan Professions."
+  },
+  {
+   "l": 40,
+   "t": "Apprentice Riding (mount), Dire Bear Form, Innervate, Dual Talent Specialization, Feline Grace; talent di riga 7 (Primal Bite 40, Shifting Power 41)."
+  },
+  {
+   "l": 44,
+   "t": "Barkskin."
+  },
+  {
+   "l": 14,
+   "r": [
+    "skyborne_a"
+   ],
+   "t": "<b>Lessons Anew</b> (Cure Poison) da Alfina Nightgaze (Dalaran): usa Teleport: Moonglade e segui la catena con Dendrite Starblaze a Nighthaven → impari Cure Poison. 🟡",
+   "npc": [
+    "Alfina Nightgaze",
+    "Dendrite Starblaze"
+   ]
+  },
+  {
+   "l": 14,
+   "r": [
+    "skyborne_h"
+   ],
+   "t": "<b>Lessons Anew</b> (Cure Poison) da Hana Lighthoof (Spirit Rise, Thunder Bluff): usa Teleport: Moonglade e segui la catena con Dendrite Starblaze a Nighthaven → impari Cure Poison. 🟡",
+   "npc": [
+    "Hana Lighthoof",
+    "Dendrite Starblaze"
+   ]
+  },
+  {
+   "l": 16,
+   "r": [
+    "skyborne_a",
+    "skyborne_h"
+   ],
+   "t": "<b>A Lesson to Learn</b> (Aquatic Form): dopo Lessons Anew chiedi al Druid Trainer che te l'ha data (Alfina Nightgaze a Dalaran o Hana Lighthoof a Thunder Bluff); la catena passa da Dendrite Starblaze a Moonglade → Aquatic Form. 🟡",
+   "npc": [
+    "Dendrite Starblaze"
+   ]
+  }
+ ],
  "camp": [
   [
    "Camp Tent",
@@ -947,6 +1115,48 @@
    "date": "18 ott",
    "signal": "solo snippet (403)",
    "used": "Ferocity 5/5 al 20; da controllare"
+  },
+  {
+   "name": "Wowhead Forever tooltip quest API",
+   "url": "https://nether.wowhead.com/forever/tooltip/quest/<id>",
+   "date": "2026-11-01",
+   "signal": "Testo obiettivo quest per ID: Moonglade 5921/94913/94914, Lessons Anew 6121/6126, A Lesson to Learn 26/27, Cat Spirit 98340/98393/98341/98396/98404, Heeding the Call 5923-5928",
+   "used": "Passi e NPC di Bear Form, Cure Poison, Aquatic Form, Cat Form"
+  },
+  {
+   "name": "Indice quest Forever",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Nome, livello, NPC, fazione e luogo di ogni quest in Forever",
+   "used": "Livelli: Heeding the Call 10, Lessons Anew 14, A Lesson to Learn 16, Cat Spirit 20; giver Gennia e Turak"
+  },
+  {
+   "name": "Dati mappa Wowhead Forever (wmd.json)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/wmd.json",
+   "date": "2026-11-01",
+   "signal": "POI quest-giver e trainer di classe con ID quest e coordinate",
+   "used": "Trainer per fazione e giver Alliance (Denatharion, Mathrengyl, Sheldras Moontree)"
+  },
+  {
+   "name": "WebSearch druid Classic quests (Warcraft Wiki, Icy Veins, noobtoboss)",
+   "url": "https://warcraft.wiki.gg/wiki/Druid_quests",
+   "date": "2026-11-01",
+   "signal": "Solo Classic, non Forever. Cure Poison lvl 14, Aquatic Form lvl 16, Travel Form lvl 30 o 20 discordanti",
+   "used": "Solo cross-check. Tutti i dati Classic sono marcati 🟡"
+  },
+  {
+   "name": "WebSearch Skyborne Zephras Isle",
+   "url": "https://www.warcrafttavern.com/forever/guides/zephras-isle-walkthrough/",
+   "date": "2026-11-01",
+   "signal": "Solo snippet, conferma che Zephras Isle è lo starting zone Skyborne",
+   "used": "Nessun dato druid"
+  },
+  {
+   "name": "Class JSON esistente (src/data/classes)",
+   "url": "~/Desktop/CLAUDE/WoW Forever leveling companion/src/data/classes/druid.json",
+   "date": "2026-11-01",
+   "signal": "Fonti dichiarate nel testo (Method, KamiLabs, Warcraft Tavern) non riverificate",
+   "used": "Trainer di classe per fazione, ricompense 🟡"
   }
  ],
  "doubts": [
@@ -958,6 +1168,12 @@
   "🟡 Cat Form quest: Tavern/Method = Darnassus/Thunder Bluff; KamiLabs (26 set) = catena a Moonglade. 'The Great Windborne Cat Spirit' (Skyborne) solo Method; quest Teleport: Moonglade degli Skyborne da tabella Tavern poco leggibile.",
   "🟡 Wind Blessed 1% (tabella racial) vs 2% (guida Skyborne Tavern); Skysight 10% vs 15%; Combo Point trasferibili tra target (games.gg) vs no (Tavern).",
   "Valori dei camp Lodestone e Sharpening Wheel non letti; icone scelte a mano (verificate con status 200).",
-  "Non trovato: livelli e requisiti esatti di Wolfshead Helm, trainer Horde Druid su Eastern Kingdoms oltre Dalaran, build 31–60 da un'altra fonte, trascrizioni dei video."
+  "Non trovato: livelli e requisiti esatti di Wolfshead Helm, trainer Horde Druid su Eastern Kingdoms oltre Dalaran, build 31–60 da un'altra fonte, trascrizioni dei video.",
+  "Skyborne: Cure Poison e Aquatic Form non trovate nell'indice Forever. Le quest Skyborne di Bear e Cat Form sono verificate solo tramite Lotheluum, Dendrite e Avatar of Saeyleenan.",
+  "Travel Form: livello 30 o 20 non confermato. Probabilmente è un trainer e non una quest.",
+  "Heeding the Call Alliance: il giver esatto non è nell'indice Forever (Denatharion o Kal da mappa, non confermato).",
+  "Cat Form: la zona dello Stormrage Barrow Den non è verificata.",
+  "Cure Poison: la ricompensa è dalla fonte Classic, non confermata in Forever.",
+  "Moonglade (lvl 10) per Skyborne: nessuna quest trovata. Non inserita per Skyborne."
  ]
 }

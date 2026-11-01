@@ -54,7 +54,10 @@ function npcBtn(p,label){return p?goBtn(label||p[0],p[2],p[3],6.25,'<b>'+(label|
 function hubBtns(s){var x=s[2],y=s[3],h=goBtn(s[0],x,y,s[4],'<b>'+s[0]+'</b>');
  h+=npcBtn(near(D.map.trainers[S.c],x,y),CL.name+' Trainer')+npcBtn(near(D.map.fp,x,y),'Flight Master')+npcBtn(near(D.map.inn,x,y),'Inn');
  S.o.prof.forEach(function(p){h+=npcBtn(near(D.map.prof[pkey(p)],x,y),p+' Trainer')});return h}
-function npcLinks(html){var t=txt(html),h='';RT.quests.forEach(function(q){if(t.indexOf(q[0])>-1)h+=goBtn(q[0],q[2],q[3],6.25,'<b>'+q[0]+'</b><br>'+q[1])});return h}
+function npcLinks(html,skip){var t=txt(html),h='',seen=skip||{};RT.quests.forEach(function(q){if(!seen[q[0]]&&t.indexOf(q[0])>-1){seen[q[0]]=1;h+=goBtn(q[0],q[2],q[3],6.25,'<b>'+q[0]+'</b><br>'+q[1])}});return h}
+// milestone: {t, r?:[razze], f?:'A'|'H', n?:[[npc,x,y]]} → solo quelle della tua razza/fazione, con 📍 sugli NPC
+function msFor(l){return [].concat(RT.milestones[l]||[],CL.milestones[l]||[],(FA.milestones&&FA.milestones[l])||[]).filter(function(m){return (!m.r||m.r.indexOf(S.r)>-1)&&(!m.f||m.f===RA.faction)})}
+function msBtns(m){var seen={},h=(m.n||[]).map(function(n){seen[n[0]]=1;return goBtn(n[0],n[1],n[2],6.25,'<b>'+n[0]+'</b>')}).join('');return h+npcLinks(m.t,seen)}
 function dgBtn(name){var n=name.replace(/[★✔🟡]/g,'').trim().toLowerCase(),d=D.map.dg.filter(function(x){return x[0].toLowerCase()===n||n.indexOf(x[0].toLowerCase())>-1||x[0].toLowerCase().indexOf(n)>-1})[0];return d?goBtn(name,d[2],d[3],5.5,'<b>⚔ '+d[0]+'</b><br>Livelli '+d[1]):''}
 document.addEventListener('click',function(e){var b=e.target.closest('.go');if(!b)return;e.preventDefault();
  if(b.dataset.lv){S.L=+b.dataset.lv;renderLevel();return}
@@ -72,7 +75,7 @@ function profTasks(l){var P=S.o.prof;if(!P.length)return [];var a=P.join(' e ');
 function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]===l}),b=tAt(l);
  if(b){var n=TAL.n[b];t.push([img(n[1])+'<b>Talent:</b> '+n[0]+' '+rankAt(l)[b]+'/'+n[2]+' <span class="note">'+(CL.why[n[0]]||'')+'</span>','<button class="go" data-sec="build">Calcolatore ›</button>'])}
  if(sp.length)t.push([img(sp[0][2])+'<b>Trainer:</b> '+sp.map(function(x){return x[1]}).join(', '),npcBtn(near(D.map.trainers[S.c],RT.steps[stepAt(l)][2],RT.steps[stepAt(l)][3]),CL.name+' Trainer')]);
- [].concat(RT.milestones[l]||[],CL.milestones[l]||[],(FA.milestones&&FA.milestones[l])||[]).forEach(function(m){t.push([m,npcLinks(m)])});
+ msFor(l).forEach(function(m){t.push([m.t,msBtns(m)])});
  profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(near(D.map.prof[pkey(p)],s[2],s[3]),p+' Trainer')}).join('')])});
  if(l===10)t.push(['Le <b>Waylaid Crates</b> diventano utilizzabili (consegna: '+(FA.crates||'—')+')','']);
  if(S.o.dg)FA.dungeons.forEach(function(d){if(/non consigliat/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest. '+(d[4]||''),dgBtn(d[0])])});
@@ -106,7 +109,8 @@ function renderPath(){var h='';
  RT.steps.forEach(function(s,i){var r=stepRange(i),rows='',key=i+':';
   if(PT&&PT.steps.indexOf(s)>-1&&PT.steps.indexOf(s)===0)rows+=taskRow(['<b>Prima di partire:</b><ul>'+li(PT.unlocks)+'</ul>'+(PT.quests.length?'<b>Quest:</b><ul>'+li(PT.quests.map(function(q){return '<i>'+q[0]+'</i> – '+q[1]+', '+q[2]+' (liv. '+q[3]+'): '+q[4]}))+'</ul>':''),''],r[0],key);
   if(s[7])rows+=taskRow(['✈ Prendi il Flight Path: <b>'+s[7]+'</b>',npcBtn(near(D.map.fp,s[2],s[3]),'Flight Master')],r[0],key);
-  for(var l=r[0];l<=r[1];l++)tasksFor(l,l===r[0]).forEach(function(t){rows+=taskRow(t,l,key)});
+  var fpn=s[7]?s[7].split(' (')[0]:'';
+  for(var l=r[0];l<=r[1];l++)tasksFor(l,l===r[0]).forEach(function(t){if(fpn&&/Flight Path/i.test(t[0])&&txt(t[0]).indexOf(fpn)>-1)return;rows+=taskRow(t,l,key)}); // il Flight Path della tappa c'è già
   var cur=S.L>=r[0]&&S.L<=r[1];
   h+='<details class="chap'+(cur?' cur':'')+'" data-i="'+i+'"'+(cur?' open':'')+'><summary><img src="'+IC(s[5])+'" alt=""><span><b>'+(i+1)+'. '+s[0]+'</b><small>Livelli '+r[0]+(r[1]>r[0]?'–'+r[1]:'')+(PT&&PT.steps.indexOf(s)>-1?' · cambio continente':'')+'</small></span><span class="pct"></span></summary><div class="body"><p>'+s[6]+'</p><div class="btns" style="margin:6px 0">'+hubBtns(s)+'<button class="go" data-lv="'+r[0]+'">Sono qui</button></div>'+rows+'</div></details>'});
  $('chaps').innerHTML=h;progress()}
@@ -132,7 +136,7 @@ function renderLevel(){
  h+='<div class="box"><b class="t">Da non perdere</b>'+(td||'<p class="note">Quest nella zona e raccolta lungo la strada.</p>')+(dg.length&&S.o.dg?'<p class="note" style="margin-bottom:0">⚔ Dungeon nel range:</p>'+dg.map(function(d){return dgBtn(d[0])}).join(''):'')+'</div>';
  $('plan').innerHTML=h;
  var tl='';for(var l=1;l<=MAXL;l++){var it=[],b=tAt(l);if(b)it.push(img(TAL.n[b][1],'s')+' '+TAL.n[b][0]);
-  CL.spells.filter(function(x){return x[0]===l}).forEach(function(x){it.push(x[1])});it=it.concat((RT.milestones[l]||[]).concat(CL.milestones[l]||[]));if(!it.length)continue;
+  CL.spells.filter(function(x){return x[0]===l}).forEach(function(x){it.push(x[1])});it=it.concat(msFor(l).map(function(m){return m.t}));if(!it.length)continue;
   tl+='<div class="ev'+(l<L?' done':l===L?' cur':'')+'"><span class="lv">Liv. '+l+'</span><span>'+it.join(' · ')+'</span></div>'}
  $('tl').innerHTML=tl;
  [].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var r=stepRange(+c.dataset.i),cur=L>=r[0]&&L<=r[1];c.classList.toggle('cur',cur);if(cur)c.open=true});

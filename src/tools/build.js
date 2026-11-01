@@ -18,6 +18,25 @@ for (const M of Object.values(WM)) {
   Object.values(M.nodes).forEach(a => { for (let i = 0; i < a.length; i += 2) g(a, i); });
 }
 
+/* ---- NPC → posizione (quest giver, trainer, innkeeper, flight master) e milestone normalizzate ---- */
+const NPCS = []; for (const M of Object.values(WM)) NPCS.push(...M.quests, ...M.inn, ...M.fp, ...Object.values(M.trainers).flat(), ...Object.values(M.prof).flat());
+const RN = k => { k = String(k).toLowerCase().replace(/[^a-z_]/g, ''); return k === 'skyborne_alliance' || k === 'skyborne_high_order' ? 'skyborne_a' : k === 'skyborne_horde' || k === 'skyborne_windshaper' || k === 'skyborne_windshapers' ? 'skyborne_h' : k; };
+const RFAC = { human: 1, dwarf: 1, gnome: 1, nightelf: 1, skyborne_a: 1, orc: 2, undead: 2, troll: 2, tauren: 2, skyborne_h: 2 };
+function npcPos(name, side) { const n = String(name).toLowerCase().trim(), m = NPCS.filter(x => x[0].toLowerCase() === n); return m.find(x => !side || x[1] === side || !x[1]) || m[0]; }
+// milestones: { "10": ["testo" | {t,r,f,npc}] } oppure [ {l,t,r,f,npc} ] → { 10: [{t, r?, f?, n?:[[npc,x,y]]}] }
+function normMs(ms, side0, ctx) {
+  const out = {}, add = (l, x) => {
+    const o = typeof x === 'string' ? { t: x } : { t: x.t };
+    if (x.r && x.r.length) o.r = x.r.map(RN);
+    if (x.f) o.f = x.f;
+    const side = x.f ? (x.f === 'A' ? 1 : 2) : o.r ? RFAC[o.r[0]] : side0;
+    if (x.npc && x.npc.length) o.n = x.npc.map(n => { const p = npcPos(n, side); if (!p) { W(ctx + ': NPC "' + n + '" (liv. ' + l + ') non trovato sulla mappa'); return null; } return [n, p[2], p[3]]; }).filter(Boolean);
+    if (!o.t) return; (out[l] = out[l] || []).push(o);
+  };
+  if (Array.isArray(ms)) ms.forEach(m => add(+m.l, m)); else Object.entries(ms || {}).forEach(([l, a]) => a.forEach(x => add(+l, x)));
+  return out;
+}
+
 /* ---- classi + talent dal client ---- */
 const talents = {}, classes = {};
 for (const [k, cl] of dir('classes')) {
@@ -44,7 +63,7 @@ for (const [k, cl] of dir('classes')) {
   const src = s => Array.isArray(s) ? s : [s.name + (s.author && !s.name.includes(s.author) ? ' (' + s.author + ')' : ''), s.url, [s.date, s.signal].filter(Boolean).join(' · '), s.used];
   const chips = (cl.chips || cl.talentSpells.filter(x => x[0] <= MAXL && !/non in build/i.test(x[1])).slice(0, 2).map(x => [x[2], x[1].replace(/ \(talent\)/i, '') + ' al ' + x[0]]));
   const races = {}; Object.entries(cl.races || {}).forEach(([rk, v]) => { const n = rk.toLowerCase().replace(/[^a-z_]/g, '').replace(/^skyborne_?(alliance|a)$/, 'skyborne_a').replace(/^skyborne_?(horde|h)$/, 'skyborne_h'); if (n === 'skyborne') { races.skyborne_a = races.skyborne_h = v; } else races[n] = v; });
-  classes[k] = Object.assign({}, cl, { build, treeIndex, color: cl.color || COLORS[k], chips, sources: cl.sources.map(src), milestones: cl.milestones || {}, talentSpells: cl.talentSpells || [], rotNotes: cl.rotNotes || [], alternatives: cl.alternatives || [], compare: cl.compare || [], races, camp: (cl.camp || []).filter(c => !/non trovat/i.test(c[0])) });
+  classes[k] = Object.assign({}, cl, { build, treeIndex, color: cl.color || COLORS[k], chips, sources: cl.sources.map(src), milestones: normMs(cl.milestones, 0, k), talentSpells: cl.talentSpells || [], rotNotes: cl.rotNotes || [], alternatives: cl.alternatives || [], compare: cl.compare || [], races, camp: (cl.camp || []).filter(c => !/non trovat/i.test(c[0])) });
   ['buildSource', 'doubts', 'class'].forEach(x => delete classes[k][x]);
   if (build.length < MAXL - 9) W(`${k}: build corta (${build.length} punti)`);
 }
@@ -55,6 +74,7 @@ for (const [c, M] of Object.entries(WM)) {
   M.places.forEach(p => placeIdx.push({ n: p[0].toLowerCase(), c, x: p[3], y: p[4], kind: p[1] }));
   M.zones.forEach(z => placeIdx.push({ n: z[0].toLowerCase(), c, x: z[2], y: z[3], kind: 'zone' }));
 }
+const txtOnly = h => String(h).replace(/<[^>]+>/g, '').slice(0, 140);
 const norm = s => (s || '').toLowerCase().replace(/[’']/g, "'").trim();
 function findPlace(name, pref) {
   const n = norm(name); if (!n) return null;
@@ -83,6 +103,7 @@ for (const [fk, F] of dir('factions')) {
       for (const [c, M] of Object.entries(WM)) { const npcs = M.quests.concat(M.inn, M.fp, ...Object.values(M.trainers)); const m = npcs.filter(x => norm(x[0]) === norm(q.npc)); const hit = m.find(x => x[1] === side || !x[1]) || m[0]; if (hit) return [q.npc, q.text, hit[2], hit[3], c]; }
       W(`${key}: NPC "${q.npc}" non trovato tra i quest giver`); return null;
     }).filter(Boolean);
+    const msNpc = normMs(R.milestones, side, key); Object.entries(msNpc).forEach(([l, a]) => a.forEach(m => (m.n || []).forEach(n => { if (!quests.some(q => q[0] === n[0])) quests.push([n[0], txtOnly(m.t), n[1], n[2], '']); })));
     const fpNames = [];
     (R.flights || []).forEach(fl => { let hit = null; for (const M of Object.values(WM)) { hit = M.fp.find(x => (x[1] === side || !x[1]) && (norm(x[0]) === norm(fl.master) || (norm(x[4]).includes(norm(fl.name)) || norm(fl.name).includes(norm(x[4])) && x[4]))); if (hit) break; }
       if (hit) fpNames.push(hit[0]); else W(`${key}: flight path "${fl.name}" non trovato`); });
@@ -90,11 +111,11 @@ for (const [fk, F] of dir('factions')) {
     const s0 = steps[0], c0 = Math.floor((s0[2] - WM[s0[8]].ox) / 1024), r0 = Math.floor((s0[3] - WM[s0[8]].oy) / 1024), hero = [];
     for (let rr = r0 - 1; rr <= r0; rr++) for (let cc = c0 - 1; cc <= c0 + 2; cc++) hero.push(`https://wow.zamimg.com/images/wow/classicplus/world-map/v3/${s0[8]}/5/${rr}/${cc}.webp`);
     routes[key] = { name: R.name, icon: s0[5], trunk: steps[steps.length - 1][8], junction: 0, segments: R.segments.map(s => [s.from, s.to, s.zone, s.hub, s.note]), steps, quests, fpNames, zones: [...zoneNames], hero,
-      milestones: R.milestones || {}, bags: R.bags || [], flights: R.flights || [], transport: R.transport || [] };
+      milestones: normMs(R.milestones, side, key), bags: R.bags || [], flights: R.flights || [], transport: R.transport || [] };
     const last = R.segments[R.segments.length - 1]; if (!last || last.to < MAXL) W(`${key}: la rotta non arriva al ${MAXL}`);
   }
   const src = s => Array.isArray(s) ? s : [s.name, s.url, [s.date, s.signal].filter(Boolean).join(' · '), s.used];
-  factions[f] = { dungeons: F.dungeons || [], sources: (F.sources || []).map(src), transport: F.transport || [], crates: F.crates || '', milestones: F.milestones || {} };
+  factions[f] = { dungeons: F.dungeons || [], sources: (F.sources || []).map(src), transport: F.transport || [], crates: F.crates || '', milestones: normMs(F.milestones, side, fk) };
 }
 for (const [rk, r] of Object.entries(races)) {
   if (!routes[r.start]) W(`razza ${rk}: rotta "${r.start}" mancante`);

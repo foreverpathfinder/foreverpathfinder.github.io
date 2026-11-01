@@ -593,77 +593,162 @@
    "html": "<p>Blessing of Might e Retribution Aura per il danno (yumytv su Mobalytics). Blessing of Kings è baseline dal 20. Il Camp Lodestone sostituisce Might e il Mana Well sostituisce Wisdom (Maxroll): in quel caso lancia Kings su di te.</p>"
   }
  ],
- "milestones": {
-  "1": [
-   "Human: Northshire Abbey, trainer Brother Sammuel (Consecrated Letter da Marshal McBride). Dwarf: Coldridge Valley, trainer Bromos Grummner (Consecrated Rune da Sten Stoutarm). Undead: Deathknell, trainer Aramis Hammerhand (A Difficult Path, Rediscovering the Light).",
-   "Seal of Righteousness, Holy Light, Devotion Aura. Visite al trainer: 4, 6, 8, 10, 12, 14, 18, 20, 24 (BoF)."
-  ],
-  "4": [
-   "Trainer: Blessing of Might, Judgement. Undead: Coming to Terms, Continue Your Training."
-  ],
-  "6": [
-   "Holy Strike ★, Divine Protection, Seal of the Crusader."
-  ],
-  "7": [
-   "Human: Northshire Hammer (Rare Books, Elwynn Forest, 2H mace), primo upgrade (classicwowforever)."
-  ],
-  "8": [
-   "Hammer of Justice, Purify."
-  ],
-  "10": [
-   "Primo talent point: Benediction (Retribution tree). Lay on Hands, Blessing of Protection, Righteous Fury ★, Seal of Fury ★. Undead: A Second Home."
-  ],
-  "12": [
-   "Redemption: class quest. Human: The Tome of Divinity da Duthorian Rall (Stormwind). Dwarf: Tome of Divinity da Tiza Battleforge (Ironforge). Undead: A Lesson in Divinity (Tirisfal Glades)."
-  ],
-  "13": [
-   "Hall of Thanes (Alliance 13–18): Ironforge Greathammer, Durgen's Crescent Axe. Horde: Ragefire Chasm."
-  ],
-  "16": [
-   "Retribution Aura. Rhahk'Zor's Hammer (Deadmines, circa 16–22) è un grosso salto per la Two-Handed."
-  ],
-  "20": [
-   "Seal of Command (talent), Blessing of Kings ★, Consecration ★, Exorcism, Flash of Light. Polearm skill dal Weapon Master (Woo Ping a Stormwind, Archibald a Undercity).",
-   "Class quest dell'arma, Alliance: The Tome of Valor (Duthorian Rall, Stormwind) → The Test of Righteousness (Jordan Stilwell, fuori da Ironforge, 52,36 per Icy Veins) → Verigan's Fist (2H mace). Materiali da Deadmines, Shadowfang Keep, Blackfathom Deeps più Bailor's Ore Shipment.",
-   "Horde (Undead): catena Danitha Mor → Moonsilver Blade → Old Fire-Eye → Wolfsbane 🟡. Alternativa Q22: Forsaken Greataxe (The Wrath of Rath'mael, Ruins of Lordaeron)."
-  ],
-  "22": [
-   "Concentration Aura, Seal of Justice. Test of Righteousness: Jordan Stilwell forgia l'arma."
-  ],
-  "24": [
-   "Turn Undead. Undead: class quest A Curious Pair, A Grim Fate, Diplomatic Incident, Into Fenris Keep, Lumina Windsinger, The Debt, The Windshaper's Wrath (BoF)."
-  ],
-  "26": [
-   "Sacred Arbiter (talent). Salvation e Revoke 🟡."
-  ],
-  "29": [
-   "Corpsemaker (Razorfen Kraul, 2H axe) per Zockify; classicwowforever indica Guardian's Dualblade (City of Dalaran, 27–28)."
-  ],
-  "30": [
-   "Divine Intervention (Symbol of Divinity), Seal of Light. Fine della beta: da qui in poi è proiezione."
-  ],
-  "34": [
-   "Divine Shield."
-  ],
-  "38": [
-   "Seal of Wisdom."
-  ],
-  "40": [
-   "Summon Warhorse: The Tome of Nobility (Duthorian Rall, Stormwind; passi con Arthur the Faithful e Brandur Ironhammer). Apprentice Riding, Dual Talent Specialization. Hammer of the Righteous ★, Unsealed Wrath ★. Armatura Plate."
-  ],
-  "42": [
-   "Cleanse."
-  ],
-  "44": [
-   "Hammer of Wrath."
-  ],
-  "52": [
-   "Western Plaguelands: Chillwind Point, Dispelling Evil, Forging the Mightstone (class quest Alliance)."
-  ],
-  "60": [
-   "Summon Charger (Alliance: Lord Grayson Shadowbreaker, Grimand Elmore; Horde: Summon Forsaken Charger)."
-  ]
- },
+ "milestones": [
+  {
+   "l": 1,
+   "r": [
+    "human"
+   ],
+   "f": "A",
+   "npc": [
+    "Marshal McBride"
+   ],
+   "t": "<b>A Scribbled Letter</b> / <b>Consecrated Letter</b>: prendi la quest da Marshal McBride a Northshire Abbey. Segui la catena di Northshire (kobold, Defias) e torna dal Trainer della tua zona. Il Paladin inizia così."
+  },
+  {
+   "l": 1,
+   "r": [
+    "dwarf"
+   ],
+   "f": "A",
+   "npc": [
+    "Sten Stoutarm"
+   ],
+   "t": "<b>Consecrated Rune</b> / <b>Archaic Rune</b>: prendi la quest da Sten Stoutarm. Segui la catena della tua zona di partenza e torna dal Trainer."
+  },
+  {
+   "l": 1,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "npc": [
+    "Shadow Priest Sarvis",
+    "Aramis Hammerhand"
+   ],
+   "t": "<b>A Difficult Path</b> (1) poi <b>Rediscovering the Light</b> (2) e <b>Coming to Terms</b> / <b>Continue Your Training</b> (4): catena di Deathknell. Parti da Shadow Priest Sarvis, poi Aramis Hammerhand."
+  },
+  {
+   "l": 11,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "npc": [
+    "Shari Stilwell"
+   ],
+   "t": "<b>A Second Home</b> (11): quest Undead a Brill, da Shari Stilwell. Sblocca la parte di classe della tua città Horde."
+  },
+  {
+   "l": 12,
+   "r": [
+    "human"
+   ],
+   "t": "<b>Redemption</b>: 1) <i>Tome of Divinity</i> da Brother Wilhelm (Goldshire) o Lord Grayson Shadowbreaker (Stormwind). 2) <i>The Tome of Divinity</i> da Duthorian Rall (Cathedral of Light, Stormwind), poi segui i passaggi da Stephanie Turner (Valley of Heroes) e Gazin Tenorm (Stormwind). 3) Vai da Henze Faulk (Heroes' Vigil) e fai <i>The Symbol of Life</i>: usa il Symbol of Life su di lui per riportarlo in vita → impari Redemption. 🟡",
+   "npc": [
+    "Brother Wilhelm",
+    "Duthorian Rall",
+    "Stephanie Turner",
+    "Gazin Tenorm",
+    "Henze Faulk"
+   ]
+  },
+  {
+   "l": 12,
+   "r": [
+    "dwarf"
+   ],
+   "t": "<b>Redemption</b>: 1) <i>Tome of Divinity</i> da Azar Stronghammer (Kharanos) o Brandur Ironhammer (Ironforge). 2) <i>The Tome of Divinity</i> da Tiza Battleforge (Ironforge), poi John Turner (Gates of Ironforge) e Muiredon Battleforge (Ironforge). 3) Vai da Narm Faulk (Helm's Bed Lake, Dun Morogh est) e fai <i>The Symbol of Life</i>: usa il Symbol of Life su di lui → impari Redemption. 🟡",
+   "npc": [
+    "Azar Stronghammer",
+    "Tiza Battleforge",
+    "John Turner",
+    "Muiredon Battleforge",
+    "Narm Faulk"
+   ]
+  },
+  {
+   "l": 12,
+   "r": [
+    "undead"
+   ],
+   "t": "<b>Redemption</b>: <i>A Lesson in Divinity</i> da Danitha Morr o Deathguard Billmuth (Bandarion Keep, Tirisfal), Deathguard Falgan (Venomweb Vale) o Tanis Alderwood (Ruins of Lordaeron): segui la catena fino a Redemption. 🟡",
+   "npc": [
+    "Danitha Morr",
+    "Deathguard Falgan",
+    "Tanis Alderwood"
+   ]
+  },
+  {
+   "l": 20,
+   "r": [
+    "human",
+    "dwarf"
+   ],
+   "f": "A",
+   "npc": [
+    "Duthorian Rall",
+    "Tiza Battleforge",
+    "Jordan Stilwell",
+    "Bailor Stonehand"
+   ],
+   "t": "<b>The Tome of Valor</b> (20, Duthorian Rall a Stormwind o Tiza Battleforge a Ironforge) poi <b>The Test of Righteousness</b> (21 da Duthorian Rall, 22 da Jordan Stilwell a Gates of Ironforge). Passi: consegna la Tome, poi raccogli i materiali dai dungeon Deadmines, Shadowfang Keep e Blackfathom Deeps, più <b>Bailor's Ore Shipment</b> (22, Bailor Stonehand a Thelsamar). Jordan Stilwell forgia l'arma. Ricompensa: <b>Verigan's Fist</b> (martello 2H, item finale della catena, non una quest). Zone: Loch Modan e Westfall. 🟡"
+  },
+  {
+   "l": 22,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "npc": [
+    "Trevan Rol",
+    "Deathguard Baldren",
+    "Danitha Morr"
+   ],
+   "t": "<b>A Curious Pair</b> (22, Trevan Rol, The Sepulcher), <b>A Grim Fate</b> (22, Deathguard Baldren, The Sepulcher), <b>Diplomatic Incident</b> (22, Danitha Morr, Bandarion Keep): quest di classe Undead da fare dal 22."
+  },
+  {
+   "l": 25,
+   "r": [
+    "undead"
+   ],
+   "f": "H",
+   "npc": [
+    "Ott",
+    "Lumina Windsinger",
+    "Shenthul"
+   ],
+   "t": "Catena arma Undead: <b>The Moonsilver Blade</b> (25, Ott a Tarren Mill), <b>A Moon-Kissed Blade</b> (25, Lumina Windsinger, The Sepulcher), poi <b>Old Fire-Eye</b> (26, Lumina Windsinger, The Sepulcher). Alternativa dal 22: <b>The Wrath of Rath'mael</b> (Ruins of Lordaeron, Deathguard Kristof a Brill). 🟡"
+  },
+  {
+   "l": 34,
+   "t": "Divine Shield."
+  },
+  {
+   "l": 38,
+   "t": "Seal of Wisdom."
+  },
+  {
+   "l": 40,
+   "t": "Summon Warhorse: The Tome of Nobility (Duthorian Rall, Stormwind; passi con Arthur the Faithful e Brandur Ironhammer). Apprentice Riding, Dual Talent Specialization. Hammer of the Righteous ★, Unsealed Wrath ★. Armatura Plate."
+  },
+  {
+   "l": 42,
+   "t": "Cleanse."
+  },
+  {
+   "l": 44,
+   "t": "Hammer of Wrath."
+  },
+  {
+   "l": 52,
+   "t": "Western Plaguelands: Chillwind Point, Dispelling Evil, Forging the Mightstone (class quest Alliance)."
+  },
+  {
+   "l": 60,
+   "t": "Summon Charger (Alliance: Lord Grayson Shadowbreaker, Grimand Elmore; Horde: Summon Forsaken Charger)."
+  }
+ ],
  "camp": [
   [
    "Camp Tent",
@@ -902,6 +987,20 @@
    "date": "9 gg fa",
    "signal": "34K views, 382 like",
    "used": "solo segnale; altri: Axphyxiate Gaming 35K (2 sett), Kargoz Ret 1-60 32K (3 gg), yumytv 96K (2 gg), Pallytime215 13K, GravTV 15K"
+  },
+  {
+   "name": "Indice Forever (forever_quests.txt)",
+   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "date": "2026-11-01",
+   "signal": "Nomi quest, livelli, NPC, zona",
+   "used": "Catene 1, 11, 12, 20, 22, 25–26 e nomi NPC"
+  },
+  {
+   "name": "Warcraft Tavern – Paladin Leveling Guide",
+   "url": "https://warcrafttavern.com/wow-forever/paladin-leveling-guide/",
+   "date": "2026-11-01",
+   "signal": "Letta solo in parte: troncata prima delle Class Quests",
+   "used": "Verigan's Fist: Tome of Valor, Loch Modan, Westfall, dungeon Blackfathom, SFK, Deadmines"
   }
  ],
  "doubts": [
@@ -916,6 +1015,12 @@
   "🟡 Lodestone non era nell'elenco del compito (da Maxroll, nessun valore); icona e magnitudo dei camp da guida Mago.",
   "🟡 Dwarf: Earth Fury (Leprestore) contro Artisan's Precision/Big Game Hunter (Conquest Capped).",
   "Non trovato: ordine talent completo di Icy Veins e Mobalytics; contenuto dei video YouTube; ranking gold delle professioni; rotta per zone specifica del Paladin.",
-  "Champion of the Light: il client dice 60% dell'Intellect al rank 5 (12% per rank), Leprestore 10/20/30% per 3 rank (dato pre-hotfix)."
+  "Champion of the Light: il client dice 60% dell'Intellect al rank 5 (12% per rank), Leprestore 10/20/30% per 3 rank (dato pre-hotfix).",
+  "🟡 Redemption (12): l'indice ha due quest per Human e Dwarf, The Symbol of Life e The Tome of Divinity. Non confermato quale dà Redemption.",
+  "🟡 Undead Redemption: NPC di A Lesson in Divinity non legato al personaggio in fonte leggibile.",
+  "🟡 Verigan's Fist non è una quest nell'indice: è l'item finale della catena The Test of Righteousness.",
+  "🟡 Catena arma Undead: 'Wolfsbane' non nell'indice; ordine 25/26 e NPC Danitha Morr per il 20 non verificati.",
+  "🟡 Il JSON precedente metteva A Second Home al 10: l'indice dice 11.",
+  "🟡 Il JSON precedente metteva Big Game Hunter 30 per l'Hunter: non qui, vedi sezione hunter."
  ]
 }
