@@ -1,7 +1,9 @@
 // Motore della guida: legge DATA (unito da tools/build.js) e disegna tutto per razza + classe + opzioni + livello.
 var D=DATA,C=D.common,LF=window.L; // Leaflet: L resta il nome globale di Leaflet
 var IC=function(n){return 'https://wow.zamimg.com/images/wow/icons/large/'+n+'.jpg'};
-function img(n,c,alt){return '<img class="ic'+(c?' '+c:'')+'" src="'+IC(n)+'" alt="'+(alt||'')+'" loading="lazy" onerror="this.onerror=null;this.src=\'https://wowforever.be/icons/'+n+'.jpg\'">'}
+function img(n,c,alt){return '<img class="ic'+(c?' '+c:'')+'" src="'+IC(n)+'" alt="'+(alt||'')+'" loading="lazy" onerror="icoFail(this,\''+n+'\')">'}
+// icona mancante: prima wowforever.be, poi il punto di domanda di WoW (mai un riquadro vuoto)
+function icoFail(i,n){if(!i.dataset.f){i.dataset.f=1;i.src='https://wowforever.be/icons/'+n+'.jpg'}else{i.onerror=null;i.src=IC('inv_misc_questionmark')}}
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 function $(id){return document.getElementById(id)}
 function li(a){return a.map(function(x){return '<li>'+x+'</li>'}).join('')}
@@ -259,7 +261,7 @@ function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=func
   list('Il primo alt, passo per passo',A.firstAlt,1)+list('Livellare l’alt più in fretta',A.faster)+
   ((L.how&&L.how.length)||(L.perks||A.legacy||[]).length?'<h3>Legacy: cosa resta all’account</h3>'+(L.how?'<div class="card"><ul>'+li(L.how)+'</ul></div>':'')+'<div class="wrap card"><table><tr><th>Perk</th><th>Effetto</th><th>Costo</th><th>Note</th></tr>'+(L.perks||(Array.isArray(A.legacy)?A.legacy:[])).map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':'')+
   (A.complements&&A.complements.length?'<h3>Profession: main → alt</h3><div class="wrap card"><table><tr><th>Main</th><th>Alt</th><th>Perché</th></tr>'+A.complements.map(function(c){var on=m===c;return '<tr'+(on?' style="background:#2a2412"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
-  (A.classes&&A.classes.length?'<h3>Quale classe come alt</h3><div class="grid">'+A.classes.map(function(c){return card('classicon_'+c['class'],(D.classes[c['class']]||{name:c['class']}).name,c.why)}).join('')+'</div>':'')+
+  (A.classes&&A.classes.length?'<h3>Quale classe come alt</h3><div class="grid">'+A.classes.map(function(c){var k=c['class'],R=D.races[k];return card(c.icon||(R?R.icon:'classicon_'+k),c.name||(D.classes[k]||R||{name:k}).name,c.why)}).join('')+'</div>':'')+
   '<div class="grid">'+list('Bank alt',A.bankAlt)+list('Alt per il crafting',A.craftAlts||A.craftAlt)+list('Quale alt fare e quando',A.order)+'</div>'+
   list('Errori da evitare',A.mistakes)+list('Consigli',A.tips)}
 

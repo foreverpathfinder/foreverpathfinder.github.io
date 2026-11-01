@@ -28,7 +28,7 @@ Il motore compone il percorso: rotta naturale, oppure zona iniziale fino a `junc
 `[{id, name, spec, icon, when, pros, cons, ratings:{speed|ease|versatility|survival|aoe|gear: [1–5, motivo, fonte]}, build:[nomi talent dal 10] (vuoto per A = usa `build`), rotation?, sources}]`. A = la più votata. Voti solo se una fonte li giustifica (altrimenti niente barra). Il build valida ogni ordine sul client come la build principale.
 
 ## Controlli automatici
-`node src/tools/quests.js src/data/quests.txt` aggiorna l'indice delle quest di Forever; il build confronta ogni `<b>`/`<i>` citato in milestone e tappe e scrive `src/check-report.txt` (quest inesistenti o con livello molto diverso). `node src/tools/test.js` prova tutte le combinazioni e tutte le build (deve dire nbad 0, errors []).
+`node src/tools/quests.js src/data/quests.txt` aggiorna l'indice delle quest di Forever; il build confronta ogni `<b>`/`<i>` citato in milestone e tappe e scrive `src/check-report.txt` (quest inesistenti o con livello molto diverso). `node src/tools/test.js` prova tutte le combinazioni e tutte le build (deve dire nbad 0, errors []); `node src/tools/icons.js` controlla che ogni icona esista (deve dire rotte 0).
 
 ## Interfaccia (v10)
 6 schede (Livello, Talent, Mappa, Classe, Profession, Info); procedura iniziale in `<dialog>` alla prima visita; mini-mappa in Livello (lo stesso `#lwrap` spostato tra le schede); filtro 🟡 (classe `.unsure`); link/QR `#s=<base64>` con stato e checklist; pulsante issue GitHub.
