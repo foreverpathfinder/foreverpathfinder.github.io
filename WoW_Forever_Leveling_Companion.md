@@ -1,4 +1,4 @@
-# WoW Forever – Leveling Companion 1–30 (v8)
+# WoW Forever – Leveling Companion 1–30 (v9)
 
 > Aggiornato: **1 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: 5 novembre, mezzanotte (ora italiana). Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
@@ -271,5 +271,12 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 - [Mobalytics – guide leveling (classifica per preferiti)](https://mobalytics.gg/wow-forever/leveling-guides) · 1 nov
 - [Wowhead – World Map Forever](https://www.wowhead.com/forever/world-map) · dati mappa
 - [Kargoz – 10 Tips (YouTube)](https://www.youtube.com/watch?v=9zXygm83IiI) · 24 ott · 91k views
+- [Method, All Travel Routes in WoW Forever (Boats, Zeppelins, Trams & Portals) di Geekmandem](https://www.method.gg/wow-forever/all-travel-routes-in-wow-forever-boats-zeppelins) · 14 ott 2026 (data da pagina) · Method, guida dedicata a Forever
+- [Warcraft Tavern, Cozy Sleeping Bag Guide](https://www.warcrafttavern.com/forever/guides/cozy-sleeping-bag/) · non trovata (copyright 2026) · reputazione alta
+- [Method, How to Unlock the Cozy Sleeping Bag in WoW Forever](https://www.method.gg/wow-forever/how-to-unlock-the-cozy-sleeping-bag-in-wow-forever) · non trovata · Method (solo snippet di WebSearch, pagina non letta)
+- [games.gg, WoW Forever Barrens Leveling Guide](https://games.gg/world-of-warcraft/guides/wow-forever-barrens-leveling-guide/) · set 2026 · singola fonte, guida beta
+- [games.gg, WoW Forever Darkshore Leveling Guide](https://games.gg/world-of-warcraft/guides/wow-forever-darkshore-leveling-guide/) · set-ott 2026 (come da fonti già nelle rotte) · singola fonte
+- [Warcraft Tavern, Zephras Isle Walkthrough (Val Hull)](https://www.warcrafttavern.com/forever/guides/zephras-isle-walkthrough/) · ott 2026 · reputazione alta
+- [Wowhead World Map Forever (wmd.json)](https://www.wowhead.com/forever/maps) · client 1.60.1.70707 · dati del client
 
 Reddit blocca l’accesso ai miei strumenti, quindi gli “upvote” li misuro con i preferiti di Mobalytics e le visualizzazioni YouTube. I dati sono pre-lancio (client 70707): controlla sempre il tooltip in gioco. Le immagini e i riquadri incorporati richiedono internet.

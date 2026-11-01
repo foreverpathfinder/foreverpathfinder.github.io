@@ -1,0 +1,884 @@
+{
+ "professions": [
+  {
+   "name": "Mining",
+   "icon": "trade_mining",
+   "type": "gathering",
+   "forever": [
+    "★ Lodestone (Mining 20): camp object con fino a 90 Attack Power in mischia, come Blessing of Might (wowforever.be camping; Warcraft Tavern concorda).",
+    "★ Rock Garden (140, blueprint) e Molten Foundry (300, blueprint): camp Tier 2 e 3. Il Rock Garden fa comparire minerale comune col tempo; la Molten Foundry serve per le fusioni alte (wowforever.be).",
+    "★ Perk Legacy Made of Metal: salute totale +5% e minerale in più dai nodi (wowforever.be hub, da immagini BlizzCon: numeri non definitivi) 🟡.",
+    "★ Nuovi minerali endgame: Heavy Thorium Ore, Legionite Bar, Azerothium Bar (smelt a 275, istruttore) (wowforever.be).",
+    "★ Materiali Scarce: a volte minando si ottengono Pyrite, Bauxite o Pitchblende (wowforever.be)."
+   ],
+   "leveling": "Fusione fino a 185: rame 1–65 (130 Copper Ore), stagno 65–75 (60 Tin Ore), bronzo 75–100 (60 Copper Bar + 60 Tin Bar), argento 100–125 (70 Silver Ore), ferro 125–140 (35 Iron Ore), oro 155–185 (60 Gold Ore); 140–155 solo mining. Dopo 185 si sale minando: ogni vena dà al massimo 1 punto. Tin non dà più skill da 165, Silver da 175. Un percorso 225–300 non è noto (wowforever.be Mining, agg. 3 ott 2026). Serve anche Smelting Pants (fonde il 25% più in fretta).",
+   "gold": "Vendi i grezzi in AH: ore e barre sono usate da fabbri, ingegneri, incantatori e sarti (wowforever.be). Prezzi di vendita: non trovati nelle fonti lette. Le barre endgame (Legionite, Heavy Thorium, Azerothium) non hanno prezzi verificati.",
+   "pairs": [
+    "Herbalism",
+    "Blacksmithing",
+    "Engineering"
+   ],
+   "camp": "Lodestone (Mining 20): Attack Power in mischia fino a 90 per chi siede vicino. Tier 2 Rock Garden (140), Tier 3 Molten Foundry (300).",
+   "skillByLevel": "Apprentice: livello 1 per gathering, skill max 75 (tabella WT). Trainer Apprentice nelle 3 zone iniziali per fazione: Kelsey Fargo (Northshire), Sally Swiftwrench (Coldridge), Fanorran Stilloak (Shadowglen); Horde Norzsh (Valley of Trials), Vartha Rockmane (Red Cloud Mesa), Walter Mason (Deathknell). Journeyman: livello 10, skill 50, cap 150. Expert: livello 20, skill 125, cap 225. Artisan: livello 35, skill 200, cap 300 (WT). Trainer di tutti i gradi nelle capitali, es. Geofram Bouldertoe (The Great Forge, Ironforge), Makaru (Valley of Honor, Orgrimmar). Quest 'Mining for Dummies' nelle zone iniziali insegna Apprentice.",
+   "recipes": [
+    [
+     "Lodestone",
+     "20 (istruttore)",
+     "Camp Tier 1: Attack Power in mischia per il gruppo al campo"
+    ],
+    [
+     "Smelt Copper / Tin / Bronze",
+     "1–100 (fusione)",
+     "Sono i passi di skill fino a 100 senza minare. Il bronzo richiede 60 Copper Bar e 60 Tin Bar"
+    ],
+    [
+     "Rockslicer",
+     "nessuna",
+     "Permette di minare rame, stagno, argento e ferro anche senza Mining. 30 cariche, drop da Rhahk'Zor (Deadmines) (WT)"
+    ],
+    [
+     "Miner's Cape / Goblin Mining Helmet / Enchant Gloves - Mining (+2 e +5)",
+     "equip",
+     "Aprono le vene prima: con +5 una Silver Vein si apre a 70 invece di 75 (wowforever.be)"
+    ],
+    [
+     "Smelt Azerothium",
+     "275 (istruttore)",
+     "Barra endgame; fa salire skill se fusa dopo 275"
+    ],
+    [
+     "Smelt Heavy Thorium / Molten Foundry",
+     "300",
+     "Richiede la Molten Foundry (blueprint 300)"
+    ]
+   ],
+   "tips": [
+    "Fondi fino a 185, poi mina: dopo 185 la fusione non dà più skill (wowforever.be).",
+    "Non deviare per Tin dopo 165 o per Silver dopo 175: non danno più skill.",
+    "Il percorso 225–300 non è ancora documentato: controlla in gioco."
+   ]
+  },
+  {
+   "name": "Herbalism",
+   "icon": "trade_herbalism",
+   "type": "gathering",
+   "forever": [
+    "★ Goldthorn Tea: +15 Herbalism per un po', nuovo in Forever (wowforever.be).",
+    "★ Greenhouse (140) e Seed Hybridizer (300): camp Tier 2 fa crescere erbe da semi, Tier 3 moltiplica i semi o ne crea di più rari (wowforever.be camping).",
+    "★ Semi di erba: Commonplace, Uncommon, Unusual, Scarce Herb Seeds; materiali Scarce Frilled Lichen, Rosecap, Stranglevine (wowforever.be).",
+    "★ Erbe endgame nuove: Marefoil, Demonsage, Death Lotus (wowforever.be; posizione e skill non noti).",
+    "★ Tauren Cultivation: ora duplica un'erba vicina invece di dare un bonus fisso (wowforever.be).",
+    "★ Perk di professione Natural Talent: più resistenza alle scuole di magia, più probabilità di loto raro e più erbe per nodo (wowforever.be hub; numeri non definitivi) 🟡."
+   ],
+   "leveling": "Skill 1–225 con erbe per fascia (wowforever.be Herbalism): 1–70 Peacebloom, Silverleaf, Earthroot; 70–115 Mageroyal, Briarthorn, Stranglekelp; 115–170 Bruiseweed, Wild Steelbloom, Kingsblood (da 125), Liferoot (da 150); 170–205 Fadeleaf, Goldthorn, Khadgar's Whisker (da 185); 205–225 Wintersbite, Firebloom, Purple Lotus. Un percorso 225–300 non è noto. Le erbe sono sulla rotta di leveling, quindi raccogli mentre fai le quest.",
+   "gold": "Vendi i grezzi in AH. WT: le erbe comuni calano di prezzo in fretta, le rare (es. Black Lotus) valgono di più. Prezzi specifici: non trovati. Alchemy è il consumatore principale delle erbe (WT, wowforever.be).",
+   "pairs": [
+    "Alchemy",
+    "Mining",
+    "Skinning"
+   ],
+   "camp": "Incense Candle (Herbalism 20, vedi common.json). Tier 2 Greenhouse (140) fa crescere erbe da semi. Tier 3 Seed Hybridizer (300) moltiplica i semi.",
+   "skillByLevel": "Apprentice: livello 1, skill max 75. Trainer Apprentice nelle zone iniziali: Nancy Songflower (Northshire), Emrys Flintbeard (Coldridge), Eleyna Duskbreeze (Shadowglen); Horde Zor'la (Valley of Trials), Garan Sunstrider (Red Cloud Mesa), Florence Nightshade (Deathknell). Quest 'Wild Harvest' nelle prime missioni di zona insegna Apprentice. Journeyman: livello 10, skill 50, cap 150. Expert: livello 20, skill 125, cap 225. Artisan: livello 35, skill 200, cap 300 (WT). Trainer Artisan: non trovato.",
+   "recipes": [
+    [
+     "Incense Candle",
+     "20 (istruttore)",
+     "Camp Tier 1 (Intellect)"
+    ],
+    [
+     "Greenhouse",
+     "140 (blueprint)",
+     "Camp Tier 2: erbe da semi"
+    ],
+    [
+     "Seed Hybridizer",
+     "300 (blueprint)",
+     "Camp Tier 3: semi più rari"
+    ],
+    [
+     "Goldthorn Tea",
+     "non trovato",
+     "+15 Herbalism per un po', nuovo: utile nella fascia 205–225"
+    ],
+    [
+     "Herbalist's Gloves / Enchant Gloves - Advanced Herbalism",
+     "equip",
+     "+5 Herbalism ciascuno; i due si sommano fino a +10 (wowforever.be)"
+    ],
+    [
+     "Wild Harvest (quest)",
+     "1",
+     "Insegna Apprentice Herbalism nelle zone iniziali"
+    ]
+   ],
+   "tips": [
+    "Nessuno strumento necessario: attiva Find Herbs per vedere le erbe sulla minimappa (wowforever.be FAQ).",
+    "Le erbe a volte danno anche semi: non buttarli, i livelli di camp li usano (wowforever.be).",
+    "Cultivation dei Tauren richiede un livello minimo dal 27 settembre (wowforever.be)."
+   ]
+  },
+  {
+   "name": "Alchemy",
+   "icon": "trade_alchemy",
+   "type": "crafting",
+   "forever": [
+    "★ Mixology: elisir e flask durano di più e sono più forti (wowforever.be hub; WT). Il numero '2x durata e +25%' viene dal demo BlizzCon, non dai dati beta: 🟡.",
+    "★ Philosopher's Stone: monile che cresce con la skill (wowforever.be).",
+    "★ Healing potion spostate da Alchemy a First Aid (wowforever.be First Aid, WT). I commenti WT dicono anche che non ci sono più Jewelcrafting: non verificato.",
+    "★ 70 ricette nuove su 185 (wowforever.be Alchemy)."
+   ],
+   "leveling": "Brackets da Kami Labs (dati beta, conteggi approssimati): 1–71 Elixir of Minor Defense (~74 craft, Silverleaf, Peacebloom, Empty Vial); 71–100 Rage Potion (~30, ricetta Xandar Goodbeard Loch Modan o Defias Profiteer Westfall, 1 silver); 100–120 Holy Protection Potion (~20, ricetta Xandar o Kzixx Duskwood); 120–165 Lesser Mana Potion (~52); 165–219 Fire Protection Potion (~55, ricetta Nandar Branson Hillsbrad, 15 silver); 219–250 Lesser Stoneshield (~38, quest reward Liquid Stone). Passi 250–300 indicati come 'after beta', non giocabili nella beta.",
+   "gold": "Kami Labs: costo completo 1–225 con ricette e vials circa 19g53s (stima beta, in gran parte da erbe che raccogli). Vials: Crystal Vial 25 silver, Empty Vial 20 copper, Leaded Vial 2 silver. Pozioni ricorrenti = domanda costante (snippet di ricerca, 🟡). Prezzi di vendita pozioni: non trovati.",
+   "pairs": [
+    "Herbalism"
+   ],
+   "camp": "Mana Well (20, Peacebloom + Empty Vial): mana per chi siede; non si somma a Blessing of Wisdom (Kami Labs). Tier 2 Fermenter (140: Leaded Vial, Kingsblood, Swiftthistle). Tier 3 Alchemy Laboratory (300: Lich's Index Finger, Crystal Vial, 2 Dreamfoil).",
+   "skillByLevel": "Apprentice: livello 1, skill max 75. Journeyman: livello 10, skill 50, cap 150 (Kami Labs: 'learn it at skill 75', conflitto, vedi doubts). Expert: livello 20, skill 125, cap 225. Trainer Expert: Dustwallow Marsh, Stranglethorn Vale, Ashenvale, Stormwind, Darnassus, Ironforge (Alleanza); Thunder Bluff, Undercity, Stranglethorn, Hillsbrad, Orgrimmar (Orda) (Kami Labs). Artisan: livello 35, skill 200, cap 300. Trainer Artisan: Darnassus (Alleanza), Undercity (Orda) (Kami Labs).",
+   "recipes": [
+    [
+     "Mana Well",
+     "20 (istruttore)",
+     "Camp Tier 1: mana a chi siede"
+    ],
+    [
+     "Elixir of Minor Defense",
+     "1–71",
+     "Primo passo economico: Silverleaf, Peacebloom, Empty Vial (Kami Labs)"
+    ],
+    [
+     "Rage Potion",
+     "71–100",
+     "Ricetta 1 silver da Xandar Goodbeard o Defias Profiteer. Usabile anche dai Druid (WT)"
+    ],
+    [
+     "Fire Protection Potion",
+     "165–219",
+     "Ricetta 15 silver da Nandar Branson (Hillsbrad) (Kami Labs)"
+    ],
+    [
+     "Lesser Stoneshield Potion",
+     "219–250",
+     "Ricetta da quest reward Liquid Stone (Kami Labs)"
+    ],
+    [
+     "Fermenter / Alchemy Laboratory",
+     "140 / 300",
+     "Camp Tier 2 e 3: postazioni per reagenti e ricette (wowforever.be)"
+    ]
+   ],
+   "tips": [
+    "Non craftare ciò che non puoi vendere: perdi gold e recuperi solo skill (snippet di ricerca, 🟡).",
+    "Kami Labs: le ricette 250–300 sono 'after beta', verificale in gioco prima di pianificare.",
+    "Herbalism come coppia: raccogliere le erbe da sé evita di comprarle in AH (snippet di ricerca, 🟡)."
+   ]
+  },
+  {
+   "name": "Blacksmithing",
+   "icon": "trade_blacksmithing",
+   "type": "crafting",
+   "forever": [
+    "★ Repair All: ripara tutto l'equipaggiamento in una volta (wowforever.be).",
+    "★ Fibbie che aggiungono un'incastonatura alla cintura (wowforever.be).",
+    "★ Strange Copper Boots e Glowing Copper Boots: stat migliori per classi ibride (WT).",
+    "★ 197 ricette nuove su 462 totali (wowforever.be Blacksmithing)."
+   ],
+   "leveling": "Partenza con Copper Bar e Rough Stone (WT). Ricette con fasce di skill non trovate nelle fonti lette: il dettaglio è sulla pagina wowforever.be (462 ricette, Livellare 1–300), non letta a fondo. Usa le barre del Mining, quindi la coppia Mining + Blacksmithing è la più naturale.",
+   "gold": "WT: 'Blacksmithing provides a real way to generate gold', vendendo Rods & Keys e oggetti Bind-on-Equip. Cifre: non trovate. Method consiglia di mandare al bank alt le armature e armi BoE (vedi alts).",
+   "pairs": [
+    "Mining",
+    "Engineering"
+   ],
+   "camp": "Sharpening Wheel (20): Strength fino a 34, come Strength of Earth Totem. Tier 2 Anvil (140): craft ovunque (5 Bronze Bar, 2 Coarse Grinding Stone, 2 Medium Leather). Tier 3 Master Forge (300): Golem Heart, 5 Thorium Bar, 2 Rugged Leather.",
+   "skillByLevel": "Apprentice: livello 5 per crafting, skill max 75. Trainer nelle città e villaggi (WT); nomi non trovati. Journeyman: livello 10, skill 50, cap 150. Expert: livello 20, skill 125, cap 225. Artisan: livello 35, skill 200, cap 300 (WT). Specializzazioni Armorsmith e Weaponsmith (3 sotto-spec per Weaponsmith), quest dopo 200 (WT).",
+   "recipes": [
+    [
+     "Sharpening Wheel",
+     "20",
+     "Camp Tier 1: Rough Stone + Copper Bar"
+    ],
+    [
+     "Anvil",
+     "140",
+     "Camp Tier 2: permette di craftare ovunque"
+    ],
+    [
+     "Master Forge",
+     "300",
+     "Camp Tier 3: postazione per progetti avanzati"
+    ],
+    [
+     "Strange Copper Boots / Glowing Copper Boots",
+     "non trovato",
+     "Stat migliori per le classi ibride (WT)"
+    ]
+   ],
+   "tips": [
+    "Scegli Armorsmith o Weaponsmith in base al main: la specializzazione si sblocca dopo 200 (WT).",
+    "Gli oggetti BoE si vendono in AH solo se il prezzo supera il vendor (vedi common.json)."
+   ]
+  },
+  {
+   "name": "Enchanting",
+   "icon": "trade_engraving",
+   "type": "crafting",
+   "forever": [
+    "★ Nessun nodo di raccolta: polveri, essenze e frammenti arrivano solo dal Disenchant di gear Green o superiore (WT). Wowforever.be la mette tra le creazioni.",
+    "★ Incantamenti per anelli, trasmutazione dei frammenti a un grado superiore, creazione di bastoni (wowforever.be overview).",
+    "★ 63 ricette nuove su 239 (wowforever.be Enchanting).",
+    "★ Novice's Practice Wand craftabile a Enchanting 1; le bacchette guadagnano spell power da lv 5 (WT)."
+   ],
+   "leveling": "Disenchant si usa da skill 1 ma non è nello spellbook: trascinalo sulla barra dalla finestra Enchanting (snippet di ricerca wow-professions, 🟡). Il materiale dipende dal livello dell'oggetto disincantato (WT). Route wow-professions per Forever: Motes of Magic e Strange Dust fino a 150 (snippet, 🟡).",
+   "gold": "Le guide concordano: farmare i materiali invece di comprarli in AH (snippet, 🟡). Arcane Dust è il collo di bottiglia a ogni fascia (snippet, 🟡). Prezzi di vendita: non trovati.",
+   "pairs": [
+    "Tailoring"
+   ],
+   "camp": "Enchanted Lute (20): armor, stat e resistenze come Mark of the Wild (wowforever.be; effetto in common.json). Tier 2 Arcane Salvager (140): 2 Vision Dust e Lesser Nether Essence. Tier 3 Arcane Forge (300). L'effetto del disincanto al Salvager non è ancora noto.",
+   "skillByLevel": "Apprentice: livello 5 per crafting, skill max 75. Trainer per gradi: non trovati in modo specifico (WT: 'trainer nelle città e villaggi'). Journeyman: livello 10, skill 50, cap 150. Expert: livello 20, skill 125, cap 225. Artisan: livello 35, skill 200, cap 300 (WT).",
+   "recipes": [
+    [
+     "Enchanted Lute",
+     "20",
+     "Camp Tier 1: Simple Wood + Strange Dust"
+    ],
+    [
+     "Arcane Salvager",
+     "140",
+     "Camp Tier 2: Vision Dust x2 + Lesser Nether Essence"
+    ],
+    [
+     "Arcane Forge",
+     "300",
+     "Camp Tier 3: Maker's Spark, Large Brilliant Shard x2, Greater Eternal Essence x4"
+    ],
+    [
+     "Novice's Practice Wand",
+     "1",
+     "Bacchetta base; spell power da lv 5 (WT)"
+    ]
+   ],
+   "tips": [
+    "Coppia suggerita con Tailoring: il Tailoring fornisce stoffa dagli umanoidi, Enchanting ricicla il gear (WT, Gfinity).",
+    "Disincantare gear Green o superiore dà materiali: il materiale dipende dal livello dell'oggetto (WT)."
+   ]
+  },
+  {
+   "name": "Engineering",
+   "icon": "trade_engineering",
+   "type": "crafting",
+   "forever": [
+    "★ Camp: Reagent Bot (vendor di reagenti), Repair Bot (riparazioni), Anarchist's Workbench (WT, wowforever.be).",
+    "★ Specializzazione Goblin o Gnomish, con catena di quest dopo 200 (wowforever.be, WT).",
+    "★ Gnomo: Engineering Specialization riduce la probabilità che i gadget si rompano (WT).",
+    "★ 78 ricette nuove su 252 totali (wowforever.be Engineering)."
+   ],
+   "leveling": "252 ricette con fasce 1–300 (wowforever.be, pagina Livellare 1–300, non letta a fondo). Le bombe Saf-T (Dynamite, Copper Bomb) si possono usare anche da non-Engineer (WT). Arclight Spanner: ricetta che si sblocca dal trainer Engineering (WT). Skill per ricetta: non trovato.",
+   "gold": "Reagent Bot: vendor per comprare e vendere reagenti al campo (WT). Gadget e bombe: prezzi non trovati. Prezzi dei gadget: non trovati.",
+   "pairs": [
+    "Mining"
+   ],
+   "camp": "Reagent Bot (20): nessun buff alle stat, solo vendor per reagenti. Repair Bot (140): reagenti, vendita e riparazioni. Anarchist's Workbench (300): postazione per alcuni schemi (wowforever.be camping).",
+   "skillByLevel": "Apprentice: livello 5 per crafting, skill max 75. Journeyman: livello 10, skill 50, cap 150. Expert: livello 20, skill 125, cap 225. Artisan: livello 35, skill 200, cap 300 (WT). Trainer Engineering: non trovato. Specializzazione Goblin/Gnomish dopo 200.",
+   "recipes": [
+    [
+     "Reagent Bot",
+     "20",
+     "Camp Tier 1: vendor di reagenti"
+    ],
+    [
+     "Repair Bot",
+     "140",
+     "Camp Tier 2: ripara e vende reagenti"
+    ],
+    [
+     "Anarchist's Workbench",
+     "300",
+     "Camp Tier 3: postazione per schemi"
+    ],
+    [
+     "Saf-T Dynamite / Saf-T Copper Bomb",
+     "non trovato",
+     "Esplosivi usabili anche da non-Engineer (WT)"
+    ],
+    [
+     "Arclight Spanner",
+     "trainer",
+     "Strumento per ricette complesse (WT)"
+    ]
+   ],
+   "tips": [
+    "Coppia suggerita con Mining per PvP, utility e fun (WT). Per Mage e Warrior endgame: Engineering + Mining (Gfinity).",
+    "Il Reagent Bot è un vendor di reagenti: compra e vende al campo (WT)."
+   ]
+  },
+  {
+   "name": "Leatherworking",
+   "icon": "trade_leatherworking",
+   "type": "crafting",
+   "forever": [
+    "★ 271 ricette nuove su 556 totali (wowforever.be Leatherworking).",
+    "★ Kit d'armatura per cuoio e maglia, più velocità in sella, set di dragonscale ed elemental leather (wowforever.be hub).",
+    "★ Camp Tent: Rested XP fino al 5% di un livello (wowforever.be; già in common.json)."
+   ],
+   "leveling": "Apprentice fino a 75, Journeyman fino a 150, Expert fino a 225, Artisan fino a 300 (wowforever.be Leatherworking). Percorso 1–300 disponibile sulla pagina wowforever.be, non letta a fondo. Camp Tent a skill 20 con 5 Light Leather.",
+   "gold": "Cuoio dalle bestie via Skinning: coppia consigliata da WT e wowforever.be. Cifre: non trovate.",
+   "pairs": [
+    "Skinning"
+   ],
+   "camp": "Camp Tent (20): Rested XP. Tier 2 Tanning Rack (140): 5 Medium Leather, 3 Fine Thread, 2 Simple Wood. Tier 3 Sewing Machine (300): Undeath Engine, 5 Rugged Leather, Rune Thread.",
+   "skillByLevel": "Apprentice: livello 5 per crafting, skill max 75. Journeyman: livello 10, skill 50, cap 150. Expert: livello 20, skill 125, cap 225. Artisan: livello 35, skill 200, cap 300 (WT). Trainer: non trovati nelle fonti lette.",
+   "recipes": [
+    [
+     "Camp Tent",
+     "20",
+     "Camp Tier 1: Rested XP"
+    ],
+    [
+     "Tanning Rack",
+     "140",
+     "Camp Tier 2"
+    ],
+    [
+     "Sewing Machine",
+     "300",
+     "Camp Tier 3"
+    ],
+    [
+     "Kit d'armatura cuoio/maglia",
+     "non trovato",
+     "Nuovo in Forever (wowforever.be)"
+    ]
+   ],
+   "tips": [
+    "Coppia con Skinning per avere cuoio gratis dalle bestie in quest (Gfinity: 🟡, siti non ufficiali).",
+    "Camp Tent è l'unico camp con ricarica propria: dopo di esso hai Boosted Rest per un'ora (wowforever.be camping)."
+   ]
+  },
+  {
+   "name": "Skinning",
+   "icon": "inv_misc_pelt_wolf_01",
+   "type": "gathering",
+   "forever": [
+    "★ Beasts of the Wild: +5% danni contro Beasts e Dragonkin; più probabilità di pelli rare (wowforever.be hub; numeri non definitivi) 🟡.",
+    "★ Field Guide (140): Track Beasts sulla minimappa; Trapper's Workbench (300): una trappola, quali non è noto (wowforever.be camping).",
+    "★ Legacy Bountiful Harvest: +20% materiali Scarce da Mining, Herbalism, Skinning (WT, demo BlizzCon) 🟡."
+   ],
+   "leveling": "Fasce per zona (WT): 1–75 zone iniziali; 75–115 (lv 10–20) Northern Barrens/Silverpine per Horde, Loch Modan/Darkshore/Westfall/Redridge per Alleanza; 115–150 (lv 20–30) Southern Barrens, Wetlands, Hillsbrad, Ashenvale, Duskwood; 150–205 (lv 30–40) Thousand Needles, Arathi, Desolace, Alterac, Stranglethorn, Swamp of Sorrows, Riverglades, Dustwallow, Badlands; 205–260 (lv 40–50) Feralas, Tanaris, Hinterlands, Searing Gorge, Azshara; 260–300 (lv 50–60) Un'Goro, Blasted Lands, Felwood, Western Plaguelands, Silithus, Eastern Plaguelands. Skinning vale per Beasts e Dragonkin, e per alcuni Worgen, Yeti e Owlbear (WT).",
+   "gold": "Il materiale in più va in AH (wowforever.be). Cifre: non trovate. Coppia consigliata con Leatherworking; per gold senza crafting, Mining + Skinning (🟡).",
+   "pairs": [
+    "Leatherworking",
+    "Mining"
+   ],
+   "camp": "Camp Chair (20): 2% crit (in common.json). Tier 2 Field Guide (140): 2% crit + Track Beasts. Tier 3 Trapper's Workbench (300): 2% crit + una trappola.",
+   "skillByLevel": "Apprentice: livello 1 per gathering, skill max 75. Journeyman: livello 10, skill 50, cap 150 (tabella WT). Expert: livello 20, skill 125, cap 225 (trainer a 125). Artisan: livello 35, skill 200, cap 300 (trainer a 200 WT). Trainer Artisan e nomi trainer: non trovati.",
+   "recipes": [
+    [
+     "Camp Chair",
+     "20",
+     "Camp Tier 1: 3 Light Leather, 2 Simple Wood"
+    ],
+    [
+     "Field Guide",
+     "140",
+     "Camp Tier 2: 3 Medium Leather, 2 Slimy Murloc Scale, 1 Fine Thread"
+    ],
+    [
+     "Trapper's Workbench",
+     "300",
+     "Camp Tier 3: 2 Simple Wood, 4 Heavy Leather, 1 Iron Bar"
+    ]
+   ],
+   "tips": [
+    "Field Guide (Track Beasts) ti fa vedere le bestie in minimappa: utile in leveling a bestie.",
+    "Nessun numero di gold per ora: non fare conti senza prezzi AH."
+   ]
+  },
+  {
+   "name": "Tailoring",
+   "icon": "trade_tailoring",
+   "type": "crafting",
+   "forever": [
+    "★ Embroidery: bonus per sarti sull'equipaggiamento di stoffa (wowforever.be hub).",
+    "★ Stoffa in più dagli umanoidi e set di stoffa nuovi e rifatti (wowforever.be hub).",
+    "★ 180 ricette nuove su 439 totali (wowforever.be Tailoring).",
+    "★ Linen Reagent Bag da 6 slot creata da Tailoring (WT)."
+   ],
+   "leveling": "Tailoring ottiene stoffa dagli umanoidi, quindi non serve un gathering (wowforever.be). Percorso 1–300 sulla pagina wowforever.be, non letto a fondo. Coppia con Enchanting per leveling (Gfinity).",
+   "gold": "Stoffa dal leveling per gli incantatori. Prezzi: non trovati. Il Linen Reagent Bag e le borse sono costi di bag, non gold.",
+   "pairs": [
+    "Enchanting"
+   ],
+   "camp": "Faction Banner (20): Spirit fino a 32 (in common.json). Tier 2 Spinning Wheel (140): 2 Simple Wood, 5 Bolt of Silk Cloth, 3 Fine Thread. Tier 3 Loom (300): postazione per modelli.",
+   "skillByLevel": "Apprentice: livello 5 per crafting, skill max 75. Journeyman: livello 10, skill 50, cap 150. Expert: livello 20, skill 125, cap 225. Artisan: livello 35, skill 200, cap 300 (WT). Trainer: non trovati nelle fonti lette.",
+   "recipes": [
+    [
+     "Faction Banner",
+     "20",
+     "Camp Tier 1: 1 Bolt of Linen Cloth, 1 Coarse Thread"
+    ],
+    [
+     "Spinning Wheel",
+     "140",
+     "Camp Tier 2"
+    ],
+    [
+     "Loom",
+     "300",
+     "Camp Tier 3"
+    ],
+    [
+     "Linen Reagent Bag (6 slot)",
+     "non trovato",
+     "Borsa iniziale da Tailoring (WT)"
+    ]
+   ],
+   "tips": [
+    "Tailoring + Enchanting per Priest, Mage, Warlock (Gfinity: 🟡).",
+    "Per Mage e Warlock, Herbalism + Alchemy è la coppia endgame (Gfinity)."
+   ]
+  },
+  {
+   "name": "Cooking",
+   "icon": "inv_misc_food_15",
+   "type": "secondary",
+   "forever": [
+    "★ Quasi tutto il cibo: +5% XP dalle uccisioni finché sei Well Fed (wowforever.be Cooking, WT).",
+    "★ Cookie's Stirring Rod (Deadmines): cucina il 25% più in fretta (wowforever.be).",
+    "★ Nuove ricette: Plated Armorfish, Savory Whimsyfin Delight, Baked Salmon e Poached Sunscale Salmon potenziate (wowforever.be).",
+    "★ Cooking accende il fuoco di ogni accampamento (wowforever.be camping)."
+   ],
+   "leveling": "Ricette per fascia (wowforever.be Cooking): 1–50 Brilliant Smallfish (skill 52); 50–100 Longjaw Mud Snapper (55); 100–150 Bristle Whisker Catfish (55); 150–175 Bristle Whisker Catfish (65); 175–225 Mithril Headed Trout (55). Il pesce crudo è economico in AH. Cooking conta da lv 1 per il fuoco da campo e per il buff Well Fed.",
+   "gold": "Il pesce è la via più semplice: ricette economiche, pesce crudo economico in AH (wowforever.be). Cifre di vendita del cibo: non trovate.",
+   "pairs": [
+    "Fishing"
+   ],
+   "camp": "Basic Campfire (Cooking 1, istruttore): 3 oggetti. Journeyman Campfire (blueprint Cooking 90, drop Deadmines e Wailing Caverns): 5 oggetti. Expert Campfire (blueprint Cooking 200): 10 oggetti. Tier 2 Cookie's Feast (140): cibo con buff Stamina. Tier 3 Iron Oven (300).",
+   "skillByLevel": "Apprentice: livello 1, skill max 75 (istruttore). Journeyman: skill 75–150 (istruttore). Expert: 150–225 con libro Expert Cookbook (10 gold, Shandrina Ashenvale per Alleanza, Wulan Desolace per Orda; in AH). Artisan: 225–300 con quest Clamlette Surprise da lv 35 (Dirge Quikcleave, Gadgetzan) (wowforever.be).",
+   "recipes": [
+    [
+     "Basic Campfire",
+     "1 (istruttore)",
+     "Primo fuoco: ogni accampamento ne ha uno"
+    ],
+    [
+     "Journeyman Campfire",
+     "90 (blueprint)",
+     "5 oggetti per accampamento"
+    ],
+    [
+     "Expert Campfire",
+     "200 (blueprint)",
+     "10 oggetti per accampamento"
+    ],
+    [
+     "Cookie's Feast",
+     "140 (blueprint Deadmines)",
+     "Camp Tier 2: cibo con buff Stamina"
+    ],
+    [
+     "Brilliant Smallfish / Longjaw Mud Snapper / Bristle Whisker Catfish / Mithril Headed Trout",
+     "52 / 55 / 55 / 55",
+     "Ricette economiche di fascia (wowforever.be)"
+    ]
+   ],
+   "tips": [
+    "Per Artisan: Zesty Clam Meat dal Big-mouth Clam (costa est di Tanaris) e Giant Egg dai mob dei Sandfury (wowforever.be).",
+    "Cooking e Fishing sono consigliati a tutti, non occupano posti primari (WT)."
+   ]
+  },
+  {
+   "name": "First Aid",
+   "icon": "inv_misc_bandage_01",
+   "type": "secondary",
+   "forever": [
+    "★ Crea le pozioni di cura, passate da Alchemy (wowforever.be First Aid, WT). Funzionano in combattimento: utile anche ai healer.",
+    "★ Rimedi contro veleno, malattia e sanguinamento (nuovi per malattia e sanguinamento, non usabili in combattimento) (wowforever.be).",
+    "★ Toxin Study (140) e Plague Doctor's Laboratory (300): camp Tier 2 e 3 per pozioni e impiastri (wowforever.be camping)."
+   ],
+   "leveling": "Pozioni di cura: Minor Healing 1 (Peacebloom), Lesser Healing 55 (Briarthorn), Healing 110 (Bruiseweed), Greater 155, Superior 215, Major 275 (manuale). Rimedi: Anti-Venom 80, Strong Anti-Venom 130, Potent 215; Simple Poultice 90, Clever 140, Superior 210, Powerful 280; Woolen Tourniquet 120, Leather 200, Surgical 265 (wowforever.be First Aid). Oltre all'erba serve una fiala e spezie dal vendor professioni.",
+   "gold": "Pozioni di cura ricorrenti in combattimento: domanda costante. Prezzi: non trovati.",
+   "pairs": [
+    "Herbalism"
+   ],
+   "camp": "First Aid Kit (Stamina fino a 56, in common.json). Tier 2 Toxin Study (140). Tier 3 Plague Doctor's Laboratory (300).",
+   "skillByLevel": "Apprentice: 1–75 (istruttore). Journeyman: 75–150 (istruttore). Expert: 150–225 con libro 'Expert First Aid - Under Wraps' (Deneb Walker, Stromgarde Keep per Alleanza; Balai Lok'Wein, Brackenwall per Orda; anche in AH). Artisan: 225–300 con quest Triage da lv 35 (Doctor Gustaf VanHowzen, Theramore per Alleanza; Doctor Gregory Victor, Hammerfall per Orda) (wowforever.be First Aid).",
+   "recipes": [
+    [
+     "Minor Healing Potion",
+     "1 (istruttore)",
+     "Prima pozione, con Peacebloom"
+    ],
+    [
+     "Lesser Healing Potion",
+     "55",
+     "Con Briarthorn"
+    ],
+    [
+     "Healing Potion",
+     "110",
+     "Con Bruiseweed"
+    ],
+    [
+     "Anti-Venom",
+     "80",
+     "Rimedio veleno di base"
+    ],
+    [
+     "Simple Poultice",
+     "90",
+     "Rimedio malattia"
+    ],
+    [
+     "Woolen Tourniquet",
+     "120",
+     "Rimedio sanguinamento"
+    ],
+    [
+     "Triage (quest)",
+     "Artisan, lv 35",
+     "Sblocca Artisan (wowforever.be)"
+    ]
+   ],
+   "tips": [
+    "Secondaria: non occupa uno dei due posti primari, e chiunque può averla (WT).",
+    "Il libro Expert First Aid è anche in AH (wowforever.be)."
+   ]
+  },
+  {
+   "name": "Fishing",
+   "icon": "trade_fishing",
+   "type": "secondary",
+   "forever": [
+    "★ Fishing Rack (140) e Fishing Hut (300): camp Tier 2 e 3 per esche e pesci non comuni e rari (wowforever.be camping).",
+    "★ Cibo a base di pesce più forte: Baked Salmon, Poached Sunscale Salmon, Plated Armorfish (wowforever.be Fishing).",
+    "★ Legacy Luremaster: +25% di chance di un pesce in più con esca attiva (WT, wowforever.be) 🟡."
+   ],
+   "leveling": "Pescare cambia poco; il pesce conta per Cooking, che lo trasforma in cibo con buff e +5% XP (wowforever.be). Artisan con quest Angler Extreme (Nat Pagle, Dustwallow, lv 35): quattro pesci in posti fissi (Feralas Ahi, Misty Reed Mahi Mahi, Sar'theris Striker, Savage Coast Blue Sailfin).",
+   "gold": "Pesce crudo venduto in AH o usato per Cooking (wowforever.be). Cifre: non trovate.",
+   "pairs": [
+    "Cooking"
+   ],
+   "camp": "Fish Bowl (8% a tutte le stat, in common.json). Tier 2 Fishing Rack (140): esche e pesci non comuni. Tier 3 Fishing Hut (300): esche e pesci rari.",
+   "skillByLevel": "Apprentice: 1–75 (istruttore). Journeyman: 75–150 (istruttore). Expert: 150–225 con libro The Bass and You (Old Man Heming, Booty Bay). Artisan: 225–300 con quest Angler Extreme da lv 35 (wowforever.be Fishing).",
+   "recipes": [
+    [
+     "Fish Bowl",
+     "camp",
+     "Camp Tier 1: 8% a tutte le stat"
+    ],
+    [
+     "Fishing Rack",
+     "140",
+     "Camp Tier 2"
+    ],
+    [
+     "Fishing Hut",
+     "300",
+     "Camp Tier 3"
+    ],
+    [
+     "Angler Extreme (quest)",
+     "Artisan, lv 35",
+     "Sblocca Artisan"
+    ]
+   ],
+   "tips": [
+    "Gli Shaman raggiungono i banchi più facilmente con Far Sight e Water Walking; gli Hunter danno pesce crudo al famiglio (wowforever.be).",
+    "Cooking + Fishing per tutti: +5% XP dal cibo (WT)."
+   ]
+  }
+ ],
+ "pairs": [
+  {
+   "pair": "Mining + Herbalism",
+   "for": "Chi vuole gold dal livello 1 con gathering sulla rotta",
+   "why": "Vene ed erbe stanno sulle stesse zone. Mining rifornisce Blacksmithing/Engineering, Herbalism rifornisce Alchemy. Entrambi vendono i grezzi in AH.",
+   "signal": "wowforever.be Mining e Herbalism (agg. 3 ott 2026) la indicano come coppia."
+  },
+  {
+   "pair": "Herbalism + Alchemy",
+   "for": "Chi vuole consumabili e gold a 60, qualsiasi classe",
+   "why": "Alchemy usa quasi ogni erba. Il camp Mana Well e Fermenter, e le pozioni ricorrenti danno domanda costante. Costo: ricette e vial nel leveling.",
+   "signal": "Warcraft Tavern (Herbalism e Alchemy, coppia consigliata); Gfinity per i raider (Herbalism + Alchemy) 🟡."
+  },
+  {
+   "pair": "Mining + Blacksmithing",
+   "for": "Warrior, Paladin, melee con armatura di piastra",
+   "why": "Blacksmithing usa le barre di Mining. Anvil (140) e Master Forge (300) danno banco di lavoro al campo.",
+   "signal": "Warcraft Tavern (coppia per plate e melee); Gfinity concordi per Warrior/Paladin 🟡."
+  },
+  {
+   "pair": "Mining + Engineering",
+   "for": "PvP, utility, endgame di Warrior, Hunter, Rogue",
+   "why": "Gfinity: 'Engineering is a must at max level' per Warrior. Reagent Bot e Anarchist's Workbench.",
+   "signal": "Warcraft Tavern (Engineering con Mining per PvP, utility e fun); Gfinity. 🟡"
+  },
+  {
+   "pair": "Skinning + Leatherworking",
+   "for": "Hunter, Rogue, Shaman, Druid (armature di cuoio e maglia)",
+   "why": "Le bestie uccise in quest forniscono cuoio. Leatherworking crea l'armatura del main.",
+   "signal": "wowforever.be Skinning e Leatherworking (combinazione suggerita); Gfinity concordi 🟡 (siti non ufficiali)."
+  },
+  {
+   "pair": "Tailoring + Enchanting",
+   "for": "Priest, Mage, Warlock",
+   "why": "Tailoring ottiene stoffa dagli umanoidi. Enchanting ricicla il gear tramite Disenchant (nessun nodo, WT).",
+   "signal": "Warcraft Tavern (Enchanting con Tailoring); Gfinity concordi 🟡."
+  },
+  {
+   "pair": "Cooking + Fishing",
+   "for": "Tutti (secondarie)",
+   "why": "Cooking dà +5% XP dal cibo e non occupa posti primari. Fishing rifornisce il pesce economico.",
+   "signal": "Warcraft Tavern (Cooking e Fishing 'Everyone'); wowforever.be Cooking e Fishing (3 e 11 ott 2026)."
+  }
+ ],
+ "classPicks": {
+  "warrior": "Mining + Blacksmithing in leveling: barre proprie e armi e armature crafted. Endgame Engineering + Mining (Gfinity: 'At max level, Engineering is a must'). Fonti: Gfinity (6 ott) 🟡.",
+  "paladin": "Mining + Blacksmithing per Prot e Ret. Holy: Herbalism + Alchemy (Gfinity), per il consumo di mana. Fonti 🟡.",
+  "hunter": "Skinning + Leatherworking in leveling (cuoio sempre pronto). Endgame Engineering + Mining (Gfinity: 'peak synergy with Hunters'). Fonti 🟡.",
+  "rogue": "Skinning + Leatherworking: cuoio dalle bestie mentre fai quest (Gfinity). PvP: Engineering + Mining . Fonti 🟡.",
+  "priest": "Tailoring + Enchanting in leveling. Endgame Tailoring + Engineering (Gfinity: movement speed e difensivi da Engineering). Fonti 🟡.",
+  "shaman": "Skinning + Leatherworking in leveling (Gfinity). Resto ed Elemental: Herbalism + Alchemy . Fonti 🟡.",
+  "mage": "Tailoring + Enchanting in leveling. Dungeon e speedrun: Engineering + Mining con granate (Gfinity). Fonti 🟡.",
+  "warlock": "Tailoring + Enchanting in leveling. Economia e raid: Herbalism + Alchemy (Gfinity). Fonti 🟡.",
+  "druid": "Skinning + Leatherworking in leveling (Gfinity). Open world: Herbalism + Alchemy, raccolta in Travel Form (Gfinity). Fonti 🟡."
+ },
+ "plan": [
+  "Liv 1: scegli Mining o Herbalism (gathering, nessun requisito di livello). Imparala dal trainer Apprentice della zona iniziale o dalla quest Mining for Dummies / Wild Harvest (wowforever.be).",
+  "Liv 1–5: raccogli sulla rotta. Se hai Mining, fondi rame al forge fino a 65 (130 Copper Ore). Non fondere in anticipo più del necessario.",
+  "Liv 5: impara Cooking (secondaria, nessun posto primario). Cucina il cibo che hai per +5% XP dalle uccisioni (Well Fed).",
+  "Liv 5–10: aggiungi la seconda primaria in coppia (Blacksmithing o Engineering con Mining; Alchemy con Herbalism; Leatherworking con Skinning). Il crafting si impara da livello 5.",
+  "Liv 10: passa a Journeyman per la primaria (livello 10, skill 50, cap 150). Se fondi bronzo, tieni 60 Copper Bar e 60 Tin Bar dal passo precedente.",
+  "Liv 20: Expert (livello 20, skill 125, cap 225). Dal livello 20 sbloccano i camp Tier 1: Lodestone (Mining), Incense Candle (Herbalism), Camp Tent (Leatherworking), Enchanted Lute (Enchanting), Mana Well (Alchemy), Sharpening Wheel (Blacksmithing), Camp Chair (Skinning). Sono i buff del camp: vedi common.json per il loro effetto.",
+  "Liv 20–30: segui la rotta di fascia. Herbalism 70–115 (Mageroyal, Briarthorn, Stranglekelp), Mining 65–125 (Tin e Silver veins). Quando trovi un fuoco di un altro giocatore (Campfire Nearby), /sit per 1 minuto e prendi il buff.",
+  "Fuori dal 30: la fascia 150+ richiede il trainer Expert (livello 20, skill 125). Verifica i trainer in città con la tua primaria prima di arrivare a 150."
+ ],
+ "gold": [
+  "Gathering da subito: Mining, Herbalism e Skinning vendono grezzi in AH e non hanno costi di ricetta. Erbe comuni calano di prezzo in fretta, rare come Black Lotus tengono valore (WT).",
+  "Enchanting non ha nodi: i materiali escono solo dal Disenchant di gear Green o superiore (WT). Disincantare gear di livello alto dà materiali migliori.",
+  "Blacksmithing: Rods & Keys e oggetti Bind-on-Equip sono una fonte di gold diretta (WT).",
+  "Cooking: ricette economiche e pesce crudo economico in AH (wowforever.be). Non è un'entrata: serve per XP e camp.",
+  "Engineering: il Reagent Bot compra e vende reagenti al campo, quindi puoi smaltire lo stock senza passare dall'AH (WT, wowforever.be camping).",
+  "Bank alt in capitale: Stormwind o Ironforge per l'Alleanza, Orgrimmar o Thunder Bluff per l'Orda (Method). Mail tra i tuoi personaggi arriva subito; 30 copper per stack (Method).",
+  "Legacy Bountiful Harvest (+20% Scarce da Mining, Herbalism, Skinning) aumenta i materiali da vendere, ma è un perk del demo BlizzCon: non pianificarci senza conferma in gioco (WT) 🟡."
+ ],
+ "alts": {
+  "intro": "I Legacy Points sono condivisi tra i personaggi del Battle.net, ma ogni personaggio li spende per i propri perk (Blizzard, via snippet). Le challenge completate danno punti (wowforever.be). Il bank alt in capitale e il crafter alt per i punti Legacy sono gli alt più utili. Un account bank non è confermato.",
+  "legacy": [
+   [
+    "Working Overtime (max 5)",
+    "+4% di chance per grado di skill in qualsiasi tradeskill (wowforever.be, WT)",
+    "Scope per perk: non trovato. Costo: non trovato (solo rank max)"
+   ],
+   [
+    "Bountiful Harvest (max 5)",
+    "+20% materiali Scarce da Mining, Herbalism, Skinning (wowforever.be, WT)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Dedicated Study (max 1)",
+    "+1 skill nella tradeskill più bassa, una volta ogni 23 ore; a 300 in tutte, 2–4 Elemental Essence (wowforever.be)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Master Chef (max 5)",
+    "10% per grado di creare un risultato in più con Cooking (WT)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Performance Bonus (max 3)",
+    "5% per grado di Merchant's Favor doppio consegnando le supply crate (WT, wowforever.be)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Well Rested (max 5)",
+    "Rested XP accumula 4% più veloce; cap +4% per grado (WT)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Field Guide (max 3)",
+    "Cooldown dei camp feature ridotto dell'8% (WT)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Permanence (max 2)",
+    "Buff di gruppo di classe più lunghi del 50%; camp rest più lungo del 50% (WT)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Reagent Economy (max 1)",
+    "Le class ability non richiedono reagenti; i camp Tier 1 si craftano senza reagenti (WT)",
+    "Scope per perk: non trovato. Costo: non trovato"
+   ],
+   [
+    "Reward track: Spectral Bear Club (23 pt), Reins of the Spectral Bear (55 pt)",
+    "Ricompense da Inkeeper Wiley a Ratchet (WT)",
+    "Scope: non trovato. Costo: 23 o 55 Legacy Points (WT)"
+   ]
+  ],
+  "bankAlt": [
+   "Capitali: Alleanza Stormwind o Ironforge (Ironforge preferita da Method per il percorso diretto); Orda Orgrimmar o Thunder Bluff. Evita Valanaar (Zephras Isle): non è una zona di riposo, quindi non puoi fare logout istantaneo (Method).",
+   "Un bank alt per fazione, ruleset e regione: la mail non passa tra queste (Method, fonte singola) 🟡.",
+   "Cosa mandare al bank alt: armature e armi BoE, stoffa, minerali e gemme, cuoio, erbe, carne e ingredienti di cibo. Grigi al vendor. Bianchi in AH solo se AH supera vendor + 30 copper + deposito (Method) 🟡.",
+   "Costi mail: 30 copper per stack; gli oggetti restano nella casella del destinatario per 30 giorni, poi tornano al mittente (Method) 🟡.",
+   "Account-wide bank: non confermato. Un intervista (PC Gamer, via snippet) lo definisce 'una possibilità per un futuro non troppo lontano'. Non pianificarlo."
+  ],
+  "craftAlts": [
+   "Alt Tailoring + Herbalism (Mobalytics Alliance, solo snippet di ricerca) 🟡: crea 8 Linen Bag a livello 10, tieni 4 e manda 4 al primo alt.",
+   "Enchanting alt: Disenchant è l'unica fonte di materiali (WT). Arcane Dust è il collo di bottiglia (snippet, 🟡)."
+  ],
+  "order": [
+   "1. Ordine consigliato: prima il main a 10–15 con gathering e prima primaria, poi il bank alt (Mobalytics snippet 🟡: alt a 10 con Tailoring + Herbalism).",
+   "2. Bank alt nella capitale della tua fazione (Stormwind o Ironforge; Orgrimmar o Thunder Bluff), non a Valanaar (Method).",
+   "3. Alt in attesa: una community guide (snippet, 🟡) suggerisce di lasciare gli alt in inn o capitale a accumulare Rested XP mentre giochi un solo personaggio, e di mandare i materiali all'alt che ne ha bisogno."
+  ],
+  "tips": [
+   "Mail tra i tuoi personaggi: istantanea (Method, snippet Icy Veins). Ogni stack costa 30 copper (Method).",
+   "Well Rested (Legacy) accelera il Rested XP del 4%: aiuta chi accumula XP sugli alt in inn (WT).",
+   "Il bank/alt non è ancora un account bank: non confermato. Le collezioni e i Legacy Points sono account-wide (WT, Blizzard via snippet).",
+   "ForeverAlts (CurseForge, snippet): tracker di alt, Legacy Points e mail; in beta un bug dimenticava gli alt al riavvio. Da verificare dopo il lancio 🟡."
+  ]
+ },
+ "sources": [
+  {
+   "name": "wowforever.be - Tradeskills hub (perk per professione, Legacy tradeskill)",
+   "url": "https://wowforever.be/it/tradeskills/",
+   "date": "non trovato (immagini BlizzCon 2026)",
+   "signal": "Sito dati dedicato a Forever. Dichiara che i numeri non sono definitivi.",
+   "used": "Perk ★ per tutte le professioni; perk Legacy tradeskill"
+  },
+  {
+   "name": "wowforever.be - Mining guide",
+   "url": "https://wowforever.be/it/tradeskills/forever/mining/",
+   "date": "Aggiornato il 3 ottobre 2026",
+   "signal": "Guida lunga con istruttori, vene, fusione, camp. Sito dati.",
+   "used": "Mining: fusione, vene, istruttori, camp, ricette"
+  },
+  {
+   "name": "wowforever.be - Herbalism guide",
+   "url": "https://wowforever.be/it/tradeskills/forever/herbalism/",
+   "date": "Aggiornato il 3 ottobre 2026",
+   "signal": "Guida con istruttori, fasce erbe, camp.",
+   "used": "Herbalism: fasce, camp, Goldthorn Tea, semi"
+  },
+  {
+   "name": "wowforever.be - First Aid guide",
+   "url": "https://wowforever.be/it/tradeskills/forever/first-aid/",
+   "date": "Aggiornato il 3 ottobre 2026",
+   "signal": "Guida con ranks, pozioni, rimedi, istruttori.",
+   "used": "First Aid: pozioni, rimedi, Artisan da Triage"
+  },
+  {
+   "name": "wowforever.be - Fishing guide",
+   "url": "https://wowforever.be/it/tradeskills/forever/fishing/",
+   "date": "Aggiornato l'11 ottobre 2026",
+   "signal": "Guida con istruttori, Angler Extreme, camp.",
+   "used": "Fishing: ranks, quest Artisan, camp"
+  },
+  {
+   "name": "wowforever.be - Cooking guide",
+   "url": "https://wowforever.be/it/tradeskills/forever/cooking/",
+   "date": "Aggiornato il 3 ottobre 2026",
+   "signal": "Guida con ricette per fascia, +5% XP da cibo, camp.",
+   "used": "Cooking: fasce, Expert book, Artisan"
+  },
+  {
+   "name": "wowforever.be - Leatherworking, Alchemy, Blacksmithing, Enchanting, Engineering, Skinning, Tailoring (pagine overview)",
+   "url": "https://wowforever.be/it/tradeskills/forever/leatherworking/",
+   "date": "Build 1.60.1.70450, 18 ottobre 2026",
+   "signal": "Pagine overview con conteggio ricette e camp Tier 1-3. Le guide di dettaglio per fascia non sono state lette.",
+   "used": "Conteggi ricette ★, camp Tier 1-3 con materiali"
+  },
+  {
+   "name": "wowforever.be - Guida camping",
+   "url": "https://wowforever.be/guides/camping/",
+   "date": "non trovato",
+   "signal": "Guida sistema camping: buff per professione, Tier e blueprint.",
+   "used": "Buff camp, Tier, blueprint, Lodestone 90 AP"
+  },
+  {
+   "name": "wowforever.be - News 'Ogni tradeskill porta il suo buff a un falò'",
+   "url": "https://wowforever.be/news/every-tradeskill-brings-a-campfire-buff/",
+   "date": "23 settembre 2026",
+   "signal": "Articolo del sito, data certa. Dice che l'elenco completo viene dalla beta.",
+   "used": "Riepilogo camp per professione"
+  },
+  {
+   "name": "Warcraft Tavern - Professions Overview",
+   "url": "https://www.warcrafttavern.com/forever/guides/professions/",
+   "date": "non trovato (commenti 'one month ago')",
+   "signal": "Sito di guide consolidato. Dati beta, con 'non trovato' su alcuni punti.",
+   "used": "Ranks e cap, coppie consigliate, Enchanting, Engineering, Skinning, Cooking"
+  },
+  {
+   "name": "Warcraft Tavern - Legacy Tree & Rewards",
+   "url": "https://www.warcrafttavern.com/forever/news/legacy-tree-rewards-in-world-of-warcraft-forever",
+   "date": "13 settembre 2026",
+   "signal": "Descrive una demo BlizzCon. Non dichiarato definitivo: 'Upcoming info' in alcuni slot.",
+   "used": "Legacy perk professioni e alt, reward track"
+  },
+  {
+   "name": "Warcraft Tavern - guide per professione (Mining, Herbalism, Alchemy, Blacksmithing, Enchanting, Engineering, Skinning)",
+   "url": "https://www.warcrafttavern.com/forever/guides/mining/",
+   "date": "non trovato (solo Copyright 2026)",
+   "signal": "Guide brevi, molti 'non trovato'. Alcune informazioni sono da commenti.",
+   "used": "Verifica incrociata su fasce, trainer, camp, Legacy"
+  },
+  {
+   "name": "Kami Labs - Alchemy leveling 1-300",
+   "url": "https://kami-labs.fr/en/guide-alchimie-wow-forever/",
+   "date": "non trovato",
+   "signal": "Stime da dati beta, con conteggi approssimati e passi 'after beta'. Reputazione del sito non verificata.",
+   "used": "Alchemy brackets, ricette, vials, trainer"
+  },
+  {
+   "name": "Method - Bank Alts in WoW Forever",
+   "url": "https://www.method.gg/wow-forever/bank-alts-in-wow-forever-do-you-need-one-what-is-it-for",
+   "date": "27 ottobre 2026",
+   "signal": "Method, sito di guide reputato. Guida recente, con mail e regole.",
+   "used": "Bank alt, città, mail, AH rule"
+  },
+  {
+   "name": "Gfinity Esports - Best Profession Pairings per class",
+   "url": "https://www.gfinityesports.com/article/the-best-profession-pairings-for-every-class-in-world-of-warcraft-forever",
+   "date": "6 ottobre 2026",
+   "signal": "Sito di news. Coppie per classe concordanti con altri siti; nessun dato di gold.",
+   "used": "classPicks (leveling e endgame)"
+  },
+  {
+   "name": "Mobalytics Alliance alt leveling (solo snippet di ricerca)",
+   "url": "https://mobalytics.gg/wow-forever/profile/fierce-shield-0hhlzm/guides/wow-forever-alliance-leveling-guide-the-fastest-way-to-level-alts-and-earn-legacy-points",
+   "date": "non trovato",
+   "signal": "Pagina non letta (Mobalytics blocca). Solo snippet di ricerca. 🟡",
+   "used": "Ordine alt: Tailoring + Herbalism, Linen Bag a 10"
+  },
+  {
+   "name": "PC Gamer - Why alts are part of WoW Forever's core progression (solo snippet)",
+   "url": "https://www.pcgamer.com/games/world-of-warcraft/why-alts-are-part-of-world-of-warcraft-forever-s-core-progression-plans/",
+   "date": "non trovato",
+   "signal": "Intervista con sviluppatori Blizzard, riportata da snippet. Account-wide bank solo come possibilità.",
+   "used": "Account bank non confermato"
+  },
+  {
+   "name": "Icy Veins - account-wide banks news (solo snippet)",
+   "url": "https://www.icy-veins.com/wow-forever/news/account-wide-banks-could-be-coming-to-wow-forever/",
+   "date": "non trovato",
+   "signal": "Pagina non letta (Icy Veins blocca). Solo snippet. 🟡",
+   "used": "Mail tra personaggi dello stesso account istantanea"
+  }
+ ],
+ "doubts": [
+  "Journeyman: WT e wowforever danno livello 10 con skill 50 per accedere; Kami Labs dice 'learn it at skill 75'. Non risolto: verifica in gioco.",
+  "Legacy per personaggio: una guida dice 16 perk max a personaggio; un'altra dice che un personaggio può guadagnare fino a 29 punti da solo. Sono numeri diversi (spendibili vs guadagnabili): verifica nelle patch notes ufficiali.",
+  "Regole per i punti Legacy da crafting: uno snippet di ricerca dice 1 punto per classe a livello 25 e 1 per ogni crafting a 150; ExpCarry dice 1 punto a 150, 225 e 300 per sei crafting (non gathering). Conflitto, non risolto.",
+  "Alchemy: la guida WT dice ancora 'Potions, elixirs, flasks' sotto Alchemy, mentre wowforever e i commenti WT dicono che le healing potion sono in First Aid. Un commento WT dice anche che Jewelcrafting non c'è in Forever: non verificato.",
+  "Enchanting: wowforever lo elenca tra le creazioni; WT lo descrive come gathering via Disenchant. Ho scelto 'crafting' come categoria.",
+  "Mixology (elisir e flask più durevoli e forti): dato del demo BlizzCon (Kami Labs, WT), non dati beta. Verifica in gioco.",
+  "Legacy perk della tradeskill (Working Overtime, Bountiful Harvest, Master Chef...): demo BlizzCon, con rank max ma senza costi nelle fonti. Il sito wowforever dichiara i numeri non definitivi.",
+  "Gold: nessuna fonte riporta prezzi di vendita verificati per le professioni. Timesaver dice 'There is no permanent best gold profession'. Le cifre gold/ora (es. 50–150 gold/h, citate da Timesaver da siti fan) sono extrapolate dalla beta: non usarle.",
+  "Siti con boost o servizi a pagamento: ExpCarry (dichiarato). Gfinity e Timesaver: non verificato. Le loro coppie sono confermate solo in modo incrociato.",
+  "Wowhead Forever: 403 (CloudFront), non letto. Icy Veins e Mobalytics: solo snippet di ricerca, pagine non lette.",
+  "Timesaver (fonte singola, dallo snippet di ricerca): ogni realm riparte da zero il 4 novembre. Da verificare: conta per il piano alt.",
+  "Account-wide bank: non confermato (solo 'possibilità' per un futuro non troppo lontano, intervista PC Gamer via snippet).",
+  "Trainer e skill per ricetta non trovati per Blacksmithing, Tailoring, Engineering, Enchanting, Leatherworking, Skinning Artisan. Le pagine wowforever di dettaglio per questi mestieri non sono state lette in pieno."
+ ]
+}
