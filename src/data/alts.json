@@ -175,16 +175,20 @@
    "why": "Solo e in autonomia: 'Lone Wolves' con il pet (Warcraft Tavern). Skinning + Leatherworking per Hunter viene da Gfinity 🟡."
   },
   {
-   "class": "qualsiasi (bank alt)",
-   "why": "Method: 'Any race and any class works'. Se l'alt non si livella la scelta non conta. Conta la capitale e la vicinanza tra AH e bank."
+   "class": "any",
+   "why": "Method: 'Any race and any class works'. Se l'alt non si livella la scelta non conta. Conta la capitale e la vicinanza tra AH e bank.",
+   "name": "Qualsiasi classe (bank alt)",
+   "icon": "inv_misc_bag_10"
   },
   {
-   "class": "tauren (razza)",
-   "why": "Cultivation: duplica un'erba vicina invece di dare un bonus fisso 🟡. Utile per un alt erborista."
+   "class": "tauren",
+   "why": "Cultivation: duplica un'erba vicina invece di dare un bonus fisso 🟡. Utile per un alt erborista.",
+   "name": "Tauren (razza)"
   },
   {
-   "class": "gnome (razza)",
-   "why": "Engineering Specialization Gnomish: riduce la probabilità che i gadget si rompano 🟡."
+   "class": "gnome",
+   "why": "Engineering Specialization Gnomish: riduce la probabilità che i gadget si rompano 🟡.",
+   "name": "Gnome (razza)"
   }
  ],
  "complements": [
