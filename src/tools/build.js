@@ -149,7 +149,8 @@ if (TF) {
   }
   common.sources = common.sources.concat((TF.sources || []).map(srcRow));
 }
-const profs = opt('profs.json');
+const profs = opt('profs.json'), alts = opt('alts.json');
+if (alts) alts.sources = (alts.sources || []).map(srcRow);
 if (profs) profs.sources = (profs.sources || []).map(srcRow);
 
 /* ---- mappa ridotta a ciò che serve ---- */
@@ -188,7 +189,7 @@ if (fs.existsSync(QF)) {
 }
 
 /* ---- scrittura ---- */
-const DATAJS = JSON.stringify({ common, classes, talents, races, routes, factions, transfers, profs, map });
+const DATAJS = JSON.stringify({ common, classes, talents, races, routes, factions, transfers, profs, alts, map });
 let html = fs.readFileSync(path.join(SRC, 'template.html'), 'utf8');
 html = html.replace('/*STYLE*/', () => fs.readFileSync(path.join(SRC, 'style.css'), 'utf8'))
   .replace('/*DATA*/', () => DATAJS.replace(/<\/script/gi, '<\\/script'))

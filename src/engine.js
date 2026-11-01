@@ -219,7 +219,7 @@ function renderClass(){
  // dungeon
  $('dtab').innerHTML='<tr><th>Dungeon</th><th>Livelli</th><th>Dove</th><th>Note</th></tr>'+FA.dungeons.filter(function(d){return d[1]<=MAXL+2}).map(function(d){return '<tr><td><b>'+d[0]+'</b><br>'+dgBtn('mappa '.trim()&&d[0])+'</td><td>'+d[1]+'–'+d[2]+'</td><td>'+d[3]+'</td><td>'+(d[4]||'')+'</td></tr>'}).join('');
  // fonti
- $('srct').innerHTML='<tr><th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th></tr>'+CL.sources.concat(FA.sources,C.sources,D.profs?D.profs.sources:[]).map(srcRow).join('');
+ $('srct').innerHTML='<tr><th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th></tr>'+CL.sources.concat(FA.sources,C.sources,D.profs?D.profs.sources:[],D.alts?D.alts.sources:[]).map(srcRow).join('');
  // testata
  document.title=RA.name+' '+CL.name+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
  $('htitle').innerHTML=img('classicon_'+S.c,'')+' '+RA.name+' '+CL.name+' <span>'+CL.spec+'</span>';
@@ -234,7 +234,7 @@ function renderClass(){
 /* ---- professioni e alt ---- */
 function renderProf(){var P=CL.professions,X=D.profs;
  $('profc').innerHTML='<div class="card"><h3>Main: gold subito</h3><p>'+(P.gold||C.profGold)+'</p></div><div class="card"><h3>Main: più forza in leveling</h3><p>'+P.power+'</p></div><div class="card"><h3>Il consiglio per il '+CL.name+'</h3><p>'+P.advice+(X&&X.classPicks&&X.classPicks[S.c]?'<br>'+X.classPicks[S.c]:'')+'</p></div>';
- if(!X){$('profx').innerHTML='';$('altx').innerHTML='<p class="note">In arrivo.</p>';return}
+ renderAlt();if(!X){$('profx').innerHTML='';return}
  var sel=S.o.prof,ps=X.professions,pc=function(p){return '<details'+(sel.indexOf(p.name)>-1?' open':'')+'><summary>'+img(p.icon,'s')+' '+p.name+' <span class="note">· '+({gathering:'raccolta',crafting:'crafting',secondary:'secondaria'}[p.type]||p.type)+(sel.indexOf(p.name)>-1?' · scelta da te':'')+'</span></summary>'+
   '<p><b>In leveling:</b> '+p.leveling+'</p><p><b>Gold:</b> '+p.gold+'</p>'+(p.pairs&&p.pairs.length?'<p><b>Si abbina con:</b> '+p.pairs.join(', ')+'</p>':'')+(p.camp?'<p><b>Camping:</b> '+p.camp+'</p>':'')+(p.skillByLevel?'<p><b>Trainer e cap:</b> '+p.skillByLevel+'</p>':'')+
   (p.recipes&&p.recipes.length?'<div class="wrap"><table><tr><th>Item / recipe</th><th>Skill</th><th>Perché</th></tr>'+p.recipes.map(function(r){return '<tr><td>'+r.join('</td><td>')+'</td></tr>'}).join('')+'</table></div>':'')+
@@ -243,12 +243,25 @@ function renderProf(){var P=CL.professions,X=D.profs;
   (X.plan&&X.plan.length?'<h3>Come livellarle mentre livelli</h3><div class="card"><ol>'+li(X.plan)+'</ol></div>':'')+
   '<h3>Tutte le profession</h3>'+ps.filter(function(p){return sel.indexOf(p.name)>-1}).concat(ps.filter(function(p){return sel.indexOf(p.name)<0})).map(pc).join('')+
   (X.gold&&X.gold.length?'<h3>Gold</h3><div class="card"><ul>'+li(X.gold)+'</ul></div>':'');
- var A=X.alts||{};
- $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
-  (A.legacy&&A.legacy.length?'<h3>Legacy: cosa resta all’account</h3><div class="wrap card"><table><tr><th>Perk</th><th>Effetto</th><th>Note</th></tr>'+A.legacy.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r[2]||'')+'</td></tr>'}).join('')+'</table></div>':'')+
-  '<div class="grid">'+[['Bank alt',A.bankAlt],['Alt per il crafting',A.craftAlts],['Quale alt fare e quando',A.order]].filter(function(x){return x[1]&&x[1].length}).map(function(x){return '<div class="card"><h3>'+x[0]+'</h3><ul>'+li(x[1])+'</ul></div>'}).join('')+'</div>'+
-  (A.tips&&A.tips.length?'<div class="card"><h3>Consigli</h3><ul>'+li(A.tips)+'</ul></div>':'');
+ $('profx').innerHTML+='<div class="btns"><button class="btn" type="button" onclick="showTab(\'alt\')">Guida agli alt: cosa far fare all’alt ›</button></div>';
 }
+
+/* ---- guida alt (data/alts.json; prima versione in profs.json) ---- */
+// chi alimenta chi: gathering → crafting che ne usa i materiali, e viceversa (Tailoring/Enchanting si aiutano: stoffa e disenchant)
+var FEED={Mining:['Blacksmithing','Engineering'],Herbalism:['Alchemy'],Skinning:['Leatherworking'],Blacksmithing:['Mining'],Engineering:['Mining'],Alchemy:['Herbalism'],Leatherworking:['Skinning'],Tailoring:['Enchanting'],Enchanting:['Tailoring']};
+// una profession per ciascuna del main, poi le seconde scelte
+function altRule(P){var o=[];[0,1].forEach(function(i){P.forEach(function(p){var x=(FEED[p]||[])[i];if(x&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)})});['Enchanting','Tailoring','Herbalism','Skinning'].forEach(function(x){if(o.length<2&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)});return o.slice(0,2)}
+function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=function(x){return x.split(/\s*\+\s*/).map(function(y){return y.trim().toLowerCase()}).sort().join('+')};
+ var m=P.length===2&&(A.complements||[]).filter(function(c){return k(c.main)===k(P.join('+'))})[0];
+ $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>⚙ Personaggio e opzioni</b>: qui comparirà la coppia giusta per il tuo alt.';
+ var L=A.legacy||{},list=function(t,a,ol){return a&&a.length?'<div class="card"><h3>'+t+'</h3><'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'></div>':''};
+ $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
+  list('Il primo alt, passo per passo',A.firstAlt,1)+list('Livellare l’alt più in fretta',A.faster)+
+  ((L.how&&L.how.length)||(L.perks||A.legacy||[]).length?'<h3>Legacy: cosa resta all’account</h3>'+(L.how?'<div class="card"><ul>'+li(L.how)+'</ul></div>':'')+'<div class="wrap card"><table><tr><th>Perk</th><th>Effetto</th><th>Costo</th><th>Note</th></tr>'+(L.perks||(Array.isArray(A.legacy)?A.legacy:[])).map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':'')+
+  (A.complements&&A.complements.length?'<h3>Profession: main → alt</h3><div class="wrap card"><table><tr><th>Main</th><th>Alt</th><th>Perché</th></tr>'+A.complements.map(function(c){var on=m===c;return '<tr'+(on?' style="background:#2a2412"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
+  (A.classes&&A.classes.length?'<h3>Quale classe come alt</h3><div class="grid">'+A.classes.map(function(c){return card('classicon_'+c['class'],(D.classes[c['class']]||{name:c['class']}).name,c.why)}).join('')+'</div>':'')+
+  '<div class="grid">'+list('Bank alt',A.bankAlt)+list('Alt per il crafting',A.craftAlts||A.craftAlt)+list('Quale alt fare e quando',A.order)+'</div>'+
+  list('Errori da evitare',A.mistakes)+list('Consigli',A.tips)}
 
 /* ---- sezioni fisse ---- */
 (function(){
@@ -347,7 +360,7 @@ function bCards(small){var bs=D.classes[S.c].builds||[],cur=CL.B&&CL.B.id;return
 document.addEventListener('click',function(e){var b=e.target.closest('#bSel .bcard');if(!b||e.target.closest('details'))return;S.o.b[S.c]=b.dataset.bid;renderAll()});
 
 /* ---- schede ---- */
-function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('nav button'),function(b){b.classList.toggle('on',b.dataset.tab===t)});
+function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('nav button'),function(b){var on=b.dataset.tab===t;b.classList.toggle('on',on);if(on){var n=b.parentNode;n.scrollLeft=b.offsetLeft-n.clientWidth/2+b.offsetWidth/2}});
  [].forEach.call(document.querySelectorAll('.tab'),function(d){d.classList.toggle('on',d.id==='t-'+t)});
  var w=$('lwrap');if(t==='livello')$('miniHost').appendChild(w);else if(w.parentNode.id==='miniHost')$('mappa').insertBefore(w,$('lchips'));
  if(MAP)setTimeout(function(){MAP.invalidateSize()},30);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}

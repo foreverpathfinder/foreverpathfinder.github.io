@@ -1,0 +1,351 @@
+{
+ "intro": "Guida agli alt per WoW: Forever (lancio 4 nov 2026). I punti Legacy sono condivisi a livello di account, ma ogni personaggio spende i propri perk. L'alt non è obbligatorio: serve per guadagnare più punti (classi e professioni nuove), per il leveling più veloce e per il bank.",
+ "legacy": {
+  "how": [
+   "Ogni challenge completata vale 1 punto Legacy. Sono 65 challenge (Blizzard, Method): Classi 27 (livello 25, 45 e 60 per ciascuna delle 9 classi); Tradeskill 18 (150, 225 e 300 in Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring: le primarie non gathering, quindi Mining, Herbalism e Skinning non danno punti); PvP 12; Dungeon 3 (Novice, Experienced, Master Spelunker); Raid 3 (Hyjal, Barrow Deeps, Onyxia); Adventure 2 (questline di Lord Valthalak, Explore Azeroth). Warcraft Tavern ne conta 62 (PvP 9, perché Exalted in una battleground vale 1 punto in totale e non 4): differenza da verificare in gioco 🟡.",
+   "Primo punto: livello 25 del primo personaggio, oppure 150 skill in una primaria non gathering (Warcraft Tavern, wowforever.gg, Method). Hardcorehelper aggiunge anche l'esplorazione della mappa: non confermato 🟡.",
+   "Account-wide: i punti sono condivisi da tutti i personaggi non Hardcore del Battle.net (Blizzard, Warcraft Tavern, Method). Un alt creato dopo il primo punto eredita i punti 🟡 (WoW Forever Guides).",
+   "Spesa per personaggio: ogni personaggio spende i punti nei tre alberi Professions, Adventure e Resourcefulness, in modo indipendente. Cap di 16 punti per personaggio al lancio (Blizzard, Method; Method dice che il cap aumenterà nel tempo). Un solo personaggio può guadagnarne fino a 29 (Method): gli altri 13 non sono spendibili su quel personaggio 🟡.",
+   "Costo: ogni rank costa 1 punto. Non dichiarato in modo esplicito: lo ricavo dalle build di Method, per esempio Thrill of Adventure (5) occupa 5 punti 🟡. Non risulta un costo in oro per spendere (Method parla solo del reset). Il reset si fa dal class trainer in capitale: 10 gold in beta (Method), il costo finale è sconosciuto.",
+   "Requisiti: i perk a 5 punti richiedono 5 punti nel proprio albero, quelli a 10 richiedono 10 punti nell'albero. Alcuni richiedono un perk specifico al massimo: Talented richiede Well Rested (5), Dedicated Study richiede Bartering (2), Performance Bonus richiede Bountiful Harvest (5), Frequent Flier richiede Field Guide (3), Permanence richiede Gourmand (3), Reagent Economy richiede The Quick and the Dead (2) (wowforever.gg).",
+   "Oltre 16 punti, i punti proseguono un track cosmetico. Le ricompense si riscattano da Innkeeper Wiley a Ratchet: Replica Ironforge Air Rifle 15 punti, Spectral Bear Club/Cub 23 o 25 punti 🟡, Spectral Bear Tabard 40, Reins of the Spectral Bear 55 (Warcraft Tavern, Method).",
+   "Challenge per classe e per professione: il testo di Method dice 'Reach 150 skill in Alchemy for the first time'. Quindi quasi certamente ogni classe e ogni professione vale una volta per account 🟡: un secondo Warrior a 25 o un secondo Tailoring a 150 non danno punti nuovi."
+  ],
+  "perks": [
+   [
+    "Thrill of Adventure (Adventure, max 5)",
+    "Dopo un'uccisione non banale nel mondo, recuperi 1% di vita e mana per grado in 10 s. Non vale in dungeon, raid o battlegrounds. Method: 'the most consistent leveling talent'.",
+    "5 pt, nessun prerequisito",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Well Rested (Adventure, max 5)",
+    "Il rested XP si accumula il 4% più veloce per grado e il cap sale del 4% per grado, fino al 20% (wowforever.be, Warcraft Tavern).",
+    "5 pt, nessun prerequisito",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Talented (Adventure, max 5)",
+    "I primi punti talento arrivano dal livello 9 invece che dal 10; il cap resta 51 (Warcraft Tavern). Method: da rispecare a livello 60.",
+    "5 pt; richiede 5 pt in Adventure e Well Rested (5)",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Field Guide (Adventure, max 3)",
+    "Riduce il cooldown dei camp feature: 8% per grado, cioè 8/17/25% (wowforever.be guide 🟡 per i gradi; Warcraft Tavern dice 8%).",
+    "3 pt; richiede 5 pt in Adventure",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Frequent Flier (Adventure, max 1)",
+    "Sconto 50% sui flight path e mount di volo più veloce del 20% (Warcraft Tavern).",
+    "1 pt; 10 pt in Adventure e Field Guide (3)",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Working Overtime (Professions, max 5)",
+    "+4% di probabilità di skill-up per grado in ogni tradeskill, primarie, secondarie e di classe (Warcraft Tavern, wowforever.be). Method lo usa per il leveling delle professioni.",
+    "5 pt, nessun prerequisito",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Bountiful Harvest (Professions, max 5)",
+    "+20% di materiali Scarce da Mining, Herbalism e Skinning (Warcraft Tavern). È il perno della build gatherer alt di Method.",
+    "5 pt, nessun prerequisito",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Bartering (Professions, max 2)",
+    "Prezzi più bassi dai vendor (Warcraft Tavern: -5%; wowforever guide: 5% poi 10% 🟡).",
+    "2 pt; 5 pt in Professions",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Dedicated Study (Professions, max 1)",
+    "+1 skill nella primaria o secondaria più bassa, una volta ogni 23 ore 🟡. A 300 in tutte le professioni dà 2–4 Elemental Essence (Warcraft Tavern).",
+    "1 pt; 10 pt in Professions e Bartering al massimo",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Master Chef (Professions, max 5)",
+    "10% di probabilità per grado di ottenere un risultato extra dalla cucina (Warcraft Tavern).",
+    "5 pt; 5 pt in Professions",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Luremaster (Professions, max 2)",
+    "25% di probabilità di un pesce in più con un'esca attiva (Warcraft Tavern) 🟡 fonte singola.",
+    "2 pt; 5 pt in Professions",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Gourmand (Resourcefulness, max 3)",
+    "Buff da cibo più lunghi del 33% (Warcraft Tavern).",
+    "3 pt, nessun prerequisito",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Permanence (Resourcefulness, max 2)",
+    "Buff di gruppo di classe più lunghi del 50%, e riposo da camp più lungo del 50% (Warcraft Tavern).",
+    "2 pt; 5 pt in Resourcefulness e Gourmand (3)",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Diplomat (Resourcefulness, max 5)",
+    "+2% di guadagno reputazione per grado (Warcraft Tavern). Method lo abbina a Thrill of Adventure nella build leveling + reputazione.",
+    "5 pt; 5 pt in Resourcefulness",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "The Quick and the Dead (Resourcefulness, max 2)",
+    "+5% velocità mentre sei morto. Gli incantesimi utili non costano risorse per 1 minuto dopo la resurrezione o fino al combattimento (Warcraft Tavern).",
+    "2 pt, nessun prerequisito",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Reagent Economy (Resourcefulness, max 1)",
+    "Le class ability non richiedono reagenti da vendor, e i camp Tier 1 si craftano senza reagenti (Warcraft Tavern).",
+    "1 pt; 10 pt in Resourcefulness e The Quick and the Dead (2)",
+    "no: si spende per personaggio (punti condivisi)"
+   ],
+   [
+    "Reinforce (Resourcefulness, max 5)",
+    "-8% di perdita di durabilità alla morte per grado (Warcraft Tavern). Utile solo se muori spesso.",
+    "5 pt, nessun prerequisito",
+    "no: si spende per personaggio (punti condivisi)"
+   ]
+  ]
+ },
+ "firstAlt": [
+  "Porta il main a livello 25: arriva il primo punto Legacy e si sblocca il tab. Method consiglia poi di portare il main a 60 prima di passare agli alt ('in practice').",
+  "Crea il primo alt con una classe diversa dal main. Ogni classe vale 3 punti (25, 45 e 60) solo se è nuova per l'account 🟡. Non tutte le combinazioni razza-classe esistono (Warcraft Tavern): scegli prima la classe.",
+  "Quando hai punti, apri il tab Legacy (tasto Y, Warcraft Tavern) e spendi sull'alt. Ordine suggerito: Well Rested 5 (rested XP più veloce), Thrill of Adventure 5 (sostenibilità nel mondo), Talented 5 (talenti dal livello 9, richiede Well Rested al massimo). Il punto restante va in Field Medicine (Method).",
+  "Il livello minimo per spendere i punti non è pubblicato (WoW Forever Guides) 🟡. Se il tab non ti lascia spendere, riprova più avanti nel leveling.",
+  "Lascia l'alt in inn o capitale per accumulare rested XP: si carica al 5% del livello ogni 8 ore, fino al 150% (30 bubble). Il rested raddoppia gli XP dei kill finché dura, ma non vale per quest ed esplorazione (wowforever.be XP guide). Il Cozy Sleeping Bag conta come zona riposata anche in logout, con fino a 3 stack di Well Rested da +1% ciascuno (wowforever.be).",
+  "Fai quest del tuo livello e resta nella zona giusta: le quest più di 5 livelli sotto perdono 10–20% di XP per ogni livello di differenza (wowforever.be XP guide).",
+  "Al livello 20 con Leatherworking (skill 20), piazza il Camp Tent: rested fino al 5% del livello per un'ora e sopravvive alla morte (wowforever.be camping). Siediti (/sit) per 1 minuto vicino a un fuoco o camp altrui per prendere i buff.",
+  "Quando serve, manda materiali e oro dal main con la mail: tra i tuoi personaggi arriva subito, con 30 copper per stack (Method). Le regole su cosa mandare sono in bankAlt.",
+  "Quando l'alt arriva a 25, sblocca il secondo punto di classe; a 45 e 60 arrivano gli altri (Method)."
+ ],
+ "faster": [
+  "Rested XP: fai logout in inn, capitale o Cozy Sleeping Bag. La rate è 5% del livello ogni 8 ore, cap 150%; l'XP totale da 1 a 60 è 4.084.700, come in Classic (wowforever.be XP guide).",
+  "Well Rested (5 pt) è il perk con più effetto diretto sulla velocità: +4% per grado su rate e cap, fino al 20% (wowforever.be, Warcraft Tavern, Method).",
+  "Talented porta i talenti dal livello 9. Method lo considera utile solo per il leveling: a 60 conviene rispecare.",
+  "Camp Tent (Leatherworking 20) dà rested fino al 5%. Field Guide riduce il cooldown dei camp feature, quindi li puoi rimettere prima (wowforever.be camping).",
+  "Cibo: la maggior parte dei piatti dà Well Fed, cioè +5% XP dai kill per circa 15 minuti (wowforever.be XP guide). Gourmand (3 pt) allunga la durata dei buff da cibo del 33% (Warcraft Tavern).",
+  "Dungeon: il bonus XP dalle quest di dungeon è stato tagliato del 50% il 1 ottobre (beta), poi i mostri dungeon hanno avuto +20%. Non pianificare il leveling in dungeon 🟡: valgono di più i punti Legacy (Spelunker, 1 punto ciascuno).",
+  "Gruppi: l'XP per giocatore scende con la dimensione del gruppo e crolla se un membro è molto più alto di livello (wowforever.be XP guide). Fai gruppo solo con personaggi del tuo livello.",
+  "Thrill of Adventure non dà XP, ma recupera vita e mana dopo i kill: riduce le pause per recuperare (deduzione da Method)."
+ ],
+ "bankAlt": [
+  "Crea un bank alt per ogni fazione, ruleset e regione: la mail non passa tra questi (Method) 🟡 (fonte singola).",
+  "Capitale: Alleanza Stormwind o Ironforge (Method preferisce Ironforge, dove AH e bank sono in linea retta); Orda Orgrimmar o Thunder Bluff. Evita Valanaar (Zephras Isle): non è una zona riposata e l'Inn è lontano dall'AH (Method).",
+  "Classe e razza non contano se non lo livelli: 'any race and any class works'. Se lo livelli, il Mage crea portali e il Rogue apre lockbox (Method).",
+  "Professione consigliata: Enchanting. Un personaggio di livello 1 può disincantare oggetti di alto livello; il risultato è casuale. Per i prezzi usa Auctionator, Disenchant Buddy o Disenchantry (Method). Tailoring è utile per i Linen Bag da 6 slot nelle prime fasi (Warcraft Tavern).",
+  "Cosa mandare: armi e armature bind-on-equip, stoffa, minerali e gemme, cuoio, erbe, carne e ingredienti di cibo. I grigi al vendor. I bianchi si vendono in AH solo se il prezzo supera vendor + 30 copper + eventuali deposito perso (regola di Method) 🟡.",
+  "Costi mail: 30 copper per stack. Il pacco resta 30 giorni nella casella del destinatario, poi torna al mittente, dove resta altri 30 giorni prima di essere distrutto (Method) 🟡. Account bank: non confermato, quindi non pianificarlo (PC Gamer, via snippet)."
+ ],
+ "craftAlts": [
+  "Solo 6 primarie non gathering danno punti: Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring. Ogni milestone di 150, 225 e 300 vale 1 punto (Blizzard, Method). Cooking, First Aid, Fishing e i gathering non danno punti.",
+  "Route di Method per 16 punti con più personaggi: livello 60 (3) + due alt di classi diverse a 25 (2) + PvP rank 3 (1) + quattro professioni a 225 (8, perché ogni professione dà 150 e 225) + Novice ed Experienced Spelunker (2). Method dice che la crafting a 225 è la fonte più rapida all'inizio.",
+  "Enchanting alt: il materiale viene solo dal Disenchant di gear Green o superiore (Warcraft Tavern). Arcane Dust è il collo di bottiglia.",
+  "Tailoring alt: Linen Bag da livello basso per lo storage (Warcraft Tavern, Method). Coppia Tailoring + Herbalism per l'alt in ordine di leveling (Mobalytics, solo snippet 🟡).",
+  "Cap skill: Apprentice 75; Journeyman dal livello 10 (cap 150); Expert dal livello 20 (cap 225); Artisan dal livello 35 (cap 300) (Warcraft Tavern). Method dice che per il cap crafting servono 'a minimum of 3 level 20 characters': non chiaro 🟡.",
+  ""
+ ],
+ "classes": [
+  {
+   "class": "mage",
+   "why": "Portali per spostarsi e cibo e acqua per gli alleati (Warcraft Tavern). Se lo livelli, Method dice che crea portali. Nessun dato gold verificato 🟡."
+  },
+  {
+   "class": "rogue",
+   "why": "Apre lockbox se livellato (Method). Subtlety si concentra su Bleed e Stealth, Assassination su Poison (Warcraft Tavern). Nessun dato gold."
+  },
+  {
+   "class": "druid",
+   "why": "Raccoglie erbe in Travel Form, quindi l'alt erborista si muove senza fermarsi (Warcraft Tavern). Herbalism + Alchemy per Druid viene da Gfinity 🟡."
+  },
+  {
+   "class": "shaman",
+   "why": "Water Walking per raggiungere i banchi di pesca migliori (Warcraft Tavern): utile come alt pescatore o cuoco."
+  },
+  {
+   "class": "hunter",
+   "why": "Solo e in autonomia: 'Lone Wolves' con il pet (Warcraft Tavern). Skinning + Leatherworking per Hunter viene da Gfinity 🟡."
+  },
+  {
+   "class": "qualsiasi (bank alt)",
+   "why": "Method: 'Any race and any class works'. Se l'alt non si livella la scelta non conta. Conta la capitale e la vicinanza tra AH e bank."
+  },
+  {
+   "class": "tauren (razza)",
+   "why": "Cultivation: duplica un'erba vicina invece di dare un bonus fisso 🟡. Utile per un alt erborista."
+  },
+  {
+   "class": "gnome (razza)",
+   "why": "Engineering Specialization Gnomish: riduce la probabilità che i gadget si rompano 🟡."
+  }
+ ],
+ "complements": [
+  {
+   "main": "Blacksmithing + Engineering",
+   "alt": "Mining + Skinning",
+   "why": "Alt gatherer che rifornisce il main. Ore e pelli vanno in mail al main (30 copper a stack). Method lo chiama 'dedicated gatherer alt' con Bountiful Harvest, Bartering, Dedicated Study, Master Chef e Luremaster. Warcraft Tavern: un gatherer rifornisce un crafter. Il gathering non dà punti Legacy."
+  },
+  {
+   "main": "Herbalism + Skinning",
+   "alt": "Alchemy + Leatherworking",
+   "why": "Alt crafter: le erbe alimentano Alchemy, il cuoio Leatherworking. Camp Tent (Leatherworking 20) dà rested XP all'alt. Le due primarie danno punti Legacy (150, 225 e 300 per ciascuna). Coppia da Warcraft Tavern 🟡."
+  },
+  {
+   "main": "Mining + Blacksmithing",
+   "alt": "Herbalism + Alchemy",
+   "why": "Main melee in plate (Warrior o Paladin): Blacksmithing usa le barre di Mining. L'alt erborista e alchimista fornisce pozioni per il main. Gfinity per le scelte di classe 🟡."
+  }
+ ],
+ "mistakes": [
+  "Credere che l'alt sia obbligatorio: il cap di 16 punti si raggiunge anche su un solo personaggio (Blizzard, Method).",
+  "Spendere i punti senza piano: il reset costa 10 gold in beta, e il costo finale non è noto (Method).",
+  "Tenere Talented a livello 60: a quel punto conviene rispecare (Method).",
+  "Fare dungeon come piano di leveling: il bonus XP dei dungeon è stato cambiato più volte in beta (wowforever.be) 🟡.",
+  "Far leveling in zone troppo sotto il proprio livello: perdi 10–20% di XP per ogni livello di differenza oltre 5 (wowforever.be).",
+  "Contare su due classi uguali: ogni classe vale una volta per account 🟡, quindi un altro personaggio della stessa classe non dà punti nuovi.",
+  "Mandare materiali a un bank alt di un'altra fazione, ruleset o regione: la mail non passa (Method) 🟡.",
+  "Usare Valanaar come capitale del bank: l'Inn è lontano dall'AH e non è una zona riposata (Method).",
+  "Craftare senza sapere a chi vendere: i prezzi non sono verificati e le fonti sconsigliano di craftare oggetti invendibili.",
+  "Fidarsi di siti che vendono boost o gold per i punti Legacy: non li usiamo come fonti."
+ ],
+ "tips": [
+  "Il tab Legacy si apre con Y. Un punto nuovo fa brillare l'icona in azzurro: per spegnerla clicca la challenge che l'ha dato (Warcraft Tavern).",
+  "Il Legacy talent reset è al class trainer in capitale: pianifica i rispec prima di portare un alt a 16 punti.",
+  "Method suggerisce di spendere subito Thrill of Adventure e Well Rested sul primo alt: sono i due perk più usati per il leveling.",
+  "Il calcolatore Legacy di wowforever.be (16 punti, condivisi tra i personaggi) è il riferimento per testare le build senza spenderle (wowforever.be talents).",
+  "Per le challenge di professione, porta un alt a 150 nella primaria che il main non ha ancora usato: la challenge si conta una volta per account (🟡).",
+  "Se fai il bank alt, la classe non conta: scegli una capitale vicina all'AH e non livellarlo (Method). Mage e Rogue servono solo se li levelli (portali e lockbox, Method)."
+ ],
+ "sources": [
+  {
+   "name": "Blizzard, WoW Forever Legacy System (news 24307383), letto tramite riassunto",
+   "url": "http://worldofwarcraft.blizzard.com/en-us/news/24307383",
+   "date": "23 set 2026 (secondo WoW Forever Guides)",
+   "signal": "Fonte ufficiale. Letta tramite riassunto automatico, non direttamente.",
+   "used": "65 challenge e categorie, cap 16, account-wide, 29 guadagnabili per personaggio, reset"
+  },
+  {
+   "name": "wowforever.be, calcolatore talenti e Legacy",
+   "url": "https://wowforever.be/it/talents/",
+   "date": "build 1.60.1.70707 (pagina), lancio 4 nov 2026 (countdown)",
+   "signal": "Sito dati dedicato a Forever. Letto direttamente.",
+   "used": "16 punti condivisi tra i personaggi, data del lancio"
+  },
+  {
+   "name": "wowforever.be, guida XP",
+   "url": "https://wowforever.be/guides/experience/",
+   "date": "non trovata",
+   "signal": "Sito dati dedicato a Forever. Letto tramite riassunto. Dati in parte beta.",
+   "used": "rested XP (5% ogni 8 h, cap 150%), XP totale 4.084.700, Well Fed, Cozy Sleeping Bag, quest e gruppi"
+  },
+  {
+   "name": "wowforever.be, guida camping",
+   "url": "https://wowforever.be/guides/camping/",
+   "date": "non trovata",
+   "signal": "Sito dati dedicato a Forever. Letto tramite riassunto.",
+   "used": "camp feature, cooldown condiviso, /sit 1 minuto, Camp Tent 5% e Boosted Rest 1 h"
+  },
+  {
+   "name": "Warcraft Tavern, Legacy Tree & Rewards (news)",
+   "url": "https://www.warcrafttavern.com/forever/news/legacy-tree-rewards-in-world-of-warcraft-forever",
+   "date": "13 set 2026",
+   "signal": "Sito di guide consolidato. Descrive una demo BlizzCon con alcune voci 'Upcoming'.",
+   "used": "perk, ranks, effetti, reward track"
+  },
+  {
+   "name": "Warcraft Tavern, Legacy System guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/legacy/",
+   "date": "non trovata",
+   "signal": "Sito di guide consolidato. Conteggio challenge 62, in conflitto con Blizzard.",
+   "used": "challenge per categoria, Hardcore, 16 cap, tasto Y e notifica"
+  },
+  {
+   "name": "Warcraft Tavern, Character Creation guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/character-creation/",
+   "date": "non trovata",
+   "signal": "Sito di guide consolidato. Dà poche informazioni su razze e classi per gli alt.",
+   "used": "gatherer che rifornisce un crafter, Travel Form, Water Walking, combinazioni razza-classe"
+  },
+  {
+   "name": "Warcraft Tavern, Classes hub",
+   "url": "https://www.warcrafttavern.com/forever/guides/classes/",
+   "date": "non trovata",
+   "signal": "Sito di guide consolidato. Non tratta gold né leveling per classe.",
+   "used": "Mage portali e cibo, Hunter solo, Druid e Shaman utility"
+  },
+  {
+   "name": "Method, The Fastest Way to Get Legacy Points in WoW Forever",
+   "url": "https://www.method.gg/wow-forever/the-fastest-way-to-get-legacy-points-in-wow-forever",
+   "date": "8 ott 2026 (byline)",
+   "signal": "Method, sito di guide reputato. Contiene alcune incoerenze interne (es. single-character 29 vs 41).",
+   "used": "route a 16 punti, challenge per classe e professione, ordine (60 prima degli alt), crafting a 225"
+  },
+  {
+   "name": "Method, The Best Way to Spend Your Legacy Points in WoW Forever",
+   "url": "https://www.method.gg/wow-forever/the-best-way-to-spend-your-legacy-points-in-wow-forever-best-legacy-talent-builds",
+   "date": "non trovata",
+   "signal": "Method. Build per leveling, gatherer alt, PvP. Non tutti i rank sono indicati.",
+   "used": "Thrill of Adventure 5 come base, build pure leveling, build gatherer alt, reset 10 gold beta"
+  },
+  {
+   "name": "Method, Bank Alts in WoW Forever",
+   "url": "https://www.method.gg/wow-forever/bank-alts-in-wow-forever-do-you-need-one-what-is-it-for",
+   "date": "27 ott 2026",
+   "signal": "Method. Guida recente, con mail, AH e capitali.",
+   "used": "bank alt, città, mail (30 copper, 30 giorni), regola AH, Enchanting, Valanaar"
+  },
+  {
+   "name": "WoW Forever Guides, Alt Leveling Guide (Harenil)",
+   "url": "https://wowforeverguides.com/leveling/alts",
+   "date": "29 set 2026, aggiornata 8 ott 2026",
+   "signal": "Guida fan, basata sulla beta. Incertezze dichiarate. Sito non verificato 🟡.",
+   "used": "gate dei perk (Talented, Field Guide), alt che eredita i punti, Field Guide 8/17/25%, dungeon beta"
+  },
+  {
+   "name": "Hardcorehelper, Legacy System guide",
+   "url": "https://www.hardcorehelper.com/forever/guides/legacy-system",
+   "date": "non trovata",
+   "signal": "Sito non verificato, fonte singola per l'esplorazione come sblocco 🟡.",
+   "used": "conteggio challenge per categoria, unlock tramite esplorazione (non confermato)"
+  },
+  {
+   "name": "wowforever.gg, Legacy calculator",
+   "url": "https://wowforever.gg/en/talents/legacy/",
+   "date": "non trovata",
+   "signal": "Calcolatore fan, non ufficiale. Usato per requisiti tra perk e cap per personaggio 🟡.",
+   "used": "requisiti dei perk, punti condivisi per account, cap 16 per personaggio"
+  }
+ ],
+ "doubts": [
+  "Conteggio challenge: Blizzard dice 65 con PvP 12 (4 punti per Exalted con ciascuna battleground). Warcraft Tavern conta 62 con PvP 9 (1 punto in totale). Verifica in gioco.",
+  "Primo punto: livello 25 o 150 in una primaria non gathering (Warcraft Tavern, wowforever.gg, Method). Hardcorehelper aggiunge l'esplorazione della mappa: non confermato.",
+  "Scope delle challenge: ogni classe e professione vale una volta per account? Method dice 'for the first time', ma non lo dichiara in modo esplicito. Probabile, non confermato.",
+  "Costo per rank: non dichiarato da nessuna fonte. 1 punto per rank è dedotto dalle build di Method.",
+  "Livello minimo per spendere i punti: non pubblicato (WoW Forever Guides).",
+  "Cap 16 per personaggio al lancio, che Method dice aumenterà nel tempo. Un personaggio può guadagnarne 29 (Method). Il cap a lancio non è ancora definitivo.",
+  "Alt che eredita i punti: solo da WoW Forever Guides, e riguarda la regola di creazione dopo il primo punto.",
+  "Talented: Warcraft Tavern dice dal livello 9, WoW Forever Guides dice 'up to five levels earlier' senza precisare la regola per grado.",
+  "Field Guide: Warcraft Tavern dice 8%, WoW Forever Guides dice 8/17/25% per grado. Mi fido della seconda, da verificare.",
+  "Bartering: Warcraft Tavern dice -5%, WoW Forever Guides dice 5% poi 10% per grado.",
+  "Reward track: Spectral Bear Club a 23 punti nella news di Warcraft Tavern, Spectral Bear Cub a 25 nella guida Legacy di Warcraft Tavern.",
+  "Dedicated Study 'una volta ogni 23 ore' viene da profs.json (wowforever.be) e non l'ho riletto.",
+  "Rate del rested XP fuori dalle zone riposate: non dichiarato da wowforever.be. Un snippet parla di 1.25% fuori zona (non confermato).",
+  "Camp Tent 5%: se è una quota totale o un tasso non è chiaro (wowforever.be).",
+  "Reset Legacy: 10 gold solo in beta. Il costo al lancio è sconosciuto.",
+  "Dungeon XP: cambi in beta a settembre e ottobre (-50% poi +20% sui mostri). Valori di lancio sconosciuti.",
+  "Gold per classe o razza: nelle fonti affidabili non ho trovato dati di gold. Le affermazioni 'Mage best gold class' e 'Herbalism + Alchemy gold' vengono da siti non verificati o da siti di boost, quindi le ho escluse.",
+  "Icy Veins e Mobalytics: letti solo tramite snippet di ricerca, non riletti in questa ricerca. Il dato Tailoring + Herbalism viene da profs.json.",
+  "Nessun video con molte views è stato letto in questa ricerca.",
+  "Account bank: non confermato (PC Gamer via snippet). Non pianificarlo.",
+  "Method: il cap crafting 'minimum of 3 level 20 characters' non è chiaro.",
+  "Il lancio è il 4 nov 2026 secondo il countdown di wowforever.be, quindi tutte le cifre sono beta o pre-lancio."
+ ]
+}
