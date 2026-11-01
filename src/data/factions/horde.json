@@ -1,0 +1,1578 @@
+{
+ "faction": "H",
+ "races": {
+  "orc": {
+   "name": "Orc",
+   "start": "durotar",
+   "classes": [
+    "hunter",
+    "mage",
+    "rogue",
+    "shaman",
+    "warlock",
+    "warrior"
+   ],
+   "icon": "achievement_character_orc_male",
+   "racials": [
+    [
+     "Blood Fury",
+     "racial_orc_berserkerstrength",
+     "Attiva (cooldown 2 min): +10% Attack Power e Spell Power per 15 s. ★ Ora anche Spell Power e senza malus alle cure ricevute; il cooldown a 3 min del 15 ott è tornato a 2 min il 27 ott. ✔ (patch notes 15/26/27 ott, Warcraft Tavern, Kami-Labs)"
+    ],
+    [
+     "Shatter Curse",
+     "spell_nature_removecurse",
+     "Attiva ★ nuova: rimuove subito tutte le Curse e Bane e riduce il danno magico subito del 5% per 8 s (era immunità e 15% in beta). Cooldown non confermato. ✔ (Wowhead Forever + note 15 ott; il cooldown “3 min” è solo di LFCarry 🟡)"
+    ],
+    [
+     "Hardiness",
+     "inv_helmet_23",
+     "Passiva: la durata degli Stun su di te è ridotta del 20%. ★ Prima era il 25-35% di probabilità di resistere. ✔"
+    ],
+    [
+     "Command",
+     "ability_warrior_warcry",
+     "Passiva: +5% al danno dei Pet di Hunter e Warlock. Tolta in beta, rimessa il 26 ott (al posto di Savage +1% crit). L'Axe Specialization è stata rimossa. ✔ (Warcraft Tavern 26 ott, Kami-Labs)"
+    ]
+   ],
+   "tips": "Mage Orc ★ è una combinazione nuova: Blood Fury dà Spell Power. Per Hunter e Warlock Command conta solo con il Pet fuori. Parti dal Valley of Trials (The Den) e non allontanarti da Razor Hill prima del 10."
+  },
+  "troll": {
+   "name": "Troll",
+   "start": "durotar",
+   "classes": [
+    "hunter",
+    "mage",
+    "priest",
+    "rogue",
+    "shaman",
+    "warlock",
+    "warrior"
+   ],
+   "icon": "achievement_character_troll_male",
+   "racials": [
+    [
+     "Berserking",
+     "racial_troll_berserk",
+     "Attiva (cooldown 3 min): +10% Attack Speed e Spell Haste per 15 s. ★ Ora fisso al 10%, non più fino al 30% con poca vita; durata portata a 15 s il 27 ott (era 10). ✔"
+    ],
+    [
+     "Regeneration",
+     "spell_nature_regenerate",
+     "Passiva: +20% alla rigenerazione di Health, e il 20% continua anche in combattimento. ★ Era 10% in beta, 20% dal 15 ott. ✔"
+    ],
+    [
+     "Rapid Regeneration",
+     "ability_racial_regeneratin",
+     "Attiva ★ nuova: ripristina il 50% della Health massima in 6 s (channel: ogni movimento, azione o danno la annulla). Cooldown non trovato. ✔ (Wowhead Forever; Warcraft Tavern)"
+    ],
+    [
+     "Beast Slaying",
+     "inv_misc_pelt_bear_ruin_02",
+     "Passiva: +5% al danno contro i Beast. ✔ Molto utile nei Barrens (raptor, plainstrider, hyena)."
+    ]
+   ],
+   "tips": "Warlock Troll ★ è nuovo. Rapid Regeneration vale come “food” gratis tra un pull e l'altro. Se sei Hunter, il Beast Slaying si somma al Pet e funziona su quasi tutte le creature dei Barrens. Priest Troll: Hex of Weakness e Shadowguard."
+  },
+  "tauren": {
+   "name": "Tauren",
+   "start": "mulgore",
+   "classes": [
+    "druid",
+    "hunter",
+    "shaman",
+    "warrior"
+   ],
+   "icon": "achievement_character_tauren_male",
+   "racials": [
+    [
+     "War Stomp",
+     "ability_warstomp",
+     "Attiva: 0.5 s di cast, stordisce fino a 5 nemici entro 8 yd per 2 s. ★ Cooldown 90 s (era 2 min); i Druid possono usarla in forma. ✔"
+    ],
+    [
+     "Cultivation",
+     "inv_misc_flower_01",
+     "Attiva ★ cambiata: duplica un'erba vicina (15 min di cooldown, 3 s di cast, ogni erba una sola volta), senza bisogno di Herbalism per raccoglierla. ✔"
+    ],
+    [
+     "Plainsrunning",
+     "achievement_zone_barrens_01",
+     "Passiva ★ nuova: +2% velocità ogni 5 s di corsa, fino a +60% dopo 2 min 30 (era +1%/30% fino al 26 ott). Perdi 1 stack stando fermo 1 s e 6 se vieni colpito. Non funziona in sella (il +3% montato è stato tolto il 26 ott). Non si somma ad altri buff di velocità. ✔"
+    ],
+    [
+     "Endurance",
+     "spell_nature_unyeildingstamina",
+     "Passiva: +5% alla Health totale. Il bonus crit-danno del 15 ott è stato tolto. ✔"
+    ]
+   ],
+   "tips": "Plainsrunning rende i Barrens molto scorrevoli: cerca percorsi lunghi senza fermarti. È l'unica razza Horde senza una classe nuova ★. Hai Thunder Bluff vicino (Tal) e la quest bag da 12 slot di Skywatcher Plateau a 23."
+  },
+  "undead": {
+   "name": "Undead",
+   "start": "tirisfal",
+   "classes": [
+    "mage",
+    "paladin",
+    "priest",
+    "rogue",
+    "warlock",
+    "warrior"
+   ],
+   "icon": "achievement_character_undead_male",
+   "racials": [
+    [
+     "Will of the Forsaken",
+     "spell_shadow_raisedead",
+     "Attiva (cooldown 2 min): rimuove subito Charm, Fear e Sleep. ★ Non dà più immunità; non usabile sotto Scatter Shot. ✔"
+    ],
+    [
+     "Cannibalize",
+     "ability_racial_cannibalize",
+     "Attiva (cooldown 2 min): su cadavere Humanoid o Undead entro 5 yd, rigenera il 7% di Health e Mana ogni 2 s per 10 s. ★ Ora anche Mana. ✔"
+    ],
+    [
+     "Underwater Breathing",
+     "spell_shadow_demonbreath",
+     "Passiva: respiro sott'acqua +300%. ✔"
+    ],
+    [
+     "Touch of the Grave",
+     "spell_shadow_fingerofdeath",
+     "Passiva ★ nuova: i tuoi spell e attacchi hanno il 20% (Paladin, Rogue, Warrior) o 30% (caster) di probabilità di drenare Health fino al 5% della tua Health massima; cooldown interno 15 s (era 25 s fino al 27 ott). ✔ (Kami-Labs 27 ott + Wowhead Forever)"
+    ]
+   ],
+   "tips": "Paladin Undead ★ è la combinazione nuova della fazione. Non devi attraversare il mondo: Tirisfal → Silverpine → Hillsbrad copre 1–30 e include Ruins of Lordaeron (15–20). Priest: Touch of Weakness e Dark Sacrifice ★ (Warcraft Tavern, pagina razze)."
+  },
+  "skyborne_windshaper": {
+   "name": "Skyborne Windshaper",
+   "start": "zephras_h",
+   "classes": [
+    "druid",
+    "hunter",
+    "rogue",
+    "shaman",
+    "warrior"
+   ],
+   "icon": "inv_elemental_primal_air",
+   "racials": [
+    [
+     "Walk on Air",
+     "inv_elemental_primal_air",
+     "Attiva ★ nuova (condivisa con i High Order): Slow Fall gratis con controllo della direzione, cooldown 90 s (era 2 min). ✔ (Warcraft Tavern, note 15 ott)"
+    ],
+    [
+     "Skysight",
+     "ability_skyreach_lens_flare",
+     "Attiva ★ nuova (solo Windshaper): +15% velocità a piedi e in sella per 15 s, cooldown 2 min, non cumulabile con altri buff. Usata vicino a un Elemental Convergence dà Charged: +30% per 1 ora (persiste alla morte, tolto in raid). Castabile in movimento. ✔ (Blizzard 26 ott; il tooltip Wowhead è vecchio: 10%/30 s)"
+    ],
+    [
+     "Wind Blessed",
+     "inv_misc_volatileair",
+     "Passiva ★: +2% Haste a spell, melee e ranged (era 3% fino al 26 ott). ✔"
+    ],
+    [
+     "Elemental Insight",
+     "achievement_raidprimalist_windelemental",
+     "Passiva ★: +5% al danno contro gli Elemental. ✔"
+    ]
+   ],
+   "tips": "Segui subito la quest di Constable Aonda per Valanaar e non dimenticare la bag Simple Leather Satchel (The Problem With Prideclaws). Usa i tornado Blessing of Zephras (+40% velocità per 5 min, finisce con qualsiasi azione ostile). Dopo Valanaar prendi lo Skycutter di destra (58.2 79.5) per Thunder Bluff."
+  }
+ },
+ "routes": {
+  "durotar": {
+   "name": "Durotar (Orc e Troll)",
+   "races": [
+    "orc",
+    "troll"
+   ],
+   "continent": "kalimdor",
+   "segments": [
+    {
+     "from": 1,
+     "to": 5,
+     "zone": "Valley of Trials (Durotar)",
+     "hub": "The Den",
+     "note": "Zona iniziale: Gornek (42.0 68.4) e Kaltunk (43.2 68.6) per le prime quest. Trainer di classe nel Valley."
+    },
+    {
+     "from": 5,
+     "to": 8,
+     "zone": "Durotar",
+     "hub": "Razor Hill",
+     "note": "Inn Grosk (51.6 41.6), Cook Torka (Cooking, 51.2 42.4), Brakk per The Great Outdoors (52.0 47.2). Bag da 6 slot di Furl Scornbrow (49.8 40.4)."
+    },
+    {
+     "from": 8,
+     "to": 10,
+     "zone": "Durotar",
+     "hub": "Sen'jin Village",
+     "note": "Giro est/sud (Sen'jin Village, Master Gadrin 56.0 74.6), poi Orgrimmar per trainer e quest Ragefire. Wmd dà Durotar 5–10."
+    },
+    {
+     "from": 10,
+     "to": 14,
+     "zone": "The Barrens",
+     "hub": "The Crossroads",
+     "note": "Ingresso da Far Watch Post. Flight path del Crossroads."
+    },
+    {
+     "from": 14,
+     "to": 18,
+     "zone": "The Barrens",
+     "hub": "Ratchet",
+     "note": "Bag da 8 slot, centauri, harpies. RFC 13–18 dal FP di Orgrimmar."
+    },
+    {
+     "from": 18,
+     "to": 21,
+     "zone": "The Barrens (sud)",
+     "hub": "Camp Taurajo",
+     "note": "Wailing Caverns 17–24, hearth a Camp Taurajo dal 19."
+    },
+    {
+     "from": 20,
+     "to": 23,
+     "zone": "Stonetalon Mountains",
+     "hub": "Sun Rock Retreat",
+     "note": "Prima visita 18–22; Stonetalon 15–25 sulla mappa."
+    },
+    {
+     "from": 22,
+     "to": 27,
+     "zone": "Ashenvale",
+     "hub": "Splintertree Post",
+     "note": "Splintertree Post e Zoram'gar; Blackfathom Deeps dal 24. Ashenvale 19–30 sulla mappa."
+    },
+    {
+     "from": 27,
+     "to": 30,
+     "zone": "Thousand Needles / Barrens",
+     "hub": "Freewind Post",
+     "note": "Oppure avanzi dei Barrens e seconda visita a Stonetalon (24–27)."
+    }
+   ],
+   "steps": [
+    {
+     "title": "Valley of Trials",
+     "levels": "1–5",
+     "town": "The Den",
+     "zoneIcon": "achievement_zone_durotar",
+     "text": "Quest iniziali da Gornek (42.0 68.4) e Kaltunk (43.2 68.6) al Den. Al 3–4 prendi i trainer di classe nel Valley (Mage: Mai'ah 42.4 69.0; Warrior: Frang 42.8 69.4; Shaman: Shikrik 42.4 69.0; Hunter: Jen'shan 42.8 69.2; Rogue: Rwag 41.2 68.0; Warlock: Nartok 40.6 68.4; Priest: Ken'jai 42.4 68.8).",
+     "fp": ""
+    },
+    {
+     "title": "Razor Hill",
+     "levels": "5–8",
+     "town": "Razor Hill",
+     "zoneIcon": "achievement_zone_durotar",
+     "text": "Hub di Durotar: Inn Grosk (51.6 41.6), Cook Torka (Cooking e quest). Furl Scornbrow (49.8 40.4) dà la bag da 6 slot con Carry Your Weight. Brakk (52.0 47.2) chiude The Adventurer e dà The Great Outdoors: /sit al fuoco, poi Cooking per il Basic Campfire.",
+     "fp": ""
+    },
+    {
+     "title": "Sen'jin Village e Orgrimmar",
+     "levels": "8–10",
+     "town": "Sen'jin Village",
+     "zoneIcon": "achievement_zone_durotar",
+     "text": "Giro a Sen'jin Village per finire Durotar (Master Gadrin 56.0 74.6, dungeon quest giver). A 9–10 vai a Orgrimmar: prendi il flight path di Doras, i trainer e le quest di Ragefire Chasm (Neeru Fireblade, Thrall).",
+     "fp": "Orgrimmar (Doras)"
+    },
+    {
+     "title": "The Crossroads",
+     "levels": "10–14",
+     "town": "The Crossroads",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Entri nei Barrens a 10–12 (Orc/Troll da Far Watch Post, 62 19; Tauren a piedi verso est). Prendi il flight path di Devrak (51.4 30.2), fai Inn qui e raccogli tutte le quest locali (Plainstrider Menace, Raptor Thieves, The Forgotten Pools, Wharfmaster Dizzywig). Tieni l'hearth al Crossroads fino a ~19.",
+     "fp": "The Crossroads (Devrak)"
+    },
+    {
+     "title": "Ratchet e nord dei Barrens",
+     "levels": "14–18",
+     "town": "Ratchet",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Ratchet (Bragok, FP 63.0 37.2) per le catene goblin e la bag da 8 slot di Wrenix the Wretched (dal 9). Poi Stagnant Oasis, Samophlange, caccia fino a Echeyakee, centauri (Kolkar Leaders, Verog, Hezrul Bloodmark) e Harpy Raiders. In questa fascia puoi fare Ragefire Chasm (13–18) dal flight path di Orgrimmar.",
+     "fp": "Ratchet (Bragok)"
+    },
+    {
+     "title": "Camp Taurajo e Wailing Caverns",
+     "levels": "18–21",
+     "town": "Camp Taurajo",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "A 18–19 scendi a Camp Taurajo (FP Omusa Thunderhorn 44.4 59.0, Inn Byula): Jorn Skyseer, Mangletooth, Tribes at War, Blood Shards of Agamaggan. Wailing Caverns (17–24; ingresso 46.0 36.3) una volta, con tutte le quest nel log; la bag Deviate Hide Pack è qui.",
+     "fp": "Camp Taurajo (Omusa Thunderhorn)"
+    },
+    {
+     "title": "Stonetalon Mountains",
+     "levels": "20–23",
+     "town": "Sun Rock Retreat",
+     "zoneIcon": "achievement_zone_stonetalon_01",
+     "text": "Entri a 18–20 dal campo di confine (Barrens 35 27). Prima visita: Grimtotem Post, Malaka'jin, Windshear Crag. Poi Sun Rock Retreat (FP Tharm 45.2 59.8, Inn Jayka). Quest di ingresso: The Spirits of Stonetalon, Letter to Jin'Zil, News of Dogran, Ziz Fizziks. Raccogli subito le tre quest di uscita (Ashenvale: Kadrak; Thousand Needles: Calling in the Reserves). 🟡 games.gg 21 set",
+     "fp": "Sun Rock Retreat (Tharm)"
+    },
+    {
+     "title": "Ashenvale (Horde)",
+     "levels": "22–27",
+     "town": "Splintertree Post",
+     "zoneIcon": "achievement_zone_ashenvale_01",
+     "text": "Splintertree Post (Vhulgra 73.2 61.6, Senani Thunderheart 73.6 61.4 per The Ashenvale Hunt; The Warsong Reports da Kadrak a Mor'shan Rampart, Barrens 48.1 5.4). Poi Zoram'gar Outpost (Andruk 12.2 33.8, Karang Amakkar 11.8 34.4) e, dal 24, Blackfathom Deeps (24–32, Zoram Strand ~14 13). Evita la metà est sotto il 27. 🟡 games.gg 25 set",
+     "fp": "Splintertree Post (Vhulgra), Zoram'gar (Andruk)"
+    },
+    {
+     "title": "Thousand Needles / avanzi dei Barrens",
+     "levels": "27–30",
+     "town": "Freewind Post",
+     "zoneIcon": "achievement_zone_thousandneedles_01",
+     "text": "A 25–27 prendi la Great Lift per Thousand Needles e il flight path di Freewind Post (Nyse 45.0 49.2). In alternativa torna nei Barrens a 27 per Isha Awak, Horde Presence, Revenge of Gann e le quest di Mor'shan. Razorfen Kraul (29–38) parte dai Southern Barrens. Seconda visita a Stonetalon (24–27, Sun Rock/Charred Vale/Stonetalon Peak) è un'altra opzione. 🟡 (games.gg 21/26 set, Overgear 30 set)",
+     "fp": "Freewind Post (Nyse)"
+    }
+   ],
+   "milestones": {
+    "4": [
+     "Quest della bag da 6 slot: Carry Your Weight (Furl Scornbrow, Razor Hill)"
+    ],
+    "5": [
+     "Quest The Great Outdoors: sblocca Camping (poi impara Cooking per il Basic Campfire)",
+     "Compra la prima Wand (se Mage/Priest/Warlock) o un'arma migliore: conta soprattutto la weapon"
+    ],
+    "9": [
+     "Scuffed Shipping Crate a Ratchet (8 slot) — solo se passi dai Barrens"
+    ],
+    "10": [
+     "Primo talent point (🟡 come da guida del Mage)",
+     "Passa ai Barrens; prendi il flight path del Crossroads",
+     "Ragefire Chasm: quest da Neeru Fireblade e Thrall (Orgrimmar), Rahauro (Thunder Bluff), Varimathras (Undercity)"
+    ],
+    "13": [
+     "Ragefire Chasm (13–18 sulla mappa Wowhead; RestedXP lo mette dal 10) ✔"
+    ],
+    "14": [
+     "Catena Cozy Sleeping Bag disponibile (solo da 14); lunga e in zone Alleanza, facoltativa"
+    ],
+    "17": [
+     "Wailing Caverns (17–24): bag Deviate Hide Pack ✔"
+    ],
+    "18": [
+     "Entra in Stonetalon; Camp Taurajo come hub sud"
+    ],
+    "19": [
+     "Sposta l'hearth da Crossroads a Camp Taurajo (se resti nel sud)"
+    ],
+    "22": [
+     "Shadowfang Keep (22–30) solo se hai gruppo: lontano per Kalimdor"
+    ],
+    "23": [
+     "Skywatcher Plateau (Mulgore): Stronger than Steel, bag da 12 slot"
+    ],
+    "24": [
+     "Blackfathom Deeps (24–32) da Zoram'gar, Ashenvale"
+    ],
+    "25": [
+     "Thousand Needles (24–35 sulla mappa) via Great Lift"
+    ],
+    "27": [
+     "Ritorno nei Barrens per le quest finali o Hillsbrad/Thousand Needles"
+    ],
+    "29": [
+     "Razorfen Kraul (29–38) dai Southern Barrens"
+    ],
+    "30": [
+     "Obiettivo: livello 30. City of Dalaran (28–33) è sull'altro continente: ignorala se resti a Kalimdor"
+    ]
+   },
+   "bags": [
+    {
+     "lvl": "~4–7",
+     "name": "Handmade Leather Bag",
+     "slots": 6,
+     "how": "Quest Carry Your Weight: Furl Scornbrow, torre di guardia di Razor Hill (Durotar 49.8 40.4). Porta 8 Canvas Scraps. 🟡 (LepreStore, 16 ott; livello preciso non trovato)"
+    },
+    {
+     "lvl": "9+",
+     "name": "Scuffed Shipping Crate",
+     "slots": 8,
+     "how": "Quest Parts and Pieces: Wrenix the Wretched a Ratchet (The Barrens, 63.0 36.4). Porta 5 Handful of Complicated Parts dal campo pirata a sud di Ratchet. Valida per entrambe le fazioni. 🟡 (LepreStore, 16 ott)"
+    },
+    {
+     "lvl": "17-24",
+     "name": "Deviate Hide Pack",
+     "slots": 10,
+     "how": "Quest Deviate Hides: Nalpak, nella grotta sopra l'ingresso di Wailing Caverns (The Barrens, ~46.0 35.7). 20 Deviate Hides; scegli la bag invece dei Slick Deviate Leggings. Alternativa: Snakeskin Bag (10 slot, BoP, drop di Lady Anacondra, ~5% in beta). 🟡 (LepreStore; coordinate Nalpak da games.gg 26 set)"
+    },
+    {
+     "lvl": "14+",
+     "name": "Sturdy Lunchbox",
+     "slots": 12,
+     "how": "Ricompensa di Stepping Stones nella catena del Cozy Sleeping Bag (Horde: Burned-Out Remains in The Barrens 46 74 → Nailed Plank a Westfall 37 50 → Pocket Litter vicino a Sun Rock Retreat). Catena lunga e in territorio Alleanza; vedi doubts. ✔ (Warcraft Tavern + LepreStore)"
+    },
+    {
+     "lvl": "23+",
+     "name": "Spidersilk Pouch (12) oppure Spidersilk Sack (10, reagenti)",
+     "slots": 12,
+     "how": "Quest solo Horde Stronger than Steel: 3 Crystalline Silk dai Gloomrise Spinners, Skywatcher Plateau (a nord-ovest di Thunder Bluff, Mulgore). Scegli la Pouch per una bag normale; dà anche Crystal Thread Cloak. È vicina a Thunder Bluff: comoda per i Tauren o con il flight path di Thunder Bluff. 🟡 (LepreStore)"
+    },
+    {
+     "lvl": "drop",
+     "name": "Small Brown / Small Blue Pouch",
+     "slots": 6,
+     "how": "Makrura Snapclaw lungo la costa orientale di Durotar. 🟡"
+    }
+   ],
+   "questNPCs": [
+    {
+     "npc": "Furl Scornbrow",
+     "text": "Bag da 6 slot (Carry Your Weight), Razor Hill 49.8 40.4."
+    },
+    {
+     "npc": "Brakk",
+     "text": "The Adventurer → The Great Outdoors (Camping), a sud di Razor Hill 52.0 47.2. Non condivisibile."
+    },
+    {
+     "npc": "Cook Torka",
+     "text": "Cooking trainer e quest, Razor Hill 51.2 42.4. Servono per il Basic Campfire."
+    },
+    {
+     "npc": "Gornek",
+     "text": "Quest iniziali (Cutting Teeth), The Den 42.0 68.4."
+    },
+    {
+     "npc": "Master Gadrin",
+     "text": "Quest e dungeon quest, Sen'jin Village 56.0 74.6."
+    },
+    {
+     "npc": "Neeru Fireblade",
+     "text": "Ragefire Chasm: Slaying the Beast, Orgrimmar."
+    },
+    {
+     "npc": "Zargh",
+     "text": "Meats to Orgrimmar: quest di ingresso per i Barrens (Orc/Troll), Crossroads 52.6 29.8."
+    },
+    {
+     "npc": "Wrenix the Wretched",
+     "text": "Parts and Pieces: bag da 8 slot, Ratchet 63.0 36.4."
+    }
+   ],
+   "flights": [
+    {
+     "name": "Orgrimmar (Durotar)",
+     "master": "Doras",
+     "way": "in città",
+     "when": "A 9–10, appena arrivi a Orgrimmar."
+    },
+    {
+     "name": "The Crossroads (The Barrens)",
+     "master": "Devrak",
+     "way": "51.4 30.2",
+     "when": "Prima cosa appena entri nei Barrens (10-12). Hub principale; l'Inn è a 52.0 29.8 (Innkeeper Boorand Plainswind). ✔ (wmd + games.gg 26 set)"
+    },
+    {
+     "name": "Ratchet (The Barrens)",
+     "master": "Bragok",
+     "way": "63.0 37.2",
+     "when": "Quando passi da Ratchet (10-14). Qui c'è anche la nave per Booty Bay. ✔"
+    },
+    {
+     "name": "Camp Taurajo (The Barrens)",
+     "master": "Omusa Thunderhorn",
+     "way": "44.4 59.0",
+     "when": "Dal 18, quando scendi a sud. Inn: Innkeeper Byula 45.6 59.0. ✔"
+    },
+    {
+     "name": "Sun Rock Retreat (Stonetalon Mountains)",
+     "master": "Tharm",
+     "way": "45.2 59.8",
+     "when": "Al primo ingresso in Stonetalon (18-20). Inn: Innkeeper Jayka 47.4 62.0. ✔ (wmd + games.gg 21 set)"
+    },
+    {
+     "name": "Splintertree Post (Ashenvale)",
+     "master": "Vhulgra",
+     "way": "73.2 61.6",
+     "when": "Arrivo in Ashenvale (20-22 o 24-27). Inn: Innkeeper Kaylisk 74.0 60.6. ✔ (wmd + games.gg 25 set)"
+    },
+    {
+     "name": "Zoram'gar Outpost (Ashenvale)",
+     "master": "Andruk",
+     "way": "12.2 33.8",
+     "when": "Appena sei a ovest: hub di Blackfathom Deeps (Zoram Strand ~14 13) e delle quest costiere. ✔"
+    },
+    {
+     "name": "Freewind Post (Thousand Needles)",
+     "master": "Nyse",
+     "way": "45.0 49.2",
+     "when": "Dal 25-27, dopo la Great Lift. Inn: Innkeeper Abeqwa 46.0 51.4. ✔ (wmd; livello dalla mappa)"
+    }
+   ],
+   "transport": [
+    "Zeppelin Orgrimmar ↔ Undercity (la torre è fuori da Brill, Tirisfal Glades ~61 59) ✔; Orgrimmar ↔ Grom'gol Base Camp (Stranglethorn Vale) ✔; anche Undercity ↔ Grom'gol ✔ (wmd voyages).",
+    "Nave Ratchet ↔ Booty Bay (neutrale) ✔; usa la nave solo per andare in Stranglethorn.",
+    "Skycutter Thunder Bluff ↔ Valanaar (Zephras Isle) ✔: per le razze Horde è la scorciatoia verso la zona dei Skyborne (wmd + Warcraft Tavern).",
+    "The Great Lift (Thousand Needles): ascensore per Thousand Needles dai Barrens (games.gg 26 set, 🟡)."
+   ],
+   "joins": "Si unisce al percorso dei Tauren al Crossroads (10–12). Orc e Troll sono identici dal Barrens in poi. Gli Undead non passano di qui (restano nei Regni Orientali)."
+  },
+  "mulgore": {
+   "name": "Mulgore (Tauren)",
+   "races": [
+    "tauren"
+   ],
+   "continent": "kalimdor",
+   "segments": [
+    {
+     "from": 1,
+     "to": 5,
+     "zone": "Camp Narache (Mulgore)",
+     "hub": "Camp Narache",
+     "note": "Zona iniziale. Chief Hawkwind (43.9 76.6), Grull Hawkwind (44.4 77.6). Red Cloud Mesa a est per la bag da 6 slot."
+    },
+    {
+     "from": 5,
+     "to": 10,
+     "zone": "Mulgore",
+     "hub": "Bloodhoof Village",
+     "note": "Baine Bloodhoof (46.6 63.4), Inn Kauth (45.9 64.1). Nessun Flight Master a Bloodhoof."
+    },
+    {
+     "from": 8,
+     "to": 10,
+     "zone": "Thunder Bluff",
+     "hub": "Thunder Bluff",
+     "note": "Capitale: flight path Tal, trainer, quest Ragefire/Wailing Caverns (Rahauro, Nara Wildmane, Apothecary Zamah)."
+    },
+    {
+     "from": 10,
+     "to": 14,
+     "zone": "The Barrens",
+     "hub": "The Crossroads",
+     "note": "Ingresso a piedi verso est, oppure via Camp Taurajo; poi flight path Crossroads."
+    },
+    {
+     "from": 14,
+     "to": 18,
+     "zone": "The Barrens",
+     "hub": "Ratchet",
+     "note": "Come Orc e Troll."
+    },
+    {
+     "from": 18,
+     "to": 21,
+     "zone": "The Barrens (sud)",
+     "hub": "Camp Taurajo",
+     "note": "Camp Taurajo è il più vicino a Mulgore."
+    },
+    {
+     "from": 20,
+     "to": 23,
+     "zone": "Stonetalon Mountains",
+     "hub": "Sun Rock Retreat",
+     "note": "Dal flight path di Thunder Bluff arrivi a Sun Rock Retreat."
+    },
+    {
+     "from": 22,
+     "to": 27,
+     "zone": "Ashenvale",
+     "hub": "Splintertree Post",
+     "note": "Come Orc e Troll."
+    },
+    {
+     "from": 27,
+     "to": 30,
+     "zone": "Thousand Needles / Barrens",
+     "hub": "Freewind Post",
+     "note": "Con Thunder Bluff → Freewind Post (flight)."
+    }
+   ],
+   "steps": [
+    {
+     "title": "Camp Narache",
+     "levels": "1–5",
+     "town": "Camp Narache",
+     "zoneIcon": "achievement_zone_mulgore_01",
+     "text": "Parti dal campo con Chief Hawkwind e Grull Hawkwind. Trainer qui: Warrior Harutt Thunderhorn (43.7 76.6), Druid Gart Mistrunner (44.6 76.6), Hunter Lanka Farshot (43.9 76.4), Shaman Meela Dawnstrider (44.6 76.6). Red Cloud Mesa: quest bag Grace of An'she and Mu'sha.",
+     "fp": ""
+    },
+    {
+     "title": "Bloodhoof Village",
+     "levels": "5–10",
+     "town": "Bloodhoof Village",
+     "zoneIcon": "achievement_zone_mulgore_01",
+     "text": "Hub di Mulgore: Baine Bloodhoof (46.6 63.4), Mull Thunderhorn (47.4 63.6), Innkeeper Kauth (45.9 64.1). Trainer: Druid Gennia Runetotem (47.4 62.9), Hunter Yaw Sharpmane (46.1 62.9), Shaman Narm Skychaser (47.4 62.6), Warrior Krang Stonehoof (48.2 63.6). Il NPC di The Great Outdoors per i Tauren: non trovato.",
+     "fp": ""
+    },
+    {
+     "title": "Thunder Bluff",
+     "levels": "8–10",
+     "town": "Thunder Bluff",
+     "zoneIcon": "achievement_zone_mulgore_01",
+     "text": "Prendi il flight path di Tal e le quest di dungeon: Rahauro (Ragefire Chasm: Testing an Enemy's Strength, Searching for the Lost Satchel), Nara Wildmane e Apothecary Zamah (Wailing Caverns). Trainer di classe in città.",
+     "fp": "Thunder Bluff (Tal)"
+    },
+    {
+     "title": "The Crossroads",
+     "levels": "10–14",
+     "town": "The Crossroads",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Entri nei Barrens a 10–12 (Orc/Troll da Far Watch Post, 62 19; Tauren a piedi verso est). Prendi il flight path di Devrak (51.4 30.2), fai Inn qui e raccogli tutte le quest locali (Plainstrider Menace, Raptor Thieves, The Forgotten Pools, Wharfmaster Dizzywig). Tieni l'hearth al Crossroads fino a ~19.",
+     "fp": "The Crossroads (Devrak)"
+    },
+    {
+     "title": "Ratchet e nord dei Barrens",
+     "levels": "14–18",
+     "town": "Ratchet",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Ratchet (Bragok, FP 63.0 37.2) per le catene goblin e la bag da 8 slot di Wrenix the Wretched (dal 9). Poi Stagnant Oasis, Samophlange, caccia fino a Echeyakee, centauri (Kolkar Leaders, Verog, Hezrul Bloodmark) e Harpy Raiders. In questa fascia puoi fare Ragefire Chasm (13–18) dal flight path di Orgrimmar.",
+     "fp": "Ratchet (Bragok)"
+    },
+    {
+     "title": "Camp Taurajo e Wailing Caverns",
+     "levels": "18–21",
+     "town": "Camp Taurajo",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "A 18–19 scendi a Camp Taurajo (FP Omusa Thunderhorn 44.4 59.0, Inn Byula): Jorn Skyseer, Mangletooth, Tribes at War, Blood Shards of Agamaggan. Wailing Caverns (17–24; ingresso 46.0 36.3) una volta, con tutte le quest nel log; la bag Deviate Hide Pack è qui.",
+     "fp": "Camp Taurajo (Omusa Thunderhorn)"
+    },
+    {
+     "title": "Stonetalon Mountains",
+     "levels": "20–23",
+     "town": "Sun Rock Retreat",
+     "zoneIcon": "achievement_zone_stonetalon_01",
+     "text": "Entri a 18–20 dal campo di confine (Barrens 35 27). Prima visita: Grimtotem Post, Malaka'jin, Windshear Crag. Poi Sun Rock Retreat (FP Tharm 45.2 59.8, Inn Jayka). Quest di ingresso: The Spirits of Stonetalon, Letter to Jin'Zil, News of Dogran, Ziz Fizziks. Raccogli subito le tre quest di uscita (Ashenvale: Kadrak; Thousand Needles: Calling in the Reserves). 🟡 games.gg 21 set",
+     "fp": "Sun Rock Retreat (Tharm)"
+    },
+    {
+     "title": "Ashenvale (Horde)",
+     "levels": "22–27",
+     "town": "Splintertree Post",
+     "zoneIcon": "achievement_zone_ashenvale_01",
+     "text": "Splintertree Post (Vhulgra 73.2 61.6, Senani Thunderheart 73.6 61.4 per The Ashenvale Hunt; The Warsong Reports da Kadrak a Mor'shan Rampart, Barrens 48.1 5.4). Poi Zoram'gar Outpost (Andruk 12.2 33.8, Karang Amakkar 11.8 34.4) e, dal 24, Blackfathom Deeps (24–32, Zoram Strand ~14 13). Evita la metà est sotto il 27. 🟡 games.gg 25 set",
+     "fp": "Splintertree Post (Vhulgra), Zoram'gar (Andruk)"
+    },
+    {
+     "title": "Thousand Needles / avanzi dei Barrens",
+     "levels": "27–30",
+     "town": "Freewind Post",
+     "zoneIcon": "achievement_zone_thousandneedles_01",
+     "text": "A 25–27 prendi la Great Lift per Thousand Needles e il flight path di Freewind Post (Nyse 45.0 49.2). In alternativa torna nei Barrens a 27 per Isha Awak, Horde Presence, Revenge of Gann e le quest di Mor'shan. Razorfen Kraul (29–38) parte dai Southern Barrens. Seconda visita a Stonetalon (24–27, Sun Rock/Charred Vale/Stonetalon Peak) è un'altra opzione. 🟡 (games.gg 21/26 set, Overgear 30 set)",
+     "fp": "Freewind Post (Nyse)"
+    }
+   ],
+   "milestones": {
+    "4": [
+     "Quest della bag da 6 slot: Grace of An'she and Mu'sha (Red Cloud Mesa): porta l'incenso al santuario prima dello scadere del timer"
+    ],
+    "5": [
+     "Quest The Great Outdoors: sblocca Camping (poi impara Cooking per il Basic Campfire)",
+     "Compra la prima Wand (se Mage/Priest/Warlock) o un'arma migliore: conta soprattutto la weapon"
+    ],
+    "10": [
+     "Primo talent point (🟡 come da guida del Mage)",
+     "Passa ai Barrens; prendi il flight path del Crossroads",
+     "Ragefire Chasm: quest da Neeru Fireblade e Thrall (Orgrimmar), Rahauro (Thunder Bluff), Varimathras (Undercity)"
+    ],
+    "13": [
+     "Ragefire Chasm (13–18 sulla mappa Wowhead; RestedXP lo mette dal 10) ✔"
+    ],
+    "14": [
+     "Catena Cozy Sleeping Bag disponibile (solo da 14); lunga e in zone Alleanza, facoltativa"
+    ],
+    "17": [
+     "Wailing Caverns (17–24): bag Deviate Hide Pack ✔"
+    ],
+    "18": [
+     "Entra in Stonetalon; Camp Taurajo come hub sud"
+    ],
+    "19": [
+     "Sposta l'hearth da Crossroads a Camp Taurajo (se resti nel sud)"
+    ],
+    "22": [
+     "Shadowfang Keep (22–30) solo se hai gruppo: lontano per Kalimdor"
+    ],
+    "23": [
+     "Skywatcher Plateau (Mulgore): Stronger than Steel, bag da 12 slot"
+    ],
+    "24": [
+     "Blackfathom Deeps (24–32) da Zoram'gar, Ashenvale"
+    ],
+    "25": [
+     "Thousand Needles (24–35 sulla mappa) via Great Lift"
+    ],
+    "27": [
+     "Ritorno nei Barrens per le quest finali o Hillsbrad/Thousand Needles"
+    ],
+    "29": [
+     "Razorfen Kraul (29–38) dai Southern Barrens"
+    ],
+    "30": [
+     "Obiettivo: livello 30. City of Dalaran (28–33) è sull'altro continente: ignorala se resti a Kalimdor"
+    ]
+   },
+   "bags": [
+    {
+     "lvl": "~4–7",
+     "name": "Scorched Leather Pouch",
+     "slots": 6,
+     "how": "Quest Grace of An'she and Mu'sha: Red Cloud Mesa (Mulgore). Porta l'incenso acceso al santuario prima che la quest scada. 🟡 (LepreStore, 16 ott; NPC e coordinate non trovate)"
+    },
+    {
+     "lvl": "9+",
+     "name": "Scuffed Shipping Crate",
+     "slots": 8,
+     "how": "Quest Parts and Pieces: Wrenix the Wretched a Ratchet (The Barrens, 63.0 36.4). Porta 5 Handful of Complicated Parts dal campo pirata a sud di Ratchet. Valida per entrambe le fazioni. 🟡 (LepreStore, 16 ott)"
+    },
+    {
+     "lvl": "17-24",
+     "name": "Deviate Hide Pack",
+     "slots": 10,
+     "how": "Quest Deviate Hides: Nalpak, nella grotta sopra l'ingresso di Wailing Caverns (The Barrens, ~46.0 35.7). 20 Deviate Hides; scegli la bag invece dei Slick Deviate Leggings. Alternativa: Snakeskin Bag (10 slot, BoP, drop di Lady Anacondra, ~5% in beta). 🟡 (LepreStore; coordinate Nalpak da games.gg 26 set)"
+    },
+    {
+     "lvl": "14+",
+     "name": "Sturdy Lunchbox",
+     "slots": 12,
+     "how": "Ricompensa di Stepping Stones nella catena del Cozy Sleeping Bag (Horde: Burned-Out Remains in The Barrens 46 74 → Nailed Plank a Westfall 37 50 → Pocket Litter vicino a Sun Rock Retreat). Catena lunga e in territorio Alleanza; vedi doubts. ✔ (Warcraft Tavern + LepreStore)"
+    },
+    {
+     "lvl": "23+",
+     "name": "Spidersilk Pouch (12) oppure Spidersilk Sack (10, reagenti)",
+     "slots": 12,
+     "how": "Quest solo Horde Stronger than Steel: 3 Crystalline Silk dai Gloomrise Spinners, Skywatcher Plateau (a nord-ovest di Thunder Bluff, Mulgore). Scegli la Pouch per una bag normale; dà anche Crystal Thread Cloak. È vicina a Thunder Bluff: comoda per i Tauren o con il flight path di Thunder Bluff. 🟡 (LepreStore)"
+    }
+   ],
+   "questNPCs": [
+    {
+     "npc": "Chief Hawkwind",
+     "text": "Prime quest Tauren, Camp Narache 43.9 76.6."
+    },
+    {
+     "npc": "Baine Bloodhoof",
+     "text": "Quest di Bloodhoof Village 46.6 63.4."
+    },
+    {
+     "npc": "Rahauro",
+     "text": "Ragefire Chasm: due quest, Thunder Bluff."
+    },
+    {
+     "npc": "Jahan Hawkwing",
+     "text": "A Bundle of Hides: quest di ingresso nei Barrens, Crossroads 51.2 29.0."
+    }
+   ],
+   "flights": [
+    {
+     "name": "Thunder Bluff (Mulgore)",
+     "master": "Tal",
+     "way": "in città (Thunder Bluff)",
+     "when": "Per i Tauren al primo passaggio in città (verso 8-10); per gli altri solo se vai in Mulgore (Skywatcher Plateau 23+, quest RFC e WC di Rahauro e Nara Wildmane). Collega Crossroads, Camp Taurajo, Sun Rock Retreat, Freewind Post e Orgrimmar. ✔"
+    },
+    {
+     "name": "The Crossroads (The Barrens)",
+     "master": "Devrak",
+     "way": "51.4 30.2",
+     "when": "Prima cosa appena entri nei Barrens (10-12). Hub principale; l'Inn è a 52.0 29.8 (Innkeeper Boorand Plainswind). ✔ (wmd + games.gg 26 set)"
+    },
+    {
+     "name": "Ratchet (The Barrens)",
+     "master": "Bragok",
+     "way": "63.0 37.2",
+     "when": "Quando passi da Ratchet (10-14). Qui c'è anche la nave per Booty Bay. ✔"
+    },
+    {
+     "name": "Camp Taurajo (The Barrens)",
+     "master": "Omusa Thunderhorn",
+     "way": "44.4 59.0",
+     "when": "Dal 18, quando scendi a sud. Inn: Innkeeper Byula 45.6 59.0. ✔"
+    },
+    {
+     "name": "Sun Rock Retreat (Stonetalon Mountains)",
+     "master": "Tharm",
+     "way": "45.2 59.8",
+     "when": "Al primo ingresso in Stonetalon (18-20). Inn: Innkeeper Jayka 47.4 62.0. ✔ (wmd + games.gg 21 set)"
+    },
+    {
+     "name": "Splintertree Post (Ashenvale)",
+     "master": "Vhulgra",
+     "way": "73.2 61.6",
+     "when": "Arrivo in Ashenvale (20-22 o 24-27). Inn: Innkeeper Kaylisk 74.0 60.6. ✔ (wmd + games.gg 25 set)"
+    },
+    {
+     "name": "Zoram'gar Outpost (Ashenvale)",
+     "master": "Andruk",
+     "way": "12.2 33.8",
+     "when": "Appena sei a ovest: hub di Blackfathom Deeps (Zoram Strand ~14 13) e delle quest costiere. ✔"
+    },
+    {
+     "name": "Freewind Post (Thousand Needles)",
+     "master": "Nyse",
+     "way": "45.0 49.2",
+     "when": "Dal 25-27, dopo la Great Lift. Inn: Innkeeper Abeqwa 46.0 51.4. ✔ (wmd; livello dalla mappa)"
+    }
+   ],
+   "transport": [
+    "Zeppelin Orgrimmar ↔ Undercity (la torre è fuori da Brill, Tirisfal Glades ~61 59) ✔; Orgrimmar ↔ Grom'gol Base Camp (Stranglethorn Vale) ✔; anche Undercity ↔ Grom'gol ✔ (wmd voyages).",
+    "Nave Ratchet ↔ Booty Bay (neutrale) ✔; usa la nave solo per andare in Stranglethorn.",
+    "Skycutter Thunder Bluff ↔ Valanaar (Zephras Isle) ✔: per le razze Horde è la scorciatoia verso la zona dei Skyborne (wmd + Warcraft Tavern).",
+    "The Great Lift (Thousand Needles): ascensore per Thousand Needles dai Barrens (games.gg 26 set, 🟡)."
+   ],
+   "joins": "Da 10 in poi identica a Orc e Troll (Barrens → Stonetalon → Ashenvale → Thousand Needles). Vantaggio Tauren: Thunder Bluff e Camp Taurajo sono vicini; l'hub del sud (Camp Taurajo) è il più comodo."
+  },
+  "tirisfal": {
+   "name": "Tirisfal Glades (Undead)",
+   "races": [
+    "undead"
+   ],
+   "continent": "eastern-kingdoms",
+   "segments": [
+    {
+     "from": 1,
+     "to": 5,
+     "zone": "Tirisfal Glades",
+     "hub": "Deathknell",
+     "note": "Zona iniziale. Executor Arren (32.0 66.0), Undertaker Mordo (30.2 71.6). Trainer di classe qui (Mage Isabella 30.8 66.0, Priest Duesten 31.0 66.0, Warlock Maximillion 30.8 66.2, Paladin Aramis Hammerhand 31.0 66.2)."
+    },
+    {
+     "from": 5,
+     "to": 10,
+     "zone": "Tirisfal Glades",
+     "hub": "Brill",
+     "note": "Brill: Inn Renee (61.6 52.0), Eleanor Shackleton (57.2 55.4), bag da 6 slot; trainer Cain Firesong (Mage), Beryl (Priest), Rupert Boch (Warlock), Shari Stilwell (Paladin), Austil de Mon (Warrior)."
+    },
+    {
+     "from": 10,
+     "to": 15,
+     "zone": "Silverpine Forest",
+     "hub": "The Sepulcher",
+     "note": "Giro nord: Ivar Patch, Dead Fields; primo viaggio a Undercity a 13–15. Silverpine 10–20 sulla mappa."
+    },
+    {
+     "from": 15,
+     "to": 20,
+     "zone": "Silverpine Forest",
+     "hub": "Undercity",
+     "note": "Ruins of Lordaeron (15–20) fra la fase nord e la fase sud (Ambermill, Pyrewood, Fenris Isle)."
+    },
+    {
+     "from": 19,
+     "to": 25,
+     "zone": "Hillsbrad Foothills",
+     "hub": "Tarren Mill",
+     "note": "Arrivo a 19–20. Battle of Hillsbrad, Elixir chains. Hillsbrad 20–31 sulla mappa."
+    },
+    {
+     "from": 21,
+     "to": 27,
+     "zone": "Silverpine Forest",
+     "hub": "The Sepulcher",
+     "note": "Ritorno per elite lasciate (The Weaver, Beren's Peril) e Shadowfang Keep (22–30)."
+    },
+    {
+     "from": 26,
+     "to": 30,
+     "zone": "Tirisfal / Alterac",
+     "hub": "Tarren Mill",
+     "note": "Scarlet Monastery Graveyard (SM 26–45) o City of Dalaran (28–33, Alterac Mountains 16.7 68.8). Arathi Highlands dal 30."
+    }
+   ],
+   "steps": [
+    {
+     "title": "Deathknell",
+     "levels": "1–5",
+     "town": "Deathknell",
+     "zoneIcon": "achievement_zone_tirisfalglades_01",
+     "text": "Quest iniziali di Executor Arren e Undertaker Mordo. Al 3–4 prendi i trainer di classe qui (Warrior Dannal Stern 32.6 65.6, Rogue David Trias 32.4 65.6, Mage Isabella, Priest Duesten, Warlock Maximillion, Paladin Aramis Hammerhand).",
+     "fp": ""
+    },
+    {
+     "title": "Brill",
+     "levels": "5–10",
+     "town": "Brill",
+     "zoneIcon": "achievement_zone_tirisfalglades_01",
+     "text": "Hub di Tirisfal: Inn Renee (61.6 52.0). Eleanor Shackleton (57.2 55.4) per The Great Outdoors/campeggio. Quest bag Sticks and Bones: 6 Dry Branches. Vicino anche la torre dei Zeppelin (~61 59) per Orgrimmar.",
+     "fp": ""
+    },
+    {
+     "title": "Silverpine nord",
+     "levels": "10–15",
+     "town": "The Sepulcher",
+     "zoneIcon": "achievement_zone_silverpine_01",
+     "text": "Entra da Brill a 10–11. High Executor Hadrec (43.4 40.8) e Innkeeper Bates (43.2 41.2); flight path di Karos Razok (45.6 42.4). Giro nord (Moonrage, Dead Fields, Ivar Patch). Poi Undercity a 13–15 (Faranell, Zinge, Gordon Wendham).",
+     "fp": "The Sepulcher (Karos Razok)"
+    },
+    {
+     "title": "Undercity e Ruins of Lordaeron",
+     "levels": "15–18",
+     "town": "Undercity",
+     "zoneIcon": "achievement_zone_tirisfalglades_01",
+     "text": "Prendi il flight path di Michael Garrett. Ruins of Lordaeron (15–20, 6 boss, ingresso fuori dal portone di Undercity ~72.4 11.6): quest Light's Justice, The New Plague, The Wrath of Rath'mael, A Frightened Request, Unending Torment, Crest of Lordaeron. 🟡 Warcraft Tavern",
+     "fp": "Undercity (Michael Garrett)"
+    },
+    {
+     "title": "Silverpine sud",
+     "levels": "16–20",
+     "town": "The Sepulcher",
+     "zoneIcon": "achievement_zone_silverpine_01",
+     "text": "Ambermill, Pyrewood, Lordamere, Fenris Isle (Pyrewood Ambush a 16; Arugal's Folly 4 a 17). Seconda corsa a Undercity per Bethor Iceshard a 18–19. Raccogli le quest di SFK: Deathstalkers in Shadowfang e Arugal Must Die (a 18), The Book of Ur (16).",
+     "fp": ""
+    },
+    {
+     "title": "Hillsbrad Foothills",
+     "levels": "19–25",
+     "town": "Tarren Mill",
+     "zoneIcon": "achievement_zone_hillsbradfoothills",
+     "text": "Journey to Hillsbrad Foothills (493, Deathstalker Lesh 20.8 47.4 a Silverpine). Tarren Mill: flight master Zarise (60.2 18.6) e Inn (62.8 19.0). Battle of Hillsbrad (chain), Elixir of Suffering/Pain/Agony. Southshore è ostile.",
+     "fp": "Tarren Mill (Zarise)"
+    },
+    {
+     "title": "Ritorno a Silverpine e Shadowfang",
+     "levels": "21–27",
+     "town": "The Sepulcher",
+     "zoneIcon": "achievement_zone_silverpine_01",
+     "text": "Torna per le elite: A Husband's Revenge (21), Beren's Peril (21–22), The Weaver (23). Shadowfang Keep (22–30, ingresso 44.7 67.8) con le quest di Hadrec e Dalar Dawnweaver.",
+     "fp": ""
+    },
+    {
+     "title": "Hillsbrad (parte 2) e Scarlet Monastery",
+     "levels": "25–28",
+     "town": "Tarren Mill",
+     "zoneIcon": "achievement_zone_hillsbradfoothills",
+     "text": "Finisci Hillsbrad (Helcular's Revenge a 29 da Novice Thaivand 63.8 19.6; tomba di Helcular a Southshore 53 53). Scarlet Monastery Graveyard (26–45) sta a est di Brill (85.1 31.4).",
+     "fp": ""
+    },
+    {
+     "title": "Alterac / City of Dalaran",
+     "levels": "28–30",
+     "town": "Tarren Mill",
+     "zoneIcon": "achievement_zone_alteracmountains_01",
+     "text": "City of Dalaran ★ (28–33, Alterac Mountains 16.7 68.8, parte dalle Underbelly sewer). Varimathras (Alterac 16.0 11.5). Arathi Highlands (30–40) dal 30, flight path di Hammerfall.",
+     "fp": ""
+    }
+   ],
+   "milestones": {
+    "4": [
+     "Quest della bag da 6 slot: Sticks and Bones (Brill), 6 Dry Branches"
+    ],
+    "5": [
+     "The Great Outdoors: Eleanor Shackleton vicino a Brill 🟡",
+     "Cooking per il Basic Campfire"
+    ],
+    "10": [
+     "Entri a Silverpine; primo talent point (🟡)",
+     "Flight path del Sepulcher"
+    ],
+    "13": [
+     "Primo viaggio a Undercity (Faranell, Zinge, Gordon Wendham)"
+    ],
+    "15": [
+     "Ruins of Lordaeron ★ (15–20) ✔"
+    ],
+    "16": [
+     "Pyrewood Ambush; The Book of Ur da prendere"
+    ],
+    "17": [
+     "Arugal's Folly 4 (o in gruppo)"
+    ],
+    "19": [
+     "Journey to Hillsbrad Foothills (493): vai a Tarren Mill"
+    ],
+    "20": [
+     "Entri a Hillsbrad; flight path Zarise"
+    ],
+    "22": [
+     "Shadowfang Keep (22–30)"
+    ],
+    "26": [
+     "Scarlet Monastery (26–45) — prima il Graveyard"
+    ],
+    "28": [
+     "City of Dalaran ★ (28–33)"
+    ],
+    "30": [
+     "Obiettivo: livello 30; Arathi Highlands se vuoi continuare"
+    ]
+   },
+   "bags": [
+    {
+     "lvl": "~4–7",
+     "name": "Collecting Basket",
+     "slots": 6,
+     "how": "Quest Sticks and Bones: Brill, Tirisfal Glades. Raccogli 6 Dry Branches: spesso mimetizzati nell'ambiente. 🟡 (LepreStore, 16 ott; NPC e coordinate non trovate)"
+    },
+    {
+     "lvl": "17-24",
+     "name": "Deviate Hide Pack",
+     "slots": 10,
+     "how": "Quest Deviate Hides: Nalpak, nella grotta sopra l'ingresso di Wailing Caverns (The Barrens, ~46.0 35.7). 20 Deviate Hides; scegli la bag invece dei Slick Deviate Leggings. Alternativa: Snakeskin Bag (10 slot, BoP, drop di Lady Anacondra, ~5% in beta). 🟡 (LepreStore; coordinate Nalpak da games.gg 26 set)"
+    },
+    {
+     "lvl": "drop",
+     "name": "Small Blue Pouch",
+     "slots": 6,
+     "how": "Drop da Stephen Bhartec vicino a Deathknell (beta). 🟡"
+    }
+   ],
+   "questNPCs": [
+    {
+     "npc": "Executor Arren",
+     "text": "Prime quest, Deathknell 32.0 66.0."
+    },
+    {
+     "npc": "Eleanor Shackleton",
+     "text": "The Great Outdoors/campeggio (parallela a Brakk), Brill 57.2 55.4. 🟡"
+    },
+    {
+     "npc": "High Executor Hadrec",
+     "text": "Hub di Silverpine, quest SFK, The Sepulcher 43.4 40.8."
+    },
+    {
+     "npc": "Master Apothecary Faranell",
+     "text": "Quest dungeon, Undercity."
+    },
+    {
+     "npc": "Varimathras",
+     "text": "Quest dungeon (Ragefire Chasm: The Power to Destroy…), Undercity."
+    }
+   ],
+   "flights": [
+    {
+     "name": "The Sepulcher (Silverpine Forest)",
+     "master": "Karos Razok",
+     "way": "45.6 42.4",
+     "when": "Appena entri a Silverpine (10–11). Hearth consigliato qui. ✔ (wmd + games.gg 19 set)"
+    },
+    {
+     "name": "Undercity",
+     "master": "Michael Garrett",
+     "way": "in città",
+     "when": "Primo viaggio a Undercity (13–15). Collega Sepulcher e Tarren Mill. ✔"
+    },
+    {
+     "name": "Tarren Mill (Hillsbrad Foothills)",
+     "master": "Zarise",
+     "way": "60.2 18.6",
+     "when": "Arrivo a Hillsbrad (19–20). ✔ (wmd + games.gg 22 set)"
+    },
+    {
+     "name": "Hammerfall (Arathi Highlands)",
+     "master": "Urda",
+     "way": "non verificato",
+     "when": "Solo dopo il 30 (Arathi). Master: Urda, wmd."
+    }
+   ],
+   "transport": [
+    "Zeppelin Undercity (torre fuori da Brill, Tirisfal Glades ~61 59) ↔ Orgrimmar ✔ e Grom'gol Base Camp ✔ (wmd voyages): serve solo per andare nei Barrens.",
+    "Nave Southshore: ostile per Horde."
+   ],
+   "joins": "Non si unisce ad altre rotte: Tirisfal → Silverpine → Hillsbrad resta nei Regni Orientali (ExpCarry 27 ott, Overgear 30 set). Opzione: a 10-20 zeppelin Undercity → Orgrimmar → Barrens se vuoi giocare con amici Orc/Troll/Tauren."
+  },
+  "zephras_h": {
+   "name": "Zephras Isle (Skyborne Windshaper)",
+   "races": [
+    "skyborne_windshaper"
+   ],
+   "continent": "zephras-isle",
+   "segments": [
+    {
+     "from": 1,
+     "to": 4,
+     "zone": "Zephras Isle (Thendal Grove)",
+     "hub": "Thendal Village",
+     "note": "Coming of Age, prime quest. I trainer qui insegnano fino al livello 6. Phased dai High Order."
+    },
+    {
+     "from": 4,
+     "to": 8,
+     "zone": "Zephras Isle (Shen'dar Highlands)",
+     "hub": "Shen'dar Village",
+     "note": "Constable Aonda (45.6 45.5), Camping (Raan Wildwind 41.7 44.7), bag da 6 slot (Indari Sunseam), Inn Coriella Calmbreeze. Tutti i trainer insegnano tutti i Rank."
+    },
+    {
+     "from": 8,
+     "to": 10,
+     "zone": "Zephras Isle",
+     "hub": "Falaath Village",
+     "note": "Al'Aketh: Missionary Jasaan (46.8 56.2), Commander Cyclas (50.4 56.9), Skypriest Aanders."
+    },
+    {
+     "from": 10,
+     "to": 12,
+     "zone": "Zephras Isle",
+     "hub": "Valanaar",
+     "note": "Hub razziale: Ayessa Dawnsinger (59.1 79.7), Valennia Stormfist e Talanis Shadowsong (66.2 76.6). Skycutter per Thunder Bluff (58.2 79.5)."
+    },
+    {
+     "from": 12,
+     "to": 14,
+     "zone": "Thunder Bluff / Orgrimmar",
+     "hub": "Thunder Bluff",
+     "note": "Skycutter → Thunder Bluff. “Exploring the Horde” → Orgrimmar → Barrens (ExpCarry)."
+    },
+    {
+     "from": 13,
+     "to": 18,
+     "zone": "The Barrens",
+     "hub": "The Crossroads",
+     "note": "Flight path Thunder Bluff → Crossroads. RFC 13–18 da Orgrimmar."
+    },
+    {
+     "from": 18,
+     "to": 23,
+     "zone": "The Barrens / Stonetalon",
+     "hub": "Camp Taurajo",
+     "note": "Come Orc, Troll e Tauren."
+    },
+    {
+     "from": 22,
+     "to": 27,
+     "zone": "Ashenvale",
+     "hub": "Splintertree Post",
+     "note": "Come le altre razze Kalimdor."
+    },
+    {
+     "from": 27,
+     "to": 30,
+     "zone": "Thousand Needles / Barrens",
+     "hub": "Freewind Post",
+     "note": "Fine rotta."
+    }
+   ],
+   "steps": [
+    {
+     "title": "Thendal Village",
+     "levels": "1–4",
+     "town": "Thendal Village",
+     "zoneIcon": "inv_elemental_primal_air",
+     "text": "Ailee Farheart dà Coming of Age → Rorian the Dayseeker (42.1 23.5). Poi Ventaari Brightwish (42.7 24.4) con The Gift of Skysight (Horde). I trainer di classe di Thendal arrivano solo al livello 6 (Xyton Silverwind 41.7 23.4, Windshaper Boro 42.8 23.6, Blademaster Ren 43.7 24.2). Usa Skysight su un Elemental Convergence (48.3 20.4).",
+     "fp": ""
+    },
+    {
+     "title": "Shen'dar Village",
+     "levels": "4–8",
+     "town": "Shen'dar Village",
+     "zoneIcon": "inv_elemental_primal_air",
+     "text": "Constable Aonda (45.6 45.5). Raan Wildwind (41.7 44.7, tenda in Shen'dar Highlands) chiude The Adventurer e dà The Great Outdoors. Indari Sunseam (44.6 44.6): The Problem With Prideclaws → bag da 6 slot. Illaya Amberwind (43.6 44.8) è la tua Elder. Inn: Coriella Calmbreeze (43.1 43.3).",
+     "fp": ""
+    },
+    {
+     "title": "Falaath Village",
+     "levels": "8–10",
+     "town": "Falaath Village",
+     "zoneIcon": "inv_elemental_primal_air",
+     "text": "Al'Aketh: Missionary Jasaan (46.8 56.2) con Among the Faithful, Commander Cyclas (50.4 56.9, Stolen Supplies). Vulgara the Insatiable (elite, 42.5 53.0) è soloabile verso il 7. Peacekeeper Vaaniel (42.4 62.0): A Last Request.",
+     "fp": ""
+    },
+    {
+     "title": "Valanaar",
+     "levels": "10–12",
+     "town": "Valanaar",
+     "zoneIcon": "inv_elemental_primal_air",
+     "text": "Hub razziale con Bank, Auction House e trainer. Le quest principali (Valennia Stormfist, Talanis Shadowsong 66.2 76.6) portano a Ayessa Dawnsinger (59.1 79.7). Le quest finali (Desperate Times) concludono la storia e ti mandano all'Elder per lasciare l'isola.",
+     "fp": ""
+    },
+    {
+     "title": "Skycutter per Thunder Bluff",
+     "levels": "12–14",
+     "town": "Thunder Bluff",
+     "zoneIcon": "achievement_zone_mulgore_01",
+     "text": "Dal Valanaar Skydocks prendi lo Skycutter di destra (58.2 79.5) per Thunder Bluff. Prendi il flight path di Tal e le quest di Rahauro per Ragefire Chasm; poi “Exploring the Horde” a Orgrimmar. 🟡 la sequenza esatta delle quest di uscita non è stata verificata.",
+     "fp": "Thunder Bluff (Tal)"
+    },
+    {
+     "title": "The Crossroads",
+     "levels": "10–14",
+     "town": "The Crossroads",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Entri nei Barrens a 10–12 (Orc/Troll da Far Watch Post, 62 19; Tauren a piedi verso est). Prendi il flight path di Devrak (51.4 30.2), fai Inn qui e raccogli tutte le quest locali (Plainstrider Menace, Raptor Thieves, The Forgotten Pools, Wharfmaster Dizzywig). Tieni l'hearth al Crossroads fino a ~19.",
+     "fp": "The Crossroads (Devrak)"
+    },
+    {
+     "title": "Ratchet e nord dei Barrens",
+     "levels": "14–18",
+     "town": "Ratchet",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "Ratchet (Bragok, FP 63.0 37.2) per le catene goblin e la bag da 8 slot di Wrenix the Wretched (dal 9). Poi Stagnant Oasis, Samophlange, caccia fino a Echeyakee, centauri (Kolkar Leaders, Verog, Hezrul Bloodmark) e Harpy Raiders. In questa fascia puoi fare Ragefire Chasm (13–18) dal flight path di Orgrimmar.",
+     "fp": "Ratchet (Bragok)"
+    },
+    {
+     "title": "Camp Taurajo e Wailing Caverns",
+     "levels": "18–21",
+     "town": "Camp Taurajo",
+     "zoneIcon": "achievement_zone_barrens_01",
+     "text": "A 18–19 scendi a Camp Taurajo (FP Omusa Thunderhorn 44.4 59.0, Inn Byula): Jorn Skyseer, Mangletooth, Tribes at War, Blood Shards of Agamaggan. Wailing Caverns (17–24; ingresso 46.0 36.3) una volta, con tutte le quest nel log; la bag Deviate Hide Pack è qui.",
+     "fp": "Camp Taurajo (Omusa Thunderhorn)"
+    },
+    {
+     "title": "Ashenvale (Horde)",
+     "levels": "22–27",
+     "town": "Splintertree Post",
+     "zoneIcon": "achievement_zone_ashenvale_01",
+     "text": "Splintertree Post (Vhulgra 73.2 61.6, Senani Thunderheart 73.6 61.4 per The Ashenvale Hunt; The Warsong Reports da Kadrak a Mor'shan Rampart, Barrens 48.1 5.4). Poi Zoram'gar Outpost (Andruk 12.2 33.8, Karang Amakkar 11.8 34.4) e, dal 24, Blackfathom Deeps (24–32, Zoram Strand ~14 13). Evita la metà est sotto il 27. 🟡 games.gg 25 set",
+     "fp": "Splintertree Post (Vhulgra), Zoram'gar (Andruk)"
+    }
+   ],
+   "milestones": {
+    "1": [
+     "Walk on Air e Skysight arrivano con la razza; prendi i tornado Blessing of Zephras (+40% velocità, 5 min)"
+    ],
+    "4": [
+     "Quest bag da 6 slot: The Problem With Prideclaws (Shen'dar Village)"
+    ],
+    "5": [
+     "The Adventurer → The Great Outdoors da Raan Wildwind (Shen'dar Highlands)"
+    ],
+    "6": [
+     "Smetti di usare i trainer di Thendal: vai a Shen'dar per tutti i Rank"
+    ],
+    "10": [
+     "Primo talent point (🟡)",
+     "Valanaar: bank e Auction House"
+    ],
+    "12": [
+     "Fine della storia di Zephras (totale 12–14 secondo Warcraft Tavern)"
+    ],
+    "13": [
+     "Ragefire Chasm (13–18) ✔"
+    ],
+    "14": [
+     "Catena Cozy Sleeping Bag disponibile (facoltativa)"
+    ],
+    "17": [
+     "Wailing Caverns"
+    ],
+    "23": [
+     "Skywatcher Plateau: Stronger than Steel (bag 12 slot)"
+    ],
+    "24": [
+     "Blackfathom Deeps"
+    ],
+    "30": [
+     "Obiettivo: livello 30; Razorfen Kraul a 29"
+    ]
+   },
+   "bags": [
+    {
+     "lvl": "~4–7",
+     "name": "Simple Leather Satchel",
+     "slots": 6,
+     "how": "Quest The Problem With Prideclaws: Indari Sunseam (Shen'dar Village, Zephras Isle 44.6 44.6). Raccogli 10 Prideclaw Pelts. Se non compare, completa prima l'introduzione del villaggio. ✔ (Warcraft Tavern walkthrough + LepreStore)"
+    },
+    {
+     "lvl": "9+",
+     "name": "Scuffed Shipping Crate",
+     "slots": 8,
+     "how": "Quest Parts and Pieces: Wrenix the Wretched a Ratchet (The Barrens, 63.0 36.4). Porta 5 Handful of Complicated Parts dal campo pirata a sud di Ratchet. Valida per entrambe le fazioni. 🟡 (LepreStore, 16 ott)"
+    },
+    {
+     "lvl": "17-24",
+     "name": "Deviate Hide Pack",
+     "slots": 10,
+     "how": "Quest Deviate Hides: Nalpak, nella grotta sopra l'ingresso di Wailing Caverns (The Barrens, ~46.0 35.7). 20 Deviate Hides; scegli la bag invece dei Slick Deviate Leggings. Alternativa: Snakeskin Bag (10 slot, BoP, drop di Lady Anacondra, ~5% in beta). 🟡 (LepreStore; coordinate Nalpak da games.gg 26 set)"
+    },
+    {
+     "lvl": "23+",
+     "name": "Spidersilk Pouch (12) oppure Spidersilk Sack (10, reagenti)",
+     "slots": 12,
+     "how": "Quest solo Horde Stronger than Steel: 3 Crystalline Silk dai Gloomrise Spinners, Skywatcher Plateau (a nord-ovest di Thunder Bluff, Mulgore). Scegli la Pouch per una bag normale; dà anche Crystal Thread Cloak. È vicina a Thunder Bluff: comoda per i Tauren o con il flight path di Thunder Bluff. 🟡 (LepreStore)"
+    }
+   ],
+   "questNPCs": [
+    {
+     "npc": "Raan Wildwind",
+     "text": "The Great Outdoors (Camping), Shen'dar Highlands 41.7 44.7."
+    },
+    {
+     "npc": "Indari Sunseam",
+     "text": "Bag da 6 slot (The Problem With Prideclaws), Shen'dar 44.6 44.6."
+    },
+    {
+     "npc": "Illaya Amberwind",
+     "text": "Elder Windshaper: The Windshapers, Shen'dar 43.6 44.8."
+    },
+    {
+     "npc": "Constable Aonda",
+     "text": "Welcome to Shen'dar Village, To Valanaar, Deliver the Signet, Shen'dar 45.6 45.5."
+    },
+    {
+     "npc": "Ayessa Dawnsinger",
+     "text": "Faction leader Windshaper, Valanaar 59.1 79.7."
+    }
+   ],
+   "flights": [
+    {
+     "name": "Zephras Isle",
+     "master": "non ci sono Flight Master sull'isola",
+     "way": "",
+     "when": "Spostati con i tornado Blessing of Zephras e con Skysight. Warcraft Tavern 2026; wmd non mostra Flight Master."
+    },
+    {
+     "name": "Thunder Bluff (Mulgore)",
+     "master": "Tal",
+     "way": "in città (Thunder Bluff)",
+     "when": "Per i Tauren al primo passaggio in città (verso 8-10); per gli altri solo se vai in Mulgore (Skywatcher Plateau 23+, quest RFC e WC di Rahauro e Nara Wildmane). Collega Crossroads, Camp Taurajo, Sun Rock Retreat, Freewind Post e Orgrimmar. ✔"
+    },
+    {
+     "name": "The Crossroads (The Barrens)",
+     "master": "Devrak",
+     "way": "51.4 30.2",
+     "when": "Prima cosa appena entri nei Barrens (10-12). Hub principale; l'Inn è a 52.0 29.8 (Innkeeper Boorand Plainswind). ✔ (wmd + games.gg 26 set)"
+    },
+    {
+     "name": "Ratchet (The Barrens)",
+     "master": "Bragok",
+     "way": "63.0 37.2",
+     "when": "Quando passi da Ratchet (10-14). Qui c'è anche la nave per Booty Bay. ✔"
+    },
+    {
+     "name": "Camp Taurajo (The Barrens)",
+     "master": "Omusa Thunderhorn",
+     "way": "44.4 59.0",
+     "when": "Dal 18, quando scendi a sud. Inn: Innkeeper Byula 45.6 59.0. ✔"
+    },
+    {
+     "name": "Splintertree Post (Ashenvale)",
+     "master": "Vhulgra",
+     "way": "73.2 61.6",
+     "when": "Arrivo in Ashenvale (20-22 o 24-27). Inn: Innkeeper Kaylisk 74.0 60.6. ✔ (wmd + games.gg 25 set)"
+    },
+    {
+     "name": "Zoram'gar Outpost (Ashenvale)",
+     "master": "Andruk",
+     "way": "12.2 33.8",
+     "when": "Appena sei a ovest: hub di Blackfathom Deeps (Zoram Strand ~14 13) e delle quest costiere. ✔"
+    }
+   ],
+   "transport": [
+    "Skycutter Valanaar → Thunder Bluff (lo Skycutter di destra, 58.2 79.5) ✔ (Warcraft Tavern, wmd voyages).",
+    "Hearth: Inn Coriella Calmbreeze (Shen'dar Village 43.1 43.3) o Donaal Downbreeze (Valanaar). Dopo l'uscita, hearth a Crossroads.",
+    "Poi come Orc/Troll/Tauren: Zeppelin e The Great Lift (vedi sopra)."
+   ],
+   "joins": "Si unisce alla rotta Kalimdor (Orc/Troll/Tauren) a Thunder Bluff / Orgrimmar a 12–14 e poi ai Barrens (Crossroads). Overgear dà anche Silverpine come alternativa: sconsigliata, troppo lontana."
+  }
+ },
+ "dungeons": [
+  [
+   "Ragefire Chasm",
+   13,
+   18,
+   "Orgrimmar (Cleft of Shadow 52.8 49.6), Durotar",
+   "Primo dungeon Horde; 5 quest solo Horde (Rahauro, Varimathras, Neeru Fireblade, Thrall). Livello da mappa Wowhead; RestedXP lo mette dal 10. ✔"
+  ],
+  [
+   "Ruins of Lordaeron ★",
+   15,
+   20,
+   "Fuori da Undercity, Tirisfal Glades (ingresso ~72.4 11.6)",
+   "Nuovo. 6 boss (Witherfang, The Baron, Bjork, Rath'mael, Viktor the Vile, The Abandoned); 6 quest Horde. RestedXP lo tiene in route per entrambe le fazioni; ExpCarry lo giudica molto utile soprattutto per gli Undead. ✔"
+  ],
+  [
+   "Wailing Caverns",
+   17,
+   24,
+   "The Barrens (Lushwater Oasis, ingresso 46.0 36.3)",
+   "In route RestedXP; quest da Thunder Bluff, bag Deviate Hide Pack da Nalpak. games.gg lo consiglia a 18–22. ✔"
+  ],
+  [
+   "Shadowfang Keep",
+   22,
+   30,
+   "Silverpine Forest (44.7 67.8)",
+   "In route RestedXP (dal 11 la loro finestra). Quest di Hadrec e Dalar a 18. ✔"
+  ],
+  [
+   "Blackfathom Deeps",
+   24,
+   32,
+   "Ashenvale (Zoram Strand ~14 13)",
+   "In route RestedXP (dal 15 la loro finestra). Quest Horde: The Essence of Aku'Mai, Allegiance to the Old Gods, Amongst the Ruins, Baron Aquanis. ✔"
+  ],
+  [
+   "Excavation Site: Wetlands ★",
+   24,
+   29,
+   "Wetlands (Eastern Kingdoms)",
+   "Nuovo, nel territorio Alleanza: situazionale per Horde (ExpCarry). 🟡"
+  ],
+  [
+   "Scarlet Monastery",
+   26,
+   45,
+   "Tirisfal Glades (85.1 31.4)",
+   "Graveyard per primo; livello di ogni ala non trovato per Forever. ✔ (wmd)"
+  ],
+  [
+   "City of Dalaran ★",
+   28,
+   33,
+   "Alterac Mountains (16.7 68.8)",
+   "Nuovo; parte dalle Underbelly sewers. Reported da games.gg 19/22 set, non incluso in RestedXP route. ✔"
+  ],
+  [
+   "Razorfen Kraul",
+   29,
+   38,
+   "Southern Barrens (42.3 89.9)",
+   "Valido solo dopo il 29. ✔ (wmd)"
+  ],
+  [
+   "Hall of Thanes ★",
+   13,
+   18,
+   "Ironforge (Alleanza)",
+   "Non per Horde: ExpCarry lo valuta a basso valore. 🟡"
+  ],
+  [
+   "The Deadmines",
+   17,
+   26,
+   "Westfall (Eastern Kingdoms)",
+   "RestedXP: opzionale per Horde, consigliato solo se sei già a Westfall. 🟡"
+  ]
+ ],
+ "notes": [
+  "XP dungeon (RestedXP, Kami-Labs 18 ott): patch del 1 ott ha dimezzato il bonus XP delle quest dungeon, patch dell'8 ott ha dato +20% XP alle creature nei dungeon. Dungeon più deboli che in Classic ma ancora utili. 🟡",
+  "Camping (Warcraft Tavern): Basic Campfire richiede Cooking, Flint and Tinder e Simple Wood. 10 min di durata, 5 min di cooldown, 3/5/10 oggetti per camp, 1 oggetto per personaggio con 1 ora di cooldown. Siedi 1 minuto per i buff. Camp Tent (Leatherworking) dà più XP. ✔",
+  "Cozy Sleeping Bag (Warcraft Tavern): serve livello 14; ogni minuto +1% XP fino a 3% (non “+3% per 2 ore” come scritto nella guida del Mago: da verificare), cooldown 1 ora, funziona anche per i compagni, stacca con Camping e cibo. Catena Horde: Barrens → Westfall → Stonetalon → Loch Modan → Hillsbrad. ✔",
+  "Zeppelin e Skycutter sono le uniche rotte rapide tra continenti per Horde; l'Undead non deve attraversare il mondo.",
+  "Ritmo consigliato (sintesi mia, 🟡): Barrens fino a 20–22 → Stonetalon prima visita → Ashenvale 22–27 → Thousand Needles o avanzi Barrens fino a 30. Alternative documentate: seconda visita a Stonetalon 24–27 (games.gg) o Hillsbrad per chi parte da Tirisfal.",
+  "Dati razziali aggiornati alle note di Blizzard del 26–27 ott (non ancora nel client beta il 26 ott sera; i tooltip Wowhead possono mostrare ancora i valori vecchi)."
+ ],
+ "sources": [
+  {
+   "name": "Blizzard (Kaivax) via Warcraft Tavern, Changes to Racial Abilities",
+   "url": "https://www.warcrafttavern.com/forever/news/changes-to-racial-abilities-in-wow-forever-ahead-of-name-reservations/",
+   "date": "26 ott 2026",
+   "signal": "fonte ufficiale riportata (note Blizzard)",
+   "used": "Plainsrunning 60%, Orc Command/Savage, Skyborne Skysight 15%, Wind Blessed 2%"
+  },
+  {
+   "name": "Warcraft Tavern, More Racial Ability Changes",
+   "url": "https://www.warcrafttavern.com/forever/news/more-racial-ability-changes-for-wow-forever/",
+   "date": "27 ott 2026",
+   "signal": "fonte ufficiale riportata",
+   "used": "Blood Fury 2 min, Berserking 15 s, Touch of the Grave ICD 15 s"
+  },
+  {
+   "name": "Kami-Labs, WoW Forever October 26 patch",
+   "url": "https://kami-labs.fr/en/wow-forever/patch-notes-26-octobre-capacites-raciales/",
+   "date": "26–27 ott 2026",
+   "signal": "riepilogo dettagliato con percentuali di Touch of the Grave",
+   "used": "Racials Undead, Skyborne, Tauren, Orc"
+  },
+  {
+   "name": "Patchbot / Blizzard Beta Development Notes 15 ottobre",
+   "url": "https://patchbot.io/games/world-of-warcraft-forever/articles/1810-wow-forever-beta-development-notes-october-15",
+   "date": "15 ott 2026",
+   "signal": "note ufficiali",
+   "used": "Shatter Curse, War Stomp, Walk on Air, Cultivation"
+  },
+  {
+   "name": "Warcraft Tavern, Racial Abilities Guide e guide per razza",
+   "url": "https://www.warcrafttavern.com/forever/guides/racial-abilities/",
+   "date": "ott 2026 (alcune pagine non aggiornate al 26 ott)",
+   "signal": "sito di reputazione",
+   "used": "Lista racial, classi per razza, combinazioni nuove"
+  },
+  {
+   "name": "Warcraft Tavern, Skyborne e Zephras Isle Walkthrough",
+   "url": "https://www.warcrafttavern.com/forever/guides/zephras-isle-walkthrough/",
+   "date": "ott 2026 (Val Hull)",
+   "signal": "sito di reputazione",
+   "used": "Hub, NPC, Camping, Skycutter di Zephras"
+  },
+  {
+   "name": "Warcraft Tavern, Blessing of Zephras",
+   "url": "https://www.warcrafttavern.com/forever/guides/how-to-travel-quickly-in-zephras-isle/",
+   "date": "ott 2026 (Nevermore)",
+   "signal": "sito di reputazione",
+   "used": "Tornado +40% velocità"
+  },
+  {
+   "name": "Warcraft Tavern, Camping e Cozy Sleeping Bag",
+   "url": "https://www.warcrafttavern.com/forever/guides/cozy-sleeping-bag/",
+   "date": "ott 2026",
+   "signal": "sito di reputazione",
+   "used": "Regole Camping, catena Horde Sleeping Bag"
+  },
+  {
+   "name": "Warcraft Tavern, Ragefire Chasm / Ruins of Lordaeron / Wailing Caverns",
+   "url": "https://www.warcrafttavern.com/forever/guides/the-ruins-of-lordaeron/",
+   "date": "ott 2026",
+   "signal": "sito di reputazione",
+   "used": "Livelli e ingressi dei dungeon"
+  },
+  {
+   "name": "Wowhead World Map Forever (wmd.json) e Wowhead Forever search/tooltip",
+   "url": "https://www.wowhead.com/forever",
+   "date": "client 1.60.1.70707",
+   "signal": "dati del client",
+   "used": "Nomi di NPC, hub, flight path, livelli di zone e dungeon, icone"
+  },
+  {
+   "name": "games.gg: Silverpine (19 set), Stonetalon (21 set), Hillsbrad (22 set), Ashenvale (25 set), Barrens (26 set)",
+   "url": "https://games.gg/world-of-warcraft/guides/wow-forever-barrens-leveling-guide/",
+   "date": "set 2026",
+   "signal": "guide beta, autori Friolt e Mostafa Salem; singola fonte",
+   "used": "Percorsi per livello, FP con coordinate, quest chiave"
+  },
+  {
+   "name": "LepreStore, WoW Forever Bag Locations",
+   "url": "https://leprestore.com/guides/world-of-warcraft-forever/wow-forever-bag-locations/",
+   "date": "16 ott 2026",
+   "signal": "sito commerciale con dati dal database Forever; singola fonte",
+   "used": "Bag per razza e quest di bag"
+  },
+  {
+   "name": "Kami-Labs, RestedXP Forever dungeon routes",
+   "url": "https://kami-labs.fr/en/wow-forever/guide-donjons-restedxp-wow-forever/",
+   "date": "18 ott 2026",
+   "signal": "riporta la route RestedXP",
+   "used": "Dungeon in route per Horde"
+  },
+  {
+   "name": "ExpCarry Horde 1-30 e Overgear 1-60",
+   "url": "https://expcarry.com/wow-forever-leveling-guide-horde",
+   "date": "27 ott 2026 e 30 set 2026",
+   "signal": "siti commerciali; consenso generico",
+   "used": "Tabelle per zona iniziale, handoff Skyborne"
+  },
+  {
+   "name": "allthings.how, Brakk",
+   "url": "https://allthings.how/brakk-s-location-in-world-of-warcraft-turning-in-the-adventurer-quest/",
+   "date": "ott 2026",
+   "signal": "singola fonte",
+   "used": "The Adventurer / The Great Outdoors (Brakk, Eleanor Shackleton)"
+  },
+  {
+   "name": "Mobalytics Zone Map Level Ranges",
+   "url": "https://mobalytics.gg/wow-forever/guides/zone-map-level-ranges",
+   "date": "beta",
+   "signal": "solo snippet di WebSearch (pagina bloccata)",
+   "used": "Percorsi per razza (Durotar/Mulgore → Barrens; Undead → Silverpine → Hillsbrad)"
+  },
+  {
+   "name": "Icy Veins, Method, Mobalytics (pagine complete)",
+   "url": "https://www.icy-veins.com/wow-forever/",
+   "date": "-",
+   "signal": "non raggiunti (403)",
+   "used": "non usati"
+  },
+  {
+   "name": "allthings.how – Waylaid Crates e Merchant’s Favor",
+   "url": "https://allthings.how/world-of-warcraft-forever-how-to-use-waylaid-crates-for-merchant-s-favor/",
+   "date": "ott",
+   "signal": "+ Mobalytics Ruse_Cruize",
+   "used": "Consegna crates Orda (Dokimi)"
+  }
+ ],
+ "doubts": [
+  "The Great Outdoors per i Tauren: NPC e posizione non trovati (Brakk è il NPC Orc/Troll, Eleanor Shackleton quello Undead, Raan Wildwind quello Skyborne). Probabile un NPC “Adventurer” fra Camp Narache e Bloodhoof, da verificare in gioco.",
+  "Livelli esatti delle quest bag da 6 slot (Carry Your Weight, Grace of An'she and Mu'sha, Sticks and Bones, The Problem With Prideclaws): LepreStore dice “di solito entro il 7”; non trovato il livello preciso, né gli NPC di Mulgore e Brill.",
+  "Berserking, Plainsrunning e Touch of the Grave: le note ufficiali del 26–27 ott possono non essere ancora nel client; i tooltip Wowhead e alcune pagine Warcraft Tavern riportano i valori precedenti.",
+  "Cooldown di Shatter Curse non trovato (3 min solo da LFCarry). Icona Command presa da una voce Wowhead con lo stesso nome (🟡).",
+  "La catena Cozy Sleeping Bag Horde attraversa Westfall, Loch Modan (guardie di livello 30) e Hillsbrad: lunga e rischiosa per un personaggio 14–16.",
+  "Livelli di Zephras Isle per area (Thendal/Shen'dar/Falaath/Valanaar) non pubblicati: la suddivisione 1–4/4–8/8–10/10–12 è una mia stima; la sola cifra confermata è “12–14 al termine”.",
+  "Stonetalon (18–28) e Ashenvale (arrivo 20–22, uscita 28–30) si sovrappongono nelle guide di games.gg; la rotta qui è una sintesi mia.",
+  "Sequenza esatta delle quest di uscita da Zephras (“Exploring the Horde”) e valore delle quest finali non verificata.",
+  "Molti nomi di trainer vengono da wmd.json (zone/Capitali). Coordinate dei trainer espresse in % della zona, non verificate in gioco.",
+  "Alcune pagine Warcraft Tavern (es. racial Tauren/Troll) riportano ancora Plainsrunning 30% e Berserking 10 s: usati i valori Blizzard del 26–27 ott.",
+  "Hearth e Camp Narache: nessun Flight Master a Bloodhoof/Razor Hill in wmd (solo Orgrimmar e Thunder Bluff).",
+  "ExpCarry e Overgear sono siti commerciali; Mobalytics/Icy Veins non verificati direttamente."
+ ],
+ "crates": "Dokimi, accampamento fuori da Crossroads (The Barrens) <code>/way 50.1 29.3</code>, quest “A Sealed Crate” ✔"
+}

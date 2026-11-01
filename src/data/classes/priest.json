@@ -1,0 +1,873 @@
+{
+ "class": "priest",
+ "name": "Priest",
+ "resource": "Mana",
+ "spec": "Shadow",
+ "specIcon": "spell_shadow_shadowform",
+ "summary": "Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug “Mid Game Shadow (Recommended)” 47 ♥ (29 ott, Verified), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Shadow Reach, Mind Flay, Vampiric Embrace, Shadow Weaving (30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.",
+ "build": [
+  "Wand Specialization",
+  "Wand Specialization",
+  "Spirit Tap",
+  "Spirit Tap",
+  "Spirit Tap",
+  "Spirit Tap",
+  "Spirit Tap",
+  "Improved Shadow Word: Pain",
+  "Improved Shadow Word: Pain",
+  "Shadow Focus",
+  "Shadow Focus",
+  "Shadow Focus",
+  "Shadow Reach",
+  "Shadow Reach",
+  "Mind Flay",
+  "Improved Mind Flay",
+  "Improved Mind Flay",
+  "Vampiric Embrace",
+  "Shadow Weaving",
+  "Shadow Weaving",
+  "Shadow Weaving",
+  "Shadow Focus",
+  "Silence",
+  "Devouring Contagion",
+  "Devouring Contagion",
+  "Shadow Focus",
+  "Improved Mind Blast",
+  "Darkness",
+  "Darkness",
+  "Darkness",
+  "Darkness",
+  "Darkness",
+  "Shadowform",
+  "Twin Disciplines",
+  "Twin Disciplines",
+  "Twin Disciplines",
+  "Mental Strength",
+  "Mental Strength",
+  "Mental Strength",
+  "Twin Disciplines",
+  "Twin Disciplines",
+  "Meditation",
+  "Meditation",
+  "Meditation",
+  "Improved Power Word: Shield",
+  "Improved Power Word: Shield",
+  "Improved Power Word: Shield",
+  "Twilight Focus",
+  "Twilight Focus",
+  "Twilight Focus",
+  "Inner Focus"
+ ],
+ "buildSource": "10–42: Mobalytics DoubleZug “Mid Game Shadow (Recommended)”, 47 ♥, 29 ott (ordine dalle sue note di livello; dove i range si sovrappongono ho assegnato un punto per livello 🟡). 43–60: sua sezione Late Game (Twin Disciplines, Meditation, Twilight Focus, Inner Focus) adattata 🟡: dopo lo spostamento di Improved Power Word: Shield in riga 3 (15 ott) servono 10 punti Disc, quindi ho inserito Mental Strength ×3 (come nella sua griglia finale 17/3/31) e IPWS dopo Meditation; il suo testo (IPWS 45–48, Mental Agility, Soul Warding) non è coerente con la griglia. Validato su wf/priest.json (max rank, punti per riga, prerequisiti). Nessun respec.",
+ "why": {
+  "Wand Specialization": "+25% danni wand a 2/2: all’inizio la wand fa più danni di ogni spell tranne Shadow Word: Pain (DoubleZug: “by far the most impactful talent for the early game”).",
+  "Spirit Tap": "Dopo ogni kill: +100% Spirit per 15 s e regen mana anche mentre lanci. È il motore del leveling Priest (mana quasi infinito), ma serve il colpo di grazia tuo.",
+  "Improved Shadow Word: Pain": "+6 s di durata (24 s): +33% danno sul DoT principale, ma solo se arriva a fine durata → conviene pullare più mob.",
+  "Shadow Focus": "+1%/rank hit Shadow (5/5 = +5%): il cap hit contro mob del tuo livello è basso, ma serve contro mob 3+ livelli sopra (DoubleZug). Icy Veins preferisce Blackout.",
+  "Shadow Reach": "+10/20% range spell Shadow: SW:P da più lontano per pullare un mob alla volta e multi-DoT più sicuro (DoubleZug).",
+  "Mind Flay": "★ Talento al 24 (channel 3 s, 63 danno, slow 50%): al 24–42 serve per fermare mob in fuga; diventa filler solo con Improved Mind Flay + Shadowform (DoubleZug).",
+  "Improved Mind Flay": "★ Ogni tick di Mind Flay fa +10%/20% rispetto al precedente.",
+  "Vampiric Embrace": "Cura il party del 20% del danno Shadow: auto-cura quasi gratis, coppia perfetta con Devouring Plague; ottima in dungeon e per far scattare Spirit Tap in gruppo.",
+  "Shadow Weaving": "+2% danno Shadow per stack, fino a 5 stack (10%): punti efficienti, non lasciarlo cadere tra un mob e l’altro.",
+  "Silence": "Silenzia 5 s e interrompe 3 s (225 Mana, CD 45 s): i caster fanno molto danno in Forever; utile anche per spostare mob (DoubleZug).",
+  "Devouring Contagion": "★ −25/50% mana su Devouring Plague e il DoT salta a 2 nemici vicini quando il bersaglio muore: aiuta il multi-DoT.",
+  "Improved Mind Blast": "−0,5 s/rank cooldown di Mind Blast: per Flay ×2 → Mind Blast servono 4/5 (DoubleZug, qui 1 punto).",
+  "Darkness": "+2%/rank danno Shadow (5/5 = +10%).",
+  "Shadowform": "Il grande salto al 42 (o 40): +10% danno Shadow, −50% mana spell Shadow, crit ×2, −15% danno fisico subito; Mind Blast e Mind Flay diventano competitivi con la wand. In form niente cure (Heal/Renew rompono la form, PW:S no).",
+  "Twin Disciplines": "★ +1%/rank danno/cura delle spell instant (SW:P, Renew): piccoli ma servono per i 10 punti Disc necessari a Meditation/IPWS.",
+  "Mental Strength": "+2%/rank Intellect: 3 punti per portare il ramo Disc a 10 e sbloccare Meditation/Inner Focus (come nella griglia finale 17/3/31 di DoubleZug).",
+  "Meditation": "Fino al 50% della regen mana continua mentre lanci: “extremely powerful” (DoubleZug). Ora puoi spammare Flay/Blast in Shadowform.",
+  "Improved Power Word: Shield": "+7%/rank assorbimento (20% a 3/3) e meno pushback; ★ in riga 3 dal 15 ott.",
+  "Twilight Focus": "Holy: ora protegge dal pushback su tutte le spell, non solo le cure (DoubleZug): utile con Flay/Blast sotto melee.",
+  "Inner Focus": "Prossima spell gratis e +25% crit (non su DoT); lo usi su cure o Mind Blast e non interrompe la regen 5SR."
+ },
+ "compare": [
+  {
+   "source": "wowforever.be – build di leveling (dati client, 10→60) – ibrido (alternativa)",
+   "signal": "dati client; ordine = stringa Method",
+   "l10_19": "Wand Spec 2/2 → Spirit Tap 5/5 → Imp. SW:P 2/2; Twin Disciplines inizia al 19",
+   "l20": "Twin Disciplines 2/5 (11 punti: Wand 2, Spirit Tap 5, ISWP 2, Twin 2)",
+   "l21_30": "Twin 5/5, Martyrdom 2/2, Mental Strength 1, Inner Focus 1, Meditation 3/3 (28–30). 31–39: Mental Agility 2, Imp. Inner Fire 3, Imp. PW:S 3, Penance (37). Respec Shadow al 40."
+  },
+  {
+   "source": "Method – Amaxagon – ibrido (alternativa)",
+   "signal": "agg. 29 ott; stringa talent identica a wowforever.be",
+   "l10_19": "idem (Wand → Spirit Tap → ISWP)",
+   "l20": "Twin Disciplines in corso",
+   "l21_30": "Disc: Twin, Martyrdom, Meditation. “Mana efficient e tanky”, danni calano a fine 30; respec al 40 per Shadowform."
+  },
+  {
+   "source": "ConquestCapped – Kir – ibrido (alternativa)",
+   "signal": "agg. 28 ott; solo testo, senza ranks",
+   "l10_19": "Wand 2, Spirit Tap 5, ISWP 2",
+   "l20": "ibrido Disc/Shadow",
+   "l21_30": "Mental Strength, Martyrdom, Meditation (Mental Strength al posto di Imp. PW:S dopo il 15 ott). Opzione Penance: 21 punti Disc se curi dungeon."
+  },
+  {
+   "source": "Mobalytics – DoubleZug (Priest 1–60, “Mid Game Shadow (Recommended)”) – BUILD PRINCIPALE",
+   "signal": "47 ♥ (lista) · 29 ott · Verified; 17/3/31 a 60",
+   "l10_19": "Wand 2/2 (10–11), Spirit Tap 5/5 (12–16), ISWP 2/2 (17–18)",
+   "l20": "Shadow Focus 3/5 (≈18–21), poi Shadow Reach 2/2",
+   "l21_30": "Mind Flay (24), Imp. Mind Flay 2/2, Vampiric Embrace (27), Shadow Weaving 3/3 (27–30). 31–39: Shadow Focus, Silence, Devouring Contagion, Imp. Mind Blast, Darkness. Dice che Disc+Meditation rende “very similarly”."
+  },
+  {
+   "source": "wowforever.gg – Priest Shadow leveling",
+   "signal": "agg. 30 ott; dati da talentsforever.com",
+   "l10_19": "Wand 1→2, Spirit Tap 5, ISWP 2, Shadow Focus 2",
+   "l20": "11 pt: Wand 2, Shadow Focus 2, Spirit Tap 5, ISWP 2",
+   "l21_30": "+Shadow Focus 1, Shadow Reach 2, Mind Flay, Imp. Mind Flay 2, Vampiric Embrace, Shadow Weaving 3 (21 pt)"
+  },
+  {
+   "source": "wow4evernews – Max Calder",
+   "signal": "pubbl. 21 set, agg. 7 ott (client 70170)",
+   "l10_19": "Wand 2, Spirit Tap 5, ISWP 2 (10–18), Shadow Reach 2 (19–20)",
+   "l20": "Blackout 1 al 21",
+   "l21_30": "Mind Flay 22, Blackout 5/5, Vampiric Embrace 27, Shadow Weaving 3 (28–30). “Niente Meditation prima del 30.”"
+  },
+  {
+   "source": "Warcraft Tavern – Cyradys",
+   "signal": "immagini beta (21 pt al 30); ott",
+   "l10_19": "Wand Spec poi Spirit Tap/ISWP",
+   "l20": "Mind Flay e Devouring Plague dal 20 (rotation)",
+   "l21_30": "Tre varianti: Disc (Wand 2, Twin, Meditation, Penance), Holy (dungeon), Shadow (non brilla prima del 28). Layout immagini pre-15 ott: dettaglio per punto non affidabile 🟡"
+  },
+  {
+   "source": "Maxroll – Cere",
+   "signal": "agg. 30 ott (rilascio 27 ott); solo testo",
+   "l10_19": "Wand Spec, Spirit Tap (ritardabile per Penance prima)",
+   "l20": "—",
+   "l21_30": "Disc (Meditation, Mental Agility, Penance; per party) oppure Shadow Magic per solo questing (Spirit Tap, Shadow Focus 3/5, Devouring Contagion, Silence, Shadow Weaving, Darkness, Shadowform). Disc “molto lento” in solo."
+  },
+  {
+   "source": "KamiLabs – su video Scriblet",
+   "signal": "23 set; build al 20 = Wand 2, Spirit Tap, ISWP",
+   "l10_19": "Wand Spec, Spirit Tap, ISWP",
+   "l20": "idem; dal 20 Imp. Psychic Scream, Vampiric Embrace, Shadowform",
+   "l21_30": "Per gruppi: build Meditation. Mind Flay non usato (meno di un colpo di wand)."
+  },
+  {
+   "source": "Icy Veins – Shadow Priest leveling (solo snippet)",
+   "signal": "agg. per livello 30; non letto in pagina 🟡",
+   "l10_19": "—",
+   "l20": "—",
+   "l21_30": "“Deep Shadow”: Shadow Reach, Shadow Weaving, ISWP, Imp. Mind Blast; preferiscono Blackout a Shadow Focus."
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Alternativa ibrida Discipline + respec Shadow al 40 (wowforever.be = Method, Amaxagon agg. 29 ott; ConquestCapped 28 ott)",
+   "html": "<p><b>Ordine wowforever.be/Method (dati client):</b> Wand Specialization ×2 (10–11) → Spirit Tap ×5 (12–16) → Improved Shadow Word: Pain ×2 (17–18) → Twin Disciplines ×5 (19–23) → Martyrdom ×2 (24–25) → Mental Strength (26) → Inner Focus (27) → Meditation ×3 (28–30) → Mental Agility ×2 (31–32) → Improved Inner Fire ×3 (33–35) → Improved Power Word: Shield (36) → <b>Penance</b> (37) → Improved Power Word: Shield ×2 (38–39).</p><p><b>Respec al 40 (31 punti Shadow):</b> Shadow Focus ×5, Improved Shadow Word: Pain ×2, Improved Mind Blast ×4, Mind Flay, Improved Mind Flay ×2, Spirit Tap ×5, Shadow Weaving ×3, Vampiric Embrace, Devouring Contagion ×2, Darkness ×5, Shadowform. <b>41–60:</b> Twin Disciplines ×5, Early Demise ×2, Martyrdom ×2, Mental Strength ×3, Inner Focus, Meditation ×3, Mental Strength ×2, Shadow Reach ×2.</p><p><b>Pro:</b> “mana efficient e tanky”, Meditation al 30, Penance al 37 (Method). <b>Contro:</b> danno cala a fine 30 (Method) e il respec costa oro. Nota: wowforever.be NON passa a Shadow al ~23, resta Disc fino al 39.</p>"
+  },
+  {
+   "title": "Variante Penance / Discipline pura (WT, Maxroll, Mobalytics)",
+   "html": "<p>Dal 30 puoi respeccare 21 punti in Discipline per <b>Penance</b> (a spese di Spirit Tap, Mobalytics Disc 16/0/5). ConquestCapped: Penance ridimensionata dopo la beta. Utile per dungeon/party; <b>da solo il questing è “molto lento”</b> (Maxroll).</p>"
+  },
+  {
+   "title": "Variante Holy/Smite (DoubleZug, WT)",
+   "html": "<p>Holy dà Twilight Focus (anti-pushback), Improved Renew, Divine Fury (Smite/Holy Fire più rapidi). DoubleZug: “terza scelta” per il mid-game; WT: leveling da healer non raccomandato (kill lente). Prayer of Mending (★) arriva al 40.</p>"
+  },
+  {
+   "title": "Shadowform: 40 o 42?",
+   "html": "<p>DoubleZug aspetta il 42 e risparmia per il mount; chi vuole la form subito rifà il build al 40 con Darkness 5/5 al posto di Wand Specialization (stesso autore). Il build principale qui non richiede respec.</p>"
+  },
+  {
+   "title": "Altre varianti Shadow (🟡)",
+   "html": "<p>wowforever.gg: Shadow Focus 2 al 20, Mind Flay/Improved Mind Flay/VE/Shadow Weaving 3 al 30 (21 punti). wow4evernews (Max Calder, agg. 7 ott): Shadow Reach 19–20, Blackout 21–26, Mind Flay 22, VE 27, Shadow Weaving 28–30. Icy Veins (solo snippet): Shadow Reach, Shadow Weaving, ISWP, Improved Mind Blast, preferisce Blackout a Shadow Focus.</p>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Smite",
+   "spell_holy_holysmite",
+   "Danno Holy a cast 1,5 s: il tuo attacco fino al 5 (Rank 2 al 6, 3 al 14, 4 al 22, 5 al 30)."
+  ],
+  [
+   1,
+   "Lesser Heal",
+   "spell_holy_lesserheal",
+   "Cura base (Rank 2 al 4, Rank 3 al 10); sostituita da Heal al 16."
+  ],
+  [
+   1,
+   "Power Word: Fortitude",
+   "spell_holy_wordfortitude",
+   "Buff Stamina 1 h su te e il gruppo (Rank 2 al 12, 3 al 24, 4 al 36)."
+  ],
+  [
+   4,
+   "Shadow Word: Pain",
+   "spell_shadow_shadowwordpain",
+   "Il tuo DoT principale (18 s, 24 s con Imp. SW:P); tagga i mob al volo. Rank 2 al 10, 3 al 18, 4 al 26, 5 al 34."
+  ],
+  [
+   6,
+   "Power Word: Shield",
+   "spell_holy_powerwordshield",
+   "Assorbe danni e impedisce il pushback mentre dura; “Weakened Soul” 15 s. Rank 2 al 12, 3 al 18, 4 al 24, 5 al 30, 6 al 36."
+  ],
+  [
+   8,
+   "Fade",
+   "spell_magic_lesserinvisibilty",
+   "Riduce la threat per 10 s; utile solo in gruppo (Rank 2 al 20, 3 al 30)."
+  ],
+  [
+   8,
+   "Renew",
+   "spell_holy_renew",
+   "★ Può fare crit in Forever; HoT 15 s, la tua cura base tra un pull e l’altro (Rank 2 al 14, 3 al 20, 4 al 26, 5 al 32)."
+  ],
+  [
+   10,
+   "Mind Blast",
+   "spell_shadow_unholyfrenzy",
+   "Colpo Shadow 1,5 s, CD 8 s: apri con questo sui mob grossi. Rank 2 al 16, 3 al 22, 4 al 28, 5 al 34."
+  ],
+  [
+   10,
+   "Resurrection",
+   "spell_holy_resurrection",
+   "Resuscita un giocatore fuori combat (Rank 2 al 22, 3 al 34)."
+  ],
+  [
+   10,
+   "Racial 1 (class quest)",
+   "inv_misc_note_01",
+   "★ Spell razziale al 10: Divine Grace (Human), Desperate Prayer (Dwarf), Starshards (Night Elf), Confounding Flash (Gnome), Touch of Weakness (Undead), Hex of Weakness (Troll). Vedi races."
+  ],
+  [
+   12,
+   "Inner Fire",
+   "spell_holy_innerfire",
+   "+315 armor, 20 cariche (si consumano a ogni colpo subito): tienilo sempre attivo, PW:S protegge le cariche. Rank 2 al 20, 3 al 30."
+  ],
+  [
+   14,
+   "Psychic Scream",
+   "spell_shadow_psychicscream",
+   "Fear su 2 nemici entro 8 yd (8 s), CD 30 s. NON saltarlo (DoubleZug): l’emergenza del Priest. Attenzione agli add."
+  ],
+  [
+   14,
+   "Cure Disease",
+   "spell_holy_nullifydisease",
+   "Rimuove 1 malattia: in Forever ce ne sono di fastidiose (DoubleZug)."
+  ],
+  [
+   16,
+   "Heal",
+   "spell_holy_heal",
+   "Cura a cast 3 s (260–300 Rank 1): la cura “pesante” solo quando sei sotto shield/fear. Rank 2 al 22, 3 al 28."
+  ],
+  [
+   18,
+   "Dispel Magic",
+   "spell_holy_dispelmagic",
+   "Rimuove 1 buff dal nemico o 1 debuff da un alleato; di solito meglio uccidere più in fretta."
+  ],
+  [
+   20,
+   "Devouring Plague",
+   "spell_shadow_devouringplague",
+   "★ Ora base per tutti (era Undead): DoT 24 s da 128 che ti cura del danno; CD 24 s nel client (Blizzard Watch, 9 ott: 1 min). Rank 2 al 28, 3 al 36."
+  ],
+  [
+   20,
+   "Fear Ward",
+   "spell_holy_excorcism",
+   "★ Ora base per tutti (era Dwarf): 3 min di durata, CD 3 min."
+  ],
+  [
+   20,
+   "Flash Heal",
+   "spell_holy_flashheal",
+   "Cura rapida 1,5 s per emergenze (Rank 2 al 26, 3 al 32)."
+  ],
+  [
+   20,
+   "Holy Fire",
+   "spell_holy_searinglight",
+   "Cast 3,5 s: 53–65 Holy + 20 DoT; più efficiente di Mind Blast ma lungo (Rank 2 al 24, 3 al 30)."
+  ],
+  [
+   20,
+   "Mind Soothe",
+   "spell_holy_mindsooth",
+   "Riduce di 10 yd il raggio da cui un umanoide (≤40) ti attacca, 15 s (utilità)."
+  ],
+  [
+   20,
+   "Shackle Undead",
+   "spell_nature_slow",
+   "Blocca un non-morto 30 s (CC utile in Tirisfal/Duskwood/Silverpine)."
+  ],
+  [
+   20,
+   "Racial 2 (class quest)",
+   "inv_misc_note_01",
+   "★ Spell razziale al 20: Feedback (Human), Chastise (Dwarf), Elune’s Grace (Night Elf), Contingency Plan (Gnome), Dark Sacrifice (Undead), Shadowguard (Troll)."
+  ],
+  [
+   22,
+   "Mind Vision",
+   "spell_holy_mindvision",
+   "Vedi dagli occhi del bersaglio (utilità)."
+  ],
+  [
+   24,
+   "Mana Burn",
+   "spell_shadow_manaburn",
+   "Brucia mana di un caster nemico (3 s cast); da PvE si può saltare."
+  ],
+  [
+   25,
+   "Binding Heal",
+   "spell_holy_blindingheal",
+   "★ Talento Holy (non nel build): cura bersaglio + te. Rank 2 al 32."
+  ],
+  [
+   30,
+   "Divine Spirit",
+   "spell_holy_divinespirit",
+   "Buff Spirit 1 h (+17 Rank 1): ottimo con Spirit Tap/Meditation; richiede Spirit-friendly party."
+  ],
+  [
+   30,
+   "Mind Control",
+   "spell_shadow_shadowworddominate",
+   "Controlla un umanoide fino al 44 (PvE: CC/utility)."
+  ],
+  [
+   30,
+   "Prayer of Healing",
+   "spell_holy_prayerofhealing02",
+   "Cura di gruppo 3 s (solo dungeon)."
+  ],
+  [
+   30,
+   "Shadow Protection",
+   "spell_shadow_antishadow",
+   "Resist Shadow +30 per 10 min."
+  ],
+  [
+   32,
+   "Shadow Word: Death",
+   "spell_shadow_demonicfortitude",
+   "★ Nuova skill del Trainer al 32 (Method, WT ✔): colpo Shadow istantaneo, CD 12 s; Early Demise la potenzia."
+  ],
+  [
+   32,
+   "Abolish Disease",
+   "spell_nature_nullifydisease",
+   "Cura malattie nel tempo."
+  ],
+  [
+   34,
+   "Levitate",
+   "spell_holy_layonhands",
+   "Reagent Light Feather: fluttui, cadi più lenta, cammini sull’acqua."
+  ],
+  [
+   30,
+   "Penance",
+   "spell_holy_penance",
+   "★ Nuova spell (talento Disc, 150 Mana, CD 12 s; il client la elenca come Lv 30): 45 Holy ×3 o 134 cura ×3. Non nel build Shadow: solo nelle varianti Disc/ibrido (Penance al 37). Rank 2 al 40, 3 al 50, 4 al 60."
+  ],
+  [
+   40,
+   "Greater Heal",
+   "spell_holy_greaterheal",
+   "Cura grossa 3 s (819–920 Rank 1); al 40 anche Mind Blast Rank 6, Mind Flay Rank 3, Inner Fire Rank 4, PW:Fortitude/Divine Spirit Rank 2; talenti ★ Power Infusion (Disc, +20% spell) e Prayer of Mending (Holy)."
+  ],
+  [
+   42,
+   "Power Word: Shield (Rank 7)",
+   "spell_holy_powerwordshield",
+   "Rank 7 al 42, 8 al 48, 9 al 54, 10 al 60; SW:P Rank 6 al 42, 7 al 50, 8 al 58."
+  ],
+  [
+   48,
+   "Prayer of Fortitude",
+   "spell_holy_prayeroffortitude",
+   "Buff Stamina di gruppo (Rank 2 al 60). Prayer of Spirit al 60."
+  ],
+  [
+   60,
+   "Prayer of Spirit",
+   "spell_holy_prayerofspirit",
+   "Buff Spirit di gruppo; al 60 anche Penance Rank 4, Mind Flay Rank 6."
+  ]
+ ],
+ "talentSpells": [
+  [
+   24,
+   "Mind Flay",
+   "spell_shadow_siphonmana",
+   "Talento Shadow: channel 3 s, 63 danno, slow 50% (fermare mob in fuga). Filler con Improved Mind Flay + Shadowform."
+  ],
+  [
+   27,
+   "Vampiric Embrace",
+   "spell_shadow_unsummonbuilding",
+   "Talento Shadow: cura il party del 20% del danno Shadow per 30 s, CD 30 s."
+  ],
+  [
+   32,
+   "Silence",
+   "spell_shadow_impphaseshift",
+   "Talento Shadow: silenzia 5 s e interrompe 3 s, 225 Mana, CD 45 s."
+  ],
+  [
+   42,
+   "Shadowform",
+   "spell_shadow_shadowform",
+   "Talento Shadow (capstone): +10% danno Shadow, −50% mana, crit ×2, −15% danno fisico; niente cure in form."
+  ],
+  [
+   60,
+   "Inner Focus",
+   "spell_frost_windwalkon",
+   "Talento Disc: prossima spell gratis e +25% crit, CD 3 min."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Smite + DoT + melee",
+   "seq": [
+    [
+     "spell_holy_holysmite",
+     "Smite ×1–2"
+    ],
+    [
+     "spell_shadow_shadowwordpain",
+     "SW:P (dal 4)"
+    ],
+    [
+     "spell_holy_powerwordshield",
+     "PW:S (dal 6)"
+    ],
+    [
+     "inv_wand_01",
+     "Wand (dal 5, craft)"
+    ]
+   ],
+   "text": "1–3: Smite fino a mob basso o mana finita, poi melee. Dal 4: Smite → Shadow Word: Pain → Smite → melee. Se qualcuno ti contende il tag, apri con SW:P (i DoT taggano subito). Dal 6 metti PW:S prima del pull. Appena hai una Lesser Magic Wand (livello 5, Enchanting, vedi professions) Smite quasi sparisce: la wand costa 0 mana e non rompe la regen."
+  },
+  {
+   "title": "10–19 · Pre-shield, Mind Blast, DoT, wand",
+   "seq": [
+    [
+     "spell_holy_powerwordshield",
+     "PW:S"
+    ],
+    [
+     "spell_shadow_unholyfrenzy",
+     "Mind Blast"
+    ],
+    [
+     "spell_shadow_shadowwordpain",
+     "SW:P"
+    ],
+    [
+     "inv_wand_01",
+     "Wand"
+    ],
+    [
+     "spell_holy_renew",
+     "Renew (tra pull)"
+    ]
+   ],
+   "text": "Pre-cast PW:S e Mind Blast (se mob grosso), SW:P su 2–3 mob (non troppo: i DoT devono arrivare a ~24 s), poi wand; tab-target con la wand per non sprecare tick. Tra un pull e l’altro usa il mana in eccesso per Renew, Inner Fire e Power Word: Fortitude. Psychic Scream se sei in difficoltà e i mob non fuggono verso altri (spazi aperti, bestie). Fermati a ogni kill per far scattare Spirit Tap."
+  },
+  {
+   "title": "20–41 · Multi-DoT + Devouring Plague + Vampiric Embrace",
+   "seq": [
+    [
+     "spell_holy_powerwordshield",
+     "PW:S"
+    ],
+    [
+     "spell_holy_searinglight",
+     "Holy Fire / Mind Blast"
+    ],
+    [
+     "spell_shadow_shadowwordpain",
+     "SW:P"
+    ],
+    [
+     "spell_shadow_devouringplague",
+     "Devouring Plague"
+    ],
+    [
+     "spell_shadow_unsummonbuilding",
+     "Vampiric Embrace (27+)"
+    ],
+    [
+     "inv_wand_01",
+     "Wand"
+    ]
+   ],
+   "text": "Prepull: PW:S, Renew, Inner Fire (e Shadowguard se Troll). Apri con Holy Fire (3,5 s, efficiente) o Mind Blast sui mob duri, SW:P su 2–3 mob, Devouring Plague + Vampiric Embrace sul mob più duro e lascialo vivere fino a fine DoT (cura forte). Wand come filler, tab-target per non fare overkill. Mind Flay (dal 24) solo per snare di un mob in fuga: prima del 28 + Improved Mind Flay non batte DoT+wand (DoubleZug). Con Devouring Contagion (33–34) metti il DP sul bersaglio da uccidere per primo e lascia saltare il DoT."
+  },
+  {
+   "title": "AoE / pull multipli",
+   "seq": [
+    [
+     "spell_shadow_shadowwordpain",
+     "SW:P ×3"
+    ],
+    [
+     "spell_shadow_psychicscream",
+     "Psychic Scream"
+    ],
+    [
+     "spell_shadow_devouringplague",
+     "DP sul mob duro"
+    ],
+    [
+     "inv_wand_01",
+     "Wand a rotazione"
+    ]
+   ],
+   "text": "Nessun vero AoE (Method: “No AoE”). Si multi-DoT: SW:P su 3–4 mob (2–3 sicuri a faccia nuda), un DP sul mob più duro, wand a rotazione per non fare overkill. Dal 33 Devouring Contagion: DP sul bersaglio da uccidere per primo e il DoT salta. Psychic Scream se i mob arrivano in melee; un kill per far scattare Spirit Tap, poi cura con PW:S/Renew."
+  },
+  {
+   "title": "42+ · Shadowform: Mind Blast + Flay",
+   "seq": [
+    [
+     "spell_shadow_shadowform",
+     "Shadowform"
+    ],
+    [
+     "spell_holy_powerwordshield",
+     "PW:S"
+    ],
+    [
+     "spell_shadow_unholyfrenzy",
+     "Mind Blast"
+    ],
+    [
+     "spell_shadow_shadowwordpain",
+     "SW:P"
+    ],
+    [
+     "spell_shadow_devouringplague",
+     "Devouring Plague"
+    ],
+    [
+     "spell_shadow_siphonmana",
+     "Mind Flay ×2 → Blast"
+    ]
+   ],
+   "text": "Shadowform prima del pull, PW:S, apri con Mind Blast, SW:P, Devouring Plague sul mob chiave, VE se la vita è bassa; filler Mind Flay ×2 → Mind Blast (DoubleZug), con Shadow Word: Death (trainer 32) e Mind Blast a CD. In form Heal/Renew rompono la form: curati con PW:S. Se non hai PW:S attivo e non puoi rimetterlo, usa la wand (niente pushback)."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Mana e 5-second rule (DoubleZug)",
+   "html": "<ul><li>La regen da Spirit si ferma 5 s dopo aver speso mana (anche spell instant), ma <b>non</b> con spell gratis (Inner Focus, racial a costo 0).</li><li>Lancia le spell tutte insieme all’inizio del pull: prima le lunghe (Holy Fire), poi le instant.</li><li>Con Spirit Tap e Meditation il 5SR conta meno ma non è irrilevante.</li></ul>"
+  },
+  {
+   "title": "Efficienza DoT",
+   "html": "<ul><li>Fai arrivare SW:P e Devouring Plague a fine durata: meglio pullare un secondo mob che uccidere troppo presto il primo (DoubleZug).</li><li>★ I DoT/HoT in Forever si aggiornano dinamicamente (non snapshot) e possono fare crit (Warcraft Tavern, DoubleZug).</li></ul>"
+  },
+  {
+   "title": "Wand in Forever",
+   "html": "<ul><li>Dal 15 ott serve restare fermi 0,5 s prima che la wand spari (ConquestCapped); non scala più con lo spell power secondo CC, ma Scriblet/KamiLabs (23 set) la vedeva scalare ~0,3 🟡 conflitto: verifica dopo il lancio.</li></ul>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Smite, Lesser Heal e Power Word: Fortitude dal Trainer di zona (vedi sotto per i trainer). Prendi Cooking (food +5% XP) e, se vuoi la wand al 5, Enchanting + Tailoring. Novice’s Practice Wand (livello 1) da Enchanting/AH."
+  ],
+  "4": [
+   "Shadow Word: Pain (Rank 1) + Lesser Heal Rank 2 ✔ (client)."
+  ],
+  "5": [
+   "Lesser Magic Wand (item 11287): craft Enchanting (10 skill; Runed Copper Rod + disenchant di Brown Linen Robe) o AH. ~11 DPS, req. livello 5 ✔ (client item tooltip + Method). Professioni Apprentice."
+  ],
+  "6": [
+   "Power Word: Shield + Smite Rank 2."
+  ],
+  "8": [
+   "Fade + Renew: Renew diventa la cura tra i pull."
+  ],
+  "10": [
+   "Mind Blast, Resurrection, Journeyman professions. Racial #1 via class quest (nome quest non trovato 🟡): Human Divine Grace = Priestess Josetta (Goldshire, Elwynn) o High Priestess Laurena (Stormwind) (Maxroll). Per le altre razze Maxroll cita NPC senza mapping chiaro (Maxan Anvol, Toldren Deepiron, Laurna Morninglight, Astarii Starseeker, Lankester, Cobb, Zayus, Var’jun, Ken’jai, Ur’kyo): parla col Priest Trainer della tua città. Se fai Ragefire Chasm: staff di quest (18 spell power) garantita al completamento della catena (KamiLabs 🟡)."
+  ],
+  "12": [
+   "Inner Fire (Rank 1), PW:S Rank 2, PW:Fortitude Rank 2."
+  ],
+  "13": [
+   "Greater Magic Wand (item 11288, Enchanting/AH): ~17,5 DPS, ~50% più della Lesser (Method) ✔. Craft appena hai soldi e Enchanting."
+  ],
+  "14": [
+   "Psychic Scream + Cure Disease. Training prioritario: SW:P, Renew, PW:S (DoubleZug)."
+  ],
+  "15": [
+   "Wailing Caverns: Sizzle Stick come wand (WT, “earliest 15”) e staff di quest WC con 5 spell power garantita (KamiLabs: Scriblet la preferisce alla Greater Magic Wand 🟡)."
+  ],
+  "16": [
+   "Heal + Mind Blast Rank 2."
+  ],
+  "18": [
+   "Dispel Magic, SW:P Rank 3. Blackfathom Deeps/Blackfathom Villainy: Gravestone Scepter (livello 18, wand Shadow 30–57, +3 Spirit, +4 Shadow res; Maxroll lo dà come drop “Blackfathom Villainy”, WT e ConquestCapped come quest reward 🟡). Must-do secondo ConquestCapped."
+  ],
+  "20": [
+   "Racial #2 + Devouring Plague, Fear Ward, Flash Heal, Holy Fire, Mind Soothe, Shackle Undead. Expert professions. Feedback (Human): Brother Joshua (Stormwind), High Priest Rohan (Ironforge) o Priestess Alathea (Darnassus) secondo Maxroll 🟡 (non coerente con la razza: nomi quest non trovati)."
+  ],
+  "24": [
+   "Mind Flay (talento) + inizio Improved Mind Flay (25–26). Mana Burn, PW:Fortitude Rank 3, PW:S Rank 4, Holy Fire Rank 2."
+  ],
+  "25": [
+   "Binding Heal (talento Holy). Legacy Point al 25 (wowforeverguides 🟡)."
+  ],
+  "26": [
+   "Lesser Mystic Wand (Method “Mystic wand option”, 🟡 Enchanting), SW:P Rank 4, Renew Rank 4."
+  ],
+  "27": [
+   "Vampiric Embrace (talento): auto-cura + party heal, abbinato a Devouring Plague. Wand of Eventide (WT): wand BoE da drop mondo, livello 27."
+  ],
+  "28": [
+   "Shadow Weaving 1/3 (Shadow Weaving 3/3 al 30). Mind Blast Rank 4, Psychic Scream Rank 2, Devouring Plague Rank 2."
+  ],
+  "30": [
+   "Inner Fire Rank 3, PW:S Rank 5, Divine Spirit, Prayer of Healing, Mind Control. Greater Mystic Wand (Maxroll, Enchanting/AH 🟡)."
+  ],
+  "32": [
+   "Silence (talento) e Shadow Word: Death al Trainer, Abolish Disease. Risparmia oro per il mount al 40: non rankare ogni spell subito (Method)."
+  ],
+  "33": [
+   "Devouring Contagion 2/2 (33–34): DP salta tra i mob. Wand/arma: tienila aggiornata (DoubleZug)."
+  ],
+  "36": [
+   "Improved Mind Blast 1/5 (per Mind Flay ×2 → Blast ne servono 4/5 più avanti). Devouring Plague Rank 3, PW:S Rank 6."
+  ],
+  "40": [
+   "Apprentice Riding e mount; Dual Talent Specialization (WT). DoubleZug: aspetta il 42 per Shadowform e risparmia oro per il mount (oppure respec al 40 con lo stesso build ma Darkness 5/5 al posto di Wand Spec)."
+  ],
+  "42": [
+   "Shadowform (talento): grande salto di danno, Mind Blast/Flay competitivi con la wand. PW:S Rank 7, SW:P Rank 6."
+  ],
+  "50": [
+   "Meditation arriva ai 51–53 (Disc: Twin 5/5 + Mental Strength 3/3 prima). Mind Blast/SW:P nuovi rank 46–58."
+  ],
+  "60": [
+   "Inner Focus: ultimo punto; poi respec a piacere (DoubleZug)."
+  ]
+ },
+ "camp": [
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP fino al 5% di livello, 1 volta l’ora: il più utile per qualsiasi classe (ordine mio 🟡: nessuna fonte ordina i camp per Priest)."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "inv_banner_03",
+   "Fino a +32 Spirit: Spirit è la tua stat (Spirit Tap raddoppia Spirit, Meditation, regen). Non si somma con Divine Spirit (Maxroll)."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "spell_arcane_manatap",
+   "Fino a 29 mana/5 s: aiuta se tiri più cast (Disc/Meditation, dungeon); meno critico con wand + Spirit Tap. Esclude Blessing of Wisdom."
+  ],
+  [
+   "Fish Bowl",
+   "Fishing",
+   "inv_magicalfishpet",
+   "+8% a tutte le stats (esclude Blessing of Kings)."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "inv_misc_candle_02",
+   "Fino a +25 Intellect (non si somma ad Arcane Intellect): più mana e crit per SW:P/Renew."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "inv_misc_bandage_11",
+   "Fino a +56 Stamina (non si somma a PW:Fortitude, Maxroll): più sopravvivenza ai pull multipli."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_crate_01",
+   "+2% crit (esclude Moonkin Aura): utile ora che SW:P e Renew possono crittare."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "inv_10_enchanting2_magicswirl_bronze",
+   "Armor, stats, resistance (esclude Mark of the Wild): Inner Fire copre già armor. Sostituito da Arcane Salvager a 140 e Arcane Forge a 300 Enchanting (Maxroll)."
+  ]
+ ],
+ "professions": {
+  "gold": "Skinning + Herbalism (Method, ConquestCapped): meno invasive, danno gold per rank/acqua. Enchanting: disenchant verdi (tailoring). Cooking: food +5% XP anche per le ricette di livello 1 (DoubleZug). Dal 25 / 45 / 60: ogni crafting a 150/225/300 dà un Legacy point (ConquestCapped).",
+  "power": "Tailoring + Enchanting (DoubleZug 47 ♥ “HIGHLY recommend”, Method, ConquestCapped, Maxroll): Greater Magic Wand craftata, Minor Wizard Oil (economico, da vendor), bag 6–8 slot, gear verdi/blu soulbound (Gloves/Boots of Shadow con Merchant’s Favor, KamiLabs 🟡), Enchanted Lute/Banner camp. Alchemy (Minor Arcane Elixir, Elixir of Wisdom, mana/health pot) è un secondo buono ma da comprare.",
+  "advice": "Launch: crafta tu la Lesser Magic Wand (Method): Enchanting 10 + Tailoring per Brown Linen Robe da disenchantare + Runed Copper Rod; alternativa: un Blacksmith di gilda disenchanta Copper Shortsword (~80%, ConquestCapped). Light/Medium Armor Kit da Leatherworking (+4/+8 Stamina). First Aid facoltativo: il Priest si cura da solo (Method)."
+ },
+ "stats": "Spell power e Spirit prima (DoubleZug: Spirit > Spell Power > Intellect > crit/mp5 > Stamina > Hit > Haste; ConquestCapped: spell power per primo, Spirit pari/oltre dopo 40–50 SP per Spirit Tap; WT: Int/Spell Damage > Stamina/Spirit > Armor). Le wand sono l’arma principale: Lesser Magic Wand (5) → Greater Magic Wand (13) → Sizzle Stick (15, WC) → Gravestone Scepter (18, BFD) → Wand of Eventide (27, BoE) → Greater Mystic Wand (30). Armi in mano: staff/weapon con spell power da dungeon quest (Ragefire Chasm al 10, Wailing Caverns al 15; DoubleZug: “tenere l’arma aggiornata è MOLTO più importante che in Classic”). Maxroll “dungeon chase list” (nomi): Deadmines Emberstone Staff/Cookie’s Stirring Rod, Shadowfang Keep Odo’s Ley Staff, Stockade Kam’s Walking Stick, Blackfathom Deeps Rod of the Sleepwalker (🟡 stats non verificate). Weapon skill: Daggers, Maces, Staves, Wands (WT; trainer: Woo Ping Stormwind, Ilyenia Moonfire Darnassus, Bixi Wobblebonk Ironforge; Horde Sayoc/Hanashi Orgrimmar, Ansekhwa Thunder Bluff, Archibald Undercity).",
+ "races": {
+  "human": "Alliance. The Human Spirit (+10% Spirit, agg. 26 ott) e Ruthless (+1% crit): ottimi con Spirit Tap/Meditation. Racial: Divine Grace (10, cura ally <50% e rimuove Weakened Soul, NO self) e Feedback (20). DoubleZug: Human/Gnome secondi per leveling; CC: “Weak” per leveling.",
+  "dwarf": "Alliance. Desperate Prayer (10, self-heal 146–181, CD 10 min), Chastise (★ 20, root 2 s umanoidi); Stoneform / Artisan’s Precision (+1% hit, 🟡 wowclassicforever.info). CC: “Average”.",
+  "nightelf": "Alliance. Starshards (10, 162 danno Arcane in 6 s, CD 30 s ★) e Elune’s Grace (20, −50% chance di essere colpito 15 s ★), Shadowmeld usabile in combat, 2% movement, Wisp Spirit, Elune’s Light. DoubleZug: “quite strong for leveling”, la sua prima scelta Alliance; CC: “Good”.",
+  "gnome": "Alliance (★ nuova per Priest). Confounding Flash (10, confonde 5 nemici 3 s, CD 2 min ★) e Contingency Plan (20, ward 30 s: sotto il 35% assorbi + HoT, CD 5–10 min ★); Escape Artist, Expansive Mind, Eureka!. DoubleZug: Human/Gnome close seconds; CC: “Good”.",
+  "undead": "Horde. Touch of Weakness (10) e Dark Sacrifice (★ 20: perdi vita, guadagni mana + Spirit), Cannibalize (usabile in combat: sustain fortissimo), Will of the Forsaken, Touch of the Grave (drain 30% casters). DoubleZug: “Undead/Troll” per Horde leveling; CC: “Best”.",
+  "troll": "Horde. Hex of Weakness (10, −43 AP, −20% heal ricevuti) e Shadowguard (20, 3 cariche 10 min), Berserking (+10% cast speed 15 s), Beast Slaying (“gains a lot of value while leveling”, DoubleZug), Rapid Regeneration. CC: “Best”."
+ },
+ "forever": [
+  "★ Spell nuove per Priest: Penance (talento Disc, 150 Mana, 12 s CD), Prayer of Mending (talento Holy, 40), Binding Heal (talento Holy 25), Devouring Plague e Fear Ward ora base al 20 (Blizzard Watch, 9 ott; WT).",
+  "★ Ogni razza ha 2 racial spells (10 e 20); Gnome è nuovo; Elune’s Grace/Starshards/Dwarf Chastise/Dark Sacrifice ricreate (Blizzard Watch, 9 ott).",
+  "★ SW:P e Renew possono crittare; i DoT si aggiornano dinamicamente senza snapshot (WT, DoubleZug).",
+  "★ Beta 15 ott (WT/ConquestCapped/wowforeverguides): Improved Power Word: Shield spostato in riga 3; Improved Fade rimosso; la wand richiede 0,5 s fermo prima di sparare (CC).",
+  "★ Beta 1 ott: cambi a Devouring Plague, SW:D, Inner Focus, Shadow Weaving (wowforeverguides 🟡).",
+  "★ 26 ott: The Human Spirit portato a +10% Spirit (ConquestCapped).",
+  "★ Talenti nuovi/changed rilevanti: Wand Specialization (13/25%), Twin Disciplines, Mental Agility, Improved Inner Fire (+cariche), Silent Resolve, Holy Binding, Devouring Contagion, Early Demise, Dark Inspiration, Improved Mind Flay (wf client).",
+  "★ Spirit Tap: 100% Spirit +50% regen mentre lanci per 15 s dopo kill non-trivial o morte di un nemico con Vampiric Embrace (wf client).",
+  "Legacy (Talented) dai 25/45/60 livelli (wowforeverguides 🟡); Thrill of Adventure e The Quick and the Dead consigliati (ConquestCapped)."
+ ],
+ "sources": [
+  {
+   "name": "wowforever.be – Build di leveling Priest (client)",
+   "url": "https://wowforever.be/leveling/priest/",
+   "author": "wowforever.be",
+   "date": "1 nov 2026",
+   "signal": "dati client, ordine 10→60",
+   "used": "Ordine talent 10–39, respec 40, 41–60 e testi talent (wf/priest.json)"
+  },
+  {
+   "name": "Method – WoW Forever Priest Leveling Guide & Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-priest-leveling-guide-and-talents",
+   "author": "Amaxagon",
+   "date": "29 ott 2026",
+   "signal": "Method; stringa talent = wowforever.be",
+   "used": "Rotation, spell milestones, professioni, wand"
+  },
+  {
+   "name": "Mobalytics – Priest Leveling Guide 1–60",
+   "url": "https://mobalytics.gg/wow-forever/classes/priest-leveling-guide-1-60",
+   "author": "DoubleZug",
+   "date": "29 ott 2026",
+   "signal": "47 ♥ (lista) – Verified; pagina mostra “27” accanto alla data 🟡",
+   "used": "Shadow-deep, ordine mid/late game, razze, rotation, 5SR, professioni, stat"
+  },
+  {
+   "name": "Mobalytics – Priest Leveling Guide",
+   "url": "https://mobalytics.gg/wow-forever/classes/priest-leveling-guide",
+   "author": "Twicks",
+   "date": "29 ott 2026",
+   "signal": "27 ♥ · 2/0/9 · non letto",
+   "used": "solo segnale di qualità"
+  },
+  {
+   "name": "Mobalytics – 1–60 Shadow Priest Leveling",
+   "url": "https://mobalytics.gg/wow-forever/profile/kargoz/classes/1-60-shadow-priest-leveling-guide-wands-talents-rotation-tips-and-tricks",
+   "author": "Kargoz",
+   "date": "17 ott 2026",
+   "signal": "8 ♥ (community)",
+   "used": "non letto (403)"
+  },
+  {
+   "name": "Warcraft Tavern – Priest Leveling Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/priest-leveling/",
+   "author": "Cyradys",
+   "date": "ott 2026 (beta cap 30)",
+   "signal": "Warcraft Tavern",
+   "used": "Milestone livelli, trainer, wand, mechanics"
+  },
+  {
+   "name": "ConquestCapped – Priest Leveling",
+   "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-priest-leveling/",
+   "author": "Kir",
+   "date": "28 ott 2026",
+   "signal": "testo, senza ranks",
+   "used": "Ibrido, wand, Legacy, razze"
+  },
+  {
+   "name": "ConquestCapped – Priest Racials",
+   "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-priest-racials/",
+   "author": "Kir",
+   "date": "28 ott 2026",
+   "signal": "testo",
+   "used": "Racial spells per razza"
+  },
+  {
+   "name": "Maxroll – Priest Leveling Guide",
+   "url": "https://maxroll.gg/wow-forever/class-guides/priest-leveling-guide",
+   "author": "Cere",
+   "date": "30 ott 2026",
+   "signal": "Maxroll",
+   "used": "Camp, dungeon chase, trainer, razze"
+  },
+  {
+   "name": "wowforever.gg – Priest Shadow Leveling",
+   "url": "https://wowforever.gg/en/builds/priest-shadow-leveling/",
+   "author": "n/d",
+   "date": "30 ott 2026",
+   "signal": "dati talentsforever.com",
+   "used": "Shadow-deep a 20/30"
+  },
+  {
+   "name": "wow4evernews – Priest Leveling Build",
+   "url": "https://wow4evernews.com/en/articles/wow-forever-priest-leveling-build",
+   "author": "Max Calder",
+   "date": "21 set / 7 ott 2026",
+   "signal": "solo testo",
+   "used": "Shadow 10–30"
+  },
+  {
+   "name": "KamiLabs – WoW Forever Priest: The Wand Replaces Smite",
+   "url": "https://kami-labs.fr/en/wow-forever/pretre-wow-forever-leveling-baguette/",
+   "author": "Kami (su video Scriblet)",
+   "date": "23 set 2026",
+   "signal": "video Scriblet “Priest leveling Meta is Forever Changed” – views non trovati",
+   "used": "Gear 10–20, Gravestone Scepter, Merchant’s Favor"
+  },
+  {
+   "name": "Blizzard Watch – Every Priest racial",
+   "url": "https://blizzardwatch.com/2026/10/09/every-priest-racial-ability-wow-forever/",
+   "author": "Mitch",
+   "date": "9 ott 2026",
+   "signal": "Blizzard Watch",
+   "used": "Racial: novità"
+  },
+  {
+   "name": "Warcraft DB (Forever) + Wowhead tooltip API",
+   "url": "https://forever.warcraftdb.com/data/class/5",
+   "author": "Lexicon Gaming",
+   "date": "1 nov 2026",
+   "signal": "dati client",
+   "used": "Livelli e ID di tutte le spell Priest"
+  },
+  {
+   "name": "Icy Veins – Shadow/Disc Priest leveling (snippet WebSearch)",
+   "url": "https://www.icy-veins.com/wow-forever/shadow-priest-leveling",
+   "author": "Icy Veins",
+   "date": "ott 2026",
+   "signal": "non letto (403)",
+   "used": "“Deep Shadow”: Shadow Reach/Weaving/ISWP/IMB; Blackout > Shadow Focus"
+  }
+ ],
+ "doubts": [
+  "wowforever.be NON è “Disc fino a ~23 poi Shadow”: è ibrido Disc con soli 7 punti Shadow fino al 39 e respec al 40: ora in alternatives. Build principale = Shadow-deep (DoubleZug 47 ♥) per regola preferiti.",
+  "wowforever.be NON è “Disc fino a ~23 poi Shadow”: è ibrido Disc con soli 7 punti Shadow fino al 39 e respec al 40. Lo scenario Shadow-deep (DoubleZug 47 ♥) potrebbe essere considerato da chi non vuole il respec.",
+  "Immagini Warcraft Tavern (layout pre-15 ott) non affidabili per i singoli punti 🟡.",
+  "Livello Shadow Word: Death 32 da Method/WT ✔ (client lo mostra come spell “livello 60”/runa: ID 401955 da SoD, ignorata).",
+  "Nomi delle quest razziali (10 e 20) e dei trainer di accompagnamento: non trovati; solo NPC da Maxroll 🟡.",
+  "Camp: effetti presi dalla ricerca Mage (Mobalytics/Kargoz) e Maxroll 🟡; ordine per Priest è una mia valutazione.",
+  "YouTube: nessun video con view count trovato (Scriblet “Priest leveling Meta is Forever Changed” citato da KamiLabs; “WoW Forever Priest Leveling – A Brief Guide” youtu.be/Yt5UfZL7Ch0 canale/views non letti).",
+  "Gravestone Scepter: drop o quest reward in Blackfathom Deeps? fonti discordi (Maxroll vs WT/ConquestCapped).",
+  "Wand scaling: Scriblet/Kami (spell power) vs ConquestCapped (non scala dal 15 ott). Verifica dopo il lancio.",
+  "Mobalytics DoubleZug: punti Disc finali sommano 16 anziché 17 nel testo (probabile typo Mental Agility) 🟡.",
+  "Mobalytics Twicks/Kargoz e Icy Veins non letti (Cloudflare/403).",
+  "Devouring Contagion: icona non presente in wf/priest.json (talento senza icon).",
+  "Build 43–60: il testo DoubleZug (IPWS 45–48, Mental Agility 58, Soul Warding 59) contraddice sia la sua griglia finale (17/3/31 con Mental Strength 3/5) sia i prerequisiti attuali di IPWS (10 punti Disc): ho seguito griglia + prerequisiti 🟡. Range di livello sovrapposti nella sua guida risolti a un punto per livello 🟡.",
+  "Twicks (27 ♥, 2/0/9 = 11 punti al 20, Shadow) e Kargoz (8 ♥) non letti: li uso solo come segnale che la comunità favorisce Shadow."
+ ]
+}

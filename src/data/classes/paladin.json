@@ -1,0 +1,921 @@
+{
+ "class": "paladin",
+ "name": "Paladin",
+ "resource": "Mana",
+ "spec": "Retribution",
+ "specIcon": "spell_holy_auraoflight",
+ "summary": "Retribution con Two-Handed lenta: è il consenso per livellare da soli. Mobalytics (yumytv, 102 ♥, agg. 1 nov, split 12/8/31), Zockify (agg. 30 ott, 12/8/31), wowforeverbuilds (agg. 24 ott), wowforeverguides (agg. 21 ott), Leprestore (agg. 21 ott), Conquest Capped (28 ott), Maxroll (30 ott) e Icy Veins (snippet). L'ordine 10–35 segue il consenso (Benediction → Conviction → Seal of Command al 20 → Sanctified Judgement → Pursuit of Justice → Sacred Arbiter → Vindication → Vengeance → Two-Handed Weapon Specialization) riscritto per i rank e i prerequisiti del client 70707 (hotfix del 31 ott: Conviction ora 3 rank, Holy Conduit nel Holy tree, Divine Intellect nel Protection tree). Lo split finale 12 Holy / 8 Protection / 31 Retribution coincide con Mobalytics e Zockify. wowforever.be (client) apre invece in Holy (Divine Strength → Improved Seals) senza Seal of Command fino al 35: riportata come alternativa. 36–60 sono una mia proiezione 🟡.",
+ "build": [
+  "Benediction",
+  "Benediction",
+  "Benediction",
+  "Benediction",
+  "Benediction",
+  "Improved Judgement",
+  "Improved Judgement",
+  "Conviction",
+  "Conviction",
+  "Conviction",
+  "Seal of Command",
+  "Sanctified Judgement",
+  "Sanctified Judgement",
+  "Sanctified Judgement",
+  "Pursuit of Justice",
+  "Pursuit of Justice",
+  "Sacred Arbiter",
+  "Vindication",
+  "Vindication",
+  "Vindication",
+  "Vengeance",
+  "Vengeance",
+  "Vengeance",
+  "Two-Handed Weapon Specialization",
+  "Two-Handed Weapon Specialization",
+  "Two-Handed Weapon Specialization",
+  "Repentance",
+  "Champion of the Light",
+  "Champion of the Light",
+  "Champion of the Light",
+  "Unsealed Wrath",
+  "Divine Strength",
+  "Divine Strength",
+  "Divine Strength",
+  "Divine Strength",
+  "Divine Strength",
+  "Improved Seals",
+  "Improved Seals",
+  "Improved Seals",
+  "Improved Seals",
+  "Improved Seals",
+  "Holy Conduit",
+  "Holy Conduit",
+  "Divine Intellect",
+  "Divine Intellect",
+  "Divine Intellect",
+  "Divine Intellect",
+  "Divine Intellect",
+  "Precision",
+  "Precision",
+  "Precision"
+ ],
+ "buildSource": "10–35: ordine di consenso (wowforeverbuilds Ret 15 set e 19 set, agg. 24 ott; wowforeverguides/Harenil agg. 21 ott; Leprestore agg. 21 ott) riscritto per rispettare max rank, prerequisiti e punti-per-riga dell'albero del client 70707 (validato con wf/paladin.json). Split 12/8/31 = Mobalytics yumytv (102 ♥) = Zockify. 36–60: PROIEZIONE 🟡 (Repentance 36, Champion of the Light 1-3, Unsealed Wrath al 40 come quasi tutte le fonti; poi Holy per Strength/Seals/Conduit e Protection per Intellect/Precision). Nessuna fonte ha un ordine 31–60 aggiornato dopo il 31 ott; wowforever.be arriva solo al 35.",
+ "why": {
+  "Benediction": "−10% mana su tutte le spell e abilità istantanee (Seal, Judgement, Holy Strike, Consecration): il mana è il vero limite del Paladin, non il danno.",
+  "Improved Judgement": "Judgement ricarica 2 s prima: più Judgement per ogni mob.",
+  "Conviction": "+6% crit con tutti gli attacchi e le spell (3 rank dopo l'hotfix del 31 ott).",
+  "Seal of Command": "Il Seal principale con una Two-Handed lenta: 70% di danno-arma extra come Holy. Si prende al 20 e sblocca Vengeance.",
+  "Sanctified Judgement": "★ Judgement restituisce il 60% del mana del Seal giudicato: sostenibilità del mana.",
+  "Pursuit of Justice": "+15% di velocità (anche a cavallo): per le fonti è il talent di viaggio più importante fino al 60.",
+  "Sacred Arbiter": "★ Holy Strike +20% di danno e rinfresca tutti i Judgement sul target.",
+  "Vindication": "Chance di ridurre l'Attack Power del mob (dopo l'hotfix non alza più il tuo AP).",
+  "Vengeance": "Dopo un crit non periodico: +3% danno Physical e Holy per stack (3 stack, 30 s). Richiede Seal of Command.",
+  "Two-Handed Weapon Specialization": "+6% a tutto il danno fisico con una Two-Handed (e −20% di threat).",
+  "Repentance": "Incapacita un Humanoid per 6 s: separa due mob. Prerequisito di Unsealed Wrath.",
+  "Champion of the Light": "★ Danno spell pari al 12% (rank 1) fino al 60% (rank 5) dell'Intellect: l'Intellect diventa una stat di danno dal 43 circa.",
+  "Unsealed Wrath": "★ (ex Twist of Light) I colpi in melee conservano una copia del Seal attivo: il Seal twisting semplificato di Forever.",
+  "Divine Strength": "+10% Strength (5 rank, Holy tree): danno puro, dopo il 40.",
+  "Improved Seals": "+15% al danno di Seal e Judgement (5 rank dopo l'hotfix).",
+  "Holy Conduit": "★ −40% mana a Consecration, Holy Wrath, Exorcism e Hammer of Wrath: Consecration sostenibile.",
+  "Divine Intellect": "+10% Intellect (ora nel Protection tree): più mana e più danno con Champion of the Light.",
+  "Precision": "+3% Hit con tutti gli attacchi: elimina i Miss sui mob del tuo livello."
+ },
+ "compare": [
+  {
+   "source": "Mobalytics – yumytv (Paladin Leveling Guide 1-60)",
+   "signal": "102 ♥ (la guida Paladin più salvata) / agg. 1 nov / 12/8/31",
+   "l10_19": "Ordine non leggibile (solo split 12 Holy / 8 Prot / 31 Ret). Rotation: Retribution Aura + Blessing of Might, Seal of Righteousness, Judgement + Holy Strike a cooldown",
+   "l20": "non trovato",
+   "l21_30": "non trovato"
+  },
+  {
+   "source": "wowforeverbuilds – Ret 10–60 (15 set)",
+   "signal": "agg. 24 ott, beta 70532, 'theorycraft'",
+   "l10_19": "Benediction 5 (10–14) → Improved Judgement 2 → Conviction 3 (17–19)",
+   "l20": "Seal of Command",
+   "l21_30": "Conviction 4–5 (ora impossibile), Sanctified Judgement 3, Eye for an Eye 2, Pursuit of Justice 2, Vengeance al 30; Two-Handed Spec 33–35, Repentance 36, Twist of Light 40"
+  },
+  {
+   "source": "wowforeverbuilds – Ret 10–60 (19 set, 'giocata in beta')",
+   "signal": "agg. 24 ott, 70532",
+   "l10_19": "Benediction 5 (10–14) → Conviction 5 (15–19)",
+   "l20": "Seal of Command",
+   "l21_30": "Sanctified Judgement 3, Vindication 3, Pursuit of Justice 1, Sacred Arbiter (28 in tabella, 30 nel testo), Pursuit 2, Two-Handed Spec dal 30"
+  },
+  {
+   "source": "wowforeverguides – Harenil",
+   "signal": "agg. 21 ott",
+   "l10_19": "Benediction 5 (10–14) → Conviction 5 (15–19)",
+   "l20": "Sanctified Judgement 3 + Seal of Command + Pursuit of Justice 1",
+   "l21_30": "Sacred Arbiter, Holy Conduit 2, Improved Judgement 2, Two-Handed Spec 3 (30–32), Vengeance"
+  },
+  {
+   "source": "Leprestore – Graham Smith",
+   "signal": "agg. 21 ott, 16/0/35",
+   "l10_19": "Benediction 5 (10–14) → Conviction 5 (15–19)",
+   "l20": "Seal of Command",
+   "l21_30": "Sanctified Judgement 3, Pursuit of Justice 2 (24–25), Sacred Arbiter (26), Vindication 3 (27–29), Vengeance 3 (30–32), Two-Handed Spec 3 (33–35)"
+  },
+  {
+   "source": "Zockify",
+   "signal": "agg. 30 ott, 12/8/31",
+   "l10_19": "Ret per prima: Benediction (full), Pursuit of Justice, Seal of Command, Sanctified Judgement, Sacred Arbiter, Champion of the Light, Unsealed Wrath; poi Divine Strength, Improved Seals, Divine Intellect, Toughness, Precision (ordine per livello non dato)",
+   "l20": "Seal of Command",
+   "l21_30": "non trovato"
+  },
+  {
+   "source": "Method – Jurdi",
+   "signal": "agg. 10 ott",
+   "l10_19": "Holy: Divine Strength → Improved Seals",
+   "l20": "Retribution: Holy Conduit, Pursuit of Justice (nessun Seal of Command)",
+   "l21_30": "Build per 10–30 (35 con Talented); poi respec per ruolo"
+  },
+  {
+   "source": "wowforever.be (dati client 70707)",
+   "signal": "client, 1 nov, noto fino al 35",
+   "l10_19": "Divine Strength 5 (10–14) → Improved Seals 3 (15–17) → Benediction (18–)",
+   "l20": "Benediction 3/5 (nessun Seal of Command)",
+   "l21_30": "Benediction 5, Improved Judgement 2, Conviction 3, Pursuit of Justice 2 (28–29), Sanctified Judgement 3 (30–32), poi Unyielding Faith 2 e Sacred Arbiter 35"
+  },
+  {
+   "source": "Warcraft Tavern – Passion",
+   "signal": "nessuna data; build beta da 26 punti",
+   "l10_19": "Retribution per i primi 20–30 livelli, anche per 1H+shield",
+   "l20": "Seal of Command prima del pull (Righteousness se 1H o spell power alto)",
+   "l21_30": "Mana efficiency + Consecration; si può saltare un punto per Repentance"
+  },
+  {
+   "source": "Icy Veins – Ret leveling (solo snippet)",
+   "signal": "30 ott",
+   "l10_19": "Benediction (Deflection se vuoi meno danno subito); Conviction al posto di Holy Conduit al 18–19",
+   "l20": "Benediction + Holy Conduit per Consecration più economica",
+   "l21_30": "Pursuit of Justice presto (talent di viaggio fino al 60)"
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Alternativa wowforever.be (Holy per prima, client 70707)",
+   "html": "<p>Ordine di wowforever.be, l'unico verificato sul client post-hotfix, ma <b>senza Seal of Command</b> fino al 35:</p><ul><li>10–14 <b>Divine Strength</b> 5/5 · 15–17 <b>Improved Seals</b> 3/5</li><li>18–22 <b>Benediction</b> 5/5 · 23–24 Improved Judgement · 25–27 Conviction 3/3</li><li>28–29 Pursuit of Justice · 30–32 Sanctified Judgement · 33–34 Unyielding Faith · 35 Sacred Arbiter</li></ul><p>Va bene con Seal of Righteousness (scala con la spell power) e con una 1H. Con una Two-Handed lenta il consenso preferisce Seal of Command al 20.</p>"
+  },
+  {
+   "title": "Alternativa Protection / Shockadin",
+   "html": "<p><b>Protection</b> (dungeon e pull di più mob, 0/33/18 Zockify): Shield Specialization, Templar's Bulwark, Holy Shield, Reckoning. Maxroll la sconsiglia per il solo leveling. <b>Shockadin</b> (21 Holy con Holy Shock e Champion of the Light): Warcraft Tavern parla di danno sorprendente, ma da healer non è consigliato. Retribution resta la spec più veloce da soli (Maxroll, Mobalytics, Conquest Capped).</p>"
+  },
+  {
+   "title": "Legacy: Talented",
+   "html": "<p>Il Legacy <b>Talented</b> anticipa i punti di 5 livelli (dal 5): al 30 hai già la build del 35. Primo Legacy consigliato: Thrill of Adventure (Zockify, Conquest Capped); Talented per gli alt. Il totale resta 51 punti.</p>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Seal of Righteousness",
+   "ability_thunderbolt",
+   "Seal base: danno Holy extra a ogni colpo, più forte con armi lente e con spell power."
+  ],
+  [
+   1,
+   "Holy Light",
+   "spell_holy_holybolt",
+   "La tua cura principale tra un pull e l'altro."
+  ],
+  [
+   1,
+   "Devotion Aura",
+   "spell_holy_devotionaura",
+   "+Armor per te e il gruppo."
+  ],
+  [
+   4,
+   "Blessing of Might",
+   "spell_holy_fistofjustice",
+   "+Attack Power per 1 ora: sempre attiva."
+  ],
+  [
+   4,
+   "Judgement",
+   "spell_holy_righteousfury",
+   "★ Rilascia l'effetto del Seal senza consumarlo (10 s di cooldown, 6% mana). Usala a cooldown."
+  ],
+  [
+   6,
+   "Holy Strike",
+   "classicon_paladin",
+   "★ Nuovo: colpo istantaneo con danno-arma + Holy, 10 s di cooldown, 5 Mana. Il tuo secondo bottone a cooldown."
+  ],
+  [
+   6,
+   "Divine Protection",
+   "spell_holy_restoration",
+   "Immune ai danni fisici e alle spell per 6 s (non puoi attaccare). Applica Forbearance."
+  ],
+  [
+   6,
+   "Seal of the Crusader",
+   "spell_holy_holysmite",
+   "Seal di apertura: +AP e attacco più veloce; il suo Judgement aumenta il danno Holy sul mob."
+  ],
+  [
+   8,
+   "Hammer of Justice",
+   "spell_holy_sealofmight",
+   "Stun di 3 s: ferma caster e mob che scappano."
+  ],
+  [
+   8,
+   "Purify",
+   "spell_holy_purify",
+   "Toglie malattie e Poison."
+  ],
+  [
+   10,
+   "Lay on Hands",
+   "spell_holy_layonhands",
+   "★ Cura pari alla tua vita massima, azzera il mana. Cooldown 20 min (era 1 ora)."
+  ],
+  [
+   10,
+   "Blessing of Protection",
+   "spell_holy_sealofprotection",
+   "Immune ai danni fisici per 6 s (Forbearance)."
+  ],
+  [
+   10,
+   "Righteous Fury",
+   "spell_holy_sealoffury",
+   "★ Ora al 10 (era 16): serve solo a fare tank, da soli lascialo spento."
+  ],
+  [
+   10,
+   "Seal of Fury",
+   "spell_holy_retributionaura",
+   "★ Nuovo Seal da tank: Holy fisso per colpo e absorb con scudo; il Judgement taunta. Per Retribution non serve."
+  ],
+  [
+   12,
+   "Redemption",
+   "spell_holy_resurrection",
+   "Resurrezione. Si sblocca con la class quest (Tome of Divinity / A Lesson in Divinity)."
+  ],
+  [
+   14,
+   "Blessing of Wisdom",
+   "spell_holy_sealofwisdom",
+   "Mana ogni 5 s."
+  ],
+  [
+   16,
+   "Retribution Aura",
+   "spell_holy_auraoflight",
+   "Danno Holy a chi ti colpisce, scala con la spell power: l'Aura del leveling."
+  ],
+  [
+   18,
+   "Blessing of Freedom",
+   "spell_holy_sealofvalor",
+   "Immune a root e slow per 10 s."
+  ],
+  [
+   20,
+   "Blessing of Kings",
+   "spell_magic_magearmor",
+   "★ Ora baseline (era un talent Protection): +10% a tutte le stat per 1 ora."
+  ],
+  [
+   20,
+   "Consecration",
+   "spell_holy_innerfire",
+   "★ Ora baseline (era un talent Holy): fa più danno ai primi 4 nemici che entrano. Costa molto mana."
+  ],
+  [
+   20,
+   "Exorcism",
+   "spell_holy_excorcism_02",
+   "Danno Holy istantaneo contro Undead e Demon."
+  ],
+  [
+   20,
+   "Flash of Light",
+   "spell_holy_flashheal",
+   "Cura veloce (1,5 s)."
+  ],
+  [
+   22,
+   "Concentration Aura",
+   "spell_holy_mindsooth",
+   "Meno pushback quando curi."
+  ],
+  [
+   22,
+   "Seal of Justice",
+   "spell_holy_sealofwrath",
+   "Stun a chance; il Judgement impedisce la fuga."
+  ],
+  [
+   24,
+   "Turn Undead",
+   "spell_holy_turnundead",
+   "Fear sugli Undead (con Turn Evil anche sui Demon)."
+  ],
+  [
+   26,
+   "Salvation",
+   "spell_holy_sealofsalvation",
+   "🟡 Non è più un Blessing (15 ott, Blizzard); il tooltip Wowhead non risponde dal 31 ott."
+  ],
+  [
+   26,
+   "Revoke",
+   "spell_holy_sealofsalvation",
+   "🟡 ★ Toglie Salvation dagli alleati; tooltip Wowhead non risponde."
+  ],
+  [
+   28,
+   "Shadow Resistance Aura",
+   "spell_shadow_sealofkings",
+   "Resist Shadow per il gruppo."
+  ],
+  [
+   30,
+   "Divine Intervention",
+   "spell_nature_timestop",
+   "Ti sacrifichi per salvare un alleato; richiede Symbol of Divinity."
+  ],
+  [
+   30,
+   "Seal of Light",
+   "spell_holy_healingaura",
+   "Seal con cura a chance."
+  ],
+  [
+   32,
+   "Frost Resistance Aura",
+   "spell_frost_wizardmark",
+   "Resist Frost."
+  ],
+  [
+   34,
+   "Divine Shield",
+   "spell_holy_divineintervention",
+   "Immune a tutto per 10 s, danno −50%, Forbearance. Salvavita."
+  ],
+  [
+   36,
+   "Fire Resistance Aura",
+   "spell_fire_sealoffire",
+   "Resist Fire."
+  ],
+  [
+   38,
+   "Seal of Wisdom",
+   "spell_holy_righteousnessaura",
+   "Seal da mana: giudica un mob per recuperare mana."
+  ],
+  [
+   40,
+   "Hammer of the Righteous",
+   "ability_paladin_hammeroftherighteous",
+   "★ Nuovo: colpisce il bersaglio e fino a 3 vicini."
+  ],
+  [
+   40,
+   "Blessing of Light",
+   "spell_holy_prayerofhealing02",
+   "🟡 Livello da Bind on Forever e Tavern; tooltip Wowhead non risponde."
+  ],
+  [
+   42,
+   "Cleanse",
+   "spell_holy_renew",
+   "Toglie Poison, malattie e Magic."
+  ],
+  [
+   44,
+   "Hammer of Wrath",
+   "ability_thunderclap",
+   "Finisher sotto il 20% di vita."
+  ],
+  [
+   46,
+   "Blessing of Sacrifice",
+   "spell_holy_sealofsacrifice",
+   "Trasferisce danno da un compagno a te."
+  ],
+  [
+   50,
+   "Holy Wrath",
+   "spell_holy_excorcism",
+   "AoE su Undead e Demon con stun."
+  ],
+  [
+   52,
+   "Greater Blessing of Might",
+   "spell_holy_greaterblessingofkings",
+   "Versione di gruppo; serve il reagente Symbol of Kings."
+  ],
+  [
+   54,
+   "Greater Blessing of Wisdom",
+   "spell_holy_greaterblessingofwisdom",
+   "Idem."
+  ],
+  [
+   60,
+   "Greater Blessing of Kings",
+   "spell_magic_greaterblessingofkings",
+   "Idem."
+  ],
+  [
+   60,
+   "Mass Salvation",
+   "spell_holy_greaterblessingofsalvation",
+   "🟡 ★ Versione raid di Salvation."
+  ],
+  [
+   60,
+   "Greater Blessing of Light",
+   "spell_holy_greaterblessingoflight",
+   "🟡 Versione di gruppo di Blessing of Light."
+  ]
+ ],
+ "talentSpells": [
+  [
+   20,
+   "Seal of Command",
+   "ability_warrior_innerrage",
+   "Seal talent: 65 Mana, 70% di danno-arma extra come Holy. Il suo Judgement fa 69–73 Holy (138–146 se il target è stunnato)."
+  ],
+  [
+   26,
+   "Sacred Arbiter",
+   "inv_sword_08",
+   "★ Passivo: Holy Strike +20% di danno e rinfresca tutti i Judgement sul target."
+  ],
+  [
+   36,
+   "Repentance",
+   "spell_holy_prayerofhealing",
+   "Incapacita un Humanoid per 6 s, 60 Mana, 1 min di cooldown."
+  ],
+  [
+   40,
+   "Unsealed Wrath",
+   "spell_holy_blessedresillience",
+   "★ I colpi in melee conservano una copia del Seal attivo per 15 s (fino a 3 stack): il Seal twisting di Forever. Fino al 31 ott si chiamava Twist of Light."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Seal, Judgement e Holy Strike",
+   "seq": [
+    [
+     "spell_holy_fistofjustice",
+     "Blessing of Might"
+    ],
+    [
+     "ability_thunderbolt",
+     "Seal of Righteousness"
+    ],
+    [
+     "spell_holy_righteousfury",
+     "Judgement"
+    ],
+    [
+     "classicon_paladin",
+     "Holy Strike (dal 6)"
+    ],
+    [
+     "spell_holy_holybolt",
+     "Holy Light dopo il kill"
+    ]
+   ],
+   "text": "Prima del pull: Blessing of Might (4) e Seal of Righteousness. Mentre corri verso il mob lancia Judgement (dal 4), poi picchia; Holy Strike a cooldown dal 6. Hammer of Justice dall'8 sui caster. Dopo il kill Holy Light se la vita è sotto il 60%."
+  },
+  {
+   "title": "10–19 · Il mana prima di tutto",
+   "seq": [
+    [
+     "spell_holy_auraoflight",
+     "Retribution Aura (16)"
+    ],
+    [
+     "ability_thunderbolt",
+     "Seal of Righteousness"
+    ],
+    [
+     "spell_holy_righteousfury",
+     "Judgement"
+    ],
+    [
+     "classicon_paladin",
+     "Holy Strike"
+    ],
+    [
+     "spell_holy_sealofmight",
+     "Hammer of Justice"
+    ]
+   ],
+   "text": "Con Benediction il mana dura di più. Ordine: Seal → Judgement → Holy Strike a cooldown, auto-attack nel mezzo. Retribution Aura dal 16. Lay on Hands (10) e Divine Protection (6) sono le emergenze; Redemption (12) per i compagni. Da soli lascia spento Righteous Fury: è solo threat."
+  },
+  {
+   "title": "20–30 · Seal of Command e Consecration",
+   "seq": [
+    [
+     "spell_holy_holysmite",
+     "Seal of the Crusader (mob duri)"
+    ],
+    [
+     "spell_holy_righteousfury",
+     "Judgement"
+    ],
+    [
+     "ability_warrior_innerrage",
+     "Seal of Command"
+    ],
+    [
+     "classicon_paladin",
+     "Holy Strike"
+    ],
+    [
+     "spell_holy_innerfire",
+     "Consecration (2+ mob)"
+    ]
+   ],
+   "text": "Con una Two-Handed lenta (3,3 s o più per Mobalytics e Maxroll): sui mob duri apri con Seal of the Crusader → Judgement → Seal of Command; sui mob facili solo Seal of Command. Judgement e Holy Strike a cooldown, anche in un macro. Con Sacred Arbiter (26) Holy Strike rinfresca anche i Judgement. Exorcism solo su Undead e Demon. Con una Two-Handed veloce, una 1H o molta spell power resta su Seal of Righteousness (Warcraft Tavern, Maxroll)."
+  },
+  {
+   "title": "AoE / pull multipli",
+   "seq": [
+    [
+     "spell_holy_prayerofhealing",
+     "Repentance (1 Humanoid)"
+    ],
+    [
+     "spell_holy_innerfire",
+     "Consecration"
+    ],
+    [
+     "classicon_paladin",
+     "Holy Strike"
+    ],
+    [
+     "spell_holy_sealofmight",
+     "Hammer of Justice"
+    ]
+   ],
+   "text": "Due mob: Repentance su un Humanoid (talent, 36) oppure Hammer of Justice e uccidi un mob alla volta. Tre o più: Consecration al centro (i primi 4 nemici subiscono di più), poi Holy Strike e Judgement. Consecration costa molto mana (coefficiente abbassato da 0,095 a 0,042 il 15 ott): usala solo quando serve; Holy Conduit toglie il 40% del costo. Dal 40 Hammer of the Righteous colpisce fino a 4 bersagli."
+  },
+  {
+   "title": "Mana e downtime",
+   "seq": [
+    [
+     "spell_holy_sealofwisdom",
+     "Blessing of Wisdom"
+    ],
+    [
+     "spell_holy_righteousnessaura",
+     "Seal of Wisdom (38)"
+    ],
+    [
+     "spell_holy_healingaura",
+     "Seal of Light (30)"
+    ]
+   ],
+   "text": "Sanctified Judgement restituisce il 60% del costo del Seal a ogni Judgement; Benediction −10% sulle istantanee. Da solo usa Blessing of Kings (baseline al 20) e lascia al Camp (Mana Well, Lodestone) il resto. Cura solo se il mana è sopra il 50% (wowforeverbuilds). Dal 38 giudica un mob con Seal of Wisdom per recuperare mana."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Consigli di combattimento",
+   "html": "<ul><li>Judgement <b>non consuma più il Seal</b> ★: il Seal resta attivo 30 s; rinnovalo solo quando scade.</li><li>Holy Strike e Judgement in un macro: meno click, meno tempo morto (Mobalytics, wowforeverbuilds).</li><li>Hammer of Justice è l'unico controllo: il Paladin <b>non ha interrupt né slow</b> (Blizzard).</li><li>Emergenza: Divine Protection (6) o Divine Shield (34) + due Holy Light può ribaltare un pull sbagliato (Conquest Capped); Lay on Hands come ultima risorsa.</li><li>Dal 40 con Unsealed Wrath: cambia Seal subito dopo un Judgement, il vecchio Seal si applica anche al colpo successivo. Costa mana: solo se ne hai.</li><li>Zone migliori: Undead e Demon (Exorcism, Holy Wrath, Turn Undead).</li></ul>"
+  },
+  {
+   "title": "Blessing e Aura da solo",
+   "html": "<p>Blessing of Might e Retribution Aura per il danno (yumytv su Mobalytics). Blessing of Kings è baseline dal 20. Il Camp Lodestone sostituisce Might e il Mana Well sostituisce Wisdom (Maxroll): in quel caso lancia Kings su di te.</p>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Human: Northshire Abbey, trainer Brother Sammuel (Consecrated Letter da Marshal McBride). Dwarf: Coldridge Valley, trainer Bromos Grummner (Consecrated Rune da Sten Stoutarm). Undead: Deathknell, trainer Aramis Hammerhand (A Difficult Path, Rediscovering the Light).",
+   "Seal of Righteousness, Holy Light, Devotion Aura. Visite al trainer: 4, 6, 8, 10, 12, 14, 18, 20, 24 (BoF)."
+  ],
+  "4": [
+   "Trainer: Blessing of Might, Judgement. Undead: Coming to Terms, Continue Your Training."
+  ],
+  "6": [
+   "Holy Strike ★, Divine Protection, Seal of the Crusader."
+  ],
+  "7": [
+   "Human: Northshire Hammer (Rare Books, Elwynn Forest, 2H mace), primo upgrade (classicwowforever)."
+  ],
+  "8": [
+   "Hammer of Justice, Purify."
+  ],
+  "10": [
+   "Primo talent point: Benediction (Retribution tree). Lay on Hands, Blessing of Protection, Righteous Fury ★, Seal of Fury ★. Undead: A Second Home."
+  ],
+  "12": [
+   "Redemption: class quest. Human: The Tome of Divinity da Duthorian Rall (Stormwind). Dwarf: Tome of Divinity da Tiza Battleforge (Ironforge). Undead: A Lesson in Divinity (Tirisfal Glades)."
+  ],
+  "13": [
+   "Hall of Thanes (Alliance 13–18): Ironforge Greathammer, Durgen's Crescent Axe. Horde: Ragefire Chasm."
+  ],
+  "16": [
+   "Retribution Aura. Rhahk'Zor's Hammer (Deadmines, circa 16–22) è un grosso salto per la Two-Handed."
+  ],
+  "20": [
+   "Seal of Command (talent), Blessing of Kings ★, Consecration ★, Exorcism, Flash of Light. Polearm skill dal Weapon Master (Woo Ping a Stormwind, Archibald a Undercity).",
+   "Class quest dell'arma, Alliance: The Tome of Valor (Duthorian Rall, Stormwind) → The Test of Righteousness (Jordan Stilwell, fuori da Ironforge, 52,36 per Icy Veins) → Verigan's Fist (2H mace). Materiali da Deadmines, Shadowfang Keep, Blackfathom Deeps più Bailor's Ore Shipment.",
+   "Horde (Undead): catena Danitha Mor → Moonsilver Blade → Old Fire-Eye → Wolfsbane 🟡. Alternativa Q22: Forsaken Greataxe (The Wrath of Rath'mael, Ruins of Lordaeron)."
+  ],
+  "22": [
+   "Concentration Aura, Seal of Justice. Test of Righteousness: Jordan Stilwell forgia l'arma."
+  ],
+  "24": [
+   "Turn Undead. Undead: class quest A Curious Pair, A Grim Fate, Diplomatic Incident, Into Fenris Keep, Lumina Windsinger, The Debt, The Windshaper's Wrath (BoF)."
+  ],
+  "26": [
+   "Sacred Arbiter (talent). Salvation e Revoke 🟡."
+  ],
+  "29": [
+   "Corpsemaker (Razorfen Kraul, 2H axe) per Zockify; classicwowforever indica Guardian's Dualblade (City of Dalaran, 27–28)."
+  ],
+  "30": [
+   "Divine Intervention (Symbol of Divinity), Seal of Light. Fine della beta: da qui in poi è proiezione."
+  ],
+  "34": [
+   "Divine Shield."
+  ],
+  "38": [
+   "Seal of Wisdom."
+  ],
+  "40": [
+   "Summon Warhorse: The Tome of Nobility (Duthorian Rall, Stormwind; passi con Arthur the Faithful e Brandur Ironhammer). Apprentice Riding, Dual Talent Specialization. Hammer of the Righteous ★, Unsealed Wrath ★. Armatura Plate."
+  ],
+  "42": [
+   "Cleanse."
+  ],
+  "44": [
+   "Hammer of Wrath."
+  ],
+  "52": [
+   "Western Plaguelands: Chillwind Point, Dispelling Evil, Forging the Mightstone (class quest Alliance)."
+  ],
+  "60": [
+   "Summon Charger (Alliance: Lord Grayson Shadowbreaker, Grimand Elmore; Horde: Summon Forsaken Charger)."
+  ]
+ },
+ "camp": [
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP extra (fino al 5% di livello, 1 volta l'ora): il bonus che vale di più per chiunque."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "spell_arcane_manatap",
+   "Fino a 29 mana/5 s: il mana è il limite del Ret. Non si somma a Blessing of Wisdom: lancia Kings su di te (Maxroll)."
+  ],
+  [
+   "Lodestone",
+   "Mining",
+   "inv_stone_08",
+   "Attack Power; non si somma a Blessing of Might. Fa coppia con Blacksmithing (Maxroll; non era nell'elenco del compito)."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_crate_01",
+   "+2% crit; l'unico conflitto è Moonkin Aura."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "inv_misc_bandage_11",
+   "Fino a +56 Stamina; nessun conflitto con le tue spell."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "inv_misc_candle_02",
+   "Fino a +25 Intellect: più mana e, dal 43, più danno con Champion of the Light."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "inv_banner_03",
+   "Fino a +32 Spirit: poco utile per un Ret."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "inv_10_enchanting2_magicswirl_bronze",
+   "Armor, stats e resistance."
+  ],
+  [
+   "Fish Bowl",
+   "Fishing",
+   "inv_magicalfishpet",
+   "+8% a tutte le stat, ma non si somma a Blessing of Kings."
+  ]
+ ],
+ "professions": {
+  "gold": "Non trovato per il Paladin nelle fonti. Mining è la più citata (Maxroll, Zockify, Conquest Capped, Method): vendi il minerale che non usi.",
+  "power": "Mining + Blacksmithing: armi 2H e armature crafted (Heavy Copper Maul al livello 11, Thorium Poleaxe 52, Legionite Glaive 58 BoP) e il Camp Lodestone/Sharpening Wheel. Enchanting (Maxroll) per disenchant e Enchanted Lute. Engineering come alternativa (Method; Zockify per i dungeon tank).",
+  "advice": "Cooking (food con XP) e First Aid (bende tra un pull e l'altro) su tutti; Fishing per cibo economico (Conquest Capped). Il Camp rende le professioni più utili: Mining (Lodestone), Alchemy (Mana Well), Leatherworking (Camp Tent)."
+ },
+ "stats": "Weapon damage prima di tutto (Mobalytics e Maxroll: grande range di danno e arma lenta, 3,3 di speed o più); poi Strength e Hit (Precision dà +3%); Stamina e Intellect per sopravvivere e per il mana (Intellect conta di più dal 43 con Champion of the Light). Mail fino al 40, Plate dopo. Weapon (2H lenta con più DPS): Northshire Hammer (Q7), Ironforge Greathammer (Hall of Thanes, 13), Rhahk'Zor's Hammer (Deadmines, 16–22), Smite's Mighty Hammer (Deadmines, 18), Verigan's Fist / Wolfsbane (class quest 20), Scepter of the Abandoned (Ruins of Lordaeron, 17–25), The Stitcher (Horde, 20–25), Corpsemaker (Razorfen Kraul, 29), Ravager (Scarlet Monastery, 37; classicwowforever indica Bonebiter), Abandoned Ferocity / Scavenged Magram Armament (Desolace, Q42), Diabolic Skiver (Zul'Farrak, 44), Princess Theradras' Scepter (Maraudon, 49), Thorium Poleaxe (BS 260, 52), Legionite Glaive (BS 300, 58). Fonti: Zockify, Maxroll, classicwowforever, Conquest Capped.",
+ "races": {
+  "human": "Ruthless +2% crit su tutte le spell e gli attacchi (★ sostituisce Sword Specialization, 15 ott), Will to Survive (toglie stun), Perception, The Human Spirit (+Spirit). Maxroll la raccomanda.",
+  "dwarf": "Stoneform; Earth Fury +2% crit damage e healing (★ sostituisce Mace Specialization, Leprestore). Conquest Capped cita anche Artisan's Precision e Big Game Hunter 🟡. Parte da Coldridge Valley.",
+  "undead": "★ Prima volta Paladin Horde. Will of the Forsaken (toglie Charm/Fear/Sleep, senza immunità dopo), Cannibalize (ridà vita e mana), Touch of the Grave (20% di drain, 25 s di cooldown dal 15 ott). Conquest Capped e Maxroll la indicano come la migliore per leveling. Parte da Deathknell/Brill; trainer Aramis Hammerhand, Shari Stilwell, Hilda the Breaker (Bandarion Keep)."
+ },
+ "forever": [
+  "★ Holy Strike (6, 10 s di cooldown), Seal of Fury (10), Hammer of the Righteous (40) e Revoke (26) sono nuovi; Righteous Fury scende dal 16 al 10 (client, Bind on Forever).",
+  "★ Judgement non consuma più il Seal (Blizzard deep dive, 30 set; Method, 10 ott).",
+  "★ Blessing of Kings e Consecration sono baseline al 20; Consecration colpisce di più i primi 4 nemici (coefficiente 0,095 → 0,042, 15 ott).",
+  "★ Hotfix del 31 ott (216 modifiche, datamining Playfulls): Twist of Light rinominato Unsealed Wrath (richiede Repentance); Conviction 3 rank, 6% crit su tutto; Champion of the Light 5 rank; Holy Conduit nel Holy tree; Divine Intellect nel Protection tree; Improved Seals 5 rank; Instrument of Law rimosso; Turn Evil nuovo.",
+  "★ Benediction ora −10% a tutte le istantanee (era −15% solo Seal e Judgement); Sacred Arbiter +20% (beta 24 set).",
+  "★ Salvation non è più un Blessing (15 ott); Blessing of Light, Salvation e Revoke non rispondono su Wowhead dal 31 ott 🟡.",
+  "★ Lay on Hands 20 min (era 1 ora); Resistance Aura su tutto il raid; niente Seal twisting baseline.",
+  "★ Vindication non alza più il tuo AP (31 ott). Retribution Aura bug fix 8 ott. Human Ruthless e Dwarf Earth Fury 15 ott. Two-Handed Weapon Specialization: 24 set a 2/4/6%, ora 6% fisico e −20% threat.",
+  "★ Blizzard 8 ott: l'XP dei dungeon sarà vicina a quella delle quest ma non tornerà ai livelli Classic; Legacy Talented dà talent dal 5."
+ ],
+ "sources": [
+  {
+   "name": "wowforever.be – Build di livellamento Paladin (dati client 70707)",
+   "url": "https://wowforever.be/leveling/paladin/",
+   "author": "wowforever.be",
+   "date": "1 nov",
+   "signal": "dati client",
+   "used": "tutti i talent (nome, rank, prerequisiti), validazione della build, ordine alternativo 10–35"
+  },
+  {
+   "name": "Mobalytics – Paladin Leveling Guide 1-60",
+   "url": "https://mobalytics.gg/wow-forever/classes/paladin-leveling-guide",
+   "author": "yumytv",
+   "date": "1 nov",
+   "signal": "102 ♥ (la più salvata), 12/8/31",
+   "used": "split 12/8/31, rotation base (snippet); ordine talent non leggibile"
+  },
+  {
+   "name": "Mobalytics – Retribution Paladin Guide",
+   "url": "https://mobalytics.gg/wow-forever/classes/retribution-paladin-guide",
+   "author": "Jampanos",
+   "date": "1 nov",
+   "signal": "26 ♥, 0/0/21",
+   "used": "solo segnale"
+  },
+  {
+   "name": "Zockify – Paladin Leveling",
+   "url": "https://www.zockify.com/forever/paladin/leveling/",
+   "author": "Zockify",
+   "date": "30 ott",
+   "signal": "12/8/31 Ret",
+   "used": "split 12/8/31, rotation, armi per livello, Legacy"
+  },
+  {
+   "name": "Maxroll – Paladin Leveling",
+   "url": "https://maxroll.gg/wow-forever/class-guides/paladin-leveling-guide",
+   "author": "Spen",
+   "date": "30 ott",
+   "signal": "Maxroll",
+   "used": "spell per livello, class quest, camp, stat, razze"
+  },
+  {
+   "name": "wowforeverbuilds – Ret 10–60 (15 set)",
+   "url": "https://wowforeverbuilds.com/guide/retribution-paladin-leveling",
+   "author": "WoWForeverBuilds",
+   "date": "agg. 24 ott",
+   "signal": "beta 70532, theorycraft",
+   "used": "ordine 10–60"
+  },
+  {
+   "name": "wowforeverbuilds – Ret 10–60 (19 set)",
+   "url": "https://wowforeverbuilds.com/guide/beta-20-retribution-paladin-leveling",
+   "author": "WoWForeverBuilds",
+   "date": "agg. 24 ott",
+   "signal": "10–30 giocati in beta",
+   "used": "ordine 10–60"
+  },
+  {
+   "name": "wowforeverguides – Ret 1-60",
+   "url": "https://wowforeverguides.com/leveling/paladin",
+   "author": "Harenil",
+   "date": "agg. 21 ott",
+   "signal": "sito guide",
+   "used": "ordine 10–60"
+  },
+  {
+   "name": "Leprestore – Retribution Paladin Guide",
+   "url": "https://leprestore.com/guides/world-of-warcraft-forever/wow-forever-retribution-paladin-guide-best-builds-race-professions/",
+   "author": "Graham Smith",
+   "date": "agg. 21 ott",
+   "signal": "16/0/35",
+   "used": "ordine 10–60, razze, modifiche 15 ott"
+  },
+  {
+   "name": "Method – Paladin Leveling",
+   "url": "https://www.method.gg/wow-forever/wow-forever-paladin-leveling-guide-and-talents",
+   "author": "Jurdi",
+   "date": "10 ott",
+   "signal": "Method",
+   "used": "percorso Holy-first, spell, modifiche"
+  },
+  {
+   "name": "Warcraft Tavern – Paladin Leveling",
+   "url": "https://www.warcrafttavern.com/forever/guides/paladin-leveling/",
+   "author": "Passion",
+   "date": "senza data",
+   "signal": "Warcraft Tavern",
+   "used": "rotation, trainer, class quest, zone, armi"
+  },
+  {
+   "name": "Conquest Capped – Paladin Leveling",
+   "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-paladin-leveling/",
+   "author": "Kir",
+   "date": "28 ott",
+   "signal": "-",
+   "used": "razze, professioni, armi"
+  },
+  {
+   "name": "Icy Veins – Retribution Paladin Leveling",
+   "url": "https://www.icy-veins.com/wow-forever/retribution-paladin-leveling",
+   "author": "Icy Veins",
+   "date": "30 ott (snippet)",
+   "signal": "Icy Veins; non letto",
+   "used": "snippet: Benediction, Pursuit of Justice, Verigan's Fist"
+  },
+  {
+   "name": "Bind on Forever – Paladin Leveling (client 70707)",
+   "url": "https://bindonforever.com/classes/paladin/leveling",
+   "author": "Bind on Forever",
+   "date": "1 nov",
+   "signal": "dati client",
+   "used": "livelli spell, elenco class quest"
+  },
+  {
+   "name": "Wowhead Forever tooltip API",
+   "url": "https://nether.wowhead.com/forever/tooltip/spell/20271",
+   "author": "Wowhead",
+   "date": "1 nov",
+   "signal": "dati client",
+   "used": "livelli, costi e icone delle spell"
+  },
+  {
+   "name": "Blizzard – Class Deep Dives: Paladin",
+   "url": "https://news.blizzard.com/en-us/article/24302099/world-of-warcraft-forever-class-deep-dives-paladin",
+   "author": "Blizzard",
+   "date": "30 set",
+   "signal": "ufficiale",
+   "used": "novità ★"
+  },
+  {
+   "name": "Playfulls – Hotfix datamining 31 ott",
+   "url": "https://playfulls.com/patch-notes/game-data-2026-10-31",
+   "author": "Playfulls",
+   "date": "31 ott",
+   "signal": "datamining, non ufficiale",
+   "used": "modifiche ai talent del 31 ott"
+  },
+  {
+   "name": "classicwowforever.com – weapons e class changes",
+   "url": "https://classicwowforever.com/weapons/paladin/",
+   "author": "Classic WoW Forever",
+   "date": "agg. 14 ott",
+   "signal": "-",
+   "used": "armi per livello, cronologia modifiche"
+  },
+  {
+   "name": "foreverdb.net – Paladin quests",
+   "url": "https://foreverdb.net/quests/paladin",
+   "author": "foreverdb",
+   "date": "70707",
+   "signal": "dati client",
+   "used": "elenco class quest Tome of Valor/Nobility"
+  },
+  {
+   "name": "YouTube – video sul Paladin (non visionati)",
+   "url": "https://www.youtube.com/watch?v=m831n6vfCXc",
+   "author": "GuideMMO",
+   "date": "9 gg fa",
+   "signal": "34K views, 382 like",
+   "used": "solo segnale; altri: Axphyxiate Gaming 35K (2 sett), Kargoz Ret 1-60 32K (3 gg), yumytv 96K (2 gg), Pallytime215 13K, GravTV 15K"
+  }
+ ],
+ "doubts": [
+  "🟡 Livelli 36–60 sono una mia proiezione; nessuna fonte ha un ordine valido dopo l'hotfix del 31 ott (216 modifiche).",
+  "🟡 Tutte le fonti con ordine 10–35 sono precedenti al 31 ott: Conviction ridotta a 3 rank e Holy Conduit spostato. Mobalytics yumytv (102 ♥) e Icy Veins potrebbero essere già aggiornati ma non erano leggibili.",
+  "🟡 wowforever.be non prende Seal of Command fino al 35, in contrasto con tutte le altre fonti Ret.",
+  "🟡 Vengeance: il client richiede Seal of Command; Blizzard parlava di Sanctified Judgement.",
+  "🟡 Salvation, Revoke, Blessing of Light, Mass Salvation e Greater Blessing of Light: livelli solo da Bind on Forever/Maxroll; il tooltip Wowhead non risponde.",
+  "🟡 Holy Strike rank 1: tooltip 25% di danno-arma contro 50% nel testo Blizzard.",
+  "🟡 Righteous Fury al 10 (client) contro 16 (Method, Warcraft Tavern).",
+  "🟡 Class quest Horde: la catena di Wolfsbane è descritta in modo diverso da Conquest Capped e Zockify; nome del NPC di Redemption (Undead) e di Warhorse Horde non trovato.",
+  "🟡 Lodestone non era nell'elenco del compito (da Maxroll, nessun valore); icona e magnitudo dei camp da guida Mago.",
+  "🟡 Dwarf: Earth Fury (Leprestore) contro Artisan's Precision/Big Game Hunter (Conquest Capped).",
+  "Non trovato: ordine talent completo di Icy Veins e Mobalytics; contenuto dei video YouTube; ranking gold delle professioni; rotta per zone specifica del Paladin.",
+  "Champion of the Light: il client dice 60% dell'Intellect al rank 5 (12% per rank), Leprestore 10/20/30% per 3 rank (dato pre-hotfix)."
+ ]
+}

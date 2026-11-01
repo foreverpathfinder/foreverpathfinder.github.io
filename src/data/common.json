@@ -1,0 +1,60 @@
+{
+ "version": "v8",
+ "updated": "1 novembre 2026",
+ "maxLevel": 30,
+ "launchUTC": "2026-11-04T23:00:00Z",
+ "launchText": "5 novembre, mezzanotte (ora italiana)",
+ "xpCards": [
+  ["inv_misc_food_14", "Food con bonus XP: +5%", "In Forever alcuni food danno un buff Well Fed con XP extra. Kargoz: <i>Roasted Boar Meat</i> (Cooking 1) dà +5% XP 🟡; conserva i Chunk of Boar Meat e cucina. Il bonus vale sulle kill XP (circa 60% della tua XP)."],
+  ["inv_misc_bag_10_blue", "Cozy Sleeping Bag: +3% per 2 ore", "Siediti 3 minuti. Kargoz consiglia di <b>non</b> fare la lunga catena: usa la Sleeping Bag di un altro giocatore. La catena però dà due bag da 12 slot (vedi Bags)."],
+  ["inv_misc_leatherscrap_01", "Camp Tent: Rested XP", "Leatherworking: fino al 5% di un livello come Rested XP, una volta l’ora. Icy Veins la indica come il buff di Camping più utile in leveling."],
+  ["inv_misc_key_13", "Dungeon una volta sola, per le quest", "In Forever l’XP del dungeon è nelle sue quest. Kargoz: circa il 40% dell’XP della rotta RestedXP arriva dai dungeon. Raccogli tutte le quest prima di entrare."]
+ ],
+ "rules": [
+  "<b>Mob verdi valgono meno che in Classic Era:</b> un livello 16 che uccide un mob di livello 13 prende 73 XP (83 in Era, 125 per un mob del suo livello). Uccidi mob del tuo livello.",
+  "<b>Quest verdi sì:</b> danno buona XP e si chiudono in fretta (Icy Veins).",
+  "<b>Non comprare equip all’Auction House:</b> conta soprattutto la weapon. Risparmia per le bag.",
+  "<b>Duo:</b> la densità di quest è più alta che in Era; in coppia si livella molto bene e si fanno le Elite quest.",
+  "<b>Lancio affollato:</b> le zone iniziali saranno piene. Se i mob non bastano, vai avanti nella zona, cambia layer o fai gruppo.",
+  "Compra Food e Water di Rank massimo appena puoi: meno downtime.",
+  "Legacy Points condivisi tra account dello stesso Battle.net 🟡 (detto da Kargoz in un podcast, non confermato)."
+ ],
+ "bagsCommon": [
+  ["—", "Vendor", "6 / 10", "Small Brown Pouch 5 argenti · Heavy Brown Bag 2 oro"],
+  ["—", "Tailoring", "8–12", "Red Linen Bag 8 (skill 70), Woolen 8, Small Silk Pack 10, Mageweave 12"]
+ ],
+ "bagsNote": "Hai 4 bag slot + uno slot <b>Reagent Bag</b> separato per i materiali: usalo appena puoi se raccogli.",
+ "profTier": "<b>Mobalytics:</b> S = Cooking, Fishing, Mining, Herbalism, Skinning, Alchemy, Enchanting · A = Engineering, Tailoring, Blacksmithing · B = Leatherworking · C = First Aid.",
+ "profErrors": ["Niente power-leveling di crafting con il gold delle bag.", "Non vendere al vendor ciò che serve a una crate.", "Mai mettere all’Auction House sotto il prezzo vendor (dopo la commissione).", "Diffida delle cifre gold/ora: nessuna fonte le ha misurate seriamente.", "Legacy utili 🟡: Bountiful Harvest, Reagent Economy, Field Guide, Permanence."],
+ "profGold": "<b>Mining + Herbalism</b> (o Skinning al posto di una). Raccogli lungo la rotta e vendi i grezzi: è il consiglio più condiviso per il gold dal livello 1 (7 guide).",
+ "crates": "Crate che <b>droppano dai mob</b> dal livello 10 (o si comprano all’Auction House). Riempile con <b>una sola</b> combinazione di materiali (es. 20 Copper Bar <i>oppure</i> 20 Tin Bar) ✔ e consegnale sigillate.",
+ "cratesList": ["Apprentice e Journeyman dal 10 · Expert dal 20 · Artisan dal 35.", "Ricompensa: Merchant’s Favor (5–20 per crate 🟡). Il <b>primo</b> turn-in dà +50 Favor ✔; le recipe costano 30 e sono spesso BoP."],
+ "campSteps": [
+  "Liv. ~5: quest <b>The Great Outdoors</b> nella zona iniziale → impara Cooking → <b>Basic Campfire</b> (Flint and Tinder + Simple Wood).",
+  "Il Basic Campfire ha 3 slot (Journeyman 5, Expert 10); ogni giocatore piazza <b>un</b> camp object. Campfire ~10 min, cooldown dei camp object 1 ora.",
+  "Siediti (<code>/sit</code>) <b>1 minuto</b>: buff di 1 ora da tutti i camp object. Non servono le profession. Non si sommano ai buff di classe equivalenti."
+ ],
+ "campObjects": {
+  "Camp Tent": ["Leatherworking", "inv_misc_leatherscrap_01", "Rested XP fino al 5% di livello, 1 volta l’ora."],
+  "Mana Well": ["Alchemy", "spell_arcane_manatap", "Fino a 29 mana/5 s. Kargoz: “fortissimo”."],
+  "Incense Candle": ["Herbalism", "inv_misc_candle_02", "Fino a +25 Intellect (non si somma ad Arcane Intellect)."],
+  "Faction Banner": ["Tailoring", "inv_banner_03", "Fino a +32 Spirit."],
+  "Fish Bowl": ["Fishing", "inv_magicalfishpet", "+8% a tutte le stats."],
+  "First Aid Kit": ["First Aid", "inv_misc_bandage_11", "Fino a +56 Stamina."],
+  "Camp Chair": ["Skinning", "inv_crate_01", "+2% crit."],
+  "Enchanted Lute": ["Enchanting", "inv_10_enchanting2_magicswirl_bronze", "Armor, stats, resistance."]
+ },
+ "video": {
+  "id": "9zXygm83IiI",
+  "title": "Kargoz – 10 consigli per il lancio",
+  "chapters": [["Inizio", 0], ["Interfaccia", 82], ["Zona iniziale", 171], ["Target e XP", 450], ["Camping e XP", 567], ["Grinding", 729], ["Dungeon", 795], ["Equip", 901], ["Secondo account", 967], ["Duo", 1201]],
+  "summary": ["<b>Interfaccia:</b> tasti, dot timer, swing timer, cooldown e mouseover sono già nel client: preparali prima.", "<b>Zona iniziale:</b> valuta la situazione al lancio (respawn veloci o bloccati) e adattati; Elwynn sarà la più affollata.", "<b>Death skip e logout skip</b> (auto-unstuck dal sito, cooldown 1 ora).", "<b>Target:</b> uccidi mob del tuo livello; i mob più bassi danno meno XP che in Era.", "<b>Camping:</b> Mana Well “fortissimo”; food +5% XP; Sleeping Bag +3% per 2 ore.", "<b>Grinding</b> solo quando hai una weapon nuova forte.", "<b>Dungeon:</b> una volta, per le quest; circa il 40% dell’XP.", "<b>Equip:</b> non comprarlo all’Auction House; conta la weapon.", "<b>Secondo account</b> per l’alt in città (Auction House, profession).", "<b>Duo leveling:</b> il modo migliore e più divertente."]
+ },
+ "sources": [
+  ["wowforever.be – talent e build di leveling (dati client)", "https://wowforever.be/leveling/", "client 1.60.1.70707", "Talent, tooltip, ordine dei talent point, calcolatore"],
+  ["Mobalytics – guide leveling (classifica per preferiti)", "https://mobalytics.gg/wow-forever/leveling-guides", "1 nov", "Scelta della spec per popolarità (♥)"],
+  ["Wowhead – World Map Forever", "https://www.wowhead.com/forever/world-map", "dati mappa", "Zone, livelli, Flight Master, Trainer, dungeon, nodi"],
+  ["Kargoz – 10 Tips (YouTube)", "https://www.youtube.com/watch?v=9zXygm83IiI", "24 ott · 91k views", "Bonus XP, dungeon, consigli di lancio"]
+ ],
+ "limits": "Reddit blocca l’accesso ai miei strumenti, quindi gli “upvote” li misuro con i preferiti di Mobalytics e le visualizzazioni YouTube. I dati sono pre-lancio (client 70707): controlla sempre il tooltip in gioco. Le immagini e i riquadri incorporati richiedono internet."
+}

@@ -1,0 +1,890 @@
+{
+ "class": "shaman",
+ "name": "Shaman",
+ "resource": "Mana",
+ "spec": "Enhancement",
+ "specIcon": "ability_shaman_stormstrike",
+ "summary": "Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui convergono Method (Erik, agg. 23 ott: \"la più forte\"), Warcraft Tavern (build da 26 punti, \"la via più pulita\"), Mobalytics Tiqqle (66 ♥, Verified, 31 ott: la guida Shaman più salvata) e wowforever.be (dati client). La build 10–30 di wowforever.be coincide con quella di Tiqqle fino al 29: Thundering Strikes, Mental Dexterity, Improved Ghost Wolf, Shamanistic Focus, Elemental Weapons, Stormstrike al 25, Flurry. Il Mana è il vero limite: Elemental e Resto sono più lenti da soli.",
+ "build": [
+  "Thundering Strikes",
+  "Thundering Strikes",
+  "Thundering Strikes",
+  "Thundering Strikes",
+  "Thundering Strikes",
+  "Mental Dexterity",
+  "Mental Dexterity",
+  "Mental Dexterity",
+  "Improved Ghost Wolf",
+  "Improved Ghost Wolf",
+  "Shamanistic Focus",
+  "Elemental Weapons",
+  "Elemental Weapons",
+  "Elemental Weapons",
+  "Anticipation",
+  "Stormstrike",
+  "Flurry",
+  "Flurry",
+  "Flurry",
+  "Flurry",
+  "Improved Stormstrike",
+  "Spirit Weapons",
+  "Improved Stormstrike",
+  "Flurry",
+  "Mental Quickness",
+  "Maelstrom Weapon",
+  "Maelstrom Weapon",
+  "Maelstrom Weapon",
+  "Maelstrom Weapon",
+  "Mental Quickness",
+  "Rage of the Farseer",
+  "Maelstrom Weapon",
+  "Concussion",
+  "Concussion",
+  "Concussion",
+  "Concussion",
+  "Concussion",
+  "Elemental Devastation",
+  "Elemental Devastation",
+  "Elemental Devastation",
+  "Call of Flame",
+  "Call of Flame",
+  "Elemental Focus",
+  "Call of Flame",
+  "Convection",
+  "Convection",
+  "Convection",
+  "Earthbound",
+  "Trial by Fire",
+  "Trial by Fire",
+  "Convection"
+ ],
+ "buildSource": "wowforever.be (client 1.60.1.70707: Enhancement fino al 41, poi Elemental 42–60) = Warcraft Tavern (build finale 26 punti) = Mobalytics Tiqqle (10–23, 25–29). 31–60: solo wowforever.be 🟡 (Method e Tavern non danno l'ordine oltre il 30–35; Tiqqle va Resto 36–41). Differenze: 24 Ancestral Knowledge (wowforever.be) vs Anticipation (Tiqqle); 30 Spirit Weapons vs Improved Stormstrike. · Liv. 24 Anticipation e 30 Improved Stormstrike da Mobalytics Tiqqle (66 ♥, guida più votata) al posto di wowforever.be.",
+ "why": {
+  "Thundering Strikes": "+1% crit per Rank su melee E spell: 5% fisso dal 14 e carburante per Flurry.",
+  "Mental Dexterity": "★ Attack Power = 33/66/100% del tuo Intellect: l'Intellect (gear, Incense Candle) diventa AP; sblocca Flurry.",
+  "Improved Ghost Wolf": "Ghost Wolf istantaneo e usabile al chiuso: +40% di velocità senza mount fino al 40. Method: 2/2 prima del 20.",
+  "Shamanistic Focus": "★ Shock e Lightning Shield costano il 45% in meno: risolve il collo di bottiglia del Mana.",
+  "Elemental Weapons": "+20% all'AP di Rockbiter Weapon (la tua imbue fino al 30), poi +40% a Windfury Weapon.",
+  "Ancestral Knowledge": "+2% Intellect (1 punto): riempitivo verso Stormstrike; l'Intellect conta con Mental Dexterity.",
+  "Stormstrike": "Il tuo colpo principale: attacco extra, 8 s di cooldown, +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock. Si prende al 25.",
+  "Flurry": "+5% attack speed per Rank (25% al 5/5) per 3 swing dopo un crit in melee: stacka con Thundering Strikes.",
+  "Spirit Weapons": "Parry e threat; per il solo leveling è un punto di passaggio (Tiqqle prende Improved Stormstrike al 30 al suo posto).",
+  "Improved Stormstrike": "★ Stormstrike ti dà rigen del Mana (50% in cast per 15 s) e si resetta quando schivi o pari: sostenibilità del Mana.",
+  "Mental Quickness": "★ Spell damage = 15/30% dell'Intellect: fa crescere Lightning Bolt, shock e Maelstrom con l'Intellect.",
+  "Maelstrom Weapon": "★ I colpi in melee danno stack che riducono tempo di cast e Mana del Lightning Bolt (fino a 5 stack, 20% a stack con 5/5).",
+  "Rage of the Farseer": "★ \"Bloodlust\" personale: +30% attack speed per 25 s, 3 min cooldown (Method). Al 40.",
+  "Concussion": "+1% danni per Rank a Lightning Bolt/Chain Lightning/Earth Shock (31–60: solo wowforever.be).",
+  "Elemental Devastation": "I crit con spell danno crit in melee (+9% al 3/3 per 10 s): ponte tra shock e swing.",
+  "Call of Flame": "+15% a Fire Totem, Flame Shock, Fire Nova e +9 s di durata del Flame Shock (3/3).",
+  "Elemental Focus": "Clearcasting: 10% di cast gratis, aiuta il Mana.",
+  "Convection": "-2% Mana per Rank su Shock/Lightning Bolt/Lava Burst/Chain Lightning (10% al 5/5).",
+  "Earthbound": "★ Earthbind Totem immobilizza 5 s: controllo di pull e fuga.",
+  "Trial by Fire": "Fire Nova +20% danno e -4 s di cooldown; Magma Totem +20 s (2/2).",
+  "Anticipation": "Dodge in più: meno danno preso, meno pause per curarti."
+ },
+ "compare": [
+  {
+   "source": "wowforever.be – build di leveling (client 1.60.1.70707)",
+   "signal": "dati del client ✔",
+   "l10_19": "10–14 Thundering Strikes 5/5 · 15–17 Mental Dexterity 3/3 · 18–19 Improved Ghost Wolf 2/2",
+   "l20": "Shamanistic Focus",
+   "l21_30": "21–23 Elemental Weapons · 24 Ancestral Knowledge · 25 Stormstrike · 26–29 Flurry · 30 Spirit Weapons"
+  },
+  {
+   "source": "Mobalytics – Shaman Leveling Guide 1-60 (Tiqqle)",
+   "signal": "66 ♥ · Verified · 31 ott · video 31k views (29 ott)",
+   "l10_19": "10–14 Thundering Strikes · 15–17 Mental Dexterity · 18–19 Improved Ghost Wolf",
+   "l20": "Shamanistic Focus",
+   "l21_30": "21–23 Elemental Weapons · 24 Anticipation · 25 Stormstrike · 26–29 Flurry · 30 Improved Stormstrike · poi Resto: 36–38 Mindfulness, 39–40 Totemic Focus, 41 Water Shield"
+  },
+  {
+   "source": "Warcraft Tavern – Shaman Leveling (Shadostruct)",
+   "signal": "ott 2026 · build beta, immagine (26 punti)",
+   "l10_19": "ordine per livello non indicato",
+   "l20": "—",
+   "l21_30": "Build finale: Thundering Strikes 5, Mental Dexterity 3, Improved Ghost Wolf 2, Improved Lightning Shield 1, Shamanistic Focus 1, Elemental Weapons 3, Stormstrike 1, Flurry 5, Mental Quickness 2, Improved Stormstrike 2, Maelstrom Weapon 1"
+  },
+  {
+   "source": "Method – Shaman Leveling Guide (Erik)",
+   "signal": "agg. 23 ott",
+   "l10_19": "Improved Ghost Wolf 2/2 prima del 20",
+   "l20": "Ghost Wolf",
+   "l21_30": "Stormstrike al 25; Windfury Weapon al 30; ordine completo non dato"
+  },
+  {
+   "source": "Icy Veins – Enhancement Shaman Leveling (solo snippet WebSearch)",
+   "signal": "🟡 snippet, pagina non letta",
+   "l10_19": "Partenza Restoration (Mindfulness, Water Shield) per il Mana",
+   "l20": "Water Shield",
+   "l21_30": "Respec al 25 per Stormstrike; Improved Stormstrike core; Spirit Weapons"
+  },
+  {
+   "source": "Mobalytics – Shaman Leveling 1-60 (NickTew)",
+   "signal": "10 ♥ · Creator · 1 nov",
+   "l10_19": "Thundering Strikes 5/5, Mental Dexterity 3/3 (da snippet)",
+   "l20": "non letto",
+   "l21_30": "non letto"
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Water Shield hybrid (punti in Restoration, poi respec)",
+   "html": "<p><b>Fonti:</b> Icy Veins (snippet 🟡), Gaunerh \"3 Builds to Level 35\" (14k views, 28 ott), Tiqqle (Mindfulness, Totemic Focus, Water Shield al 36–41).</p><ul><li>10 punti in Resto (Mindfulness ecc.) per prendere <b>Water Shield</b> al 20: più Mana nei primi livelli.</li><li>Respec al 25 (a pagamento dal Trainer in una capitale) per sbloccare Stormstrike.</li><li>Perdi Thundering Strikes, Mental Dexterity e Flurry nel frattempo e spendi gold: più complessa, non la scelgo come prima.</li></ul>"
+  },
+  {
+   "title": "Elemental",
+   "html": "<p>Tavern: più mana-hungry e senza melee come ripiego. Lava Burst è un talent (20 punti Elemental, quindi dopo il 30) e Lightning Overload è nuovo ★. Mobalytics ha una guida Elemental 1-30 di Tiqqle (10 ♥). Meno adatta al leveling in solitaria.</p>"
+  },
+  {
+   "title": "Restoration",
+   "html": "<p>Tavern: sub-ottimale per il leveling; al 40 c'è la Dual Spec e puoi tenere una spec Resto per i dungeon. Guida Doomsong Forever (8.8k views, 20 ott) per Resto 1–60.</p>"
+  },
+  {
+   "title": "Altre build 60 (non lette per intero)",
+   "html": "<p>Skidrow (84k views, 1 ott): Enhancement 18/33/0 (17/34/0 con Orc + Arcanite Reaper). Back From AFK (11k views, 28 ott): route 51 punti. Defcamp &amp; Melderon (83k, 14 set): build Enhancement con sub-spec Elemental o Resto.</p>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Lightning Bolt",
+   "spell_nature_lightning",
+   "Il tuo attacco a distanza per aprire il pull (14–17 danni Rank 1). Rank 2 all'8, 3 al 14, 4 al 20, 5 al 26, 6 al 32."
+  ],
+  [
+   1,
+   "Rockbiter Weapon",
+   "spell_nature_rockbiter",
+   "Imbue sull'arma: +50 AP e più threat (Rank 1). Resta la tua imbue fino al 30 (Method: molto meglio di Flametongue/Frostbrand). Rank 2 all'8 (+79 AP), 3 al 16 (+118), 4 al 24 (+194)."
+  ],
+  [
+   1,
+   "Healing Wave",
+   "spell_nature_magicimmunity",
+   "Cura diretta lenta (37–47 Rank 1) tra un pull e l'altro. Rank 2 al 6, 3 al 12, 4 al 18, 5 al 24, 6 al 32. 🟡 livelli dal tooltip Wowhead Forever."
+  ],
+  [
+   4,
+   "Earth Shock",
+   "spell_nature_earthshock",
+   "Istantaneo: danno, interrupt, taunt. Lanciala appena finisce il Lightning Bolt. Rank 2 all'8, 3 al 14, 4 al 24, 5 al 36."
+  ],
+  [
+   4,
+   "Stoneskin Totem",
+   "spell_nature_stoneskintotem",
+   "Riduce il danno Physical (4 Rank 1). Arriva con la class quest Call of Earth (che dà l'Earth Totem in Bag). Rank 2 al 14, 3 al 24."
+  ],
+  [
+   6,
+   "Earthbind Totem",
+   "spell_nature_strengthofearthtotem02",
+   "AoE slow 10 yd per 45 s: Kite e mob che scappano. Con il talent Earthbound ★ li immobilizza 5 s."
+  ],
+  [
+   8,
+   "Stoneclaw Totem",
+   "spell_nature_stoneclawtotem",
+   "Totem da 50 health che taunta i mob vicini per 15 s: ti dà qualche secondo."
+  ],
+  [
+   8,
+   "Lightning Shield",
+   "spell_nature_lightningshield",
+   "Sempre attivo (3 orb). Con Shamanistic Focus costa il 45% in meno. Rank 2 al 16, Rank 3 al 24."
+  ],
+  [
+   10,
+   "Flame Shock",
+   "spell_fire_flameshock",
+   "Shock di Fire con DoT di 12 s: rinnovalo solo quando sta per finire. Rank 2 al 18, Rank 3 al 28."
+  ],
+  [
+   10,
+   "Searing Totem",
+   "spell_fire_searingtotem",
+   "★ Si impara con la class quest Call of Fire: Totem che attacca per te (9–11 Fire Rank 1). Rank 2 al 20, 3 al 30. Serve il Fire Totem in Bag."
+  ],
+  [
+   10,
+   "Flametongue Weapon",
+   "spell_fire_flametounge",
+   "Imbue di Fire: per ora meglio Rockbiter. Rank 2 al 18, Rank 3 al 26."
+  ],
+  [
+   10,
+   "Strength of Earth Totem",
+   "spell_nature_earthbindtotem",
+   "+7 Strength al gruppo (Rank 1), +14 al Rank 2 (24): lo usi tu stesso (Tavern: tienilo in combat)."
+  ],
+  [
+   12,
+   "Fire Nova",
+   "spell_fire_sealoffire",
+   "AoE attorno al Fire Totem, buono anche su un solo bersaglio (Method: il tuo burst AoE). Rank 2 al 22, Rank 3 al 32. Richiede un Fire Totem attivo."
+  ],
+  [
+   12,
+   "Purge",
+   "spell_nature_purge",
+   "Toglie 1 magic buff a distanza, istantaneo."
+  ],
+  [
+   12,
+   "Ancestral Spirit",
+   "spell_nature_regenerate",
+   "Resurrezione fuori combat."
+  ],
+  [
+   16,
+   "Cure Poison",
+   "spell_nature_nullifypoison",
+   "Rimuove 1 Poison da un alleato."
+  ],
+  [
+   18,
+   "Tremor Totem",
+   "spell_nature_tremortotem",
+   "Toglie Fear, Charm e Sleep al gruppo."
+  ],
+  [
+   20,
+   "Ghost Wolf",
+   "spell_nature_spiritwolf",
+   "+40% di velocità. Con Improved Ghost Wolf 2/2 è istantaneo e funziona al chiuso: il tuo \"mount\" fino al 40 (Method: il migliore dal 20 al 39)."
+  ],
+  [
+   20,
+   "Frost Shock",
+   "spell_frost_frostshock",
+   "Slow del 50% a distanza (68–73 Frost Rank 1) per fuggire o tenere i mob lontani. Rank 2 al 34."
+  ],
+  [
+   20,
+   "Frostbrand Weapon",
+   "spell_frost_frostbrand",
+   "Imbue di Frost con slow del 25%. Rank 2 al 28. Per ora meno utile di Rockbiter."
+  ],
+  [
+   20,
+   "Healing Stream Totem",
+   "inv_spear_04",
+   "Arriva con la class quest Call of Water: cura il gruppo (5 ogni 2 s Rank 1)."
+  ],
+  [
+   20,
+   "Lesser Healing Wave",
+   "spell_nature_healingwavelesser",
+   "★ Cura rapida e costosa (151–172): per le emergenze."
+  ],
+  [
+   20,
+   "Call of the Elements",
+   "spell_shaman_dropall_01",
+   "★ Posa fino a 4 totem della tua Totem Bar con un tasto (il totem twisting non esiste più)."
+  ],
+  [
+   20,
+   "Totemic Recall",
+   "spell_shaman_totemrecall",
+   "★ Richiama i totem e ti ridà il Mana."
+  ],
+  [
+   22,
+   "Totemic Projection",
+   "ability_shaman_totemrelocation",
+   "★ Sposta i totem attivi nel punto indicato (30 yd, 1 min cooldown)."
+  ],
+  [
+   22,
+   "Cure Disease",
+   "spell_nature_removedisease",
+   "Rimuove 1 Disease da un alleato."
+  ],
+  [
+   22,
+   "Poison Cleansing Totem",
+   "spell_nature_poisoncleansingtotem",
+   "Rimuove Poison dal gruppo ad impulsi."
+  ],
+  [
+   24,
+   "Frost Resistance Totem",
+   "spell_frostresistancetotem_01",
+   "Resistenza Frost (Fire Totem slot): per zone/dungeon specifici."
+  ],
+  [
+   26,
+   "Magma Totem",
+   "spell_fire_selfdestruct",
+   "AoE pulsante (20 Fire ogni 2 s per 20 s) per i pull da 3+ mob."
+  ],
+  [
+   26,
+   "Mana Spring Totem",
+   "spell_nature_manaregentotem",
+   "Rigenera Mana (4 ogni 2 s Rank 1) a te e al gruppo: fermo a fare camp o in dungeon."
+  ],
+  [
+   28,
+   "Fire Resistance Totem",
+   "spell_fireresistancetotem_01",
+   "Resistenza Fire (Water Totem slot)."
+  ],
+  [
+   28,
+   "Flametongue Totem",
+   "spell_nature_guardianward",
+   "Aumenta lo spell damage del gruppo (Fire Totem)."
+  ],
+  [
+   30,
+   "Windfury Weapon",
+   "spell_nature_cyclone",
+   "Dal 30 passi a 2H + Windfury Weapon: 20% di chance di 2 attacchi extra (Method)."
+  ],
+  [
+   30,
+   "Grounding Totem",
+   "spell_nature_groundingtotem",
+   "Assorbe uno spell nemico ogni 10 s."
+  ],
+  [
+   30,
+   "Nature Resistance Totem",
+   "spell_nature_natureresistancetotem",
+   "Resistenza Nature."
+  ],
+  [
+   30,
+   "Call of the Ancestors",
+   "spell_shaman_dropall_02",
+   "★ Seconda Totem Bar: un altro set di 4 totem con un tasto."
+  ],
+  [
+   30,
+   "Reincarnation",
+   "spell_nature_reincarnation",
+   "Passiva: ti rialzi dalla morte (serve Ankh in Bag)."
+  ],
+  [
+   30,
+   "Astral Recall",
+   "spell_nature_astralrecal",
+   "★ Seconda Hearthstone con cooldown di 15 min (Tavern); stessa home. 🟡 livello 30 dal tooltip."
+  ],
+  [
+   32,
+   "Chain Lightning",
+   "spell_nature_chainlightning",
+   "31–60: Lightning Bolt a catena (85–97 Rank 1)."
+  ],
+  [
+   32,
+   "Windfury Totem",
+   "spell_nature_windfury",
+   "31–60: Windfury per tutto il gruppo (Tavern: gigantesco)."
+  ],
+  [
+   34,
+   "Frost Shock (Rank 2)",
+   "spell_frost_frostshock",
+   "31–60: 126–135 Frost."
+  ],
+  [
+   36,
+   "Earth Shock (Rank 5)",
+   "spell_nature_earthshock",
+   "31–60: 135–142 Nature."
+  ],
+  [
+   40,
+   "Dual Talent Specialization",
+   "spell_nature_magicimmunity",
+   "31–60: due spec (Tavern); Apprentice Riding al 40. Con la seconda spec puoi tenere Resto per i dungeon."
+  ],
+  [
+   40,
+   "Chain Heal",
+   "spell_nature_healingwavegreater",
+   "31–60: cura a rimbalzo (tooltip Wowhead Forever)."
+  ],
+  [
+   40,
+   "Stormstrike (Rank 2)",
+   "ability_shaman_stormstrike",
+   "31–60: nuovo Rank dal tooltip Wowhead Forever (ID 17364)."
+  ]
+ ],
+ "talentSpells": [
+  [
+   19,
+   "Improved Ghost Wolf",
+   "spell_nature_spiritwolf",
+   "Con 2/2 Ghost Wolf è istantaneo e usabile al chiuso (da avere prima del 20)."
+  ],
+  [
+   25,
+   "Stormstrike",
+   "ability_shaman_stormstrike",
+   "Instant, melee, 8 s di cooldown, costo 8% del Mana base: +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock per 12 s."
+  ],
+  [
+   31,
+   "Improved Stormstrike",
+   "spell_shaman_improvedstormstrike",
+   "★ Stormstrike ti dà rigen del Mana e si resetta a ogni Dodge/Parry."
+  ],
+  [
+   35,
+   "Maelstrom Weapon",
+   "spell_shaman_maelstromweapon",
+   "★ Stack sui colpi in melee: Lightning Bolt più veloce ed economico (a 5 stack spendilo)."
+  ],
+  [
+   40,
+   "Rage of the Farseer",
+   "spell_nature_bloodlust",
+   "★ +30% attack speed per 25 s, cooldown 3 min."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Lightning Bolt + Rockbiter",
+   "seq": [
+    [
+     "spell_nature_rockbiter",
+     "Rockbiter Weapon"
+    ],
+    [
+     "spell_nature_lightning",
+     "Lightning Bolt"
+    ],
+    [
+     "spell_nature_earthshock",
+     "Earth Shock (dal 4)"
+    ],
+    [
+     "inv_sword_04",
+     "Melee"
+    ]
+   ],
+   "text": "Rockbiter Weapon sull'arma. Apri con Lightning Bolt dalla distanza massima; dal 4 lancia subito Earth Shock appena finisce il Bolt (la GCD è già pronta). Poi finisci in melee. Dal 4 la quest Call of Earth ti dà Stoneskin Totem e l'Earth Totem in Bag (serve per Earthbind al 6 e Stoneclaw all'8). Lightning Shield dall'8. (Tavern, Method)"
+  },
+  {
+   "title": "10–19 · Flame Shock + Searing Totem",
+   "seq": [
+    [
+     "spell_nature_lightning",
+     "Lightning Bolt (pull)"
+    ],
+    [
+     "spell_fire_flameshock",
+     "Flame Shock"
+    ],
+    [
+     "spell_fire_searingtotem",
+     "Searing Totem"
+    ],
+    [
+     "inv_sword_04",
+     "Melee"
+    ],
+    [
+     "spell_nature_earthshock",
+     "Earth Shock"
+    ]
+   ],
+   "text": "Pulla con Lightning Bolt, Flame Shock (rinnovalo solo quando sta per scadere), Searing Totem, melee e Earth Shock quando è pronto. Fire Nova (12) quando il Totem è attivo e i mob sono vicini. Il Searing Totem arriva con Call of Fire (quest dal 10, ma i mob arrivano al 14: Tavern consiglia gruppo o aspettare). Prima del 20 prendi Improved Ghost Wolf 2/2. Method: di solito pulli un mob per volta."
+  },
+  {
+   "title": "20–24 · Ghost Wolf e shock economici",
+   "seq": [
+    [
+     "spell_fire_flameshock",
+     "Flame Shock"
+    ],
+    [
+     "spell_fire_searingtotem",
+     "Searing Totem"
+    ],
+    [
+     "spell_nature_earthshock",
+     "Earth Shock"
+    ],
+    [
+     "spell_frost_frostshock",
+     "Frost Shock (slow)"
+    ]
+   ],
+   "text": "Shamanistic Focus (20) taglia del 45% il costo di Shock e Lightning Shield: ora puoi usare gli shock a ripetizione. Frost Shock per rallentare mob che scappano; Earth Shock per interrompere i cast. Ghost Wolf istantaneo per spostarti. Rockbiter Weapon Rank 4 al 24 (+194 AP, +20% con Elemental Weapons 3/3)."
+  },
+  {
+   "title": "25–30 · Stormstrike",
+   "seq": [
+    [
+     "ability_shaman_stormstrike",
+     "Stormstrike (8 s)"
+    ],
+    [
+     "spell_nature_earthshock",
+     "Earth Shock"
+    ],
+    [
+     "spell_fire_flameshock",
+     "Flame Shock"
+    ],
+    [
+     "spell_fire_searingtotem",
+     "Searing Totem"
+    ]
+   ],
+   "text": "Stormstrike a ogni cooldown, poi Earth Shock (o Lightning Bolt) con il +20%. Mantieni Flame Shock e Searing Totem. Flurry (26–29) accelera i colpi dopo un crit. Al 30 passi a Windfury Weapon e a un 2H (Method); Improved Stormstrike dal 31 per il Mana."
+  },
+  {
+   "title": "Pull multipli / AoE",
+   "seq": [
+    [
+     "spell_nature_strengthofearthtotem02",
+     "Earthbind Totem"
+    ],
+    [
+     "spell_fire_selfdestruct",
+     "Magma Totem (26)"
+    ],
+    [
+     "spell_fire_sealoffire",
+     "Fire Nova"
+    ],
+    [
+     "spell_nature_chainlightning",
+     "Chain Lightning (32)"
+    ]
+   ],
+   "text": "2–3 mob: Fire Nova (burst, il threat va su di te e non sul Totem) con Searing Totem attivo. 3+ mob: Magma Totem (26). Earthbind per fermare i mob che fuggono o per kite. Stoneclaw Totem solo per guadagnare qualche secondo."
+  },
+  {
+   "title": "Mana e downtime",
+   "seq": [
+    [
+     "inv_drink_08",
+     "Drink"
+    ],
+    [
+     "spell_nature_manaregentotem",
+     "Mana Spring (26)"
+    ],
+    [
+     "spell_nature_magicimmunity",
+     "Healing Wave"
+    ]
+   ],
+   "text": "Il Mana è il limite dello Shaman (Tavern). Tieni Drink di livello adatto e bevi tra i pull; usa Shamanistic Focus, Improved Stormstrike e Maelstrom Weapon. A fine pull cura con Healing Wave se hai Mana, altrimenti First Aid. Lightning Shield sempre attivo."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Totem: servono gli oggetti in Bag",
+   "html": "<p>Per lanciare un Totem serve l'oggetto dell'elemento <b>in Bag</b> (Earth Totem dal quest al 4, Fire Totem al 10, Water Totem al 20, Air Totem al 30). Senza il Fire Totem non hai né Searing Totem né Fire Nova. (Tavern)</p>"
+  },
+  {
+   "title": "Perché Rockbiter fino al 30",
+   "html": "<p>Method: Rockbiter Weapon dà tantissimo AP a questi livelli ed è molto meglio di Flametongue e Frostbrand. Dal 30 passi a Windfury Weapon con un 2H (Elemental Weapons dà +40% al suo bonus).</p>"
+  },
+  {
+   "title": "Tank con 1H + scudo (opzionale)",
+   "html": "<p>Method: puoi tankare i dungeon con 1H + shield; Rockbiter e Earth Shock danno threat. wowforever.be (classi): Enhancement è pensato per i soli 2H. Per il leveling in solitaria: 2H.</p>"
+  },
+  {
+   "title": "Rotation Elemental (alternativa)",
+   "html": "<ul><li>Lightning Shield, Searing Totem/Magma Totem, Mana Spring Totem.</li><li>Lava Burst per pullare e Flame Shock subito dopo (crit garantito, Tavern).</li><li>Lightning Bolt come filler.</li></ul><p>Tavern: problemi di Mana più gravi e bilanciamento ancora in flusso.</p>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Rockbiter Weapon sull'arma, Lightning Bolt come attacco principale",
+   "Prendi Cooking, First Aid, Fishing + gathering"
+  ],
+  "3": [
+   "Solo Skyborne (Horde): <b>Call of Earth</b> a Zephras Isle (Windshaper Boro, Thendal Village 42.8, 23.6)"
+  ],
+  "4": [
+   "Earth Shock",
+   "<b>Call of Earth</b> (Dwarf: Teo Hammerstorm, Anvilmar 28.8, 66.2): 2 Iceclaw Bear Pendants da Frostmane Troll Whelps (27.3, 79.6) → Earth Sapta → Spirit Stone (25.0, 62.4; sentiero da 25.8, 69.3) → Rough Quartz a Teo = <b>Earth Totem</b> + Stoneskin Totem",
+   "Orc/Troll: Call of Earth a Durotar; Tauren: Mulgore (Tavern, passi non trovati)"
+  ],
+  "6": [
+   "Earthbind Totem (serve l'Earth Totem)"
+  ],
+  "8": [
+   "Lightning Shield, Stoneclaw Totem"
+  ],
+  "10": [
+   "Primo talent point: Thundering Strikes",
+   "Flame Shock, Flametongue Weapon, Strength of Earth Totem",
+   "<b>Call of Fire</b> (dal Trainer; Dwarf): Bruegs Kindleborn (Dun Morogh, sentiero da 86.7, 47.0) → Braldir Ashmantle (Loch Modan 32.0, 66.3) → Fire Tar (Tunnel Rat Geomancers, Silver Stream Mine 35.6, 20.2) + Reagent Pouch (Stonesplinter Seers 31.0, 77.4; mob fino al 14) → Fire Sapta → cima (31.9, 64.5): Minor Manifestation of Fire + Brazier → Torch of Eternal Flame a Bruegs = <b>Fire Totem</b> + Searing Totem. Tavern: meglio in gruppo o dopo il 14.",
+   "Orc/Troll/Tauren: Call of Fire a Durotar; Skyborne: Zephras Isle (Olariaan Swiftburn, Shrine of Flames, Gustberry Lowlands)"
+  ],
+  "12": [
+   "Fire Nova, Purge, Ancestral Spirit"
+  ],
+  "16": [
+   "Cure Poison, Rockbiter Rank 3, Lightning Shield Rank 2"
+  ],
+  "18": [
+   "Tremor Totem, Flame Shock Rank 2"
+  ],
+  "19": [
+   "Improved Ghost Wolf 2/2 (prima del 20)"
+  ],
+  "20": [
+   "<b>Ghost Wolf</b>, Frost Shock, Frostbrand, Lesser Healing Wave, Call of the Elements, Totemic Recall",
+   "Shamanistic Focus",
+   "<b>Call of Water</b> (Dwarf): Norric Lochthane (Loch Modan 41.9, 19.0) → Hervdana Saegrund (Wetlands, grotta dietro la cascata 65.7, 76.4) → 3 waterskin: cascata, Redridge Stonewatch Falls (73.7, 61.6), Ashenvale Astranaar (37.0, 51.6) → Water Sapta → Forgotten Shrine, Stendel's Pond, Westfall (47.5, 60.4) → Corrupt Minor Manifestation of Water → Shard of Water a Norric = Water Totem + Healing Stream Totem. Circa 2 ore di giro (Tavern); la barca Menethil → Darkshore fa tappa a Southshore.",
+   "Orc/Troll/Tauren: Call of Water a Orgrimmar o Thunder Bluff"
+  ],
+  "22": [
+   "Totemic Projection, Cure Disease, Poison Cleansing Totem"
+  ],
+  "24": [
+   "Rockbiter Rank 4, Earth Shock Rank 4, Lightning Shield Rank 3, Strength of Earth Rank 2, Frost Resistance Totem"
+  ],
+  "25": [
+   "<b>Stormstrike</b> (talent): la tua rotation cambia"
+  ],
+  "26": [
+   "Magma Totem, Mana Spring Totem, Flametongue Weapon Rank 3"
+  ],
+  "28": [
+   "Fire Resistance Totem, Flametongue Totem, Frostbrand Rank 2, Flame Shock Rank 3"
+  ],
+  "30": [
+   "<b>Windfury Weapon</b> (passa a 2H), Call of the Ancestors, Grounding Totem, Reincarnation, Astral Recall",
+   "<b>Call of Air</b> (Dwarf): Eldrun Stormbreaker (Ironforge) → Veyric Thunderhame (Arathi Highlands 59.8, 27.6; sentiero da 60.5, 35.2 e 60.5, 31.5) = Air Totem + 2450 XP. Tavern: il Call of Air dà anche un'arma di spec (Rage of the Storm per Enhancement) 🟡; nel database la quest del Dwarf mostra solo Air Totem + XP.",
+   "Orc/Troll/Tauren: Call of Air a Orgrimmar o Thunder Bluff"
+  ],
+  "32": [
+   "Chain Lightning, Windfury Totem"
+  ],
+  "35": [
+   "Maelstrom Weapon (build)"
+  ],
+  "40": [
+   "Rage of the Farseer, Dual Talent Specialization, Apprentice Riding"
+  ]
+ },
+ "camp": [
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP fino al 5% di livello, 1 volta l'ora: la più utile per tutti. Leatherworking dà anche gear (Method)."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "spell_arcane_manatap",
+   "Fino a 29 mana/5 s: il Mana è il limite dello Shaman (Tavern)."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "inv_misc_candle_02",
+   "Fino a +25 Intellect: con Mental Dexterity e Mental Quickness l'Intellect vale AP e spell damage. 🟡 mia valutazione dalle tooltip dei talent."
+  ],
+  [
+   "Fish Bowl",
+   "Fishing",
+   "inv_magicalfishpet",
+   "+8% a tutte le stats: ottimo per un melee che usa AP, Intellect e crit."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_crate_01",
+   "+2% crit: sinergia con Thundering Strikes e Flurry."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "inv_10_enchanting2_magicswirl_bronze",
+   "Armor, stats, resistance. Tavern raccomanda comunque Enchanting."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "inv_banner_03",
+   "Fino a +32 Spirit: poco per un Enhancement."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "inv_misc_bandage_11",
+   "Fino a +56 Stamina: utile solo se tanki con scudo."
+  ]
+ ],
+ "professions": {
+  "gold": "Mining + Herbalism o Skinning (tier list gold Mobalytics: S = Cooking, Fishing, Mining, Herbalism, Skinning, Alchemy, Enchanting). Mining e Herbalism danno anche Camp Tent / Mana Well / Incense Candle tra i camp object.",
+  "power": "Method: Leatherworking + Skinning (Dark Leather Boots ~10, Brawler's Leather Hood ~20). Tavern: Enchanting per il Polished Driftwood Icon (BoP, bonus che non trovi altrove), Engineering + Mining per gli esplosivi, Cooking indispensabile.",
+  "advice": "Consiglio mio: Leatherworking + Skinning per il gear in leveling; Cooking (Well Fed +5% XP) e First Aid su tutti. Alternative: Mining + Engineering oppure Enchanting."
+ },
+ "stats": "Priorità divergenti 🟡: Method (Erik) Agility > Strength > Stamina > Intellect; Tavern Hit/Expertise > Strength > Intellect > Critical Strike > Spell Damage > Agility. In Forever Mental Dexterity trasforma l'Intellect in AP e Mental Quickness in spell damage, quindi Strength + Intellect hanno senso. Weapon: solo 2H (wowforever.be, niente dual wield); Rockbiter fino al 30, poi Windfury. Call of Air: Tavern cita Rage of the Storm (2H Mace, ilvl 40, +12 Intellect +15 Stamina da warcraftdb) per Enhancement 🟡; Lightning's Grasp (Elemental) e Tidebringer's Claw (Resto) per gli altri. Trainer armi del Dwarf a Ironforge: Buliwyf Stonehand (fist, 1H/2H axes, 2H mace), Bixi Wobblebonk (daggers); mace e staff di base (Tavern). Il Mace Specialization del Dwarf è stato rimosso (26 ott).",
+ "races": {
+  "dwarf": "★ Unica razza Alleanza. Stoneform (−10% Physical per 8 s + toglie Bleed/Poison/Disease), Artisan's Precision +1% Hit, Big Game Hunter +5% danno alle Beast, Find Treasure. Weapon spec rimosse. Trainer: Teo Hammerstorm (Anvilmar), Ingrid Dunwald (Kharanos), Eldrun Stormbreaker (Ironforge) ✔ client.",
+  "orc": "Blood Fury +10% AP e Spell Power per 15 s, cooldown 2 min (ridotto il 27 ott): il burst migliore per l'Enhancement. Shatter Curse, Hardiness −20% durata stun, Command inutile. Axe Specialization e Savage rimossi il 26 ott. Rankedboost (snippet): prima razza per Shaman.",
+  "tauren": "War Stomp (stun a più nemici, 2 s), Plainsrunning fino a +60% di velocità (2% a stack, non a cavallo), Endurance +5% Health (hit e crit rimossi il 26 ott), Cultivation. Trainer nuovo: Palah Thunderhoof (Camp Gev'rek).",
+  "troll": "Berserking +10% cast e attack speed per 15 s (aumentato il 27 ott), Rapid Regeneration (50% Health nel tempo), Beast Slaying +5% alle Beast, Regeneration 10% in combat. Rankedboost (snippet): A.",
+  "skyborne": "Horde (Windshaper), Zephras Isle: Walk on Air (caduta), Skysight +15% velocità 15 s (30% con Charged per 1 h presso un elemental convergence), Wind Blessed +2% Haste, Elemental Insight +5% danno agli Elementali. Trainer: Windshaper Boro (Thendal Village 42.8, 23.6). Rankedboost (snippet): B."
+ },
+ "forever": [
+  "★ Shaman Alleanza: solo Dwarf; trainer nuovi Teo Hammerstorm, Ingrid Dunwald, Eldrun Stormbreaker (wowforever.be, wmd.json ✔).",
+  "★ Nuovi talent Enhancement: Mental Dexterity, Shamanistic Focus, Mental Quickness, Improved Stormstrike, Maelstrom Weapon, Rage of the Farseer; Elemental: Lava Burst, Lightning Overload, Earthbound; Resto: Water Shield, Riptide, Mindfulness (client wowforever.be).",
+  "★ Stormstrike è un talent al 25 (Tavern); Rage of the Farseer è il \"Bloodlust\" personale al 40 (Method).",
+  "★ Totem twisting rimosso; arrivano Call of the Elements, Call of the Ancestors, Totemic Recall, Totemic Projection e Astral Recall con cooldown di 15 min (Tavern).",
+  "★ Improved Ghost Wolf: Ghost Wolf istantaneo e usabile al chiuso (Method, Tavern).",
+  "★ Enhancement solo 2H, niente dual wield (wowforever.be, Skidrow).",
+  "★ Talent: 51 punti da livello 10, traguardi a 11/21/31 punti, uno nuovo a 16; respec dal Trainer di una capitale; Dual Spec al 40 (wowforever.be).",
+  "Racial 26–27 ott (Blizzard via Warcraft Tavern): Dwarf Artisan's Precision, Orc senza Axe Spec/Savage, Troll Berserking 15 s, Orc Blood Fury 2 min.",
+  "Tavern: le build sono pensate per la Beta cap 30; le build 60 arriveranno al lancio. Dati pre-lancio."
+ ],
+ "sources": [
+  {
+   "name": "wowforever.be – Build di leveling Shaman (client 1.60.1.70707)",
+   "url": "https://wowforever.be/leveling/shaman/",
+   "author": "wowforever.be",
+   "date": "1 nov 2026",
+   "signal": "dati client ✔",
+   "used": "talent e ordine 10–60"
+  },
+  {
+   "name": "Warcraft Tavern – Shaman Leveling Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/shaman-leveling/",
+   "author": "Shadostruct",
+   "date": "ott 2026",
+   "signal": "testata di riferimento",
+   "used": "milestone, rotation, trainer, class quest, professions, immagine build 26 punti"
+  },
+  {
+   "name": "Warcraft Tavern – Dwarf Shaman Totem Quests",
+   "url": "https://www.warcrafttavern.com/forever/guides/dwarf-shaman-totem-quests/",
+   "author": "Val Hull",
+   "date": "ott 2026",
+   "signal": "testata di riferimento",
+   "used": "catene Call of Earth/Fire/Water/Air del Dwarf con coordinate"
+  },
+  {
+   "name": "Warcraft DB Forever – Call of Air (quest 94789)",
+   "url": "https://forever.warcraftdb.com/data/quest/94789",
+   "author": "Warcraft DB",
+   "date": "1 nov 2026",
+   "signal": "database ✔",
+   "used": "ricompensa Air Totem + 2450 XP"
+  },
+  {
+   "name": "Method – Shaman Leveling Guide & Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-shaman-leveling-guide-and-talents",
+   "author": "Erik",
+   "date": "23 ott 2026",
+   "signal": "testata di riferimento",
+   "used": "spec, rotation, milestone, professions, stat priority"
+  },
+  {
+   "name": "Mobalytics – Shaman Leveling Guide 1-60",
+   "url": "https://mobalytics.gg/wow-forever/classes/shaman-leveling-guide",
+   "author": "Tiqqle (Verified)",
+   "date": "31 ott 2026",
+   "signal": "66 ♥",
+   "used": "ordine talent 10–30 e 36–50 (da mobalytics.md)"
+  },
+  {
+   "name": "Mobalytics – Shaman Leveling 1-60 (NickTew)",
+   "url": "https://mobalytics.gg/wow-forever/classes/shaman-leveling-guide-nicktew",
+   "author": "NickTew",
+   "date": "1 nov 2026",
+   "signal": "10 ♥",
+   "used": "solo snippet"
+  },
+  {
+   "name": "YouTube – Ultimate WoW Forever Shaman Leveling Guide 1-60",
+   "url": "https://www.youtube.com/watch?v=mXbA3PiOT2I",
+   "author": "Tiqqle",
+   "date": "29 ott 2026",
+   "signal": "31k views",
+   "used": "solo descrizione e capitoli"
+  },
+  {
+   "name": "YouTube – The NEW WAY to Level Shaman 1-60",
+   "url": "https://www.youtube.com/watch?v=Z8kEkohtmM8",
+   "author": "MetaGoblin",
+   "date": "19 ott 2026",
+   "signal": "83k views",
+   "used": "non analizzato"
+  },
+  {
+   "name": "YouTube – WoW Forever Shaman Leveling: 3 Builds to Level 35",
+   "url": "https://www.youtube.com/watch?v=sqDpb182a6w",
+   "author": "Gaunerh",
+   "date": "28 ott 2026",
+   "signal": "14k views",
+   "used": "alternativa Water Shield (solo descrizione)"
+  },
+  {
+   "name": "YouTube – WoW Forever Shaman Leveling Guide",
+   "url": "https://www.youtube.com/watch?v=EhREs4IVAgI",
+   "author": "Back From AFK",
+   "date": "28 ott 2026",
+   "signal": "11k views",
+   "used": "solo descrizione"
+  },
+  {
+   "name": "YouTube – WoW Forever Shaman Guide: Races, Talents & Best Spec",
+   "url": "https://www.youtube.com/watch?v=3uzW3pAS8gk",
+   "author": "Skidrow",
+   "date": "1 ott 2026",
+   "signal": "84k views",
+   "used": "build 60 e razze, solo descrizione"
+  },
+  {
+   "name": "Warcraft Tavern – Changes to Racial Abilities / More Racial Ability Changes",
+   "url": "https://www.warcrafttavern.com/forever/news/changes-to-racial-abilities-in-wow-forever-ahead-of-name-reservations/",
+   "author": "Luxrah",
+   "date": "26–27 ott 2026",
+   "signal": "notizie con testo Blizzard",
+   "used": "racial finali"
+  },
+  {
+   "name": "Wowhead Forever – tooltip spell (nether.wowhead.com/forever)",
+   "url": "https://nether.wowhead.com/forever/tooltip/spell/403",
+   "author": "Wowhead",
+   "date": "1 nov 2026",
+   "signal": "dati client ✔",
+   "used": "livelli dei Rank delle spell"
+  },
+  {
+   "name": "Icy Veins – Enhancement Shaman Leveling",
+   "url": "https://www.icy-veins.com/wow-forever/enhancement-shaman-leveling",
+   "author": "Icy Veins",
+   "date": "ott 2026",
+   "signal": "snippet WebSearch (pagina bloccata)",
+   "used": "alternativa Resto-first 🟡"
+  },
+  {
+   "name": "Rankedboost – best race Shaman",
+   "url": "https://rankedboost.com/world-of-warcraft/forever/tier-list/best-race-shaman/",
+   "author": "Rankedboost",
+   "date": "ott 2026",
+   "signal": "snippet WebSearch",
+   "used": "ordine razze"
+  }
+ ],
+ "doubts": [
+  "🟡 Ordine 31–60: solo wowforever.be (Enhancement fino al 41, poi Elemental 42–60); Tiqqle propone un percorso Resto 36–50 diverso.",
+  "🟡 Livello 24: Ancestral Knowledge (wowforever.be) vs Anticipation (Tiqqle); livello 30: Spirit Weapons vs Improved Stormstrike.",
+  "🟡 Rage of the Storm: Tavern lo dà come ricompensa Call of Air, ma la quest del Dwarf (warcraftdb) mostra solo Air Totem + XP; scheda item senza fonte. Lightning's Grasp e Tidebringer's Claw non verificati.",
+  "Non trovato: catene Call of Earth/Fire/Water/Air complete per Orc/Troll/Tauren/Skyborne (solo luoghi dalla tabella Tavern e titoli nel database); Wowhead guide non accessibile (403).",
+  "Non trovato: Water Walking/Water Breathing, Far Sight, Sentry Totem (livello e se esistono in Forever).",
+  "Stat priority in conflitto (Method vs Tavern). Non guardato il video Caitlin_UK (4.7k views, 30 ott, armi Alleanza al 17:44).",
+  "Icy Veins e Mobalytics letti solo da snippet e da mobalytics.md; i video solo da descrizioni.",
+  "Camp: la classifica è una mia valutazione dai talent (Mental Dexterity/Quickness), nessuna fonte specifica per Shaman."
+ ]
+}

@@ -1,0 +1,911 @@
+{
+ "class": "hunter",
+ "name": "Hunter",
+ "resource": "Mana",
+ "spec": "Beast Mastery",
+ "specIcon": "ability_hunter_beasttaming",
+ "summary": "Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Mobalytics (Crix 62 ♥, Feor 38 ♥, Kargoz 30 ♥) e Zockify (25 ott), e la build di wowforever.be (client) è BM. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. L’ordine 10–30 è quello di Method/wowforever.be (legale sul client) con Summon Hawk al 25 e Intimidation al 30; 31–60 segue Zockify (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.",
+ "build": [
+  "Deadly Aspects",
+  "Deadly Aspects",
+  "Deadly Aspects",
+  "Deadly Aspects",
+  "Deadly Aspects",
+  "Focused Fire",
+  "Focused Fire",
+  "Improved Revive Pet",
+  "Endurance Training",
+  "Endurance Training",
+  "Unleashed Fury",
+  "Unleashed Fury",
+  "Unleashed Fury",
+  "Unleashed Fury",
+  "Unleashed Fury",
+  "Summon Hawk",
+  "Improved Revive Pet",
+  "Ferocity",
+  "Ferocity",
+  "Bestial Swiftness",
+  "Intimidation",
+  "Ferocity",
+  "Ferocity",
+  "Ferocity",
+  "Improved Mend Pet",
+  "Frenzy",
+  "Frenzy",
+  "Frenzy",
+  "Frenzy",
+  "Frenzy",
+  "Bestial Wrath",
+  "Lethal Attacks",
+  "Lethal Attacks",
+  "Lethal Attacks",
+  "Lethal Attacks",
+  "Lethal Attacks",
+  "Careful Aim",
+  "Careful Aim",
+  "Careful Aim",
+  "Careful Aim",
+  "Careful Aim",
+  "Hawk Eye",
+  "Hawk Eye",
+  "Hawk Eye",
+  "Rapid Killing",
+  "Rapid Killing",
+  "Trueshot Aura",
+  "Mortal Shots",
+  "Mortal Shots",
+  "Mortal Shots",
+  "Mortal Shots"
+ ],
+ "buildSource": "10–30: Method (Celz, 21 ott; ordine decodificato dal link talent) = wowforever.be (client 70707) fino al 19; Summon Hawk al 25 e Intimidation al 30 come Mobalytics, Zockify e Warcraft Tavern. 31–60: Zockify (31 BM + 20 MM, 25 ott), adattato; wowforever.be arriva solo al 35. Ogni voce è verificata sui prerequisiti del client.",
+ "why": {
+  "Deadly Aspects": "Con Aspect of the Hawk attivo Auto Shot ha il 2% per rank (10% al rank 5) di dare +30% ranged attack speed per 12 s: è il tuo danno di base. Tutte le fonti buone la prendono per prima.",
+  "Focused Fire": "★ +1% per rank (2% max) a tutti i danni tuoi e del Pet finché il Pet è attivo.",
+  "Improved Revive Pet": "Revive Pet 3/6 s più rapido e −20/−40% Mana: dopo la morte del Pet perdi meno tempo. Il 2° punto è dove le fonti divergono (Method: sì, per la sopravvivenza).",
+  "Endurance Training": "+3% per rank (15% max) a Health e Armor del Pet. Serve anche come \"riempitivo\" legale: Unleashed Fury (riga 3) richiede 10 punti già spesi nell’albero (wowforever.be e Method lo fanno così).",
+  "Unleashed Fury": "+3% per rank (15% max) al danno di Pet e Hawk: il talent che alza di più il danno totale in leveling.",
+  "Summon Hawk": "★ Livello 25: dive-bomb (32 + 5% RAP) e hawk per 18 s, max 2 hawk; cooldown di 6 s condiviso con Arcane Shot. Diventa il tuo attacco principale (Method, Zockify).",
+  "Ferocity": "+2% per rank (10% max) al crit di Pet e Hawk; richiesto da Frenzy.",
+  "Bestial Swiftness": "+30% velocità al Pet: arriva prima al mob. Prerequisito di Intimidation.",
+  "Intimidation": "Stun di 3 s sul prossimo colpo del Pet (+100% crit su quel colpo) e molta threat: serve per riprendere un mob che ti corre addosso.",
+  "Improved Mend Pet": "Mend Pet ha il 15/50% di dissipare un debuff (Curse, Disease, Magic, Poison) e costa meno Mana (patch 15 ott).",
+  "Frenzy": "Dopo un crit il Pet ha il 20% per rank (100% al rank 5) di +30% attack speed per 8 s. Richiede Ferocity.",
+  "Bestial Wrath": "Livello 40: Pet +50% danno per 18 s (cooldown 2 min), immune al CC. Capstone dell’albero (31° punto).",
+  "Lethal Attacks": "+1% per rank (5% max) crit con tutti gli attacchi: primo passo del 31/20/0.",
+  "Careful Aim": "★ Converte il 20% per rank (100% max) della tua Intellect in Attack Power. Mobalytics (Crix) lo salta nel 1–30 perché l’Intellect è bassa; a 46–50 ha più senso.",
+  "Hawk Eye": "+2 yd per rank (6 yd max) al range delle armi a distanza: più tempo per sparare prima del melee.",
+  "Rapid Killing": "★ Rapid Fire −1/−2 min di cooldown; dopo un kill il prossimo Shot fa +10/20%.",
+  "Trueshot Aura": "Livello 56 in questa build: +15 RAP a party e raid entro 45 yd (raid-wide dal 15 ott); utile in gruppo e dungeon.",
+  "Mortal Shots": "+6% per rank (30% max) al danno dei crit di tutte le abilità a distanza."
+ },
+ "compare": [
+  {
+   "source": "wowforever.be – build di leveling (client)",
+   "signal": "dati client 1.60.1.70707, letta 1 nov; solo fino al 35",
+   "l10_19": "Deadly Aspects 5 (10–14) → Focused Fire 2 (15–16) → Improved Revive Pet (17) → Endurance Training 2 (18–19)",
+   "l20": "Pathfinding 2 (20–21)",
+   "l21_30": "Unleashed Fury 5 (22–26) → Summon Hawk (27) → Improved Revive Pet (28) → Ferocity (29–30); 31 Bestial Swiftness, 32 Intimidation, 33–35 Ferocity. Oltre il 35: \"nota fino al 35\"."
+  },
+  {
+   "source": "Method – Celz (guida Hunter)",
+   "signal": "agg. 21 ott · Method; ordine decodificato da me dal link talent 🟡; include 5 punti Talented",
+   "l10_19": "Deadly Aspects 5, Focused Fire 2, Improved Revive Pet 1, Endurance Training 2",
+   "l20": "Unleashed Fury (20–24)",
+   "l21_30": "Summon Hawk 25, Improved Revive Pet 26, Ferocity 27–28, Bestial Swiftness 29, Intimidation 30. Con Talented: Ferocity a 5/5 e Bestial Discipline 2."
+  },
+  {
+   "source": "Mobalytics – Crix (BM Hunter Leveling 1-30, Verified)",
+   "signal": "62 ♥ · 28 ott · 26/0/0 (Talented incluso)",
+   "l10_19": "Deadly Aspects 5, Focused Fire 2, Improved Revive Pet (17), Pathfinding 2 (18–19)",
+   "l20": "Bestial Swiftness",
+   "l21_30": "Unleashed Fury 4 (21–24), Summon Hawk 25, Unleashed Fury 26, Ferocity 27–29, Intimidation 30. Talented: Ferocity 2, Bestial Discipline 2, Frenzy 1. ⚠ Pathfinding (riga 3) richiede 10 punti: a 18–19 ne hai solo 8 (vedi dubbi)."
+  },
+  {
+   "source": "Zockify – Hunter Leveling (build 31/20/0 fino al 60)",
+   "signal": "agg. 25 ott · link calcolatore su client 70707",
+   "l10_19": "Deadly Aspects, Focused Fire, Improved Revive Pet (17), Pathfinding (18–19)",
+   "l20": "Bestial Swiftness",
+   "l21_30": "Unleashed Fury 21–24 e 26, Summon Hawk 25, Improved Revive Pet 27, Ferocity 28–29, Intimidation 30. Poi 31–33 Ferocity, 34 Improved Mend Pet, 35–39 Frenzy, 40 Bestial Wrath, 41–45 Lethal Attacks, 46–50 Careful Aim, 51–53 Hawk Eye, 54–55 Rapid Killing, 56 Trueshot Aura, 57–60 Mortal Shots."
+  },
+  {
+   "source": "Warcraft Tavern – Sponge (Hunter Leveling)",
+   "signal": "Warcraft Tavern · ott 2026 · build solo in immagini (non leggibili): uso testo e milestone",
+   "l10_19": "Beast Mastery \"la più liscia\"; Deadly Aspects, Focused Fire …",
+   "l20": "ordine non leggibile",
+   "l21_30": "Milestone: Summon Hawk 25, Intimidation 30, Bestial Discipline 30 (con Legacy), Bestial Wrath 40. Con Talented: Intimidation e 1 punto Frenzy."
+  },
+  {
+   "source": "wowforeverguides.com – Harenil e ForeverWisp",
+   "signal": "agg. 19 e 20 ott · teoria dichiarata \"non testata\"",
+   "l10_19": "Endurance Training 5 per primo, Focused Fire 2, Pathfinding 2",
+   "l20": "Bestial Swiftness / Unleashed Fury",
+   "l21_30": "Unleashed Fury 5, Ferocity 5, Summon Hawk (26 per ForeverWisp), Intimidation 30. Senza Deadly Aspects: fonte debole, scartata."
+  },
+  {
+   "source": "Mobalytics – Feor (31 ott) e Kargoz (22 ott)",
+   "signal": "38 ♥ e 30 ♥ · BM 31/20/0",
+   "l10_19": "ordine non letto",
+   "l20": "ordine non letto",
+   "l21_30": "Stessa suddivisione 31 BM + 20 MM di Zockify; l’ordine va letto dal browser (Mobalytics blocca WebFetch)."
+  }
+ ],
+ "alternatives": [
+  {
+   "title": "Pet consigliati da domare, per livello e zona",
+   "html": "<table><tr><th>Livello</th><th>Pet (livello · zona)</th><th>Perché</th></tr>\n<tr><td>10 (primo Pet)</td><td><b>Cat</b>: The Rake (10 · Mulgore, rare), Ghostfang (10 · Dun Morogh, rare), Feral Nightsaber (10–11 · Teldrassil)<br><b>Boar</b>: Scarred Crag Boar (9–10 · Dun Morogh), Longsnout (10–11 · Elwynn Forest), Corrupted Mottled Boar (10–11 · Durotar), Mountain Boar (10–11 · Loch Modan)<br><b>Fox</b> ★: Vuldren Alpha (10 · Zephras Isle)</td><td>Cat: danno e Bite/Claw (Warcraft Tavern, Mobalytics). Boar: più resistente, ha <b>Charge</b> (Warcraft Tavern, Zockify). Fox: Trickster’s Dance (+50% Dodge), famiglia nuova non ancora valutata.</td></tr>\n<tr><td>12–19</td><td><b>Cat</b>: Savannah Prowler (14–15 · The Barrens), Savannah Patriarch (15–16 · The Barrens), Moonstalker (14–15 · Darkshore), Moonstalker Sire (17–18 · Darkshore), Ghost Saber e Moonstalker Matriarch (19–20 · Darkshore)<br><b>Boar</b>: Goretusk (14–15 · Westfall), Elder Mountain Boar (16–17 · Loch Modan), Great Goretusk (16–17 · Redridge Mountains)<br><b>Bear</b> (Swipe su 3 bersagli): Grizzled Black Bear (13–14 · Loch Modan), Black Bear Patriarch (16–17 · Loch Modan), Grizzled Thistle Bear (16–17 · Darkshore)<br><b>Carrion Bird</b>: Greater Fleshripper (16–17 · Westfall) – Demoralizing Screech</td><td>Cat resta la scelta di danno. Bear 🟡 (wow4evernews, topbuilds): meglio sui pull multipli. Bite 3 / Claw 3 richiedono Pet di livello 16.</td></tr>\n<tr><td>20–30</td><td><b>Cat</b>: Starving Mountain Lion (23–24 · Hillsbrad Foothills) ✔, Twilight Runner (23–24 · Stonetalon Mountains), Humar the Pridelord (23 · The Barrens, rare elite), Crag Stalker (25–26 · Thousand Needles), Feral Mountain Lion (27–28 · Hillsbrad Foothills), Needles Cougar (27–28 · Thousand Needles)<br><b>Boar</b>: Bellygrub (24 · Redridge Mountains) – Charge rank 3<br><b>Bear</b>: Gray Bear (21–22 · Hillsbrad Foothills), Elder Ashenvale Bear (25–26 · Ashenvale) – Claw rank 4, Big Samras (27 · Hillsbrad Foothills, rare)<br><b>Wolf</b>: Black Ravager Mastiff (25–26 · Duskwood) – Bite 4 e Furious Howl 2, Ghostpaw Alpha (27–28 · Ashenvale)</td><td>Dal Pet livello 24 si imparano Bite 4 / Claw 4 / Charge 3 / Furious Howl 2: domali come \"portatori\" temporanei e insegnali al Pet principale. Wolf per gruppi e dungeon (Furious Howl).</td></tr>\n<tr><td>32–40</td><td>Stranglethorn Tiger e Kurzen War Tiger (32–33 · Stranglethorn Vale) → <b>Dash 1</b>; Mistvale Gorilla (32–33 · Stranglethorn Vale); Broken Tooth (37 · Badlands, rare Cat, attack speed 1 s); Longtooth Runner (40–41 · Feralas) → Bite 6, Furious Howl 3, Dash 2</td><td>Candidati di Petopia/LePrestore, non verificati nel client 60.</td></tr></table><p>Dati: Zockify Pet Finder (agg. 20 ott) per nomi, livelli e zone; i Pet esistono anche sulla mappa Wowhead Forever ✔. Famiglie: Cat e Boar (Warcraft Tavern), Cat (Mobalytics), Boar (Zockify). Un range come \"14–15\" significa che il mob può avere uno dei due livelli: devi avere almeno il suo livello per domarlo.</p>"
+  },
+  {
+   "title": "Primo Pet per razza (class quest del livello 10)",
+   "html": "<p>Class quest <b>Taming the Beast</b> (livello 10): tre tame con il Taming Rod, poi <b>Training the Beast</b> per Beast Training, Feed Pet e Revive Pet. Prima di domare il Pet vero metti in Stable quello della quest. Trainer e ultimo tame (wowforeverguides.com, Harenil 🟡, e ForeverWisp da Wowhead):</p><ul><li>Orc / Troll: Thotar (Razor Hill · Durotar) → Armored Scorpid (primo tame: Dire Mottled Boar)</li><li>Tauren: Yaw Sharpmane (Bloodhoof Village · Mulgore) → Swoop</li><li>Dwarf: Grif Wildheart (Kharanos · Dun Morogh) → Ice Claw Bear (primo tame: Large Crag Boar)</li><li>Night Elf: Dazalar (Dolanaar · Teldrassil) → Strigid Screecher</li><li>Human ★: Josephine Carson (Elwynn Forest) → Young Forest Bear (primo tame: Rockhide Boar)</li><li>Skyborne ★: Quel’ana Quickgale (Valanaar · Zephras Isle) → Vuldren Alpha (Fox)</li></ul><p>Tame Beast fallisce su bestie sopra il tuo livello (24 set). Mentre domi la tua armor è −100%: usa Aspect of the Monkey, Concussive Shot o una Freezing Trap (Warcraft Tavern). Non puoi domare con un Pet attivo, nemmeno se congedato. Stable: 1 Pet attivo + 2 in Stable (Stable Master).</p>"
+  },
+  {
+   "title": "Come imparare le abilità del Pet (Bite, Claw, Charge, Howl, Dash, Dive)",
+   "html": "<p>I Pet imparano <b>Bite</b>/<b>Claw</b>, <b>Charge</b>, <b>Furious Howl</b>, <b>Dash</b>/<b>Dive</b> solo da bestie selvagge (LePrestore da Petopia, 26–27 ott). Procedura (Zockify, LePrestore): metti il tuo Pet in Stable, doma una bestia che conosce il rank (Beast Lore, dal 24, mostra le abilità), combatti con lei finché compare \"You have learned a new spell\", poi richiama il tuo Pet e insegna l’abilità con Beast Training. Puoi saltare i rank intermedi. Growl, Great Stamina e Natural Armor si comprano invece dal Pet Trainer.</p>\n<ul><li><b>Bite 3 / Claw 3</b>: Pet livello 16. <b>Bite 4 / Claw 4 / Charge 3 / Furious Howl 2</b>: Pet livello 24.</li><li>Bite 4: Giant Moss Creeper (24–25 · Hillsbrad Foothills), Black Ravager (24–25 · Duskwood), Leech Widow (24 · Wetlands).</li><li>Claw 4: Elder Ashenvale Bear (25–26 · Ashenvale), Barbed Crustacean (25–26 · Blackfathom Deeps).</li><li>Charge 3: Bellygrub (24 · Redridge Mountains), Agam'ar (24–25 · Razorfen Kraul).</li><li>Furious Howl 2: Black Ravager Mastiff (25–26 · Duskwood), Ghostpaw Alpha (27–28 · Ashenvale).</li><li><b>Dive 1</b>: Kraul Bat (30–31 · Razorfen Kraul). <b>Dash 1</b>: Kurzen War Tiger o Stranglethorn Tiger (32–33 · Stranglethorn Vale), quindi non al 30. Dash 2: Longtooth Runner (Feralas) o Ridge Stalker Patriarch (Badlands), 40–41. Dash 3: Vilebranch Raiding Wolf (The Hinterlands), 50–51 (Zockify, LePrestore).</li><li>Rank più alti: Bite/Claw 5 dal Pet 32, 6 dal 40, 7 dal 48, 8 dal 56 (carrier di Petopia: Plains Creeper, Scorpashi Lasher, Silt Crawler, Elder Shardtooth…). 🟡</li></ul>"
+  },
+  {
+   "title": "Varianti di talent e altre spec",
+   "html": "<p><b>Marksmanship / Survival</b>: Warcraft Tavern dice che il Hunter può levellare con qualsiasi spec ma <b>Beast Mastery è la più liscia</b>. Marksmanship fa più danno ma ti fa strappare la threat al Pet (kiting continuo); Survival è melee e trappole e si gioca \"più difficile\". Lone Wolf (MM, +20% danno senza Pet) non è consigliato in leveling. Su Mobalytics l’unica guida MM trovata è Robcat (6 ♥, 30 ott).</p><p><b>Varianti di dettaglio</b>: (1) <b>Pathfinding 2 + Bestial Swiftness al 20</b> (Crix, Zockify) al posto dei 2 Endurance Training: +6% velocità di Cheetah e Pet più veloce prima, ma il prerequisito dei 10 punti non è soddisfatto fino al 20. (2) Spirit Bond 2 (1% Health ogni 10 s a rank 1, ogni 5 s a rank 2, per te e il Pet) al posto di un punto Frenzy riduce il downtime. (3) Con Legacy <b>Talented</b> (5 punti) segui Method/Crix: Ferocity 5/5, Bestial Discipline 2/2, Frenzy 1.</p>"
+  }
+ ],
+ "spells": [
+  [
+   1,
+   "Raptor Strike",
+   "ability_meleedamage",
+   "Colpo melee: serve solo quando il mob ti raggiunge. Dopo il 10 perde quasi tutto il valore (Method)."
+  ],
+  [
+   1,
+   "Auto Shot",
+   "ability_whirlwind",
+   "★ Il tuo danno principale. Dal 15 ott devi stare fermo 0,5 s prima di sparare; continua mentre lanci Aimed Shot."
+  ],
+  [
+   1,
+   "Track Beasts",
+   "ability_tracking",
+   "Mostra le bestie sulla minimap: serve per trovare i Pet da domare."
+  ],
+  [
+   4,
+   "Serpent Sting",
+   "ability_hunter_quickshot",
+   "DoT Nature, senza danno immediato: non usarlo su mob che muoiono subito."
+  ],
+  [
+   4,
+   "Aspect of the Monkey",
+   "ability_hunter_aspectofthemonkey",
+   "+8% Dodge: ti tiene vivo prima del 10, quando non hai ancora il Pet."
+  ],
+  [
+   6,
+   "Arcane Shot",
+   "ability_impalingbolt",
+   "Colpo istantaneo Arcane, cooldown 6 s. Dal 25 condivide il cooldown con Summon Hawk."
+  ],
+  [
+   6,
+   "Hunter's Mark",
+   "ability_hunter_snipershot",
+   "Aumenta il Ranged Attack Power di chi attacca il bersaglio: anche del Pet (scala con il tuo AP)."
+  ],
+  [
+   8,
+   "Concussive Shot",
+   "spell_frost_stun",
+   "Slow a distanza (cooldown 12 s): il tuo strumento di kiting prima del Pet."
+  ],
+  [
+   10,
+   "Aspect of the Hawk",
+   "spell_nature_ravenform",
+   "+Ranged Attack Power e base di Deadly Aspects: sempre attivo in combattimento."
+  ],
+  [
+   10,
+   "Track Humanoids",
+   "spell_holy_prayerofhealing",
+   "Tracking dei Humanoid."
+  ],
+  [
+   10,
+   "Tame Beast / Beast Training / Feed Pet / Revive Pet / Call Pet / Dismiss Pet",
+   "ability_hunter_beasttaming",
+   "Dalla class quest del 10 (Taming the Beast + Training the Beast). Non puoi domare bestie di livello superiore al tuo, né con un Pet attivo."
+  ],
+  [
+   12,
+   "Mend Pet",
+   "ability_hunter_mendpet",
+   "Cura il Pet in channel (5 s): fondamentale vs elite o gruppi."
+  ],
+  [
+   12,
+   "Wing Clip",
+   "ability_rogue_trip",
+   "Slow in melee (40 Mana): se il mob ti prende."
+  ],
+  [
+   12,
+   "Distracting Shot",
+   "spell_arcane_blink",
+   "Threat istantanea a distanza."
+  ],
+  [
+   14,
+   "Scare Beast",
+   "ability_druid_cower",
+   "Fear su una Beast (10 s): attento, il mob può correre in altri gruppi."
+  ],
+  [
+   14,
+   "Eyes of the Beast / Eagle Eye",
+   "ability_eyeoftheowl",
+   "Esplorazione: controlli il Pet o zoom a distanza; Eyes of the Beast permette di pullare da lontano."
+  ],
+  [
+   16,
+   "Immolation Trap",
+   "spell_fire_flameshock",
+   "Trappola Fire (DoT): ★ usabile in combattimento e scala con AP (15 ott)."
+  ],
+  [
+   16,
+   "Mongoose Bite",
+   "ability_hunter_swiftstrike",
+   "Colpo melee: serve soprattutto al Survival."
+  ],
+  [
+   18,
+   "Multi-Shot",
+   "ability_upgrademoonglaive",
+   "AoE a 3 bersagli; ★ condivide il cooldown (6 s) con Aimed Shot."
+  ],
+  [
+   20,
+   "Aimed Shot",
+   "inv_spear_07",
+   "★ Base per tutti i Hunter (in Classic era un talent): cast 2 s, cooldown 6 s condiviso con Multi-Shot. Il tuo colpo single-target."
+  ],
+  [
+   20,
+   "Freezing Trap",
+   "spell_frost_chainsofice",
+   "CC di 10 s sul primo mob che passa (rotto dal danno); ★ usabile in combattimento. Cooldown 30 s condiviso con Frost Trap."
+  ],
+  [
+   20,
+   "Aspect of the Cheetah",
+   "ability_mount_jungletiger",
+   "+30% velocità fuori combattimento: se vieni colpito resti Dazed."
+  ],
+  [
+   20,
+   "Disengage",
+   "ability_rogue_feint",
+   "Riduce la threat sul bersaglio (★ il doppio dall’8 ott)."
+  ],
+  [
+   22,
+   "Scorpid Sting",
+   "ability_hunter_criticalshot",
+   "★ Cambiato: −2% chance di colpirti per 20 s (non riduce più Strength e Agility)."
+  ],
+  [
+   24,
+   "Track Hidden",
+   "ability_stealth",
+   "Rileva gli stealth sulla minimap (Method: \"incredibile\" per le quest)."
+  ],
+  [
+   24,
+   "Beast Lore",
+   "ability_physical_taunt",
+   "Informazioni sulla bestia: utile per sapere cosa insegna un Pet da domare."
+  ],
+  [
+   26,
+   "Rapid Fire",
+   "ability_hunter_runningshot",
+   "Cooldown 5 min: +40% attack speed ranged e melee per 15 s. Usalo sui pull difficili."
+  ],
+  [
+   26,
+   "Track Elementals",
+   "spell_frost_summonwaterelemental",
+   "Tracking degli Elemental."
+  ],
+  [
+   28,
+   "Frost Trap",
+   "spell_frost_freezingbreath",
+   "Area che rallenta del 60% per 30 s: fondamentale per i pull multipli."
+  ],
+  [
+   30,
+   "Feign Death",
+   "ability_rogue_feigndeath",
+   "Esci dal combattimento (può mancare): metti prima il Pet in passivo."
+  ],
+  [
+   30,
+   "Aspect of the Beast",
+   "ability_mount_pinktiger",
+   "★ Dà Melee Attack Power e ti rende non tracciabile: per quando il mob ti raggiunge."
+  ],
+  [
+   32,
+   "Flare",
+   "spell_fire_flare",
+   "Rivela stealth e invisibili entro 10 yd. Track Demons allo stesso livello (Warcraft Tavern)."
+  ],
+  [
+   34,
+   "Explosive Trap",
+   "spell_fire_selfdestruct",
+   "Trappola AoE Fire. Serpent Sting 5 e Disengage 2 allo stesso livello."
+  ],
+  [
+   36,
+   "Viper Sting",
+   "ability_hunter_aimedshot",
+   "Drena Mana al bersaglio. Allo stesso livello: Summon Hawk 2, Aimed Shot 3, Arcane Shot 5, Mend Pet 4."
+  ],
+  [
+   40,
+   "Aspect of the Pack",
+   "ability_mount_whitetiger",
+   "+30% velocità a tutto il gruppo. Volley, Track Giants, Freezing Trap 2, Apprentice Riding e Dual Specialization allo stesso livello."
+  ],
+  [
+   46,
+   "Aspect of the Wild",
+   "spell_nature_protectionformnature",
+   "Resistenza Nature al gruppo."
+  ],
+  [
+   50,
+   "Track Dragonkin",
+   "ability_tracking",
+   "Tracking dei Dragonkin."
+  ],
+  [
+   60,
+   "Tranquilizing Shot",
+   "spell_nature_drowsy",
+   "Rimuove un effetto Frenzy/Enrage dal nemico."
+  ]
+ ],
+ "talentSpells": [
+  [
+   25,
+   "Summon Hawk",
+   "ability_hunter_animalhandler",
+   "★ Talent BM (16° punto): hawk che attacca per 18 s, max 2; 80 Mana, cooldown 6 s condiviso con Arcane Shot."
+  ],
+  [
+   30,
+   "Intimidation",
+   "ability_devour",
+   "Talent BM: richiede Bestial Swiftness; stun 3 s sul prossimo attacco del Pet, +100% crit su quel colpo."
+  ],
+  [
+   40,
+   "Bestial Wrath",
+   "ability_druid_ferociousbite",
+   "Talent BM (31° punto): Pet +50% danno per 18 s, cooldown 2 min."
+  ],
+  [
+   56,
+   "Trueshot Aura",
+   "ability_trueshot",
+   "Talent MM della build 60: +RAP a party e raid entro 45 yd."
+  ]
+ ],
+ "rotation": [
+  {
+   "title": "1–9 · Kiting senza Pet",
+   "seq": [
+    [
+     "ability_hunter_aspectofthemonkey",
+     "Aspect of the Monkey"
+    ],
+    [
+     "ability_hunter_snipershot",
+     "Hunter's Mark"
+    ],
+    [
+     "ability_whirlwind",
+     "Auto Shot"
+    ],
+    [
+     "ability_hunter_quickshot",
+     "Serpent Sting"
+    ],
+    [
+     "ability_impalingbolt",
+     "Arcane Shot"
+    ],
+    [
+     "spell_frost_stun",
+     "Concussive Shot"
+    ],
+    [
+     "ability_meleedamage",
+     "Raptor Strike"
+    ]
+   ],
+   "text": "Apri dalla distanza massima: Auto Shot (fermo 0,5 s), Serpent Sting solo se il mob vive abbastanza, Arcane Shot a cooldown. Dopo ogni colpo fai un passo indietro e riparti; Concussive Shot dall’8 per rallentare. Se arriva in melee: Raptor Strike. Un mob alla volta (Warcraft Tavern, Zockify)."
+  },
+  {
+   "title": "10–19 · Il Pet tiene il mob",
+   "seq": [
+    [
+     "ability_hunter_beastcall",
+     "Call Pet"
+    ],
+    [
+     "ability_physical_taunt",
+     "Pet: Growl"
+    ],
+    [
+     "spell_nature_ravenform",
+     "Aspect of the Hawk"
+    ],
+    [
+     "ability_hunter_snipershot",
+     "Hunter's Mark"
+    ],
+    [
+     "ability_whirlwind",
+     "Auto Shot"
+    ],
+    [
+     "ability_impalingbolt",
+     "Arcane Shot"
+    ],
+    [
+     "ability_hunter_mendpet",
+     "Mend Pet"
+    ]
+   ],
+   "text": "Manda il Pet per primo e lascia che usi Growl; poi Hunter’s Mark, Auto Shot e Arcane Shot. Aspect of the Hawk sempre attivo in combattimento. Dal 18 Multi-Shot su 2+ mob. Mend Pet quando scende. Se il mob ti raggiunge: Wing Clip (12) o Concussive Shot e riparti a distanza (Method)."
+  },
+  {
+   "title": "20–24 · Aimed Shot e Freezing Trap",
+   "seq": [
+    [
+     "ability_hunter_beastcall",
+     "Pet in avanti"
+    ],
+    [
+     "ability_hunter_quickshot",
+     "Serpent Sting"
+    ],
+    [
+     "inv_spear_07",
+     "Aimed Shot"
+    ],
+    [
+     "ability_impalingbolt",
+     "Arcane Shot"
+    ],
+    [
+     "spell_frost_chainsofice",
+     "Freezing Trap"
+    ]
+   ],
+   "text": "Aimed Shot (cast 2 s) sul bersaglio singolo; Multi-Shot se i mob sono 2–3. Aimed Shot e Multi-Shot condividono 6 s: uno per ciclo; Arcane Shot ha il suo timer. Freezing Trap sul mob extra (10 s). Aspect of the Cheetah (20) per spostarti, ma torna su Hawk prima del pull."
+  },
+  {
+   "title": "25–30 · Summon Hawk, 2 hawk sempre su",
+   "seq": [
+    [
+     "ability_hunter_animalhandler",
+     "Summon Hawk"
+    ],
+    [
+     "ability_hunter_animalhandler",
+     "Summon Hawk"
+    ],
+    [
+     "inv_spear_07",
+     "Aimed Shot"
+    ],
+    [
+     "ability_impalingbolt",
+     "Arcane Shot"
+    ],
+    [
+     "ability_hunter_runningshot",
+     "Rapid Fire"
+    ]
+   ],
+   "text": "Dal 25 tieni 2 hawk e il Pet su ogni mob che vive più di pochi secondi (durano 18 s: non ricastare prima dell’ultimo secondo). Summon Hawk condivide 6 s con Arcane Shot: usa Arcane Shot ogni tre cast o a mob quasi morto (Method). Rapid Fire (26) sui pull difficili, Intimidation (30) se il mob gira verso di te, Feign Death (30) per resettare."
+  },
+  {
+   "title": "AoE · pull multipli",
+   "seq": [
+    [
+     "spell_frost_freezingbreath",
+     "Frost Trap"
+    ],
+    [
+     "spell_frost_chainsofice",
+     "Freezing Trap"
+    ],
+    [
+     "ability_upgrademoonglaive",
+     "Multi-Shot"
+    ],
+    [
+     "ability_devour",
+     "Intimidation"
+    ],
+    [
+     "ability_rogue_feigndeath",
+     "Feign Death"
+    ]
+   ],
+   "text": "Frost Trap (28) rallenta il gruppo del 60%; Freezing Trap su un mob. Multi-Shot a 3 bersagli (costa molto Mana). Se il Pet perde la threat: Intimidation (30) o Distracting Shot; se il mob arriva a te, Wing Clip e indietro. Le trappole ★ si piazzano in combattimento (cooldown 30 s, una Fire e una Ice insieme dal 15 ott) ma sempre ai tuoi piedi: arretra verso la trappola."
+  }
+ ],
+ "rotNotes": [
+  {
+   "title": "Gestione Pet e threat",
+   "html": "<ul><li>Il Pet fa la parte maggiore del danno e tiene la threat: mandalo per primo, <b>Growl</b> in autocast (spegnilo in dungeon se c’è un tank).</li><li><b>Aspect of the Hawk</b> sempre in combattimento; <b>Cheetah</b> solo in viaggio (se ti colpiscono sei Dazed 4 s).</li><li>Happiness: Happy 125% danno, Content 100%, Unhappy 75%. Usa Feed Pet fuori combattimento con cibo della sua dieta (bug beta: cala solo quando il Pet muore).</li><li>Il Pet prende il 25% della XP dei mob (solo mob verdi o più alti) e si ferma al tuo livello.</li><li>Le abilità a distanza non funzionano entro 8 yd dal nemico: tieni il Pet davanti.</li></ul>"
+  },
+  {
+   "title": "Mana e downtime",
+   "html": "<ul><li>Il Mana è la tua risorsa (i Pet usano Focus). Aimed Shot, Multi-Shot e Summon Hawk costano molto: non spenderlo tutto, tieni riserva per Feign Death e trappole (Warcraft Tavern).</li><li>Se scende: lascia lavorare Pet e Auto Shot, niente abilità a pagamento finché non rigenera; bevi tra i pull.</li><li>Il Mana in combattimento dipende da Spirit: <b>Bestial Discipline</b> (BM), Rapid Recuperation (MM) e Resourcefulness (Survival) lo aiutano.</li><li>Legacy: <b>Thrill of Adventure</b> dà un po’ di Health e Mana a ogni kill non triviale (wowforeverguides).</li></ul>"
+  },
+  {
+   "title": "Chain pull e Feign Death",
+   "html": "<p>Il Hunter eccelle nel chain pull: passi al mob successivo mentre il precedente muore per DoT o trappole, ma attento ai mob vivi che vagano verso altri pack (Warcraft Tavern). <b>Feign Death</b> (30) resetta un pull sbagliato: metti prima il Pet in passivo e richiamalo, poi resta giù finché i mob si allontanano (Zockify). Prima del 30 usa Scare Beast, Freezing Trap o Distracting Shot.</p>"
+  }
+ ],
+ "milestones": {
+  "1": [
+   "Raptor Strike, <b>Auto Shot</b>, Track Beasts. Compra Ammo (arrows/bullets) e un Quiver/Ammo Pouch: senza proiettili non spari.",
+   "Armi: bow, gun, crossbow più una melee. Se cambi tipo di arma devi allenare la skill dal Weapon Trainer."
+  ],
+  "4": [
+   "Serpent Sting e Aspect of the Monkey (Dodge +8%) dal Class Trainer."
+  ],
+  "5": [
+   "Apprentice Professions. Quest <b>The Great Outdoors</b> (Camping): Cooking → Basic Campfire."
+  ],
+  "6": [
+   "Arcane Shot e Hunter’s Mark."
+  ],
+  "8": [
+   "Concussive Shot: la tua arma di kiting prima del Pet. Raptor Strike 2."
+  ],
+  "10": [
+   "<b>Class quest Taming the Beast</b> (vedi riquadro \"Primo Pet per razza\"): imparerai Tame Beast, Beast Training, Feed Pet, Revive Pet, Call Pet, Dismiss Pet.",
+   "Aspect of the Hawk, Track Humanoids, Serpent Sting 2. Pet Trainer: Growl 2, Great Stamina, Natural Armor.",
+   "Primi talent: <b>Deadly Aspects</b> ×5. Journeyman Professions.",
+   "<b>Pet consigliato (livello 10 o meno):</b> Cat – The Rake (10 · Mulgore) o Ghostfang (10 · Dun Morogh); Boar – Scarred Crag Boar (9–10 · Dun Morogh) o Longsnout (10–11 · Elwynn Forest)."
+  ],
+  "12": [
+   "Mend Pet, Wing Clip, Distracting Shot, Arcane Shot 2. Pet livello 12: Charge 2, Dismember/Dust Cloud/Web 1.",
+   "<b>Pet:</b> Savannah Prowler (14–15 · The Barrens) per un Cat nuovo; Grizzled Black Bear (13–14 · Loch Modan) per Swipe."
+  ],
+  "14": [
+   "Scare Beast, Eyes of the Beast, Eagle Eye."
+  ],
+  "15": [
+   "<b>Focused Fire</b> ×2 (15–16)."
+  ],
+  "16": [
+   "Immolation Trap, Mongoose Bite, Raptor Strike 3. Pet livello 16: Bite 3 / Claw 3.",
+   "<b>Pet:</b> Greater Fleshripper (16–17 · Westfall, Carrion Bird); Elder Mountain Boar (16–17 · Loch Modan) o Great Goretusk (16–17 · Redridge Mountains)."
+  ],
+  "17": [
+   "Improved Revive Pet (1° punto)."
+  ],
+  "18": [
+   "<b>Multi-Shot</b>, Aspect of the Hawk 2, Serpent Sting 3. Endurance Training ×2 (18–19).",
+   "<b>Pet:</b> Moonstalker Sire (17–18 · Darkshore), Savannah Matriarch (17–18 · The Barrens)."
+  ],
+  "20": [
+   "<b>Aimed Shot</b> ★ (base, non più talent), Freezing Trap, Aspect of the Cheetah, Disengage, Arcane Shot 3, Mend Pet 2. Dual Wield e Polearms. Expert Professions.",
+   "Primo punto in <b>Unleashed Fury</b> (20–24). Pet livello 20: Growl 3, resistenze, Shell Shield e Mine! 2.",
+   "<b>Pet:</b> Ghost Saber o Moonstalker Matriarch (19–20 · Darkshore, Cat); Kresh (20 · Wailing Caverns, Turtle con Shell Shield) 🟡.",
+   "Arma: Venomstrike (19–22, Wailing Caverns) (Warcraft Tavern)."
+  ],
+  "22": [
+   "Scorpid Sting ★ (−2% chance di colpire), Hunter’s Mark 2.",
+   "Arma: Naga Heartpiercer (22–29, Blackfathom Deeps) (Warcraft Tavern)."
+  ],
+  "24": [
+   "Track Hidden, Beast Lore, Raptor Strike 4. Pet livello 24: <b>Bite 4 / Claw 4 / Charge 3 / Furious Howl 2</b>.",
+   "Arma: Fallenroot Longbow (23–29, Blackfathom Deeps).",
+   "<b>Pet:</b> Starving Mountain Lion (23–24 · Hillsbrad Foothills) o Humar the Pridelord (23 · The Barrens, rare elite). Per le abilità: Giant Moss Creeper (24–25 · Hillsbrad Foothills), Bellygrub (24 · Redridge Mountains)."
+  ],
+  "25": [
+   "<b>Summon Hawk</b> ★ (talent): 2 hawk e Pet su ogni mob; cooldown 6 s condiviso con Arcane Shot.",
+   "<b>Pet:</b> Crag Stalker (25–26 · Thousand Needles), Elder Ashenvale Bear (25–26 · Ashenvale), Black Ravager Mastiff (25–26 · Duskwood)."
+  ],
+  "26": [
+   "<b>Rapid Fire</b> (cooldown 5 min), Track Elementals, Serpent Sting 4, Immolation Trap 2.",
+   "Improved Revive Pet 2/2."
+  ],
+  "27": [
+   "Ferocity ×2 (27–28)."
+  ],
+  "28": [
+   "Frost Trap, Aimed Shot 2, Arcane Shot 4, Aspect of the Hawk 3, Mend Pet 3."
+  ],
+  "29": [
+   "Bestial Swiftness (+30% velocità al Pet)."
+  ],
+  "30": [
+   "<b>Intimidation</b> (talent), <b>Feign Death</b>, Aspect of the Beast, Mongoose Bite 2, Scare Beast 2, Distracting Shot 3. Pet livello 30: Growl 4, Great Stamina 5, Natural Armor 5.",
+   "Class quest <b>Big Game Hunter</b> → Master Hunter’s Bow (30). Quilboar Blaster (29–30, quest Razorfen Kraul).",
+   "Pet: Dive 1 (Kraul Bat, 30–31 · Razorfen Kraul); Dash 1 dai tigri di Stranglethorn Vale a 32–33 (non raggiungibile al 30)."
+  ],
+  "32": [
+   "Flare, Track Demons. Bite/Claw 5. Dash 1: Stranglethorn Tiger o Kurzen War Tiger (32–33 · Stranglethorn Vale).",
+   "Ferocity ×3 (31–33)."
+  ],
+  "34": [
+   "Explosive Trap, Serpent Sting 5, Disengage 2. Improved Mend Pet."
+  ],
+  "35": [
+   "Frenzy ×5 (35–39). Artisan Professions."
+  ],
+  "36": [
+   "Viper Sting, Summon Hawk 2, Aimed Shot 3, Arcane Shot 5, Mend Pet 4. Pet: Charge 4, Great Stamina 6."
+  ],
+  "40": [
+   "<b>Bestial Wrath</b>, Aspect of the Pack, Volley, Track Giants, Freezing Trap 2, Hunter’s Mark 3. Apprentice Riding (mount), Dual Specialization.",
+   "Pet: Bite 6, Furious Howl 3 e Dash 2 (Longtooth Runner · Feralas, 40–41); Claw 6 (Silt Crawler · Swamp of Sorrows).",
+   "Da qui i punti vanno in Marksmanship: Lethal Attacks, Careful Aim, Hawk Eye, Rapid Killing, Trueshot Aura, Mortal Shots."
+  ],
+  "46": [
+   "Aspect of the Wild, Viper Sting 2."
+  ],
+  "48": [
+   "Summon Hawk 3, Bite/Claw 7 (Ironfur Patriarch, Rekk’tilac), Charge 5."
+  ],
+  "50": [
+   "Track Dragonkin, Dash 3 (Vilebranch Raiding Wolf · The Hinterlands)."
+  ],
+  "56": [
+   "Trueshot Aura (talent). Bite/Claw 8 (Elder Shardtooth · Winterspring; Bloodaxe Worg · Blackrock Spire), Furious Howl 4."
+  ],
+  "60": [
+   "Tranquilizing Shot, Summon Hawk 4, Growl 7, Great Stamina 10, Natural Armor 10."
+  ]
+ },
+ "camp": [
+  [
+   "Camp Tent",
+   "Leatherworking",
+   "inv_misc_leatherscrap_01",
+   "Rested XP (5% di livello, una volta l’ora, solo se non hai già Rested). Il più utile in leveling; con Skinning è la coppia di Method e Warcraft Tavern."
+  ],
+  [
+   "Fish Bowl",
+   "Fishing",
+   "inv_misc_fish_02",
+   "+8% a tutte le stat primarie (come Blessing of Kings): \"universale\" per Warcraft Tavern; Fishing si abbina a Cooking."
+  ],
+  [
+   "Camp Chair",
+   "Skinning",
+   "inv_misc_pelt_wolf_01",
+   "+2% crit (come Leader of the Pack). Warcraft Tavern: \"ottimo per i Hunter\"; Skinning va con Leatherworking."
+  ],
+  [
+   "Enchanted Lute",
+   "Enchanting",
+   "inv_misc_orb_01",
+   "Come Mark of the Wild (non cumula con un Druid): stat primarie, armor e resist. I buff valgono anche per il Pet se lo richiami mentre sei seduto al campo (Warcraft Tavern)."
+  ],
+  [
+   "Mana Well",
+   "Alchemy",
+   "inv_potion_76",
+   "Mana/5 (come Blessing of Wisdom): Aimed Shot, Multi-Shot e Summon Hawk consumano molto Mana."
+  ],
+  [
+   "Reagent Bot",
+   "Engineering",
+   "inv_misc_gear_01",
+   "Vende food, water e materiali sul campo: meno viaggi al vendor (Warcraft Tavern). Non dà buff."
+  ],
+  [
+   "First Aid Kit",
+   "First Aid",
+   "inv_misc_bandage_01",
+   "Stamina (come Power Word: Fortitude), per te e per il Pet; First Aid la impari comunque."
+  ],
+  [
+   "Incense Candle",
+   "Herbalism",
+   "inv_misc_candle_02",
+   "Intellect (come Arcane Intellect): più Mana e, dal 46 con Careful Aim, anche AP."
+  ],
+  [
+   "Faction Banner",
+   "Tailoring",
+   "inv_banner_01",
+   "Spirit (come Divine Spirit): aiuta il Mana in combattimento con Bestial Discipline."
+  ],
+  [
+   "Lodestone",
+   "Mining",
+   "inv_stone_15",
+   "Melee Attack Power (come Blessing of Might): per Survival; per un BM ranged vale poco."
+  ],
+  [
+   "Sharpening Wheel",
+   "Blacksmithing",
+   "inv_stone_sharpeningstone_01",
+   "Strength: priorità minima per un Hunter."
+  ]
+ ],
+ "professions": {
+  "gold": "Skinning (le hide si vendono) più Herbalism o Mining per i materiali; Fishing e Cooking per cibo e XP buff; Engineering se vuoi fare gli Scope per l’arma (Warcraft Tavern).",
+  "power": "Leatherworking + Skinning (Method, Warcraft Tavern): dal 10 puoi fare equip BoP con molta Agility (Brawler’s Leather Helm \"BiS in beta\" per Method, Dark Leather Boots, Stalker’s Leather Belt). Cooking per il +XP del cibo, First Aid per curarti e per Poison, Disease e Bleed che il Hunter non rimuove.",
+  "advice": "Prendi Leatherworking + Skinning e tieni Cooking, First Aid e Fishing. Il Pet porta avanti il mob mentre scuoi: nessun downtime in più. Aspect of the Cheetah accelera la raccolta."
+ },
+ "stats": "Priorità (Warcraft Tavern): Agility > Attack Power > Critical Strike > Intellect > Stamina/Spirit > Strength > Armor. Prima del 10: Agility, AP, Intellect, Stamina/Spirit, Armor. Spirit conta per il Mana in combattimento (Bestial Discipline). L’arma a distanza è il tuo primo upgrade; poi le melee per le stat. Ranged (Warcraft Tavern): Barbaric Crossbow (13–16, Ragefire Chasm), Calibrated Blunderbuss (13–16, quest Hall of Thanes, solo Alleanza), Venomstrike (19–22, Wailing Caverns), Naga Heartpiercer (22–29, Blackfathom Deeps), Fallenroot Longbow (23–29, Blackfathom Deeps), Quilboar Blaster (29–30, quest Razorfen Kraul), Master Hunter’s Bow (30, quest Big Game Hunter). Crafted e dungeon: Brawler’s Leather Hood, Dark Leather Boots, Stalker’s Leather Belt, Bloodied Chestwraps, Triprunner Dungarees. Mail dal 40, Dual Wield dal 20 (🟡 client, wowforeverguides).",
+ "races": {
+  "human": "★ Nuova combinazione. Ruthless +1% crit (era 2%, dimezzato il 26 ott), The Human Spirit +10% Spirit (raddoppiato), Will to Survive (toglie gli stun), Perception. Method la consiglia, ma i suoi numeri sono precedenti alla patch.",
+  "dwarf": "Big Game Hunter: +5% danno contro le Beasts (molti mob di leveling) ✔; Artisan’s Precision +1% Hit; Stoneform. Ottimo, ma niente racial per il Pet.",
+  "night-elf": "Shadowmeld (stealth da fermo, utile per bere), Elune’s Light (+10% crit per 15 s, Method), Quickness (+1% Dodge, +2% velocità), Wisp Spirit. Method: tra le migliori dell’Alleanza.",
+  "skyborne_alliance": "High Order (Alleanza): Wind Blessed +2% Haste (era 3% prima del 26 ott), Walk on Air, Elemental Insight +5% vs Elementals, Read Ley Line (rigenera Health e Mana +50% per 15 s, 100% se Attuned a una Ley Line). Partono da Zephras Isle (3–12) con la quest Hunter nuova e il Fox Vuldren Alpha.",
+  "orc": "Command: i Pet fanno +5% danno (tornato il 26 ott, ★ per il BM); Blood Fury +10% AP per 15 s con cooldown 2 min; Hardiness (stun −20%); Shatter Curse. Per Method il migliore dell’Orda, ma Savage è stato rimosso.",
+  "tauren": "War Stomp (stun 2 s per scappare), Endurance (5% Health), Plainsrunning (+2% velocità ogni 5 s, max 60%), Cultivation (duplica le erbe). Nessun bonus offensivo.",
+  "troll": "Beast Slaying +5% danno alle Beasts (ottimo in leveling) ✔; Berserking +10% haste per 10 s; Regeneration; Rapid Regeneration (channel, 50% Health). Con l’Orc è la scelta più sensata per un Hunter dell’Orda.",
+  "skyborne_horde": "Windshaper (Orda): stessi Wind Blessed, Walk on Air ed Elemental Insight; al posto di Read Ley Line hanno Skysight (+15% velocità per 15 s, 30% con Charged a una elemental convergence). Partono da Zephras Isle con la stessa quest Hunter."
+ },
+ "forever": [
+  "★ Aimed Shot è baseline al livello 20 (cast 2 s, cooldown 6 s condiviso con Multi-Shot): deep dive Blizzard 30 set, client.",
+  "★ Summon Hawk, nuovo talent BM (livello 25 con tutti i punti in BM): max 2 hawk, cooldown 6 s condiviso con Arcane Shot; dal 15 ott l’hawk appare sul bersaglio e resta lì.",
+  "★ Talent nuovi: Focused Fire, Careful Aim (20–100% Int → AP), Lone Wolf, Rapid Killing; cambiati Deadly Aspects, Ferocity e Unleashed Fury (ora valgono anche per i Hawk). Intimidation richiede Bestial Swiftness.",
+  "★ Trappole usabili in combattimento (cooldown 30 s), una Fire e una Ice insieme e Fire trap che scala con AP (15 ott).",
+  "★ Pet: ottengono stat dall’equip del Hunter (10% AP, 100% crit), ogni famiglia ha un’abilità unica, Bite o Claw e Dash o Dive, Fox è nuova; ereditano il crit più alto e beneficiano di Expertise (15 ott).",
+  "24 set: Tame Beast non funziona su bestie sopra il tuo livello; Furious Howl −40%. 15 ott: Dismember −25%/6 s, Sonic Blast +30% cast time/cooldown 1 min, Mine! 3 s/90 s; Improved Mend Pet riduce il costo di Mana.",
+  "15 ott: Auto Shot richiede 0,5 s fermi; nuova opzione Auto Attack/Auto Shot. Scorpid Sting ora −2% hit; Aspect of the Beast dà melee AP; Disengage riduce il doppio della threat.",
+  "★ Human e Skyborne (Alleanza e Orda) possono essere Hunter. 26–27 ott: Orc Command +5% danno ai Pet, Human Ruthless 1%, Skyborne Wind Blessed 2%.",
+  "Dungeon: la XP delle quest è ridotta del 50% dal 1 ott; Excavation Site: Wetlands è nuovo."
+ ],
+ "sources": [
+  {
+   "name": "wowforever.be – build di leveling Hunter",
+   "url": "https://wowforever.be/leveling/hunter/",
+   "author": "wowforever.be",
+   "date": "client 1.60.1.70707, 1 nov",
+   "signal": "dati client; fino al 35",
+   "used": "nomi talent, prerequisiti, ordine 10–35"
+  },
+  {
+   "name": "Method – Hunter Leveling Guide & Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-hunter-leveling-guide-and-talents",
+   "author": "Celz",
+   "date": "21 ott 2026",
+   "signal": "Method (reputazione alta)",
+   "used": "ordine 10–30 (decodificato), razze, professioni, rotation, spell chiave"
+  },
+  {
+   "name": "Mobalytics – BM Hunter Leveling Guide 1-30 (Verified)",
+   "url": "https://mobalytics.gg/wow-forever/classes/beast-mastery-leveling-guide",
+   "author": "Crix",
+   "date": "28 ott",
+   "signal": "62 ♥ (la più salvata per Hunter)",
+   "used": "ordine con Pathfinding e Bestial Swiftness al 20; 26/0/0 con Talented"
+  },
+  {
+   "name": "Mobalytics – Hunter Leveling 1-30 (Feor) e 1-60 BM (Kargoz)",
+   "url": "https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide",
+   "author": "Feor / Kargoz",
+   "date": "31 ott / 22 ott",
+   "signal": "38 ♥ / 30 ♥",
+   "used": "solo il segnale 31/20/0; ordine non letto"
+  },
+  {
+   "name": "Zockify – Hunter Leveling Guide",
+   "url": "https://www.zockify.com/forever/hunter/leveling/",
+   "author": "Zockify",
+   "date": "agg. 25 ott",
+   "signal": "build 31/20/0 fino al 60 (calcolatore su client 70707)",
+   "used": "talent 31–60, rotation, rank di Dash, Boar"
+  },
+  {
+   "name": "Zockify – Hunter Pets / Pet Finder",
+   "url": "https://www.zockify.com/forever/hunter/pets/",
+   "author": "Zockify",
+   "date": "agg. 20 ott",
+   "signal": "database bestie con livello e zona",
+   "used": "nomi, livelli e zone dei Pet"
+  },
+  {
+   "name": "Warcraft Tavern – Hunter Leveling, Pets, Best Hunter Pets, Pet Families",
+   "url": "https://www.warcrafttavern.com/forever/guides/hunter-leveling/",
+   "author": "Sponge",
+   "date": "ott 2026",
+   "signal": "Warcraft Tavern",
+   "used": "milestone, trainer, armi, professioni, famiglie Cat e Boar"
+  },
+  {
+   "name": "LePrestore – Hunter Pet Taming Guide",
+   "url": "https://leprestore.com/guides/world-of-warcraft-forever/wow-forever-hunter-pet-taming-guide-best-pets-abilities/",
+   "author": "Graham Smith",
+   "date": "pubbl. 7 ott, agg. 26 ott (dati Petopia, 27 ott)",
+   "signal": "sito commerciale, dati Petopia",
+   "used": "rank delle abilità del Pet e bestie che le insegnano"
+  },
+  {
+   "name": "wow4evernews – Hunter Pet Tier List",
+   "url": "https://wow4evernews.com/en/articles/wow-forever-hunter-pet-tier-list",
+   "author": "Max Calder",
+   "date": "agg. 24 ott",
+   "signal": "sito di news",
+   "used": "Bear con Swipe (Grizzled Black Bear), Carrion Bird, Turtle"
+  },
+  {
+   "name": "wowforeverguides.com – Hunter Leveling",
+   "url": "https://wowforeverguides.com/leveling/hunter",
+   "author": "Harenil",
+   "date": "agg. 19 ott",
+   "signal": "teoria dichiarata; client 70170",
+   "used": "ultimo tame per razza, Dual Wield e Mail, Legacy"
+  },
+  {
+   "name": "ForeverWisp – Hunter leveling guide",
+   "url": "https://www.foreverwisp.com/guides/wow-forever-hunter-leveling-guide",
+   "author": "ForeverWisp Editorial",
+   "date": "20 ott",
+   "signal": "teoria dichiarata \"non testata\"",
+   "used": "quest del 10 (Human), cambi di Blizzard"
+  },
+  {
+   "name": "Wowhead Forever – tooltip spell (nether.wowhead.com/forever)",
+   "url": "https://nether.wowhead.com/forever/tooltip/spell/1293241",
+   "author": "Wowhead",
+   "date": "client 1.60.x",
+   "signal": "dati client",
+   "used": "livello e rank di ogni spell"
+  },
+  {
+   "name": "KamiLabs – patch del 26 ottobre, racial",
+   "url": "https://kami-labs.fr/en/wow-forever/patch-notes-26-octobre-capacites-raciales/",
+   "author": "KamiLabs (da Kaivax, Blizzard)",
+   "date": "26–27 ott",
+   "signal": "note ufficiali riportate",
+   "used": "racial attuali"
+  },
+  {
+   "name": "YouTube – LudiDeo \"BM Hunter MASTERCLASS\"",
+   "url": "https://www.youtube.com/watch?v=XsoT9XxGnHk",
+   "author": "LudiDeo",
+   "date": "28 ott",
+   "signal": "27,5k views",
+   "used": "solo il segnale (trascrizione non leggibile)"
+  },
+  {
+   "name": "YouTube – Back From AFK (guida leveling Hunter)",
+   "url": "https://www.youtube.com/watch?v=mjqBAFIT_Qc",
+   "author": "Back From AFK",
+   "date": "26 ott",
+   "signal": "4,6k views",
+   "used": "solo il segnale"
+  }
+ ],
+ "doubts": [
+  "🟡 Pathfinding a 18–19 (Mobalytics Crix e Zockify) non rispetta i prerequisiti del client: la riga 3 richiede 10 punti spesi nell’albero e a 18 ne hai 8. Ho usato l’ordine di Method/wowforever.be (Endurance Training 2 al posto di Pathfinding) per restare legali con Summon Hawk 25 e Intimidation 30. Se in gioco Pathfinding fosse sbloccabile prima, la variante Crix/Zockify avrebbe un piccolo vantaggio di velocità.",
+  "🟡 31–60 deriva da Zockify (unica fonte per tutti i 51 punti, agg. 25 ott); l’ordine 41–60 in Marksmanship non è confermato da altre fonti. Gli ordini di Kargoz e Feor su Mobalytics non sono stati letti.",
+  "🟡 L’ordine di Method è stato decodificato dal link talent dell’embed (non c’è un elenco testuale). wowforever.be arriva solo al 35; Warcraft Tavern ha i talent solo in immagini.",
+  "🟡 Pet: livelli e zone solo da Zockify (agg. 20 ott); l’esistenza dei mob è confermata sulla mappa Wowhead Forever (Kresh, Wailing Caverns, non c’è). Bear/Swipe e Carrion Bird da wow4evernews/topbuilds; i candidati 32–60 da Petopia via LePrestore, non testati.",
+  "🟡 Tame Beast: il cast time è contraddittorio tra le fonti (canalizzato con armor −100% per Warcraft Tavern). La Happiness è buggata in beta (cala solo quando il Pet muore).",
+  "🟡 Quest del 10: Human (Josephine Carson, Elwynn Forest) e Skyborne (Quel’ana Quickgale) vengono da ForeverWisp e wowforeverguides; la tabella di Warcraft Tavern non elenca i Human. Il Troll ha la stessa catena degli Orc (Durotar).",
+  "Non trovato: elenco dei tre tame della class quest per ogni razza (solo l’ultimo); ammo, Quiver e Ammo Pouch consigliati; chi dà la quest Big Game Hunter e dove.",
+  "Tavern separa gli spell per spec (Immolation Trap e Mongoose Bite sotto Survival) ma il client li dà a tutti i Hunter al 16."
+ ]
+}

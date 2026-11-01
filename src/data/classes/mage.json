@@ -1,0 +1,117 @@
+{
+ "class": "mage",
+ "name": "Mage",
+ "resource": "Mana",
+ "spec": "Frost",
+ "specIcon": "spell_frost_frostbolt02",
+ "summary": "Frost puro, tutti i talent point nel talent tree Frost. È la build della guida mago più salvata su Mobalytics (Asuna_qt, <b>40 preferiti</b>, 31 ott), identica nei punti chiave a quella di <b>wowforever.be</b> (letta dal client) e a Warcraft Tavern, che la definisce “la build Frost più forte al 30”. Ordine di wowforever.be: Precision 2/3 (4% Hit) basta già per non avere Miss sui mob del tuo livello (Icy Veins), e Frostbite 3/3 dà più Freeze per Ice Lance.",
+ "build": ["Improved Frostbolt","Improved Frostbolt","Improved Frostbolt","Improved Frostbolt","Improved Frostbolt","Precision","Precision","Frostbite","Frostbite","Frostbite","Ice Lance","Ice Shards","Ice Shards","Ice Shards","Ice Shards","Shatter","Shatter","Shatter","Ice Block","Ice Shards","Fingers of Frost","Fingers of Frost","Precision","Permafrost","Permafrost","Improved Cone of Cold"],
+ "buildSource": "wowforever.be (client 70707) = Mobalytics Asuna_qt nei punti chiave; 31–35 da wowforever.be",
+ "why": {
+  "Improved Frostbolt": "Frostbolt più rapido: è il 90% dei tuoi cast.",
+  "Precision": "Niente “Resisted”: con 2 talent point niente Miss sui mob del tuo livello.",
+  "Frostbite": "Freeze gratuiti: tempo per Wand e combo con Ice Lance.",
+  "Ice Lance": "Il colpo grosso sui target Frozen.",
+  "Ice Shards": "Raddoppia il bonus dei crit Frost.",
+  "Shatter": "Crit quasi garantiti sui target Frozen.",
+  "Ice Block": "Salva la vita quando il pull va male.",
+  "Fingers of Frost": "Rende il target “Frozen” a caso: Ice Lance forte anche a distanza.",
+  "Permafrost": "Chill più lunghi e più lenti: kite più facile.",
+  "Improved Cone of Cold": "Più danno al Cone of Cold nei pull multipli."
+ },
+ "compare": [
+  {"source": "<b>Questa guida</b> (= wowforever.be)", "signal": "dati client 70707", "l10_19": "IFB 5 · Precision 2 · Frostbite 3", "l20": "Ice Lance", "l21_30": "Ice Shards 4 · Shatter 3 · Ice Block · Ice Shards 5 · FoF"},
+  {"source": "Mobalytics – Asuna_qt", "signal": "40 ♥, “Verified”, 31 ott", "l10_19": "IFB 5 · Precision 3 · Frostbite 2", "l20": "Ice Lance", "l21_30": "Ice Shards 4 · Ice Block · Shatter 3 · Ice Shards 5 · FoF"},
+  {"source": "Warcraft Tavern – Nevermore", "signal": "“build Frost più forte al 30”", "l10_19": "Frost puro con Ice Lance + Fingers of Frost", "l20": "", "l21_30": "(talent point esatti solo in immagine)"},
+  {"source": "Icy Veins – Teloril", "signal": "aggiornata 30 ott", "l10_19": "Arcane: Wand Spec 2 · Imp. Channeling 3 · Missile Barrage 2 · Precision 3", "l20": "IFB", "l21_30": "Ice Lance solo al <b>27</b>, Fingers of Frost al <b>37</b>"}
+ ],
+ "alternatives": [
+  {"title": "Alternativa “mana-efficiente” di Icy Veins: quando ha senso", "html": "<p>Icy Veins parte nel talent tree Arcane per <b>Wand Specialization</b> (+25% Wand damage) e <b>Missile Barrage</b> ★ (20% di probabilità che Frostbolt renda gratis il prossimo Arcane Missiles). Bevi meno, ma Ice Lance arriva al 27 invece che al 20 e Fingers of Frost al 37 invece che al 30.</p><p>Per una corsa 1–30 la build Frost puro è più forte prima e più votata. Valuta l’alternativa solo se resti spesso senza mana e usi molto la Wand.</p>"}
+ ],
+ "spells": [
+  [1,"Frost Armor","spell_frost_frostarmor02","Sempre attiva: applica Chill a chi ti colpisce in melee e può far scattare Frostbite."],
+  [1,"Arcane Intellect","spell_holy_magicalsentry","Sempre attivo."],
+  [1,"Fireball","spell_fire_flamebolt","Il tuo attacco fino al 4."],
+  [4,"Frostbolt","spell_frost_frostbolt02","Il filler: danno + Chill (slow)."],
+  [4,"Conjure Water","inv_drink_06","Water gratis."],
+  [6,"Fire Blast","spell_fire_fireball","Instant: per finire o mentre ti muovi."],
+  [6,"Conjure Food","inv_misc_food_10","Food gratis."],
+  [8,"Polymorph","spell_nature_polymorph","Toglie dal combattimento il secondo mob."],
+  [8,"Arcane Missiles","spell_nature_starfall","Utile solo con Missile Barrage (build Icy Veins)."],
+  [10,"Frost Nova","spell_frost_frostnova","Freeze (root) su chi ti è vicino. Il Rank 1 dura uguale e costa meno."],
+  [14,"Arcane Explosion","spell_nature_wispsplode","AoE attorno a te."],
+  [16,"Flamestrike","spell_fire_selfdestruct","AoE a terra; apri i pull di gruppo."],
+  [20,"Blizzard","spell_frost_icestorm","AoE channeled quando sei al sicuro."],
+  [20,"Blink","spell_arcane_blink","Fuga, rompe radici e stun; +20% velocità se usato in corsa."],
+  [20,"Evocation","spell_nature_purge","Ricarica gran parte del mana in 8 s."],
+  [20,"Teleport (capitali della fazione)","spell_arcane_teleportstormwind","Torni dal Trainer in un attimo."],
+  [24,"Counterspell","spell_frost_iceshock","Interrompi i caster (soprattutto i guaritori)."],
+  [24,"Frost Blast","spell_frost_frostblast","★ Chill rapido (cast 1,5 s, slow −40% per 9 s): sostituisce il Frostbolt Rank 1."],
+  [26,"Cone of Cold","spell_frost_glacier","AoE instant con Chill: la tua “Nova di riserva”."],
+  [28,"Conjure Mana Agate","inv_misc_gem_emerald_01","Mana Gem per i pull lunghi."],
+  [30,"Ice Armor","spell_frost_frostarmor02","Sostituisce Frost Armor."],
+  [30,"Teleport (terza capitale)","spell_arcane_teleportdarnassus","Teleport in più."]
+ ],
+ "talentSpells": [[20,"Ice Lance (talent)","spell_frost_frostblast","★ 8 s di cooldown, +300% sui target Frozen."],[28,"Ice Block (talent)","spell_frost_frost","Immune 10 s, cooldown 5 min."]],
+ "rotation": [
+  {"title": "1–9 · Prima dei talent", "seq": [["spell_frost_frostbolt02","Frostbolt"],["inv_wand_01","Wand (Shoot)"]], "text": "Apri dalla distanza massima con Frostbolt (Fireball prima del 4), finisci con la Wand (Shoot). Fire Blast se ti muovi."},
+  {"title": "10–19 · Kiting", "seq": [["spell_frost_frostbolt02","Frostbolt"],["spell_frost_frostnova","Frost Nova"],["spell_frost_frostbolt02","Frostbolt"]], "text": "Se il mob ti raggiunge: Frost Nova, fai qualche passo indietro, riprendi con Frostbolt. Ogni Frostbite è tempo gratis per Wand o Frostbolt."},
+  {"title": "20+ · Frostbite scatta a distanza", "seq": [["spell_frost_frostbolt02","Frostbolt"],["spell_frost_frostblast","+ Ice Lance"]], "text": "Lancia Frostbolt e mettici subito in coda Ice Lance: arrivano insieme sul target Frozen. Se Ice Lance è in cooldown, usa Cone of Cold (dal 26)."},
+  {"title": "20+ · Il mob è in melee", "seq": [["spell_frost_frostnova","Frost Nova"],["spell_arcane_blink","Passi indietro"],["spell_frost_frostbolt02","Frostbolt"],["spell_frost_frostblast","+ Ice Lance"]], "text": "Una sola Ice Lance per Nova (8 s di cooldown). Poi Frostbolt finché è Frozen, e si ricomincia."},
+  {"title": "30 · Fingers of Frost", "seq": [["ability_mage_wintersgrasp","Proc"],["spell_frost_frostblast","Ice Lance"]], "text": "Con 1 talent point hai 1 charge: spendila con Ice Lance. Se Ice Lance è in cooldown, Frostbolt + Ice Lance appena torna. Con 2 talent point (31): Frostbolt sulla prima charge, Frostbolt + Ice Lance sulla seconda (Icy Veins)."},
+  {"title": "AoE · 3+ mob", "seq": [["spell_frost_frostnova","Frost Nova"],["spell_fire_selfdestruct","Flamestrike"],["spell_nature_wispsplode","Arcane Expl."],["spell_frost_glacier","Cone of Cold"]], "text": "Da solo: Nova, poi AoE ravvicinato. Blizzard solo se sei al sicuro (in gruppo). Costa tanto mana: bevi dopo."}
+ ],
+ "rotNotes": [
+  {"title": "Novità pre-lancio ✔: Ice Lance con cooldown", "html": "<p>Ice Lance ora ha <b>8 secondi di cooldown</b> (client 70707, Wowhead, cambio annotato da Icy Veins il 30 ott). Non puoi più spammarla durante Frost Nova: <b>una</b> Ice Lance per ogni Freeze, ben piazzata. Danno sui target Frozen: +300% secondo il client (Icy Veins scrive +200%: fa fede il tooltip).</p>"},
+  {"title": "Cos’è lo “spell batching” e perché conta", "html": "<p>Come in Classic, il server elabora le azioni a piccoli intervalli. Se premi Ice Lance subito dopo che parte un Frostbolt, i due colpi arrivano insieme: entrambi trovano il target ancora Frozen e beneficiano di Shatter. Il Freeze si rompe con il danno, anche col tuo. Ice Lance “fotografa” lo stato Frozen al momento del cast (Icy Veins).</p>"},
+  {"title": "Mana: le regole che fanno risparmiare più tempo", "html": "<ul><li><b>Regola dei 5 secondi:</b> il mana si rigenera solo dopo 5 s senza spenderne. Finisci i mob con la Wand.</li><li>Non sprecare un Frostbolt di Rank alto su un mob quasi morto: Fire Blast o Wand.</li><li>Al login spendi il mana in Conjure Food, Conjure Water e Mana Gem (dal 28).</li><li>Wand appena possibile: <i>Lesser Magic Wand</i> (liv. 5) e <i>Greater Magic Wand</i> (liv. 13), da Enchanting o Auction House. Gli enchanter le creano per salire di skill: costano poco.</li></ul>"}
+ ],
+ "milestones": {
+  "1": ["Arcane Intellect + Frost Armor sempre attivi"],
+  "5": ["<i>Lesser Magic Wand</i> (Auction House o Enchanting)"],
+  "13": ["<i>Greater Magic Wand</i>"],
+  "20": ["<b>Ice Lance</b>: cambia la rotation","Teleport: sposta la Hearthstone nella zona di quest"],
+  "28": ["Ice Block: il salvavita"],
+  "30": ["<b>Fingers of Frost</b>","Class quest per la Wand <i>Icefury Wand</i>","Ice Armor e un nuovo Teleport"]
+ },
+ "camp": [
+  ["Camp Tent","Leatherworking","inv_misc_leatherscrap_01","Rested XP fino al 5% di livello, 1 volta l’ora. <b>Il più utile in leveling.</b>"],
+  ["Mana Well","Alchemy","spell_arcane_manatap","Fino a 29 mana/5 s: meno pause per bere."],
+  ["Incense Candle","Herbalism","inv_misc_candle_02","Fino a +25 Intellect (non si somma ad Arcane Intellect)."],
+  ["Faction Banner","Tailoring","inv_banner_03","Fino a +32 Spirit."],
+  ["Fish Bowl","Fishing","inv_magicalfishpet","+8% a tutte le stats."],
+  ["First Aid Kit","First Aid","inv_misc_bandage_11","Fino a +56 Stamina."],
+  ["Camp Chair","Skinning","inv_crate_01","+2% crit."],
+  ["Enchanted Lute","Enchanting","inv_10_enchanting2_magicswirl_bronze","Armor, stats, resistance."]
+ ],
+ "professions": {
+  "gold": "Mining + Herbalism (o Skinning).",
+  "power": "<b>Tailoring + Enchanting</b> (Icy Veins, Method, Mobalytics): equip raro BoP cucito da te già dal 10 (<i>Novice Arcanist’s Sash</i>), Wand fatte da te, bag da vendere. Costa gold invece di farne.",
+  "advice": "Main con le raccolte; <b>bank alt Tailoring + Enchanting</b> che riceve cloth e green BoE. Su tutti: Cooking, First Aid (il mago non si cura), Fishing."
+ },
+ "stats": "Intellect e Spirit per il mana, Stamina per sopravvivere; spell damage Frost quando arriva. La weapon conta: Wand (Shoot) e Staff.",
+ "travel": "<ul><li><b>Liv. 20:</b> Teleport verso due capitali della tua fazione (Icy Veins, Method).</li><li><b>Liv. 30:</b> Teleport verso la terza capitale.</li><li><b>Liv. 40:</b> Teleport Dalaran e Portal.</li><li>Consiglio Icy Veins: <b>non</b> mettere la Hearthstone in una capitale dove puoi teletrasportarti; mettila nella zona dove fai quest.</li><li>Blink usato appena pronto mentre corri ≈ +20% velocità di viaggio.</li></ul>",
+ "races": {
+  "gnome": "Expansive Mind (+Intellect) e Escape Artist per liberarti dai root.",
+  "human": "Spirit extra (The Human Spirit) per rigenerare mana.",
+  "skyborne_a": "Racial Skyborne: Haste e mana regen (High Order) 🟡.",
+  "orc": "Blood Fury per il burst; resist allo stun.",
+  "undead": "Will of the Forsaken contro Fear/Charm; Cannibalize riduce il downtime.",
+  "troll": "Berserking per il burst; rigenerazione Health più rapida."
+ },
+ "forever": [
+  "Ice Lance ★ talent al 20: 8 s di cooldown, +300% sui target Frozen (client 70707, 30 ott).",
+  "Fingers of Frost ★ al 30 (talent).",
+  "Elemental Precision → Precision, 3 rank da 2% (hotfix 16 ott, KamiLabs/Venruki); Piercing Ice rimosso.",
+  "Frost Blast ★ al 24: Chill rapido."
+ ],
+ "sources": [
+  ["Mobalytics – Mage Leveling (Asuna_qt)", "https://mobalytics.gg/wow-forever/classes/mage-leveling-guide", "31 ott · 40 ♥", "Build, rotation, razze, consumabili"],
+  ["wowforever.be – Mage leveling", "https://wowforever.be/it/leveling/mage/", "client 1.60.1.70707", "Ordine dei talent point, tooltip, Ice Lance 8 s"],
+  ["Icy Veins – Frost Mage Leveling (Teloril)", "https://www.icy-veins.com/wow-forever/frost-mage-leveling", "30 ott", "Rotation con batching, alternativa Arcane"],
+  ["Warcraft Tavern – Mage Leveling", "https://www.warcrafttavern.com/forever/guides/mage-leveling/", "ott", "Conferma build"],
+  ["Method – Mage Leveling (Celz)", "https://www.method.gg/wow-forever/wow-forever-mage-leveling-guide-and-talents", "21 ott", "Livelli delle spell, teleport"],
+  ["KamiLabs – hotfix nascosto (Venruki)", "https://kami-labs.fr/en/wow-forever/mage-givre-wow-forever-correctif-discret/", "22 ott", "Precision a 3 rank"]
+ ],
+ "doubts": ["Livelli esatti dei Teleport per fazione e razza non verificati per l’Orda e per Skyborne 🟡."]
+}
