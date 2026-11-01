@@ -6,6 +6,7 @@ Modifica i dati in `data/`, poi rigenera:
 ```bash
 node src/tools/build.js
 ```
+Poi `git commit` + `git push`: il sito pubblico https://stalioot.github.io/wow-forever-leveling-companion/ (GitHub Pages da `main`, cartella root) si aggiorna da solo in 1–2 minuti. `index.html` rimanda alla guida mantenendo l'`#razza-classe`.
 Il build stampa "Da controllare": talent inesistenti o oltre il rank, prerequisiti di riga, città/NPC/flight path non trovati sulla mappa, classi senza dati. Deve restare pulito (gli NPC che non sono quest giver/trainer/innkeeper/flight master possono mancare: non compaiono sulla mappa, nient'altro).
 
 ## Dove sta cosa
