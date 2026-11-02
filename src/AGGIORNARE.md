@@ -1,67 +1,50 @@
-# Come aggiornare la guida (note per Claude)
+# WoW Forever Leveling Companion — contesto per ripartire (aggiornato 2 nov 2026, v10.2)
 
-La pagina che l'utente apre è `../WoW_Forever_Leveling_Companion.html`: **un solo file generato**. Non modificarla a mano.
-Modifica i dati in `data/`, poi rigenera:
+Guida leveling 1–30 per **WoW: Forever** (Classic+, lancio 4 nov 2026) per tutte le 10 razze e 9 classi. Pubblica:
+https://stalioot.github.io/wow-forever-leveling-companion/ · repo `Stalioot/wow-forever-leveling-companion` (GitHub Pages da `main`, root; commit con email noreply `80699208+Stalioot@users.noreply.github.com`, trailer `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`).
+Cartella: `~/Desktop/CLAUDE/WoW Forever leveling companion/`. Utente italiano: testi in italiano, termini di gioco in inglese.
 
-```bash
-node src/tools/build.js
-```
-Poi `git commit` + `git push`: il sito pubblico https://stalioot.github.io/wow-forever-leveling-companion/ (GitHub Pages da `main`, cartella root) si aggiorna da solo in 1–2 minuti. `index.html` rimanda alla guida mantenendo l'`#razza-classe`.
-Il build stampa "Da controllare": talent inesistenti o oltre il rank, prerequisiti di riga, città/NPC/flight path non trovati sulla mappa, classi senza dati. Poi `node src/tools/test.js` (prova tutte le combinazioni in Chrome; deve dire nbad 0 e errors []). Il build deve restare pulito (gli NPC che non sono quest giver/trainer/innkeeper/flight master possono mancare: non compaiono sulla mappa, nient'altro).
+## Ciclo di lavoro
+1. Modifica `src/data/*`, `src/engine.js`, `src/template.html` o `src/style.css` (mai l'HTML generato).
+2. `node src/tools/build.js` → genera `WoW_Forever_Leveling_Companion.html` (+ `.md` riassunto) e stampa gli avvisi (talent non validi sul client, città/NPC non sulla mappa, quest non trovate → `src/check-report.txt`).
+3. Server locale: preview `guida-wow` (`~/Desktop/CLAUDE/.claude/launch.json`, porta 8765, radice = Desktop) → URL `http://localhost:8765/CLAUDE/WoW%20Forever%20leveling%20companion/WoW_Forever_Leveling_Companion.html`.
+4. `node src/tools/test.js` (tutte le combinazioni × build: deve dire `nbad 0, errors []`) e `node src/tools/icons.js` (`rotte 0`). Usano Chrome headless via playwright-core in `%LOCALAPPDATA%/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core`. Per screenshot usa lo stesso modulo (il pannello browser dell'app spesso è nascosto → screenshot vuoti).
+5. `git add -A && git commit && git push` → Pages si aggiorna in 1–2 min (`gh api repos/Stalioot/wow-forever-leveling-companion/pages/builds/latest`).
 
-## Dove sta cosa
-| File | Contenuto | Fonte primaria |
-|---|---|---|
-| `data/common.json` | versione, data, `maxLevel` (oggi 30 → portare a 60), lancio, bonus XP, regole, camping, crates, video, fonti comuni | guide + Kargoz |
-| `data/classes/<classe>.json` | spec, build (nomi talent inglesi esatti, 1 per livello dal 10), why, compare, spell, rotation, milestones, camp, professions, razze, fonti | Mobalytics (♥), wowforever.be, Icy Veins, Method, Warcraft Tavern |
-| `data/talents/<classe>.json` | talent dal client (nomi, icone, rank, tooltip, prerequisiti) + build di wowforever.be | `node src/tools/wf.js <classe>` |
-| `data/factions/alliance.json`, `horde.json` | razze (racial, classi, zona iniziale), rotte per zona iniziale (segments, steps con città esatte, milestones, bags, questNPCs, flights, transport), dungeon, fonti | guide rotte + Wowhead map |
-| `data/transfers.json` | cambi di continente: `junctions` (livello in cui finisce la zona iniziale di ogni rotta) e 4 passaggi `A:eastern-kingdoms>kalimdor` ecc. (steps, unlocks, quest, rotta d'arrivo) | Method, Warcraft Tavern, Wowhead map |
-| `data/profs.json` | guida profession (tutte, coppie, consigli per classe, piano, gold) e alt (Legacy, bank alt, crafting alt) | Wowhead, Warcraft Tavern, wow-professions.com |
-| `data/worldmap.json` | dati mappa Wowhead (3 continenti, coordinate locali a zoom 7) | `node src/tools/map.js` |
-| `template.html`, `style.css`, `engine.js` | pagina, stile, motore (non contengono dati di gioco) | — |
+## File
+| File | Contenuto |
+|---|---|
+| `src/data/common.json` | `version`, `updated`, `maxLevel` (30), lancio, bonus XP, regole, camping, crates, video, fonti comuni |
+| `src/data/classes/<classe>.json` | `build` (nomi talent esatti, 1 per livello dal 10), `builds` A/B/C (vedi sotto), `why`, `summary`, `compare`, `spells`, `talentSpells`, `rotation`, `milestones`, `camp`, `professions`, `races`, `sources` |
+| `src/data/talents/<classe>.json` | talent dal client (wowforever.be): `node src/tools/wf.js <classe>` |
+| `src/data/factions/alliance.json`, `horde.json` | razze (racial, classi, start) e rotte 1–30 per zona iniziale (`segments`, `steps` con `town` esatto, `milestones`, `bags`, `questNPCs`, `flights`, `transport`), dungeon, `crates` |
+| `src/data/transfers.json` | cambi di continente (`junctions` + 4 passaggi `A:eastern-kingdoms>kalimdor` ecc.) |
+| `src/data/profs.json` / `alts.json` | guida profession; guida alt (`legacy`, `firstAlt`, `faster`, `complements`, `altClasses` ×9, `altRaces` ×10, …) |
+| `src/data/worldmap.json` | mappa Wowhead (3 continenti; `node src/tools/map.js`) · `src/data/quests.txt`: indice delle 4709 quest di Forever (`node src/tools/quests.js src/data/quests.txt`) |
+| `src/template.html`, `style.css`, `engine.js` | pagina, stile, motore (nessun dato di gioco) |
 
 Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren skyborne_h`. Rotte: `elwynn dunmorogh teldrassil zephras_a durotar mulgore tirisfal zephras_h`.
-Il motore compone il percorso: rotta naturale, oppure zona iniziale fino a `junction` + passaggio + rotta d'arrivo (dal livello dopo l'ultimo del passaggio). Opzioni dell'utente: percorso, 2 profession, dungeon sì/no, Talented. Calcola anche: talent per livello, link `?t=` del calcolatore wowforever.be (ranghi per albero in ordine di `data-index`, zeri finali tolti, alberi separati da `-`), tappa della mappa, dungeon nel range.
 
-## Build A/B/C (`classes/*.json` → `builds`)
-`[{id, name, spec, icon, when, pros, cons, ratings:{speed|ease|versatility|survival|aoe|gear: [1–5, motivo, fonte]}, build:[nomi talent dal 10] (vuoto per A = usa `build`), rotation?, sources}]`. A = la più votata. Voti solo se una fonte li giustifica (altrimenti niente barra). Il build valida ogni ordine sul client come la build principale.
+## Schemi chiave
+- **Milestone**: `{"l":10,"t":"<b>Quest</b>: passi… Ricompensa: …","r":["dwarf"],"f":"A","npc":["Nome esatto"]}` — `r`/`f` filtrano per razza/fazione, `npc` → pulsante 📍. Verifica le quest su `quests.txt`. Niente spell/talent/profession/dungeon generici (li aggiunge la pagina), niente note sulle fonti nel testo.
+- **Build**: `builds:[{id,name,spec,icon,when,pros,cons,ratings:{speed|ease|versatility|survival|aoe|gear:[1–5,motivo,fonte]},build:[…] (vuoto per A),rotation?,sources}]`. A = guida più votata. Voto solo se una fonte lo giustifica (altrimenti barra vuota).
 
-## Controlli automatici
-`node src/tools/quests.js src/data/quests.txt` aggiorna l'indice delle quest di Forever; il build confronta ogni `<b>`/`<i>` citato in milestone e tappe e scrive `src/check-report.txt` (quest inesistenti o con livello molto diverso). `node src/tools/test.js` prova tutte le combinazioni e tutte le build (deve dire nbad 0, errors []); `node src/tools/icons.js` controlla che ogni icona esista (deve dire rotte 0).
+## Motore (`engine.js`)
+Stato `S` in localStorage `wfc`: `r`, `c`, `L`, `tab`, `sure` (filtro 🟡), `o` = opzioni {`x` cambio continente, `prof`[2], `dg`, `tal` Talented, `b`{classe: id build}}, `done`{CK: checklist}. `bind()` → `RA` razza, `CL` classe con build scelta (`buildView`), `TAL`, `FA` fazione, `RT` percorso composto (`compose()`), `PT` passaggio. `renderAll()` = drawPick + renderClass (talent, rotation, spell, razza, viaggi, bag, profession, alt, crates, camping, dungeon, fonti) + renderPath (capitoli/checklist) + drawMap + renderLevel.
+UI: 8 schede (`showTab`): Livello (planner + capitolo corrente + mini-mappa) · Talent (selettore build con barre + calcolatore wowforever.be in iframe `?t=`) · Mappa (Leaflet, mondo intero, tessere Wowhead) · Classe · Profession · Alt · Altro · Info (solo fonti). Procedura iniziale `<dialog id="wiz">` (si apre alla prima visita e con "⚙ Personaggio e opzioni"). Link/QR `#s=<base64>`, filtro 🟡 (`.unsure`), pulsante issue GitHub. Mappa: tela unica (coordinate globali), niente `position` su `.spin`.
 
-## Interfaccia (v10)
-6 schede (Livello, Talent, Mappa, Classe, Profession, Info); procedura iniziale in `<dialog>` alla prima visita; mini-mappa in Livello (lo stesso `#lwrap` spostato tra le schede); filtro 🟡 (classe `.unsure`); link/QR `#s=<base64>` con stato e checklist; pulsante issue GitHub.
+## Regole dell'utente
+- Fonti migliori e attendibili, scelte per **upvote/preferiti/views** (Mobalytics ♥, YouTube); i dati client (wowforever.be, Wowhead) decidono i dettagli. ✔ più fonti · 🟡 una fonte o pre-lancio · ★ novità di Forever. Niente siti di boost/gold. Mai dati Classic spacciati per Forever.
+- Agenti: massimo 2–3 in parallelo, modello più economico (Haiku), poi revisione mia (togli note interne tipo "indice", "JSON", "non trovato").
+- Mobalytics/Icy Veins: 403 a WebFetch → leggerli dal browser integrato (`javascript_tool`, estrarre solo il necessario). Reddit bloccato.
+- Grigliate (grill-me) sempre con domande cliccabili (AskUserQuestion).
+- Contesto basso: niente dump grandi in chat, script su file nello scratchpad.
 
-## Milestone (cose da fare per livello)
-In `classes/*.json` e nelle rotte: lista di voci `{"l":10,"t":"<b>Quest</b>: passi… Ricompensa: …","r":["dwarf"],"f":"A","npc":["Nome NPC esatto"]}`. `r`/`f` filtrano per razza/fazione (la pagina mostra solo la versione del giocatore), `npc` diventa un pulsante 📍 (il build avvisa se un NPC non è sulla mappa).
-Prima di scrivere una quest verificala su `node src/tools/quests.js <file>` (indice di tutte le quest di Forever con NPC e luogo). Niente liste di spell, talent, profession o dungeon generici: la pagina li aggiunge da sola. Niente note sulle fonti nel testo.
+## Da fare (richieste aperte del 2 nov)
+1. **Pagina iniziale = scelta del personaggio**, sempre disponibile: razza e classe con breve riepilogo pro/contro (anche della combinazione razza+classe; dati: `races` nei file classe, racial, `builds`).
+2. **Testata**: spostare icona/razza/classe/build; al loro posto il titolo "World of Warcraft Forever Leveling Companion", fatto bene.
+3. **Preset**: salvare più personaggi (main + alt) con razza, classe, build e opzioni, e passare dall'uno all'altro senza reimpostare tutto (ognuno con la sua checklist).
+Poi, dopo il 4 nov: rotte e build da fonti reali, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
 
-## Regole sulle fonti (richieste dall'utente)
-- Scegli spec e build per **upvote/preferiti/recensioni**: Mobalytics ♥ (pagine `leveling-guides`, `creator-leveling-guides`, `community-leveling-guides`), views YouTube, data. A parità, i dati del client (wowforever.be, Wowhead) decidono i dettagli.
-- ✔ più fonti o client · 🟡 una sola fonte · ★ novità di Forever. Mai dati di Classic Era spacciati per Forever.
-- Reddit è bloccato. Mobalytics e Icy Veins: 403 con WebFetch e Cloudflare in headless → leggerli dal **browser integrato** (`javascript_tool`, estrarre solo il necessario; su Mobalytics il testo dopo "Points Invested" contiene "Level X-Y — Talent").
-- wowforever.be, Wowhead, Warcraft Tavern, Method: `curl`/WebFetch o `scratchpad/tools/read.js` (Chrome headless via playwright-core in `%LOCALAPPDATA%/npm-cache/_npx/9833c18b2d85bc59`).
-- Agenti di ricerca: al massimo 2–3 in parallelo, modello più economico (Haiku), con brief preciso; poi revisione mia (togliere note interne tipo "indice", "JSON", voci "non trovato"). Brief precedenti: brief e formato in `scratchpad/BRIEF.md`, `CLASS_TASK.md`, `ROUTE_TASK.md` della sessione del 1 nov (ricrearli se servono: schema = chiavi dei file in `data/`).
-
-## Dopo il lancio (4 nov 2026) — cosa ricontrollare
-1. `node src/tools/wf.js <classe>` per tutte le classi (hotfix ai talent) e `node src/tools/map.js`; rigenera e guarda gli avvisi.
-2. Classifica Mobalytics aggiornata: se la guida più votata di una classe cambia spec o ordine, aggiorna `build`, `summary`, `compare`.
-3. Nuove guide/video attendibili con dati reali dal gioco (RestedXP/Kargoz, Icy Veins, Wowhead, creator con molte views): rotte reali, livelli delle zone, bag, NPC.
-4. Togli 🟡 dove arriva la conferma; correggi i dubbi elencati sotto.
-5. Per arrivare al 60: `maxLevel: 60` in `common.json`, prolunga `segments`/`steps`/`milestones` delle rotte e `spells`/`milestones` delle classi; le build arrivano già al 60. Aggiorna `version` e `updated`, e il registro nel file MD della cartella principale.
-
-## Dubbi aperti (1 nov)
-- Priest: Shadow (Mobalytics 47 ♥) vs ibrido Disc di wowforever.be/Method; 43–60 ricostruito 🟡.
-- Paladin: ordine scritto sul consenso dopo l'hotfix del 31 ott; 36–60 proiettato 🟡.
-- Warrior: 31–60 solo da wowforever.be 🟡. Warlock 41–60 proiettato 🟡. Rogue 36–60 composto 🟡.
-- Rotte: molte tappe da una sola fonte (games.gg); livelli Zephras Isle stimati; Excavation Site 24–29 (mappa) vs 26–33 (Warcraft Tavern).
-- Racial con valori discordi tra fonti (Human Ruthless 1%/2%, Blood Fury, Berserking); Orda segue le note Blizzard 26–27 ott.
-- Shaman: liv. 24 Anticipation e 30 Improved Stormstrike da Mobalytics Tiqqle (66 ♥) invece di wowforever.be; 31–60 solo wowforever.be 🟡.
-- Druid: albero rimescolato il 30 ott (Berserk rimosso, Lacerate nuovo); ordine solo da wowforever.be 🟡.
-- Orda: bag gratuite delle zone iniziali solo da LepreStore 🟡; NPC di The Great Outdoors per Tauren non trovato; tratto 20–30 Stonetalon/Ashenvale sintetizzato 🟡. Crates Orda: Dokimi fuori da Crossroads (50.1 29.3).
-- Sleeping Bag: +3% per 2 ore (Kargoz) vs +1%/min fino a 3% (Warcraft Tavern).
-- NPC non sulla mappa Wowhead (cuochi): Tomas (Elwynn), Gremlock Pilsnor (Dun Morogh).
-
-## Mappa
-Tutti i continenti stanno su una tela unica (coordinate globali = locali + `ox/oy` del continente, come Wowhead). Le tessere che il manifest non elenca non vengono richieste. Livelli pesanti (nodi, pet, rotte di volo) si creano solo quando l'utente li accende. Non mettere `position` sui marker `.spin`: rompe la posizione delle tappe.
+## Dubbi aperti (sintesi)
+Build 31–60 da una sola fonte per varie classi 🟡; molte tappe delle rotte da una fonte (games.gg) e livelli di Zephras stimati; valori di alcuni racial discordi; Legacy (costi perk, cap 16, 62 vs 65 challenge) da confermare in gioco.
