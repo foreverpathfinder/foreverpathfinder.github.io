@@ -1,4 +1,5 @@
-[["<html lang=\"it\">","<html lang=\"en\">"],
+[
+["<html lang=\"it\">","<html lang=\"en\">"],
 ["<a class=\"lang\" id=\"lang\" href=\"WoW_Forever_Leveling_Companion_EN.html\" hreflang=\"en\" title=\"English\" aria-label=\"English\"><svg viewBox=\"0 0 60 30\" width=\"34\" height=\"17\" aria-hidden=\"true\"><path fill=\"#012169\" d=\"M0 0h60v30H0z\"/><path stroke=\"#fff\" stroke-width=\"6\" d=\"M0 0l60 30M60 0L0 30\"/><path stroke=\"#C8102E\" stroke-width=\"2\" d=\"M0 0l60 30M60 0L0 30\"/><path stroke=\"#fff\" stroke-width=\"10\" d=\"M30 0v30M0 15h60\"/><path stroke=\"#C8102E\" stroke-width=\"6\" d=\"M30 0v30M0 15h60\"/></svg></a>","<a class=\"lang\" id=\"lang\" href=\"WoW_Forever_Leveling_Companion.html\" hreflang=\"it\" title=\"Italiano\" aria-label=\"Italiano\"><svg viewBox=\"0 0 3 2\" width=\"26\" height=\"17\" aria-hidden=\"true\"><path fill=\"#009246\" d=\"M0 0h1v2H0z\"/><path fill=\"#fff\" d=\"M1 0h1v2H1z\"/><path fill=\"#CE2B37\" d=\"M2 0h1v2H2z\"/></svg></a>"],
 ["Uscita: ","Release: "],
 ["Passa a un altro dispositivo","Continue on another device"],
@@ -220,4 +221,7 @@
 ["'Niente '","'No '"],
 [">Inizio: '",">Start: '"],
 ["'Tra le razze più consigliate per '","'Among the most recommended races for '"],
-["'Per '+CL.name+' sono più consigliate: '","'More recommended for '+CL.name+': '"]]
+["'Per '+CL.name+' sono più consigliate: '","'More recommended for '+CL.name+': '"],
+["☕ Offrimi un caffè","☕ Buy me a coffee"],
+["?label=visite&","?label=visits&"]
+]
