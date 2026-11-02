@@ -1,4 +1,4 @@
-# WoW Forever Leveling Companion — contesto per ripartire (aggiornato 2 nov 2026, v10.2)
+# WoW Forever Leveling Companion — contesto per ripartire (aggiornato 2 nov 2026, v10.3)
 
 Guida leveling 1–30 per **WoW: Forever** (Classic+, lancio 4 nov 2026) per tutte le 10 razze e 9 classi. Pubblica:
 https://stalioot.github.io/wow-forever-leveling-companion/ · repo `Stalioot/wow-forever-leveling-companion` (GitHub Pages da `main`, root; commit con email noreply `80699208+Stalioot@users.noreply.github.com`, trailer `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`).
@@ -30,8 +30,8 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - **Build**: `builds:[{id,name,spec,icon,when,pros,cons,ratings:{speed|ease|versatility|survival|aoe|gear:[1–5,motivo,fonte]},build:[…] (vuoto per A),rotation?,sources}]`. A = guida più votata. Voto solo se una fonte lo giustifica (altrimenti barra vuota).
 
 ## Motore (`engine.js`)
-Stato `S` in localStorage `wfc`: `r`, `c`, `L`, `tab`, `sure` (filtro 🟡), `o` = opzioni {`x` cambio continente, `prof`[2], `dg`, `tal` Talented, `b`{classe: id build}}, `done`{CK: checklist}. `bind()` → `RA` razza, `CL` classe con build scelta (`buildView`), `TAL`, `FA` fazione, `RT` percorso composto (`compose()`), `PT` passaggio. `renderAll()` = drawPick + renderClass (talent, rotation, spell, razza, viaggi, bag, profession, alt, crates, camping, dungeon, fonti) + renderPath (capitoli/checklist) + drawMap + renderLevel.
-UI: 8 schede (`showTab`): Livello (planner + capitolo corrente + mini-mappa) · Talent (selettore build con barre + calcolatore wowforever.be in iframe `?t=`) · Mappa (Leaflet, mondo intero, tessere Wowhead) · Classe · Profession · Alt · Altro · Info (solo fonti). Procedura iniziale `<dialog id="wiz">` (si apre alla prima visita e con "⚙ Personaggio e opzioni"). Link/QR `#s=<base64>`, filtro 🟡 (`.unsure`), pulsante issue GitHub. Mappa: tela unica (coordinate globali), niente `position` su `.spin`.
+Preset (personaggi salvati) in localStorage `wfcP` = `{cur, sure (filtro 🟡), list:[{n nome, s}]}` (il vecchio `wfc` viene migrato nel primo preset). `S` = `P.list[P.cur].s`: `r`, `c`, `L`, `tab`, `o` = opzioni {`x` cambio continente, `prof`[2], `dg`, `tal` Talented, `b`{classe: id build}}, `done`{CK: checklist}. `bind()` → `RA` razza, `CL` classe con build scelta (`buildView`), `TAL`, `FA` fazione, `RT` percorso composto (`compose()`), `PT` passaggio. `renderAll()` = drawPick + renderClass (talent, rotation, spell, razza, viaggi, bag, profession, alt, crates, camping, dungeon, fonti) + renderPath (capitoli/checklist) + drawMap + renderLevel.
+UI: **pagina iniziale** `#home` (body `.home`, si apre se l'URL non ha hash): personaggi salvati (`preBtns`, nuovo/rinomina/elimina), fazione/razza/classe con pro e contro (`pickInfo`: racial + `alts.altRaces/altClasses` + build più votata + `races` della classe), build A/B/C e opzioni; "Entra nella guida" mette l'hash `#razza-classe` (ricaricando resti nella guida). Testata = titolo fisso "World of Warcraft Forever Leveling Companion" (`.ttl`); sopra le schede la barra `#cbar` con i personaggi (un tocco per cambiare) e "⚙ Personaggi" (torna alla pagina iniziale). 8 schede (`showTab`): Livello (planner + capitolo corrente + mini-mappa) · Talent (selettore build con barre + calcolatore wowforever.be in iframe `?t=`) · Mappa (Leaflet, mondo intero, tessere Wowhead) · Classe · Profession · Alt · Altro · Info (solo fonti). Link/QR `#s=<base64 {r,c,n,L,o,d}>`: aggiorna il preset con stessa razza+classe o ne crea uno, filtro 🟡 (`.unsure`), pulsante issue GitHub. Mappa: tela unica (coordinate globali), niente `position` su `.spin`.
 
 ## Regole dell'utente
 - Fonti migliori e attendibili, scelte per **upvote/preferiti/views** (Mobalytics ♥, YouTube); i dati client (wowforever.be, Wowhead) decidono i dettagli. ✔ più fonti · 🟡 una fonte o pre-lancio · ★ novità di Forever. Niente siti di boost/gold. Mai dati Classic spacciati per Forever.
@@ -40,10 +40,8 @@ UI: 8 schede (`showTab`): Livello (planner + capitolo corrente + mini-mappa) · 
 - Grigliate (grill-me) sempre con domande cliccabili (AskUserQuestion).
 - Contesto basso: niente dump grandi in chat, script su file nello scratchpad.
 
-## Da fare (richieste aperte del 2 nov)
-1. **Pagina iniziale = scelta del personaggio**, sempre disponibile: razza e classe con breve riepilogo pro/contro (anche della combinazione razza+classe; dati: `races` nei file classe, racial, `builds`).
-2. **Testata**: spostare icona/razza/classe/build; al loro posto il titolo "World of Warcraft Forever Leveling Companion", fatto bene.
-3. **Preset**: salvare più personaggi (main + alt) con razza, classe, build e opzioni, e passare dall'uno all'altro senza reimpostare tutto (ognuno con la sua checklist).
+## Da fare
+Fatto il 2 nov: pagina iniziale con pro/contro, titolo in testata, preset personaggi (v10.3).
 Poi, dopo il 4 nov: rotte e build da fonti reali, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
 
 ## Dubbi aperti (sintesi)
