@@ -153,44 +153,6 @@
   "Cap skill: Apprentice 75; Journeyman dal livello 10 (cap 150); Expert dal livello 20 (cap 225); Artisan dal livello 35 (cap 300) (Warcraft Tavern). Method dice che per il cap crafting servono 'a minimum of 3 level 20 characters': non chiaro 🟡.",
   ""
  ],
- "classes": [
-  {
-   "class": "mage",
-   "why": "Portali per spostarsi e cibo e acqua per gli alleati (Warcraft Tavern). Se lo livelli, Method dice che crea portali. Nessun dato gold verificato 🟡."
-  },
-  {
-   "class": "rogue",
-   "why": "Apre lockbox se livellato (Method). Subtlety si concentra su Bleed e Stealth, Assassination su Poison (Warcraft Tavern). Nessun dato gold."
-  },
-  {
-   "class": "druid",
-   "why": "Raccoglie erbe in Travel Form, quindi l'alt erborista si muove senza fermarsi (Warcraft Tavern). Herbalism + Alchemy per Druid viene da Gfinity 🟡."
-  },
-  {
-   "class": "shaman",
-   "why": "Water Walking per raggiungere i banchi di pesca migliori (Warcraft Tavern): utile come alt pescatore o cuoco."
-  },
-  {
-   "class": "hunter",
-   "why": "Solo e in autonomia: 'Lone Wolves' con il pet (Warcraft Tavern). Skinning + Leatherworking per Hunter viene da Gfinity 🟡."
-  },
-  {
-   "class": "any",
-   "why": "Method: 'Any race and any class works'. Se l'alt non si livella la scelta non conta. Conta la capitale e la vicinanza tra AH e bank.",
-   "name": "Qualsiasi classe (bank alt)",
-   "icon": "inv_misc_bag_10"
-  },
-  {
-   "class": "tauren",
-   "why": "Cultivation: duplica un'erba vicina invece di dare un bonus fisso 🟡. Utile per un alt erborista.",
-   "name": "Tauren (razza)"
-  },
-  {
-   "class": "gnome",
-   "why": "Engineering Specialization Gnomish: riduce la probabilità che i gadget si rompano 🟡.",
-   "name": "Gnome (razza)"
-  }
- ],
  "complements": [
   {
    "main": "Blacksmithing + Engineering",
@@ -326,6 +288,69 @@
    "date": "non trovata",
    "signal": "Calcolatore fan, non ufficiale. Usato per requisiti tra perk e cap per personaggio 🟡.",
    "used": "requisiti dei perk, punti condivisi per account, cap 16 per personaggio"
+  },
+  {
+   "name": "Warcraft Tavern, Races Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/races/",
+   "date": "non trovata (copyright 2026)",
+   "signal": "Sito di guide consolidato. Razze, classi e racial.",
+   "used": "Classi per razza, racial nuovi, Priest racial"
+  },
+  {
+   "name": "Warcraft Tavern, Mage Leveling Guide",
+   "url": "https://www.warcrafttavern.com/forever/guides/mage-leveling/",
+   "date": "non trovata (beta, cap 30)",
+   "signal": "Guida beta fino al 30. Build e rotazioni.",
+   "used": "Conjure, portali, Frost, Remove Lesser Curse"
+  },
+  {
+   "name": "Warcraft Tavern, Hunter/Druid/Paladin/Priest/Rogue/Shaman/Warlock/Warrior Leveling Guides",
+   "url": "https://www.warcrafttavern.com/forever/guides/<classe>-leveling/",
+   "date": "non trovata (beta)",
+   "signal": "Guide per classe, build beta.",
+   "used": "Utility, spec per leveling, Travel Form, Ghost Wolf, Soulstone, Battle Shout"
+  },
+  {
+   "name": "Method, All New Racial Abilities in WoW Forever",
+   "url": "https://www.method.gg/wow-forever/all-new-racial-abilities-in-world-of-warcraft-forever",
+   "date": "non trovata",
+   "signal": "Method, sito di guide reputato. Contiene incoerenze interne (Troll Rapid Regeneration, Cannibalize).",
+   "used": "Racial per razza, Find Treasure, Cultivation senza Herbalism"
+  },
+  {
+   "name": "Method, WoW Forever Hunter Leveling Guide and Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-hunter-leveling-guide-and-talents",
+   "date": "non trovata (beta)",
+   "signal": "Method. Spec consigliata per leveling.",
+   "used": "Beast Mastery, Feign Death, Summon Hawk, Leatherworking e Skinning"
+  },
+  {
+   "name": "Method, WoW Forever Druid Leveling Guide and Talents",
+   "url": "https://www.method.gg/wow-forever/wow-forever-druid-leveling-guide-and-talents",
+   "date": "non trovata (beta)",
+   "signal": "Method. Spec consigliata per leveling.",
+   "used": "Feral più veloce, Travel Form, Teleport Moonglade, Herbalism + Alchemy per gold"
+  },
+  {
+   "name": "Icy Veins, WoW Forever Racial Guide (solo snippet)",
+   "url": "https://www.icy-veins.com/wow-forever/race-guide",
+   "date": "non trovata",
+   "signal": "Snippet di ricerca, pagina non letta. 🟡",
+   "used": "Cultivation come racial da Herbalism"
+  },
+  {
+   "name": "Mobalytics, Best Racial Abilities Tier List (solo snippet)",
+   "url": "https://mobalytics.gg/wow-forever/tier-lists/racials",
+   "date": "non trovata",
+   "signal": "Tier list in lavorazione, solo snippet. 🟡",
+   "used": "Find Treasure marginale, Cultivation cooldown 1 h (contrasta con client)"
+  },
+  {
+   "name": "Progetto alliance.json e horde.json, racials (client)",
+   "url": "",
+   "date": "build 1.60.1, pre-lancio",
+   "signal": "Dati client dal progetto, ✔ client nella maggior parte delle voci.",
+   "used": "Nome, icona ed effetto dei racial"
   }
  ],
  "doubts": [
@@ -350,6 +375,406 @@
   "Nessun video con molte views è stato letto in questa ricerca.",
   "Account bank: non confermato (PC Gamer via snippet). Non pianificarlo.",
   "Method: il cap crafting 'minimum of 3 level 20 characters' non è chiaro.",
-  "Il lancio è il 4 nov 2026 secondo il countdown di wowforever.be, quindi tutte le cifre sono beta o pre-lancio."
+  "Il lancio è il 4 nov 2026 secondo il countdown di wowforever.be, quindi tutte le cifre sono beta o pre-lancio.",
+  "Gold per classe e razza: nessuna fonte affidabile dà cifre di gold. Le coppie di professioni sono indicate da Method, WT e Gfinity (Gfinity è citato in profs.json, non letto qui).",
+  "Velocità di leveling per classe: nessuna fonte dà tempi in ore. Gli ordini sono qualitativi, da guide beta.",
+  "Mobalytics dice che il Horde Skyborne è la razza migliore per il leveling del Rogue. Non verificato: solo snippet, non riportato.",
+  "Cultivation cooldown: 15 min dal client (progetto), 1 h da Mobalytics (snippet). Method non indica il cooldown.",
+  "Ruthless: +1% (client, progetto) contro +2% (Method).",
+  "Read Ley Line: +50% (client, progetto) contro +100% (Method).",
+  "Cannibalize: 7% ogni 2 s (client, progetto) contro 35% totale (Method).",
+  "Troll Rapid Regeneration: 50% (client, progetto) contro 20% e 250% nella stessa pagina Method.",
+  "Dwarf Artisan's Precision (progetto) contro Earth Fury (Method): nome o effetto diverso, da verificare in gioco.",
+  "Wisp Spirit: +75% velocità da morto (client) contro +25% in WT.",
+  "Skysight: 15% per 15 s (Blizzard 26 ott) contro 10% per 30 s (tooltip Wowhead vecchio).",
+  "Rapporto main-alt (withMain): è una deduzione dall'utility di ogni classe, non un dato di fonte.",
+  "Caso Mage Gnome e Skyborne: non ci sono fonti di confronto diretto. La scelta razza è dedotta dai racial.",
+  "Gfinity e Mobalytics non sono stati letti in pagina intera. I dati di coppia professione da Gfinity vengono da profs.json."
+ ],
+ "altClasses": [
+  {
+   "class": "mage",
+   "role": "utility, food e water, portali e AoE",
+   "why": [
+    "Conjure Water e Conjure Food: il Mage non compra acqua e cibo nel leveling (WT).",
+    "Teleport e Create Portal: servono Rune of Teleportation e Rune of Portals; trainer dedicati nelle capitali (WT).",
+    "Remove Lesser Curse rimuove Curse e Bane in gruppo (WT).",
+    "Frost è la spec più forte per il leveling: Frostbolt kite, Frost Nova, Ice Lance (WT)."
+   ],
+   "gold": "Tailoring + Enchanting è la coppia consigliata (Gfinity, 🟡).",
+   "leveling": "Veloce con Frost: cibo e acqua infiniti riducono le pause (WT). Frost livello 30 indicata come la build più forte in beta (WT, 🟡).",
+   "withMain": [
+    "warrior",
+    "paladin",
+    "hunter",
+    "rogue"
+   ],
+   "sources": [
+    "Warcraft Tavern, Mage Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations"
+   ]
+  },
+  {
+   "class": "hunter",
+   "role": "farm solo di bestie, Skinning e pet tank",
+   "why": [
+    "Il pet tiene i nemici mentre tu attacchi da distanza. Feign Death toglie dal combattimento (Method).",
+    "Beast Mastery è la spec consigliata per il leveling, anche in solo (Method).",
+    "Lone Wolf (talent Marksmanship): WT non lo consiglia in leveling perché toglie il pet (WT).",
+    "Skinning + Leatherworking: Method consiglia Leatherworking come prima prof e Skinning come seconda, per rifornire il crafting (Method)."
+   ],
+   "gold": "Skinning produce pelli e cuoio per l'AH o per il crafting. Cifre non trovate (🟡).",
+   "leveling": "Method la definisce una delle classi più facili ed efficienti da livellare (Method). Lenta prima del livello 10 per il kiting (Method, 🟡).",
+   "withMain": [
+    "rogue",
+    "druid"
+   ],
+   "sources": [
+    "Method, WoW Forever Hunter Leveling Guide",
+    "Warcraft Tavern, Hunter Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations"
+   ]
+  },
+  {
+   "class": "druid",
+   "role": "Herbalism mobile in Travel Form, tank e DPS feral",
+   "why": [
+    "Travel Form: movimento più veloce senza mount. Method indica +40% fuori (Method).",
+    "Herbalism in Travel Form: raccoglie erbe senza scendere di forma (WT).",
+    "Teleport: Moonglade dal livello 10 (WT). Trainer Druid a Moonglade (Method).",
+    "Cat Form e Bear Form: Feral alterna tank e DPS senza talenti di cura (Method)."
+   ],
+   "gold": "Method indica Herbalism + Alchemy come scelta migliore per il gold, vendendo pozioni o erbe in AH. Cifre non trovate (🟡).",
+   "leveling": "Feral è la spec più veloce e più usata per il leveling (Method). Partenza lenta sotto il livello 10 e kill speed single target medio (Method).",
+   "withMain": [
+    "warrior",
+    "paladin",
+    "rogue"
+   ],
+   "sources": [
+    "Method, WoW Forever Druid Leveling Guide and Talents",
+    "Warcraft Tavern, Druid Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations"
+   ]
+  },
+  {
+   "class": "rogue",
+   "role": "lockpicking, Skinning e burst melee",
+   "why": [
+    "Lockpicking: il Rogue apre i lockbox (WT Classes hub).",
+    "Subtlety per Bleed e Stealth, Assassination per Poison, Combat per attacchi rapidi (WT).",
+    "Skinning molto redditizia per il Rogue, e Leatherworking è una delle prof migliori per lui (WT).",
+    "Thistle Tea dà energia per burst e fuga (WT)."
+   ],
+   "gold": "WT indica Skinning come molto redditizia per il Rogue, venduta o usata in Leatherworking. Cifre non trovate (🟡).",
+   "leveling": "Glass cannon con molti consumabili e cibo pesante (WT). Tempi di leveling non verificati (🟡).",
+   "withMain": [
+    "druid",
+    "hunter"
+   ],
+   "sources": [
+    "Warcraft Tavern, Rogue Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations"
+   ]
+  },
+  {
+   "class": "priest",
+   "role": "healer per dungeon e Shadow DPS",
+   "why": [
+    "Fear Ward è ora base per tutti i Priest, quindi non serve la razza Dwarf (WT Races).",
+    "Devouring Plague e Fear Ward sono disponibili su ogni razza (WT Classes hub).",
+    "Discipline per dungeon con Power Infusion; Shadow con Vampiric Embrace che cura il party (WT).",
+    "Racial Priest: Confounding Flash e Contingency Plan (Gnome), Hex of Weakness e Shadowguard (Troll), Dark Sacrifice (Undead) (WT Races)."
+   ],
+   "gold": "Tailoring + Enchanting per leveling (Gfinity, 🟡).",
+   "leveling": "WT sconsiglia il leveling come healer per i kill time lenti. Build Discipline per dungeon (WT).",
+   "withMain": [
+    "warrior",
+    "paladin",
+    "hunter"
+   ],
+   "sources": [
+    "Warcraft Tavern, Priest Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations",
+    "Warcraft Tavern, Races Guide"
+   ]
+  },
+  {
+   "class": "shaman",
+   "role": "totem, buff di gruppo, travel e fishing",
+   "why": [
+    "Water Walking richiede Fish Oil; Water Breathing richiede Shiny Fish Scales (WT).",
+    "Ghost Wolf al livello 20 dà una travel form senza mount (WT).",
+    "Astral Recall: seconda Hearthstone con cooldown indipendente (WT).",
+    "Totem utili per healing e buff; Totem Twisting non è più possibile (WT)."
+   ],
+   "gold": "WT cita Skinning ed Engineering come prof utili per Shaman (WT, 🟡).",
+   "leveling": "Enhancement è la spec più pulita per il leveling (WT). Classe molto mana-intensive (WT).",
+   "withMain": [
+    "hunter",
+    "warrior",
+    "rogue"
+   ],
+   "sources": [
+    "Warcraft Tavern, Shaman Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations",
+    "Warcraft Tavern, Races Guide"
+   ]
+  },
+  {
+   "class": "warlock",
+   "role": "summon e Soulstone per il main, DoT leveling",
+   "why": [
+    "Ritual of Summoning e Create Soulstone sono spell di supporto (WT Warlock Leveling Guide).",
+    "Affliction: DoT istantanei mentre ti muovi, leveling più fluido (WT).",
+    "Demonology: Demonic Brand fa tankare il demone, Demonic Sacrifice (WT).",
+    "Drain tank con Drain Life dal livello 30 (WT)."
+   ],
+   "gold": "Herbalism + Alchemy in raid (Gfinity, 🟡).",
+   "leveling": "Uno dei leveling più fluidi (WT). Affliction più facile all'inizio, Destruction il più difficile in solo (WT).",
+   "withMain": [
+    "warrior",
+    "rogue",
+    "hunter"
+   ],
+   "sources": [
+    "Warcraft Tavern, Warlock Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations"
+   ]
+  },
+  {
+   "class": "warrior",
+   "role": "tank, melee DPS e buff di gruppo",
+   "why": [
+    "Battle Shout dà Attack Power a tutto il gruppo (WT).",
+    "Thunder Clap e Demoralizing Shout riducono il danno subito dai nemici (WT).",
+    "Protection pulla branchi con AoE e perde poca vita (WT).",
+    "Weaponmaster migliora le armi senza cambiare spec (WT)."
+   ],
+   "gold": "Mining + Blacksmithing per leveling, Engineering + Mining endgame (Gfinity, 🟡).",
+   "leveling": "Storicamente lento come tank, ma Protection con AoE pulla branchi più in fretta (WT). Dungeon XP cambiato in beta (🟡).",
+   "withMain": [
+    "priest",
+    "paladin",
+    "druid"
+   ],
+   "sources": [
+    "Warcraft Tavern, Warrior Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations"
+   ]
+  },
+  {
+   "class": "paladin",
+   "role": "tank, healer o Shockadin",
+   "why": [
+    "Shockadin: Holy Shock, Judgement, Holy Strike e Consecration con danno sorprendente (WT).",
+    "Apprentice Riding e Summon Warhorse a Goldshire (WT).",
+    "Resistance Auras contro Shadow, Frost e Fire (WT).",
+    "Consecration è stata nerfata (WT Classes hub)."
+   ],
+   "gold": "Mining + Blacksmithing per Prot e Ret; Herbalism + Alchemy per Holy (Gfinity, 🟡).",
+   "leveling": "Leveling lento ma sicuro, recupera dagli errori senza morire (WT).",
+   "withMain": [
+    "warrior",
+    "rogue",
+    "hunter"
+   ],
+   "sources": [
+    "Warcraft Tavern, Paladin Leveling Guide",
+    "Warcraft Tavern, Classes & Specializations"
+   ]
+  }
+ ],
+ "altRaces": [
+  {
+   "race": "human",
+   "why": [
+    "Sette classi: Warrior, Hunter, Mage, Paladin, Priest, Rogue, Warlock (WT Races).",
+    "Will to Survive ★: rimuove gli Stun istantaneamente, cooldown 3 min (client).",
+    "Ruthless ★: +1% crit con spell e attacchi (client; Method dice +2%, 🟡).",
+    "Perception: rileva i nemici stealth per 20 s (client)."
+   ],
+   "bestFor": [
+    "mage",
+    "paladin",
+    "priest",
+    "warlock",
+    "rogue"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "alliance.json racials (client)"
+   ]
+  },
+  {
+   "race": "dwarf",
+   "why": [
+    "Unica razza Alliance con Shaman (WT Races).",
+    "Find Treasure ★: traccia i forzieri e alza il loot da forzieri (Method). Mobalytics lo giudica marginale perché i forzieri si vedono comunque (🟡).",
+    "Big Game Hunter ★: +5% danno contro Beast (client). Utile per Hunter in farm di bestie.",
+    "Stoneform ★: rimuove Bleed, Poison e Disease e riduce il danno fisico del 10% per 8 s (client)."
+   ],
+   "bestFor": [
+    "hunter",
+    "shaman"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "alliance.json racials (client)"
+   ]
+  },
+  {
+   "race": "gnome",
+   "why": [
+    "Eureka! ★: -10% costo risorse e +10% danno per 8 s, cooldown 2 min (client).",
+    "Expansive Mind ★: +5% Maximum Mana (client). Utile per Mage e Warlock.",
+    "Engineering Specialization ★: -20% backfire dei device di Engineering (client). Utile per un alt Engineering.",
+    "Priest Gnome ★: Confounding Flash e Contingency Plan (WT Races)."
+   ],
+   "bestFor": [
+    "mage",
+    "warlock",
+    "priest"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "alliance.json racials (client)"
+   ]
+  },
+  {
+   "race": "nightelf",
+   "why": [
+    "Shadowmeld: stealth da fermo, cooldown 10 s base; in combat sale a 2 min (client).",
+    "Quickness: +2% velocità di corsa e +1% dodge (client, Method).",
+    "Wisp Spirit: +75% velocità da morto (client). WT dice +25% (🟡).",
+    "Elune's Light ★: +10% crit per 15 s, cooldown 3 min (client)."
+   ],
+   "bestFor": [
+    "druid",
+    "rogue"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "alliance.json racials (client)"
+   ]
+  },
+  {
+   "race": "skyborne_a",
+   "why": [
+    "Richiede un pacchetto di acquisto (WT Races).",
+    "Walk on Air ★: planata verso il basso per 10 s, cooldown 1.5 min (client).",
+    "Read Ley Line ★: +50% regen di salute e mana per 15 s, cooldown 2 min (client). Method dice +100% (🟡).",
+    "Unico Skyborne Alliance con Mage (WT Classes hub). Classi: Druid, Hunter, Mage, Rogue, Warrior (WT)."
+   ],
+   "bestFor": [
+    "mage",
+    "rogue",
+    "druid"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Warcraft Tavern, Classes & Specializations",
+    "alliance.json racials (client)"
+   ]
+  },
+  {
+   "race": "orc",
+   "why": [
+    "Blood Fury: +10% Attack Power e Spell Power per 15 s, cooldown 2 min (client, patch 27 ott).",
+    "Shatter Curse ★: rimuove Curse e Bane e riduce il danno magico del 5% per 8 s (client, Method).",
+    "Command: +5% danno dei pet di Hunter e Warlock con il pet fuori (client).",
+    "Orc Mage ★: nuova combinazione (WT Races)."
+   ],
+   "bestFor": [
+    "mage",
+    "warlock",
+    "hunter"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "horde.json racials (client)"
+   ]
+  },
+  {
+   "race": "undead",
+   "why": [
+    "Cannibalize: rigenera 7% di salute e mana ogni 2 s per 10 s su un cadavere umanoide o undead entro 5 yd, cooldown 2 min (client). Method dice 35% (🟡).",
+    "Will of the Forsaken: rimuove Charm, Fear e Sleep (client).",
+    "Touch of the Grave ★: drena salute con i tuoi colpi, 20% o 30% di chance (client).",
+    "Paladin Undead ★: combinazione nuova (WT Races)."
+   ],
+   "bestFor": [
+    "paladin",
+    "mage",
+    "priest"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "horde.json racials (client)"
+   ]
+  },
+  {
+   "race": "troll",
+   "why": [
+    "Rapid Regeneration ★: ripristina il 50% della salute massima in 6 s con channel (client). Method riporta valori diversi (🟡).",
+    "Regeneration: +20% rigenerazione di salute, anche in combattimento (client).",
+    "Beast Slaying: +5% danno contro Beast, utile nei Barrens (client).",
+    "Warlock Troll ★: combinazione nuova (WT Races)."
+   ],
+   "bestFor": [
+    "hunter",
+    "warlock",
+    "shaman"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "horde.json racials (client)"
+   ]
+  },
+  {
+   "race": "tauren",
+   "why": [
+    "Cultivation ★: duplica un'erba vicina senza bisogno di Herbalism (client, Method, WT). Cooldown 15 min (client). Mobalytics dice 1 h (🟡).",
+    "Plainsrunning ★: +2% velocità ogni 5 s di corsa, fino a +60% (client).",
+    "War Stomp ★: stordisce fino a 5 nemici, cooldown 90 s, usabile in Druid form (client).",
+    "Endurance: +5% salute totale (client)."
+   ],
+   "bestFor": [
+    "druid",
+    "shaman"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Method, All New Racial Abilities",
+    "Icy Veins, WoW Forever Racial Guide (snippet)",
+    "horde.json racials (client)"
+   ]
+  },
+  {
+   "race": "skyborne_h",
+   "why": [
+    "Richiede un pacchetto di acquisto (WT Races).",
+    "Skysight ★: +15% velocità a piedi e in sella per 15 s, cooldown 2 min (client, Blizzard 26 ott). Il tooltip Wowhead vecchio dice 10% per 30 s (🟡).",
+    "Walk on Air ★: planata con cooldown 90 s (client).",
+    "Unico Skyborne Horde con Shaman (WT Races). Classi: Druid, Hunter, Rogue, Shaman, Warrior."
+   ],
+   "bestFor": [
+    "shaman",
+    "druid",
+    "rogue"
+   ],
+   "sources": [
+    "Warcraft Tavern, Races Guide",
+    "Warcraft Tavern, Classes & Specializations",
+    "horde.json racials (client)"
+   ]
+  }
  ]
 }
