@@ -144,7 +144,9 @@ function progress(){var all=0,ok=0;[].forEach.call(document.querySelectorAll('#c
 
 /* ---- planner per livello ---- */
 function segAt(l){var a=RT.segments,b=null;a.forEach(function(s){if(l>=s[0]&&l<=s[1])b=s});return b||a.filter(function(s){return s[0]<=l}).pop()||a[0]}
-function renderLevel(){
+// evidenzia nella scheda Dungeon quelli adatti al livello attuale
+function dgNow(){[].forEach.call(document.querySelectorAll('#dlist .dg'),function(e){e.classList.toggle('now',!e.classList.contains('skip')&&S.L>=e.dataset.a-1&&S.L<=+e.dataset.b)})}
+function renderLevel(){dgNow();
  S.L=Math.max(1,Math.min(MAXL,S.L));save();
  var L=S.L,z=segAt(L),s=rankAt(L),nx=tAt(L),si=stepAt(L),st=RT.steps[si];$('lvn').textContent=L;$('lvr').value=L;
  $('qgo').innerHTML=hubBtns(st)+(si?'<button class="go" data-lv="'+stepRange(si-1)[0]+'">‹ Tappa '+si+'</button>':'')+(si<RT.steps.length-1?'<button class="go" data-lv="'+stepRange(si+1)[0]+'">Tappa '+(si+2)+' ›</button>':'');
@@ -232,7 +234,17 @@ function renderClass(){
  $('campT').textContent='Priorità per il '+CL.name;
  $('camp').innerHTML=CL.camp.map(function(c,i){return card(c[2],c[0],c[3],'<span class="note">· '+c[1]+'</span>'+(i<3?' <span class="pill p-ok">priorità '+(i+1)+'</span>':''))}).join('');
  // dungeon
- $('dtab').innerHTML='<tr><th>Dungeon</th><th>Livelli</th><th>Dove</th><th>Note</th></tr>'+FA.dungeons.filter(function(d){return d[1]<=MAXL+2}).map(function(d){return '<tr><td><b>'+d[0]+'</b><br>'+dgBtn('mappa '.trim()&&d[0])+'</td><td>'+d[1]+'–'+d[2]+'</td><td>'+d[3]+'</td><td>'+(d[4]||'')+'</td></tr>'}).join('');
+ // scheda Dungeon: una scheda apribile per dungeon (D.dungeons da data/dungeons.json), giudizio per la tua fazione, quest tue e della tua classe
+ var DG=D.dungeons||{dungeons:{},general:[]},fk=RA.faction,ql=function(a){return a.map(function(q){return '<li><b>'+q[0]+'</b> · '+q[q.length-1]+'</li>'}).join('')};
+ $('dgen').innerHTML='<b class="t">Come conviene farli</b><ul>'+DG.general.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>';
+ var dx=function(d){return DG.dungeons[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{}},sk=function(d){var v=(dx(d).v||{})[fk];return v&&v[0]==='skip'?1:0};
+ $('dlist').innerHTML=FA.dungeons.filter(function(d){return d[1]<=MAXL+2}).sort(function(a,b){return sk(a)-sk(b)||a[1]-b[1]}).map(function(d){var x=dx(d),v=(x.v||{})[fk],q=x.q||{},
+   mq=(q[fk]||[]).concat(q.N||[]),cq=(q.C||[]).filter(function(c){return c[1]===S.c}),V={go:['p-ok','✔ Vai'],opt:['p-wa','🟡 Facoltativo'],skip:['p-bad','✖ Salta']}[v&&v[0]];
+  return '<details class="dg'+(v&&v[0]==='skip'?' skip':'')+'" data-a="'+d[1]+'" data-b="'+d[2]+'"><summary><span><b>'+d[0]+'</b><small>Livelli '+d[1]+'–'+d[2]+' · '+d[3]+'</small></span>'+(V?'<span class="pill '+V[0]+'">'+V[1]+(v[1]?' '+v[1]:'')+'</span>':'')+'</summary>'+
+   (v&&v[2]?'<p><b>'+v[2]+'</b></p>':'')+(x.e?'<p>📍 '+x.e+' '+dgBtn(d[0])+'</p>':'<p>'+dgBtn(d[0])+'</p>')+(x.k&&x.k[fk]?'<p>🔑 <b>Chiave:</b> '+x.k[fk]+'</p>':'')+
+   (mq.length||cq.length?'<h4>Prima di entrare, prendi le quest</h4><ul>'+ql(mq)+ql(cq)+'</ul>':'')+(x.b?'<h4>Boss</h4><ol>'+x.b.map(function(b){return '<li>'+b+'</li>'}).join('')+'</ol>':'')+
+   (x.t?'<h4>Consigli</h4><ul>'+x.t.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>':'')+(d[4]?'<p class="note">'+d[4]+'</p>':'')+'</details>'}).join('');
+ dgNow();
  // fonti
  $('srct').innerHTML='<tr><th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th></tr>'+CL.sources.concat(FA.sources,C.sources,D.profs?D.profs.sources:[],D.alts?D.alts.sources:[]).map(srcRow).join('');
  // testata
