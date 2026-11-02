@@ -79,7 +79,10 @@ input[type=range]{flex:1;min-width:160px;accent-color:var(--ac);height:30px}
 
 /* talenti: embed wowforever.be */
 .wfhead{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.wfhead .lv{font:800 1.8rem/1 Cinzel,serif;color:var(--gold)}
+.wfhead{align-items:flex-end}
+.wflv{display:flex;align-items:center;gap:12px;margin-top:6px}
+.wflv .btn{width:44px;height:44px;padding:0;justify-content:center;font-size:1.4rem}
+.wfhead .lv{font:800 1.8rem/1 Cinzel,serif;color:var(--gold);min-width:2ch;text-align:center}
 .wfmodes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
 .wfmodes button,.lchips button{background:var(--card2);color:var(--tx);border:1px solid var(--bd);border-radius:99px;padding:6px 11px;font:600 .82rem Inter,sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .wfmodes button.on,.lchips button.on{border-color:var(--ac);background:#173a5c}
@@ -325,8 +328,8 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
  <div class="callout g" id="bSum"></div>
  <div class="card">
   <div class="wfhead">
-   <div><span class="note" id="wfLab">Talent tree at level</span><br><span class="lv" id="wfLv">10</span></div>
-   <div class="btns" style="margin:0"><button class="btn" id="wfm" aria-label="Level down">−</button><button class="btn" id="wfp" aria-label="Level up">+</button><a class="btn" id="wfLink" target="_blank" rel="noopener">Open ↗</a></div>
+   <div><span class="note" id="wfLab">Talent tree at level</span><div class="wflv"><button class="btn" id="wfm" aria-label="Level down">−</button><span class="lv" id="wfLv">10</span><button class="btn" id="wfp" aria-label="Level up">+</button></div></div>
+   <a class="btn" id="wfLink" target="_blank" rel="noopener">Open ↗</a>
   </div>
   <div class="wfmodes" id="wfModes"><button data-m="tree" class="on" id="wfTreeBtn">Talent tree</button><button data-m="all">All 3 talent trees</button></div>
   <div class="wfbox" id="wfBox"><div class="wait">Loading the wowforever.be calculator…</div><iframe title="Talent tree – wowforever.be"></iframe><iframe title="Talent tree – wowforever.be" style="visibility:hidden"></iframe></div>
