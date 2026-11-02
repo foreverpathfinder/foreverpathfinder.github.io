@@ -261,9 +261,22 @@ function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=func
   list('Il primo alt, passo per passo',A.firstAlt,1)+list('Livellare l’alt più in fretta',A.faster)+
   ((L.how&&L.how.length)||(L.perks||A.legacy||[]).length?'<h3>Legacy: cosa resta all’account</h3>'+(L.how?'<div class="card"><ul>'+li(L.how)+'</ul></div>':'')+'<div class="wrap card"><table><tr><th>Perk</th><th>Effetto</th><th>Costo</th><th>Note</th></tr>'+(L.perks||(Array.isArray(A.legacy)?A.legacy:[])).map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':'')+
   (A.complements&&A.complements.length?'<h3>Profession: main → alt</h3><div class="wrap card"><table><tr><th>Main</th><th>Alt</th><th>Perché</th></tr>'+A.complements.map(function(c){var on=m===c;return '<tr'+(on?' style="background:#2a2412"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
-  (A.classes&&A.classes.length?'<h3>Quale classe come alt</h3><div class="grid">'+A.classes.map(function(c){var k=c['class'],R=D.races[k];return card(c.icon||(R?R.icon:'classicon_'+k),c.name||(D.classes[k]||R||{name:k}).name,c.why)}).join('')+'</div>':'')+
+  altClasses(A)+altRaces(A)+
   '<div class="grid">'+list('Bank alt',A.bankAlt)+list('Alt per il crafting',A.craftAlts||A.craftAlt)+list('Quale alt fare e quando',A.order)+'</div>'+
   list('Errori da evitare',A.mistakes)+list('Consigli',A.tips)}
+
+// classi come alt: tutte e 9, con utilità per l'account, gold, leveling e abbinamento col tuo main
+function altClasses(A){var L=A.altClasses||(A.classes||[]).filter(function(c){return D.classes[c['class']]}).map(function(c){return {'class':c['class'],why:[c.why]}});if(!L.length)return '';
+ return '<h3>Quale classe come alt</h3><p class="note">Il tuo main è '+CL.name+': le classi con “si abbina al tuo main” lo completano meglio.</p><div class="grid">'+L.slice().sort(function(x,y){var w=function(c){return c['class']===S.c?2:(c.withMain||[]).indexOf(S.c)>-1?0:1};return w(x)-w(y)}).map(function(c){var k=c['class'],X=D.classes[k]||{name:k},me=k===S.c,good=(c.withMain||[]).indexOf(S.c)>-1;
+  return '<div class="card" style="margin:0;padding:10px"><div class="row">'+img('classicon_'+k)+'<div><b>'+X.name+'</b>'+(c.role?' <span class="note">· '+c.role+'</span>':'')+(good?' <span class="pill p-ok">si abbina al tuo main</span>':'')+(me?' <span class="pill p-wa">è la classe del tuo main</span>':'')+
+  '<ul>'+li(c.why||[])+'</ul>'+(c.gold?'<p class="note" style="margin:.2em 0"><b>Gold e profession:</b> '+c.gold+'</p>':'')+(c.leveling?'<p class="note" style="margin:.2em 0"><b>Leveling:</b> '+c.leveling+'</p>':'')+'</div></div></div>'}).join('')+'</div>'}
+// razze come alt: tutte e 10, racial dai dati del client (⚒ = profession) + perché sceglierla
+var PROFRE=/Herbalism|Mining|Skinning|Engineering|Alchemy|Leatherworking|Blacksmithing|Tailoring|Enchanting|Fishing|Cooking|First Aid|Lockpicking|\berb[ae]\b/i;
+function altRaces(A){var M={};(A.altRaces||[]).forEach(function(r){M[r.race]=r});
+ return '<h3>Quale razza come alt</h3><p class="note">⚒ = racial che aiuta una profession. Solo le razze della tua fazione possono scambiarsi oggetti via mail con il main.</p><div class="grid">'+Object.keys(D.races).sort(function(x,y){return (D.races[x].faction===RA.faction?0:1)-(D.races[y].faction===RA.faction?0:1)}).map(function(k){var R=D.races[k],r=M[k]||{},mine=R.faction===RA.faction;
+  return '<div class="card" style="margin:0;padding:10px'+(mine?'':';opacity:.75')+'"><div class="row">'+img(R.icon)+'<div><b>'+R.name+'</b> <span class="note">· '+FN[R.faction]+'</span>'+(mine?'':' <span class="pill p-wa">altra fazione</span>')+
+  (r.why&&r.why.length?'<ul>'+li(r.why)+'</ul>':'')+'<p class="note" style="margin:.3em 0 0"><b>Racial:</b> '+R.racials.map(function(x){return (PROFRE.test(x[0]+' '+x[2])?'⚒ ':'')+'<b>'+x[0]+'</b>'}).join(' · ')+'</p>'+
+  ((r.bestFor||[]).length?'<p class="note" style="margin:.2em 0 0"><b>Classi:</b> '+r.bestFor.filter(function(c){return D.classes[c]}).map(function(c){return D.classes[c].name}).join(', ')+'</p>':'')+'</div></div></div>'}).join('')+'</div>'}
 
 /* ---- sezioni fisse ---- */
 (function(){
