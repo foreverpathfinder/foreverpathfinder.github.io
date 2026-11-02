@@ -39,7 +39,7 @@ Guida leveling 1–30 per **WoW: Forever** (Classic+ di Blizzard, lancio 5 nov 2
 | `addon/ForeverPathfinder/` | `ForeverPathfinder.toc` (Interface 16001, `## Version`), `Core.lua` (a mano), `Data.lua` (generato) |
 | `ForeverPathfinder.zip`, `addon.html` | download dell'addon; pagina dell'addon scritta a mano (IT ed EN nella stessa pagina) |
 | `manifest.webmanifest`, `icon-*.png`, `index.html` | app sulla schermata Home (`node src/tools/icon.js .`); `index.html` rimanda alla pagina italiana |
-| `src/tools/` | `build`, `test`, `icons`, `addon`, `addon-test(.lua)`, `icon`, `wf`, `map`, `quests` |
+| `src/tools/` | `build`, `test`, `icons`, `addon`, `addon-test(.lua)`, `icon`, `logo`, `wf`, `map`, `quests` |
 
 Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren skyborne_h`. Rotte: `elwynn dunmorogh teldrassil zephras_a durotar mulgore tirisfal zephras_h`. Fazioni: `A`, `H`.
 
@@ -86,7 +86,7 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 
 ## Da fare (in ordine)
 1. **Dal 5 nov, addon nel gioco vero** (promemoria programmato il 5 nov alle 10): si carica? Screenshot di `/fp debug` subito e dopo un `/reload` risponde a quasi tutto. Interface e cartella AddOns di Forever (in beta `_classic_beta_`, 16001); token di `UnitRace` degli Skyborne (ipotesi: contiene «Skyborne»); talento indicato giusto; spunte dopo un riavvio (in beta le SavedVariables non venivano rilette). Correggere e alzare la versione.
-2. **Pubblicare l'addon** dopo la prova: CurseForge e Wago (account dell'utente). Tutto pronto in `addon/pubblicazione/README.md` (campi, riassunto, descrizione Markdown) e `logo-400.png` (`node src/tools/icon.js <cartella> 400`); licenza MIT in `addon/LICENSE`; mancano gli screenshot dal gioco, poi eventuale caricamento automatico da GitHub con token.
+2. **Pubblicare l'addon** dopo la prova: CurseForge e Wago (account dell'utente). Tutto pronto in `addon/pubblicazione/README.md` (campi, riassunto, descrizione Markdown) e `logo-400.png` (`node src/tools/logo.js addon/pubblicazione/logo-400.png`); licenza MIT in `addon/LICENSE`; mancano gli screenshot dal gioco, poi eventuale caricamento automatico da GitHub con token.
 3. **Guida fino al 60**: rotte e build da fonti reali sul gioco uscito, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
 4. **Ricontrollare sul gioco uscito**: dungeon (boss, quest, giudizi), classifica degli alt (le tier list erano sulla beta 1–30), Legacy.
 5. **Gold farming**: quando ci saranno testimonianze dal gioco.
