@@ -19,15 +19,25 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"')+'"';
       tasks.push([parseInt(t.querySelector('.lv').textContent.replace(/\D/g,''))||1,i+1,x.textContent.replace(/;\s*$/,'')])})});
     const tal=CL.build.map((k,i)=>{const t=TAL.trees.filter(x=>x[0]===k.split('/')[0])[0];return [i+10,TAL.n[k][0],t?t[1]:'']});
     out[r+'-'+c]={name:RA.name+' '+CL.name,build:CL.B?CL.B.name:CL.spec,ch,tasks,tal}}
-   return out});await p.close()}
+   // dungeon per fazione, come nella scheda Dungeon: livelli, giudizio, ingresso, quest (anche di classe)
+   const G=(D.dungeons||{}).dungeons||{},dg={};
+   for(const f of ['A','H'])dg[f]=D.factions[f].dungeons.filter(d=>d[1]<=MAXL+2).map(d=>{const x=G[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[f]||[],q=x.q||{},last=a=>a.filter(s=>typeof s==='string').pop()||'';
+    return [d[0].replace(/[★✔🟡]/g,'').trim(),d[1],d[2],v[0]||'',v[1]||'',v[2]||'',x.e||'',(q[f]||[]).concat(q.N||[]).map(y=>[y[0],last(y.slice(1))]),(q.C||[]).map(y=>[y[0],y[1],last(y.slice(2))])]});
+   out._dg=dg;return out});await p.close()}
  await b.close();
  let s='-- generato da src/tools/addon.js: non modificare a mano\nForeverPathfinderData = {\n';
  for(const l of ['it','en']){s+=' '+l+' = {\n';
-  for(const [k,v] of Object.entries(all[l]))s+='  ['+lua(k)+'] = { name = '+lua(v.name)+', build = '+lua(clean(v.build))+',\n   ch = { '+v.ch.map(x=>lua(clean(x))).join(', ')+' },\n   tasks = {\n'+
+  for(const [k,v] of Object.entries(all[l]))if(k!=='_dg')s+='  ['+lua(k)+'] = { name = '+lua(v.name)+', build = '+lua(clean(v.build))+',\n   ch = { '+v.ch.map(x=>lua(clean(x))).join(', ')+' },\n   tasks = {\n'+
    v.tasks.map(t=>'    { '+t[0]+', '+t[1]+', '+lua(clean(t[2]))+' },').join('\n')+'\n   },\n   tal = { '+v.tal.map(t=>'{ '+t[0]+', '+lua(t[1])+', '+lua(t[2])+' }').join(', ')+' },\n  },\n';
+  s+=' },\n'}
+ // dungeon: { nome, min, max, giudizio go/opt/skip, livello ideale, perché, ingresso, {quest, dove}, {quest di classe, classe, dove} }
+ const tx=x=>lua(clean(String(x).replace(/<[^>]+>/g,'')));
+ s+='}\nForeverPathfinderDungeons = {\n';
+ for(const l of ['it','en']){s+=' '+l+' = {\n';
+  for(const f of ['A','H'])s+='  '+f+' = {\n'+all[l]._dg[f].map(d=>'   { '+tx(d[0])+', '+d[1]+', '+d[2]+', '+lua(d[3])+', '+tx(d[4])+', '+tx(d[5])+', '+tx(d[6])+',\n    { '+d[7].map(q=>'{ '+tx(q[0])+', '+tx(q[1])+' }').join(', ')+' },\n    { '+d[8].map(q=>'{ '+tx(q[0])+', '+lua(q[1])+', '+tx(q[2])+' }').join(', ')+' } },').join('\n')+'\n  },\n';
   s+=' },\n'}
  fs.writeFileSync(path.join(OUT,'Data.lua'),s+'}\n');
  const zip=path.join(ROOT,'ForeverPathfinder.zip');if(fs.existsSync(zip))fs.unlinkSync(zip);
  // tar di Windows (non quello di Git, che non fa zip): percorsi con / (lo zip di PowerShell usa \ e su Mac si estrae male)
  execFileSync(path.join(process.env.SystemRoot,'System32/tar.exe'),['-a','-c','-f',zip,'-C',path.dirname(OUT),path.basename(OUT)]);
- console.log('Data.lua',(fs.statSync(path.join(OUT,'Data.lua')).size/1024).toFixed(0),'KB ·',Object.keys(all.it).length,'combinazioni · zip',(fs.statSync(zip).size/1024).toFixed(0),'KB')})();
+ console.log('Data.lua',(fs.statSync(path.join(OUT,'Data.lua')).size/1024).toFixed(0),'KB ·',Object.keys(all.it).filter(k=>k!=='_dg').length,'combinazioni · zip',(fs.statSync(zip).size/1024).toFixed(0),'KB')})();

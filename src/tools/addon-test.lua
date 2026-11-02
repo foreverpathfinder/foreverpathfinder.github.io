@@ -71,9 +71,17 @@ table.sort(keys)
 local prev, nextB = frames[3], frames[4]
 for _, k in ipairs(keys) do
   fp("set " .. k); LEVEL = 1; f.shown = false; fp("")
-  for _ = 1, 29 do nextB.scripts.OnClick() end
+  for _ = 1, 29 do nextB.scripts.OnClick(); fp("dungeon") end
   for _ = 1, 3 do prev.scripts.OnClick() end
 end
+-- 4b) ricerca e dungeon: lo Human Warrior trova i Deadmines nella guida, poi /fp dungeon elenca le loro quest
+local function said(s) for _, m in ipairs(chat) do if m:find(s, 1, true) then return true end end return false end
+fp("set human-warrior"); f.shown = false
+fp("cerca deadmines")
+check(f.shown and said("Deadmines"), "/fp cerca apre la finestra e scrive i risultati")
+fp("dungeon")
+check(said("Red Silk Bandanas") and said("The Defias Brotherhood"), "/fp dungeon elenca le quest dei Deadmines")
+local n0 = #chat; fp("find zzzzzz"); check(#chat == n0 + 1, "ricerca senza risultati: un solo messaggio")
 -- 5) razza sconosciuta: messaggio, poi /fp auto torna alla razza vera
 fp("set nessuna-razza")
 check(chat[#chat]:find("/fp set", 1, true) ~= nil, "messaggio per razza sconosciuta")
