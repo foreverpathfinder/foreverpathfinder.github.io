@@ -481,7 +481,7 @@ function lv1(s){var p=String(s).split(/[–-]/);return parseInt(p[1]||p[0])||MAX
 // wfcP = {cur, sure, list:[{n: nome scelto, s: {r,c,L,o,tab,done}}]}; il vecchio wfc (un solo personaggio) diventa il primo preset
 var SHARED=null,HOME=!/^#\w/.test(location.hash);
 var P=(function(){var p=null;try{p=JSON.parse(store('wfcP'))}catch(e){}
- if(!p||!p.list||!p.list.length){var s={};try{s=JSON.parse(store('wfc')||'{}')}catch(e){}p={cur:0,sure:!!s.sure,list:[{n:'',s:s}]}}
+ if(!p||!p.list||!p.list.length){var s={};try{s=JSON.parse(store('wfc')||'{}')}catch(e){}p={cur:0,sure:!!s.sure,in:!!s.r,list:[{n:'',s:s}]}}
  p.cur=Math.min(p.cur|0,p.list.length-1);var cur=p.list[p.cur].s,h=location.hash.match(/^#(\w+)-(\w+)$/);if(h){cur.r=h[1];cur.c=h[2]}
  // link da un altro dispositivo: #s=<base64 di {r,c,L,o,d,n}> → aggiorna il personaggio con la stessa razza e classe, altrimenti ne crea uno
  var m=location.hash.match(/^#s=([\w\-]+)/);if(m){try{var j=JSON.parse(decodeURIComponent(escape(atob(m[1].replace(/-/g,'+').replace(/_/g,'/'))))),i=-1;
@@ -491,6 +491,8 @@ var P=(function(){var p=null;try{p=JSON.parse(store('wfcP'))}catch(e){}
 function fix(s){if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
  s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.b=s.o.b||{};s.done=s.done||{};return s}
 var S=fix(P.list[P.cur].s);
+// P.in = è già entrato nella guida: riaprendo il link normale torna dritto al suo personaggio (⚙ Personaggi riapre la pagina iniziale)
+if(P.in)HOME=false;
 function ok(r,c){return D.races[r]&&D.races[r].classes.indexOf(c)>-1&&!!D.classes[c]}
 function save(){store('wfcP',JSON.stringify(P))}
 function setHash(){history.replaceState(null,'',HOME?location.pathname+location.search:'#'+S.r+'-'+S.c)}
@@ -879,7 +881,7 @@ document.addEventListener('click',function(e){var b=e.target.closest('.pre[data-
  if(b.dataset.pi==='new'){P.list.push({n:'',s:{}});usePreset(P.list.length-1);$('pg').scrollIntoView({behavior:'smooth'})}else if(+b.dataset.pi!==P.cur)usePreset(+b.dataset.pi)});
 $('pRen').onclick=function(){var p=P.list[P.cur],n=prompt('Nome del personaggio (vuoto = razza e classe)',p.n||'');if(n===null)return;p.n=n.trim().slice(0,30);save();drawPresets()};
 $('pDel').onclick=function(){if(P.list.length<2||!confirm('Eliminare “'+(P.list[P.cur].n||RA.name+' '+CL.name)+'” con livello e checklist?'))return;P.list.splice(P.cur,1);usePreset(Math.max(0,P.cur-1))};
-function goHome(on){HOME=on;document.body.classList.toggle('home',on);setHash();window.scrollTo(0,0);if(!on)showTab(S.tab||'livello')}
+function goHome(on){HOME=on;if(!on&&!P.in){P.in=1;save()}document.body.classList.toggle('home',on);setHash();window.scrollTo(0,0);if(!on)showTab(S.tab||'livello')}
 $('bWiz').onclick=function(){goHome(true)};
 $('lang').onclick=function(){store('wfcLang',this.hreflang);this.href=this.href.split('#')[0]+location.hash};
 $('bGo').onclick=function(){goHome(false)};
