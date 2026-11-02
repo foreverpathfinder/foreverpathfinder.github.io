@@ -5,7 +5,8 @@
   "Ogni giocatore deve prendere le quest per conto suo: molte non si possono condividere nel gruppo.",
   "I mostri dentro danno solo il 30–40% circa dell’XP del Classic originale: il guadagno vero sono le quest.",
   "Puoi entrare in al massimo 5 dungeon all’ora (anche resettando).",
-  "Il Group finder non ti teletrasporta: cerca il gruppo, poi raggiungete l’ingresso a piedi. Spunta <b>Show All Level Ranges</b> per vedere anche i gruppi poco sopra o sotto il tuo livello."
+  "Il Group finder non ti teletrasporta: cerca il gruppo, poi raggiungete l’ingresso a piedi. Spunta <b>Show All Level Ranges</b> per vedere anche i gruppi poco sopra o sotto il tuo livello.",
+  "Boss, quest e consigli vengono dalle guide sulla beta (Warcraft Tavern, Conquest Capped): li aggiorno con i dati del gioco dopo il lancio."
  ],
  "dungeons": {
   "ragefire chasm": {
@@ -56,7 +57,7 @@
     "<b>Oggleflint</b> arriva con 2 aiutanti: uccidete prima loro, poi il boss.",
     "<b>Taragaman the Hungerer</b> lancia in aria chi gli sta davanti (Uppercut): combattetelo lontano dalla lava, o chi cade muore.",
     "<b>Jergosh the Invoker</b> brucia il tank con Immolate: chi può interrompere lo blocca ogni volta.",
-    "<b>Bazzalan</b> avvelena il tank (Deadly Poison): Shaman o Druid tolgono il veleno, altrimenti il healer cura di più."
+    "<b>Bazzalan</b> avvelena il suo bersaglio (Deadly Poison): il healer lo toglie. Colpisce forte, il tank si avvicini con prudenza."
    ]
   },
   "hall of thanes": {
@@ -247,12 +248,12 @@
    ],
    "t": [
     "<b>Rhahk’zor</b> ha 2 guardie che sparano da lontano: uccidete prima loro.",
-    "<b>Sneed</b> (dentro la macchina Sneed’s Shredder) disarma il tank: il tank tenga l’attenzione con abilità che non richiedono l’arma (Taunt, urla, Thunder Clap).",
-    "<b>Mr. Smite</b> cambia arma due volte; con due armi colpisce fortissimo: il tank usi lì le abilità difensive.",
+    "<b>Sneed</b> (dentro la macchina Sneed’s Shredder) disarma il tank: il tank tenga l’attenzione con abilità che non richiedono l’arma. Uccidete prima i Goblin Woodcarver.",
+    "<b>Mr. Smite</b> ha 3 fasi; nella seconda combatte con due armi: il tank tenga lì le abilità difensive.",
     "<b>Edwin VanCleef</b>: uccidete prima Captain Greenskin sulla nave. A metà vita VanCleef chiama 2 aiutanti: finite il boss in fretta.",
     "<b>Gilnid</b>: uccidete prima i 2 aiutanti; la sua Molten Metal fa perdere attenzione al tank, che deve riprenderla.",
     "<b>Captain Greenskin</b> sta sulla nave con 2 pirati: è facile tirarlo per sbaglio, avvicinatevi solo quando siete pronti.",
-    "<b>Cookie</b> (facoltativo) è sul ponte inferiore della nave: interrompete quando si mette a cucinare, perché si cura."
+    "<b>Cookie</b> (facoltativo) è sulla nave: interrompete Cookie’s Cooking."
    ]
   },
   "wailing caverns": {
@@ -315,7 +316,7 @@
    ],
    "t": [
     "<b>Verdan the Everliving</b> blocca e stordisce chi gli sta entro 10 metri: chi può, attacchi da lontano.",
-    "<b>Mutanus the Devourer</b> appare dopo l’evento di Naralex: uccidete prima melme e serpenti, poi il boss; interrompete Naralex’s Nightmare (fa dormire).",
+    "<b>Mutanus the Devourer</b> esce dalla pozza: uccidete prima le 7 melme e i 3 serpenti, tenetelo lontano dal Disciple of Naralex e interrompete Naralex’s Nightmare.",
     "<b>Kresh</b>, la tartaruga nel ruscello, ha tanta armatura: gli incantesimi fanno più danno delle armi. Il tank la gira lontano dal gruppo.",
     "<b>Lady Anacondra</b> addormenta un giocatore (Sleep) e lancia fulmini: interrompetela.",
     "<b>Lord Cobrahn</b> addormenta un giocatore per 8 secondi; sotto metà vita diventa un serpente e avvelena.",
@@ -474,7 +475,7 @@
     "Aku'mai"
    ],
    "t": [
-    "<b>Twilight Lord Kelris</b> addormenta il tank: in quel momento il boss va su un altro giocatore. Il tank riprenda subito l’attenzione quando si sveglia.",
+    "<b>Twilight Lord Kelris</b> lancia Sleep e Mind Blast, che non si interrompono: se il tank viene addormentato, sia pronto a riprendere l’attenzione; toglietegli lo Sleep appena potete.",
     "<b>Aku’mai</b> ogni tanto attacca molto più veloce (Frenzied Rage): tenete stordimenti e CC per quel momento, e non state nella nube velenosa.",
     "<b>Ghamoo-ra</b>, la tartaruga, calpesta un giocatore a caso: il tank la tenga lontana dal gruppo.",
     "<b>Lady Sarevess</b> ha 2 guardie: mettetene una in CC e uccidete l’altra. Il suo fulmine si interrompe, ma poi congela chi è vicino: allargatevi.",
@@ -688,7 +689,7 @@
     "<b>Arcane Anomaly</b>: state vicini al boss, il suo raggio colpisce chi è lontano.",
     "<b>Arcanic Enigma</b>: uccidete prima i Mana Phantom; zittisce chi è vicino, ranged lontani.",
     "<b>Unstable Sentry</b> esplode intorno a sé (Malfunction): chi non fa il tank si allontana.",
-    "<b>Shade of the Archmage</b>: evitate le sfere che rimbalzano; quando finisce il mana trasforma tutti in pecora (Mass Polymorph), poi si ricarica: rompete la trasformazione e colpite forte."
+    "<b>Shade of the Archmage</b>: arena stretta, evitate Bounding Mana. Quando resta senza mana usa Mass Polymorph e poi Evocation: rompete la trasformazione per liberarvi."
    ]
   },
   "gnomeregan": {
@@ -770,7 +771,7 @@
    "t": [
     "<b>Electrocutioner 6000</b> lascia la Workshop Key: apre la porta sul retro, utile per rientrare più in fretta.",
     "<b>Crowd Pummeler 9-60</b> colpisce tutti quelli vicini: il tank con la schiena al muro, chi attacca da lontano resti lontano.",
-    "<b>Mekgineer Thermaplugg</b> scaraventa via il tank e azzera l’attenzione: il tank lo riprende subito (Taunt). Le bombe escono dai muri: chi è libero preme i pulsanti accanto per fermarle.",
+    "<b>Mekgineer Thermaplugg</b>: tank al centro della stanza. Knock Away azzera l’attenzione: il tank lo riprende subito. Le bombe aumentano a 50% e 20% di vita: chi attacca da lontano preme i pulsanti dei pilastri per fermarle.",
     "<b>Grubbis</b> ha il suo animale Chomper: uccidete prima Chomper, poi Grubbis.",
     "<b>Viscous Fallout</b> è semplice; non prende danni Frost."
    ]
