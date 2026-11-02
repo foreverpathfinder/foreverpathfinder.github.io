@@ -237,7 +237,7 @@ function renderClass(){
  document.title=RA.name+' '+CL.name+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
  $('hsub').innerHTML='Guida leveling 1–'+MAXL+' per WoW: Forever · '+FN[RA.faction]+' · <b>'+C.version+'</b> · '+C.updated;
  $('herobg').innerHTML=RT.hero.map(function(u){return '<img src="'+u+'" alt="">'}).join('');
- var vi=document.querySelector('.visits img');if(location.protocol==='https:')vi.src=vi.dataset.src;
+ var vi=document.querySelector('.visits img');vi.onerror=function(){vi.outerHTML='Contatore visite bloccato da un adblock: <a href="'+vi.dataset.src+'" target="_blank" rel="noopener">aprilo qui</a>'};if(!navigator.webdriver)vi.src=vi.dataset.src;
  $('foot').textContent='Guida personale · WoW: Forever Leveling Companion · '+C.version+' ('+C.updated+'). Non affiliata a Blizzard. Icone © Blizzard via Wowhead.';
  $('lvr').max=MAXL;$('tlsum').textContent='Tutto il percorso 1–'+MAXL+' in una riga temporale';
  WF.shown=null;wfFit();
