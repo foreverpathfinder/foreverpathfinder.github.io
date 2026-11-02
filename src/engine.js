@@ -95,9 +95,11 @@ function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]=
  msFor(l).forEach(function(m){t.push([m.t,msBtns(m)])});
  profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(near(D.map.prof[pkey(p)],s[2],s[3]),p+' Trainer')}).join('')])});
  if(l===10)t.push(['Le <b>Waylaid Crates</b> diventano utilizzabili (consegna: '+(FA.crates||'—')+')','']);
- if(S.o.dg)FA.dungeons.forEach(function(d){if(/non consigliat/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest. '+(d[4]||''),dgBtn(d[0])])});
+ if(S.o.dg)FA.dungeons.forEach(function(d){if(/non consigliat|not recommended/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest. '+(d[4]||''),dgBtn(d[0])])});
  return t}
-function taskRow(t,l,key){var id=hash(key+t[0]),on=!!S.done[CK][id];return '<label class="task'+(on?' ok':'')+'"><input type="checkbox" data-id="'+id+'"'+(on?' checked':'')+'><span class="lv">Liv. '+l+'</span><span class="tx">'+t[0]+(t[1]?'<br>'+t[1]:'')+'</span></label>'}
+// id della voce = capitolo + livello + posizione: uguale in tutte le lingue (i vecchi id, dal testo italiano, vengono convertiti)
+var SEQ={};
+function taskRow(t,l,key){var k=key+l,id=hash(k+':'+(SEQ[k]=(SEQ[k]||0)+1)),old=hash(key+t[0]),D0=S.done[CK];if(D0[old]&&old!==id){D0[id]=1;delete D0[old];save()}var on=!!D0[id];return '<label class="task'+(on?' ok':'')+'"><input type="checkbox" data-id="'+id+'"'+(on?' checked':'')+'><span class="lv">Liv. '+l+'</span><span class="tx">'+t[0]+(t[1]?'<br>'+t[1]:'')+'</span></label>'}
 document.addEventListener('change',function(e){var c=e.target;if(!c.dataset||!c.dataset.id)return;if(c.checked)S.done[CK][c.dataset.id]=1;else delete S.done[CK][c.dataset.id];save();c.parentNode.classList.toggle('ok',c.checked);progress()});
 
 /* ---- scelta del personaggio e opzioni ---- */
@@ -125,7 +127,7 @@ $('pg').addEventListener('click',function(e){if(e.target.closest('details.bwhy')
  setHash();renderAll()});
 
 /* ---- il tuo percorso: capitoli lineari con checklist ---- */
-function renderPath(){var h='';
+function renderPath(){var h='';SEQ={};
  RT.steps.forEach(function(s,i){var r=stepRange(i),rows='',key=i+':';
   if(PT&&PT.steps.indexOf(s)>-1&&PT.steps.indexOf(s)===0)rows+=taskRow(['<b>Prima di partire:</b><ul>'+li(PT.unlocks)+'</ul>'+(PT.quests.length?'<b>Quest:</b><ul>'+li(PT.quests.map(function(q){return '<i>'+q[0]+'</i> – '+q[1]+', '+q[2]+' (liv. '+q[3]+'): '+q[4]}))+'</ul>':''),''],r[0],key);
   if(s[7])rows+=taskRow(['✈ Prendi il Flight Path: <b>'+s[7]+'</b>',npcBtn(near(D.map.fp,s[2],s[3]),'Flight Master')],r[0],key);
@@ -262,7 +264,7 @@ var FEED={Mining:['Blacksmithing','Engineering'],Herbalism:['Alchemy'],Skinning:
 function altRule(P){var o=[];[0,1].forEach(function(i){P.forEach(function(p){var x=(FEED[p]||[])[i];if(x&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)})});['Enchanting','Tailoring','Herbalism','Skinning'].forEach(function(x){if(o.length<2&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)});return o.slice(0,2)}
 function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=function(x){return x.split(/\s*\+\s*/).map(function(y){return y.trim().toLowerCase()}).sort().join('+')};
  var m=P.length===2&&(A.complements||[]).filter(function(c){return k(c.main)===k(P.join('+'))})[0];
- $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>⚙ Personaggio e opzioni</b>: qui comparirà la coppia giusta per il tuo alt.';
+ $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>⚙ Personaggi</b>: qui comparirà la coppia giusta per il tuo alt.';
  var L=A.legacy||{},list=function(t,a,ol){return a&&a.length?'<div class="card"><h3>'+t+'</h3><'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'></div>':''};
  $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
   list('Il primo alt, passo per passo',A.firstAlt,1)+list('Livellare l’alt più in fretta',A.faster)+
@@ -418,6 +420,7 @@ $('pRen').onclick=function(){var p=P.list[P.cur],n=prompt('Nome del personaggio 
 $('pDel').onclick=function(){if(P.list.length<2||!confirm('Eliminare “'+(P.list[P.cur].n||RA.name+' '+CL.name)+'” con livello e checklist?'))return;P.list.splice(P.cur,1);usePreset(Math.max(0,P.cur-1))};
 function goHome(on){HOME=on;document.body.classList.toggle('home',on);setHash();window.scrollTo(0,0);if(!on)showTab(S.tab||'livello')}
 $('bWiz').onclick=function(){goHome(true)};
+$('lang').onclick=function(){store('wfcLang',this.hreflang);this.href=this.href.split('#')[0]+location.hash};
 $('bGo').onclick=function(){goHome(false)};
 // pro e contro di razza, classe e combinazione (racial e altRaces/altClasses della guida alt, build più votata)
 function pickInfo(){var A=D.alts||{},ar=(A.altRaces||[]).filter(function(x){return x.race===S.r})[0],ac=(A.altClasses||[]).filter(function(x){return x.class===S.c})[0],B=(D.classes[S.c].builds||[])[0]||{},
