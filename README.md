@@ -1,16 +1,17 @@
 # Forever Pathfinder
 
-*(prima: WoW Forever Leveling Companion)*
+Guida leveling 1–30 per **WoW: Forever**, per tutte le razze (Skyborne inclusi) e tutte le classi, in italiano e inglese.
 
-Guida leveling 1–30 per **WoW: Forever**, per tutte le razze (Skyborne inclusi) e tutte le classi: rotta per zona iniziale, talent per livello con il calcolatore di wowforever.be, rotation, spell, racial, mappa interattiva, bag, dungeon, Crates e Camping.
+**Usala qui:** https://foreverpathfinder.github.io/ · **Addon in gioco:** https://foreverpathfinder.github.io/addon.html
 
-**Usala qui:** https://foreverpathfinder.github.io/
+- Percorso per zona iniziale con checklist livello per livello e mappa interattiva del gioco.
+- Talent per livello con il calcolatore di wowforever.be, build a confronto, rotation, spell e racial.
+- Dungeon con giudizio per fazione, quest da prendere prima, boss e consigli.
+- Profession e guida agli alt, con i 3 alt più adatti al tuo main.
+- Più personaggi salvati, file di salvataggio, passaggio a un altro dispositivo, app sulla schermata Home.
 
-**Addon in gioco:** https://foreverpathfinder.github.io/addon.html (download, installazione, comandi)
+Build e percorsi vengono dalle guide più votate (preferiti Mobalytics, views YouTube) e dai dati del client (wowforever.be, Wowhead). Dati pre-lancio: verifica sempre i tooltip in gioco. Verrà aggiornata fino al 60 dopo il lancio.
 
-Spec e build scelte in base alle guide più votate (preferiti Mobalytics, views YouTube) e ai dati del client (wowforever.be, Wowhead). Dati pre-lancio: verifica sempre i tooltip in gioco. Verrà aggiornata fino al 60 con le guide del gioco uscito.
-
-- La pagina è un unico file generato: `WoW_Forever_Leveling_Companion.html` (riepilogo testuale in `WoW_Forever_Leveling_Companion.md`).
-- I dati stanno in `src/data/`; si rigenera con `node src/tools/build.js` (istruzioni in `src/AGGIORNARE.md`).
+Per lavorarci: i dati stanno in `src/data/`, le pagine si generano con `node src/tools/build.js`; istruzioni complete in `src/AGGIORNARE.md`.
 
 Progetto personale non affiliato a Blizzard Entertainment. World of Warcraft, icone e mappe © Blizzard Entertainment; tessere e dati mappa via Wowhead.
