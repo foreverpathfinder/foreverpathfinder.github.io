@@ -50,6 +50,14 @@ check(has(EXPECT_TASK), "voce " .. EXPECT_TASK)
 -- 2) level up con un punto talento libero
 FREE = 1; f.scripts.OnEvent(f, "PLAYER_LEVEL_UP", 10)
 check(has(EXPECT_TALENT), "talento " .. EXPECT_TALENT)
+-- nessuna voce ripetuta (il 10 è spesso fine di una tappa e inizio della successiva)
+local shown = {}
+for _, o in ipairs(frames) do
+  if rawget(o, "id") and o.shown then
+    local tx = rawget(o, "text") and o.text.text
+    check(not shown[tx], "voce ripetuta: " .. tostring(tx)); shown[tx] = true
+  end
+end
 -- 3) spunta di una voce: resta salvata
 local cb
 for _, o in ipairs(frames) do if rawget(o, "id") and o.shown then cb = o; break end end
