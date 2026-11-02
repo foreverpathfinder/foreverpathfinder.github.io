@@ -41,7 +41,7 @@ summary{cursor:pointer;padding:12px 0;font-weight:700}details[open]{padding-bott
 .wow{max-width:340px;margin:14px auto;background:rgba(8,18,31,.95);border:2px solid #5d5d5d;border-radius:6px;box-shadow:0 0 0 1px #000,0 8px 24px #000a;padding:10px 12px;font:12px/1.35 Arial,sans-serif;color:#fff}
 .wow .t{display:flex;justify-content:space-between;align-items:center;color:#ffd100;font-size:13px;font-weight:700}
 .wow .t span{display:flex;gap:4px}.wow .t i{font-style:normal;width:20px;height:18px;display:grid;place-items:center;background:#7a1010;border:1px solid #a33;border-radius:3px;color:#ffd100;font-size:11px}
-.wow .s{color:#fff;margin:6px 0 4px}.wow .tl{color:#ffd100;margin-bottom:6px}
+.wow .s{color:#fff;margin:6px 0 4px}.wow .tl{color:#ffd100;margin-bottom:3px}.wow .dl{color:#a9e4ff;margin-bottom:6px}
 .wow .r{display:flex;gap:7px;margin:5px 0}.wow .r b{flex:none;width:15px;height:15px;border:1px solid #888;border-radius:2px;background:#111;margin-top:1px}
 .wow .r b.on{background:#111 linear-gradient(45deg,transparent 40%,#ffd100 40% 55%,transparent 55%)}
 [data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en]{display:block}
@@ -57,8 +57,8 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <button class="lang" id="lang" type="button" aria-label="Lingua / Language"><svg id="flagEn" viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg><svg id="flagIt" viewBox="0 0 3 2" width="23" height="15" aria-hidden="true" style="display:none"><path fill="#009246" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#CE2B37" d="M2 0h1v2H2z"/></svg></button>
  <small>Forever Pathfinder</small>
  <h1><span data-l="it">Addon in gioco</span><span data-l="en">In-game addon</span></h1>
- <p data-l="it">La guida dentro WoW: Forever. Una finestra con le voci del tuo livello, la tappa e il prossimo talento da prendere. Gratis. <span class="pill">versione 0.1.1 · prova</span></p>
- <p data-l="en">The guide inside WoW: Forever. A window with the items for your level, your stage and the next talent to take. Free. <span class="pill">version 0.1.1 · test</span></p>
+ <p data-l="it">La guida dentro WoW: Forever. Una finestra con le voci del tuo livello, la tappa, il prossimo talento e i dungeon adatti. Gratis. <span class="pill">versione 0.2.0 · prova</span></p>
+ <p data-l="en">The guide inside WoW: Forever. A window with the items for your level, your stage, the next talent and the right dungeons. Free. <span class="pill">version 0.2.0 · test</span></p>
  <div class="btns"><a class="btn" href="ForeverPathfinder.zip" download><span data-l="it">⬇ Scarica l’addon (.zip, 200 KB)</span><span data-l="en">⬇ Download the addon (.zip, 200 KB)</span></a><a class="btn sec" href="./"><span data-l="it">Apri la guida sul sito</span><span data-l="en">Open the guide on the website</span></a></div>
 </header>
 
@@ -67,20 +67,23 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 <div data-l="it">
  <h2>Cosa fa</h2>
  <div class="wow" aria-label="Esempio della finestra in gioco">
-  <div class="t">Human Warrior · Liv. 10 <span><i>&lt;</i><i>&gt;</i><i>✕</i></span></div>
-  <div class="s">Tappa 5: Westfall 1<br>Build: Protection (scudo)</div>
-  <div class="tl">Talento da prendere ora: Shield Specialization (Protection)</div>
-  <div class="r"><b class="on"></b><span>Trainer: Bloodrage, Sunder Armor, Defensive Stance</span></div>
-  <div class="r"><b class="on"></b><span>Flight Path di Sentinel Hill (Thor, Westfall): sblocca Westfall e la strada verso Stormwind.</span></div>
-  <div class="r"><b></b><span>Le Waylaid Crates diventano utilizzabili (consegna: Marcy Baker, Three Corners (Redridge) /way 9.5 71.1)</span></div>
+  <div class="t">Human Warrior · Liv. 18 <span><i>&lt;</i><i>&gt;</i><i>✕</i></span></div>
+  <div class="s">Tappa 7: Deadmines e Redridge<br>Build: Protection (scudo)</div>
+  <div class="tl">Talento da prendere ora: Improved Thunder Clap (Protection)</div>
+  <div class="dl">Dungeon: Ruins of Lordaeron (facoltativo 17–19), The Deadmines (vai 18–22) · /fp dungeon per le quest</div>
+  <div class="r"><b class="on"></b><span>Prendi il Flight Path: Lakeshire</span></div>
+  <div class="r"><b class="on"></b><span>Trainer: Disarm</span></div>
+  <div class="r"><b></b><span>Messenger to Darkshire: Magistrate Solomon (Lakeshire) la dà, Lord Ello Ebonlocke (Darkshire) la chiude.</span></div>
  </div>
- <p class="note" style="text-align:center">Esempio con i dati veri dell’addon (Human Warrior al livello 10).</p>
+ <p class="note" style="text-align:center">Esempio con i dati veri dell’addon (Human Warrior al livello 18).</p>
  <div class="card">
   <ul>
    <li><b>Riconosce da solo</b> razza, classe e livello del personaggio.</li>
    <li>Mostra le <b>voci della guida per il tuo livello</b>: trainer, talenti, Flight Path, quest importanti, dungeon. Spunta quelle fatte: restano salvate per ogni personaggio.</li>
    <li>Ti dice la <b>tappa</b> del percorso e la <b>build</b> che stai seguendo.</li>
    <li><b>Talenti:</b> quando hai un punto libero ti dice quale talento prendere; altrimenti quale sarà il prossimo e a che livello.</li>
+   <li><b>Dungeon:</b> ti dice quali dungeon fare al tuo livello, con lo stesso giudizio del sito (vai o facoltativo). Con <kbd>/fp dungeon</kbd> scrive in chat ingresso e quest da prendere prima di entrare, anche quelle della tua classe.</li>
+   <li><b>Ricerca:</b> <kbd>/fp cerca parola</kbd> trova una quest, un NPC o un luogo in tutta la guida e apre la finestra al livello giusto.</li>
    <li>Quando sali di livello la finestra si aggiorna da sola; con <b>&lt; &gt;</b> guardi i livelli prima e dopo.</li>
    <li><b>Italiano</b> se il gioco è in italiano, altrimenti <b>inglese</b>.</li>
   </ul>
@@ -116,6 +119,8 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <tr><td><kbd>/fp set razza-classe</kbd></td><td>Sceglie a mano il percorso, se il riconoscimento automatico sbaglia. Esempio: <kbd>/fp set skyborne_h-druid</kbd>. Vale solo per quel personaggio.</td></tr>
    <tr><td><kbd>/fp auto</kbd></td><td>Torna al riconoscimento automatico di razza e classe.</td></tr>
    <tr><td><kbd>/fp list</kbd></td><td>Scrive in chat tutte le combinazioni razza-classe disponibili.</td></tr>
+   <tr><td><kbd>/fp dungeon</kbd></td><td>Scrive in chat i dungeon consigliati al livello mostrato: giudizio, ingresso e quest da prendere prima (anche di classe).</td></tr>
+   <tr><td><kbd>/fp cerca parola</kbd></td><td>Cerca in tutta la guida (es. <kbd>/fp cerca sentinel hill</kbd>): scrive le prime voci in chat e apre la finestra al livello della prima. Uguale: <kbd>/fp find</kbd>.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Riassunto dei comandi in chat.</td></tr>
   </table>
   <h3>Nella finestra</h3>
@@ -150,20 +155,23 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 <div data-l="en">
  <h2>What it does</h2>
  <div class="wow" aria-label="Example of the in-game window">
-  <div class="t">Human Warrior · Lvl 10 <span><i>&lt;</i><i>&gt;</i><i>✕</i></span></div>
-  <div class="s">Stage 5: Westfall 1<br>Build: Protection (shield)</div>
-  <div class="tl">Talent to take now: Shield Specialization (Protection)</div>
-  <div class="r"><b class="on"></b><span>Trainer: Bloodrage, Sunder Armor, Defensive Stance</span></div>
-  <div class="r"><b class="on"></b><span>Flight Path of Sentinel Hill (Thor, Westfall): unlocks Westfall and the road to Stormwind.</span></div>
-  <div class="r"><b></b><span>Waylaid Crates become usable (turn in: Marcy Baker, Three Corners (Redridge) /way 9.5 71.1)</span></div>
+  <div class="t">Human Warrior · Lvl 18 <span><i>&lt;</i><i>&gt;</i><i>✕</i></span></div>
+  <div class="s">Stage 7: Deadmines and Redridge<br>Build: Protection (shield)</div>
+  <div class="tl">Talent to take now: Improved Thunder Clap (Protection)</div>
+  <div class="dl">Dungeon: Ruins of Lordaeron (optional 17–19), The Deadmines (go 18–22) · /fp dungeon for the quests</div>
+  <div class="r"><b class="on"></b><span>Get the Flight Path: Lakeshire</span></div>
+  <div class="r"><b class="on"></b><span>Trainer: Disarm</span></div>
+  <div class="r"><b></b><span>Messenger to Darkshire: Magistrate Solomon (Lakeshire) gives it, Lord Ello Ebonlocke (Darkshire) closes it.</span></div>
  </div>
- <p class="note" style="text-align:center">Example with the addon’s real data (Human Warrior at level 10).</p>
+ <p class="note" style="text-align:center">Example with the addon’s real data (Human Warrior at level 18).</p>
  <div class="card">
   <ul>
    <li><b>Detects by itself</b> your character’s race, class and level.</li>
    <li>Shows the <b>guide items for your level</b>: trainers, talents, Flight Paths, key quests, dungeons. Tick the ones you have done: they are saved per character.</li>
    <li>Tells you your route <b>stage</b> and the <b>build</b> you are following.</li>
    <li><b>Talents:</b> when you have a free point it tells you which talent to take; otherwise which one comes next and at what level.</li>
+   <li><b>Dungeons:</b> it tells you which dungeons to run at your level, with the same verdict as the website (go or optional). With <kbd>/fp dungeon</kbd> it prints the entrance and the quests to pick up before going in, including your class ones.</li>
+   <li><b>Search:</b> <kbd>/fp find word</kbd> finds a quest, an NPC or a place in the whole guide and opens the window at the right level.</li>
    <li>When you level up the window updates by itself; with <b>&lt; &gt;</b> you look at the levels before and after.</li>
    <li><b>Italian</b> if your game is in Italian, <b>English</b> otherwise.</li>
   </ul>
@@ -199,6 +207,8 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <tr><td><kbd>/fp set race-class</kbd></td><td>Picks the route by hand, if the automatic detection is wrong. Example: <kbd>/fp set skyborne_h-druid</kbd>. Only for that character.</td></tr>
    <tr><td><kbd>/fp auto</kbd></td><td>Goes back to automatic race and class detection.</td></tr>
    <tr><td><kbd>/fp list</kbd></td><td>Prints every available race-class combination in chat.</td></tr>
+   <tr><td><kbd>/fp dungeon</kbd></td><td>Prints the recommended dungeons for the level shown: verdict, entrance and quests to pick up first (class ones too).</td></tr>
+   <tr><td><kbd>/fp find word</kbd></td><td>Searches the whole guide (e.g. <kbd>/fp find sentinel hill</kbd>): prints the first items in chat and opens the window at the level of the first one. Same: <kbd>/fp cerca</kbd>.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Command summary in chat.</td></tr>
   </table>
   <h3>In the window</h3>

@@ -1,8 +1,9 @@
 -- Forever Pathfinder: finestra con le voci della guida per il tuo livello e il prossimo talento.
--- Dati in Data.lua (generati da src/tools/addon.js dal sito). /fp apre e chiude.
+-- Dati in Data.lua (generati da src/tools/addon.js dal sito). /fp apre e chiude, /fp dungeon e /fp cerca scrivono in chat.
 local ADDON = ...
 local LANG = GetLocale() == "itIT" and "it" or "en"
 local D = ForeverPathfinderData[LANG] or ForeverPathfinderData.en
+local DG = ForeverPathfinderDungeons and (ForeverPathfinderDungeons[LANG] or ForeverPathfinderDungeons.en) or {}
 
 local T = ({
   it = {
@@ -10,7 +11,10 @@ local T = ({
     talentNow = "Talento da prendere ora: %s (%s)", talentNext = "Prossimo talento al liv. %d: %s (%s)", talentDone = "Talenti della guida completati.",
     none = "Nessuna voce a questo livello: prosegui con la tappa.",
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
-    help = "/fp apre o chiude · /fp set razza-classe · /fp auto · /fp list",
+    help = "/fp apre o chiude · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list",
+    dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo",
+    dgNone = "Nessun dungeon consigliato al liv. %d.", dgEntry = "Ingresso: %s", dgQuests = "Prima di entrare prendi:", dgClass = "(di classe)",
+    found = "Trovate %d voci per \"%s\":", notFound = "Nessuna voce della guida contiene \"%s\".", lv = "Liv.",
     loaded = "caricato: /fp per aprire la guida.",
   },
   en = {
@@ -18,7 +22,10 @@ local T = ({
     talentNow = "Talent to take now: %s (%s)", talentNext = "Next talent at lvl %d: %s (%s)", talentDone = "Guide talents done.",
     none = "Nothing at this level: keep going with the stage.",
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
-    help = "/fp opens or closes · /fp set race-class · /fp auto · /fp list",
+    help = "/fp opens or closes · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list",
+    dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional",
+    dgNone = "No recommended dungeon at lvl %d.", dgEntry = "Entrance: %s", dgQuests = "Before going in, pick up:", dgClass = "(class)",
+    found = "Found %d items for \"%s\":", notFound = "No guide item contains \"%s\".", lv = "Lvl",
     loaded = "loaded: /fp opens the guide.",
   },
 })[LANG]
@@ -40,6 +47,22 @@ local function charKey()
 end
 
 local function guide() local k = charKey(); return k and D[k], k end
+
+-- dungeon adatti al livello per la fazione del percorso (come nella scheda Dungeon: niente "salta"), nel livello ideale
+local ALLIANCE = { human = true, dwarf = true, gnome = true, nightelf = true, skyborne_a = true }
+local function dungeonsAt(k, lv)
+  local fac = ALLIANCE[(k or ""):match("^([^-]+)")] and "A" or "H"
+  local out = {}
+  for _, d in ipairs(DG[fac] or {}) do
+    -- livello ideale del giudizio ("18–22", "30+") se c'è, altrimenti tutto il range del dungeon
+    local lo, hi = d[5]:match("(%d+)%D+(%d+)")
+    if not lo then lo = d[5]:match("(%d+)%+"); hi = lo and d[3] end
+    lo, hi = tonumber(lo) or d[2] - 1, tonumber(hi) or d[3]
+    if d[4] ~= "skip" and lv >= lo and lv <= hi then out[#out + 1] = d end
+  end
+  return out
+end
+local function dgLabel(d) return d[1] .. " (" .. (T[d[4]] or "?") .. (d[5] ~= "" and " " .. d[5] or "") .. ")" end
 
 -- prossimo talento: i punti già spesi dicono a che punto dell'ordine della guida sei
 local function talentLine(g)
@@ -76,6 +99,8 @@ local sub = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 sub:SetPoint("TOPLEFT", 12, -30); sub:SetWidth(306); sub:SetJustifyH("LEFT")
 local tal = f:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 tal:SetWidth(306); tal:SetJustifyH("LEFT")
+local dgl = f:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+dgl:SetWidth(306); dgl:SetJustifyH("LEFT"); dgl:SetTextColor(0.66, 0.89, 1)
 local rows = {}
 
 local function row(i)
@@ -93,7 +118,7 @@ local function refresh()
   local g, k = guide()
   for _, r in ipairs(rows) do r:Hide(); r.text:Hide() end
   if not g then
-    title:SetText("Forever Pathfinder"); sub:SetText(T.unknown); tal:SetText("")
+    title:SetText("Forever Pathfinder"); sub:SetText(T.unknown); tal:SetText(""); dgl:SetText("")
     tal:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -6); f:SetHeight(48 + sub:GetStringHeight()); return
   end
   local ch = 1
@@ -102,8 +127,12 @@ local function refresh()
   sub:SetText(T.stage:format(ch, ((g.ch[ch] or ""):gsub("^%d+%.%s*", ""))) .. "\n" .. T.build:format(g.build))
   tal:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -6)
   tal:SetText(talentLine(g))
+  local ds, names = dungeonsAt(k, view), {}
+  for _, d in ipairs(ds) do names[#names + 1] = dgLabel(d) end
+  dgl:SetPoint("TOPLEFT", tal, "BOTTOMLEFT", 0, -4)
+  dgl:SetText(#ds > 0 and T.dungeon:format(table.concat(names, ", ")) or "")
   -- un livello a cavallo di due tappe compare in entrambe: ogni voce una volta sola
-  local y, n, seen = -(36 + sub:GetStringHeight() + 8 + tal:GetStringHeight() + 8), 0, {}
+  local y, n, seen = -(36 + sub:GetStringHeight() + 8 + tal:GetStringHeight() + (#ds > 0 and dgl:GetStringHeight() + 4 or 0) + 8), 0, {}
   for i, t in ipairs(g.tasks) do
     if t[1] == view and not seen[t[3]] then
       seen[t[3]] = true
@@ -156,8 +185,36 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     C.key = nil
   elseif cmd == "list" then
     local keys = {}
-    for key in pairs(D) do keys[#keys + 1] = key end
+    for key in pairs(D) do keys[#keys + 1] = key end -- solo le combinazioni razza-classe
     table.sort(keys); say(table.concat(keys, ", ")); return
+  elseif cmd == "dungeon" or cmd == "dungeons" or cmd == "dg" then
+    -- in chat: per ogni dungeon del livello mostrato (o di quello attuale) giudizio, ingresso, quest da prendere prima
+    local g, k = guide()
+    if not g then say(T.unknown); return end
+    local lv = f:IsShown() and view or UnitLevel("player")
+    local ds = dungeonsAt(k, lv)
+    if #ds == 0 then say(T.dgNone:format(lv)); return end
+    local cls = k:match("-(%a+)$")
+    for _, d in ipairs(ds) do
+      say("|cffa9e4ff" .. dgLabel(d) .. "|r " .. d[6])
+      if d[7] ~= "" then DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dgEntry:format(d[7])) end
+      DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dgQuests)
+      for _, q in ipairs(d[8]) do DEFAULT_CHAT_FRAME:AddMessage("   - |cffffd100" .. q[1] .. "|r: " .. q[2]) end
+      for _, q in ipairs(d[9]) do if q[2] == cls then DEFAULT_CHAT_FRAME:AddMessage("   - |cffffd100" .. q[1] .. "|r " .. T.dgClass .. ": " .. q[3]) end end
+    end
+    return
+  elseif cmd == "cerca" or cmd == "find" or cmd == "search" then
+    -- cerca il testo in tutte le voci della guida: le prime 8 in chat, la finestra si apre al livello della prima
+    local g = guide()
+    if not g then say(T.unknown); return end
+    local hits, seen = {}, {}
+    for _, t in ipairs(g.tasks) do
+      if arg ~= "" and not seen[t[3]] and t[3]:lower():find(arg, 1, true) then seen[t[3]] = true; hits[#hits + 1] = t end
+    end
+    if #hits == 0 then say(T.notFound:format(arg)); return end
+    say(T.found:format(#hits, arg))
+    for i = 1, math.min(8, #hits) do DEFAULT_CHAT_FRAME:AddMessage("  |cffffd100" .. T.lv .. " " .. hits[i][1] .. "|r " .. hits[i][3]:sub(1, 140)) end
+    view = hits[1][1]; f:Show(); refresh(); return
   elseif cmd == "help" or cmd == "?" then
     say(T.help); return
   elseif f:IsShown() then

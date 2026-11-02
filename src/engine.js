@@ -99,7 +99,8 @@ function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]=
  msFor(l).forEach(function(m){t.push([m.t,msBtns(m)])});
  profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(near(D.map.prof[pkey(p)],s[2],s[3]),p+' Trainer')}).join('')])});
  if(l===10)t.push(['Le <b>Waylaid Crates</b> diventano utilizzabili (consegna: '+(FA.crates||'—')+')','']);
- if(S.o.dg)FA.dungeons.forEach(function(d){if(/non consigliat|not recommended/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest. '+(d[4]||''),dgBtn(d[0])])});
+ // dungeon nella checklist: stesso giudizio della scheda Dungeon (niente "salta"), con il suo perché al posto delle note interne
+ if(S.o.dg)FA.dungeons.forEach(function(d){var x=((D.dungeons||{}).dungeons||{})[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[RA.faction];if(v?v[0]==='skip':/non consigliat|not recommended/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest.'+(v&&v[2]?' '+v[2]:''),dgBtn(d[0])])});
  return t}
 // id della voce = capitolo + livello + posizione: uguale in tutte le lingue (i vecchi id, dal testo italiano, vengono convertiti)
 var SEQ={};

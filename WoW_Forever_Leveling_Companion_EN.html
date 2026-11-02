@@ -323,7 +323,7 @@ footer{padding-bottom:76px}
  </div>
  <div class="save card" id="addon">
   <h3>🧩 In-game addon <span class="pill p-wa">test</span></h3>
-  <p class="note">The same guide inside WoW: a window with the items for your level, your stage and the next talent to take. It detects your race, class and level by itself; Italian if your game is in Italian, English otherwise.</p>
+  <p class="note">The same guide inside WoW: a window with the items for your level, your stage, the next talent and the right dungeons, plus search with /fp find. It detects your race, class and level by itself; Italian if your game is in Italian, English otherwise.</p>
   <div class="btns" style="margin:0"><a class="btn pr" href="ForeverPathfinder.zip" download>⬇ Download the addon (.zip)</a><a class="btn" href="addon.html">📖 Addon guide and commands</a></div>
   <details><summary>How to install it</summary>
    <p>1. Extract the zip: you get the <b>ForeverPathfinder</b> folder.</p>
@@ -634,7 +634,8 @@ function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]=
  msFor(l).forEach(function(m){t.push([m.t,msBtns(m)])});
  profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(near(D.map.prof[pkey(p)],s[2],s[3]),p+' Trainer')}).join('')])});
  if(l===10)t.push(['<b>Waylaid Crates</b> become usable (turn in: '+(FA.crates||'—')+')','']);
- if(S.o.dg)FA.dungeons.forEach(function(d){if(/non consigliat|not recommended/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): go in once, with all the quests. '+(d[4]||''),dgBtn(d[0])])});
+ // dungeon nella checklist: stesso giudizio della scheda Dungeon (niente "salta"), con il suo perché al posto delle note interne
+ if(S.o.dg)FA.dungeons.forEach(function(d){var x=((D.dungeons||{}).dungeons||{})[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[RA.faction];if(v?v[0]==='skip':/non consigliat|not recommended/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): go in once, with all the quests.'+(v&&v[2]?' '+v[2]:''),dgBtn(d[0])])});
  return t}
 // id della voce = capitolo + livello + posizione: uguale in tutte le lingue (i vecchi id, dal testo italiano, vengono convertiti)
 var SEQ={};
