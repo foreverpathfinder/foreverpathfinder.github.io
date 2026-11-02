@@ -1,10 +1,12 @@
 ## Interface: 16001
 ## Title: Forever Pathfinder
-## Notes: Leveling checklist and talent order for WoW: Forever, from foreverpathfinder.github.io (Italiano / English)
-## Notes-itIT: Checklist di leveling e ordine dei talenti per WoW: Forever, da foreverpathfinder.github.io
+## Notes: The leveling guide of foreverpathfinder.github.io inside WoW: Forever: route checklist, talents, class, professions, dungeons (Italiano / English)
+## Notes-itIT: La guida di leveling di foreverpathfinder.github.io dentro WoW: Forever: checklist del percorso, talenti, classe, profession, dungeon
 ## Author: Forever Pathfinder
-## Version: 0.2.1
+## Version: 1.0.0
 ## X-Website: https://foreverpathfinder.github.io/addon.html
+## IconTexture: Interface\AddOns\ForeverPathfinder\icon
+## SavedVariables: ForeverPathfinderDB
 ## SavedVariablesPerCharacter: ForeverPathfinderChar
 
 Data.lua

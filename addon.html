@@ -36,14 +36,8 @@ td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--bd);vertical
 td:first-child{white-space:nowrap}
 details{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);margin:10px 0;padding:0 14px}
 summary{cursor:pointer;padding:12px 0;font-weight:700}details[open]{padding-bottom:12px}
+.shot{display:block;width:100%;max-width:680px;height:auto;margin:14px auto;border-radius:6px;box-shadow:0 8px 24px #000a}
 .keys{display:flex;flex-wrap:wrap;gap:6px}.keys code{font-size:.8rem}
-/* anteprima della finestra in gioco */
-.wow{max-width:340px;margin:14px auto;background:rgba(8,18,31,.95);border:2px solid #5d5d5d;border-radius:6px;box-shadow:0 0 0 1px #000,0 8px 24px #000a;padding:10px 12px;font:12px/1.35 Arial,sans-serif;color:#fff}
-.wow .t{display:flex;justify-content:space-between;align-items:center;color:#ffd100;font-size:13px;font-weight:700}
-.wow .t span{display:flex;gap:4px}.wow .t i{font-style:normal;width:20px;height:18px;display:grid;place-items:center;background:#7a1010;border:1px solid #a33;border-radius:3px;color:#ffd100;font-size:11px}
-.wow .s{color:#fff;margin:6px 0 4px}.wow .tl{color:#ffd100;margin-bottom:3px}.wow .dl{color:#a9e4ff;margin-bottom:6px}
-.wow .r{display:flex;gap:7px;margin:5px 0}.wow .r b{flex:none;width:15px;height:15px;border:1px solid #888;border-radius:2px;background:#111;margin-top:1px}
-.wow .r b.on{background:#111 linear-gradient(45deg,transparent 40%,#ffd100 40% 55%,transparent 55%)}
 [data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en]{display:block}
 html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 .totop{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card2);color:var(--gold);border:1px solid var(--gold);box-shadow:0 6px 18px #000a;cursor:pointer;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}.totop.on{opacity:1;transform:none;pointer-events:auto}
@@ -57,45 +51,38 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <button class="lang" id="lang" type="button" aria-label="Lingua / Language"><svg id="flagEn" viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg><svg id="flagIt" viewBox="0 0 3 2" width="23" height="15" aria-hidden="true" style="display:none"><path fill="#009246" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#CE2B37" d="M2 0h1v2H2z"/></svg></button>
  <small>Forever Pathfinder</small>
  <h1><span data-l="it">Addon in gioco</span><span data-l="en">In-game addon</span></h1>
- <p data-l="it">Porta la guida dentro il gioco: una piccola finestra ti dice cosa fare al tuo livello (trainer, quest, Flight Path), quale talento prendere e quali dungeon fare. GRATIS. <span class="pill">versione 0.2.1 · prova</span></p>
- <p data-l="en">Brings the guide into the game: a small window tells you what to do at your level (trainers, quests, Flight Paths), which talent to take and which dungeons to run. Free. <span class="pill">version 0.2.1 · test</span></p>
- <div class="btns"><a class="btn" href="ForeverPathfinder.zip" download><span data-l="it">⬇ Scarica l’addon (.zip, 200 KB)</span><span data-l="en">⬇ Download the addon (.zip, 200 KB)</span></a><a class="btn sec" href="./"><span data-l="it">Apri la guida sul sito</span><span data-l="en">Open the guide on the website</span></a></div>
+ <p data-l="it">Porta la guida dentro il gioco: tutte le schede del sito in una finestra, con i segnaposti sulla mappa, le quest che si spuntano da sole, il talento da prendere evidenziato e gli spell da comprare al trainer. GRATIS. <span class="pill">versione 1.0.0 · prova</span></p>
+ <p data-l="en">Brings the guide into the game: every tab of the website in one window, with waypoints on the map, quests that tick themselves, the talent to take highlighted and the spells to buy at the trainer. Free. <span class="pill">version 1.0.0 · test</span></p>
+ <div class="btns"><a class="btn" href="ForeverPathfinder.zip" download><span data-l="it">⬇ Scarica l’addon (.zip, 770 KB)</span><span data-l="en">⬇ Download the addon (.zip, 770 KB)</span></a><a class="btn sec" href="./"><span data-l="it">Apri la guida sul sito</span><span data-l="en">Open the guide on the website</span></a></div>
 </header>
 
 <main>
 <!-- ================= ITALIANO ================= -->
 <div data-l="it">
  <h2>Cosa fa</h2>
- <div class="wow" aria-label="Esempio della finestra in gioco">
-  <div class="t">Human Warrior · Liv. 18 <span><i>&lt;</i><i>&gt;</i><i>✕</i></span></div>
-  <div class="s">Tappa 7: Deadmines e Redridge<br>Build: Protection (scudo)</div>
-  <div class="tl">Talento da prendere ora: Improved Thunder Clap (Protection)</div>
-  <div class="dl">Dungeon: Ruins of Lordaeron (facoltativo 17–19), The Deadmines (vai 18–22) · /fp dungeon per le quest</div>
-  <div class="r"><b class="on"></b><span>Prendi il Flight Path: Lakeshire</span></div>
-  <div class="r"><b class="on"></b><span>Trainer: Disarm</span></div>
-  <div class="r"><b></b><span>Messenger to Darkshire: Magistrate Solomon (Lakeshire) la dà, Lord Ello Ebonlocke (Darkshire) la chiude.</span></div>
- </div>
- <p class="note" style="text-align:center">Esempio con i dati veri dell’addon (Human Warrior al livello 18).</p>
+ <img class="shot" src="addon/pubblicazione/anteprima-it.png" width="680" height="500" alt="La finestra di Forever Pathfinder in gioco: Human Warrior al livello 18, scheda Percorso" loading="lazy">
+ <p class="note" style="text-align:center">Anteprima ricostruita dal codice e dai dati veri dell’addon (Human Warrior al livello 18). Nel gioco caratteri, colori e icone sono gli stessi.</p>
  <div class="card">
   <ul>
-   <li><b>Riconosce da solo</b> razza, classe e livello del personaggio.</li>
-   <li>Mostra le <b>voci della guida per il tuo livello</b>: trainer, talenti, Flight Path, quest importanti, dungeon. Spunta quelle fatte: restano salvate per ogni personaggio.</li>
-   <li>Ti dice la <b>tappa</b> del percorso e la <b>build</b> che stai seguendo.</li>
-   <li><b>Talenti:</b> quando hai un punto libero ti dice quale talento prendere; altrimenti quale sarà il prossimo e a che livello.</li>
-   <li><b>Dungeon:</b> ti dice quali dungeon fare al tuo livello, con lo stesso giudizio del sito (vai o facoltativo). Con <kbd>/fp dungeon</kbd> scrive in chat ingresso e quest da prendere prima di entrare, anche quelle della tua classe.</li>
-   <li><b>Ricerca:</b> <kbd>/fp cerca parola</kbd> trova una quest, un NPC o un luogo in tutta la guida e apre la finestra al livello giusto.</li>
-   <li>Quando sali di livello la finestra si aggiorna da sola; con <b>&lt; &gt;</b> guardi i livelli prima e dopo.</li>
+   <li><b>Icona sulla minimappa</b>, come gli altri addon: clic apre la guida, clic destro le opzioni, si trascina lungo il bordo.</li>
+   <li><b>Tutte le schede del sito</b> nella stessa finestra e con lo stesso aspetto: Percorso, Talent, Classe, Profession, Dungeon, Alt, Altro, Info. Riconosce da solo razza, classe e livello.</li>
+   <li><b>Percorso:</b> una tappa alla volta, con le voci per livello da spuntare (restano salvate per ogni personaggio), il talento da prendere e i dungeon adatti al tuo livello.</li>
+   <li><b>Mappa e minimappa:</b> aprendo la mappa del mondo vedi i segnaposti della tappa; il pulsante con la mappa accanto a una voce mette il segnaposto anche sulla minimappa e scrive in chat zona e coordinate.</li>
+   <li><b>Quest:</b> accanto alle voci vedi «nel registro» o «da consegnare»; quando consegni la quest la voce si spunta da sola.</li>
+   <li><b>Talenti:</b> nella finestra dei talenti del gioco il talento da prendere ha un bordo luminoso.</li>
+   <li><b>Trainer:</b> appena lo apri, scrive in chat gli spell della guida da comprare e li segna nell’elenco.</li>
+   <li><b>Opzioni</b> nel gioco: build, dungeon sì o no, cambio di continente, icona e ogni collegamento col gioco da accendere o spegnere.</li>
    <li><b>Italiano</b> se il gioco è in italiano, altrimenti <b>inglese</b>.</li>
   </ul>
-  <p class="note">Usa lo stesso percorso del sito con le opzioni di base: zona iniziale della tua razza senza cambio di continente, dungeon con le quest, build A della classe. Per mappa, coordinate cliccabili e le altre build tieni aperto il sito sul telefono.</p>
+  <p class="note">Quest, talenti e spell si riconoscono dal nome inglese: questi collegamenti funzionano con il gioco in inglese. Per la mappa interattiva e i calcolatori tieni aperto il sito sul telefono.</p>
  </div>
 
  <h2>Installazione</h2>
  <ol class="steps">
-  <li><b>Scarica</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> ed <b>estrailo</b> (tasto destro → Estrai tutto). Ottieni la cartella <code>ForeverPathfinder</code> con dentro 3 file: <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>.</li>
-  <li><b>Trova la cartella del gioco.</b> Nell’app Battle.net seleziona WoW: Forever, tocca l’ingranaggio ⚙ accanto a «Gioca» → <b>Mostra in Esplora risorse</b> (su Mac: Mostra nel Finder). Di solito è dentro <code>C:\Program Files (x86)\World of Warcraft\</code>, in una sottocartella che inizia con il trattino basso (nella beta era <code>_classic_beta_</code>).</li>
+  <li><b>Scarica</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> ed <b>estrailo</b> (tasto destro → Estrai tutto). Ottieni la cartella <code>ForeverPathfinder</code> con dentro <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>, <code>icon.tga</code> e la cartella <code>Fonts</code>.</li>
+  <li><b>Trova la cartella del gioco.</b> Nell’app Battle.net seleziona WoW: Forever, tocca l’ingranaggio ⚙ accanto a «Gioca» → <b>Mostra in Esplora risorse</b> (su Mac: Mostra nel Finder). Di solito è <code>C:\Program Files (x86)\World of Warcraft\_forever_\</code>.</li>
   <li><b>Copia la cartella</b> <code>ForeverPathfinder</code> dentro <code>Interface\AddOns</code> di quella sottocartella. Se <code>Interface</code> o <code>AddOns</code> non esistono, creale tu. Alla fine deve esserci:
-   <pre>…\World of Warcraft\_cartella_di_Forever_\Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</pre>
+   <pre>…\World of Warcraft\_forever_\Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</pre>
    Attento a non avere una cartella dentro l’altra (<code>ForeverPathfinder\ForeverPathfinder\…</code>): succede spesso estraendo lo zip.</li>
   <li><b>Avvia il gioco</b> (se era aperto, chiudilo e riaprilo del tutto). Nella schermata dei personaggi tocca <b>AddOns</b> in basso a sinistra e controlla che <b>Forever Pathfinder</b> sia spuntato. Se risulta «non aggiornato», spunta <b>Carica AddOn non aggiornati</b> in alto.</li>
  </ol>
@@ -103,11 +90,11 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <h2>Primo avvio e setup</h2>
  <div class="card">
   <ol class="steps">
-   <li>Entra con il personaggio: in chat compare <i>«Forever Pathfinder caricato: /fp per aprire la guida.»</i></li>
-   <li>Scrivi <kbd>/fp</kbd> e premi Invio: si apre la finestra. <b>Trascinala</b> con il tasto sinistro dove non ti dà fastidio (di solito a destra, sotto il tracker delle quest): il gioco ricorda la posizione.</li>
-   <li>Controlla il titolo: deve dire la tua razza, classe e livello. Se c’è scritto «Razza o classe non riconosciute», impostale a mano con <kbd>/fp set razza-classe</kbd> (vedi sotto).</li>
-   <li>Mentre giochi, <b>spunta</b> le voci fatte. Quando hai un punto talento, la riga gialla ti dice quale prendere.</li>
-   <li>Per chiuderla scrivi di nuovo <kbd>/fp</kbd> o tocca la ✕.</li>
+   <li>Entra con il personaggio: in chat compare <i>«Forever Pathfinder caricato: clic sull’icona della minimappa o /fp per aprire la guida.»</i></li>
+   <li><b>Clic sull’icona</b> sul bordo della minimappa (o scrivi <kbd>/fp</kbd>): si apre la guida sul Percorso, alla tappa del tuo livello. <b>Trascinala</b> dove non ti dà fastidio.</li>
+   <li>Controlla la testata: deve dire la tua razza, classe e livello. Se c’è scritto «Razza o classe non riconosciute», impostale a mano con <kbd>/fp set razza-classe</kbd> (vedi sotto).</li>
+   <li>Apri <b>Opzioni</b> (o clic destro sull’icona) e scegli build, dungeon e cambio di continente come sul sito.</li>
+   <li>Mentre giochi, <b>spunta</b> le voci fatte; le quest consegnate si spuntano da sole. Per chiudere: <b>×</b>, <kbd>Esc</kbd> o di nuovo l’icona.</li>
   </ol>
  </div>
 
@@ -115,21 +102,24 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <div class="card" style="overflow-x:auto">
   <table>
    <tr><th>Comando</th><th>Cosa fa</th></tr>
-   <tr><td><kbd>/fp</kbd></td><td>Apre o chiude la finestra, al tuo livello attuale. Uguale: <kbd>/pathfinder</kbd>.</td></tr>
+   <tr><td><kbd>/fp</kbd></td><td>Apre o chiude la guida, come il clic sull’icona della minimappa. Uguale: <kbd>/pathfinder</kbd>.</td></tr>
+   <tr><td><kbd>/fp opzioni</kbd></td><td>Apre le Opzioni. Uguale: <kbd>/fp options</kbd>.</td></tr>
    <tr><td><kbd>/fp set razza-classe</kbd></td><td>Sceglie a mano il percorso, se il riconoscimento automatico sbaglia. Esempio: <kbd>/fp set skyborne_h-druid</kbd>. Vale solo per quel personaggio.</td></tr>
    <tr><td><kbd>/fp auto</kbd></td><td>Torna al riconoscimento automatico di razza e classe.</td></tr>
    <tr><td><kbd>/fp list</kbd></td><td>Scrive in chat tutte le combinazioni razza-classe disponibili.</td></tr>
-   <tr><td><kbd>/fp dungeon</kbd></td><td>Scrive in chat i dungeon consigliati al livello mostrato: giudizio, ingresso e quest da prendere prima (anche di classe).</td></tr>
-   <tr><td><kbd>/fp cerca parola</kbd></td><td>Cerca in tutta la guida (es. <kbd>/fp cerca sentinel hill</kbd>): scrive le prime voci in chat e apre la finestra al livello della prima. Uguale: <kbd>/fp find</kbd>.</td></tr>
-   <tr><td><kbd>/fp debug</kbd></td><td>Scrive in chat versione, razza e classe come le vede il gioco, guida riconosciuta, talenti e salvataggi. Se qualcosa non va, mandaci uno screenshot di queste righe dal link in fondo alla pagina.</td></tr>
+   <tr><td><kbd>/fp dungeon</kbd></td><td>Scrive in chat i dungeon consigliati al tuo livello: giudizio, ingresso e quest da prendere prima (anche di classe).</td></tr>
+   <tr><td><kbd>/fp cerca parola</kbd></td><td>Cerca in tutta la guida (es. <kbd>/fp cerca sentinel hill</kbd>): scrive le prime voci in chat e apre il Percorso sulla tappa della prima. Uguale: <kbd>/fp find</kbd>.</td></tr>
+   <tr><td><kbd>/fp debug</kbd></td><td>Scrive in chat versione, razza e classe come le vede il gioco, guida riconosciuta, talenti, salvataggi e collegamenti col gioco (continenti, segnaposto, finestra dei talenti, quest nel registro). Se qualcosa non va, mandaci uno screenshot di queste righe dal link in fondo alla pagina.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Riassunto dei comandi in chat.</td></tr>
   </table>
   <h3>Nella finestra</h3>
   <table>
-   <tr><td><b>&lt; &gt;</b></td><td>Livello precedente / successivo (per vedere cosa ti aspetta).</td></tr>
+   <tr><td><b>Schede</b></td><td>In alto, come sul sito: Percorso, Talent, Classe, Profession, Dungeon, Alt, Altro, Info, Opzioni.</td></tr>
+   <tr><td><b>&lt; &gt;</b></td><td>Nel Percorso: tappa precedente / successiva.</td></tr>
    <tr><td><b>Casella</b></td><td>Spunta la voce come fatta; resta salvata per quel personaggio.</td></tr>
-   <tr><td><b>✕</b></td><td>Chiude la finestra (si riapre con <kbd>/fp</kbd>).</td></tr>
-   <tr><td><b>Trascina</b></td><td>Sposta la finestra; non può uscire dallo schermo.</td></tr>
+   <tr><td><b>Mappa</b></td><td>Il pulsante a destra di una voce: segnaposto su mappa e minimappa, zona e coordinate in chat.</td></tr>
+   <tr><td><b>×</b> o <kbd>Esc</kbd></td><td>Chiude la finestra.</td></tr>
+   <tr><td><b>Rotella</b></td><td>Scorre la scheda.</td></tr>
   </table>
  </div>
  <details><summary>Combinazioni per /fp set</summary>
@@ -141,7 +131,8 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <details><summary>Non compare nella lista degli AddOns</summary><p>La cartella è nel posto sbagliato o è doppia. Deve esserci il file <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> dentro la cartella di <b>Forever</b> (non di Retail o Classic Era). Poi chiudi e riapri il gioco del tutto.</p></details>
  <details><summary>Risulta «non aggiornato» (out of date)</summary><p>Nella schermata AddOns spunta <b>Carica AddOn non aggiornati</b>. Succede quando Blizzard aggiorna il gioco prima di noi; pubblicheremo una versione aggiornata.</p></details>
  <details><summary>«Razza o classe non riconosciute»</summary><p>Capita soprattutto con gli Skyborne, il cui nome interno lo vedremo solo al lancio. Usa <kbd>/fp set</kbd> con la tua combinazione (es. <kbd>/fp set skyborne_a-mage</kbd>) e segnalacelo con uno screenshot di <kbd>/fp debug</kbd>.</p></details>
- <details><summary>Il talento indicato non è quello che ho preso</summary><p>L’addon segue l’ordine della build A del sito e conta i punti già spesi. Se hai messo punti altrove, da lì in poi i consigli scorrono di conseguenza: conta il numero di punti, non quali hai preso. Per un’altra build usa il sito.</p></details>
+ <details><summary>Il talento indicato non è quello che ho preso</summary><p>L’addon segue l’ordine della build scelta nelle Opzioni e conta i punti già spesi. Se hai messo punti altrove, da lì in poi i consigli scorrono di conseguenza: conta il numero di punti, non quali hai preso. Per un’altra build cambiala nelle Opzioni.</p></details>
+ <details><summary>Segnaposti, quest, talenti o trainer non funzionano</summary><p>Si riconoscono dal nome inglese di quest, talenti e spell: servono il gioco in inglese e il collegamento acceso nelle Opzioni. Se ancora non va, mandaci uno screenshot di <kbd>/fp debug</kbd>: l’ultima riga dice cosa vede l’addon.</p></details>
  <details><summary>Le spunte spariscono dopo il riavvio</summary><p>Nella beta di Forever c’era un bug: il gioco non rileggeva i dati salvati degli addon. Dovrebbe essere risolto al lancio; se succede ancora, segnalacelo: in <kbd>/fp debug</kbd> «caricamenti 1» anche dopo un <kbd>/reload</kbd> lo conferma.</p></details>
 
  <h2>Aggiornare e disinstallare</h2>
@@ -155,36 +146,29 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 <!-- ================= ENGLISH ================= -->
 <div data-l="en">
  <h2>What it does</h2>
- <div class="wow" aria-label="Example of the in-game window">
-  <div class="t">Human Warrior · Lvl 18 <span><i>&lt;</i><i>&gt;</i><i>✕</i></span></div>
-  <div class="s">Stage 7: Deadmines and Redridge<br>Build: Protection (shield)</div>
-  <div class="tl">Talent to take now: Improved Thunder Clap (Protection)</div>
-  <div class="dl">Dungeon: Ruins of Lordaeron (optional 17–19), The Deadmines (go 18–22) · /fp dungeon for the quests</div>
-  <div class="r"><b class="on"></b><span>Get the Flight Path: Lakeshire</span></div>
-  <div class="r"><b class="on"></b><span>Trainer: Disarm</span></div>
-  <div class="r"><b></b><span>Messenger to Darkshire: Magistrate Solomon (Lakeshire) gives it, Lord Ello Ebonlocke (Darkshire) closes it.</span></div>
- </div>
- <p class="note" style="text-align:center">Example with the addon’s real data (Human Warrior at level 18).</p>
+ <img class="shot" src="addon/pubblicazione/anteprima-en.png" width="680" height="500" alt="The Forever Pathfinder window in game: Human Warrior at level 18, Route tab" loading="lazy">
+ <p class="note" style="text-align:center">Preview rebuilt from the addon’s real code and data (Human Warrior at level 18). In game the fonts, colors and icons are the same.</p>
  <div class="card">
   <ul>
-   <li><b>Detects by itself</b> your character’s race, class and level.</li>
-   <li>Shows the <b>guide items for your level</b>: trainers, talents, Flight Paths, key quests, dungeons. Tick the ones you have done: they are saved per character.</li>
-   <li>Tells you your route <b>stage</b> and the <b>build</b> you are following.</li>
-   <li><b>Talents:</b> when you have a free point it tells you which talent to take; otherwise which one comes next and at what level.</li>
-   <li><b>Dungeons:</b> it tells you which dungeons to run at your level, with the same verdict as the website (go or optional). With <kbd>/fp dungeon</kbd> it prints the entrance and the quests to pick up before going in, including your class ones.</li>
-   <li><b>Search:</b> <kbd>/fp find word</kbd> finds a quest, an NPC or a place in the whole guide and opens the window at the right level.</li>
-   <li>When you level up the window updates by itself; with <b>&lt; &gt;</b> you look at the levels before and after.</li>
+   <li><b>Minimap icon</b>, like other addons: click opens the guide, right click the options, drag it along the edge.</li>
+   <li><b>Every tab of the website</b> in the same window and with the same look: Route, Talents, Class, Professions, Dungeon, Alts, More, Info. It detects race, class and level by itself.</li>
+   <li><b>Route:</b> one stage at a time, with the items per level to tick (saved per character), the talent to take and the dungeons for your level.</li>
+   <li><b>Map and minimap:</b> open the world map to see the stage waypoints; the map button next to an item puts the waypoint on the minimap too and prints zone and coordinates in chat.</li>
+   <li><b>Quests:</b> next to the items you see “in your log” or “ready to turn in”; when you turn in the quest the item ticks itself.</li>
+   <li><b>Talents:</b> in the game’s talent window the talent to take has a glowing border.</li>
+   <li><b>Trainer:</b> as soon as you open it, it prints in chat the guide spells to buy and marks them in the list.</li>
+   <li><b>Options</b> in game: build, dungeons on or off, continent switch, icon and every game link to turn on or off.</li>
    <li><b>Italian</b> if your game is in Italian, <b>English</b> otherwise.</li>
   </ul>
-  <p class="note">It uses the same route as the website with the basic options: your race’s starting zone without switching continent, dungeons with their quests, the class’s build A. For the map, clickable coordinates and the other builds, keep the website open on your phone.</p>
+  <p class="note">Quests, talents and spells are recognized by their English name: these links work with the game in English. For the interactive map and the calculators keep the website open on your phone.</p>
  </div>
 
  <h2>Installation</h2>
  <ol class="steps">
-  <li><b>Download</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> and <b>extract it</b> (right click → Extract All). You get the <code>ForeverPathfinder</code> folder with 3 files inside: <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>.</li>
-  <li><b>Find the game folder.</b> In the Battle.net app select WoW: Forever, click the ⚙ gear next to “Play” → <b>Show in Explorer</b> (on Mac: Show in Finder). It is usually inside <code>C:\Program Files (x86)\World of Warcraft\</code>, in a subfolder starting with an underscore (in the beta it was <code>_classic_beta_</code>).</li>
+  <li><b>Download</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> and <b>extract it</b> (right click → Extract All). You get the <code>ForeverPathfinder</code> folder with <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>, <code>icon.tga</code> and the <code>Fonts</code> folder inside.</li>
+  <li><b>Find the game folder.</b> In the Battle.net app select WoW: Forever, click the ⚙ gear next to “Play” → <b>Show in Explorer</b> (on Mac: Show in Finder). It is usually <code>C:\Program Files (x86)\World of Warcraft\_forever_\</code>.</li>
   <li><b>Copy the</b> <code>ForeverPathfinder</code> <b>folder</b> into <code>Interface\AddOns</code> of that subfolder. If <code>Interface</code> or <code>AddOns</code> do not exist, create them. In the end you must have:
-   <pre>…\World of Warcraft\_Forever_folder_\Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</pre>
+   <pre>…\World of Warcraft\_forever_\Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</pre>
    Make sure you do not end up with a folder inside another (<code>ForeverPathfinder\ForeverPathfinder\…</code>): it often happens when extracting the zip.</li>
   <li><b>Start the game</b> (if it was open, close it completely and reopen it). On the character screen click <b>AddOns</b> at the bottom left and check that <b>Forever Pathfinder</b> is ticked. If it shows as “out of date”, tick <b>Load out of date AddOns</b> at the top.</li>
  </ol>
@@ -192,11 +176,11 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <h2>First start and setup</h2>
  <div class="card">
   <ol class="steps">
-   <li>Log in with your character: the chat shows <i>“Forever Pathfinder loaded: /fp opens the guide.”</i></li>
-   <li>Type <kbd>/fp</kbd> and press Enter: the window opens. <b>Drag it</b> with the left mouse button where it does not get in the way (usually on the right, below the quest tracker): the game remembers the position.</li>
-   <li>Check the title: it must show your race, class and level. If it says “Race or class not recognized”, set them by hand with <kbd>/fp set race-class</kbd> (see below).</li>
-   <li>While you play, <b>tick</b> the items you have done. When you have a talent point, the yellow line tells you which one to take.</li>
-   <li>To close it type <kbd>/fp</kbd> again or click the ✕.</li>
+   <li>Log in with your character: the chat shows <i>“Forever Pathfinder loaded: click the minimap icon or type /fp to open the guide.”</i></li>
+   <li><b>Click the icon</b> on the edge of the minimap (or type <kbd>/fp</kbd>): the guide opens on the Route, at the stage of your level. <b>Drag it</b> where it does not get in the way.</li>
+   <li>Check the header: it must show your race, class and level. If it says “Race or class not recognized”, set them by hand with <kbd>/fp set race-class</kbd> (see below).</li>
+   <li>Open <b>Options</b> (or right click the icon) and pick build, dungeons and continent switch as on the website.</li>
+   <li>While you play, <b>tick</b> the items you have done; turned-in quests tick themselves. To close: <b>×</b>, <kbd>Esc</kbd> or the icon again.</li>
   </ol>
  </div>
 
@@ -204,21 +188,24 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <div class="card" style="overflow-x:auto">
   <table>
    <tr><th>Command</th><th>What it does</th></tr>
-   <tr><td><kbd>/fp</kbd></td><td>Opens or closes the window, at your current level. Same: <kbd>/pathfinder</kbd>.</td></tr>
+   <tr><td><kbd>/fp</kbd></td><td>Opens or closes the guide, like clicking the minimap icon. Same: <kbd>/pathfinder</kbd>.</td></tr>
+   <tr><td><kbd>/fp options</kbd></td><td>Opens the Options. Same: <kbd>/fp opzioni</kbd>.</td></tr>
    <tr><td><kbd>/fp set race-class</kbd></td><td>Picks the route by hand, if the automatic detection is wrong. Example: <kbd>/fp set skyborne_h-druid</kbd>. Only for that character.</td></tr>
    <tr><td><kbd>/fp auto</kbd></td><td>Goes back to automatic race and class detection.</td></tr>
    <tr><td><kbd>/fp list</kbd></td><td>Prints every available race-class combination in chat.</td></tr>
-   <tr><td><kbd>/fp dungeon</kbd></td><td>Prints the recommended dungeons for the level shown: verdict, entrance and quests to pick up first (class ones too).</td></tr>
-   <tr><td><kbd>/fp find word</kbd></td><td>Searches the whole guide (e.g. <kbd>/fp find sentinel hill</kbd>): prints the first items in chat and opens the window at the level of the first one. Same: <kbd>/fp cerca</kbd>.</td></tr>
-   <tr><td><kbd>/fp debug</kbd></td><td>Prints version, race and class as the game sees them, detected guide, talents and saved data. If something is wrong, send us a screenshot of these lines from the link at the bottom of the page.</td></tr>
+   <tr><td><kbd>/fp dungeon</kbd></td><td>Prints the recommended dungeons for your level: verdict, entrance and quests to pick up first (class ones too).</td></tr>
+   <tr><td><kbd>/fp find word</kbd></td><td>Searches the whole guide (e.g. <kbd>/fp find sentinel hill</kbd>): prints the first items in chat and opens the Route at the stage of the first one. Same: <kbd>/fp cerca</kbd>.</td></tr>
+   <tr><td><kbd>/fp debug</kbd></td><td>Prints version, race and class as the game sees them, detected guide, talents, saved data and game links (continents, waypoint, talent window, quests in the log). If something is wrong, send us a screenshot of these lines from the link at the bottom of the page.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Command summary in chat.</td></tr>
   </table>
   <h3>In the window</h3>
   <table>
-   <tr><td><b>&lt; &gt;</b></td><td>Previous / next level (to see what is coming).</td></tr>
+   <tr><td><b>Tabs</b></td><td>At the top, as on the website: Route, Talents, Class, Professions, Dungeon, Alts, More, Info, Options.</td></tr>
+   <tr><td><b>&lt; &gt;</b></td><td>In the Route: previous / next stage.</td></tr>
    <tr><td><b>Checkbox</b></td><td>Marks the item as done; saved for that character.</td></tr>
-   <tr><td><b>✕</b></td><td>Closes the window (reopen it with <kbd>/fp</kbd>).</td></tr>
-   <tr><td><b>Drag</b></td><td>Moves the window; it cannot leave the screen.</td></tr>
+   <tr><td><b>Map</b></td><td>The button on the right of an item: waypoint on map and minimap, zone and coordinates in chat.</td></tr>
+   <tr><td><b>×</b> or <kbd>Esc</kbd></td><td>Closes the window.</td></tr>
+   <tr><td><b>Mouse wheel</b></td><td>Scrolls the tab.</td></tr>
   </table>
  </div>
  <details><summary>Combinations for /fp set</summary>
@@ -230,7 +217,8 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <details><summary>It does not appear in the AddOns list</summary><p>The folder is in the wrong place or doubled. You must have the file <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> inside the <b>Forever</b> folder (not Retail or Classic Era). Then close and reopen the game completely.</p></details>
  <details><summary>It shows as “out of date”</summary><p>On the AddOns screen tick <b>Load out of date AddOns</b>. It happens when Blizzard updates the game before we do; we will publish an updated version.</p></details>
  <details><summary>“Race or class not recognized”</summary><p>It happens mostly with Skyborne, whose internal name we will only see at launch. Use <kbd>/fp set</kbd> with your combination (e.g. <kbd>/fp set skyborne_a-mage</kbd>) and let us know with a screenshot of <kbd>/fp debug</kbd>.</p></details>
- <details><summary>The suggested talent is not the one I took</summary><p>The addon follows the website’s build A order and counts the points you have spent. If you put points elsewhere, the suggestions move on accordingly: it counts how many points, not which ones. For another build use the website.</p></details>
+ <details><summary>The suggested talent is not the one I took</summary><p>The addon follows the order of the build picked in the Options and counts the points you have spent. If you put points elsewhere, the suggestions move on accordingly: it counts how many points, not which ones. For another build change it in the Options.</p></details>
+ <details><summary>Waypoints, quests, talents or trainer do not work</summary><p>They are recognized by the English name of quests, talents and spells: you need the game in English and the link turned on in the Options. If it still does not work, send us a screenshot of <kbd>/fp debug</kbd>: the last line says what the addon sees.</p></details>
  <details><summary>Ticks disappear after a restart</summary><p>The Forever beta had a bug: the game did not read addons’ saved data back. It should be fixed at launch; if it still happens, let us know: in <kbd>/fp debug</kbd>, “loads 1” even after a <kbd>/reload</kbd> confirms it.</p></details>
 
  <h2>Updating and uninstalling</h2>

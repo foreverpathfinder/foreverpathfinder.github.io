@@ -1,4 +1,4 @@
-# Forever Pathfinder — tutto quello che serve per lavorarci (aggiornato 2 nov 2026, sito v10, addon 0.2.1)
+# Forever Pathfinder — tutto quello che serve per lavorarci (aggiornato 2 nov 2026, sito v10, addon 1.0.0)
 
 Guida leveling 1–30 per **WoW: Forever** (Classic+ di Blizzard, lancio 5 nov 2026 a mezzanotte ora italiana), tutte le 10 razze e 9 classi, in italiano e inglese, più un addon in gioco. Pagina unica statica generata da dati JSON, ottimizzata per telefono (si usa accanto al PC mentre si gioca).
 
@@ -36,10 +36,10 @@ Guida leveling 1–30 per **WoW: Forever** (Classic+ di Blizzard, lancio 5 nov 2
 | `src/template.html`, `style.css`, `engine.js` | struttura, stile (colori come variabili in `:root`), motore (nessun dato di gioco) |
 | `src/i18n/en.json` | inglese dei **dati**: `{"italiano esatto": "inglese"}`; stessi tag HTML, simboli ✔ 🟡 ★, numeri; i nomi di gioco restano in inglese (stringhe già inglesi = identiche) |
 | `src/i18n/en-ui.json` | inglese di **template ed engine**: coppie `["italiano", "inglese"]` sostituite come sottostringhe (le più lunghe prima). Ogni testo nuovo nell'interfaccia = nuova coppia; se cambi un testo, aggiorna la coppia |
-| `addon/ForeverPathfinder/` | `ForeverPathfinder.toc` (Interface 16001, `## Version`), `Core.lua` (a mano), `Data.lua` (generato) |
+| `addon/ForeverPathfinder/` | `ForeverPathfinder.toc` (Interface 16001, `## Version`), `Core.lua` (a mano), `Data.lua` (generato), `icon.tga` (generato), `Fonts/` (Cinzel, Inter, licenze OFL) |
 | `ForeverPathfinder.zip`, `addon.html` | download dell'addon; pagina dell'addon scritta a mano (IT ed EN nella stessa pagina) |
 | `manifest.webmanifest`, `icon-*.png`, `index.html` | app sulla schermata Home (`node src/tools/icon.js .`); `index.html` rimanda alla pagina italiana |
-| `src/tools/` | `build`, `test`, `icons`, `addon`, `addon-test(.lua)`, `icon`, `logo`, `wf`, `map`, `quests` |
+| `src/tools/` | `build`, `test`, `icons`, `addon`, `addon-test(.lua)`, `addon-preview(.lua)`, `icon`, `logo`, `wf`, `map`, `quests` |
 
 Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren skyborne_h`. Rotte: `elwynn dunmorogh teldrassil zephras_a durotar mulgore tirisfal zephras_h`. Fazioni: `A`, `H`.
 
@@ -60,11 +60,15 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - **Telefono e accessibilità**: tutto ciò che si tocca è ≥ 44px sotto 520px; schede con ruoli tab/tabpanel e frecce; `RM`/`SM` = meno animazioni se richiesto dal sistema; freccia `#totop`; icone `loading="lazy"`.
 - **Soldi**: ☕ PayPal (`#bPay`, paypal.me/staliot); contatore hits.sh in fondo a Info (non caricato nei test automatici).
 
-## Addon (0.2.1, mai provato nel gioco vero)
-- Finestra spostabile: titolo razza-classe e livello, tappa, build, talento da prendere (punti spesi da `GetTalentTabInfo`, liberi da `UnitCharacterPoints`), riga dei dungeon adatti (livello ideale del giudizio, fazione dalla razza, niente «salta»), voci del livello spuntabili (salvate in `ForeverPathfinderChar`), frecce < >.
-- Comandi: `/fp` (apre/chiude), `/fp dungeon`, `/fp cerca|find parola`, `/fp set razza-classe`, `/fp auto`, `/fp list`, `/fp debug` (versione, Interface, token di `UnitRace`/`UnitClass`, guida riconosciuta, talenti per albero, `C.loads` = caricamenti dei salvataggi: se resta 1 dopo un `/reload` non vengono riletti), `/fp help`. Italiano se `GetLocale()=="itIT"`, altrimenti inglese.
-- Dati: `src/tools/addon.js` apre le pagine generate (file://) e legge checklist, talenti e dungeon dal motore stesso (opzioni di base: niente cambio continente, dungeon sì, build A). Testi ripuliti per i font di WoW (niente emoji, → diventa ->).
-- Prova: `addon-test.js` carica `Data.lua` + `Core.lua` in un WoW finto (`addon-test.lua`) con **fengari** (Lua in JS). Già installato in `%LOCALAPPDATA%/fp-lua` (se manca: `npm i --prefix "$LOCALAPPDATA/fp-lua" fengari`); lancio: `FENGARI="$LOCALAPPDATA/fp-lua/node_modules/fengari" node src/tools/addon-test.js`.
+## Addon (1.0.0, mai provato nel gioco vero)
+- Client dell'utente: `C:\Program Files (x86)\World of Warcraft\_forever_\` (versione 1.60.1.70707 → Interface 16001, testo enUS), `Interface\AddOns` vuota. Le icone si usano per nome (`Interface\Icons\<nome>`, gli stessi nomi delle immagini zamimg del sito): mai copiare file di Blizzard nello zip.
+- **Icona sulla minimappa** (clic guida, clic destro Opzioni, si trascina: angolo in `ForeverPathfinderDB`) → **finestra 680×500 con l'aspetto del sito**: colori di `style.css`, Cinzel/Inter in `Fonts/` (OFL), card, schede a pillola in alto, rotella + barra sottile, Esc chiude.
+- **Schede**: Percorso (tappa con < >, build, talento, dungeon; voci per livello con casella, icona, stato della quest, pulsante del segnaposto) · Talent, Classe, Profession, Dungeon, Alt, Altro, Info (righe del sito: "1/2/3" titoli, "0" paragrafi, `{…}` oro, `^icona,icona^` davanti) · Opzioni (build, dungeon, cambio continente, icona, 4 collegamenti; per personaggio in `C.opt`, `no<nome>` = spento).
+- **Collegamenti col gioco**: segnaposti della tappa sulla mappa del mondo (canvas di `WorldMapFrame`); segnaposto di una voce → `C_Map.SetUserWaypoint` se possibile, altrimenti punto nostro sulla minimappa (minimappa non ruotata); quest nel registro (`GetQuestLogTitle`) e spunta alla consegna (`QUEST_TURNED_IN`, titoli in `C.turned`); bordo sul talento da prendere (`TalentFrame`/`PlayerTalentFrame`); trainer: spell della guida in chat e segnati (`ClassTrainerSkill%d`). Tutto per **nome inglese** (gioco in inglese). Continenti: k 1414, e 1415, z = l'altro sotto 947/946 (da verificare in gioco).
+- Comandi: `/fp`, `/fp opzioni|options`, `/fp dungeon`, `/fp cerca|find parola`, `/fp set razza-classe`, `/fp auto`, `/fp list`, `/fp debug` (6 righe: versioni, token razza/classe, guida, talenti, salvataggi `C.loads`, collegamenti), `/fp help`.
+- **Dati** (`src/tools/addon.js`, ~1 min): per ogni razza-classe e ogni variante delle opzioni (build × dungeon × continente = 524) apre la pagina generata e legge checklist, talenti e le 7 schede dal DOM (via calcolatore dei talent, pulsanti, mappe, "Tocca…", titoli vuoti). Tabelle in `Data.lua`: `ForeverPathfinderData` (varianti con numeri), `Pool` (testi unici), `Pages` (pagine/tappe/checklist come liste di numeri), `Links` (per voce: segnaposti `{continente, x, y, nome}` dalla tela del sito e quest in grassetto che esistono in `quests.txt`), `Dungeons`.
+- **Prove**: `addon-test.js` (Data.lua + Core.lua in un WoW finto con fengari, comprese mappa, quest, talenti, trainer) → «tutte le prove ok». Anteprime fedeli: `node src/tools/addon-preview.js itIT|enUS [scheda|tutte] [cartella]` (WoW finto con geometria in `addon-preview.lua`, misure dei testi dal browser con gli stessi caratteri, disegno in HTML; senza scheda tutte e 9 in griglia).
+- Logo e icona: `node src/tools/logo.js addon/pubblicazione/logo-400.png addon/ForeverPathfinder/icon.tga`. Anteprime della pagina: `addon/pubblicazione/anteprima-it.png` e `-en.png`.
 - Versione: cambiala in `.toc` e in `addon.html` (due pill «versione»); i comandi nuovi vanno anche nelle tabelle di `addon.html` (IT ed EN).
 
 ## Regole dell'utente
@@ -85,7 +89,7 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - GitHub ogni tanto risponde 500 al push: riprova.
 
 ## Da fare (in ordine)
-1. **Dal 5 nov, addon nel gioco vero** (promemoria programmato il 5 nov alle 10): si carica? Screenshot di `/fp debug` subito e dopo un `/reload` risponde a quasi tutto. Interface e cartella AddOns di Forever (in beta `_classic_beta_`, 16001); token di `UnitRace` degli Skyborne (ipotesi: contiene «Skyborne»); talento indicato giusto; spunte dopo un riavvio (in beta le SavedVariables non venivano rilette). Correggere e alzare la versione.
+1. **Dal 5 nov, addon 1.0 nel gioco vero** (promemoria programmato il 5 nov alle 10): si carica? Screenshot di `/fp debug` subito e dopo un `/reload` risponde a quasi tutto; poi provare icona, schede, caratteri, segnaposti (mappa del mondo e minimappa, id di Zephras), quest (consegna), finestra dei talenti, trainer. Interface e cartella AddOns di Forever (in beta `_classic_beta_`, 16001); token di `UnitRace` degli Skyborne (ipotesi: contiene «Skyborne»); talento indicato giusto; spunte dopo un riavvio (in beta le SavedVariables non venivano rilette). Correggere e alzare la versione.
 2. **Pubblicare l'addon** dopo la prova: CurseForge e Wago (account dell'utente). Tutto pronto in `addon/pubblicazione/README.md` (campi, riassunto, descrizione Markdown) e `logo-400.png` (`node src/tools/logo.js addon/pubblicazione/logo-400.png`); licenza MIT in `addon/LICENSE`; mancano gli screenshot dal gioco, poi eventuale caricamento automatico da GitHub con token.
 3. **Guida fino al 60**: rotte e build da fonti reali sul gioco uscito, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
 4. **Ricontrollare sul gioco uscito**: dungeon (boss, quest, giudizi), classifica degli alt (le tier list erano sulla beta 1–30), Legacy.

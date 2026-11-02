@@ -13,10 +13,10 @@ Materiale pronto da copiare. Prima della pubblicazione: prova nel gioco vero (`/
 | Sito / sorgenti | https://foreverpathfinder.github.io/addon.html · https://github.com/foreverpathfinder/foreverpathfinder.github.io |
 | Segnalazioni | https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues |
 | File | `ForeverPathfinder.zip`, tipo di rilascio **Beta** finché non è provato da più persone |
-| Screenshot | dal gioco vero: finestra aperta, `/fp dungeon`, `/fp cerca` (da fare dal 5 nov) |
+| Screenshot | dal gioco vero: finestra (Percorso e una scheda), segnaposti sulla mappa, finestra dei talenti, trainer (da fare dal 5 nov); intanto `anteprima-en.png` |
 
 ## Riassunto (CurseForge «Summary», Wago «Short description»)
-Leveling checklist, next talent and dungeons for your level in WoW: Forever. English and Italian.
+The whole leveling guide in game: route checklist, talents, class, dungeons, waypoints and quests that tick themselves. EN / IT.
 
 ## Descrizione (Markdown)
 
@@ -24,33 +24,35 @@ Leveling checklist, next talent and dungeons for your level in WoW: Forever. Eng
 **Forever Pathfinder** is the in-game companion of the free leveling guide at [foreverpathfinder.github.io](https://foreverpathfinder.github.io/), made for **WoW: Forever**: every race (Skyborne included) and every class.
 
 ### What it does
-- Detects your race, class and level by itself.
-- Shows the guide items for your level: trainers, talents, Flight Paths, key quests, dungeons. Tick them as you go: they are saved per character.
-- Tells you your route stage and the build you are following.
-- **Talents**: with a free point it tells you which talent to take; otherwise which one comes next and at what level.
-- **Dungeons**: which ones to run at your level (go or optional). `/fp dungeon` prints the entrance and the quests to pick up first, class quests included.
-- **Search**: `/fp find word` finds a quest, an NPC or a place in the whole guide.
-- Updates when you level up; `<` `>` show the levels before and after.
-- Italian if your game is in Italian, English otherwise.
+- **Minimap icon**: click opens the guide, right click the options.
+- **Every tab of the website** in one window with the same look: Route, Talents, Class, Professions, Dungeon, Alts, More, Info.
+- **Route**: one stage at a time, items per level to tick (saved per character), the talent to take and the dungeons for your level.
+- **Map and minimap**: stage waypoints on the world map; one click on an item puts its waypoint on the minimap too.
+- **Quests**: see which ones are in your log or ready to turn in; items tick themselves when you turn in the quest.
+- **Talents**: the talent to take glows in the game's talent window.
+- **Trainer**: prints and marks the guide spells to buy.
+- **Options** in game: build, dungeons, continent switch, and every game link on or off.
+- Italian if your game is in Italian, English otherwise. Quests, talents and spells are matched by English name.
 
 ### Commands
 | Command | What it does |
 |---|---|
-| `/fp` | Opens or closes the window (also `/pathfinder`) |
+| `/fp` | Opens or closes the guide (also `/pathfinder` or the minimap icon) |
+| `/fp options` | Opens the Options |
 | `/fp dungeon` | Recommended dungeons and their quests in chat |
 | `/fp find word` | Searches the whole guide |
 | `/fp set race-class` | Picks the route by hand (e.g. `/fp set skyborne_h-druid`) |
 | `/fp auto` | Back to automatic detection |
 | `/fp list` | Every race-class combination |
-| `/fp debug` | Version, race and class as the game sees them, talents, saved data |
+| `/fp debug` | Version, race and class as the game sees them, talents, saved data, game links |
 
-For the map, clickable coordinates and the other builds, keep the website open on your phone.
+For the interactive map and the calculators, keep the website open on your phone.
 
 Found a bug? [Open an issue](https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues) with a screenshot of `/fp debug`.
 
 ---
 
-**Italiano** — Checklist di leveling, prossimo talento e dungeon adatti al tuo livello in WoW: Forever, per tutte le razze e classi. Si spunta mentre giochi e ricorda tutto per personaggio. Guida completa e istruzioni in italiano: [foreverpathfinder.github.io/addon.html](https://foreverpathfinder.github.io/addon.html).
+**Italiano** — Tutta la guida di leveling dentro WoW: Forever, per tutte le razze e classi: percorso da spuntare, talenti, classe, dungeon, segnaposti sulla mappa e quest che si spuntano da sole. Guida completa e istruzioni in italiano: [foreverpathfinder.github.io/addon.html](https://foreverpathfinder.github.io/addon.html).
 
 *Free personal project, not affiliated with Blizzard Entertainment.*
 ```
