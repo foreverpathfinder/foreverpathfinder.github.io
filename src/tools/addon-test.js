@@ -3,10 +3,10 @@
 const path=require('path'),{lua,lauxlib,lualib,to_luastring}=require(process.env.FENGARI||'fengari');
 const DIR=path.join(__dirname,'../../addon/ForeverPathfinder').replace(/\\/g,'/');
 const CASES=[
- {LOCALE:'itIT',RACE:'Human',CLASS:'WARRIOR',FACTION:'Alliance',EXPECT_KEY:'human-warrior',EXPECT_TITLE:'Human Warrior · Liv. 1',EXPECT_TASK:'Trainer: Battle Shout, Heroic Strike'},
+ {LOCALE:'enUS',RACE:'Human',CLASS:'WARRIOR',FACTION:'Alliance',EXPECT_KEY:'human-warrior',ADDON_LANG:'it'},
  {LOCALE:'enUS',RACE:'Scourge',CLASS:'MAGE',FACTION:'Horde',EXPECT_KEY:'undead-mage'},
  {LOCALE:'deDE',RACE:'Skyborne',CLASS:'DRUID',FACTION:'Horde',EXPECT_KEY:'skyborne_h-druid'},
- {LOCALE:'itIT',RACE:'NightElf',CLASS:'HUNTER',FACTION:'Alliance',EXPECT_KEY:'nightelf-hunter'}];
+ {LOCALE:'itIT',RACE:'NightElf',CLASS:'HUNTER',FACTION:'Alliance',EXPECT_KEY:'nightelf-hunter'}]; // senza lingua salvata: inglese, anche col gioco in italiano
 let bad=0;
 for(const c of CASES){const L=lauxlib.luaL_newstate();lualib.luaL_openlibs(L);
  for(const [k,v] of Object.entries({DIR,LEVEL:1,FREE:0,SPENT:0,...c})){if(typeof v==='number')lua.lua_pushinteger(L,v);else lua.lua_pushstring(L,to_luastring(v));lua.lua_setglobal(L,to_luastring(k))}

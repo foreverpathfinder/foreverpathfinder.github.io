@@ -1,0 +1,223 @@
+<title>Banco di prova Pathfinder</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap">
+<style>
+/* layout: lo schermo del gioco finto a sinistra (in scala), il banco dei comandi a destra; su telefono uno sotto l'altro.
+   Un solo aspetto scuro, come il gioco e il sito. */
+:root{--bg:#070d16;--panel:#0f1d30;--line:#21384f;--tx:#e7eef7;--mu:#93a6be;--gold:#e8b84a;--ice:#a9e4ff;--ok:#5fd68b;--warn:#f2a93b;
+ --display:'Cinzel',Georgia,serif;--body:'Inter',system-ui,sans-serif;color-scheme:dark}
+body{background:var(--bg);color:var(--tx);font:14px/1.5 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
+h1{font:700 22px var(--display);color:var(--gold);margin:0;text-wrap:balance}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:12px}.top p{margin:0;color:var(--mu)}
+.wrap{display:flex;gap:16px;align-items:flex-start}
+.gamebox{flex:1;min-width:0}
+#stage{position:relative;width:100%;aspect-ratio:1280/760;overflow:hidden;border:1px solid var(--line);border-radius:8px;
+ background:linear-gradient(#f0b47a 0,#d9996a 22%,#9c7a6c 38%,#55665a 46%,#3c5a3f 47%,#2c4630 70%,#1f3322 100%)}
+#screen{position:absolute;left:0;top:0;width:1280px;height:760px;transform-origin:0 0;user-select:none}
+#screen div,#screen img{position:absolute}
+.hit{cursor:pointer}.hit.drag{cursor:move}.hit.wheel{cursor:default}
+#chat{position:absolute;left:14px;bottom:14px;width:520px;max-height:240px;overflow:hidden;font:13px/1.35 Arial,sans-serif;color:#fff;text-shadow:1px 1px 0 #000;background:rgba(0,0,0,.35);padding:6px 8px;border-radius:4px;pointer-events:none}
+#tip{position:absolute;background:rgba(10,10,14,.95);border:1px solid #888;border-radius:4px;padding:6px 9px;font:12px/1.4 Arial,sans-serif;max-width:300px;pointer-events:none;z-index:5}
+#load{position:absolute;inset:0;display:grid;place-items:center;background:rgba(7,13,22,.85);color:var(--ice);font:600 16px var(--body);text-align:center;padding:20px}
+.side{width:340px;flex:none;display:flex;flex-direction:column;gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.card h2{margin:0;font:600 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--ice)}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+button,select,input{font:600 13px var(--body);color:var(--tx);background:#173a5c;border:1px solid var(--line);border-radius:7px;padding:7px 10px;min-height:34px}
+button{cursor:pointer}button:hover{background:#1e4a74}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+button.gold{background:#3a2f17;border-color:#6b5822;color:var(--gold)}
+select{background:#0b1828}input{background:#0b1828;flex:1;min-width:0}
+.big{font:700 26px var(--display);color:var(--gold);min-width:2.2ch;text-align:center;font-variant-numeric:tabular-nums}
+.mu{color:var(--mu);font-size:12.5px}
+.q{display:flex;gap:6px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:6px}
+.q span{min-width:0;overflow-wrap:anywhere}.q .st{font-size:11.5px;font-weight:700}
+.st.log{color:var(--ice)}.st.done{color:var(--ok)}
+ul.try{margin:0;padding-left:18px;color:var(--mu)}ul.try li{margin:2px 0}
+[hidden]{display:none!important}
+@media (max-width:900px){.wrap{flex-direction:column}.side{width:100%}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="top">
+ <h1>Banco di prova Pathfinder</h1>
+ <p>L’addon vero (Core.lua e Data.lua 1.1.0) dentro un WoW finto in inglese, come il gioco: clicca, spunta, scorri e trascina come nel gioco.</p>
+</div>
+<div class="wrap">
+ <div class="gamebox">
+  <div id="stage"><div id="screen"></div><div id="chat"></div><div id="tip" hidden></div><div id="load">Carico il gioco finto e l’addon…</div></div>
+  <div class="row" style="margin-top:8px">
+   <input id="say" placeholder="Scrivi in chat, es. /fp dungeon · /fp cerca deadmines · /fp debug · /reload" aria-label="Chat del gioco">
+   <button id="sayGo">Invio</button>
+  </div>
+ </div>
+ <div class="side">
+  <div class="card">
+   <h2>Personaggio</h2>
+   <div class="row"><select id="race" aria-label="Razza"></select><select id="cls" aria-label="Classe"></select></div>
+   <div class="row"><button id="login">Entra con questo personaggio</button></div>
+   <p class="mu" style="margin:0">Ogni personaggio ha le sue spunte e opzioni, come nel gioco. La lingua si sceglie nell’addon: pulsante in alto nella finestra o Opzioni.</p>
+  </div>
+  <div class="card">
+   <h2>Livello e talenti</h2>
+   <div class="row"><button id="lvDown" aria-label="Livello meno">−</button><span class="big" id="lv">18</span><button id="lvUp" aria-label="Livello più">+</button>
+    <span class="mu" id="pts"></span></div>
+   <div class="row"><button id="spend" class="gold">Spendi un punto</button><button id="talents">Finestra talenti</button></div>
+  </div>
+  <div class="card">
+   <h2>Quest della tappa</h2>
+   <div id="quests"></div>
+  </div>
+  <div class="card">
+   <h2>Mondo</h2>
+   <div class="row"><button id="map">Mappa del mondo</button><button id="trainer">Parla con il trainer</button></div>
+   <div class="row" id="conts" hidden><button data-m="1415">Eastern Kingdoms</button><button data-m="1414">Kalimdor</button><button data-m="2000">Zephras</button></div>
+   <p class="mu" style="margin:0" id="mapHint" hidden>Clic sulla mappa: il personaggio si sposta lì (il quadratino giallo).</p>
+   <div class="row"><button id="reload">/reload</button><button id="reset">Ricomincia da capo</button></div>
+  </div>
+  <div class="card">
+   <h2>Cosa provare</h2>
+   <ul class="try">
+    <li>Clic sull’icona della minimappa; clic destro per le Opzioni; trascinala lungo il bordo.</li>
+    <li>Spunta le voci, poi <b>/reload</b>: le spunte restano.</li>
+    <li>Prendi, completa e consegna una quest: la voce si spunta da sola.</li>
+    <li>Pulsante mappa di una voce, poi apri la mappa del mondo e sposta il personaggio: guarda la minimappa.</li>
+    <li>Finestra talenti e trainer con la guida accesa.</li>
+   </ul>
+  </div>
+ </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fengari-web@0.1.4/dist/fengari-web.js"></script>
+<script>
+(async()=>{
+const {lua,lauxlib,lualib,to_luastring,interop}=fengari;
+const $=id=>document.getElementById(id);
+const screen=$('screen'),stage=$('stage'),chat=$('chat'),tip=$('tip');
+let L=null,ICONS={},FILES={},scale=1;
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+// misure dei testi per l'addon (stessi caratteri dello schermo)
+const meas=document.createElement('div');meas.style.cssText='position:absolute;left:-9999px;top:0;line-height:1.2;visibility:hidden';document.body.appendChild(meas);
+const FAM=f=>/Cinzel/.test(f)?['Cinzel',700]:/Inter-Bold/.test(f)?['Inter',700]:/Inter/.test(f)?['Inter',400]:['Georgia',400];
+const plain=s=>String(s).replace(/\|c[0-9a-fA-F]{8}/g,'').replace(/\|r/g,'');
+window.MEASURE=function(file,size,w,text){const [f,wt]=FAM(file);meas.style.fontFamily=`'${f}',serif`;meas.style.fontWeight=wt;meas.style.fontSize=size+'px';
+ if(w>0){meas.style.width=w+'px';meas.style.whiteSpace='pre-wrap';meas.style.overflowWrap='break-word'}else{meas.style.width='auto';meas.style.whiteSpace='pre'}
+ meas.textContent=plain(text);const r=meas.getBoundingClientRect();return r.width.toFixed(1)+','+r.height.toFixed(1)};
+function newState(){L=lauxlib.luaL_newstate();lualib.luaL_openlibs(L);lauxlib.luaL_requiref(L,to_luastring('js'),interop.luaopen_js,1);lua.lua_pop(L,1)}
+function run(code,name){if(lauxlib.luaL_loadbuffer(L,to_luastring(code),null,to_luastring(name||'chunk'))||lua.lua_pcall(L,0,0,0)){const e=lua.lua_tojsstring(L,-1);lua.lua_pop(L,1);throw new Error(e)}}
+function call(name,...args){lua.lua_getglobal(L,to_luastring(name));for(const a of args){if(typeof a==='number')lua.lua_pushnumber(L,a);else if(typeof a==='boolean')lua.lua_pushboolean(L,a);else if(a==null)lua.lua_pushnil(L);else lua.lua_pushstring(L,to_luastring(String(a)))}
+ if(lua.lua_pcall(L,args.length,1,0)!==0){console.error(name,lua.lua_tojsstring(L,-1));lua.lua_pop(L,1);return null}
+ let r=null;const t=lua.lua_type(L,-1);if(t===lua.LUA_TSTRING)r=lua.lua_tojsstring(L,-1);else if(t===lua.LUA_TBOOLEAN)r=lua.lua_toboolean(L,-1);else if(t===lua.LUA_TNUMBER)r=lua.lua_tonumber(L,-1);lua.lua_pop(L,1);return r}
+// personaggio: chiave del sito → token del gioco
+const RT={human:['Human','Alliance'],dwarf:['Dwarf','Alliance'],gnome:['Gnome','Alliance'],nightelf:['NightElf','Alliance'],skyborne_a:['Skyborne','Alliance'],orc:['Orc','Horde'],undead:['Scourge','Horde'],troll:['Troll','Horde'],tauren:['Tauren','Horde'],skyborne_h:['Skyborne','Horde']};
+const RN={human:'Human',dwarf:'Dwarf',gnome:'Gnome',nightelf:'Night Elf',skyborne_a:'Skyborne (Alleanza)',orc:'Orc',undead:'Undead',troll:'Troll',tauren:'Tauren',skyborne_h:'Skyborne (Orda)'};
+let P=JSON.parse(store.get('fpP')||'null')||{raceKey:'human',class:'WARRIOR',level:18,spent:8,locale:'enUS',cont:1415,x:0.46,y:0.71};
+let SAVES=JSON.parse(store.get('fpSaves')||'{}');let KEYS=[];
+const charId=()=>P.raceKey+'-'+P.class.toLowerCase();
+function boot(){
+ newState();
+ const [race,fac]=RT[P.raceKey];
+ run(`PLAYER={race=${JSON.stringify(race)},raceKey=${JSON.stringify(P.raceKey)},class=${JSON.stringify(P.class)},faction=${JSON.stringify(fac)},level=${P.level},spent=${P.spent},locale="enUS",cont=${P.cont},x=${P.x},y=${P.y}}`,'player');
+ run(FILES.wow,'wow.lua');
+ if(SAVES.db)run(SAVES.db,'db');if(SAVES[charId()])run(SAVES[charId()],'char');
+ lua.lua_getglobal(L,to_luastring('LOAD_ADDON'));lua.lua_pushstring(L,to_luastring(FILES.data));lua.lua_pushstring(L,to_luastring(FILES.core));
+ if(lua.lua_pcall(L,2,0,0)!==0)throw new Error(lua.lua_tojsstring(L,-1));
+ KEYS=JSON.parse(call('KEYS'));
+}
+function save(){if(!L)return;SAVES[charId()]=call('SAVED_CHAR');SAVES.db=call('SAVED_DB');
+ const x=call('SNAPPOS');if(x){const p=JSON.parse(x);P.cont=p.cont;P.x=p.x;P.y=p.y}
+ store.set('fpSaves',JSON.stringify(SAVES));store.set('fpP',JSON.stringify(P))}
+// disegno dell'istantanea
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
+const col=s=>esc(s).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<span style="color:#$1">').replace(/\|r/g,'</span>').replace(/\n/g,'<br>');
+const rgb=c=>`rgb(${c.map(x=>Math.round(x*255)).join(',')})`;
+let snap=null;
+function render(){
+ const s=JSON.parse(call('SNAP'));snap=s;let h='';
+ for(const o of s.items){
+  const st=`left:${o.l}px;top:${o.t}px;width:${o.w}px;height:${o.h}px`;
+  if(o.k==='rect')h+=`<div style="${st};background:${rgb(o.c)};opacity:${o.a}"></div>`;
+  else if(o.k==='minimap')h+=`<div style="${st};border-radius:50%;background:radial-gradient(circle,#5c7a45 0,#3f5a33 60%,#2d4426 100%);box-shadow:0 0 0 5px #8a7a5a,0 0 0 7px #2a2216,0 6px 18px #0009"><div style="left:50%;top:50%;width:0;height:0;border:7px solid transparent;border-bottom:16px solid #ffd100;transform:translate(-50%,-70%)"></div></div>`;
+  else if(o.k==='icon'){const p=o.path,n=p.split('\\').pop().toLowerCase();const op=`opacity:${o.a}`;
+   if(/^interface\\icons\\/i.test(p))h+=ICONS[n]?`<img src="${ICONS[n]}" alt="" style="${st};${op};object-fit:cover">`:`<div style="${st};${op};background:#2a3442"></div>`;
+   else if(/ForeverPathfinder\\icon$/.test(p))h+=`<img src="${ICONS.__logo}" alt="" style="${st};${op};object-fit:cover;border-radius:4px">`;
+   else if(/TrackingBorder/.test(p))h+=`<div style="left:${o.l+5}px;top:${o.t+3}px;width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 3px #c9a860,0 0 0 4px #1a1206;${op}"></div>`;
+   else if(/CheckBox-Check/.test(p))h+=`<div style="${st};color:#ffd100;font:700 ${Math.round(o.h*.72)}px Arial;line-height:${o.h}px;text-align:center;text-shadow:0 0 2px #000">✔</div>`;
+   else if(/ActionButton-Border/.test(p))h+=`<div style="left:${o.l+o.w*.24}px;top:${o.t+o.h*.24}px;width:${o.w*.52}px;height:${o.h*.52}px;border-radius:6px;box-shadow:0 0 0 3px #ffd84a,0 0 18px 6px rgba(255,200,60,.8);${op}"></div>`}
+  else if(o.k==='text'){const [f,wt]=FAM(o.file);h+=`<div style="left:${o.l}px;top:${o.t}px;${o.ww>0?'width:'+o.ww+'px;white-space:pre-wrap;overflow-wrap:break-word':'white-space:pre'};font:${wt} ${o.size}px/1.2 '${f}',serif;color:${rgb(o.c)};text-shadow:1px 1px 0 rgba(0,0,0,.7)">${col(o.text)}</div>`}
+  else if(o.k==='clip')h+=`<div style="${st};overflow:hidden">`+'<div style="left:'+(-o.l)+'px;top:'+(-o.t)+'px;width:1280px;height:760px">';
+  else if(o.k==='endclip')h+='</div></div>';
+  else if(o.k==='hit')h+=`<div class="hit${o.drag?' drag':''}${o.wheel&&!o.click?' wheel':''}" data-id="${o.id}" data-c="${o.click?1:0}" data-d="${o.drag?1:0}" data-w="${o.wheel?1:0}" data-e="${o.enter?1:0}" style="${st}"></div>`;
+ }
+ screen.innerHTML=h;
+ chat.innerHTML=s.chat.map(m=>'<div>'+col(m)+'</div>').join('');
+ if(s.tip&&s.tip.lines.length){tip.hidden=false;tip.innerHTML=s.tip.lines.map((x,i)=>`<div style="color:${rgb([x[1],x[2],x[3]])};${i?'':'font-weight:700'}">${col(x[0])}</div>`).join('');
+  const r=stage.getBoundingClientRect();let x=(s.tip.l-310)*scale,y=s.tip.t*scale;if(x<0)x=(s.tip.l+s.tip.w+8)*scale;tip.style.left=Math.max(0,Math.min(x,r.width-300))+'px';tip.style.top=Math.max(0,y)+'px'}else tip.hidden=true;
+ panel(s);
+}
+function panel(s){
+ $('lv').textContent=P.level;$('pts').textContent=`liberi ${s.free} · spesi ${P.spent}`;
+ const qs=JSON.parse(call('STAGE_QUESTS')||'[]');const inlog={};for(const q of s.quests)inlog[q.title]=q;
+ $('quests').innerHTML=qs.length?qs.map(q=>{const l=inlog[q.t];return `<div class="q"><span>${esc(q.t)} <span class="mu">liv. ${q.lv}</span>${l?` <span class="st ${l.done?'done':'log'}">${l.done?'completa':'nel registro'}</span>`:''}</span>`+
+  (q.turned&&!l?'<span class="st done">consegnata ✔</span>':l?(l.done?`<button data-turn="${l.id}">Consegna</button>`:`<button data-done="${l.id}">Completa</button>`):`<button data-take="${esc(q.t)}">Prendi</button>`)+'</div>'}).join(''):'<p class="mu" style="margin:0">Nessuna quest nominata in questa tappa.</p>';
+ $('conts').hidden=$('mapHint').hidden=!s.map;
+ [...$('conts').children].forEach(b=>b.classList.toggle('gold',+b.dataset.m===s.mapid));
+}
+function act(fn){try{fn()}catch(e){console.error(e)}render();save()}
+// scala dello schermo
+function fit(){scale=stage.clientWidth/1280;screen.style.transform=`scale(${scale})`;chat.style.transform=`scale(${scale})`;chat.style.transformOrigin='0 100%'}
+new ResizeObserver(fit).observe(stage);
+// mouse sullo schermo: clic, clic destro, rotella, passaggio, trascinamento
+const local=e=>{const r=stage.getBoundingClientRect();return [(e.clientX-r.left)/scale,(e.clientY-r.top)/scale]};
+let down=null,hover=null;
+screen.addEventListener('mousedown',e=>{const h=e.target.closest('.hit');if(!h)return;const [x,y]=local(e);down={h,x,y,moved:false,btn:e.button};e.preventDefault()});
+window.addEventListener('mousemove',e=>{if(!L)return;const [x,y]=local(e);call('SETCURSOR',x,y);
+ if(down){const dx=x-down.x,dy=y-down.y;if(!down.moved&&Math.hypot(dx,dy)>4&&down.h.dataset.d==='1'){down.moved=true;call('DRAGSTART',+down.h.dataset.id)}
+  if(down.moved){call('DRAGMOVE',dx,dy);down.x=x;down.y=y;call('TICK',0.05);render()}return}
+ const h=e.target.closest&&e.target.closest('.hit');const id=h&&h.dataset.e==='1'?+h.dataset.id:null;
+ if(id!==hover){if(hover)call('LEAVE',hover);hover=id;if(id)call('ENTER',id);render()}});
+window.addEventListener('mouseup',e=>{if(!down)return;const d=down;down=null;
+ if(d.moved){act(()=>call('DRAGSTOP'));return}
+ if(d.h.dataset.c==='1'){const r=d.h.getBoundingClientRect(),[x,y]=local(e),hl=parseFloat(d.h.style.left),ht=parseFloat(d.h.style.top);
+  act(()=>call('CLICK',+d.h.dataset.id,d.btn===2?'RightButton':'LeftButton',x-hl,y-ht))}});
+screen.addEventListener('contextmenu',e=>e.preventDefault());
+screen.addEventListener('wheel',e=>{const hs=[...screen.querySelectorAll('.hit[data-w="1"]')];const [x,y]=local(e);
+ const h=hs.reverse().find(h=>{const l=parseFloat(h.style.left),t=parseFloat(h.style.top);return x>=l&&x<=l+parseFloat(h.style.width)&&y>=t&&y<=t+parseFloat(h.style.height)});
+ if(h){e.preventDefault();act(()=>call('WHEEL',+h.dataset.id,e.deltaY>0?-1:1))}},{passive:false});
+// il minimo di tempo che passa (segnaposto sulla minimappa)
+setInterval(()=>{if(L&&!down&&call('TICK',0.1))render()},150);
+// banco dei comandi
+function chatSend(){const v=$('say').value.trim();if(!v)return;$('say').value='';
+ if(/^\/reload$/i.test(v))return relog();
+ const m=v.match(/^\/(fp|pathfinder)\b\s*(.*)$/i);if(m)act(()=>call('SLASH',m[2]));else act(()=>call('SAYCHAT',v))}
+$('sayGo').onclick=chatSend;$('say').onkeydown=e=>{if(e.key==='Enter')chatSend()};
+function relog(){save();act(boot)}
+$('reload').onclick=relog;
+$('reset').onclick=()=>{SAVES={};store.set('fpSaves','{}');act(boot)};
+$('lvUp').onclick=()=>{if(P.level<60){P.level++;act(()=>call('LEVEL',P.level))}};
+$('lvDown').onclick=()=>{if(P.level>1){P.level--;P.spent=Math.min(P.spent,Math.max(0,P.level-9));save();act(boot)}};
+$('spend').onclick=()=>act(()=>{call('SPEND');P.spent=+call('SPENT')});
+$('talents').onclick=()=>act(()=>call('TOGGLE','TalentFrame'));
+$('trainer').onclick=()=>act(()=>call('OPEN_TRAINER'));
+$('map').onclick=()=>act(()=>call('TOGGLE','WorldMapFrame'));
+$('conts').onclick=e=>{const b=e.target.closest('button');if(b)act(()=>call('SET_MAP',+b.dataset.m))};
+$('quests').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.take)act(()=>call('QUEST_ADD',b.dataset.take));else if(b.dataset.done)act(()=>call('QUEST_DONE',+b.dataset.done));else if(b.dataset.turn)act(()=>call('QUEST_TURNIN',+b.dataset.turn))};
+function fillSelects(){const races=[...new Set(KEYS.map(k=>k.split('-')[0]))];
+ $('race').innerHTML=races.map(r=>`<option value="${r}"${r===P.raceKey?' selected':''}>${RN[r]||r}</option>`).join('');
+ const cls=()=>KEYS.filter(k=>k.startsWith($('race').value+'-')).map(k=>k.split('-')[1]);
+ const fillC=()=>{$('cls').innerHTML=cls().map(c=>`<option value="${c}"${c===P.class.toLowerCase()?' selected':''}>${c[0].toUpperCase()+c.slice(1)}</option>`).join('')};
+ fillC();$('race').onchange=fillC}
+// nuovo personaggio: si entra come nel gioco (addon ricaricato con i suoi salvataggi) e la guida si apre
+$('login').onclick=()=>{save();P.raceKey=$('race').value;P.class=$('cls').value.toUpperCase();P.spent=Math.min(P.spent,Math.max(0,P.level-9));
+ P.cont=/^(orc|troll|tauren|undead|skyborne_h)/.test(P.raceKey)?1414:1415;act(()=>{boot();call('SLASH','')})};
+// avvio
+try{
+ const [w,d,c,i]=await Promise.all(['wow.lua','Data.lua','Core.lua','icons.json'].map(f=>fetch(f).then(r=>{if(!r.ok)throw new Error(f+' '+r.status);return f.endsWith('.json')?r.json():r.text()})));
+ FILES={wow:w,data:d,core:c};ICONS=i;
+ await Promise.all(['700 16px Cinzel','400 12px Inter','700 12px Inter'].map(f=>document.fonts.load(f)));
+ boot();fit();fillSelects();render();$('load').hidden=true;
+ // al primo avvio la guida è già aperta, come dopo un clic sull'icona
+ if(!store.get('fpOpened')){store.set('fpOpened','1');act(()=>call('SLASH',''))}
+}catch(e){$('load').textContent='Non riesco a caricare il gioco finto: '+e.message;console.error(e)}
+})();
+</script>

@@ -2,19 +2,24 @@
 -- checklist da spuntare, Talent, Classe, Profession, Dungeon, Alt, Altro, Info) e le Opzioni (build, dungeon, cambio continente).
 -- Dati in Data.lua (generati da src/tools/addon.js dal sito). /fp apre e chiude, /fp dungeon, /fp cerca e /fp debug scrivono in chat.
 local ADDON = ...
-local LANG = GetLocale() == "itIT" and "it" or "en"
-local D = ForeverPathfinderData[LANG] or ForeverPathfinderData.en
-local POOL = ForeverPathfinderPool[LANG] or ForeverPathfinderPool.en
-local PAGES = ForeverPathfinderPages[LANG] or ForeverPathfinderPages.en
-local DG = ForeverPathfinderDungeons and (ForeverPathfinderDungeons[LANG] or ForeverPathfinderDungeons.en) or {}
-local LINKS = ForeverPathfinderLinks and (ForeverPathfinderLinks[LANG] or ForeverPathfinderLinks.en) or {} -- per voce: p segnaposti, q quest
+-- lingua dell'addon: la sceglie il giocatore (pulsante in testata e Opzioni, salvata in ForeverPathfinderDB), inglese di base;
+-- il gioco non ha l'italiano. Anche in italiano i nomi di gioco (quest, NPC, spell, oggetti) restano in inglese, come sul sito
+local LANG, D, POOL, PAGES, DG, LINKS = "en"
+local function bindData()
+  D = ForeverPathfinderData[LANG] or ForeverPathfinderData.en
+  POOL = ForeverPathfinderPool[LANG] or ForeverPathfinderPool.en
+  PAGES = ForeverPathfinderPages[LANG] or ForeverPathfinderPages.en
+  DG = ForeverPathfinderDungeons and (ForeverPathfinderDungeons[LANG] or ForeverPathfinderDungeons.en) or {}
+  LINKS = ForeverPathfinderLinks and (ForeverPathfinderLinks[LANG] or ForeverPathfinderLinks.en) or {} -- per voce: p segnaposti, q quest
+end
+bindData()
 
-local T = ({
+local TT = {
   it = {
     level = "Liv. %d", stageWord = "TAPPA", build = "Build: %s",
     talentNow = "Talento da prendere ora: %s (%s)", talentNext = "Prossimo talento al liv. %d: %s (%s)", talentDone = "Talenti della guida completati.",
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
-    help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp debug",
+    help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp lang · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo",
     dgNone = "Nessun dungeon consigliato al liv. %d.", dgEntry = "Ingresso: %s", dgQuests = "Prima di entrare prendi:", dgClass = "(di classe)",
     found = "Trovate %d voci per \"%s\":", notFound = "Nessuna voce della guida contiene \"%s\".", lv = "Liv.",
@@ -38,7 +43,7 @@ local T = ({
     level = "Lvl %d", stageWord = "STAGE", build = "Build: %s",
     talentNow = "Talent to take now: %s (%s)", talentNext = "Next talent at lvl %d: %s (%s)", talentDone = "Guide talents done.",
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
-    help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp debug",
+    help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp lang · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional",
     dgNone = "No recommended dungeon at lvl %d.", dgEntry = "Entrance: %s", dgQuests = "Before going in, pick up:", dgClass = "(class)",
     found = "Found %d items for \"%s\":", notFound = "No guide item contains \"%s\".", lv = "Lvl",
@@ -58,7 +63,8 @@ local T = ({
     pinTip = "Show on the map and the minimap", trainerBuy = "To buy according to the guide: %s", ticked = "Ticked in the guide: %s",
     dbgLinks = "Continents %s · game waypoint %s · talent window %s · quests in log %d", yes = "yes", no = "no",
   },
-})[LANG]
+}
+local T = TT.en
 
 -- token inglese di UnitRace → chiave del sito (Skyborne: una per fazione)
 local RACES = { Human = "human", Dwarf = "dwarf", Gnome = "gnome", NightElf = "nightelf", Orc = "orc", Troll = "troll", Tauren = "tauren", Scourge = "undead", Undead = "undead" }
@@ -428,6 +434,7 @@ local function drawPage(v, name)
 end
 
 local mb -- icona sulla minimappa
+local setLang -- lingua dell addon (più sotto, con le schede)
 local function drawOptions(g, k)
   local o = C.opt
   local function opt(label, on, fn)
@@ -451,6 +458,9 @@ local function drawOptions(g, k)
     opt(l[2], o["no" .. l[1]] ~= true, function(val) o["no" .. l[1]] = not val or nil end)
   end
   line("0", T.oEnglish)
+  line("2", "Language · Lingua")
+  opt("English", LANG == "en", function() setLang("en") end)
+  opt("Italiano", LANG == "it", function() setLang("it") end)
   line("2", T.oChar)
   line("0", T.oAuto:format(g.name .. " (" .. k .. ")"))
   line("0", T.oSite)
@@ -466,10 +476,34 @@ local function navList()
   return l
 end
 for _, t in ipairs(navList()) do
-  local b = pill(f, t[2]); b:SetPoint("TOPLEFT", nx, -80); nx = nx + b:GetWidth() + 4
+  local b = pill(f, t[2])
   b:SetScript("OnClick", function() tab = t[1]; render(true) end)
   navB[t[1]] = b
 end
+-- nomi delle schede nella lingua scelta, una accanto all'altra
+local function layoutNav()
+  nx = 12
+  for _, t in ipairs(navList()) do
+    local b = navB[t[1]]
+    b.fs:SetText(t[2]); b:SetWidth(math.floor((b.fs:GetStringWidth() or 40) + 22))
+    b:ClearAllPoints(); b:SetPoint("TOPLEFT", nx, -80); nx = nx + b:GetWidth() + 4
+  end
+end
+layoutNav()
+-- pulsante della lingua in testata, come la bandierina del sito: mostra la lingua in cui passare
+local langB = pill(f, "Italiano")
+local function placeLang()
+  langB.fs:SetText(LANG == "it" and "English" or "Italiano"); langB:SetWidth(math.floor((langB.fs:GetStringWidth() or 50) + 22))
+  langB:ClearAllPoints(); langB:SetPoint("TOPLEFT", W - 44 - langB:GetWidth(), -10)
+end
+setLang = function(l)
+  LANG = (l == "it") and "it" or "en"
+  if DB then DB.lang = LANG end
+  T = TT[LANG]; bindData(); layoutNav(); placeLang()
+  if f:IsShown() then render() end
+end
+langB:SetScript("OnClick", function() setLang(LANG == "it" and "en" or "it") end)
+placeLang()
 
 render = function(top)
   clear()
@@ -748,6 +782,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     C.loads = (C.loads or 0) + 1 -- /fp debug: se dopo un /reload resta 1, il gioco non rilegge i salvataggi
     C.turned = C.turned or {} -- titoli delle quest consegnate
     place(); if DB.hide then mb:Hide() end
+    setLang(DB.lang or "en")
     hookBlizzard()
     return
   elseif event == "PLAYER_LOGIN" then
@@ -832,6 +867,8 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgLinks:format("k" .. tostring(cs.k) .. " e" .. tostring(cs.e) .. " z" .. tostring(cs.z),
       (C_Map and C_Map.SetUserWaypoint) and T.yes or T.no, tostring(talentUI() or "-"), nq))
     return
+  elseif cmd == "lang" or cmd == "lingua" or cmd == "language" then
+    setLang(arg == "it" and "it" or arg == "en" and "en" or (LANG == "it" and "en" or "it")); return
   elseif cmd == "help" or cmd == "?" then
     say(T.help); return
   elseif f:IsShown() then

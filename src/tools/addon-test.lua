@@ -63,6 +63,7 @@ TRAINER = {}
 GetNumTrainerServices = function() return #TRAINER end
 GetTrainerServiceInfo = function(i) local s = TRAINER[i]; if s then return s, "", "available" end end
 
+ForeverPathfinderDB = ADDON_LANG and { lang = ADDON_LANG } or nil -- lingua scelta nell addon (di base inglese, qualunque sia la lingua del gioco)
 assert(loadfile(DIR .. "/Data.lua"))()
 assert(loadfile(DIR .. "/Core.lua"))("ForeverPathfinder")
 local f = ForeverPathfinderFrame
@@ -70,7 +71,7 @@ f.scripts.OnEvent(f, "ADDON_LOADED", "ForeverPathfinder")
 f.scripts.OnEvent(f, "PLAYER_LOGIN")
 local fp = SlashCmdList.FOREVERPATHFINDER
 
-local lang = LOCALE == "itIT" and "it" or "en"
+local lang = ADDON_LANG or "en"
 local D = ForeverPathfinderData[lang]
 local g = D[EXPECT_KEY]
 assert(g, "manca " .. EXPECT_KEY)
@@ -123,6 +124,7 @@ for _, k in ipairs(keys) do
   end
   -- opzioni: clic su ogni casella (build, dungeon, continente, icona) e ritorno
   for _, x in ipairs(boxes()) do x.checked = not x.checked; x.scripts.OnClick(x) end
+  fp("lang " .. lang) -- le caselle della lingua hanno appena cambiato lingua: si torna a quella della prova
   nav(labels[1][2]).scripts.OnClick()
   local nx = nav(">")
   for _ = 1, 12 do nx.scripts.OnClick() end
@@ -187,4 +189,12 @@ check(has(lang == "it" and "Opzioni" or "Options"), "clic destro apre le opzioni
 mb.scripts.OnDragStart(mb); mb.scripts.OnUpdate(); mb.scripts.OnDragStop(mb)
 check(ForeverPathfinderDB.angle and math.abs(ForeverPathfinderDB.angle - 90) < 1, "icona trascinata sopra la minimappa")
 fp(""); check(not f.shown, "/fp chiude")
-print("ok", LOCALE, RACE, CLASS, #keys .. " combinazioni x " .. #labels .. " schede")
+-- 7) pulsante della lingua in testata: passa all altra lingua e le schede cambiano nome; /fp lang torna indietro
+fp("")
+local other = lang == "it" and "English" or "Italiano"
+local lb = find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.fs.text == other end)
+check(lb ~= nil, "pulsante " .. other)
+lb.scripts.OnClick(lb)
+check(has(lang == "it" and "Route" or "Percorso") and ForeverPathfinderDB.lang == (lang == "it" and "en" or "it"), "lingua cambiata")
+fp("lang"); check(ForeverPathfinderDB.lang == lang and has(lang == "it" and "Percorso" or "Route"), "/fp lang torna indietro")
+print("ok", LOCALE, "addon " .. lang, RACE, CLASS, #keys .. " combinazioni x " .. #labels .. " schede")
