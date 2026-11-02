@@ -184,7 +184,10 @@
     "<b>The Baron</b> colpisce tutto ciò che ha davanti e respinge: il tank lo gira verso il muro, gli altri stanno ai lati o dietro.",
     "<b>Bjork</b> si protegge dalla magia (Anti-Magic Shield): mentre è attivo conta il danno fisico (Warrior, Rogue, Hunter).",
     "<b>Rath’mael</b> lancia Flamestrike a terra: interrompetelo, e se compare il cerchio di fuoco uscite subito.",
-    "Alleanza: alla fine uscite a piedi, non con la Hearthstone: Captain Truman all’ingresso vuole la Head of the Baron."
+    "Alleanza: alla fine uscite a piedi, non con la Hearthstone: Captain Truman all’ingresso vuole la Head of the Baron.",
+    "<b>Witherfang</b> gira con i suoi piccoli ragni e avvelena: niente di grave, uno Shaman o Druid può togliere il veleno.",
+    "<b>Viktor the Vile</b> è segreto: si evoca dal camino della casa bruciata e arriva dopo 5 ondate di mostri. Entrate con mana pieno.",
+    "<b>The Abandoned</b> è segreto: si evoca dalla statua nel cortile dopo il cimitero, dopo 3 ondate. Interrompete Drain Life."
    ]
   },
   "deadmines": {
@@ -246,7 +249,10 @@
     "<b>Rhahk’zor</b> ha 2 guardie che sparano da lontano: uccidete prima loro.",
     "<b>Sneed</b> (dentro la macchina Sneed’s Shredder) disarma il tank: il tank tenga l’attenzione con abilità che non richiedono l’arma (Taunt, urla, Thunder Clap).",
     "<b>Mr. Smite</b> cambia arma due volte; con due armi colpisce fortissimo: il tank usi lì le abilità difensive.",
-    "<b>Edwin VanCleef</b>: uccidete prima Captain Greenskin sulla nave. A metà vita VanCleef chiama 2 aiutanti: finite il boss in fretta."
+    "<b>Edwin VanCleef</b>: uccidete prima Captain Greenskin sulla nave. A metà vita VanCleef chiama 2 aiutanti: finite il boss in fretta.",
+    "<b>Gilnid</b>: uccidete prima i 2 aiutanti; la sua Molten Metal fa perdere attenzione al tank, che deve riprenderla.",
+    "<b>Captain Greenskin</b> sta sulla nave con 2 pirati: è facile tirarlo per sbaglio, avvicinatevi solo quando siete pronti.",
+    "<b>Cookie</b> (facoltativo) è sul ponte inferiore della nave: interrompete quando si mette a cucinare, perché si cura."
    ]
   },
   "wailing caverns": {
@@ -308,9 +314,14 @@
     "Mutanus the Devourer"
    ],
    "t": [
-    "<b>Lady Anacondra</b> e <b>Lord Pythas</b> addormentano un giocatore (Sleep) e lanciano fulmini: interrompeteli.",
     "<b>Verdan the Everliving</b> blocca e stordisce chi gli sta entro 10 metri: chi può, attacchi da lontano.",
-    "<b>Mutanus the Devourer</b> appare dopo l’evento di Naralex: uccidete prima melme e serpenti, poi il boss; interrompete Naralex’s Nightmare (fa dormire)."
+    "<b>Mutanus the Devourer</b> appare dopo l’evento di Naralex: uccidete prima melme e serpenti, poi il boss; interrompete Naralex’s Nightmare (fa dormire).",
+    "<b>Kresh</b>, la tartaruga nel ruscello, ha tanta armatura: gli incantesimi fanno più danno delle armi. Il tank la gira lontano dal gruppo.",
+    "<b>Lady Anacondra</b> addormenta un giocatore (Sleep) e lancia fulmini: interrompetela.",
+    "<b>Lord Cobrahn</b> addormenta un giocatore per 8 secondi; sotto metà vita diventa un serpente e avvelena.",
+    "<b>Lord Pythas</b> ha un aiutante: uccideteli uno alla volta e interrompete Lightning Bolt, Sleep e Healing Touch.",
+    "<b>Skum</b> colpisce chi ha davanti e lancia fulmini a catena: il tank lo gira, gli altri si allargano. Non prende danni Nature.",
+    "<b>Lord Serpentis</b> è solo: interrompete Healing Touch e Sleep."
    ]
   },
   "shadowfang keep": {
@@ -374,7 +385,12 @@
     "<b>Commander Springvale</b> e la sua stanza sono pericolosi: tirate pochi mostri alla volta. A 30% si protegge con Divine Shield e poi si cura: interrompete Holy Light.",
     "<b>Baron Silverlaine</b> riduce del 75% le cure sul bersaglio (Veil of Shadow): toglietelo o interrompetelo.",
     "<b>Archmage Arugal</b> prende il controllo di un giocatore: non colpitelo, mettetelo fuori gioco (CC) finché torna normale.",
-    "In fondo trovate il <b>Black Tome</b>: tenetelo, serve per il boss segreto Lyn the Ignored in City of Dalaran."
+    "In fondo trovate il <b>Black Tome</b>: tenetelo, serve per il boss segreto Lyn the Ignored in City of Dalaran.",
+    "<b>Rethilgore</b> ha 3 aiutanti e indebolisce il tank: uccidete prima gli aiutanti e curate bene il tank.",
+    "<b>Razorclaw the Butcher</b> risucchia vita al tank: il healer stia pronto.",
+    "<b>Odo the Blindwatcher</b> diventa più forte quando la sua vita scende: tenete i cooldown di danno per sotto metà vita e finitelo in fretta.",
+    "<b>Fenrus the Devourer</b> è un lupo senza aiutanti: conta solo fare tanto danno.",
+    "<b>Wolf Master Nandos</b> ha 4 lupi e a 80% ne chiama altri: uccidete prima i lupi."
    ]
   },
   "blackfathom deeps": {
@@ -458,10 +474,14 @@
     "Aku'mai"
    ],
    "t": [
-    "Dopo <b>Gelihast</b> cliccate la pietra dietro di lui: dà a tutti un buff utile (Blessing of Blackfathom).",
-    "Horde: cliccate il <b>Fathom Stone</b> per far apparire Baron Aquanis, che serve per una quest.",
     "<b>Twilight Lord Kelris</b> addormenta il tank: in quel momento il boss va su un altro giocatore. Il tank riprenda subito l’attenzione quando si sveglia.",
-    "<b>Aku’mai</b> ogni tanto attacca molto più veloce (Frenzied Rage): tenete stordimenti e CC per quel momento, e non state nella nube velenosa."
+    "<b>Aku’mai</b> ogni tanto attacca molto più veloce (Frenzied Rage): tenete stordimenti e CC per quel momento, e non state nella nube velenosa.",
+    "<b>Ghamoo-ra</b>, la tartaruga, calpesta un giocatore a caso: il tank la tenga lontana dal gruppo.",
+    "<b>Lady Sarevess</b> ha 2 guardie: mettetene una in CC e uccidete l’altra. Il suo fulmine si interrompe, ma poi congela chi è vicino: allargatevi.",
+    "<b>Gelihast</b>: tirate prima i suoi aiutanti uno alla volta, poi lui. Dopo, cliccate la pietra dietro di lui: dà a tutti un buff (Blessing of Blackfathom).",
+    "<b>Lorgus Jett</b> è facile: chi combatte in corpo a corpo fa attenzione al suo Lightning Shield.",
+    "<b>Baron Aquanis</b> (solo Horde) appare cliccando il Fathom Stone: è facile e serve per una quest.",
+    "<b>Old Serra’kis</b> (facoltativo) si combatte sott’acqua e si cura da solo: occhio al respiro."
    ]
   },
   "stockade": {
@@ -517,7 +537,11 @@
    "t": [
     "È un corridoio a T con due ali: fatele nell’ordine che volete.",
     "<b>Hamhock</b>: uccidete prima i 2 aiutanti. Interrompete Chain Lightning; se si potenzia (Bloodlust) Shaman e Priest glielo tolgono.",
-    "<b>Dextren Ward</b> fa scappare chi gli sta vicino (Intimidating Shout): il healer resti abbastanza vicino da curare il tank."
+    "<b>Dextren Ward</b> fa scappare chi gli sta vicino (Intimidating Shout): il healer resti abbastanza vicino da curare il tank.",
+    "<b>Targorr the Dread</b> è semplice: uccidete prima i mostri intorno.",
+    "<b>Kam Deepfury</b> stordisce spesso il tank (Shield Slam): il healer gestisca il mana.",
+    "<b>Bazil Thredd</b> colpisce forte: pulite la stanza prima di attaccarlo.",
+    "<b>Bruegal Ironknuckle</b> (raro) non c’è sempre: se c’è, uccidete prima i mostri intorno."
    ]
   },
   "excavation site: wetlands": {
@@ -581,7 +605,9 @@
    "t": [
     "Raptor e cani lasciano sanguinamenti e malattie: portate bende e, se potete, chi toglie le malattie (Priest, Paladin).",
     "<b>Shadetooth</b>: uccidete prima i raptor intorno, che chiamano aiuto. Il boss fa scappare tutto il gruppo (fear): Tremor Totem lo annulla.",
-    "<b>Relic Guardian</b> si attiva cliccando l’Archival Panel accanto alla colonna. Respinge chi è vicino: non combattetelo sul bordo."
+    "<b>Relic Guardian</b> si attiva cliccando l’Archival Panel accanto alla colonna. Respinge chi è vicino: non combattetelo sul bordo.",
+    "<b>Saltspine</b> alza una tempesta di sabbia che fa mancare i colpi: attaccatelo quando la zona intorno è pulita; ranged e healer lontani.",
+    "<b>Highland Horror</b> (solo Alleanza, per una quest) si cura: interrompete Wild Regeneration e uscite dalle radici."
    ]
   },
   "city of dalaran": {
@@ -655,8 +681,14 @@
     "I <b>Mindless Horror</b> fanno scappare il gruppo (fear) verso altri mostri: Tremor Totem lo annulla.",
     "I <b>Mana Fiend</b> esplodono quando muoiono: allontanatevi l’uno dall’altro.",
     "<b>Fel Ancient</b> blocca i giocatori a terra (Entangle): usate le abilità che liberano (forma del Druid, Blessing of Freedom) e uscite dalle zone verdi.",
-    "Il boss segreto <b>Lyn the Ignored</b> si evoca solo con il Black Tome di Shadowfang Keep.",
-    "L’ultimo boss lascia una collana: +10% XP sui non morti per un po’, usatela subito dopo."
+    "L’ultimo boss lascia una collana: +10% XP sui non morti per un po’, usatela subito dopo.",
+    "<b>Atrexis the Grave Knight</b> (nelle fogne) evoca scheletri: uccidete prima i mostri vicini, il tank tiene gli scheletri.",
+    "<b>Lyn the Ignored</b> (segreto) si evoca solo con il Black Tome di Shadowfang Keep; maledice il tank (Curse of Thorns): toglietela o curate di più.",
+    "<b>Mana Devourer</b> toglie mana a tutto il gruppo: pulite la Violet Hold prima e curate attraverso il danno.",
+    "<b>Arcane Anomaly</b>: state vicini al boss, il suo raggio colpisce chi è lontano.",
+    "<b>Arcanic Enigma</b>: uccidete prima i Mana Phantom; zittisce chi è vicino, ranged lontani.",
+    "<b>Unstable Sentry</b> esplode intorno a sé (Malfunction): chi non fa il tank si allontana.",
+    "<b>Shade of the Archmage</b>: evitate le sfere che rimbalzano; quando finisce il mana trasforma tutti in pecora (Mass Polymorph), poi si ricarica: rompete la trasformazione e colpite forte."
    ]
   },
   "gnomeregan": {
@@ -738,7 +770,9 @@
    "t": [
     "<b>Electrocutioner 6000</b> lascia la Workshop Key: apre la porta sul retro, utile per rientrare più in fretta.",
     "<b>Crowd Pummeler 9-60</b> colpisce tutti quelli vicini: il tank con la schiena al muro, chi attacca da lontano resti lontano.",
-    "<b>Mekgineer Thermaplugg</b> scaraventa via il tank e azzera l’attenzione: il tank lo riprende subito (Taunt). Le bombe escono dai muri: chi è libero preme i pulsanti accanto per fermarle."
+    "<b>Mekgineer Thermaplugg</b> scaraventa via il tank e azzera l’attenzione: il tank lo riprende subito (Taunt). Le bombe escono dai muri: chi è libero preme i pulsanti accanto per fermarle.",
+    "<b>Grubbis</b> ha il suo animale Chomper: uccidete prima Chomper, poi Grubbis.",
+    "<b>Viscous Fallout</b> è semplice; non prende danni Frost."
    ]
   },
   "razorfen kraul": {
@@ -802,7 +836,10 @@
    "t": [
     "<b>Death Speaker Jargba</b> prende il controllo di un giocatore (Dominate Mind): un Priest (Dispel Magic) o uno Shaman (Purge) lo libera. Tenetelo in corpo a corpo, da lontano lancia Shadow Bolt.",
     "<b>Agathelos the Raging</b> finge di morire: continuate a colpirlo finché non è morto davvero.",
-    "<b>Charlga Razorflank</b> lancia un fulmine che salta da un giocatore all’altro: state distanti tra voi."
+    "<b>Charlga Razorflank</b> lancia un fulmine che salta da un giocatore all’altro: state distanti tra voi.",
+    "<b>Roogug</b> evoca un elementale di pietra: uccidete prima il Death’s Head Seer vicino.",
+    "<b>Aggem Thorncurse</b> evoca spiriti di cinghiale con poca vita: uccideteli subito, il tank tiene il boss.",
+    "<b>Overlord Ramtusk</b> ha 2 guardie: tiratele lontano dai caster. Quando gira su se stesso, allontanatevi."
    ]
   },
   "scarlet monastery": {
@@ -838,7 +875,8 @@
    "t": [
     "Il Graveyard è l’ala più bassa: entrate dal portale più a sinistra. Ironspine, Fallen Champion e Azshir the Sleepless non ci sono sempre.",
     "<b>Bloodmage Thalnos</b> lancia fuoco a terra che non si può interrompere: chi attacca da lontano e il healer stiano lontani.",
-    "Le ali oltre il livello 35 non sono state provate in beta."
+    "Le ali oltre il livello 35 non sono state provate in beta.",
+    "<b>Interrogator Vishas</b>, primo boss: uccidete prima i mostri intorno."
    ]
   }
  },

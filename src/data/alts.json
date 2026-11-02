@@ -133,7 +133,6 @@
   "Talented porta i talenti dal livello 9. Method lo considera utile solo per il leveling: a 60 conviene rispecare.",
   "Camp Tent (Leatherworking 20) dà rested fino al 5%. Field Guide riduce il cooldown dei camp feature, quindi li puoi rimettere prima (wowforever.be camping).",
   "Cibo: la maggior parte dei piatti dà Well Fed, cioè +5% XP dai kill per circa 15 minuti (wowforever.be XP guide). Gourmand (3 pt) allunga la durata dei buff da cibo del 33% (Warcraft Tavern).",
-  "Dungeon: il bonus XP dalle quest di dungeon è stato tagliato del 50% il 1 ottobre (beta), poi i mostri dungeon hanno avuto +20%. Non pianificare il leveling in dungeon 🟡: valgono di più i punti Legacy (Spelunker, 1 punto ciascuno).",
   "Gruppi: l'XP per giocatore scende con la dimensione del gruppo e crolla se un membro è molto più alto di livello (wowforever.be XP guide). Fai gruppo solo con personaggi del tuo livello.",
   "Thrill of Adventure non dà XP, ma recupera vita e mana dopo i kill: riduce le pause per recuperare (deduzione da Method)."
  ],
@@ -369,7 +368,6 @@
   "Rate del rested XP fuori dalle zone riposate: non dichiarato da wowforever.be. Un snippet parla di 1.25% fuori zona (non confermato).",
   "Camp Tent 5%: se è una quota totale o un tasso non è chiaro (wowforever.be).",
   "Reset Legacy: 10 gold solo in beta. Il costo al lancio è sconosciuto.",
-  "Dungeon XP: cambi in beta a settembre e ottobre (-50% poi +20% sui mostri). Valori di lancio sconosciuti.",
   "Gold per classe o razza: nelle fonti affidabili non ho trovato dati di gold. Le affermazioni 'Mage best gold class' e 'Herbalism + Alchemy gold' vengono da siti non verificati o da siti di boost, quindi le ho escluse.",
   "Icy Veins e Mobalytics: letti solo tramite snippet di ricerca, non riletti in questa ricerca. Il dato Tailoring + Herbalism viene da profs.json.",
   "Nessun video con molte views è stato letto in questa ricerca.",

@@ -151,6 +151,13 @@ if (TF) {
 }
 const profs = opt('profs.json'), alts = opt('alts.json'), dungeons = opt('dungeons.json');
 if (dungeons) delete dungeons._;
+// punto in mappa per ogni quest dei dungeon: chi la dà (NPC della mappa) o, se non c'è, la zona citata; "dentro il dungeon" usa l'ingresso
+if (dungeons) { const ZN = Object.values(WM).flatMap(M => M.zones);
+  for (const x of Object.values(dungeons.dungeons)) { x.qp = {};
+    for (const q of Object.values(x.q || {}).flat()) { const w = q[q.length - 1], who = w.split(",")[0].trim(), n = NPCS.find(p => norm(p[0]) === norm(who));
+      if (n) { x.qp[q[0]] = [n[2], n[3], n[0]]; continue; }
+      if (/dentro|nel dungeon|ingresso|caveau|cimitero|drop dai|drop di (The Baron|Relic Guardian)|Image of Archmage Modera/i.test(w)) { x.qp[q[0]] = 0; continue; }
+      const z = ZN.filter(z => w.includes(z[0])).sort((a, b) => b[0].length - a[0].length)[0]; if (z) x.qp[q[0]] = [z[2], z[3], z[0]]; } } }
 if (alts) alts.sources = (alts.sources || []).map(srcRow);
 if (profs) profs.sources = (profs.sources || []).map(srcRow);
 
