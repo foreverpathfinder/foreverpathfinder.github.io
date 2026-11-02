@@ -3,7 +3,7 @@
 ## Notes: Leveling checklist and talent order for WoW: Forever, from foreverpathfinder.github.io (Italiano / English)
 ## Notes-itIT: Checklist di leveling e ordine dei talenti per WoW: Forever, da foreverpathfinder.github.io
 ## Author: Forever Pathfinder
-## Version: 0.2.0
+## Version: 0.2.1
 ## X-Website: https://foreverpathfinder.github.io/addon.html
 ## SavedVariablesPerCharacter: ForeverPathfinderChar
 

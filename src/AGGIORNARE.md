@@ -1,4 +1,4 @@
-# Forever Pathfinder — tutto quello che serve per lavorarci (aggiornato 2 nov 2026, sito v10, addon 0.2.0)
+# Forever Pathfinder — tutto quello che serve per lavorarci (aggiornato 2 nov 2026, sito v10, addon 0.2.1)
 
 Guida leveling 1–30 per **WoW: Forever** (Classic+ di Blizzard, lancio 5 nov 2026 a mezzanotte ora italiana), tutte le 10 razze e 9 classi, in italiano e inglese, più un addon in gioco. Pagina unica statica generata da dati JSON, ottimizzata per telefono (si usa accanto al PC mentre si gioca).
 
@@ -60,9 +60,9 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - **Telefono e accessibilità**: tutto ciò che si tocca è ≥ 44px sotto 520px; schede con ruoli tab/tabpanel e frecce; `RM`/`SM` = meno animazioni se richiesto dal sistema; freccia `#totop`; icone `loading="lazy"`.
 - **Soldi**: ☕ PayPal (`#bPay`, paypal.me/staliot); contatore hits.sh in fondo a Info (non caricato nei test automatici).
 
-## Addon (0.2.0, mai provato nel gioco vero)
+## Addon (0.2.1, mai provato nel gioco vero)
 - Finestra spostabile: titolo razza-classe e livello, tappa, build, talento da prendere (punti spesi da `GetTalentTabInfo`, liberi da `UnitCharacterPoints`), riga dei dungeon adatti (livello ideale del giudizio, fazione dalla razza, niente «salta»), voci del livello spuntabili (salvate in `ForeverPathfinderChar`), frecce < >.
-- Comandi: `/fp` (apre/chiude), `/fp dungeon`, `/fp cerca|find parola`, `/fp set razza-classe`, `/fp auto`, `/fp list`, `/fp help`. Italiano se `GetLocale()=="itIT"`, altrimenti inglese.
+- Comandi: `/fp` (apre/chiude), `/fp dungeon`, `/fp cerca|find parola`, `/fp set razza-classe`, `/fp auto`, `/fp list`, `/fp debug` (versione, Interface, token di `UnitRace`/`UnitClass`, guida riconosciuta, talenti per albero, `C.loads` = caricamenti dei salvataggi: se resta 1 dopo un `/reload` non vengono riletti), `/fp help`. Italiano se `GetLocale()=="itIT"`, altrimenti inglese.
 - Dati: `src/tools/addon.js` apre le pagine generate (file://) e legge checklist, talenti e dungeon dal motore stesso (opzioni di base: niente cambio continente, dungeon sì, build A). Testi ripuliti per i font di WoW (niente emoji, → diventa ->).
 - Prova: `addon-test.js` carica `Data.lua` + `Core.lua` in un WoW finto (`addon-test.lua`) con **fengari** (Lua in JS). Già installato in `%LOCALAPPDATA%/fp-lua` (se manca: `npm i --prefix "$LOCALAPPDATA/fp-lua" fengari`); lancio: `FENGARI="$LOCALAPPDATA/fp-lua/node_modules/fengari" node src/tools/addon-test.js`.
 - Versione: cambiala in `.toc` e in `addon.html` (due pill «versione»); i comandi nuovi vanno anche nelle tabelle di `addon.html` (IT ed EN).
@@ -85,8 +85,8 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - GitHub ogni tanto risponde 500 al push: riprova.
 
 ## Da fare (in ordine)
-1. **Dal 5 nov, addon nel gioco vero** (promemoria programmato il 5 nov alle 10): si carica? Interface e cartella AddOns di Forever (in beta `_classic_beta_`, 16001); token di `UnitRace` degli Skyborne (ipotesi: contiene «Skyborne»); talento indicato giusto; spunte dopo un riavvio (in beta le SavedVariables non venivano rilette). Correggere e alzare la versione.
-2. **Pubblicare l'addon** dopo la prova: CurseForge e Wago (account dell'utente; categoria Quests & Leveling, licenza, logo 400×400 da `icon-512.png`, screenshot dal gioco, rilascio beta), poi eventuale caricamento automatico da GitHub con token.
+1. **Dal 5 nov, addon nel gioco vero** (promemoria programmato il 5 nov alle 10): si carica? Screenshot di `/fp debug` subito e dopo un `/reload` risponde a quasi tutto. Interface e cartella AddOns di Forever (in beta `_classic_beta_`, 16001); token di `UnitRace` degli Skyborne (ipotesi: contiene «Skyborne»); talento indicato giusto; spunte dopo un riavvio (in beta le SavedVariables non venivano rilette). Correggere e alzare la versione.
+2. **Pubblicare l'addon** dopo la prova: CurseForge e Wago (account dell'utente). Tutto pronto in `addon/pubblicazione/README.md` (campi, riassunto, descrizione Markdown) e `logo-400.png` (`node src/tools/icon.js <cartella> 400`); licenza MIT in `addon/LICENSE`; mancano gli screenshot dal gioco, poi eventuale caricamento automatico da GitHub con token.
 3. **Guida fino al 60**: rotte e build da fonti reali sul gioco uscito, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
 4. **Ricontrollare sul gioco uscito**: dungeon (boss, quest, giudizi), classifica degli alt (le tier list erano sulla beta 1–30), Legacy.
 5. **Gold farming**: quando ci saranno testimonianze dal gioco.

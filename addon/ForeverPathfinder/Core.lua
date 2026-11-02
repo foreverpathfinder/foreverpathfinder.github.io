@@ -11,22 +11,26 @@ local T = ({
     talentNow = "Talento da prendere ora: %s (%s)", talentNext = "Prossimo talento al liv. %d: %s (%s)", talentDone = "Talenti della guida completati.",
     none = "Nessuna voce a questo livello: prosegui con la tappa.",
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
-    help = "/fp apre o chiude · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list",
+    help = "/fp apre o chiude · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo",
     dgNone = "Nessun dungeon consigliato al liv. %d.", dgEntry = "Ingresso: %s", dgQuests = "Prima di entrare prendi:", dgClass = "(di classe)",
     found = "Trovate %d voci per \"%s\":", notFound = "Nessuna voce della guida contiene \"%s\".", lv = "Liv.",
     loaded = "caricato: /fp per aprire la guida.",
+    dbgGuide = "Guida: %s (%s)", dbgAuto = "automatica", dbgHand = "scelta a mano",
+    dbgTal = "Talenti: spesi %s, liberi %d", dbgSave = "Salvataggi: caricamenti %d, spunte %d",
   },
   en = {
     level = "Lvl %d", stage = "Stage %d: %s", build = "Build: %s",
     talentNow = "Talent to take now: %s (%s)", talentNext = "Next talent at lvl %d: %s (%s)", talentDone = "Guide talents done.",
     none = "Nothing at this level: keep going with the stage.",
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
-    help = "/fp opens or closes · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list",
+    help = "/fp opens or closes · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional",
     dgNone = "No recommended dungeon at lvl %d.", dgEntry = "Entrance: %s", dgQuests = "Before going in, pick up:", dgClass = "(class)",
     found = "Found %d items for \"%s\":", notFound = "No guide item contains \"%s\".", lv = "Lvl",
     loaded = "loaded: /fp opens the guide.",
+    dbgGuide = "Guide: %s (%s)", dbgAuto = "automatic", dbgHand = "picked by hand",
+    dbgTal = "Talents: spent %s, free %d", dbgSave = "Saved data: loads %d, checks %d",
   },
 })[LANG]
 
@@ -166,6 +170,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     ForeverPathfinderChar = ForeverPathfinderChar or {}
     C = ForeverPathfinderChar
     C.done = C.done or {}
+    C.loads = (C.loads or 0) + 1 -- /fp debug: se dopo un /reload resta 1, il gioco non rilegge i salvataggi
     view = UnitLevel("player")
     say(T.loaded)
     if not guide() then say(T.unknown) end
@@ -215,6 +220,22 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     say(T.found:format(#hits, arg))
     for i = 1, math.min(8, #hits) do DEFAULT_CHAT_FRAME:AddMessage("  |cffffd100" .. T.lv .. " " .. hits[i][1] .. "|r " .. hits[i][3]:sub(1, 140)) end
     view = hits[1][1]; f:Show(); refresh(); return
+  elseif cmd == "debug" then
+    -- tutto ciò che va controllato nel gioco vero, in poche righe da fotografare: versioni, token di razza e classe, talenti, salvataggi
+    local meta = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
+    local ver, build, _, toc = GetBuildInfo()
+    local rl, rt = UnitRace("player")
+    local _, ct = UnitClass("player")
+    local tabs = {}
+    for i = 1, (GetNumTalentTabs and GetNumTalentTabs() or 0) do tabs[#tabs + 1] = select(3, GetTalentTabInfo(i)) or 0 end
+    local done = 0
+    for _ in pairs(C.done) do done = done + 1 end
+    say("v" .. tostring(meta and meta(ADDON, "Version")) .. " · client " .. tostring(ver) .. " (" .. tostring(build) .. ") · Interface " .. tostring(toc) .. " · " .. GetLocale())
+    DEFAULT_CHAT_FRAME:AddMessage("  UnitRace " .. tostring(rl) .. " / " .. tostring(rt) .. " · UnitClass " .. tostring(ct) .. " · " .. tostring(UnitFactionGroup("player")) .. " · " .. T.level:format(UnitLevel("player")))
+    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgGuide:format(charKey() or "?", C.key and T.dbgHand or T.dbgAuto))
+    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgTal:format(table.concat(tabs, "/"), UnitCharacterPoints and UnitCharacterPoints("player") or 0))
+    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgSave:format(C.loads, done))
+    return
   elseif cmd == "help" or cmd == "?" then
     say(T.help); return
   elseif f:IsShown() then
