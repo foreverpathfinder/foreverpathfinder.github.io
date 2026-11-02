@@ -1,4 +1,4 @@
-# Forever Pathfinder — tutto quello che serve per lavorarci (aggiornato 2 nov 2026, sito v10, addon 1.1.1)
+# Forever Pathfinder — tutto quello che serve per lavorarci (aggiornato 2 nov 2026 sera, sito v10, addon 1.1.1)
 
 Guida leveling 1–30 per **WoW: Forever** (Classic+ di Blizzard, lancio 5 nov 2026 a mezzanotte ora italiana), tutte le 10 razze e 9 classi, in italiano e inglese, più un addon in gioco. Pagina unica statica generata da dati JSON, ottimizzata per telefono (si usa accanto al PC mentre si gioca).
 
@@ -78,7 +78,9 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - Fonti migliori e attendibili, scelte per upvote/preferiti/views (Mobalytics ♥, YouTube); i dati del client (wowforever.be, Wowhead) decidono i dettagli. ✔ più fonti · 🟡 una fonte o pre-lancio · ★ novità di Forever. Niente siti che vendono boost/gold. Mai dati Classic spacciati per Forever. Criteri dei consigli sempre dichiarati.
 - Agenti: al massimo 2–3, modello più economico (Haiku), poi revisione (togli note interne tipo «indice», «JSON», «non trovato»).
 - Domande all'utente sempre cliccabili (AskUserQuestion), una decisione alla volta.
-- Contesto basso: niente dump grandi in chat (attento a `Data.lua`, 1,2 MB, e alle pagine generate: estrai solo righe precise), script nello scratchpad.
+- Contesto basso: niente dump grandi in chat (attento a `Data.lua`, 1,9 MB, e alle pagine generate: estrai solo righe precise), script nello scratchpad.
+- Per valutare l'addon l'utente vuole **usarlo** (pagina di prova interattiva con tutte le finestre), non presentazioni per chi lo userà. Aspetto dell'addon = quello del sito (colori, Cinzel/Inter, card, icone del gioco).
+- Addon: lingua scelta dall'utente nelle **Opzioni**, inglese di base, niente cambio lingua in testata; in italiano i nomi di gioco restano in inglese.
 - Ogni modifica visibile: verifica a 390px e su desktop, manda lo screenshot all'utente.
 - Prima di azioni verso l'esterno (nuovi repo, pubblicazioni, account) chiedi conferma.
 
@@ -91,9 +93,10 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - GitHub ogni tanto risponde 500 al push: riprova.
 
 ## Da fare (in ordine)
-1. **Dal 5 nov, addon 1.0 nel gioco vero** (promemoria programmato il 5 nov alle 10): si carica? Screenshot di `/fp debug` subito e dopo un `/reload` risponde a quasi tutto; poi provare icona, schede, caratteri, segnaposti (mappa del mondo e minimappa, id di Zephras), quest (consegna), finestra dei talenti, trainer. Interface e cartella AddOns di Forever (in beta `_classic_beta_`, 16001); token di `UnitRace` degli Skyborne (ipotesi: contiene «Skyborne»); talento indicato giusto; spunte dopo un riavvio (in beta le SavedVariables non venivano rilette). Correggere e alzare la versione.
-2. **Pubblicare l'addon** dopo la prova: CurseForge e Wago (account dell'utente). Tutto pronto in `addon/pubblicazione/README.md` (campi, riassunto, descrizione Markdown) e `logo-400.png` (`node src/tools/logo.js addon/pubblicazione/logo-400.png`); licenza MIT in `addon/LICENSE`; mancano gli screenshot dal gioco, poi eventuale caricamento automatico da GitHub con token.
-3. **Guida fino al 60**: rotte e build da fonti reali sul gioco uscito, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
+0. **In corso (2 nov sera)**: l'utente sta provando l'addon sulla **pagina di prova** per valutare tutte le finestre. Aspetta le sue osservazioni. Proposte già fatte e in attesa di risposta: (a) nel Percorso mostrare anche le **voci dei livelli superati non ancora spuntate** (oggi si vedono solo tornando indietro con <); (b) tenere o togliere `/fp lang` (la lingua ora è solo nelle Opzioni). Dopo ogni modifica all'addon: `node src/tools/addon.js`, `addon-test.js`, `node src/tools/prova.js <scratchpad>/prova` e ripubblicare la pagina di prova sullo stesso URL (`url` dell'Artifact, i `.lua` come `text/plain`).
+1. **Dal 5 nov, addon nel gioco vero** (promemoria programmato il 5 nov alle 10): si carica? Screenshot di `/fp debug` subito e dopo un `/reload` risponde a quasi tutto; poi provare icona, schede, caratteri, segnaposti (mappa del mondo e minimappa, id di Zephras), quest (consegna), finestra dei talenti, trainer. Cartella AddOns: `_forever_\Interface\AddOns` (Interface 16001); token di `UnitRace` degli Skyborne (ipotesi: contiene «Skyborne»); talento indicato giusto; spunte dopo un riavvio (in beta le SavedVariables non venivano rilette). Correggere e alzare la versione.
+2. **Pubblicare l'addon** dopo la prova: CurseForge e Wago (account dell'utente). Tutto pronto in `addon/pubblicazione/README.md` (campi, riassunto, descrizione Markdown) e `logo-400.png` (`node src/tools/logo.js addon/pubblicazione/logo-400.png addon/ForeverPathfinder/icon.tga`); licenza MIT in `addon/LICENSE`; mancano gli screenshot dal gioco, poi eventuale caricamento automatico da GitHub con token.
+3. **Guida fino al 60 solo quando ci saranno fonti attendibili sul gioco uscito** (decisione dell'utente): rotte e build, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
 4. **Ricontrollare sul gioco uscito**: dungeon (boss, quest, giudizi), classifica degli alt (le tier list erano sulla beta 1–30), Legacy.
 5. **Gold farming**: quando ci saranno testimonianze dal gioco.
 6. Facoltativo: `/impeccable init` per `PRODUCT.md`. Le eccezioni del controllo di design (font Inter, titolo dorato, linea della cronologia) sono in `.impeccable/config.json` (locale, non nel repo).
