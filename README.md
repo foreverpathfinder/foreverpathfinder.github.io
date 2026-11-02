@@ -6,6 +6,8 @@ Guida leveling 1–30 per **WoW: Forever**, per tutte le razze (Skyborne inclusi
 
 **Usala qui:** https://foreverpathfinder.github.io/
 
+**Addon in gioco:** https://foreverpathfinder.github.io/addon.html (download, installazione, comandi)
+
 Spec e build scelte in base alle guide più votate (preferiti Mobalytics, views YouTube) e ai dati del client (wowforever.be, Wowhead). Dati pre-lancio: verifica sempre i tooltip in gioco. Verrà aggiornata fino al 60 con le guide del gioco uscito.
 
 - La pagina è un unico file generato: `WoW_Forever_Leveling_Companion.html` (riepilogo testuale in `WoW_Forever_Leveling_Companion.md`).

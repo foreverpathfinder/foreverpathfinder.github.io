@@ -102,9 +102,11 @@ local function refresh()
   sub:SetText(T.stage:format(ch, ((g.ch[ch] or ""):gsub("^%d+%.%s*", ""))) .. "\n" .. T.build:format(g.build))
   tal:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -6)
   tal:SetText(talentLine(g))
-  local y, n = -(36 + sub:GetStringHeight() + 8 + tal:GetStringHeight() + 8), 0
+  -- un livello a cavallo di due tappe compare in entrambe: ogni voce una volta sola
+  local y, n, seen = -(36 + sub:GetStringHeight() + 8 + tal:GetStringHeight() + 8), 0, {}
   for i, t in ipairs(g.tasks) do
-    if t[1] == view then
+    if t[1] == view and not seen[t[3]] then
+      seen[t[3]] = true
       n = n + 1
       local r = row(n)
       r.id = k .. ":" .. i
