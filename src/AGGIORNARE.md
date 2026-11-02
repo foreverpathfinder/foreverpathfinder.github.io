@@ -48,6 +48,7 @@ UI: **pagina iniziale** `#home` (body `.home`, si apre se l'URL non ha hash): pe
 ## Da fare
 Fatto il 2 nov: pagina iniziale con pro/contro, titolo in testata, preset personaggi (v10.3).
 Poi, dopo il 4 nov: rotte e build da fonti reali, `maxLevel` 60 (`segments`/`steps`/`milestones`/`spells` fino al 60; le build arrivano già al 60).
+Dal 5 nov (lancio), su richiesta dell'utente: guida in gioco via addon esistente, non addon nostro. 1) Verificare in gioco che Forever accetti gli addon e quale client/Interface usa. 2) `build.js` genera anche un percorso in formato Guidelime (o RestedXP) da `routes`/quest/`/way`, IT ed EN; prima un solo percorso (es. Human Hunter) da far provare all'utente, poi tutte le combinazioni. 3) Servono gli ID quest (da Wowhead Forever) per le spunte automatiche. Pubblicazione su CurseForge/Wago: gratuito, donazioni ammesse (regole addon Blizzard).
 
 ## Dubbi aperti (sintesi)
 Build 31–60 da una sola fonte per varie classi 🟡; molte tappe delle rotte da una fonte (games.gg) e livelli di Zephras stimati; valori di alcuni racial discordi; Legacy (costi perk, cap 16, 62 vs 65 challenge) da confermare in gioco.
