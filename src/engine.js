@@ -368,6 +368,7 @@ function initMap(){
  map.on('zoomend',zcls);map.fitBounds(WORLD);zcls();
  var wrap=$('lwrap'),fs=$('lfs');
  fs.onclick=function(){var f=wrap.classList.toggle('full');fs.textContent=f?'✕ Chiudi':'⛶ Schermo intero';document.body.style.overflow=f?'hidden':'';setTimeout(function(){map.invalidateSize()},50)};
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&wrap.classList.contains('full'))fs.click()});
  $('lworld').onclick=function(){RM?map.fitBounds(WORLD,{animate:false}):map.flyToBounds(WORLD,{duration:.6})};
  MAPI.fly=function(x,y,z,html){var to=ll(x,y),far=map.distance(map.getCenter(),to)>60;if(far)map.setView(to,z,{animate:false});else if(RM)map.setView(to,z,{animate:false});else map.flyTo(to,z,{duration:.5});
   if(html)LF.popup({autoPan:false}).setLatLng(to).setContent(html).openOn(map)};
