@@ -1,4 +1,4 @@
-# WoW Forever – Leveling Companion 1–30 (v10)
+# Forever Pathfinder – WoW: Forever leveling 1–30 (v10)
 
 > Aggiornato: **2 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: 5 novembre, mezzanotte (ora italiana). Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.

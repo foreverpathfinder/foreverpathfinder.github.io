@@ -140,7 +140,7 @@
 ["<th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th>","<th>Source</th><th>Date / signal</th><th>What I took</th>"],
 ["'Guida leveling 1–'","'Leveling guide 1–'"],
 ["' per WoW: Forever · '","' for WoW: Forever · '"],
-["'Guida personale · WoW: Forever Leveling Companion · '","'Personal guide · WoW: Forever Leveling Companion · '"],
+["'Guida personale · Forever Pathfinder · '","'Personal guide · Forever Pathfinder · '"],
 ["'). Non affiliata a Blizzard. Icone © Blizzard via Wowhead.'","'). Not affiliated with Blizzard. Icons © Blizzard via Wowhead.'"],
 ["<h3>Main: gold subito</h3>","<h3>Main: gold right away</h3>"],
 ["<h3>Main: più forza in leveling</h3>","<h3>Main: more power while leveling</h3>"],
@@ -235,7 +235,7 @@
 ["<b>iPhone / iPad (Safari):</b> tocca Condividi (il quadrato con la freccia ↑) → <b>Aggiungi alla schermata Home</b>. Così Safari non cancella più i progressi dopo qualche giorno senza aperture.","<b>iPhone / iPad (Safari):</b> tap Share (the square with the ↑ arrow) → <b>Add to Home Screen</b>. This way Safari no longer deletes your progress after a few days without visits."],
 ["<b>Android (Chrome):</b> menu ⋮ → <b>Aggiungi a schermata Home</b> (o <b>Installa app</b>).","<b>Android (Chrome):</b> menu ⋮ → <b>Add to Home screen</b> (or <b>Install app</b>)."],
 ["Se aprendola dall’icona non trovi i tuoi personaggi, usa <b>📂 Carica salvataggio</b>.","If you open it from the icon and your characters are missing, use <b>📂 Load save file</b>."],
-["'WoW Forever Leveling Companion - file di salvataggio. Per ripristinarlo: guida, 👥 Personaggi, Carica salvataggio. Non modificare la riga qui sotto.'","'WoW Forever Leveling Companion - save file. To restore it: guide, 👥 Characters, Load save file. Do not edit the line below.'"],
+["'Forever Pathfinder (WoW: Forever) - file di salvataggio. Per ripristinarlo: guida, 👥 Personaggi, Carica salvataggio. Non modificare la riga qui sotto.'","'Forever Pathfinder (WoW: Forever) - save file. To restore it: guide, 👥 Characters, Load save file. Do not edit the line below.'"],
 ["'WoW-Forever-salvataggio-'","'WoW-Forever-save-'"],
 ["'Questo file non è un salvataggio della guida.'","'This file is not a save file of this guide.'"],
 ["'Caricare '+p.list.length+(p.list.length>1?' personaggi':' personaggio')+' dal salvataggio? Sostituisce quelli su questo dispositivo.'","'Load '+p.list.length+(p.list.length>1?' characters':' character')+' from the save file? It replaces the ones on this device.'"]

@@ -1,4 +1,6 @@
-# WoW Forever – Leveling Companion
+# Forever Pathfinder
+
+*(prima: WoW Forever Leveling Companion)*
 
 Guida leveling 1–30 per **WoW: Forever**, per tutte le razze (Skyborne inclusi) e tutte le classi: rotta per zona iniziale, talent per livello con il calcolatore di wowforever.be, rotation, spell, racial, mappa interattiva, bag, dungeon, Crates e Camping.
 

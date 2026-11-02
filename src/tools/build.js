@@ -211,7 +211,7 @@ if (miss.size) W(miss.size + ' testi senza traduzione inglese → src/i18n/missi
 /* ---- riepilogo Markdown (stessi dati della pagina) ---- */
 const strip = s => String(s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 const grp = b => { const g = []; b.slice(0, MAXL - 9).forEach((k, i) => { const l = g[g.length - 1]; if (l && l.k === k) { l.to = 10 + i; l.n++; } else g.push({ k, from: 10 + i, to: 10 + i, n: 1 }); }); return g; };
-let md = `# WoW Forever – Leveling Companion 1–${MAXL} (${common.version})\n\n> Aggiornato: **${common.updated}**. Riepilogo della pagina \`WoW_Forever_Leveling_Companion.html\` (aprila per mappa, calcolatore talent e planner per livello).\n> Lancio: ${common.launchText}. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.\n\n## Razze e classi\n| Razza | Fazione | Zona iniziale | Classi |\n|---|---|---|---|\n`;
+let md = `# Forever Pathfinder – WoW: Forever leveling 1–${MAXL} (${common.version})\n\n> Aggiornato: **${common.updated}**. Riepilogo della pagina \`WoW_Forever_Leveling_Companion.html\` (aprila per mappa, calcolatore talent e planner per livello).\n> Lancio: ${common.launchText}. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.\n\n## Razze e classi\n| Razza | Fazione | Zona iniziale | Classi |\n|---|---|---|---|\n`;
 for (const r of Object.values(races)) md += `| ${r.name} | ${r.faction === 'A' ? 'Alleanza' : 'Orda'} | ${routes[r.start] ? routes[r.start].name : r.start} | ${r.classes.map(c => classes[c] ? classes[c].name : c + ' (in arrivo)').join(', ')} |\n`;
 md += `\n## Build per classe (talent point 10–${MAXL})\n`;
 for (const [k, c] of Object.entries(classes)) {

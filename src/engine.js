@@ -236,11 +236,11 @@ function renderClass(){
  // fonti
  $('srct').innerHTML='<tr><th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th></tr>'+CL.sources.concat(FA.sources,C.sources,D.profs?D.profs.sources:[],D.alts?D.alts.sources:[]).map(srcRow).join('');
  // testata
- document.title=RA.name+' '+CL.name+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
+ document.title=RA.name+' '+CL.name+' '+CL.spec+' – Forever Pathfinder';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
  $('hsub').innerHTML='Guida leveling 1–'+MAXL+' per WoW: Forever · '+FN[RA.faction]+' · <b>'+C.version+'</b> · '+C.updated;
  $('herobg').innerHTML=RT.hero.map(function(u){return '<img src="'+u+'" alt="">'}).join('');
  var vi=document.querySelector('.visits img');vi.onerror=function(){vi.outerHTML='Contatore visite bloccato da un adblock: <a href="'+vi.dataset.src+'" target="_blank" rel="noopener">aprilo qui</a>'};if(!navigator.webdriver)vi.src=vi.dataset.src;
- $('foot').textContent='Guida personale · WoW: Forever Leveling Companion · '+C.version+' ('+C.updated+'). Non affiliata a Blizzard. Icone © Blizzard via Wowhead.';
+ $('foot').textContent='Guida personale · Forever Pathfinder · '+C.version+' ('+C.updated+'). Non affiliata a Blizzard. Icone © Blizzard via Wowhead.';
  $('lvr').max=MAXL;$('tlsum').textContent='Tutto il percorso 1–'+MAXL+' in una riga temporale';
  WF.shown=null;wfFit();
 }
@@ -416,7 +416,7 @@ function preBtns(add){return P.list.map(function(p,i){var s=fix(p.s),rc=D.races[
   return '<button type="button" class="pre'+(i===P.cur?' on':'')+'" data-pi="'+i+'"><img src="'+IC('classicon_'+s.c)+'" alt=""><span><b>'+esc(p.n||rc)+'</b><small>'+(p.n?rc+' ':'')+pSpec(s)+' · liv. '+s.L+'</small></span></button>'}).join('')+
  (add?'<button type="button" class="pre add" data-pi="new">＋ Nuovo personaggio</button>':'')}
 // salvataggio su file: .txt con una riga di spiegazione e tutti i personaggi (P) in base64; lo rilegge solo "Carica salvataggio"
-var SVH='WoW Forever Leveling Companion - file di salvataggio. Per ripristinarlo: guida, 👥 Personaggi, Carica salvataggio. Non modificare la riga qui sotto.';
+var SVH='Forever Pathfinder (WoW: Forever) - file di salvataggio. Per ripristinarlo: guida, 👥 Personaggi, Carica salvataggio. Non modificare la riga qui sotto.';
 $('svSave').onclick=function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([SVH+'\n'+btoa(unescape(encodeURIComponent(JSON.stringify(P))))+'\n'],{type:'text/plain'}));a.download='WoW-Forever-salvataggio-'+new Date().toISOString().slice(0,10)+'.txt';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000)};
 $('svLoad').onchange=function(){var f=this.files[0];this.value='';if(f)f.text().then(function(t){var p=null;try{p=JSON.parse(decodeURIComponent(escape(atob(t.trim().split('\n').pop().trim()))));p.list=p.list.filter(function(x){return x&&x.s})}catch(e){p=null}
  if(!p||!p.list||!p.list.length)return alert('Questo file non è un salvataggio della guida.');
