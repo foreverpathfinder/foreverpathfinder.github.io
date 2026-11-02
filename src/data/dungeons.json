@@ -1,12 +1,11 @@
 {
  "_": "Dettagli dei dungeon per la scheda Dungeon. Chiave = nome come in factions/*.json senza ★ e senza \"The \", in minuscolo. v = giudizio per fazione [go|opt|skip, livello ideale, perché]; q = quest A/H/N (entrambe) e C (di classe: [quest, classe, dove]); k = catena per la chiave; b = boss in ordine; t = consigli. Fonti in fondo.",
  "general": [
-  "Il primo giro con tutte le quest nel log è quello che dà più XP: i giri ripetuti senza quest valgono poco.",
-  "Ognuno deve prendere le proprie quest: molte non si condividono.",
-  "I mob dei dungeon danno circa il 30–40% dell'XP di Classic (stime dei tester).",
-  "Massimo 5 istanze all'ora.",
-  "1° ottobre: bonus XP delle quest dei dungeon dimezzato. 8 ottobre: XP dei mob nei dungeon +20% circa.",
-  "Group finder: nessuna coda automatica né teletrasporto; spunta Show All Level Ranges per vedere tutti i gruppi."
+  "Entra <b>una sola volta</b>, con <b>tutte le quest</b> del dungeon già nel log: è quel giro a dare quasi tutta l’XP. Rifarlo senza quest rende poco.",
+  "Ogni giocatore deve prendere le quest per conto suo: molte non si possono condividere nel gruppo.",
+  "I mostri dentro danno solo il 30–40% circa dell’XP del Classic originale: il guadagno vero sono le quest.",
+  "Puoi entrare in al massimo 5 dungeon all’ora (anche resettando).",
+  "Il Group finder non ti teletrasporta: cerca il gruppo, poi raggiungete l’ingresso a piedi. Spunta <b>Show All Level Ranges</b> per vedere anche i gruppi poco sopra o sotto il tuo livello."
  ],
  "dungeons": {
   "ragefire chasm": {
@@ -54,10 +53,10 @@
     "Bazzalan"
    ],
    "t": [
-    "Oggleflint: uccidi prima i 2 add.",
-    "Taragaman: Uppercut ti lancia in aria, attento alla lava.",
-    "Jergosh: interrompi Immolate.",
-    "Bazzalan: Deadly Poison sul tank, va rimosso."
+    "<b>Oggleflint</b> arriva con 2 aiutanti: uccidete prima loro, poi il boss.",
+    "<b>Taragaman the Hungerer</b> lancia in aria chi gli sta davanti (Uppercut): combattetelo lontano dalla lava, o chi cade muore.",
+    "<b>Jergosh the Invoker</b> brucia il tank con Immolate: chi può interrompere lo blocca ogni volta.",
+    "<b>Bazzalan</b> avvelena il tank (Deadly Poison): Shaman o Druid tolgono il veleno, altrimenti il healer cura di più."
    ]
   },
   "hall of thanes": {
@@ -105,10 +104,11 @@
     "Durgen Dirgehammer"
    ],
    "t": [
-    "Bloodhound Runt: Infected Wounds si cura con Simple Poultice o Stoneform.",
-    "Faldrim Anvilmar: rimuovi Anvilmar's Curse e uccidi prima i fantasmi.",
-    "Magmatus: uccidi prima il Dark Iron Summoner; i ranged stanno fuori dagli impulsi di fuoco.",
-    "Durgen Dirgehammer: pulisci la stanza e uccidi i 2 Lesser Stone Golem; fa AoE fear, Tremor Totem utile."
+    "I cani <b>Bloodhound Runt</b> fanno prendere più danni (Infected Wounds): si toglie con Simple Poultice o con Stoneform dei Dwarf.",
+    "<b>Faldrim Anvilmar</b>: prima uccidete i fantasmi intorno; la sua maledizione rallenta attacchi e incantesimi, un Mage o Druid la toglie.",
+    "<b>Magmatus</b>: uccidete subito il Dark Iron Summoner vicino a lui. Il boss emette ondate di fuoco intorno a sé: chi attacca da lontano resti lontano.",
+    "<b>Plunder</b> respinge chi lo colpisce: il tank stia con la schiena al muro, così non viene spinto via.",
+    "<b>Durgen Dirgehammer</b>: pulite tutta la stanza prima, perché il suo fear fa scappare il gruppo verso altri mostri. Uccidete prima i 2 golem. Uno Shaman con Tremor Totem annulla il fear."
    ]
   },
   "ruins of lordaeron": {
@@ -180,11 +180,11 @@
     "Rath'mael"
    ],
    "t": [
-    "Pack fitti: occhio all'aggro e al mana del healer.",
-    "The Baron: tank con la schiena al muro, cono frontale e knockback.",
-    "Bjork: Anti-Magic Shield, usa danni fisici.",
-    "Rath'mael: interrompi Flamestrike.",
-    "Alleanza: esci a piedi, non con la Hearthstone, per consegnare la Head of the Baron a Captain Truman."
+    "I gruppi di mostri sono numerosi e vicini: tirateli uno alla volta e date al healer il tempo di bere.",
+    "<b>The Baron</b> colpisce tutto ciò che ha davanti e respinge: il tank lo gira verso il muro, gli altri stanno ai lati o dietro.",
+    "<b>Bjork</b> si protegge dalla magia (Anti-Magic Shield): mentre è attivo conta il danno fisico (Warrior, Rogue, Hunter).",
+    "<b>Rath’mael</b> lancia Flamestrike a terra: interrompetelo, e se compare il cerchio di fuoco uscite subito.",
+    "Alleanza: alla fine uscite a piedi, non con la Hearthstone: Captain Truman all’ingresso vuole la Head of the Baron."
    ]
   },
   "deadmines": {
@@ -243,10 +243,10 @@
     "Cookie (opzionale)"
    ],
    "t": [
-    "Rhahk'zor: uccidi prima i 2 Defias Watchmen.",
-    "Sneed: fa Disarm, il tank tiene l'aggro anche senza arma.",
-    "Mr. Smite: tieni i cooldown difensivi per la fase 2.",
-    "Edwin VanCleef: a metà vita chiama 2 add; uccidi prima Captain Greenskin."
+    "<b>Rhahk’zor</b> ha 2 guardie che sparano da lontano: uccidete prima loro.",
+    "<b>Sneed</b> (dentro la macchina Sneed’s Shredder) disarma il tank: il tank tenga l’attenzione con abilità che non richiedono l’arma (Taunt, urla, Thunder Clap).",
+    "<b>Mr. Smite</b> cambia arma due volte; con due armi colpisce fortissimo: il tank usi lì le abilità difensive.",
+    "<b>Edwin VanCleef</b>: uccidete prima Captain Greenskin sulla nave. A metà vita VanCleef chiama 2 aiutanti: finite il boss in fretta."
    ]
   },
   "wailing caverns": {
@@ -308,9 +308,9 @@
     "Mutanus the Devourer"
    ],
    "t": [
-    "Lady Anacondra e Lord Pythas: interrompi Sleep e Lightning Bolt.",
-    "Verdan the Everliving: i ranged a più di 10 yard per evitare Grasping Vines.",
-    "Mutanus the Devourer: uccidi prima ooze e serpenti, interrompi Naralex's Nightmare."
+    "<b>Lady Anacondra</b> e <b>Lord Pythas</b> addormentano un giocatore (Sleep) e lanciano fulmini: interrompeteli.",
+    "<b>Verdan the Everliving</b> blocca e stordisce chi gli sta entro 10 metri: chi può, attacchi da lontano.",
+    "<b>Mutanus the Devourer</b> appare dopo l’evento di Naralex: uccidete prima melme e serpenti, poi il boss; interrompete Naralex’s Nightmare (fa dormire)."
    ]
   },
   "shadowfang keep": {
@@ -371,10 +371,10 @@
     "Archmage Arugal"
    ],
    "t": [
-    "In fondo trovi il Black Tome: serve per Lyn the Ignored in City of Dalaran.",
-    "Commander Springvale: tira piccoli gruppi, la stanza intera è letale; interrompi Holy Light dopo Divine Shield.",
-    "Baron Silverlaine: Veil of Shadow riduce le cure del 75%, va rimosso.",
-    "Archmage Arugal: Void Bolt non si interrompe; metti in CC gli alleati controllati invece di colpirli."
+    "<b>Commander Springvale</b> e la sua stanza sono pericolosi: tirate pochi mostri alla volta. A 30% si protegge con Divine Shield e poi si cura: interrompete Holy Light.",
+    "<b>Baron Silverlaine</b> riduce del 75% le cure sul bersaglio (Veil of Shadow): toglietelo o interrompetelo.",
+    "<b>Archmage Arugal</b> prende il controllo di un giocatore: non colpitelo, mettetelo fuori gioco (CC) finché torna normale.",
+    "In fondo trovate il <b>Black Tome</b>: tenetelo, serve per il boss segreto Lyn the Ignored in City of Dalaran."
    ]
   },
   "blackfathom deeps": {
@@ -458,10 +458,10 @@
     "Aku'mai"
    ],
    "t": [
-    "Gelihast: dopo, tocca la pietra dietro di lui per Blessing of Blackfathom.",
-    "Horde: il Fathom Stone evoca Baron Aquanis, che serve per la quest.",
-    "Twilight Lord Kelris: Sleep e Mind Blast non si interrompono, il tank sia pronto a riprendere l'aggro.",
-    "Aku'mai: tieni stun e CC per Frenzied Rage."
+    "Dopo <b>Gelihast</b> cliccate la pietra dietro di lui: dà a tutti un buff utile (Blessing of Blackfathom).",
+    "Horde: cliccate il <b>Fathom Stone</b> per far apparire Baron Aquanis, che serve per una quest.",
+    "<b>Twilight Lord Kelris</b> addormenta il tank: in quel momento il boss va su un altro giocatore. Il tank riprenda subito l’attenzione quando si sveglia.",
+    "<b>Aku’mai</b> ogni tanto attacca molto più veloce (Frenzied Rage): tenete stordimenti e CC per quel momento, e non state nella nube velenosa."
    ]
   },
   "stockade": {
@@ -515,9 +515,9 @@
     "Bruegal Ironknuckle (raro)"
    ],
    "t": [
-    "Due ali, nell'ordine che vuoi.",
-    "Hamhock: uccidi i 2 add, interrompi Chain Lightning, Purge su Bloodlust.",
-    "Dextren Ward: fa Intimidating Shout, il healer resti a portata."
+    "È un corridoio a T con due ali: fatele nell’ordine che volete.",
+    "<b>Hamhock</b>: uccidete prima i 2 aiutanti. Interrompete Chain Lightning; se si potenzia (Bloodlust) Shaman e Priest glielo tolgono.",
+    "<b>Dextren Ward</b> fa scappare chi gli sta vicino (Intimidating Shout): il healer resti abbastanza vicino da curare il tank."
    ]
   },
   "excavation site: wetlands": {
@@ -579,9 +579,9 @@
     "Relic Guardian"
    ],
    "t": [
-    "Servono cure per le malattie: Infected Wounds, Muculent Rot, Highland Venom.",
-    "Shadetooth: uccidi prima i raptor, che chiamano aiuto; fa AoE fear, Tremor Totem utile.",
-    "Relic Guardian: si attiva dall'Archival Panel; attento al knockback vicino ai bordi."
+    "Raptor e cani lasciano sanguinamenti e malattie: portate bende e, se potete, chi toglie le malattie (Priest, Paladin).",
+    "<b>Shadetooth</b>: uccidete prima i raptor intorno, che chiamano aiuto. Il boss fa scappare tutto il gruppo (fear): Tremor Totem lo annulla.",
+    "<b>Relic Guardian</b> si attiva cliccando l’Archival Panel accanto alla colonna. Respinge chi è vicino: non combattetelo sul bordo."
    ]
   },
   "city of dalaran": {
@@ -651,11 +651,12 @@
     "Shade of the Archmage"
    ],
    "t": [
-    "L'ultimo boss lascia una collana con +10% XP contro i non morti, per poco tempo.",
-    "Lyn the Ignored chiede il Tome of Dalaran: è il Black Tome in fondo a Shadowfang Keep.",
-    "Mindless Horror fa fear: Tremor Totem.",
-    "Mana Fiend esplode alla morte: allargatevi.",
-    "Fel Ancient: Entangle, usa le abilità che tolgono i root."
+    "Prima fate la catena per la chiave (vedi 🔑 sopra), mentre fate le quest a Hillsbrad Foothills.",
+    "I <b>Mindless Horror</b> fanno scappare il gruppo (fear) verso altri mostri: Tremor Totem lo annulla.",
+    "I <b>Mana Fiend</b> esplodono quando muoiono: allontanatevi l’uno dall’altro.",
+    "<b>Fel Ancient</b> blocca i giocatori a terra (Entangle): usate le abilità che liberano (forma del Druid, Blessing of Freedom) e uscite dalle zone verdi.",
+    "Il boss segreto <b>Lyn the Ignored</b> si evoca solo con il Black Tome di Shadowfang Keep.",
+    "L’ultimo boss lascia una collana: +10% XP sui non morti per un po’, usatela subito dopo."
    ]
   },
   "gnomeregan": {
@@ -735,9 +736,9 @@
     "Mekgineer Thermaplugg"
    ],
    "t": [
-    "Electrocutioner 6000 lascia la Workshop Key, per la porta sul retro.",
-    "Crowd Pummeler 9-60: tank con la schiena al muro, caster lontani.",
-    "Mekgineer Thermaplugg: ritaunta dopo Knock Away; i ranged premono i pulsanti per fermare le bombe."
+    "<b>Electrocutioner 6000</b> lascia la Workshop Key: apre la porta sul retro, utile per rientrare più in fretta.",
+    "<b>Crowd Pummeler 9-60</b> colpisce tutti quelli vicini: il tank con la schiena al muro, chi attacca da lontano resti lontano.",
+    "<b>Mekgineer Thermaplugg</b> scaraventa via il tank e azzera l’attenzione: il tank lo riprende subito (Taunt). Le bombe escono dai muri: chi è libero preme i pulsanti accanto per fermarle."
    ]
   },
   "razorfen kraul": {
@@ -799,9 +800,9 @@
     "Charlga Razorflank"
    ],
    "t": [
-    "Death Speaker Jargba: tienilo in melee; Dominate Mind si toglie con Dispel Magic o Purge.",
-    "Agathelos the Raging: finge di morire, continua a colpire.",
-    "Charlga Razorflank: allargatevi per Chain Bolt."
+    "<b>Death Speaker Jargba</b> prende il controllo di un giocatore (Dominate Mind): un Priest (Dispel Magic) o uno Shaman (Purge) lo libera. Tenetelo in corpo a corpo, da lontano lancia Shadow Bolt.",
+    "<b>Agathelos the Raging</b> finge di morire: continuate a colpirlo finché non è morto davvero.",
+    "<b>Charlga Razorflank</b> lancia un fulmine che salta da un giocatore all’altro: state distanti tra voi."
    ]
   },
   "scarlet monastery": {
@@ -835,9 +836,9 @@
     "Bloodmage Thalnos"
    ],
    "t": [
-    "Graveyard: Ironspine, Fallen Champion e Azshir the Sleepless compaiono a volte.",
-    "Bloodmage Thalnos: Flame Spike non si interrompe, ranged lontani.",
-    "Le ali oltre il 35 non sono state provate in beta."
+    "Il Graveyard è l’ala più bassa: entrate dal portale più a sinistra. Ironspine, Fallen Champion e Azshir the Sleepless non ci sono sempre.",
+    "<b>Bloodmage Thalnos</b> lancia fuoco a terra che non si può interrompere: chi attacca da lontano e il healer stiano lontani.",
+    "Le ali oltre il livello 35 non sono state provate in beta."
    ]
   }
  },
@@ -860,5 +861,6 @@
    "letto il 2 nov",
    "modifiche all'XP dei dungeon"
   ]
- ]
+ ],
+ "glossary": "<b>Parole che trovi nei consigli:</b> <b>tank</b> = chi tiene i mostri addosso; <b>healer</b> = chi cura; <b>ranged</b> = chi attacca da lontano (caster, Hunter); <b>add</b> = mostri che accompagnano il boss; <b>interrompere</b> = bloccare un incantesimo mentre lo sta lanciando (Kick, Pummel, Counterspell, Earth Shock); <b>rimuovere</b> = togliere un veleno, una maledizione o una magia con l’abilità adatta (Cure Poison, Remove Curse, Dispel Magic, Purge); <b>CC</b> = mettere fuori gioco un mostro per un po’ (Polymorph, Sap, Fear, Trap)."
 }
