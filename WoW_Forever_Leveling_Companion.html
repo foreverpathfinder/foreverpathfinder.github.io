@@ -260,6 +260,8 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .dg>summary{display:flex;align-items:center;justify-content:space-between;gap:8px}.dg>summary>span{display:flex;flex-direction:column;flex:1}.dg>summary .pill{white-space:nowrap;flex:none}.dg>summary small{color:var(--mu);font-weight:400;font-size:.8rem}
 .dg.now{border-color:var(--gold)}.dg.now>summary b{color:var(--gold)}.dg.skip{opacity:.6}.dg h4{margin:.7em 0 .2em;color:var(--ice)}.dg ul,.dg ol{margin:.2em 0;padding-left:1.3em}.dg li{margin:.15em 0}
 .p-bad{color:var(--bad);border-color:#6b2b2b}#dgen ul{margin:.3em 0 0;padding-left:1.2em}
+.cbar .addb{background:var(--card2);border-color:var(--ac);color:var(--tx);text-decoration:none}.addb small{color:var(--mu)}
+@media(max-width:520px){.cbar{flex-wrap:wrap}.cbar .pres{flex-basis:100%}.cbar .pers{flex:1;justify-content:center}}
 
 </style></head><body>
 
@@ -312,7 +314,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
  <div class="btns" style="margin:16px 0 0"><button class="btn pr big" type="button" id="bGo">Entra nella guida ›</button></div>
 </div></section>
 
-<div class="cbar" id="cbar"><div class="pres" id="cpre"></div><button class="btn pers" type="button" id="bWiz"><span class="pi">👥</span><span><b>Personaggi</b><small>cambia · crea · salva</small></span></button></div>
+<div class="cbar" id="cbar"><div class="pres" id="cpre"></div><a class="btn pers addb" href="addon.html" id="bAddon"><span class="pi">🧩</span><span><b>Addon</b><small>in gioco</small></span></a><button class="btn pers" type="button" id="bWiz"><span class="pi">👥</span><span><b>Personaggi</b><small>cambia · crea · salva</small></span></button></div>
 
 <nav id="nav" role="tablist">
  <button data-tab="livello" class="on">Livello</button><button data-tab="talent">Talent</button><button data-tab="mappa">Mappa</button><button data-tab="classe">Classe</button><button data-tab="prof">Profession</button><button data-tab="dungeon">Dungeon</button><button data-tab="alt">Alt</button><button data-tab="altro">Altro</button><button data-tab="info">Info</button>

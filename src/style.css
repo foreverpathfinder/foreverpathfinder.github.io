@@ -249,3 +249,5 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .dg>summary{display:flex;align-items:center;justify-content:space-between;gap:8px}.dg>summary>span{display:flex;flex-direction:column;flex:1}.dg>summary .pill{white-space:nowrap;flex:none}.dg>summary small{color:var(--mu);font-weight:400;font-size:.8rem}
 .dg.now{border-color:var(--gold)}.dg.now>summary b{color:var(--gold)}.dg.skip{opacity:.6}.dg h4{margin:.7em 0 .2em;color:var(--ice)}.dg ul,.dg ol{margin:.2em 0;padding-left:1.3em}.dg li{margin:.15em 0}
 .p-bad{color:var(--bad);border-color:#6b2b2b}#dgen ul{margin:.3em 0 0;padding-left:1.2em}
+.cbar .addb{background:var(--card2);border-color:var(--ac);color:var(--tx);text-decoration:none}.addb small{color:var(--mu)}
+@media(max-width:520px){.cbar{flex-wrap:wrap}.cbar .pres{flex-basis:100%}.cbar .pers{flex:1;justify-content:center}}
