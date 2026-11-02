@@ -307,9 +307,6 @@ function altRaces(A){var M={};(A.altRaces||[]).forEach(function(r){M[r.race]=r})
  $('hlaunch').textContent=C.launchText;
  $('xpc').innerHTML=C.xpCards.map(function(x){return card(x[0],x[1],x[2])}).join('');$('xpr').innerHTML=li(C.rules);
  $('bagn').innerHTML=C.bagsNote;$('proft').innerHTML=C.profTier;$('profe').innerHTML=li(C.profErrors);$('camps').innerHTML=li(C.campSteps);
- var V=C.video;$('vtitle').textContent='Video: '+V.title;$('vsum').innerHTML=li(V.summary);$('yt').src='https://www.youtube-nocookie.com/embed/'+V.id;
- $('vchap').innerHTML=V.chapters.map(function(c){return '<button data-t="'+c[1]+'">'+c[0]+' '+Math.floor(c[1]/60)+':'+('0'+c[1]%60).slice(-2)+'</button>'}).join('');
- $('vchap').addEventListener('click',function(e){var b=e.target.closest('button');if(b)$('yt').src='https://www.youtube-nocookie.com/embed/'+V.id+'?autoplay=1&start='+b.dataset.t});
  $('limits').innerHTML='<b>Limiti onesti:</b> '+C.limits;
  var end=Date.parse(C.launchUTC),el=$('cd');function t(){var d=end-Date.now();if(d<=0){el.textContent='Forever è uscito!';return}var h=Math.floor(d/36e5);el.textContent='mancano '+Math.floor(h/24)+' g '+(h%24)+' h'}t();setInterval(t,6e4);
 })();

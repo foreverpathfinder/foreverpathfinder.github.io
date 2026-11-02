@@ -44,12 +44,6 @@
   "Camp Chair": ["Skinning", "inv_crate_01", "+2% crit."],
   "Enchanted Lute": ["Enchanting", "inv_10_enchanting2_magicswirl_bronze", "Armor, stats, resistance."]
  },
- "video": {
-  "id": "9zXygm83IiI",
-  "title": "Kargoz – 10 consigli per il lancio",
-  "chapters": [["Inizio", 0], ["Interfaccia", 82], ["Zona iniziale", 171], ["Target e XP", 450], ["Camping e XP", 567], ["Grinding", 729], ["Dungeon", 795], ["Equip", 901], ["Secondo account", 967], ["Duo", 1201]],
-  "summary": ["<b>Interfaccia:</b> tasti, dot timer, swing timer, cooldown e mouseover sono già nel client: preparali prima.", "<b>Zona iniziale:</b> valuta la situazione al lancio (respawn veloci o bloccati) e adattati; Elwynn sarà la più affollata.", "<b>Death skip e logout skip</b> (auto-unstuck dal sito, cooldown 1 ora).", "<b>Target:</b> uccidi mob del tuo livello; i mob più bassi danno meno XP che in Era.", "<b>Camping:</b> Mana Well “fortissimo”; food +5% XP; Sleeping Bag +3% per 2 ore.", "<b>Grinding</b> solo quando hai una weapon nuova forte.", "<b>Dungeon:</b> una volta, per le quest; circa il 40% dell’XP.", "<b>Equip:</b> non comprarlo all’Auction House; conta la weapon.", "<b>Secondo account</b> per l’alt in città (Auction House, profession).", "<b>Duo leveling:</b> il modo migliore e più divertente."]
- },
  "sources": [
   ["wowforever.be – talent e build di leveling (dati client)", "https://wowforever.be/leveling/", "client 1.60.1.70707", "Talent, tooltip, ordine dei talent point, calcolatore"],
   ["Mobalytics – guide leveling (classifica per preferiti)", "https://mobalytics.gg/wow-forever/leveling-guides", "1 nov", "Scelta della spec per popolarità (♥)"],
