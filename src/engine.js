@@ -1,5 +1,7 @@
 // Motore della guida: legge DATA (unito da tools/build.js) e disegna tutto per razza + classe + opzioni + livello.
 var D=DATA,C=D.common,LF=window.L; // Leaflet: L resta il nome globale di Leaflet
+// meno animazioni se il sistema lo chiede: scorrimenti istantanei, la mappa salta invece di volare
+var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),SM=RM?'auto':'smooth';
 var IC=function(n){return 'https://wow.zamimg.com/images/wow/icons/large/'+n+'.jpg'};
 function img(n,c,alt){return '<img class="ic'+(c?' '+c:'')+'" src="'+IC(n)+'" alt="'+(alt||'')+'" loading="lazy" onerror="icoFail(this,\''+n+'\')">'}
 // icona mancante: prima wowforever.be, poi il punto di domanda di WoW (mai un riquadro vuoto)
@@ -80,8 +82,8 @@ function msBtns(m){var seen={},h=(m.n||[]).map(function(n){seen[n[0]]=1;return g
 function dgBtn(name){var n=name.replace(/[★✔🟡]/g,'').trim().toLowerCase(),d=D.map.dg.filter(function(x){return x[0].toLowerCase()===n||n.indexOf(x[0].toLowerCase())>-1||x[0].toLowerCase().indexOf(n)>-1})[0];return d?goBtn(name,d[2],d[3],5.5,'<b>⚔ '+d[0]+'</b><br>Livelli '+d[1]):''}
 document.addEventListener('click',function(e){var b=e.target.closest('.go');if(!b)return;e.preventDefault();
  if(b.dataset.lv){S.L=+b.dataset.lv;renderLevel();return}
- if(b.dataset.sec){showTab('talent');$(b.dataset.sec).scrollIntoView({behavior:'smooth'});return}
- if(!MAPI.fly)return;if(S.tab!=='livello')showTab('mappa');$('lwrap').scrollIntoView({behavior:'smooth',block:'center'});MAPI.fly(+b.dataset.x,+b.dataset.y,+b.dataset.z,b.dataset.t)});
+ if(b.dataset.sec){showTab('talent');$(b.dataset.sec).scrollIntoView({behavior:SM});return}
+ if(!MAPI.fly)return;if(S.tab!=='livello')showTab('mappa');$('lwrap').scrollIntoView({behavior:SM,block:'center'});MAPI.fly(+b.dataset.x,+b.dataset.y,+b.dataset.z,b.dataset.t)});
 
 /* ---- attività per livello: usate da percorso e planner ---- */
 function stepRange(i){var a=lv0(RT.steps[i][1]),n=RT.steps[i+1];return [i?a:1,n?Math.max(a,lv0(n[1])-1):MAXL]}
@@ -140,7 +142,7 @@ function renderPath(){var h='';SEQ={};
  $('chaps').innerHTML=h;progress()}
 function progress(){var all=0,ok=0;[].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var t=c.querySelectorAll('input[data-id]'),d=c.querySelectorAll('input[data-id]:checked');all+=t.length;ok+=d.length;
   c.querySelector('.pct').textContent=d.length+'/'+t.length;c.classList.toggle('done',t.length>0&&d.length===t.length)});
- $('pgBar').style.width=(all?ok/all*100:0)+'%';$('pgTxt').textContent=ok+' di '+all+' cose fatte · '+RA.name+' '+CL.name+' '+CL.spec+(PT?' · '+PT.title:'')+(S.o.prof.length?' · '+S.o.prof.join(' + '):'')}
+ $('pgBar').style.transform='scaleX('+(all?ok/all:0)+')';$('pgTxt').textContent=ok+' di '+all+' cose fatte · '+RA.name+' '+CL.name+' '+CL.spec+(PT?' · '+PT.title:'')+(S.o.prof.length?' · '+S.o.prof.join(' + '):'')}
 
 /* ---- planner per livello ---- */
 function segAt(l){var a=RT.segments,b=null;a.forEach(function(s){if(l>=s[0]&&l<=s[1])b=s});return b||a.filter(function(s){return s[0]<=l}).pop()||a[0]}
@@ -336,8 +338,8 @@ function initMap(){
  map.on('zoomend',zcls);map.fitBounds(WORLD);zcls();
  var wrap=$('lwrap'),fs=$('lfs');
  fs.onclick=function(){var f=wrap.classList.toggle('full');fs.textContent=f?'✕ Chiudi':'⛶ Schermo intero';document.body.style.overflow=f?'hidden':'';setTimeout(function(){map.invalidateSize()},50)};
- $('lworld').onclick=function(){map.flyToBounds(WORLD,{duration:.6})};
- MAPI.fly=function(x,y,z,html){var to=ll(x,y),far=map.distance(map.getCenter(),to)>60;if(far)map.setView(to,z,{animate:false});else map.flyTo(to,z,{duration:.5});
+ $('lworld').onclick=function(){RM?map.fitBounds(WORLD,{animate:false}):map.flyToBounds(WORLD,{duration:.6})};
+ MAPI.fly=function(x,y,z,html){var to=ll(x,y),far=map.distance(map.getCenter(),to)>60;if(far)map.setView(to,z,{animate:false});else if(RM)map.setView(to,z,{animate:false});else map.flyTo(to,z,{duration:.5});
   if(html)LF.popup({autoPan:false}).setLatLng(to).setContent(html).openOn(map)};
 }
 function drawMap(){
@@ -376,7 +378,7 @@ function drawMap(){
  $('msteps').innerHTML=steps.map(function(s,i){return '<button class="mstep" data-i="'+i+'"><img loading="lazy" src="'+IC(s[5])+'" alt=""><span>'+(i+1)+'. '+s[0]+'<small>liv. '+s[1]+'</small></span></button>'}).join('');
  var cur=-1;
  function go(i,fly){var s=steps[i];cur=i;
-  [].forEach.call(document.querySelectorAll('.mstep'),function(b){b.classList.toggle('on',+b.dataset.i===i);if(+b.dataset.i===i&&fly)b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
+  [].forEach.call(document.querySelectorAll('.mstep'),function(b){b.classList.toggle('on',+b.dataset.i===i);if(+b.dataset.i===i&&fly)b.scrollIntoView({inline:'center',block:'nearest',behavior:SM})});
   (MG.stepM||[]).forEach(function(m,j){var el=m.getElement();if(el)el.classList.toggle('on',j===i)});
   if(fly)MAPI.fly(s[2],s[3],s[4]);else map.setView(ll(s[2],s[3]),s[4],{animate:false});
   var r=stepRange(i),dg=S.o.dg?FA.dungeons.filter(function(d){return d[1]<=r[1]+2&&d[2]>=r[0]}):[];
@@ -440,7 +442,7 @@ $('svLoad').onchange=function(){var f=this.files[0];this.value='';if(f)f.text().
 function drawPresets(){$('pre').innerHTML=preBtns(true);$('cpre').innerHTML=preBtns(false);$('pDel').disabled=P.list.length<2}
 function usePreset(i){P.cur=i;S=fix(P.list[i].s);save();setHash();renderAll();if(!HOME)showTab(S.tab||'livello')}
 document.addEventListener('click',function(e){var b=e.target.closest('.pre[data-pi]');if(!b)return;
- if(b.dataset.pi==='new'){P.list.push({n:'',s:{}});usePreset(P.list.length-1);$('pg').scrollIntoView({behavior:'smooth'})}else if(+b.dataset.pi!==P.cur)usePreset(+b.dataset.pi)});
+ if(b.dataset.pi==='new'){P.list.push({n:'',s:{}});usePreset(P.list.length-1);$('pg').scrollIntoView({behavior:SM})}else if(+b.dataset.pi!==P.cur)usePreset(+b.dataset.pi)});
 $('pRen').onclick=function(){var p=P.list[P.cur],n=prompt('Nome del personaggio (vuoto = razza e classe)',p.n||'');if(n===null)return;p.n=n.trim().slice(0,30);save();drawPresets()};
 $('pDel').onclick=function(){if(P.list.length<2||!confirm('Eliminare “'+(P.list[P.cur].n||RA.name+' '+CL.name)+'” con livello e checklist?'))return;P.list.splice(P.cur,1);usePreset(Math.max(0,P.cur-1))};
 function goHome(on){HOME=on;if(!on&&!P.in){P.in=1;save()}document.body.classList.toggle('home',on);setHash();window.scrollTo(0,0);if(!on)showTab(S.tab||'livello')}
