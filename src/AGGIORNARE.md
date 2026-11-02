@@ -6,9 +6,9 @@ Cartella: `~/Desktop/CLAUDE/WoW Forever leveling companion/`. Utente italiano: t
 
 ## Ciclo di lavoro
 1. Modifica `src/data/*`, `src/engine.js`, `src/template.html` o `src/style.css` (mai l'HTML generato).
-2. `node src/tools/build.js` → genera `WoW_Forever_Leveling_Companion.html` (+ `.md` riassunto) e stampa gli avvisi (talent non validi sul client, città/NPC non sulla mappa, quest non trovate → `src/check-report.txt`).
+2. `node src/tools/build.js` → genera `WoW_Forever_Leveling_Companion.html` (italiano, + `.md` riassunto) e `WoW_Forever_Leveling_Companion_EN.html` (inglese) e stampa gli avvisi (talent non validi sul client, città/NPC non sulla mappa, quest non trovate → `src/check-report.txt`).
 3. Server locale: preview `guida-wow` (`~/Desktop/CLAUDE/.claude/launch.json`, porta 8765, radice = Desktop) → URL `http://localhost:8765/CLAUDE/WoW%20Forever%20leveling%20companion/WoW_Forever_Leveling_Companion.html`.
-4. `node src/tools/test.js` (tutte le combinazioni × build: deve dire `nbad 0, errors []`) e `node src/tools/icons.js` (`rotte 0`). Usano Chrome headless via playwright-core in `%LOCALAPPDATA%/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core`. Per screenshot usa lo stesso modulo (il pannello browser dell'app spesso è nascosto → screenshot vuoti).
+4. `node src/tools/test.js` (italiano e inglese, tutte le combinazioni × build: deve dire `nbad 0, errors []` e in inglese `nita 0`; le righe italiane rimaste finiscono in `src/i18n/italiano-rimasto.txt`) e `node src/tools/icons.js` (`rotte 0`). Usano Chrome headless via playwright-core in `%LOCALAPPDATA%/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core`. Per screenshot usa lo stesso modulo (il pannello browser dell'app spesso è nascosto → screenshot vuoti).
 5. `git add -A && git commit && git push` → Pages si aggiorna in 1–2 min (`gh api repos/Stalioot/wow-forever-leveling-companion/pages/builds/latest`).
 
 ## File
@@ -22,6 +22,8 @@ Cartella: `~/Desktop/CLAUDE/WoW Forever leveling companion/`. Utente italiano: t
 | `src/data/profs.json` / `alts.json` | guida profession; guida alt (`legacy`, `firstAlt`, `faster`, `complements`, `altClasses` ×9, `altRaces` ×10, …) |
 | `src/data/worldmap.json` | mappa Wowhead (3 continenti; `node src/tools/map.js`) · `src/data/quests.txt`: indice delle 4709 quest di Forever (`node src/tools/quests.js src/data/quests.txt`) |
 | `src/template.html`, `style.css`, `engine.js` | pagina, stile, motore (nessun dato di gioco) |
+| `src/i18n/en.json` | traduzione inglese dei dati: `{"testo italiano esatto": "inglese"}`. Se cambi un testo italiano nei dati, la build lo segnala e lo mette in `src/i18n/missing-en.json`: traducilo e aggiungilo qui (termini di gioco identici, stessi tag HTML, simboli ✔ 🟡 ★ e numeri) |
+| `src/i18n/en-ui.json` | traduzione di pagina e motore: coppie `["italiano", "inglese"]` sostituite in `template.html` ed `engine.js` (la build avvisa se una coppia non trova più il testo). Testo nuovo nell'interfaccia = nuova coppia |
 
 Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren skyborne_h`. Rotte: `elwynn dunmorogh teldrassil zephras_a durotar mulgore tirisfal zephras_h`.
 
@@ -31,6 +33,7 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 
 ## Motore (`engine.js`)
 Preset (personaggi salvati) in localStorage `wfcP` = `{cur, sure (filtro 🟡), list:[{n nome, s}]}` (il vecchio `wfc` viene migrato nel primo preset). `S` = `P.list[P.cur].s`: `r`, `c`, `L`, `tab`, `o` = opzioni {`x` cambio continente, `prof`[2], `dg`, `tal` Talented, `b`{classe: id build}}, `done`{CK: checklist}. `bind()` → `RA` razza, `CL` classe con build scelta (`buildView`), `TAL`, `FA` fazione, `RT` percorso composto (`compose()`), `PT` passaggio. `renderAll()` = drawPick + renderClass (talent, rotation, spell, razza, viaggi, bag, profession, alt, crates, camping, dungeon, fonti) + renderPath (capitoli/checklist) + drawMap + renderLevel.
+Lingue: bandierina `#lang` in alto a destra (🇬🇧 nella pagina italiana, 🇮🇹 in quella inglese) → salva `wfcLang` e porta l'hash; lo script in `<head>` apre la lingua salvata, altrimenti quella del browser. Stesso localStorage: personaggi e checklist valgono in entrambe le lingue (id delle voci = capitolo + livello + posizione, non il testo).
 UI: **pagina iniziale** `#home` (body `.home`, si apre se l'URL non ha hash): personaggi salvati (`preBtns`, nuovo/rinomina/elimina), fazione/razza/classe con pro e contro (`pickInfo`: racial + `alts.altRaces/altClasses` + build più votata + `races` della classe), build A/B/C e opzioni; "Entra nella guida" mette l'hash `#razza-classe` (ricaricando resti nella guida). Testata = titolo fisso "World of Warcraft Forever Leveling Companion" (`.ttl`); sopra le schede la barra `#cbar` con i personaggi (un tocco per cambiare) e "⚙ Personaggi" (torna alla pagina iniziale). 8 schede (`showTab`): Livello (planner + capitolo corrente + mini-mappa) · Talent (selettore build con barre + calcolatore wowforever.be in iframe `?t=`) · Mappa (Leaflet, mondo intero, tessere Wowhead) · Classe · Profession · Alt · Altro · Info (solo fonti). Link/QR `#s=<base64 {r,c,n,L,o,d}>`: aggiorna il preset con stessa razza+classe o ne crea uno, filtro 🟡 (`.unsure`), pulsante issue GitHub. Mappa: tela unica (coordinate globali), niente `position` su `.spin`.
 
 ## Regole dell'utente

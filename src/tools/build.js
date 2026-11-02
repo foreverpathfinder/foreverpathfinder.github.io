@@ -188,13 +188,25 @@ if (fs.existsSync(QF)) {
   console.log('Quest verificate sull\'indice di Forever:', ok, '· da controllare:', report.length, '(src/check-report.txt)');
 }
 
-/* ---- scrittura ---- */
-const DATAJS = JSON.stringify({ common, classes, talents, races, routes, factions, transfers, profs, alts, map });
-let html = fs.readFileSync(path.join(SRC, 'template.html'), 'utf8');
-html = html.replace('/*STYLE*/', () => fs.readFileSync(path.join(SRC, 'style.css'), 'utf8'))
-  .replace('/*DATA*/', () => DATAJS.replace(/<\/script/gi, '<\\/script'))
-  .replace('/*ENGINE*/', () => fs.readFileSync(path.join(SRC, 'engine.js'), 'utf8'));
+/* ---- scrittura: pagina italiana (sorgente) e inglese ---- */
+// src/i18n/en.json = { "testo italiano dei dati": "inglese" } · en-ui.json = [["italiano", "inglese"]] sostituiti in template.html ed engine.js
+const ALL = { common, classes, talents, races, routes, factions, transfers, profs, alts, map };
+const I18N = path.join(SRC, 'i18n'), EN = J(path.join(I18N, 'en.json')), ENUI = J(path.join(I18N, 'en-ui.json')).sort((a, b) => b[0].length - a[0].length);
+const page = (data, tpl, eng) => tpl.replace('/*STYLE*/', () => fs.readFileSync(path.join(SRC, 'style.css'), 'utf8'))
+  .replace('/*DATA*/', () => JSON.stringify(data).replace(/<\/script/gi, '<\\/script'))
+  .replace('/*ENGINE*/', () => eng);
+const TPL = fs.readFileSync(path.join(SRC, 'template.html'), 'utf8'), ENG = fs.readFileSync(path.join(SRC, 'engine.js'), 'utf8');
+const html = page(ALL, TPL, ENG);
 fs.writeFileSync(OUT, html);
+// inglese: ogni testo dei dati con uno spazio deve avere la sua traduzione (talent e mappa sono già i nomi del client)
+const miss = new Set(), tr = v => typeof v === 'string' ? (v in EN ? EN[v] : (/\s/.test(v) && /[a-z]/i.test(v) && !/^https?:\S+$/.test(v) && miss.add(v), v))
+  : Array.isArray(v) ? v.map(tr) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, tr(x)])) : v;
+const DATA_EN = Object.fromEntries(Object.entries(ALL).map(([k, v]) => [k, k === 'talents' || k === 'map' ? v : tr(v)]));
+let tplEn = TPL, engEn = ENG;
+ENUI.forEach(([a, b]) => { if (!tplEn.includes(a) && !engEn.includes(a)) W('en-ui: "' + a + '" non trovato'); tplEn = tplEn.split(a).join(b); engEn = engEn.split(a).join(b); });
+fs.writeFileSync(OUT.replace(/\.html$/, '_EN.html'), page(DATA_EN, tplEn, engEn));
+fs.writeFileSync(path.join(I18N, 'missing-en.json'), JSON.stringify([...miss], null, 1));
+if (miss.size) W(miss.size + ' testi senza traduzione inglese → src/i18n/missing-en.json');
 
 /* ---- riepilogo Markdown (stessi dati della pagina) ---- */
 const strip = s => String(s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
