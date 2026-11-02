@@ -253,5 +253,6 @@
 ["<h4>Boss, in ordine: cosa fare</h4>","<h4>Bosses, in order: what to do</h4>"],
 ["<h4>In generale</h4>","<h4>In general</h4>"],
 ["📖 Guida all’addon e comandi","📖 Addon guide and commands"],
-["<b>Addon</b><small>in gioco</small>","<b>Addon</b><small>in game</small>"]
+["<b>Addon</b><small>in gioco</small>","<b>Addon</b><small>in game</small>"],
+["aria-label=\"Link da aprire sull’altro dispositivo\"","aria-label=\"Link to open on the other device\""]
 ]

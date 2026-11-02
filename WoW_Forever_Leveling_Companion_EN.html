@@ -262,6 +262,8 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .p-bad{color:var(--bad);border-color:#6b2b2b}#dgen ul{margin:.3em 0 0;padding-left:1.2em}
 .cbar .addb{background:var(--card2);border-color:var(--ac);color:var(--tx);text-decoration:none}.addb small{color:var(--mu)}
 @media(max-width:520px){.cbar{flex-wrap:wrap}.cbar .pres{flex-basis:100%}.cbar .pers{flex:1;justify-content:center}}
+/* telefono: tutto ciò che si tocca è alto almeno 44px (si usa con un pollice mentre si gioca) */
+@media(max-width:520px){.btn,nav button,.go,.cbar .pre,#lfs{min-height:44px}.hero .lang{min-width:44px;min-height:44px;align-items:center;justify-content:center}input[type=range]{height:44px}.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:44px}}
 
 </style></head><body>
 
@@ -325,7 +327,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
   <h2>Continue on another device</h2>
   <p>Scan the QR code with the other device, or copy the link and send it to yourself: it opens with your character, level, options and checklist already set.</p>
   <div id="qr" class="qr"></div>
-  <p><input id="shareUrl" readonly style="width:100%"></p>
+  <p><input id="shareUrl" readonly aria-label="Link to open on the other device" style="width:100%"></p>
   <div class="btns"><button class="btn pr" type="button" id="shareCopy">Copy the link</button><button class="btn" value="x">Close</button></div>
  </form>
 </dialog>
@@ -596,15 +598,15 @@ document.addEventListener('change',function(e){var c=e.target;if(!c.dataset||!c.
 /* ---- scelta del personaggio e opzioni ---- */
 function drawPick(){
  $('pkF').innerHTML=['A','H'].filter(function(f){return Object.keys(D.races).some(function(k){return D.races[k].faction===f})}).map(function(f){return '<button data-f="'+f+'" class="'+f+(RA.faction===f?' on':'')+'">'+FN[f]+'</button>'}).join('');
- $('pkR').innerHTML=Object.keys(D.races).filter(function(k){return D.races[k].faction===RA.faction}).map(function(k){var r=D.races[k];return '<button data-r="'+k+'"'+(k===S.r?' class="on"':'')+'><img src="'+IC(r.icon)+'" alt="">'+r.name+'</button>'}).join('');
+ $('pkR').innerHTML=Object.keys(D.races).filter(function(k){return D.races[k].faction===RA.faction}).map(function(k){var r=D.races[k];return '<button data-r="'+k+'"'+(k===S.r?' class="on"':'')+'><img loading="lazy" src="'+IC(r.icon)+'" alt="">'+r.name+'</button>'}).join('');
  $('pkInfo').innerHTML=pickInfo();drawPresets();
- $('pkC').innerHTML=RA.classes.map(function(k){var c=D.classes[k];return '<button data-c="'+k+'"'+(k===S.c?' class="on"':'')+(c?'':' disabled')+'><img src="'+IC('classicon_'+k)+'" alt="">'+(c?c.name:k)+'</button>'}).join('');
+ $('pkC').innerHTML=RA.classes.map(function(k){var c=D.classes[k];return '<button data-c="'+k+'"'+(k===S.c?' class="on"':'')+(c?'':' disabled')+'><img loading="lazy" src="'+IC('classicon_'+k)+'" alt="">'+(c?c.name:k)+'</button>'}).join('');
  var R=D.routes[RA.start],T=transferFor(R),to=R.trunk==='kalimdor'?'eastern-kingdoms':'kalimdor',pick=D.profs&&D.profs.classPicks&&D.profs.classPicks[S.c]||'';
  var row=function(n,lab,btns,note){return '<div><div class="lab">'+n+' · '+lab+'</div><div class="opts">'+btns+'</div>'+(note?'<p class="note" style="margin:.3em 0 0">'+note+'</p>':'')+'</div>'};
  var b=function(k,v,on,label,dis){return '<button data-o="'+k+'" data-v="'+v+'"'+(on?' class="on"':'')+(dis?' disabled':'')+'>'+label+'</button>'};
  $('pkB').innerHTML=(D.classes[S.c].builds||[]).length>1?'<div class="lab">4 · Build</div><div class="bsel">'+bCards()+'</div>':'';
  $('pkO').innerHTML=row(5,'Route',b('x',0,!S.o.x,'Stay in '+CN[R.trunk])+b('x',1,!!S.o.x,T?'Move to '+CN[to]:'Move to '+CN[to]+' (coming soon)',!T),T?(S.o.x?T.title+' · '+T.when:'You can move to '+CN[to]+' after the starting zone: the route adds the quests, Flight Paths and travel to get there.'):'')+
-  row(6,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ recommended for the '+CL.name+': '+pick:'')+
+  row(6,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img loading="lazy" src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ recommended for the '+CL.name+': '+pick:'')+
   row(7,'Dungeon',b('dg',1,S.o.dg,'Yes, with their quests')+b('dg',0,!S.o.dg,'No, outdoor quests only'))+
   row(8,'Legacy perk “Talented”',b('tal',0,!S.o.tal,'I don’t have it')+b('tal',1,!!S.o.tal,'I have it: talents 5 levels early'));
 }
@@ -625,7 +627,7 @@ function renderPath(){var h='';SEQ={};
   var fpn=s[7]?s[7].split(' (')[0]:'';
   for(var l=r[0];l<=r[1];l++)tasksFor(l,l===r[0]).forEach(function(t){if(fpn&&/Flight Path/i.test(t[0])&&txt(t[0]).indexOf(fpn)>-1)return;rows+=taskRow(t,l,key)}); // il Flight Path della tappa c'è già
   var cur=S.L>=r[0]&&S.L<=r[1],nxt=i===stepAt(S.L)+1;
-  h+='<details class="chap'+(cur?' cur':'')+(nxt?' nxt':'')+'" data-i="'+i+'"'+(cur?' open':'')+'><summary><img src="'+IC(s[5])+'" alt=""><span><b>'+(i+1)+'. '+s[0]+'</b><small>Levels '+r[0]+(r[1]>r[0]?'–'+r[1]:'')+(PT&&PT.steps.indexOf(s)>-1?' · continent switch':'')+'</small></span><span class="pct"></span></summary><div class="body"><p>'+s[6]+'</p><div class="btns" style="margin:6px 0">'+hubBtns(s)+'<button class="go" data-lv="'+r[0]+'">I’m here</button></div>'+rows+'</div></details>'});
+  h+='<details class="chap'+(cur?' cur':'')+(nxt?' nxt':'')+'" data-i="'+i+'"'+(cur?' open':'')+'><summary><img loading="lazy" src="'+IC(s[5])+'" alt=""><span><b>'+(i+1)+'. '+s[0]+'</b><small>Levels '+r[0]+(r[1]>r[0]?'–'+r[1]:'')+(PT&&PT.steps.indexOf(s)>-1?' · continent switch':'')+'</small></span><span class="pct"></span></summary><div class="body"><p>'+s[6]+'</p><div class="btns" style="margin:6px 0">'+hubBtns(s)+'<button class="go" data-lv="'+r[0]+'">I’m here</button></div>'+rows+'</div></details>'});
  $('chaps').innerHTML=h;progress()}
 function progress(){var all=0,ok=0;[].forEach.call(document.querySelectorAll('#chaps .chap'),function(c){var t=c.querySelectorAll('input[data-id]'),d=c.querySelectorAll('input[data-id]:checked');all+=t.length;ok+=d.length;
   c.querySelector('.pct').textContent=d.length+'/'+t.length;c.classList.toggle('done',t.length>0&&d.length===t.length)});
@@ -810,7 +812,7 @@ var MAP=null,MAPI={},MG={};
 var ll=function(x,y){return [-y/128,x/128]},PL=function(a){return a.map(function(p){return ll(p[0],p[1])})};
 var BLANK='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',WORLD=[ll(8192,0),ll(44544,29700)];
 var NODE={cu:['ore','Copper Vein','#e08a3c'],sn:['ore','Tin Vein','#c3ccd2'],ag:['ore','Silver Vein','#e6eef5'],fe:['ore','Iron Deposit','#9aa3ad'],pb:['herb','Peacebloom','#fff6d8'],sl:['herb','Silverleaf','#a6e3a1'],er:['herb','Earthroot','#c8925a'],mr:['herb','Mageroyal','#c9a3ff'],bt:['herb','Briarthorn','#ff7d7d'],bw:['herb','Bruiseweed','#6fcf6f'],sk:['herb','Stranglekelp','#3fa58a'],ws:['herb','Wild Steelbloom','#b7c4cf'],kb:['herb','Kingsblood','#d0473f']};
-function pin(n,sz,cls){return LF.divIcon({className:'gpin '+(cls||''),html:'<img src="'+IC(n)+'" alt="">',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],popupAnchor:[0,-sz/2]})}
+function pin(n,sz,cls){return LF.divIcon({className:'gpin '+(cls||''),html:'<img loading="lazy" src="'+IC(n)+'" alt="">',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],popupAnchor:[0,-sz/2]})}
 function initMap(){
  var box=$('lmap');if(!LF){box.innerHTML='<p class="note" style="padding:16px">The map needs an internet connection (Leaflet and the map images).</p>';return}
  var map=MAP=LF.map(box,{crs:LF.CRS.Simple,minZoom:1,maxZoom:7,zoomSnap:.25,zoomDelta:.5,preferCanvas:true,maxBounds:[ll(4000,-4000),ll(48000,34000)],maxBoundsViscosity:.6});
@@ -843,7 +845,7 @@ function drawMap(){
   route:function(g){var pts=steps.map(function(s){return [s[2],s[3]]});
    for(var i=1;i<pts.length;i++){var a=pts[i-1],b=pts[i],travel=steps[i][8]!==steps[i-1][8]||Math.hypot(a[0]-b[0],a[1]-b[1])>3500;
     LF.polyline(PL([a,b]),{color:'#000',weight:travel?5:8,opacity:.35,interactive:false}).addTo(g);LF.polyline(PL([a,b]),{color:'#f2c14e',weight:travel?2.5:4.5,dashArray:travel?'4 10':null,lineCap:'round',opacity:.95,interactive:false}).addTo(g)}
-   MG.stepM=steps.map(function(s,i){var m=LF.marker(ll(s[2],s[3]),{zIndexOffset:1000,icon:LF.divIcon({className:'spin',html:'<img src="'+IC(s[5])+'" alt=""><b>'+(i+1)+'</b>',iconSize:[38,38],iconAnchor:[19,19]})}).addTo(g);m.on('click',function(){go(i,true)});return m})},
+   MG.stepM=steps.map(function(s,i){var m=LF.marker(ll(s[2],s[3]),{zIndexOffset:1000,icon:LF.divIcon({className:'spin',html:'<img loading="lazy" src="'+IC(s[5])+'" alt=""><b>'+(i+1)+'</b>',iconSize:[38,38],iconAnchor:[19,19]})}).addTo(g);m.on('click',function(){go(i,true)});return m})},
   fp:function(g){D.map.fp.filter(function(f){return mine(f[1])}).forEach(function(f){var on=RT.fpNames.indexOf(f[0])>-1;LF.marker(ll(f[2],f[3]),{icon:pin('ability_mount_gryphon_01',on?28:20,on?'':'dim'),zIndexOffset:on?500:0}).bindPopup('<b>✈ '+(f[4]||f[0])+'</b><br>Flight Master: '+f[0]+(on?'<br><span style="color:#7dff9a">On your route</span>':'')).addTo(g)})},
   q:function(g){RT.quests.forEach(function(q){LF.marker(ll(q[2],q[3]),{zIndexOffset:1200,icon:LF.divIcon({className:'',html:'<span class="qm">!</span>',iconSize:[20,26],iconAnchor:[10,13]})}).bindPopup('<b>'+q[0]+'</b><br>'+q[1]).addTo(g)})},
   dg:function(g){D.map.dg.forEach(function(d){var lv=parseInt(d[1])||99,nr=lv<=MAXL+2;LF.marker(ll(d[2],d[3]),{icon:pin('achievement_dungeon_classicdungeonmaster',nr?28:20,nr?'':'dim')}).bindPopup('<b>⚔ '+d[0]+'</b>'+(d[4]?' ★ new':'')+(d[5]?' (raid)':'')+'<br>Levels '+(d[1]||'—')).addTo(g)})},
@@ -857,19 +859,19 @@ function drawMap(){
  function nodes(g,t){Object.keys(NODE).forEach(function(k){if(NODE[k][0]!==t)return;var a=D.map.nodes[k]||[],n=NODE[k];for(var i=0;i<a.length;i+=2)LF.circleMarker(ll(a[i],a[i+1]),{radius:3.5,color:'#000',weight:1,fillColor:n[2],fillOpacity:.95}).bindTooltip(n[1]).addTo(g)})}
  function show(k,on){if(on){if(!G[k]){G[k]=MG[k]=LF.layerGroup();make[k](G[k])}G[k].addTo(map)}else if(G[k])map.removeLayer(G[k])}
  var vis=function(l){return hidden[l[0]]===undefined?!!l[3]:!hidden[l[0]]};
- $('lchips').innerHTML=LAY.map(function(l){var dot=l[0]==='fly'?'<i style="background:#cfe8ff"></i>':l[0]==='q'?'<span class="qm" style="width:14px;font-size:16px;line-height:18px">!</span>':'<img src="'+IC(l[2])+'" alt="">';
+ $('lchips').innerHTML=LAY.map(function(l){var dot=l[0]==='fly'?'<i style="background:#cfe8ff"></i>':l[0]==='q'?'<span class="qm" style="width:14px;font-size:16px;line-height:18px">!</span>':'<img loading="lazy" src="'+IC(l[2])+'" alt="">';
   if(l[0]==='ore')dot+='<i style="background:#e08a3c"></i><i style="background:#c3ccd2"></i>';if(l[0]==='herb')dot+='<i style="background:#fff6d8"></i><i style="background:#a6e3a1"></i><i style="background:#c9a3ff"></i>';
   return '<button data-k="'+l[0]+'" class="'+(vis(l)?'on':'')+'">'+dot+l[1]+'</button>'}).join('');
  LAY.forEach(function(l){show(l[0],vis(l))});
  $('lchips').onclick=function(e){var b=e.target.closest('button');if(!b)return;var k=b.dataset.k,on=!b.classList.contains('on');b.classList.toggle('on',on);hidden[k]=!on;store('wfcLay',JSON.stringify(hidden));show(k,on)};
- $('msteps').innerHTML=steps.map(function(s,i){return '<button class="mstep" data-i="'+i+'"><img src="'+IC(s[5])+'" alt=""><span>'+(i+1)+'. '+s[0]+'<small>lvl '+s[1]+'</small></span></button>'}).join('');
+ $('msteps').innerHTML=steps.map(function(s,i){return '<button class="mstep" data-i="'+i+'"><img loading="lazy" src="'+IC(s[5])+'" alt=""><span>'+(i+1)+'. '+s[0]+'<small>lvl '+s[1]+'</small></span></button>'}).join('');
  var cur=-1;
  function go(i,fly){var s=steps[i];cur=i;
   [].forEach.call(document.querySelectorAll('.mstep'),function(b){b.classList.toggle('on',+b.dataset.i===i);if(+b.dataset.i===i&&fly)b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})});
   (MG.stepM||[]).forEach(function(m,j){var el=m.getElement();if(el)el.classList.toggle('on',j===i)});
   if(fly)MAPI.fly(s[2],s[3],s[4]);else map.setView(ll(s[2],s[3]),s[4],{animate:false});
   var r=stepRange(i),dg=S.o.dg?FA.dungeons.filter(function(d){return d[1]<=r[1]+2&&d[2]>=r[0]}):[];
-  $('mpanel').innerHTML='<div class="mpanel2"><img class="z" src="'+IC(s[5])+'" alt=""><div><b class="t">Step '+(i+1)+' of '+steps.length+' · levels '+s[1]+' · '+CN[s[8]]+'</b><div style="font:800 1.2rem Cinzel,serif;color:var(--ice)">'+s[0]+'</div><p style="margin:.35em 0">'+s[6]+'</p>'+
+  $('mpanel').innerHTML='<div class="mpanel2"><img class="z" loading="lazy" src="'+IC(s[5])+'" alt=""><div><b class="t">Step '+(i+1)+' of '+steps.length+' · levels '+s[1]+' · '+CN[s[8]]+'</b><div style="font:800 1.2rem Cinzel,serif;color:var(--ice)">'+s[0]+'</div><p style="margin:.35em 0">'+s[6]+'</p>'+
    (s[7]?'<p class="note">✈ Flight path to get: <b>'+s[7]+'</b></p>':'')+'<div>'+hubBtns(s).replace(new RegExp('📍 '+s[0].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')),'📍 Center')+npcLinks(s[6])+(dg.length?dg.map(function(d){return dgBtn(d[0])}).join(''):'')+'</div>'+
    '<div class="btns" style="margin-bottom:0">'+(i?'<button class="btn" data-go="'+(i-1)+'">‹ Step '+i+'</button>':'')+(i<steps.length-1?'<button class="btn pr" data-go="'+(i+1)+'">Step '+(i+2)+' ›</button>':'')+'</div></div></div>'}
  $('msteps').onclick=function(e){var b=e.target.closest('.mstep');if(b)go(+b.dataset.i,true)};
@@ -888,7 +890,10 @@ function bCards(){var bs=D.classes[S.c].builds||[],cur=CL.B&&CL.B.id;return bs.m
 document.addEventListener('click',function(e){var b=e.target.closest('#bSel .bcard');if(!b||e.target.closest('details'))return;S.o.b[S.c]=b.dataset.bid;renderAll()});
 
 /* ---- schede ---- */
-function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('nav button'),function(b){var on=b.dataset.tab===t;b.classList.toggle('on',on);if(on){var n=b.parentNode;n.scrollLeft=b.offsetLeft-n.clientWidth/2+b.offsetWidth/2}});
+// menu a schede accessibile: ruoli tab/tabpanel collegati, frecce ← → per passare da una scheda all'altra
+[].forEach.call(document.querySelectorAll('nav button'),function(b){var p=$('t-'+b.dataset.tab);b.setAttribute('role','tab');b.id='tb-'+b.dataset.tab;if(p){b.setAttribute('aria-controls',p.id);p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby',b.id)}});
+$('nav').addEventListener('keydown',function(e){var d={ArrowRight:1,ArrowLeft:-1}[e.key];if(!d)return;var a=[].slice.call(this.querySelectorAll('button')),i=(a.indexOf(document.activeElement)+d+a.length)%a.length;a[i].focus();a[i].click();e.preventDefault()});
+function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('nav button'),function(b){var on=b.dataset.tab===t;b.classList.toggle('on',on);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;if(on){var n=b.parentNode;n.scrollLeft=b.offsetLeft-n.clientWidth/2+b.offsetWidth/2}});
  [].forEach.call(document.querySelectorAll('.tab'),function(d){d.classList.toggle('on',d.id==='t-'+t)});
  var w=$('lwrap');if(t==='livello')$('miniHost').appendChild(w);else if(w.parentNode.id==='miniHost')$('mappa').insertBefore(w,$('lchips'));
  if(MAP)setTimeout(function(){MAP.invalidateSize()},30);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}
@@ -914,7 +919,7 @@ function bugLink(){var t='Error: '+RA.name+' '+CL.name+' lvl '+S.L+' ('+(S.tab||
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return '&#'+c.charCodeAt(0)+';'})}
 function pSpec(s){var bs=D.classes[s.c].builds||[],B=bs.filter(function(b){return b.id===(s.o.b||{})[s.c]})[0]||bs[0];return B&&B.spec||D.classes[s.c].spec}
 function preBtns(add){return P.list.map(function(p,i){var s=fix(p.s),rc=D.races[s.r].name+' '+D.classes[s.c].name;
-  return '<button type="button" class="pre'+(i===P.cur?' on':'')+'" data-pi="'+i+'"><img src="'+IC('classicon_'+s.c)+'" alt=""><span><b>'+esc(p.n||rc)+'</b><small>'+(p.n?rc+' ':'')+pSpec(s)+' · lvl '+s.L+'</small></span></button>'}).join('')+
+  return '<button type="button" class="pre'+(i===P.cur?' on':'')+'" data-pi="'+i+'"><img loading="lazy" src="'+IC('classicon_'+s.c)+'" alt=""><span><b>'+esc(p.n||rc)+'</b><small>'+(p.n?rc+' ':'')+pSpec(s)+' · lvl '+s.L+'</small></span></button>'}).join('')+
  (add?'<button type="button" class="pre add" data-pi="new">＋ New character</button>':'')}
 // salvataggio su file: .txt con una riga di spiegazione e tutti i personaggi (P) in base64; lo rilegge solo "Carica salvataggio"
 var SVH='Forever Pathfinder (WoW: Forever) - save file. To restore it: guide, 👥 Characters, Load save file. Do not edit the line below.';
