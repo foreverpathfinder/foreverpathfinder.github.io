@@ -1,0 +1,864 @@
+{
+ "_": "Dettagli dei dungeon per la scheda Dungeon. Chiave = nome come in factions/*.json senza ★ e senza \"The \", in minuscolo. v = giudizio per fazione [go|opt|skip, livello ideale, perché]; q = quest A/H/N (entrambe) e C (di classe: [quest, classe, dove]); k = catena per la chiave; b = boss in ordine; t = consigli. Fonti in fondo.",
+ "general": [
+  "Il primo giro con tutte le quest nel log è quello che dà più XP: i giri ripetuti senza quest valgono poco.",
+  "Ognuno deve prendere le proprie quest: molte non si condividono.",
+  "I mob dei dungeon danno circa il 30–40% dell'XP di Classic (stime dei tester).",
+  "Massimo 5 istanze all'ora.",
+  "1° ottobre: bonus XP delle quest dei dungeon dimezzato. 8 ottobre: XP dei mob nei dungeon +20% circa.",
+  "Group finder: nessuna coda automatica né teletrasporto; spunta Show All Level Ranges per vedere tutti i gruppi."
+ ],
+ "dungeons": {
+  "ragefire chasm": {
+   "e": "Orgrimmar, Cleft of Shadow (52.8 49.6).",
+   "v": {
+    "H": [
+     "go",
+     "13–15",
+     "Una volta, con tutte e 5 le quest: i pack collegati lo rendono più duro di quanto sembri."
+    ],
+    "A": [
+     "skip",
+     "",
+     "Le quest sono solo Horde: per l'Alleanza c'è Hall of Thanes."
+    ]
+   },
+   "q": {
+    "H": [
+     [
+      "Testing an Enemy's Strength",
+      "Rahauro, Thunder Bluff"
+     ],
+     [
+      "Searching for the Lost Satchel",
+      "Rahauro, Thunder Bluff"
+     ],
+     [
+      "The Power to Destroy…",
+      "Varimathras, Undercity"
+     ],
+     [
+      "Slaying the Beast",
+      "Neeru Fireblade, Orgrimmar"
+     ],
+     [
+      "Hidden Enemies",
+      "Thrall, Orgrimmar"
+     ]
+    ]
+   },
+   "b": [
+    "Oggleflint",
+    "Taragaman the Hungerer",
+    "Jergosh the Invoker",
+    "Bazzalan"
+   ],
+   "t": [
+    "Oggleflint: uccidi prima i 2 add.",
+    "Taragaman: Uppercut ti lancia in aria, attento alla lava.",
+    "Jergosh: interrompi Immolate.",
+    "Bazzalan: Deadly Poison sul tank, va rimosso."
+   ]
+  },
+  "hall of thanes": {
+   "e": "Ironforge: dalla Great Forge verso The High Seat, a sinistra il passaggio con le ragnatele (43.5 52.0). Cadere è letale.",
+   "v": {
+    "A": [
+     "go",
+     "14–17",
+     "Comodo da Ironforge. Prima prendi la Dark Iron Map a Dun Morogh."
+    ],
+    "H": [
+     "skip",
+     "",
+     "Nessuna quest per la Horde."
+    ]
+   },
+   "q": {
+    "A": [
+     [
+      "Important Heirlooms",
+      "Thom Filch, fuori dall'ingresso"
+     ],
+     [
+      "The Restless Dead",
+      "Afadra Dunwall, sulle scale dall'ingresso"
+     ],
+     [
+      "Old Ironforge Incursion",
+      "Dark Iron Map, drop di un Dark Iron Spy a Dun Morogh"
+     ],
+     [
+      "An Ancient Grudge",
+      "Ghostly Attendant, dentro il dungeon"
+     ],
+     [
+      "The Treaty of Understanding",
+      "tablet nel caveau dell'ultimo boss, si consegna a King Magni"
+     ]
+    ]
+   },
+   "b": [
+    "Faldrim Anvilmar",
+    "Magmatus",
+    "Plunder",
+    "Durgen Dirgehammer"
+   ],
+   "t": [
+    "Bloodhound Runt: Infected Wounds si cura con Simple Poultice o Stoneform.",
+    "Faldrim Anvilmar: rimuovi Anvilmar's Curse e uccidi prima i fantasmi.",
+    "Magmatus: uccidi prima il Dark Iron Summoner; i ranged stanno fuori dagli impulsi di fuoco.",
+    "Durgen Dirgehammer: pulisci la stanza e uccidi i 2 Lesser Stone Golem; fa AoE fear, Tremor Totem utile."
+   ]
+  },
+  "ruins of lordaeron": {
+   "e": "Fuori da Undercity, Tirisfal Glades (72.4 11.6): prima del castello, a sinistra su per le scale.",
+   "v": {
+    "H": [
+     "go",
+     "17–19",
+     "Uno dei migliori: un giro completo con tutte le quest vale quasi 2 livelli."
+    ],
+    "A": [
+     "opt",
+     "17–19",
+     "Solo se sei già in zona: è lontano, e sotto il 17 è duro."
+    ]
+   },
+   "q": {
+    "H": [
+     [
+      "Light's Justice",
+      "Morbin Lightbane, Undercity (57.8 89.7)"
+     ],
+     [
+      "The New Plague",
+      "Theodore Griffs, Undercity (46.7 71.9)"
+     ],
+     [
+      "The Wrath of Rath'mael",
+      "Deathguard Kristof, Tirisfal Glades (65.2 60.1)"
+     ],
+     [
+      "A Frightened Request",
+      "Tabetha Heartweaver, Silverpine Forest (44.6 42.9)"
+     ],
+     [
+      "Unending Torment",
+      "Abominable Head, drop di The Baron"
+     ],
+     [
+      "Crest of Lordaeron",
+      "dentro il dungeon"
+     ]
+    ],
+    "A": [
+     [
+      "Abominable Creatures",
+      "Captain Truman, all'ingresso"
+     ],
+     [
+      "Bloodied Insignia",
+      "drop dai non morti"
+     ],
+     [
+      "Remember That I Love You",
+      "Crumpled Paper, nel cimitero di Rath'mael"
+     ],
+     [
+      "Crest of Lordaeron",
+      "dentro il dungeon"
+     ]
+    ]
+   },
+   "b": [
+    "Witherfang",
+    "The Baron",
+    "Viktor the Vile (segreto)",
+    "The Abandoned (segreto)",
+    "Bjork",
+    "Rath'mael"
+   ],
+   "t": [
+    "Pack fitti: occhio all'aggro e al mana del healer.",
+    "The Baron: tank con la schiena al muro, cono frontale e knockback.",
+    "Bjork: Anti-Magic Shield, usa danni fisici.",
+    "Rath'mael: interrompi Flamestrike.",
+    "Alleanza: esci a piedi, non con la Hearthstone, per consegnare la Head of the Baron a Captain Truman."
+   ]
+  },
+  "deadmines": {
+   "e": "Westfall, Moonbrook: Defias Hideout (42 72), attraversa la miniera fino al portale.",
+   "v": {
+    "A": [
+     "go",
+     "18–22",
+     "Subito dopo Redridge Mountains: la catena The Defias Brotherhood è la più ricca."
+    ],
+    "H": [
+     "skip",
+     "",
+     "Nessuna quest per la Horde."
+    ]
+   },
+   "q": {
+    "A": [
+     [
+      "Red Silk Bandanas",
+      "Scout Riell, Westfall"
+     ],
+     [
+      "The Defias Brotherhood",
+      "Gryan Stoutmantle, Westfall"
+     ],
+     [
+      "Collecting Memories",
+      "Wilder Thistlenettle, Stormwind"
+     ],
+     [
+      "Oh Brother…",
+      "Wilder Thistlenettle, Stormwind"
+     ],
+     [
+      "Underground Assault",
+      "Shoni the Shilent, Stormwind"
+     ],
+     [
+      "Destruction in Deadmines",
+      "Alba Fairmoon, Westfall"
+     ],
+     [
+      "The Unsent Letter",
+      "An Unsent Letter, drop nel dungeon"
+     ]
+    ]
+   },
+   "b": [
+    "Rhahk'zor",
+    "Sneed's Shredder",
+    "Gilnid",
+    "Mr. Smite",
+    "Captain Greenskin",
+    "Edwin VanCleef",
+    "Cookie (opzionale)"
+   ],
+   "t": [
+    "Rhahk'zor: uccidi prima i 2 Defias Watchmen.",
+    "Sneed: fa Disarm, il tank tiene l'aggro anche senza arma.",
+    "Mr. Smite: tieni i cooldown difensivi per la fase 2.",
+    "Edwin VanCleef: a metà vita chiama 2 add; uccidi prima Captain Greenskin."
+   ]
+  },
+  "wailing caverns": {
+   "e": "The Barrens, Lushwater Oasis (46.0 36.3): entra nella grotta e scendi fino al portale.",
+   "v": {
+    "H": [
+     "go",
+     "18–22",
+     "Lungo, e le quest di raccolta possono chiedere un secondo giro. Deviate Hides dà una bag."
+    ],
+    "A": [
+     "skip",
+     "",
+     "Troppo lontano per l'Alleanza."
+    ]
+   },
+   "q": {
+    "H": [
+     [
+      "Serpentbloom",
+      "Apothecary Zamah, Thunder Bluff"
+     ],
+     [
+      "Leaders of the Fang",
+      "Nara Wildmane, Thunder Bluff"
+     ]
+    ],
+    "N": [
+     [
+      "Deviate Hides",
+      "Nalpak, The Barrens"
+     ],
+     [
+      "Deviate Eradication",
+      "Ebru, The Barrens"
+     ],
+     [
+      "Trouble at the Docks",
+      "Crane Operator Bigglefuzz, The Barrens"
+     ],
+     [
+      "Smart Drinks",
+      "Mebok Mizzyrix, The Barrens"
+     ],
+     [
+      "The Glowing Shard",
+      "dentro il dungeon"
+     ]
+    ]
+   },
+   "b": [
+    "Kresh",
+    "Lady Anacondra",
+    "Lord Cobrahn",
+    "Lord Pythas",
+    "Skum",
+    "Lord Serpentis",
+    "Verdan the Everliving",
+    "Mutanus the Devourer"
+   ],
+   "t": [
+    "Lady Anacondra e Lord Pythas: interrompi Sleep e Lightning Bolt.",
+    "Verdan the Everliving: i ranged a più di 10 yard per evitare Grasping Vines.",
+    "Mutanus the Devourer: uccidi prima ooze e serpenti, interrompi Naralex's Nightmare."
+   ]
+  },
+  "shadowfang keep": {
+   "e": "Silverpine Forest, sulle montagne a nord di Pyrewood Village (44.7 67.8).",
+   "v": {
+    "H": [
+     "opt",
+     "22–25",
+     "Facoltativo; il più comodo per gli Undead."
+    ],
+    "A": [
+     "skip",
+     "",
+     "Lontano e senza quest utili per l'Alleanza."
+    ]
+   },
+   "q": {
+    "H": [
+     [
+      "Deathstalkers in Shadowfang",
+      "High Executor Hadrec, Silverpine Forest"
+     ],
+     [
+      "The Book of Ur",
+      "Keeper Bel'dugur, Undercity"
+     ],
+     [
+      "Arugal Must Die",
+      "Dalar Dawnweaver, Silverpine Forest"
+     ]
+    ],
+    "C": [
+     [
+      "The Horn of Xelthos",
+      "rogue",
+      "dentro il dungeon, da soli"
+     ],
+     [
+      "The Orb of Soran'ruk",
+      "warlock",
+      "dentro il dungeon"
+     ],
+     [
+      "The Test of Righteousness",
+      "paladin",
+      "dentro il dungeon"
+     ]
+    ]
+   },
+   "b": [
+    "Rethilgore",
+    "Razorclaw the Butcher",
+    "Baron Silverlaine",
+    "Commander Springvale",
+    "Odo the Blindwatcher",
+    "Fenrus the Devourer",
+    "Wolf Master Nandos",
+    "Archmage Arugal"
+   ],
+   "t": [
+    "In fondo trovi il Black Tome: serve per Lyn the Ignored in City of Dalaran.",
+    "Commander Springvale: tira piccoli gruppi, la stanza intera è letale; interrompi Holy Light dopo Divine Shield.",
+    "Baron Silverlaine: Veil of Shadow riduce le cure del 75%, va rimosso.",
+    "Archmage Arugal: Void Bolt non si interrompe; metti in CC gli alleati controllati invece di colpirli."
+   ]
+  },
+  "blackfathom deeps": {
+   "e": "Ashenvale, Zoram Strand (14.5 14.6): nuota nella pozza e segui la grotta con i naga elite.",
+   "v": {
+    "A": [
+     "go",
+     "23–26",
+     "Una volta, con tutte le quest."
+    ],
+    "H": [
+     "go",
+     "23–26",
+     "Una volta, con tutte le quest."
+    ]
+   },
+   "q": {
+    "A": [
+     [
+      "In Search of Thaelrid",
+      "Dawnwatcher Shaedlass, Darnassus"
+     ],
+     [
+      "Twilight Falls",
+      "Argent Guard Manados, Darnassus"
+     ],
+     [
+      "Knowledge in the Deeps",
+      "Gerrig Bonegrip, Ironforge"
+     ],
+     [
+      "Researching the Corruption",
+      "Gershala Nightwhisper, Darkshore"
+     ]
+    ],
+    "H": [
+     [
+      "Allegiance to the Old Gods",
+      "Je'neu Sancrea, Ashenvale"
+     ],
+     [
+      "The Essence of Aku'mai",
+      "Je'neu Sancrea, Ashenvale"
+     ],
+     [
+      "Amongst the Ruins",
+      "Je'neu Sancrea, Ashenvale"
+     ],
+     [
+      "Baron Aquanis",
+      "Strange Water Globe, dentro il dungeon"
+     ]
+    ],
+    "N": [
+     [
+      "Blackfathom Villainy",
+      "Argent Guard Thaelrid, dentro il dungeon"
+     ]
+    ],
+    "C": [
+     [
+      "The Orb of Soran'ruk",
+      "warlock",
+      "dentro il dungeon"
+     ],
+     [
+      "The Test of Righteousness",
+      "paladin",
+      "dentro il dungeon"
+     ]
+    ]
+   },
+   "b": [
+    "Ghamoo-ra",
+    "Lady Sarevess",
+    "Gelihast",
+    "Lorgus Jett",
+    "Baron Aquanis (Horde)",
+    "Twilight Lord Kelris",
+    "Old Serra'kis",
+    "Aku'mai"
+   ],
+   "t": [
+    "Gelihast: dopo, tocca la pietra dietro di lui per Blessing of Blackfathom.",
+    "Horde: il Fathom Stone evoca Baron Aquanis, che serve per la quest.",
+    "Twilight Lord Kelris: Sleep e Mind Blast non si interrompono, il tank sia pronto a riprendere l'aggro.",
+    "Aku'mai: tieni stun e CC per Frenzied Rage."
+   ]
+  },
+  "stockade": {
+   "e": "Stormwind, The Canals vicino alla Mage Quarter (42 58).",
+   "v": {
+    "A": [
+     "go",
+     "25–29",
+     "Se hai raccolto le quest: rapido e facile."
+    ],
+    "H": [
+     "skip",
+     "",
+     "Dentro Stormwind, nessuna quest Horde."
+    ]
+   },
+   "q": {
+    "A": [
+     [
+      "What Comes Around…",
+      "Guard Berton, Redridge Mountains"
+     ],
+     [
+      "Crime and Punishment",
+      "Councilman Millstipe, Duskwood"
+     ],
+     [
+      "Quell The Uprising",
+      "Warden Thelwater, Stormwind"
+     ],
+     [
+      "The Color of Blood",
+      "Nikova Raskol, Stormwind"
+     ],
+     [
+      "The Fury Runs Deep",
+      "Motley Garmason, Wetlands"
+     ],
+     [
+      "The Stockade Riots",
+      "Warden Thelwater, Stormwind"
+     ]
+    ]
+   },
+   "b": [
+    "Targorr the Dread",
+    "Kam Deepfury",
+    "Hamhock",
+    "Bazil Thredd",
+    "Dextren Ward",
+    "Bruegal Ironknuckle (raro)"
+   ],
+   "t": [
+    "Due ali, nell'ordine che vuoi.",
+    "Hamhock: uccidi i 2 add, interrompi Chain Lightning, Purge su Bloodlust.",
+    "Dextren Ward: fa Intimidating Shout, il healer resti a portata."
+   ]
+  },
+  "excavation site: wetlands": {
+   "e": "Wetlands: sentiero a sinistra di Thelgen Rock (parte da 53.9 65.4), ingresso 48.1 56.5.",
+   "v": {
+    "A": [
+     "go",
+     "27–30",
+     "Lineare e rapido. Porta bende: i sanguinamenti dei raptor fanno male."
+    ],
+    "H": [
+     "go",
+     "27–30",
+     "Lineare e rapido. Porta bende: i sanguinamenti dei raptor fanno male."
+    ]
+   },
+   "q": {
+    "A": [
+     [
+      "Songblade Search",
+      "Dorin Songblade, Lakeshire (25.6 46.6)"
+     ],
+     [
+      "Lost in the Thicket Things",
+      "Caitlin Grassman, Menethil Harbor (11.9 58.8)"
+     ],
+     [
+      "Highland Hides",
+      "James Halloran, Menethil Harbor (8.6 55.7), dopo Young Crocolisk Skins"
+     ],
+     [
+      "Horrors in the Highland",
+      "Rethiel the Greenwarden, Wetlands (56.3 40.3), dopo Tramping Paws, Fire Taboo e Blisters on the Land"
+     ],
+     [
+      "Lost Relic Carry",
+      "Titan Relic, drop di Relic Guardian"
+     ]
+    ],
+    "H": [
+     [
+      "Changing Tastes",
+      "Borstan, Orgrimmar, The Drag (57.3 53.3)"
+     ],
+     [
+      "Open the Maw",
+      "Deathstalker Agent, Wetlands (51.4 59.2), dopo Dragonmaw Rumors di Zaruk (Arathi Highlands 74.4 35.6)"
+     ],
+     [
+      "Elder Knowledge",
+      "Titan Relic, drop di Relic Guardian"
+     ]
+    ]
+   },
+   "b": [
+    "Saltspine",
+    "Shadetooth",
+    "Highland Horror (Alleanza, opzionale)",
+    "Relic Guardian"
+   ],
+   "t": [
+    "Servono cure per le malattie: Infected Wounds, Muculent Rot, Highland Venom.",
+    "Shadetooth: uccidi prima i raptor, che chiamano aiuto; fa AoE fear, Tremor Totem utile.",
+    "Relic Guardian: si attiva dall'Archival Panel; attento al knockback vicino ai bordi."
+   ]
+  },
+  "city of dalaran": {
+   "e": "Ingresso dalle fogne in Silverpine Forest (69.3 45.6); la città è in Alterac Mountains.",
+   "k": {
+    "A": "Emissary Jaques, Hillsbrad Foothills (48.3 60.1) → dentro, Image of Archmage Modera dà la Dalaran Sewer Key.",
+    "H": "Magus Wordeen Voidglare, Tarren Mill (61.5 20.9) → dentro, Image of Archmage Modera dà la Dalaran Sewer Key."
+   },
+   "v": {
+    "A": [
+     "go",
+     "30–33",
+     "Una volta, dopo la catena della chiave: ogni quest vale 3.950 XP. Fai la catena mentre quest a Hillsbrad Foothills."
+    ],
+    "H": [
+     "go",
+     "30–33",
+     "Una volta, dopo la catena della chiave: ogni quest vale 3.950 XP. Fai la catena mentre quest a Hillsbrad Foothills."
+    ]
+   },
+   "q": {
+    "A": [
+     [
+      "Power Overwhelming",
+      "High Sorcerer Andromath, Stormwind (48.9 87.7)"
+     ],
+     [
+      "A Green Sample",
+      "Shylamiir, Stormwind (31.4 63.0)"
+     ],
+     [
+      "Starving Arcane",
+      "Image of Archmage Modera (68.5 45.1), dopo An Alarming Request"
+     ],
+     [
+      "Heart of Disruption",
+      "Image of Archmage Modera, dopo An Alarming Request"
+     ]
+    ],
+    "H": [
+     [
+      "Source of Power",
+      "Doctor Martin Felben, Undercity (46.4 74.3)"
+     ],
+     [
+      "The Grave Knight",
+      "Melisara, Tarren Mill (62.6 20.6)"
+     ],
+     [
+      "Opportunistic Education",
+      "Rexxie Copperclutch, a destra dell'ingresso"
+     ],
+     [
+      "Heart of Disruption",
+      "Image of Archmage Modera, dopo Blood in the Streets"
+     ]
+    ]
+   },
+   "b": [
+    "Atrexis the Grave Knight",
+    "Lyn the Ignored (segreto)",
+    "Mana Devourer",
+    "Arcane Anomaly",
+    "Fel Ancient",
+    "Arcanic Enigma",
+    "Unstable Sentry",
+    "Shade of the Archmage"
+   ],
+   "t": [
+    "L'ultimo boss lascia una collana con +10% XP contro i non morti, per poco tempo.",
+    "Lyn the Ignored chiede il Tome of Dalaran: è il Black Tome in fondo a Shadowfang Keep.",
+    "Mindless Horror fa fear: Tremor Totem.",
+    "Mana Fiend esplode alla morte: allargatevi.",
+    "Fel Ancient: Entangle, usa le abilità che tolgono i root."
+   ]
+  },
+  "gnomeregan": {
+   "e": "Dun Morogh nord-ovest (24 40). Horde: Goblin Transponder da Booty Bay.",
+   "v": {
+    "A": [
+     "go",
+     "30+",
+     "Dopo il 30, quando le quest si chiudono bene."
+    ]
+   },
+   "q": {
+    "A": [
+     [
+      "Save Techbot's Brain!",
+      "Tinkmaster Overspark, Ironforge"
+     ],
+     [
+      "Gnogaine",
+      "Ozzie Togglevolt, Dun Morogh"
+     ],
+     [
+      "The Only Cure is More Green Glow",
+      "Ozzie Togglevolt, Dun Morogh"
+     ],
+     [
+      "Data Rescue",
+      "Master Mechanic Castpipe, Ironforge"
+     ],
+     [
+      "Essential Artificials",
+      "Klockmort Spannerspan, Ironforge"
+     ],
+     [
+      "Gyrodrillmatic Excavationators",
+      "Shoni the Shilent, Stormwind"
+     ],
+     [
+      "The Grand Betrayal",
+      "High Tinker Mekkatorque, Ironforge"
+     ]
+    ],
+    "H": [
+     [
+      "Rig Wars",
+      "Nogg, Orgrimmar"
+     ],
+     [
+      "Chief Engineer Scooty",
+      "Sovik, Orgrimmar"
+     ],
+     [
+      "Gnomer-gooooone!",
+      "Scooty, Stranglethorn Vale"
+     ]
+    ],
+    "N": [
+     [
+      "A Fine Mess",
+      "Kernobee, dentro il dungeon"
+     ],
+     [
+      "Grime-Encrusted Ring",
+      "drop dentro il dungeon"
+     ],
+     [
+      "The Sparklematic 5200!",
+      "dentro il dungeon"
+     ]
+    ]
+   },
+   "b": [
+    "Grubbis",
+    "Viscous Fallout",
+    "Electrocutioner 6000",
+    "Crowd Pummeler 9-60",
+    "Mekgineer Thermaplugg"
+   ],
+   "t": [
+    "Electrocutioner 6000 lascia la Workshop Key, per la porta sul retro.",
+    "Crowd Pummeler 9-60: tank con la schiena al muro, caster lontani.",
+    "Mekgineer Thermaplugg: ritaunta dopo Knock Away; i ranged premono i pulsanti per fermare le bombe."
+   ]
+  },
+  "razorfen kraul": {
+   "e": "The Barrens, angolo sud-ovest (42.3 89.9).",
+   "q": {
+    "A": [
+     [
+      "Mortality Wanes",
+      "Heralath Fallowbrook, dentro il dungeon"
+     ],
+     [
+      "The Crone of the Kraul",
+      "Falfindel Waywarder, Feralas"
+     ]
+    ],
+    "H": [
+     [
+      "Going, Going, Guano!",
+      "Master Apothecary Faranell, Undercity"
+     ],
+     [
+      "A Vengeful Fate",
+      "Auld Stonespire, Thunder Bluff"
+     ],
+     [
+      "An Unholy Alliance",
+      "Small Scroll, dentro il dungeon"
+     ]
+    ],
+    "N": [
+     [
+      "Blueleaf Tubers",
+      "Mebok Mizzyrix, The Barrens"
+     ],
+     [
+      "Willix the Importer",
+      "Willix, dentro il dungeon"
+     ]
+    ],
+    "C": [
+     [
+      "Fire Hardened Mail",
+      "warrior",
+      "Furen Longbeard, Stormwind"
+     ],
+     [
+      "Brutal Armor",
+      "warrior",
+      "Thun'grim Firegaze, The Barrens"
+     ]
+    ]
+   },
+   "b": [
+    "Roogug",
+    "Aggem Thorncurse",
+    "Death Speaker Jargba",
+    "Overlord Ramtusk",
+    "Agathelos the Raging",
+    "Charlga Razorflank"
+   ],
+   "t": [
+    "Death Speaker Jargba: tienilo in melee; Dominate Mind si toglie con Dispel Magic o Purge.",
+    "Agathelos the Raging: finge di morire, continua a colpire.",
+    "Charlga Razorflank: allargatevi per Chain Bolt."
+   ]
+  },
+  "scarlet monastery": {
+   "e": "Tirisfal Glades nord-est (85.1 31.4). Graveyard: il portale più a sinistra.",
+   "v": {
+    "H": [
+     "go",
+     "30+",
+     "Un'ala alla volta, a partire dal Graveyard."
+    ],
+    "A": [
+     "skip",
+     "",
+     "Debole per l'Alleanza: lontano e con poche quest."
+    ]
+   },
+   "q": {
+    "H": [
+     [
+      "Vorrel's Revenge",
+      "Vorrel Sengutz, dentro il Graveyard"
+     ],
+     [
+      "Hearts of Zeal",
+      "Master Apothecary Faranell, Undercity"
+     ]
+    ]
+   },
+   "b": [
+    "Interrogator Vishas",
+    "Bloodmage Thalnos"
+   ],
+   "t": [
+    "Graveyard: Ironspine, Fallen Champion e Azshir the Sleepless compaiono a volte.",
+    "Bloodmage Thalnos: Flame Spike non si interrompe, ranged lontani.",
+    "Le ali oltre il 35 non sono state provate in beta."
+   ]
+  }
+ },
+ "sources": [
+  [
+   "Conquest Capped – WoW Forever Leveling (dungeon)",
+   "https://conquestcapped.com/guides/wow-forever/wow-forever-leveling/",
+   "letto il 2 nov",
+   "giudizi vai/salta, livelli ideali, XP"
+  ],
+  [
+   "Warcraft Tavern – Forever Dungeons",
+   "https://www.warcrafttavern.com/forever/guides/dungeons/",
+   "letto il 2 nov",
+   "ingressi, boss, quest, consigli"
+  ],
+  [
+   "Timesaver – Leveling explained (beta)",
+   "https://timesaver.gg/blog/wow-forever-leveling-explained-beta",
+   "letto il 2 nov",
+   "modifiche all'XP dei dungeon"
+  ]
+ ]
+}

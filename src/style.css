@@ -246,3 +246,6 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .cbar .pers{background:var(--gold);border-color:var(--gold);color:#1a1205;padding:5px 12px 5px 9px;text-align:left;line-height:1.1}
 .pers .pi{font-size:1.25rem}.pers b{display:block;font-size:.9rem}.pers small{display:block;font-size:.68rem;font-weight:600;opacity:.8}
 .save{margin-top:14px}.save h3{margin:0 0 .3em}.save .safe{margin-top:.6em}.save details{background:none;border:0;padding:0;margin:.6em 0 0}.save summary{cursor:pointer;font-weight:600;color:var(--ice)}.save details p{margin:.4em 0;font-size:.88rem}
+.dg>summary{display:flex;align-items:center;justify-content:space-between;gap:8px}.dg>summary>span{display:flex;flex-direction:column;flex:1}.dg>summary .pill{white-space:nowrap;flex:none}.dg>summary small{color:var(--mu);font-weight:400;font-size:.8rem}
+.dg.now{border-color:var(--gold)}.dg.now>summary b{color:var(--gold)}.dg.skip{opacity:.6}.dg h4{margin:.7em 0 .2em;color:var(--ice)}.dg ul,.dg ol{margin:.2em 0;padding-left:1.3em}.dg li{margin:.15em 0}
+.p-bad{color:var(--bad);border-color:#6b2b2b}#dgen ul{margin:.3em 0 0;padding-left:1.2em}

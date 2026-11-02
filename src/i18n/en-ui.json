@@ -71,7 +71,6 @@
 ["alt=\"Campfire con giocatori seduti\"","alt=\"Campfire with players sitting around it\""],
 ["Immagine ufficiale Blizzard dall’annuncio del Camping.","Official Blizzard image from the Camping announcement."],
 ["<h3 id=\"campT\">Priorità</h3>","<h3 id=\"campT\">Priorities</h3>"],
-["Livelli dalla mappa Wowhead di Forever. XP delle quest dei dungeon dimezzata il 1° ottobre: entra una volta, con tutte le quest.","Levels from Wowhead’s Forever map. Dungeon quest XP was halved on October 1: go in once, with all the quests."],
 ["In inglese; i pulsanti saltano al punto giusto.","The buttons jump to the right moment."],
 ["<summary>Riassunto in italiano</summary>","<summary>Summary</summary>"],
 ["<h2>Fonti e affidabilità</h2>","<h2>Sources and reliability</h2>"],
@@ -135,7 +134,6 @@
 ["'Consegna: <b>'","'Turn in: <b>'"],
 ["'Priorità per il '","'Priorities for the '"],
 ["pill p-ok\">priorità '","pill p-ok\">priority '"],
-["<th>Livelli</th><th>Dove</th>","<th>Levels</th><th>Where</th>"],
 ["<th>Note</th>","<th>Notes</th>"],
 ["<th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th>","<th>Source</th><th>Date / signal</th><th>What I took</th>"],
 ["'Guida leveling 1–'","'Leveling guide 1–'"],
@@ -238,5 +236,13 @@
 ["'Forever Pathfinder (WoW: Forever) - file di salvataggio. Per ripristinarlo: guida, 👥 Personaggi, Carica salvataggio. Non modificare la riga qui sotto.'","'Forever Pathfinder (WoW: Forever) - save file. To restore it: guide, 👥 Characters, Load save file. Do not edit the line below.'"],
 ["'WoW-Forever-salvataggio-'","'WoW-Forever-save-'"],
 ["'Questo file non è un salvataggio della guida.'","'This file is not a save file of this guide.'"],
-["'Caricare '+p.list.length+(p.list.length>1?' personaggi':' personaggio')+' dal salvataggio? Sostituisce quelli su questo dispositivo.'","'Load '+p.list.length+(p.list.length>1?' characters':' character')+' from the save file? It replaces the ones on this device.'"]
+["'Caricare '+p.list.length+(p.list.length>1?' personaggi':' personaggio')+' dal salvataggio? Sostituisce quelli su questo dispositivo.'","'Load '+p.list.length+(p.list.length>1?' characters':' character')+' from the save file? It replaces the ones on this device.'"],
+["Tocca un dungeon per ingresso, quest da prendere prima, boss e consigli. In evidenza quelli per il tuo livello; il giudizio vale per la tua fazione.","Tap a dungeon for its entrance, the quests to pick up first, bosses and tips. The ones for your level are highlighted; the verdict is for your faction."],
+["<b class=\"t\">Come conviene farli</b>","<b class=\"t\">How to run them</b>"],
+["✔ Vai","✔ Go"],
+["🟡 Facoltativo","🟡 Optional"],
+["✖ Salta","✖ Skip"],
+["<b>Chiave:</b>","<b>Key:</b>"],
+["<h4>Prima di entrare, prendi le quest</h4>","<h4>Before you go in, pick up the quests</h4>"],
+["<h4>Consigli</h4>","<h4>Tips</h4>"]
 ]

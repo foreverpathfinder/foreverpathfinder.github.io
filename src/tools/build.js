@@ -149,7 +149,8 @@ if (TF) {
   }
   common.sources = common.sources.concat((TF.sources || []).map(srcRow));
 }
-const profs = opt('profs.json'), alts = opt('alts.json');
+const profs = opt('profs.json'), alts = opt('alts.json'), dungeons = opt('dungeons.json');
+if (dungeons) delete dungeons._;
 if (alts) alts.sources = (alts.sources || []).map(srcRow);
 if (profs) profs.sources = (profs.sources || []).map(srcRow);
 
@@ -190,7 +191,7 @@ if (fs.existsSync(QF)) {
 
 /* ---- scrittura: pagina italiana (sorgente) e inglese ---- */
 // src/i18n/en.json = { "testo italiano dei dati": "inglese" } · en-ui.json = [["italiano", "inglese"]] sostituiti in template.html ed engine.js
-const ALL = { common, classes, talents, races, routes, factions, transfers, profs, alts, map };
+const ALL = { common, classes, talents, races, routes, factions, transfers, profs, alts, dungeons, map };
 const I18N = path.join(SRC, 'i18n'), EN = J(path.join(I18N, 'en.json')), ENUI = J(path.join(I18N, 'en-ui.json')).sort((a, b) => b[0].length - a[0].length);
 const page = (data, tpl, eng) => tpl.replace('/*STYLE*/', () => fs.readFileSync(path.join(SRC, 'style.css'), 'utf8'))
   .replace('/*DATA*/', () => JSON.stringify(data).replace(/<\/script/gi, '<\\/script'))
