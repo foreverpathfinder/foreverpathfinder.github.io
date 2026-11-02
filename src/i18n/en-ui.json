@@ -223,5 +223,7 @@
 ["'Tra le razze più consigliate per '","'Among the most recommended races for '"],
 ["'Per '+CL.name+' sono più consigliate: '","'More recommended for '+CL.name+': '"],
 ["☕ Offrimi un caffè","☕ Buy me a coffee"],
-["?label=visite&","?label=visits&"]
+["?label=visite&","?label=visits&"],
+["Contatore visite bloccato da un adblock: ","Visit counter blocked by an ad blocker: "],
+[">aprilo qui</a>",">open it here</a>"]
 ]
