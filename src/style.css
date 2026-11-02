@@ -251,3 +251,5 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .p-bad{color:var(--bad);border-color:#6b2b2b}#dgen ul{margin:.3em 0 0;padding-left:1.2em}
 .cbar .addb{background:var(--card2);border-color:var(--ac);color:var(--tx);text-decoration:none}.addb small{color:var(--mu)}
 @media(max-width:520px){.cbar{flex-wrap:wrap}.cbar .pres{flex-basis:100%}.cbar .pers{flex:1;justify-content:center}}
+/* telefono: tutto ciò che si tocca è alto almeno 44px (si usa con un pollice mentre si gioca) */
+@media(max-width:520px){.btn,nav button,.go,.cbar .pre,#lfs{min-height:44px}.hero .lang{min-width:44px;min-height:44px;align-items:center;justify-content:center}input[type=range]{height:44px}.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:44px}}
