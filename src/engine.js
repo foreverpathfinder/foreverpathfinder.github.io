@@ -31,7 +31,7 @@ var P=(function(){var p=null;try{p=JSON.parse(store('wfcP'))}catch(e){}
 function fix(s){if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
  s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.b=s.o.b||{};s.done=s.done||{};return s}
 var S=fix(P.list[P.cur].s);
-// P.in = è già entrato nella guida: riaprendo il link normale torna dritto al suo personaggio (⚙ Personaggi riapre la pagina iniziale)
+// P.in = è già entrato nella guida: riaprendo il link normale torna dritto al suo personaggio (👥 Personaggi riapre la pagina iniziale)
 if(P.in)HOME=false;
 function ok(r,c){return D.races[r]&&D.races[r].classes.indexOf(c)>-1&&!!D.classes[c]}
 function save(){store('wfcP',JSON.stringify(P))}
@@ -267,7 +267,7 @@ var FEED={Mining:['Blacksmithing','Engineering'],Herbalism:['Alchemy'],Skinning:
 function altRule(P){var o=[];[0,1].forEach(function(i){P.forEach(function(p){var x=(FEED[p]||[])[i];if(x&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)})});['Enchanting','Tailoring','Herbalism','Skinning'].forEach(function(x){if(o.length<2&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)});return o.slice(0,2)}
 function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=function(x){return x.split(/\s*\+\s*/).map(function(y){return y.trim().toLowerCase()}).sort().join('+')};
  var m=P.length===2&&(A.complements||[]).filter(function(c){return k(c.main)===k(P.join('+'))})[0];
- $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>⚙ Personaggi</b>: qui comparirà la coppia giusta per il tuo alt.';
+ $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>👥 Personaggi</b>: qui comparirà la coppia giusta per il tuo alt.';
  var L=A.legacy||{},list=function(t,a,ol){return a&&a.length?'<div class="card"><h3>'+t+'</h3><'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'></div>':''};
  $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
   list('Il primo alt, passo per passo',A.firstAlt,1)+list('Livellare l’alt più in fretta',A.faster)+
@@ -415,6 +415,13 @@ function pSpec(s){var bs=D.classes[s.c].builds||[],B=bs.filter(function(b){retur
 function preBtns(add){return P.list.map(function(p,i){var s=fix(p.s),rc=D.races[s.r].name+' '+D.classes[s.c].name;
   return '<button type="button" class="pre'+(i===P.cur?' on':'')+'" data-pi="'+i+'"><img src="'+IC('classicon_'+s.c)+'" alt=""><span><b>'+esc(p.n||rc)+'</b><small>'+(p.n?rc+' ':'')+pSpec(s)+' · liv. '+s.L+'</small></span></button>'}).join('')+
  (add?'<button type="button" class="pre add" data-pi="new">＋ Nuovo personaggio</button>':'')}
+// salvataggio su file: .txt con una riga di spiegazione e tutti i personaggi (P) in base64; lo rilegge solo "Carica salvataggio"
+var SVH='WoW Forever Leveling Companion - file di salvataggio. Per ripristinarlo: guida, 👥 Personaggi, Carica salvataggio. Non modificare la riga qui sotto.';
+$('svSave').onclick=function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([SVH+'\n'+btoa(unescape(encodeURIComponent(JSON.stringify(P))))+'\n'],{type:'text/plain'}));a.download='WoW-Forever-salvataggio-'+new Date().toISOString().slice(0,10)+'.txt';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000)};
+$('svLoad').onchange=function(){var f=this.files[0];this.value='';if(f)f.text().then(function(t){var p=null;try{p=JSON.parse(decodeURIComponent(escape(atob(t.trim().split('\n').pop().trim()))));p.list=p.list.filter(function(x){return x&&x.s})}catch(e){p=null}
+ if(!p||!p.list||!p.list.length)return alert('Questo file non è un salvataggio della guida.');
+ if(!confirm('Caricare '+p.list.length+(p.list.length>1?' personaggi':' personaggio')+' dal salvataggio? Sostituisce quelli su questo dispositivo.'))return;
+ p.in=1;store('wfcP',JSON.stringify(p));location.href=location.pathname})};
 function drawPresets(){$('pre').innerHTML=preBtns(true);$('cpre').innerHTML=preBtns(false);$('pDel').disabled=P.list.length<2}
 function usePreset(i){P.cur=i;S=fix(P.list[i].s);save();setHash();renderAll();if(!HOME)showTab(S.tab||'livello')}
 document.addEventListener('click',function(e){var b=e.target.closest('.pre[data-pi]');if(!b)return;

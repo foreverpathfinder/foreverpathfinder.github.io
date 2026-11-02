@@ -1,0 +1,12 @@
+{
+ "name": "WoW Forever Leveling Companion",
+ "short_name": "WoW Forever",
+ "start_url": "WoW_Forever_Leveling_Companion.html",
+ "display": "standalone",
+ "background_color": "#08111d",
+ "theme_color": "#0a1422",
+ "icons": [
+  {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}
+ ]
+}

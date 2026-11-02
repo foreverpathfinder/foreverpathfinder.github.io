@@ -2,6 +2,7 @@
 <html lang="it"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a1422">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="WoW Forever">
 <title>WoW Forever Leveling Companion</title>
 <script>/* lingua: quella scelta con la bandierina, altrimenti quella del browser */try{var lg=localStorage.getItem('wfcLang')||(/^it/i.test(navigator.language)?'it':'en');if(lg!==document.documentElement.lang)location.replace((lg==='en'?'WoW_Forever_Leveling_Companion_EN.html':'WoW_Forever_Leveling_Companion.html')+location.search+location.hash)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -253,6 +254,9 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .cbar .pre.on{order:-1}
 .hero .lang{position:absolute;top:10px;right:12px;left:auto;z-index:3;margin:0;display:flex;padding:5px;border-radius:7px;background:rgba(8,17,29,.65);border:1px solid var(--bd);line-height:0}.hero .lang:hover{border-color:var(--gold)}.lang svg{display:block;border-radius:2px}
 .visits{margin-top:1.5em;text-align:center}.visits img{height:28px;vertical-align:middle}
+.cbar .pers{background:var(--gold);border-color:var(--gold);color:#1a1205;padding:5px 12px 5px 9px;text-align:left;line-height:1.1}
+.pers .pi{font-size:1.25rem}.pers b{display:block;font-size:.9rem}.pers small{display:block;font-size:.68rem;font-weight:600;opacity:.8}
+.save{margin-top:14px}.save h3{margin:0 0 .3em}.save .safe{margin-top:.6em}.save details{background:none;border:0;padding:0;margin:.6em 0 0}.save summary{cursor:pointer;font-weight:600;color:var(--ice)}.save details p{margin:.4em 0;font-size:.88rem}
 
 </style></head><body>
 
@@ -271,6 +275,17 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
  <p class="note">Ogni personaggio ha razza, classe, build, opzioni, livello e checklist suoi: tocca per passare da uno all'altro. Tutto resta salvato su questo dispositivo.</p>
  <div class="pres" id="pre"></div>
  <div class="btns" style="margin:8px 0 0"><button class="btn" type="button" id="pRen">✎ Rinomina</button><button class="btn" type="button" id="pDel">🗑 Elimina</button></div>
+ <div class="save card">
+  <h3>💾 Salva i progressi</h3>
+  <p class="note">I progressi restano già su questo dispositivo. Per non perderli se cancelli i dati del browser, usi la navigazione in incognito o cambi telefono o PC, scarica un <b>file di salvataggio</b> e caricalo quando serve.</p>
+  <div class="btns" style="margin:0"><button class="btn pr" type="button" id="svSave">💾 Scarica salvataggio</button><label class="btn" id="svLoadL">📂 Carica salvataggio<input type="file" id="svLoad" accept=".txt,text/plain" hidden></label></div>
+  <p class="note safe">🛡 È un semplice file di testo <b>.txt</b> di pochi KB con personaggi, livelli e checklist: niente programmi, niente virus. Il contenuto è codificato e lo legge solo questa guida.</p>
+  <details><summary>📱 Mettila sulla schermata Home, come un’app</summary>
+   <p><b>iPhone / iPad (Safari):</b> tocca Condividi (il quadrato con la freccia ↑) → <b>Aggiungi alla schermata Home</b>. Così Safari non cancella più i progressi dopo qualche giorno senza aperture.</p>
+   <p><b>Android (Chrome):</b> menu ⋮ → <b>Aggiungi a schermata Home</b> (o <b>Installa app</b>).</p>
+   <p class="note">Se aprendola dall’icona non trovi i tuoi personaggi, usa <b>📂 Carica salvataggio</b>.</p>
+  </details>
+ </div>
  <h2 style="margin-top:1em">Razza e classe</h2>
  <section id="pg" class="pick">
   <div><div class="lab">1 · Fazione</div><div class="opts fac" id="pkF"></div></div>
@@ -283,7 +298,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
  <div class="btns" style="margin:16px 0 0"><button class="btn pr big" type="button" id="bGo">Entra nella guida ›</button></div>
 </div></section>
 
-<div class="cbar" id="cbar"><div class="pres" id="cpre"></div><button class="btn pr" type="button" id="bWiz">⚙ Personaggi</button></div>
+<div class="cbar" id="cbar"><div class="pres" id="cpre"></div><button class="btn pers" type="button" id="bWiz"><span class="pi">👥</span><span><b>Personaggi</b><small>cambia · crea · salva</small></span></button></div>
 
 <nav id="nav" role="tablist">
  <button data-tab="livello" class="on">Livello</button><button data-tab="talent">Talent</button><button data-tab="mappa">Mappa</button><button data-tab="classe">Classe</button><button data-tab="prof">Profession</button><button data-tab="alt">Alt</button><button data-tab="altro">Altro</button><button data-tab="info">Info</button>
@@ -491,7 +506,7 @@ var P=(function(){var p=null;try{p=JSON.parse(store('wfcP'))}catch(e){}
 function fix(s){if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
  s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.b=s.o.b||{};s.done=s.done||{};return s}
 var S=fix(P.list[P.cur].s);
-// P.in = è già entrato nella guida: riaprendo il link normale torna dritto al suo personaggio (⚙ Personaggi riapre la pagina iniziale)
+// P.in = è già entrato nella guida: riaprendo il link normale torna dritto al suo personaggio (👥 Personaggi riapre la pagina iniziale)
 if(P.in)HOME=false;
 function ok(r,c){return D.races[r]&&D.races[r].classes.indexOf(c)>-1&&!!D.classes[c]}
 function save(){store('wfcP',JSON.stringify(P))}
@@ -727,7 +742,7 @@ var FEED={Mining:['Blacksmithing','Engineering'],Herbalism:['Alchemy'],Skinning:
 function altRule(P){var o=[];[0,1].forEach(function(i){P.forEach(function(p){var x=(FEED[p]||[])[i];if(x&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)})});['Enchanting','Tailoring','Herbalism','Skinning'].forEach(function(x){if(o.length<2&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)});return o.slice(0,2)}
 function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=function(x){return x.split(/\s*\+\s*/).map(function(y){return y.trim().toLowerCase()}).sort().join('+')};
  var m=P.length===2&&(A.complements||[]).filter(function(c){return k(c.main)===k(P.join('+'))})[0];
- $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>⚙ Personaggi</b>: qui comparirà la coppia giusta per il tuo alt.';
+ $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>👥 Personaggi</b>: qui comparirà la coppia giusta per il tuo alt.';
  var L=A.legacy||{},list=function(t,a,ol){return a&&a.length?'<div class="card"><h3>'+t+'</h3><'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'></div>':''};
  $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
   list('Il primo alt, passo per passo',A.firstAlt,1)+list('Livellare l’alt più in fretta',A.faster)+
@@ -875,6 +890,13 @@ function pSpec(s){var bs=D.classes[s.c].builds||[],B=bs.filter(function(b){retur
 function preBtns(add){return P.list.map(function(p,i){var s=fix(p.s),rc=D.races[s.r].name+' '+D.classes[s.c].name;
   return '<button type="button" class="pre'+(i===P.cur?' on':'')+'" data-pi="'+i+'"><img src="'+IC('classicon_'+s.c)+'" alt=""><span><b>'+esc(p.n||rc)+'</b><small>'+(p.n?rc+' ':'')+pSpec(s)+' · liv. '+s.L+'</small></span></button>'}).join('')+
  (add?'<button type="button" class="pre add" data-pi="new">＋ Nuovo personaggio</button>':'')}
+// salvataggio su file: .txt con una riga di spiegazione e tutti i personaggi (P) in base64; lo rilegge solo "Carica salvataggio"
+var SVH='WoW Forever Leveling Companion - file di salvataggio. Per ripristinarlo: guida, 👥 Personaggi, Carica salvataggio. Non modificare la riga qui sotto.';
+$('svSave').onclick=function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([SVH+'\n'+btoa(unescape(encodeURIComponent(JSON.stringify(P))))+'\n'],{type:'text/plain'}));a.download='WoW-Forever-salvataggio-'+new Date().toISOString().slice(0,10)+'.txt';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000)};
+$('svLoad').onchange=function(){var f=this.files[0];this.value='';if(f)f.text().then(function(t){var p=null;try{p=JSON.parse(decodeURIComponent(escape(atob(t.trim().split('\n').pop().trim()))));p.list=p.list.filter(function(x){return x&&x.s})}catch(e){p=null}
+ if(!p||!p.list||!p.list.length)return alert('Questo file non è un salvataggio della guida.');
+ if(!confirm('Caricare '+p.list.length+(p.list.length>1?' personaggi':' personaggio')+' dal salvataggio? Sostituisce quelli su questo dispositivo.'))return;
+ p.in=1;store('wfcP',JSON.stringify(p));location.href=location.pathname})};
 function drawPresets(){$('pre').innerHTML=preBtns(true);$('cpre').innerHTML=preBtns(false);$('pDel').disabled=P.list.length<2}
 function usePreset(i){P.cur=i;S=fix(P.list[i].s);save();setHash();renderAll();if(!HOME)showTab(S.tab||'livello')}
 document.addEventListener('click',function(e){var b=e.target.closest('.pre[data-pi]');if(!b)return;
