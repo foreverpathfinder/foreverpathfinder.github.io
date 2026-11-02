@@ -2,7 +2,7 @@
 
 Guida leveling 1–30 per **WoW: Forever** (Classic+, lancio 4 nov 2026) per tutte le 10 razze e 9 classi. Pubblica:
 https://stalioot.github.io/wow-forever-leveling-companion/ · repo `Stalioot/wow-forever-leveling-companion` (GitHub Pages da `main`, root; commit con email noreply `80699208+Stalioot@users.noreply.github.com`, trailer `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`).
-Cartella: `~/Desktop/CLAUDE/WoW Forever leveling companion/`. Utente italiano: testi in italiano, termini di gioco in inglese.
+Cartella: `~/Desktop/CLAUDE/WoW Forever leveling companion/` (Windows, cartella utente). Utente italiano: testi in italiano, termini di gioco in inglese.
 
 ## Ciclo di lavoro
 1. Modifica `src/data/*`, `src/engine.js`, `src/template.html` o `src/style.css` (mai l'HTML generato).
