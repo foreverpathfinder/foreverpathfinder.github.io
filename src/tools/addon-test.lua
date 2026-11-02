@@ -23,6 +23,8 @@ UnitLevel = function() return LEVEL end
 GetNumTalentTabs = function() return 3 end
 GetTalentTabInfo = function(i) return "tree", nil, i == 1 and SPENT or 0 end
 UnitCharacterPoints = function() return FREE end
+GetBuildInfo = function() return "1.16.0", "99999", "Nov 5 2026", 16001 end
+GetAddOnMetadata = function(_, k) return k == "Version" and "test" or nil end
 DEFAULT_CHAT_FRAME = { AddMessage = function(_, m) chat[#chat + 1] = m end }
 
 assert(loadfile(DIR .. "/Data.lua"))()
@@ -82,6 +84,10 @@ check(f.shown and said("Deadmines"), "/fp cerca apre la finestra e scrive i risu
 fp("dungeon")
 check(said("Red Silk Bandanas") and said("The Defias Brotherhood"), "/fp dungeon elenca le quest dei Deadmines")
 local n0 = #chat; fp("find zzzzzz"); check(#chat == n0 + 1, "ricerca senza risultati: un solo messaggio")
+-- 4c) /fp debug: versioni, token di razza e guida riconosciuta, spunta salvata contata
+fp("auto"); n0 = #chat; fp("debug")
+local dbg = table.concat(chat, "\n", n0 + 1)
+check(#chat == n0 + 5 and dbg:find("Interface 16001", 1, true) and dbg:find("/ " .. RACE, 1, true) and dbg:find(EXPECT_KEY, 1, true) and dbg:find("%D1%D+1$"), "/fp debug: 5 righe con Interface, razza, guida\n" .. dbg)
 -- 5) razza sconosciuta: messaggio, poi /fp auto torna alla razza vera
 fp("set nessuna-razza")
 check(chat[#chat]:find("/fp set", 1, true) ~= nil, "messaggio per razza sconosciuta")

@@ -57,8 +57,8 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <button class="lang" id="lang" type="button" aria-label="Lingua / Language"><svg id="flagEn" viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg><svg id="flagIt" viewBox="0 0 3 2" width="23" height="15" aria-hidden="true" style="display:none"><path fill="#009246" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#CE2B37" d="M2 0h1v2H2z"/></svg></button>
  <small>Forever Pathfinder</small>
  <h1><span data-l="it">Addon in gioco</span><span data-l="en">In-game addon</span></h1>
- <p data-l="it">La guida dentro WoW: Forever. Una finestra con le voci del tuo livello, la tappa, il prossimo talento e i dungeon adatti. Gratis. <span class="pill">versione 0.2.0 · prova</span></p>
- <p data-l="en">The guide inside WoW: Forever. A window with the items for your level, your stage, the next talent and the right dungeons. Free. <span class="pill">version 0.2.0 · test</span></p>
+ <p data-l="it">La guida dentro WoW: Forever. Una finestra con le voci del tuo livello, la tappa, il prossimo talento e i dungeon adatti. Gratis. <span class="pill">versione 0.2.1 · prova</span></p>
+ <p data-l="en">The guide inside WoW: Forever. A window with the items for your level, your stage, the next talent and the right dungeons. Free. <span class="pill">version 0.2.1 · test</span></p>
  <div class="btns"><a class="btn" href="ForeverPathfinder.zip" download><span data-l="it">⬇ Scarica l’addon (.zip, 200 KB)</span><span data-l="en">⬇ Download the addon (.zip, 200 KB)</span></a><a class="btn sec" href="./"><span data-l="it">Apri la guida sul sito</span><span data-l="en">Open the guide on the website</span></a></div>
 </header>
 
@@ -121,6 +121,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <tr><td><kbd>/fp list</kbd></td><td>Scrive in chat tutte le combinazioni razza-classe disponibili.</td></tr>
    <tr><td><kbd>/fp dungeon</kbd></td><td>Scrive in chat i dungeon consigliati al livello mostrato: giudizio, ingresso e quest da prendere prima (anche di classe).</td></tr>
    <tr><td><kbd>/fp cerca parola</kbd></td><td>Cerca in tutta la guida (es. <kbd>/fp cerca sentinel hill</kbd>): scrive le prime voci in chat e apre la finestra al livello della prima. Uguale: <kbd>/fp find</kbd>.</td></tr>
+   <tr><td><kbd>/fp debug</kbd></td><td>Scrive in chat versione, razza e classe come le vede il gioco, guida riconosciuta, talenti e salvataggi. Se qualcosa non va, mandaci uno screenshot di queste righe dal link in fondo alla pagina.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Riassunto dei comandi in chat.</td></tr>
   </table>
   <h3>Nella finestra</h3>
@@ -139,9 +140,9 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <h2>Problemi comuni</h2>
  <details><summary>Non compare nella lista degli AddOns</summary><p>La cartella è nel posto sbagliato o è doppia. Deve esserci il file <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> dentro la cartella di <b>Forever</b> (non di Retail o Classic Era). Poi chiudi e riapri il gioco del tutto.</p></details>
  <details><summary>Risulta «non aggiornato» (out of date)</summary><p>Nella schermata AddOns spunta <b>Carica AddOn non aggiornati</b>. Succede quando Blizzard aggiorna il gioco prima di noi; pubblicheremo una versione aggiornata.</p></details>
- <details><summary>«Razza o classe non riconosciute»</summary><p>Capita soprattutto con gli Skyborne, il cui nome interno lo vedremo solo al lancio. Usa <kbd>/fp set</kbd> con la tua combinazione (es. <kbd>/fp set skyborne_a-mage</kbd>) e segnalacelo.</p></details>
+ <details><summary>«Razza o classe non riconosciute»</summary><p>Capita soprattutto con gli Skyborne, il cui nome interno lo vedremo solo al lancio. Usa <kbd>/fp set</kbd> con la tua combinazione (es. <kbd>/fp set skyborne_a-mage</kbd>) e segnalacelo con uno screenshot di <kbd>/fp debug</kbd>.</p></details>
  <details><summary>Il talento indicato non è quello che ho preso</summary><p>L’addon segue l’ordine della build A del sito e conta i punti già spesi. Se hai messo punti altrove, da lì in poi i consigli scorrono di conseguenza: conta il numero di punti, non quali hai preso. Per un’altra build usa il sito.</p></details>
- <details><summary>Le spunte spariscono dopo il riavvio</summary><p>Nella beta di Forever c’era un bug: il gioco non rileggeva i dati salvati degli addon. Dovrebbe essere risolto al lancio; se succede ancora, segnalacelo.</p></details>
+ <details><summary>Le spunte spariscono dopo il riavvio</summary><p>Nella beta di Forever c’era un bug: il gioco non rileggeva i dati salvati degli addon. Dovrebbe essere risolto al lancio; se succede ancora, segnalacelo: in <kbd>/fp debug</kbd> «caricamenti 1» anche dopo un <kbd>/reload</kbd> lo conferma.</p></details>
 
  <h2>Aggiornare e disinstallare</h2>
  <div class="card">
@@ -209,6 +210,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <tr><td><kbd>/fp list</kbd></td><td>Prints every available race-class combination in chat.</td></tr>
    <tr><td><kbd>/fp dungeon</kbd></td><td>Prints the recommended dungeons for the level shown: verdict, entrance and quests to pick up first (class ones too).</td></tr>
    <tr><td><kbd>/fp find word</kbd></td><td>Searches the whole guide (e.g. <kbd>/fp find sentinel hill</kbd>): prints the first items in chat and opens the window at the level of the first one. Same: <kbd>/fp cerca</kbd>.</td></tr>
+   <tr><td><kbd>/fp debug</kbd></td><td>Prints version, race and class as the game sees them, detected guide, talents and saved data. If something is wrong, send us a screenshot of these lines from the link at the bottom of the page.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Command summary in chat.</td></tr>
   </table>
   <h3>In the window</h3>
@@ -227,9 +229,9 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <h2>Common problems</h2>
  <details><summary>It does not appear in the AddOns list</summary><p>The folder is in the wrong place or doubled. You must have the file <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> inside the <b>Forever</b> folder (not Retail or Classic Era). Then close and reopen the game completely.</p></details>
  <details><summary>It shows as “out of date”</summary><p>On the AddOns screen tick <b>Load out of date AddOns</b>. It happens when Blizzard updates the game before we do; we will publish an updated version.</p></details>
- <details><summary>“Race or class not recognized”</summary><p>It happens mostly with Skyborne, whose internal name we will only see at launch. Use <kbd>/fp set</kbd> with your combination (e.g. <kbd>/fp set skyborne_a-mage</kbd>) and let us know.</p></details>
+ <details><summary>“Race or class not recognized”</summary><p>It happens mostly with Skyborne, whose internal name we will only see at launch. Use <kbd>/fp set</kbd> with your combination (e.g. <kbd>/fp set skyborne_a-mage</kbd>) and let us know with a screenshot of <kbd>/fp debug</kbd>.</p></details>
  <details><summary>The suggested talent is not the one I took</summary><p>The addon follows the website’s build A order and counts the points you have spent. If you put points elsewhere, the suggestions move on accordingly: it counts how many points, not which ones. For another build use the website.</p></details>
- <details><summary>Ticks disappear after a restart</summary><p>The Forever beta had a bug: the game did not read addons’ saved data back. It should be fixed at launch; if it still happens, let us know.</p></details>
+ <details><summary>Ticks disappear after a restart</summary><p>The Forever beta had a bug: the game did not read addons’ saved data back. It should be fixed at launch; if it still happens, let us know: in <kbd>/fp debug</kbd>, “loads 1” even after a <kbd>/reload</kbd> confirms it.</p></details>
 
  <h2>Updating and uninstalling</h2>
  <div class="card">
