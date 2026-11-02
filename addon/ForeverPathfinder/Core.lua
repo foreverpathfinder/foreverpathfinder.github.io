@@ -2,7 +2,7 @@
 -- checklist da spuntare, Talent, Classe, Profession, Dungeon, Alt, Altro, Info) e le Opzioni (build, dungeon, cambio continente).
 -- Dati in Data.lua (generati da src/tools/addon.js dal sito). /fp apre e chiude, /fp dungeon, /fp cerca e /fp debug scrivono in chat.
 local ADDON = ...
--- lingua dell'addon: la sceglie il giocatore (pulsante in testata e Opzioni, salvata in ForeverPathfinderDB), inglese di base;
+-- lingua dell'addon: la sceglie il giocatore (Opzioni o /fp lang, salvata in ForeverPathfinderDB), inglese di base;
 -- il gioco non ha l'italiano. Anche in italiano i nomi di gioco (quest, NPC, spell, oggetti) restano in inglese, come sul sito
 local LANG, D, POOL, PAGES, DG, LINKS = "en"
 local function bindData()
@@ -490,20 +490,13 @@ local function layoutNav()
   end
 end
 layoutNav()
--- pulsante della lingua in testata, come la bandierina del sito: mostra la lingua in cui passare
-local langB = pill(f, "Italiano")
-local function placeLang()
-  langB.fs:SetText(LANG == "it" and "English" or "Italiano"); langB:SetWidth(math.floor((langB.fs:GetStringWidth() or 50) + 22))
-  langB:ClearAllPoints(); langB:SetPoint("TOPLEFT", W - 44 - langB:GetWidth(), -10)
-end
+-- lingua dell'addon: si sceglie nelle Opzioni (o con /fp lang)
 setLang = function(l)
   LANG = (l == "it") and "it" or "en"
   if DB then DB.lang = LANG end
-  T = TT[LANG]; bindData(); layoutNav(); placeLang()
+  T = TT[LANG]; bindData(); layoutNav()
   if f:IsShown() then render() end
 end
-langB:SetScript("OnClick", function() setLang(LANG == "it" and "en" or "it") end)
-placeLang()
 
 render = function(top)
   clear()

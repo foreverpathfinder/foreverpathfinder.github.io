@@ -32,7 +32,7 @@ The whole leveling guide in game: route checklist, talents, class, dungeons, way
 - **Talents**: the talent to take glows in the game's talent window.
 - **Trainer**: prints and marks the guide spells to buy.
 - **Options** in game: build, dungeons, continent switch, and every game link on or off.
-- English or Italian, your choice (button at the top of the window or `/fp lang`); game names stay in English. Quests, talents and spells are matched by English name.
+- English or Italian, your choice in the Options (or `/fp lang`); game names stay in English. Quests, talents and spells are matched by English name.
 
 ### Commands
 | Command | What it does |

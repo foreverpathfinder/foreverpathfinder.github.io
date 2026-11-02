@@ -189,12 +189,12 @@ check(has(lang == "it" and "Opzioni" or "Options"), "clic destro apre le opzioni
 mb.scripts.OnDragStart(mb); mb.scripts.OnUpdate(); mb.scripts.OnDragStop(mb)
 check(ForeverPathfinderDB.angle and math.abs(ForeverPathfinderDB.angle - 90) < 1, "icona trascinata sopra la minimappa")
 fp(""); check(not f.shown, "/fp chiude")
--- 7) pulsante della lingua in testata: passa all altra lingua e le schede cambiano nome; /fp lang torna indietro
-fp("")
+-- 7) lingua solo nelle Opzioni (niente pulsante in testata): la casella dell'altra lingua cambia i nomi delle schede; /fp lang torna indietro
+fp("opzioni")
 local other = lang == "it" and "English" or "Italiano"
-local lb = find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.fs.text == other end)
-check(lb ~= nil, "pulsante " .. other)
-lb.scripts.OnClick(lb)
+check(find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.fs.text == other and o.shown end) == nil, "nessun pulsante della lingua in testata")
+check(has(other), "voce " .. other .. " nelle Opzioni")
+fp("lang " .. (lang == "it" and "en" or "it"))
 check(has(lang == "it" and "Route" or "Percorso") and ForeverPathfinderDB.lang == (lang == "it" and "en" or "it"), "lingua cambiata")
 fp("lang"); check(ForeverPathfinderDB.lang == lang and has(lang == "it" and "Percorso" or "Route"), "/fp lang torna indietro")
 print("ok", LOCALE, "addon " .. lang, RACE, CLASS, #keys .. " combinazioni x " .. #labels .. " schede")
