@@ -1067,25 +1067,18 @@
    "used": "Passi e NPC delle catene warlock per Imp, Voidwalker, Succubus/Incubus, Felhunter"
   },
   {
-   "name": "Indice quest Forever",
-   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "name": "Elenco quest di Forever (Wowhead)",
+   "url": "https://www.wowhead.com/forever/quests",
    "date": "2026-11-01",
    "signal": "Nome, livello, NPC, fazione e luogo di ogni quest in Forever",
    "used": "Livelli e NPC: The Stolen Tome lvl 4, Beginnings Anvilmar, Piercing the Veil lvl 3"
   },
   {
-   "name": "Dati mappa Wowhead Forever (wmd.json)",
-   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/wmd.json",
+   "name": "Mappa del mondo Wowhead Forever",
+   "url": "https://www.wowhead.com/forever/world-map",
    "date": "2026-11-01",
    "signal": "POI quest-giver con ID quest e coordinate",
    "used": "Associazione NPC e fazione, Strahad Farsan a Ratchet"
-  },
-  {
-   "name": "Class JSON esistente (src/data/classes)",
-   "url": "~/Desktop/CLAUDE/WoW Forever leveling companion/src/data/classes/warlock.json",
-   "date": "2026-11-01",
-   "signal": "Fonti dichiarate nel testo (forg.gg, Warcraft Tavern, Method, WGE) non riverificate",
-   "used": "Orb of Soran'ruk, Tome of the Cabal, ingredienti e ricompense 🟡"
   }
  ],
  "doubts": [

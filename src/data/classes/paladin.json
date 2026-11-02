@@ -997,8 +997,8 @@
    "used": "solo segnale; altri: Axphyxiate Gaming 35K (2 sett), Kargoz Ret 1-60 32K (3 gg), yumytv 96K (2 gg), Pallytime215 13K, GravTV 15K"
   },
   {
-   "name": "Indice Forever (forever_quests.txt)",
-   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "name": "Elenco quest di Forever (Wowhead)",
+   "url": "https://www.wowhead.com/forever/quests",
    "date": "2026-11-01",
    "signal": "Nomi quest, livelli, NPC, zona",
    "used": "Catene 1, 11, 12, 20, 22, 25–26 e nomi NPC"
