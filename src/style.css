@@ -255,3 +255,11 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 @media(max-width:520px){.btn,nav button,.go,.cbar .pre,#lfs{min-height:44px}.hero .lang{min-width:44px;min-height:44px;align-items:center;justify-content:center}input[type=range]{height:44px}.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:44px}}
 /* chi ha chiesto meno animazioni al sistema: scorrimenti e barre arrivano subito (anche i voli della mappa, in engine.js) */
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.prog i{transition:none}}
+/* freccia per tornare in alto: compare dopo un po' di scorrimento, in basso a destra (sopra la barra di sistema del telefono) */
+.totop{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:40;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card2);color:var(--gold);border:1px solid var(--gold);box-shadow:0 6px 18px #000a;cursor:pointer;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}
+.totop.on{opacity:1;transform:none;pointer-events:auto}.totop:hover{background:var(--goldbg2)}
+@media(prefers-reduced-motion:reduce){.totop{transition:none}}
+/* scheda Alt: le 3 scelte in evidenza, la prima con bordo oro */
+.altwhy p{margin:.35em 0}.apick{margin:0;display:flex;flex-direction:column;gap:6px}.apick.top{border-color:var(--gold)}.apick .an{font:800 1.05rem Cinzel,serif;color:var(--ice)}.apick.top .an{color:var(--gold)}
+.apick ul{margin:.2em 0;padding-left:1.2em}.apick p{margin:0}.apick .btn{margin-top:auto;align-self:flex-start}.tags .pill{margin:0 4px 4px 0}#alt tr.hl{background:var(--goldbg)}
+footer{padding-bottom:76px}
