@@ -263,3 +263,8 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .altwhy p{margin:.35em 0}.apick{margin:0;display:flex;flex-direction:column;gap:6px}.apick.top{border-color:var(--gold)}.apick .an{font:800 1.05rem Cinzel,serif;color:var(--ice)}.apick.top .an{color:var(--gold)}
 .apick ul{margin:.2em 0;padding-left:1.2em}.apick p{margin:0}.apick .btn{margin-top:auto;align-self:flex-start}.tags .pill{margin:0 4px 4px 0}#alt tr.hl{background:var(--goldbg)}
 footer{padding-bottom:76px}
+/* scheda Alt: classifica (ogni riga sceglie la classe del piano) e piano dell'alt */
+.arank{list-style:none;margin:0;padding:0;display:grid;gap:8px}.arank button{width:100%;display:flex;align-items:center;gap:10px;text-align:left;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 10px;color:var(--tx);font:inherit;cursor:pointer;min-height:44px}
+.arank button.on{border-color:var(--gold);background:var(--goldbg)}.arank .n{font:800 1.1rem Cinzel,serif;color:var(--gold);min-width:1.4em;text-align:center}.arank .w{display:flex;flex-direction:column;gap:2px;min-width:0}.arank .h{display:flex;align-items:center;gap:6px}.arank small{color:var(--mu);font-size:.8rem}
+.tier{display:inline-grid;place-items:center;width:1.5em;height:1.5em;border-radius:5px;font:800 .75rem Inter,sans-serif;border:1px solid var(--bd);color:var(--mu)}.tier.tS{color:var(--gold);border-color:var(--goldbd)}.tier.tA{color:var(--ok);border-color:var(--okbd)}.tier.tB{color:var(--ice)}.tier.tD{color:var(--bad);border-color:var(--badbd)}
+#altCrit .srcs{display:block;margin-top:.3em}.aplan .an{font:800 1.15rem Cinzel,serif;color:var(--gold)}#altPlan .pick{margin:10px 0}.averd{list-style:none;padding:0;margin:8px 0 0}.averd li{margin:.45em 0}

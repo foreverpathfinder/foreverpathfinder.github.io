@@ -281,38 +281,53 @@ function renderProf(){var P=CL.professions,X=D.profs;
 // chi alimenta chi: gathering → crafting che ne usa i materiali, e viceversa (Tailoring/Enchanting si aiutano: stoffa e disenchant)
 var FEED={Mining:['Blacksmithing','Engineering'],Herbalism:['Alchemy'],Skinning:['Leatherworking'],Blacksmithing:['Mining'],Engineering:['Mining'],Alchemy:['Herbalism'],Leatherworking:['Skinning'],Tailoring:['Enchanting'],Enchanting:['Tailoring']};
 // una profession per ciascuna del main, poi le seconde scelte
-function altRule(P){var o=[];[0,1].forEach(function(i){P.forEach(function(p){var x=(FEED[p]||[])[i];if(x&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)})});['Enchanting','Tailoring','Herbalism','Skinning'].forEach(function(x){if(o.length<2&&P.indexOf(x)<0&&o.indexOf(x)<0)o.push(x)});return o.slice(0,2)}
-function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=function(x){return x.split(/\s*\+\s*/).map(function(y){return y.trim().toLowerCase()}).sort().join('+')};
- var m=P.length===2&&(A.complements||[]).filter(function(c){return k(c.main)===k(P.join('+'))})[0];
- $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>👥 Personaggi</b>: qui comparirà la coppia giusta per il tuo alt.';
- // prima la scelta (altPicks), poi il resto in sezioni richiudibili: si legge solo quello che serve
- var L=A.legacy||{},ul=function(a,ol){return a&&a.length?'<'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'>':''},fold=function(t,body){return body?'<details><summary>'+t+'</summary>'+body+'</details>':''};
- $('altPick').innerHTML=altPicks(A);
+// scheda Alt: classifica dei migliori alt con criteri e fonti dichiarati (alts.json → rank), indipendente dal main,
+// e piano dell'alt (classe, razza, lavori) salvato a parte dai personaggi in P.alt
+var TIER={S:4,A:3,B:2,C:1,D:0},GATHER=['Herbalism','Mining','Skinning'];
+function altRank(R){var T=R.tiers||{},o=R.order||[];return Object.keys(T).filter(function(c){return D.classes[c]}).map(function(c){return {c:c,t:T[c],s:(TIER[T[c][0]]+TIER[T[c][1]])/2,o:o.indexOf(c)}}).sort(function(x,y){return y.s-x.s||x.o-y.o})}
+function renderAlt(){var A=D.alts||{},R=A.rank||{},L=altRank(R),pa=P.alt=P.alt||{prof:[]},M={},X={};
+ (A.altClasses||[]).forEach(function(c){M[c['class']]=c});(A.altRaces||[]).forEach(function(r){X[r.race]=r});
+ var tiers=function(t){return '<span class="tier t'+t[0]+'" title="Mobalytics">'+t[0]+'</span><span class="tier t'+t[1]+'" title="Timesaver">'+t[1]+'</span>'};
+ $('altCrit').innerHTML=(R.criteria||'')+' <span class="srcs">'+(R.sources||[]).map(function(s){return '<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a>'}).join(' · ')+'</span>';
+ $('altRank').innerHTML='<ol class="arank">'+L.map(function(x,i){var c=M[x.c]||{},pr=(R.profs||{})[x.c]||[];
+  return '<li><button type="button" data-ac="'+x.c+'"'+(pa.c===x.c?' class="on" aria-pressed="true"':' aria-pressed="false"')+'><b class="n">'+(i+1)+'</b>'+img('classicon_'+x.c)+'<span class="w"><span class="h"><b>'+D.classes[x.c].name+'</b>'+tiers(x.t)+'</span><small>'+(c.role||'')+'</small>'+(pr.length?'<small>Lavori: '+pr[0]+' + '+pr[1]+'</small>':'')+'</span></button></li>'}).join('')+'</ol>';
+ $('altPlan').innerHTML=altPlan(A,R,L,pa,M,X);
+ var Lg=A.legacy||{},ul=function(a,ol){return a&&a.length?'<'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'>':''},fold=function(t,body){return body?'<details><summary>'+t+'</summary>'+body+'</details>':''};
  $('altx').innerHTML=
   fold('Il primo alt, passo per passo',ul(A.firstAlt,1))+fold('Livellare l’alt più in fretta',ul(A.faster))+
-  fold('Legacy: cosa resta all’account',(L.how?ul(L.how):'')+((L.perks||[]).length?'<div class="wrap"><table><tr><th>Perk</th><th>Effetto</th><th>Costo</th><th>Note</th></tr>'+L.perks.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':''))+
-  fold('Profession: main → alt',(A.complements||[]).length?'<div class="wrap"><table><tr><th>Main</th><th>Alt</th><th>Perché</th></tr>'+A.complements.map(function(c){return '<tr'+(m===c?' class="hl"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
+  fold('Legacy: cosa resta all’account',(Lg.how?ul(Lg.how):'')+((Lg.perks||[]).length?'<div class="wrap"><table><tr><th>Perk</th><th>Effetto</th><th>Costo</th><th>Note</th></tr>'+Lg.perks.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':''))+
+  fold('Lavori: main → alt',(A.complements||[]).length?'<div class="wrap"><table><tr><th>Main</th><th>Alt</th><th>Perché</th></tr>'+A.complements.map(function(c){return '<tr><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
   fold('Tutte le classi come alt',altClasses(A))+fold('Tutte le razze come alt',altRaces(A))+
   fold('Bank alt',ul(A.bankAlt))+fold('Alt per il crafting',ul(A.craftAlts||A.craftAlt))+fold('Errori da evitare',ul(A.mistakes))+fold('Consigli',ul(A.tips))}
-// i 3 alt più adatti al main: classi della stessa fazione che lo completano (withMain), +3 punti Legacy se la classe è nuova
-// per l'account; quelle già presenti tra i personaggi scendono in fondo. Razza: la consigliata per quella classe (bestFor)
-function altPicks(A){var have={};P.list.forEach(function(x){if(x.s&&x.s.c)have[x.s.c]=1});
- var rOf=function(c){return Object.keys(D.races).filter(function(r){return D.races[r].faction===RA.faction&&D.races[r].classes.indexOf(c)>-1})};
- var L=(A.altClasses||[]).filter(function(c){return c['class']!==S.c&&D.classes[c['class']]&&rOf(c['class']).length}).map(function(c,i){var good=(c.withMain||[]).indexOf(S.c)>-1,h=!!have[c['class']];return {c:c,good:good,h:h,i:i,sc:(good?2:0)-(h?3:0)}}).sort(function(a,b){return b.sc-a.sc||a.i-b.i});
- if(!L.length)return '';
- return '<h3>I 3 alt più adatti al tuo '+CL.name+'</h3><p class="note">In ordine: prima le classi che completano il tuo main, poi le altre. Quelle che hai già tra i personaggi vanno in fondo.</p><div class="grid">'+L.slice(0,3).map(function(o,n){var c=o.c,k=c['class'],X=D.classes[k],rs=rOf(k),best=(A.altRaces||[]).filter(function(r){return rs.indexOf(r.race)>-1&&(r.bestFor||[]).indexOf(k)>-1}).map(function(r){return r.race}),race=(best[0]||rs[0]);
-  return '<div class="card apick'+(n?'':' top')+'"><div class="row">'+img('classicon_'+k)+'<div><b class="an">'+(n+1)+'. '+X.name+'</b><br><span class="note">'+(c.role||'')+'</span></div></div>'+
-   '<p class="tags">'+(o.good?'<span class="pill p-ok">completa il tuo main</span> ':'')+(o.h?'<span class="pill p-wa">ce l’hai già</span>':'<span class="pill p-new">+3 punti Legacy</span>')+'</p>'+
-   '<ul>'+li((c.why||[]).slice(0,2))+'</ul>'+(c.leveling?'<p class="note"><b>Leveling:</b> '+c.leveling+'</p>':'')+
-   '<p class="note"><b>Razza consigliata:</b> '+(best.length?best:rs).map(function(r){return D.races[r].name}).join(', ')+'</p>'+
-   '<button class="btn'+(n?'':' pr')+'" type="button" data-alt="'+race+'|'+k+'">＋ Crea '+D.races[race].name+' '+X.name+'</button></div>'}).join('')+'</div>'}
-// "Crea questo alt": nuovo personaggio salvato, si apre al livello 1
-document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-alt]');if(!b)return;var x=b.dataset.alt.split('|');P.list.push({n:'',s:{r:x[0],c:x[1]}});usePreset(P.list.length-1);showTab('livello');window.scrollTo({top:0,behavior:SM})});
+// piano dell'alt: classe dalla classifica, poi razza (★ consigliata per la classe) e 2 lavori (★ coppia consigliata), poi il giudizio
+function altPlan(A,R,L,pa,M,X){var c=pa.c;if(!c||!D.classes[c])return '<p class="note">Tocca una classe nella classifica qui sopra: qui scegli razza e lavori e vedi se la combinazione funziona.</p>';
+ var K=D.classes[c],rs=Object.keys(D.races).filter(function(r){return D.races[r].classes.indexOf(c)>-1}),best=rs.filter(function(r){return X[r]&&(X[r].bestFor||[]).indexOf(c)>-1}),
+  sug=(R.profs||{})[c]||[],pf=pa.prof=(pa.prof||[]).filter(function(p){return PROFS.some(function(x){return x[0]===p})}),pos=L.map(function(x){return x.c}).indexOf(c),x=L[pos],m=M[c]||{};
+ if(pa.r&&rs.indexOf(pa.r)<0)pa.r=null;
+ var bt=function(k,v,on,label,star){return '<button type="button" '+k+'="'+v+'" aria-pressed="'+!!on+'"'+(on?' class="on"':'')+'>'+label+(star?' ★':'')+'</button>'};
+ var h='<div class="pick"><div><div class="lab">Razza <span class="note">★ = consigliata per il '+K.name+'</span></div><div class="opts">'+rs.map(function(r){return bt('data-ar',r,pa.r===r,img(D.races[r].icon)+D.races[r].name,best.indexOf(r)>-1)}).join('')+'</div></div>'+
+  '<div><div class="lab">Lavori (2) <span class="note">★ = coppia consigliata per il '+K.name+'</span></div><div class="opts">'+PROFS.map(function(p){return bt('data-ap',p[0],pf.indexOf(p[0])>-1,img(p[1])+p[0],sug.indexOf(p[0])>-1)}).join('')+'</div></div></div>';
+ // giudizio: ✔ quando la scelta segue i criteri, 🟡 quando no (con l'alternativa)
+ var ok=function(y,t){return '<li>'+(y?'✔ ':'🟡 ')+t+'</li>'},o=[];
+ o.push(ok(pos<3,'<b>Classe:</b> '+(pos+1)+'ª su '+L.length+' nella classifica (Mobalytics '+x.t[0]+', Timesaver '+x.t[1]+'). '+(m.leveling||'')));
+ if(m.role)o.push('<li>➕ <b>Porta all’account:</b> '+m.role+'.'+((m.why||[]).length?' '+m.why[0]:'')+'</li>');
+ o.push(pa.r&&!best.length?'<li>✔ <b>Razza:</b> '+D.races[pa.r].name+'. Le fonti non indicano una razza migliore per il '+K.name+'.'+(X[pa.r]&&X[pa.r].why&&X[pa.r].why[0]?' '+X[pa.r].why[0]:'')+'</li>':pa.r?ok(best.indexOf(pa.r)>-1,'<b>Razza:</b> '+(best.indexOf(pa.r)>-1?D.races[pa.r].name+' è tra le consigliate per il '+K.name+'.':D.races[pa.r].name+' va bene, ma per il '+K.name+' sono consigliate: '+best.map(function(r){return D.races[r].name}).join(', ')+'.')+(X[pa.r]&&X[pa.r].why&&X[pa.r].why[0]?' '+X[pa.r].why[0]:'')):'<li>Scegli la razza.</li>');
+ if(pf.length<2)o.push('<li>Scegli 2 lavori'+(sug.length?': per il '+K.name+' è consigliata <b>'+sug[0]+' + '+sug[1]+'</b> ('+sug[2]+').':'.')+'</li>');
+ else{var same=sug.length&&sug.indexOf(pf[0])>-1&&sug.indexOf(pf[1])>-1,feed=(FEED[pf[0]]||[]).indexOf(pf[1])>-1,g=pf.filter(function(p){return GATHER.indexOf(p)>-1}).length;
+  o.push(ok(same||feed,'<b>Lavori:</b> '+pf.join(' + ')+'. '+(same?'È la coppia consigliata per il '+K.name+' ('+sug[2]+').':feed?'Si riforniscono da soli: uno raccoglie quello che l’altro usa.':g===2?'Sono due lavori di raccolta: tutto da vendere in AH o da mandare agli altri personaggi.':g===0?'Nessuno dei due raccoglie: i materiali vanno comprati o mandati da un altro personaggio.':'Non si riforniscono a vicenda.')+(same||!sug.length?'':' Consigliata per il '+K.name+': <b>'+sug[0]+' + '+sug[1]+'</b> ('+sug[2]+').')))}
+ o.push('<li>⭐ <b>Legacy:</b> vale 3 punti (livelli 25, 45 e 60) solo se nessun tuo personaggio ha già portato il '+K.name+' a quei livelli.</li>');
+ return '<div class="row aplan">'+img('classicon_'+c)+'<div><b class="an">'+(pa.r?D.races[pa.r].name+' ':'')+K.name+'</b>'+(pf.length?'<br><span class="note">'+pf.join(' + ')+'</span>':'')+'</div></div>'+h+'<ul class="averd">'+o.join('')+'</ul>'}
+// tocchi nella scheda Alt: classe (dalla classifica), razza, lavori (massimo 2); tutto in P.alt, i personaggi non cambiano
+$('alt').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var pa=P.alt=P.alt||{prof:[]};
+ if(b.dataset.ac){pa.c=b.dataset.ac;if(pa.r&&D.races[pa.r].classes.indexOf(pa.c)<0)pa.r=null}else if(b.dataset.ar)pa.r=b.dataset.ar;
+ else if(b.dataset.ap){var p=pa.prof=pa.prof||[],i=p.indexOf(b.dataset.ap);if(i>-1)p.splice(i,1);else{p.push(b.dataset.ap);if(p.length>2)p.shift()}}else return;
+ save();renderAlt();if(b.dataset.ac)$('altPlan').scrollIntoView({behavior:SM,block:'start'})});
 
 // classi come alt: tutte e 9, con utilità per l'account, gold, leveling e abbinamento col tuo main
 function altClasses(A){var L=A.altClasses||(A.classes||[]).filter(function(c){return D.classes[c['class']]}).map(function(c){return {'class':c['class'],why:[c.why]}});if(!L.length)return '';
- return '<p class="note">Il tuo main è '+CL.name+': le classi con “si abbina al tuo main” lo completano meglio.</p><div class="grid">'+L.slice().sort(function(x,y){var w=function(c){return c['class']===S.c?2:(c.withMain||[]).indexOf(S.c)>-1?0:1};return w(x)-w(y)}).map(function(c){var k=c['class'],X=D.classes[k]||{name:k},me=k===S.c,good=(c.withMain||[]).indexOf(S.c)>-1;
-  return '<div class="card" style="margin:0;padding:10px"><div class="row">'+img('classicon_'+k)+'<div><b>'+X.name+'</b>'+(c.role?' <span class="note">· '+c.role+'</span>':'')+(good?' <span class="pill p-ok">si abbina al tuo main</span>':'')+(me?' <span class="pill p-wa">è la classe del tuo main</span>':'')+
+ var ord=altRank(A.rank||{}).map(function(x){return x.c});
+ return '<p class="note">Nello stesso ordine della classifica.</p><div class="grid">'+L.slice().sort(function(x,y){return ord.indexOf(x['class'])-ord.indexOf(y['class'])}).map(function(c){var k=c['class'],X=D.classes[k]||{name:k};
+  return '<div class="card" style="margin:0;padding:10px"><div class="row">'+img('classicon_'+k)+'<div><b>'+X.name+'</b>'+(c.role?' <span class="note">· '+c.role+'</span>':'')+
   '<ul>'+li(c.why||[])+'</ul>'+(c.gold?'<p class="note" style="margin:.2em 0"><b>Gold e profession:</b> '+c.gold+'</p>':'')+(c.leveling?'<p class="note" style="margin:.2em 0"><b>Leveling:</b> '+c.leveling+'</p>':'')+'</div></div></div>'}).join('')+'</div>'}
 // razze come alt: tutte e 10, racial dai dati del client (⚒ = profession) + perché sceglierla
 var PROFRE=/Herbalism|Mining|Skinning|Engineering|Alchemy|Leatherworking|Blacksmithing|Tailoring|Enchanting|Fishing|Cooking|First Aid|Lockpicking|\berb[ae]\b/i;

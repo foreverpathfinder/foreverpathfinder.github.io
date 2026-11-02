@@ -350,6 +350,27 @@
    "date": "build 1.60.1, pre-lancio",
    "signal": "Dati client dal progetto, ✔ client nella maggior parte delle voci.",
    "used": "Nome, icona ed effetto dei racial"
+  },
+  {
+   "name": "Mobalytics, WoW Forever Leveling Class Tier List",
+   "url": "https://mobalytics.gg/wow-forever/profile/mobalytics/tier-lists/wow-forever-leveling-class-tier-list",
+   "date": "17 set 2026",
+   "signal": "tier list ufficiale Mobalytics",
+   "used": "voto di leveling per la classifica degli alt"
+  },
+  {
+   "name": "Timesaver, WoW Forever best class to level (beta tier list)",
+   "url": "https://timesaver.gg/blog/wow-forever-best-class-to-level-beta-tier-list",
+   "date": "ott 2026",
+   "signal": "basata sulla beta 1–30",
+   "used": "voto di leveling per la classifica degli alt"
+  },
+  {
+   "name": "Conquest Capped, WoW Forever Alt Leveling",
+   "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-alt-leveling/",
+   "date": "ott 2026",
+   "signal": "build beta 8 e 15 ottobre",
+   "used": "ordine degli alt, lavori per Mage, Warlock, Paladin, Hunter"
   }
  ],
  "doubts": [
@@ -774,5 +795,121 @@
     "horde.json racials (client)"
    ]
   }
- ]
+ ],
+ "rank": {
+  "criteria": "Come è fatta la classifica: l’alt serve soprattutto a fare punti Legacy ai livelli 25, 45 e 60, quindi conta quanto la classe è veloce e sicura da livellare da sola. Per ogni classe ci sono due voti (S il migliore, D il peggiore): il primo dalla tier list del leveling di Mobalytics, il secondo da quella di Timesaver sulla beta. La posizione è la media dei due; a parità vale l’ordine della guida agli alt di Conquest Capped, che mette prima le classi più facili da livellare.",
+  "sources": [
+   [
+    "Mobalytics – Leveling Class Tier List",
+    "https://mobalytics.gg/wow-forever/profile/mobalytics/tier-lists/wow-forever-leveling-class-tier-list",
+    "17 set 2026"
+   ],
+   [
+    "Timesaver – Best class to level (beta)",
+    "https://timesaver.gg/blog/wow-forever-best-class-to-level-beta-tier-list",
+    "ott 2026"
+   ],
+   [
+    "Conquest Capped – Alt Leveling",
+    "https://conquestcapped.com/guides/wow-forever/wow-forever-alt-leveling/",
+    "ott 2026"
+   ]
+  ],
+  "tiers": {
+   "mage": [
+    "S",
+    "S"
+   ],
+   "hunter": [
+    "S",
+    "S"
+   ],
+   "warlock": [
+    "A",
+    "A"
+   ],
+   "rogue": [
+    "A",
+    "B"
+   ],
+   "shaman": [
+    "B",
+    "A"
+   ],
+   "paladin": [
+    "D",
+    "A"
+   ],
+   "druid": [
+    "B",
+    "C"
+   ],
+   "priest": [
+    "C",
+    "B"
+   ],
+   "warrior": [
+    "D",
+    "C"
+   ]
+  },
+  "order": [
+   "mage",
+   "warlock",
+   "paladin",
+   "hunter",
+   "druid",
+   "priest",
+   "rogue",
+   "shaman",
+   "warrior"
+  ],
+  "profs": {
+   "mage": [
+    "Tailoring",
+    "Herbalism",
+    "Conquest Capped"
+   ],
+   "warlock": [
+    "Alchemy",
+    "Herbalism",
+    "Conquest Capped"
+   ],
+   "paladin": [
+    "Mining",
+    "Blacksmithing",
+    "Conquest Capped"
+   ],
+   "hunter": [
+    "Skinning",
+    "Leatherworking",
+    "Conquest Capped"
+   ],
+   "druid": [
+    "Herbalism",
+    "Alchemy",
+    "Method"
+   ],
+   "rogue": [
+    "Skinning",
+    "Leatherworking",
+    "Warcraft Tavern"
+   ],
+   "priest": [
+    "Tailoring",
+    "Enchanting",
+    "Gfinity 🟡"
+   ],
+   "shaman": [
+    "Skinning",
+    "Engineering",
+    "Warcraft Tavern 🟡"
+   ],
+   "warrior": [
+    "Mining",
+    "Blacksmithing",
+    "Gfinity 🟡"
+   ]
+  }
+ }
 }
