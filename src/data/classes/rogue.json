@@ -799,8 +799,8 @@
    "used": "Solo snippet WebSearch: esiste una guida Combat con livelli breakpoint"
   },
   {
-   "name": "Indice Forever (forever_quests.txt)",
-   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "name": "Elenco quest di Forever (Wowhead)",
+   "url": "https://www.wowhead.com/forever/quests",
    "date": "2026-11-01",
    "signal": "Nomi quest, livelli, NPC, zona",
    "used": "Mathias and the Defias 20, Klaven's Tower 24, The Touch of Zanzil 20, The Shattered Salute 20, Deep Cover 20, Mission 24, Hinott's Assistance 20 e 26"

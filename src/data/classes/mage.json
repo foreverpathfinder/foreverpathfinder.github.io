@@ -500,8 +500,8 @@
    "Precision a 3 rank"
   ],
   {
-   "name": "Indice quest Forever",
-   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "name": "Elenco quest di Forever (Wowhead)",
+   "url": "https://www.wowhead.com/forever/quests",
    "date": "2026-11-01",
    "signal": "Nome, livello, NPC, fazione e luogo di ogni quest in Forever",
    "used": "Verifica che Icefury non esista; A Student of the Arcane (lvl 2, Rorian)"
@@ -512,13 +512,6 @@
    "date": "2026-11-01",
    "signal": "Testo obiettivo quest per ID",
    "used": "Mage's Wand (Tabetha) controllato: livello 40, fuori range"
-  },
-  {
-   "name": "Class JSON esistente (src/data/classes)",
-   "url": "~/Desktop/CLAUDE/WoW Forever leveling companion/src/data/classes/mage.json",
-   "date": "2026-11-01",
-   "signal": "Fonte dichiarata nel testo non riverificata",
-   "used": "Livelli wand e Teleport 🟡"
   }
  ],
  "doubts": [

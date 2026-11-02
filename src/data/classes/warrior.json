@@ -766,8 +766,8 @@
    "used": "racial"
   },
   {
-   "name": "Indice Forever (forever_quests.txt)",
-   "url": "~/AppData/Local/Temp/claude/C--Users-user-Desktop-CLAUDE/2b9fa363-0b57-43a7-bf3b-4f2fffc136e9/scratchpad/forever_quests.txt",
+   "name": "Elenco quest di Forever (Wowhead)",
+   "url": "https://www.wowhead.com/forever/quests",
    "date": "2026-11-01",
    "signal": "Dati mappa Forever: nome quest, livello, NPC, fazione, zona",
    "used": "Nomi NPC e livelli di A Warrior's Training, Path of Defense, The Islander, The Affray, The Summoning"
