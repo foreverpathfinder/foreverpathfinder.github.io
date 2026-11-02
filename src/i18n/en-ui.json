@@ -283,5 +283,11 @@
 ["' a quei livelli.</li>'","' to those levels.</li>'"],
 ["Nello stesso ordine della classifica.","In the same order as the ranking."],
 ["'. Le fonti non indicano una razza migliore per il '","'. The sources do not name a best race for the '"],
-["'<li>✔ <b>Razza:</b> '","'<li>✔ <b>Race:</b> '"]
+["'<li>✔ <b>Razza:</b> '","'<li>✔ <b>Race:</b> '"],
+["aria-label=\"Cerca nella guida e sulla mappa\" title=\"Cerca (/)\"","aria-label=\"Search the guide and the map\" title=\"Search (/)\""],
+["<dialog id=\"sDlg\" class=\"sdlg\" aria-label=\"Cerca\">","<dialog id=\"sDlg\" class=\"sdlg\" aria-label=\"Search\">"],
+["placeholder=\"Cerca quest, NPC, zone, talenti, dungeon…\" aria-label=\"Cerca quest, NPC, zone, talenti, dungeon\"","placeholder=\"Search quests, NPCs, zones, talents, dungeons…\" aria-label=\"Search quests, NPCs, zones, talents, dungeons\""],
+["id=\"sX\">Chiudi</button>","id=\"sX\">Close</button>"],
+["hint:'Scrivi almeno 2 lettere: cerco nella guida del tuo personaggio (checklist, tappe, talenti, spell, dungeon, alt) e sulla mappa (zone, città, Flight Master, Inn, trainer, dungeon, NPC, pet).'","hint:'Type at least 2 letters: I search your character’s guide (checklist, stages, talents, spells, dungeons, alts) and the map (zones, cities, Flight Masters, Inns, trainers, dungeons, NPCs, pets).'"],
+["inGuide:'Nella guida',onMap:'Sulla mappa',more:'e altri N: aggiungi una parola per restringere',none:'Nessun risultato per «Q».',zone:'Zona',place:'Città o luogo',pet:'Pet da domare'","inGuide:'In the guide',onMap:'On the map',more:'and N more: add a word to narrow it down',none:'No results for “Q”.',zone:'Zone',place:'City or place',pet:'Tameable pet'"]
 ]

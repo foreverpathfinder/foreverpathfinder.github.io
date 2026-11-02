@@ -440,6 +440,45 @@ function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('na
  var w=$('lwrap');if(t==='livello')$('miniHost').appendChild(w);else if(w.parentNode.id==='miniHost')$('mappa').insertBefore(w,$('lchips'));
  if(MAP)setTimeout(function(){MAP.invalidateSize()},30);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}
 $('nav').addEventListener('click',function(e){var b=e.target.closest('button');if(b)showTab(b.dataset.tab)});
+/* ---- ricerca: nella guida (testi della pagina del personaggio attuale) e sulla mappa (dati di gioco) ---- */
+// l'indice si rifà a ogni apertura: segue personaggio, lingua e filtri; si cercano tutte le parole, senza accenti né maiuscole
+var SIX=null,NORM=function(s){return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()};
+function sIndex(){var g=[],seen={},tabName=function(id){var b=document.querySelector('nav [data-tab="'+id.replace('t-','')+'"]');return b?b.textContent:''};
+ // unità della guida: voci della checklist, titoli delle sezioni apribili, righe di tabelle e liste, schede senza altre sezioni dentro
+ [].forEach.call(document.querySelectorAll('main .tab label.task, main .tab details>summary, main .tab tr, main .tab li, main .tab .card'),function(e){
+  if(e.matches('.card')&&e.querySelector('label.task,details,tr,li,.card'))return;if(e.matches('li')&&e.closest('label.task'))return;if(e.matches('tr')&&e.querySelector('th'))return;
+  if(document.body.classList.contains('sure')&&e.closest('.unsure'))return;
+  var c=e.cloneNode(true);[].forEach.call(c.querySelectorAll('button,.go,svg,.pct'),function(x){x.remove()});[].forEach.call(c.querySelectorAll('br,div,p,li,td,small,h3,h4,b.t,.lv,.pill,summary span'),function(x){x.before(' ');x.after(' ')});var tx=c.textContent.replace(/\s+/g,' ').trim(),tab=e.closest('.tab');
+  if(tx.length<3||!tab||seen[tab.id+tx])return;seen[tab.id+tx]=1;g.push({t:tx,n:NORM(tx),tab:tab.id,where:tabName(tab.id),el:e})});
+ var m=[],M=D.map,put=function(name,kind,x,y,z,extra){if(name&&x)m.push({t:name+(extra?' · '+extra:''),n:NORM(name+' '+(extra||'')+' '+kind),kind:kind,x:x,y:y,z:z})},T=SL;
+ (M.zones||[]).forEach(function(p){put(p[0],T.zone,p[2],p[3],4.5,p[1])});(M.places||[]).forEach(function(p){put(p[0],T.place,p[1],p[2],5.5)});
+ (M.dg||[]).forEach(function(p){put(p[0],'Dungeon',p[2],p[3],5.5,p[1])});(M.fp||[]).forEach(function(p){if(mine(p[1]))put(p[0],'Flight Master',p[2],p[3],6.25,p[4])});
+ (M.inn||[]).forEach(function(p){if(mine(p[1]))put(p[0],'Inn',p[2],p[3],6.25)});
+ Object.keys(M.trainers||{}).forEach(function(k){(M.trainers[k]||[]).forEach(function(p){if(mine(p[1]))put(p[0],(D.classes[k]?D.classes[k].name:k)+' Trainer',p[2],p[3],6.25)})});
+ Object.keys(M.prof||{}).forEach(function(k){var nm=k.replace(/(^|-)\w/g,function(s){return s.toUpperCase()}).replace('-',' ');(M.prof[k]||[]).forEach(function(p){if(mine(p[1]))put(p[0],nm+' Trainer',p[2],p[3],6.25)})});
+ (M.pets||[]).forEach(function(p){put(p[0],T.pet,p[3],p[4],6.25,p[1]+' '+p[2])});
+ // NPC delle quest della guida: i pulsanti 📍 della pagina hanno già le coordinate
+ var q={};[].forEach.call(document.querySelectorAll('main .go[data-x]'),function(b){var nm=b.textContent.replace('📍','').trim();if(!q[nm]&&!m.some(function(x){return x.t.indexOf(nm)===0})){q[nm]=1;put(nm,'NPC',+b.dataset.x,+b.dataset.y,+b.dataset.z||6.25)}});
+ return {g:g,m:m}}
+function sSnip(t,w){var n=NORM(t),i=n.indexOf(w[0]),a=Math.max(0,i-50),s=(a?'…':'')+t.slice(a,a+150)+(t.length>a+150?'…':''),h=esc(s);
+ w.forEach(function(x){if(x.length<2)return;var ns=NORM(h),out='',j=0,k;while((k=ns.indexOf(x,j))>-1){out+=h.slice(j,k)+'<mark>'+h.slice(k,k+x.length)+'</mark>';j=k+x.length}h=out+h.slice(j)});return h}
+function sRun(){var q=NORM($('sQ').value.trim()),w=q.split(/\s+/).filter(Boolean),r=$('sRes');
+ if(q.length<2){r.innerHTML='<p class="hint">'+SL.hint+'</p>';return}
+ var hit=function(x){return w.every(function(y){return x.n.indexOf(y)>-1})},G=SIX.g.filter(hit),Mm=SIX.m.filter(hit),h='';
+ // nella guida prima le voci della checklist e i titoli, sulla mappa prima i nomi che iniziano con la parola cercata
+ G.sort(function(a,b){var s=function(x){return x.el.matches('label.task,summary')?0:1};return s(a)-s(b)});Mm.sort(function(a,b){return (b.n.indexOf(w[0])===0)-(a.n.indexOf(w[0])===0)});
+ if(G.length)h+='<h4>'+SL.inGuide+' · '+G.length+'</h4>'+G.slice(0,30).map(function(x){return '<button type="button" class="sr" data-gi="'+SIX.g.indexOf(x)+'"><small>'+esc(x.where)+'</small><span>'+sSnip(x.t,w)+'</span></button>'}).join('')+(G.length>30?'<p class="more">'+SL.more.replace('N',G.length-30)+'</p>':'');
+ if(Mm.length)h+='<h4>'+SL.onMap+' · '+Mm.length+'</h4>'+Mm.slice(0,30).map(function(x){return '<button type="button" class="sr" data-mi="'+SIX.m.indexOf(x)+'"><small>📍 '+esc(x.kind)+'</small><span>'+sSnip(x.t,w)+'</span></button>'}).join('')+(Mm.length>30?'<p class="more">'+SL.more.replace('N',Mm.length-30)+'</p>':'');
+ r.innerHTML=h||'<p class="hint">'+SL.none.replace('Q',esc($('sQ').value.trim()))+'</p>'}
+var SL={hint:'Scrivi almeno 2 lettere: cerco nella guida del tuo personaggio (checklist, tappe, talenti, spell, dungeon, alt) e sulla mappa (zone, città, Flight Master, Inn, trainer, dungeon, NPC, pet).',inGuide:'Nella guida',onMap:'Sulla mappa',more:'e altri N: aggiungi una parola per restringere',none:'Nessun risultato per «Q».',zone:'Zona',place:'Città o luogo',pet:'Pet da domare'};
+function sOpen(){SIX=sIndex();$('sDlg').showModal();$('sQ').focus();$('sQ').select();sRun()}
+$('bSearch').onclick=sOpen;$('sX').onclick=function(){$('sDlg').close()};$('sQ').addEventListener('input',sRun);
+$('sDlg').addEventListener('click',function(e){if(e.target===this){this.close();return}var b=e.target.closest('.sr');if(!b)return;this.close();
+ if(b.dataset.mi){var x=SIX.m[+b.dataset.mi];showTab('mappa');setTimeout(function(){MAPI.fly(x.x,x.y,x.z,'<b>'+esc(x.t)+'</b><br>'+esc(x.kind))},60);return}
+ var g=SIX.g[+b.dataset.gi],el=g.el;showTab(g.tab.replace('t-',''));for(var d=el.closest('details');d;d=d.parentElement&&d.parentElement.closest('details'))d.open=true;
+ setTimeout(function(){el.scrollIntoView({behavior:SM,block:'center'});el.classList.remove('hit');void el.offsetWidth;el.classList.add('hit')},40)});
+// "/" o Ctrl+K aprono la ricerca (fuori dai campi di testo)
+document.addEventListener('keydown',function(e){if((e.key==='/'&&!/input|textarea|select/i.test(document.activeElement.tagName))||(e.key.toLowerCase()==='k'&&(e.ctrlKey||e.metaKey))){e.preventDefault();sOpen()}});
 // freccia "torna in alto": visibile dopo una schermata e mezza di scorrimento
 window.addEventListener('scroll',function(){$('totop').classList.toggle('on',window.scrollY>innerHeight*1.5)},{passive:true});
 $('totop').onclick=function(){window.scrollTo({top:0,behavior:SM})};
