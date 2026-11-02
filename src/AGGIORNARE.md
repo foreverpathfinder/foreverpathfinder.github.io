@@ -1,4 +1,4 @@
-# WoW Forever Leveling Companion — contesto per ripartire (aggiornato 2 nov 2026, v10.3)
+# Forever Pathfinder (ex WoW Forever Leveling Companion) — contesto per ripartire (aggiornato 2 nov 2026, v10.3)
 
 Guida leveling 1–30 per **WoW: Forever** (Classic+, lancio 4 nov 2026) per tutte le 10 razze e 9 classi. Pubblica:
 https://forever-companion.github.io/ · repo `forever-companion/forever-companion.github.io` (GitHub Pages da `main`, root; commit con email noreply `80699208+Stalioot@users.noreply.github.com`, trailer `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`). Il vecchio indirizzo stalioot.github.io/wow-forever-leveling-companion/ è un repo di solo rimando (`Stalioot/wow-forever-leveling-companion`, spostato all'org il 2 nov).

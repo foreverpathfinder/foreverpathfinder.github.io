@@ -2,8 +2,8 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a1422">
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="WoW Forever">
-<title>WoW Forever Leveling Companion</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Pathfinder">
+<title>Forever Pathfinder – WoW: Forever</title>
 <script>/* lingua: quella scelta con la bandierina, altrimenti quella del browser */try{var lg=localStorage.getItem('wfcLang')||(/^it/i.test(navigator.language)?'it':'en');if(lg!==document.documentElement.lang)location.replace((lg==='en'?'WoW_Forever_Leveling_Companion_EN.html':'WoW_Forever_Leveling_Companion.html')+location.search+location.hash)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -263,7 +263,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 <header class="hero">
  <div class="herobg" aria-hidden="true"><div id="herobg"></div></div>
  <a class="lang" id="lang" href="WoW_Forever_Leveling_Companion.html" hreflang="it" title="Italiano" aria-label="Italiano"><svg viewBox="0 0 3 2" width="26" height="17" aria-hidden="true"><path fill="#009246" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#CE2B37" d="M2 0h1v2H2z"/></svg></a>
- <h1 class="ttl"><small>World of Warcraft</small><b>Forever</b><i>Leveling Companion</i></h1>
+ <h1 class="ttl"><small>World of Warcraft</small><b>Forever</b><i>Pathfinder</i></h1>
  <p id="hsub"></p>
  <p>Release: <b id="hlaunch"></b> · <span class="cd" id="cd"></span></p>
  <div class="hbtns"><button class="btn" id="bShare" type="button">⇄ Continue on another device</button>
@@ -711,11 +711,11 @@ function renderClass(){
  // fonti
  $('srct').innerHTML='<tr><th>Source</th><th>Date / signal</th><th>What I took</th></tr>'+CL.sources.concat(FA.sources,C.sources,D.profs?D.profs.sources:[],D.alts?D.alts.sources:[]).map(srcRow).join('');
  // testata
- document.title=RA.name+' '+CL.name+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
+ document.title=RA.name+' '+CL.name+' '+CL.spec+' – Forever Pathfinder';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
  $('hsub').innerHTML='Leveling guide 1–'+MAXL+' for WoW: Forever · '+FN[RA.faction]+' · <b>'+C.version+'</b> · '+C.updated;
  $('herobg').innerHTML=RT.hero.map(function(u){return '<img src="'+u+'" alt="">'}).join('');
  var vi=document.querySelector('.visits img');vi.onerror=function(){vi.outerHTML='Visit counter blocked by an ad blocker: <a href="'+vi.dataset.src+'" target="_blank" rel="noopener">open it here</a>'};if(!navigator.webdriver)vi.src=vi.dataset.src;
- $('foot').textContent='Personal guide · WoW: Forever Leveling Companion · '+C.version+' ('+C.updated+'). Not affiliated with Blizzard. Icons © Blizzard via Wowhead.';
+ $('foot').textContent='Personal guide · Forever Pathfinder · '+C.version+' ('+C.updated+'). Not affiliated with Blizzard. Icons © Blizzard via Wowhead.';
  $('lvr').max=MAXL;$('tlsum').textContent='The whole route 1–'+MAXL+' as a timeline';
  WF.shown=null;wfFit();
 }
@@ -891,7 +891,7 @@ function preBtns(add){return P.list.map(function(p,i){var s=fix(p.s),rc=D.races[
   return '<button type="button" class="pre'+(i===P.cur?' on':'')+'" data-pi="'+i+'"><img src="'+IC('classicon_'+s.c)+'" alt=""><span><b>'+esc(p.n||rc)+'</b><small>'+(p.n?rc+' ':'')+pSpec(s)+' · lvl '+s.L+'</small></span></button>'}).join('')+
  (add?'<button type="button" class="pre add" data-pi="new">＋ New character</button>':'')}
 // salvataggio su file: .txt con una riga di spiegazione e tutti i personaggi (P) in base64; lo rilegge solo "Carica salvataggio"
-var SVH='WoW Forever Leveling Companion - save file. To restore it: guide, 👥 Characters, Load save file. Do not edit the line below.';
+var SVH='Forever Pathfinder (WoW: Forever) - save file. To restore it: guide, 👥 Characters, Load save file. Do not edit the line below.';
 $('svSave').onclick=function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([SVH+'\n'+btoa(unescape(encodeURIComponent(JSON.stringify(P))))+'\n'],{type:'text/plain'}));a.download='WoW-Forever-save-'+new Date().toISOString().slice(0,10)+'.txt';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000)};
 $('svLoad').onchange=function(){var f=this.files[0];this.value='';if(f)f.text().then(function(t){var p=null;try{p=JSON.parse(decodeURIComponent(escape(atob(t.trim().split('\n').pop().trim()))));p.list=p.list.filter(function(x){return x&&x.s})}catch(e){p=null}
  if(!p||!p.list||!p.list.length)return alert('This file is not a save file of this guide.');
