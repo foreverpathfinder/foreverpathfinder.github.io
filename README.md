@@ -2,7 +2,7 @@
 
 Guida leveling 1–30 per **WoW: Forever**, per tutte le razze (Skyborne inclusi) e tutte le classi: rotta per zona iniziale, talent per livello con il calcolatore di wowforever.be, rotation, spell, racial, mappa interattiva, bag, dungeon, Crates e Camping.
 
-**Usala qui:** https://stalioot.github.io/wow-forever-leveling-companion/
+**Usala qui:** https://forever-companion.github.io/
 
 Spec e build scelte in base alle guide più votate (preferiti Mobalytics, views YouTube) e ai dati del client (wowforever.be, Wowhead). Dati pre-lancio: verifica sempre i tooltip in gioco. Verrà aggiornata fino al 60 con le guide del gioco uscito.
 

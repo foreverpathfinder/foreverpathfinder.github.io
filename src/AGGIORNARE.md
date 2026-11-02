@@ -1,7 +1,7 @@
 # WoW Forever Leveling Companion — contesto per ripartire (aggiornato 2 nov 2026, v10.3)
 
 Guida leveling 1–30 per **WoW: Forever** (Classic+, lancio 4 nov 2026) per tutte le 10 razze e 9 classi. Pubblica:
-https://stalioot.github.io/wow-forever-leveling-companion/ · repo `Stalioot/wow-forever-leveling-companion` (GitHub Pages da `main`, root; commit con email noreply `80699208+Stalioot@users.noreply.github.com`, trailer `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`).
+https://forever-companion.github.io/ · repo `forever-companion/forever-companion.github.io` (GitHub Pages da `main`, root; commit con email noreply `80699208+Stalioot@users.noreply.github.com`, trailer `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`). Il vecchio indirizzo stalioot.github.io/wow-forever-leveling-companion/ è un repo di solo rimando (`Stalioot/wow-forever-leveling-companion`, spostato all'org il 2 nov).
 Cartella: `~/Desktop/CLAUDE/WoW Forever leveling companion/` (Windows, cartella utente). Utente italiano: testi in italiano, termini di gioco in inglese.
 
 ## Ciclo di lavoro
@@ -9,7 +9,7 @@ Cartella: `~/Desktop/CLAUDE/WoW Forever leveling companion/` (Windows, cartella 
 2. `node src/tools/build.js` → genera `WoW_Forever_Leveling_Companion.html` (italiano, + `.md` riassunto) e `WoW_Forever_Leveling_Companion_EN.html` (inglese) e stampa gli avvisi (talent non validi sul client, città/NPC non sulla mappa, quest non trovate → `src/check-report.txt`).
 3. Server locale: preview `guida-wow` (`~/Desktop/CLAUDE/.claude/launch.json`, porta 8765, radice = Desktop) → URL `http://localhost:8765/CLAUDE/WoW%20Forever%20leveling%20companion/WoW_Forever_Leveling_Companion.html`.
 4. `node src/tools/test.js` (italiano e inglese, tutte le combinazioni × build: deve dire `nbad 0, errors []` e in inglese `nita 0`; le righe italiane rimaste finiscono in `src/i18n/italiano-rimasto.txt`) e `node src/tools/icons.js` (`rotte 0`). Usano Chrome headless via playwright-core in `%LOCALAPPDATA%/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core`. Per screenshot usa lo stesso modulo (il pannello browser dell'app spesso è nascosto → screenshot vuoti).
-5. `git add -A && git commit && git push` → Pages si aggiorna in 1–2 min (`gh api repos/Stalioot/wow-forever-leveling-companion/pages/builds/latest`).
+5. `git add -A && git commit && git push` → Pages si aggiorna in 1–2 min (`gh api repos/forever-companion/forever-companion.github.io/pages/builds/latest`).
 
 ## File
 | File | Contenuto |
