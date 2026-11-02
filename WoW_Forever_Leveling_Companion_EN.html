@@ -266,6 +266,14 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 @media(max-width:520px){.btn,nav button,.go,.cbar .pre,#lfs{min-height:44px}.hero .lang{min-width:44px;min-height:44px;align-items:center;justify-content:center}input[type=range]{height:44px}.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:44px}}
 /* chi ha chiesto meno animazioni al sistema: scorrimenti e barre arrivano subito (anche i voli della mappa, in engine.js) */
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.prog i{transition:none}}
+/* freccia per tornare in alto: compare dopo un po' di scorrimento, in basso a destra (sopra la barra di sistema del telefono) */
+.totop{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:40;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card2);color:var(--gold);border:1px solid var(--gold);box-shadow:0 6px 18px #000a;cursor:pointer;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}
+.totop.on{opacity:1;transform:none;pointer-events:auto}.totop:hover{background:var(--goldbg2)}
+@media(prefers-reduced-motion:reduce){.totop{transition:none}}
+/* scheda Alt: le 3 scelte in evidenza, la prima con bordo oro */
+.altwhy p{margin:.35em 0}.apick{margin:0;display:flex;flex-direction:column;gap:6px}.apick.top{border-color:var(--gold)}.apick .an{font:800 1.05rem Cinzel,serif;color:var(--ice)}.apick.top .an{color:var(--gold)}
+.apick ul{margin:.2em 0;padding-left:1.2em}.apick p{margin:0}.apick .btn{margin-top:auto;align-self:flex-start}.tags .pill{margin:0 4px 4px 0}#alt tr.hl{background:var(--goldbg)}
+footer{padding-bottom:76px}
 
 </style></head><body>
 
@@ -438,7 +446,15 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 <div class="tab" id="t-alt">
 <section id="alt">
  <h2>Alt guide</h2>
+ <div class="card altwhy">
+  <h3>Do you need an alt?</h3>
+  <p><b>It is not required:</b> the cap of 16 Legacy points per character can be reached with your main alone.</p>
+  <p><b>It is worth it if you want:</b> more Legacy points (each new class gives 3, at levels 25, 45 and 60) · the professions your main lacks · a different dungeon role · a character that gathers materials for your main.</p>
+ </div>
+ <div id="altPick"></div>
+ <h3>Your alt’s professions</h3>
  <div class="callout g" id="altMine"></div>
+ <h3>Everything else</h3>
  <div id="altx"></div>
 </section>
 </div>
@@ -483,6 +499,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 </section>
 </div>
 </main>
+<button class="totop" id="totop" type="button" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 5l-7 7m7-7l7 7M12 5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <footer id="foot"></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -778,24 +795,39 @@ function altRule(P){var o=[];[0,1].forEach(function(i){P.forEach(function(p){var
 function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=function(x){return x.split(/\s*\+\s*/).map(function(y){return y.trim().toLowerCase()}).sort().join('+')};
  var m=P.length===2&&(A.complements||[]).filter(function(c){return k(c.main)===k(P.join('+'))})[0];
  $('altMine').innerHTML=P.length===2?(m?'<b>Your main does '+P.join(' + ')+': give your alt '+m.alt+'.</b> '+m.why:'<b>Your main does '+P.join(' + ')+': give your alt '+altRule(P).join(' + ')+'.</b> Rule: the alt uses the materials the main gathers, or gathers what the main crafts with (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). No source covers this pair: it is derived advice, not verified 🟡.'):'Pick your main’s 2 professions in <b>👥 Characters</b>: the right pair for your alt will show up here.';
- var L=A.legacy||{},list=function(t,a,ol){return a&&a.length?'<div class="card"><h3>'+t+'</h3><'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'></div>':''};
- $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
-  list('Your first alt, step by step',A.firstAlt,1)+list('Level your alt faster',A.faster)+
-  ((L.how&&L.how.length)||(L.perks||A.legacy||[]).length?'<h3>Legacy: what stays on your account</h3>'+(L.how?'<div class="card"><ul>'+li(L.how)+'</ul></div>':'')+'<div class="wrap card"><table><tr><th>Perk</th><th>Effect</th><th>Cost</th><th>Notes</th></tr>'+(L.perks||(Array.isArray(A.legacy)?A.legacy:[])).map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':'')+
-  (A.complements&&A.complements.length?'<h3>Professions: main → alt</h3><div class="wrap card"><table><tr><th>Main</th><th>Alt</th><th>Why</th></tr>'+A.complements.map(function(c){var on=m===c;return '<tr'+(on?' style="background:#2a2412"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
-  altClasses(A)+altRaces(A)+
-  '<div class="grid">'+list('Bank alt',A.bankAlt)+list('Crafting alts',A.craftAlts||A.craftAlt)+list('Which alt to make and when',A.order)+'</div>'+
-  list('Mistakes to avoid',A.mistakes)+list('Tips',A.tips)}
+ // prima la scelta (altPicks), poi il resto in sezioni richiudibili: si legge solo quello che serve
+ var L=A.legacy||{},ul=function(a,ol){return a&&a.length?'<'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'>':''},fold=function(t,body){return body?'<details><summary>'+t+'</summary>'+body+'</details>':''};
+ $('altPick').innerHTML=altPicks(A);
+ $('altx').innerHTML=
+  fold('Your first alt, step by step',ul(A.firstAlt,1))+fold('Level your alt faster',ul(A.faster))+
+  fold('Legacy: what stays on your account',(L.how?ul(L.how):'')+((L.perks||[]).length?'<div class="wrap"><table><tr><th>Perk</th><th>Effect</th><th>Cost</th><th>Notes</th></tr>'+L.perks.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':''))+
+  fold('Professions: main → alt',(A.complements||[]).length?'<div class="wrap"><table><tr><th>Main</th><th>Alt</th><th>Why</th></tr>'+A.complements.map(function(c){return '<tr'+(m===c?' class="hl"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
+  fold('Every class as an alt',altClasses(A))+fold('Every race as an alt',altRaces(A))+
+  fold('Bank alt',ul(A.bankAlt))+fold('Crafting alts',ul(A.craftAlts||A.craftAlt))+fold('Mistakes to avoid',ul(A.mistakes))+fold('Tips',ul(A.tips))}
+// i 3 alt più adatti al main: classi della stessa fazione che lo completano (withMain), +3 punti Legacy se la classe è nuova
+// per l'account; quelle già presenti tra i personaggi scendono in fondo. Razza: la consigliata per quella classe (bestFor)
+function altPicks(A){var have={};P.list.forEach(function(x){if(x.s&&x.s.c)have[x.s.c]=1});
+ var rOf=function(c){return Object.keys(D.races).filter(function(r){return D.races[r].faction===RA.faction&&D.races[r].classes.indexOf(c)>-1})};
+ var L=(A.altClasses||[]).filter(function(c){return c['class']!==S.c&&D.classes[c['class']]&&rOf(c['class']).length}).map(function(c,i){var good=(c.withMain||[]).indexOf(S.c)>-1,h=!!have[c['class']];return {c:c,good:good,h:h,i:i,sc:(good?2:0)-(h?3:0)}}).sort(function(a,b){return b.sc-a.sc||a.i-b.i});
+ if(!L.length)return '';
+ return '<h3>The 3 best alts for your '+CL.name+'</h3><p class="note">In order: first the classes that complement your main, then the others. The ones you already have among your characters go last.</p><div class="grid">'+L.slice(0,3).map(function(o,n){var c=o.c,k=c['class'],X=D.classes[k],rs=rOf(k),best=(A.altRaces||[]).filter(function(r){return rs.indexOf(r.race)>-1&&(r.bestFor||[]).indexOf(k)>-1}).map(function(r){return r.race}),race=(best[0]||rs[0]);
+  return '<div class="card apick'+(n?'':' top')+'"><div class="row">'+img('classicon_'+k)+'<div><b class="an">'+(n+1)+'. '+X.name+'</b><br><span class="note">'+(c.role||'')+'</span></div></div>'+
+   '<p class="tags">'+(o.good?'<span class="pill p-ok">complements your main</span> ':'')+(o.h?'<span class="pill p-wa">you already have it</span>':'<span class="pill p-new">+3 Legacy points</span>')+'</p>'+
+   '<ul>'+li((c.why||[]).slice(0,2))+'</ul>'+(c.leveling?'<p class="note"><b>Leveling:</b> '+c.leveling+'</p>':'')+
+   '<p class="note"><b>Recommended race:</b> '+(best.length?best:rs).map(function(r){return D.races[r].name}).join(', ')+'</p>'+
+   '<button class="btn'+(n?'':' pr')+'" type="button" data-alt="'+race+'|'+k+'">＋ Create '+D.races[race].name+' '+X.name+'</button></div>'}).join('')+'</div>'}
+// "Crea questo alt": nuovo personaggio salvato, si apre al livello 1
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-alt]');if(!b)return;var x=b.dataset.alt.split('|');P.list.push({n:'',s:{r:x[0],c:x[1]}});usePreset(P.list.length-1);showTab('livello');window.scrollTo({top:0,behavior:SM})});
 
 // classi come alt: tutte e 9, con utilità per l'account, gold, leveling e abbinamento col tuo main
 function altClasses(A){var L=A.altClasses||(A.classes||[]).filter(function(c){return D.classes[c['class']]}).map(function(c){return {'class':c['class'],why:[c.why]}});if(!L.length)return '';
- return '<h3>Which class as an alt</h3><p class="note">Your main is a '+CL.name+': classes marked “pairs with your main” complement it best.</p><div class="grid">'+L.slice().sort(function(x,y){var w=function(c){return c['class']===S.c?2:(c.withMain||[]).indexOf(S.c)>-1?0:1};return w(x)-w(y)}).map(function(c){var k=c['class'],X=D.classes[k]||{name:k},me=k===S.c,good=(c.withMain||[]).indexOf(S.c)>-1;
+ return '<p class="note">Your main is a '+CL.name+': classes marked “pairs with your main” complement it best.</p><div class="grid">'+L.slice().sort(function(x,y){var w=function(c){return c['class']===S.c?2:(c.withMain||[]).indexOf(S.c)>-1?0:1};return w(x)-w(y)}).map(function(c){var k=c['class'],X=D.classes[k]||{name:k},me=k===S.c,good=(c.withMain||[]).indexOf(S.c)>-1;
   return '<div class="card" style="margin:0;padding:10px"><div class="row">'+img('classicon_'+k)+'<div><b>'+X.name+'</b>'+(c.role?' <span class="note">· '+c.role+'</span>':'')+(good?' <span class="pill p-ok">pairs with your main</span>':'')+(me?' <span class="pill p-wa">your main’s class</span>':'')+
   '<ul>'+li(c.why||[])+'</ul>'+(c.gold?'<p class="note" style="margin:.2em 0"><b>Gold and professions:</b> '+c.gold+'</p>':'')+(c.leveling?'<p class="note" style="margin:.2em 0"><b>Leveling:</b> '+c.leveling+'</p>':'')+'</div></div></div>'}).join('')+'</div>'}
 // razze come alt: tutte e 10, racial dai dati del client (⚒ = profession) + perché sceglierla
 var PROFRE=/Herbalism|Mining|Skinning|Engineering|Alchemy|Leatherworking|Blacksmithing|Tailoring|Enchanting|Fishing|Cooking|First Aid|Lockpicking|\berb[ae]\b/i;
 function altRaces(A){var M={};(A.altRaces||[]).forEach(function(r){M[r.race]=r});
- return '<h3>Which race as an alt</h3><p class="note">⚒ = racial that helps a profession. Only races of your faction can trade items with your main by mail.</p><div class="grid">'+Object.keys(D.races).sort(function(x,y){return (D.races[x].faction===RA.faction?0:1)-(D.races[y].faction===RA.faction?0:1)}).map(function(k){var R=D.races[k],r=M[k]||{},mine=R.faction===RA.faction;
+ return '<p class="note">⚒ = racial that helps a profession. Only races of your faction can trade items with your main by mail.</p><div class="grid">'+Object.keys(D.races).sort(function(x,y){return (D.races[x].faction===RA.faction?0:1)-(D.races[y].faction===RA.faction?0:1)}).map(function(k){var R=D.races[k],r=M[k]||{},mine=R.faction===RA.faction;
   return '<div class="card" style="margin:0;padding:10px'+(mine?'':';opacity:.75')+'"><div class="row">'+img(R.icon)+'<div><b>'+R.name+'</b> <span class="note">· '+FN[R.faction]+'</span>'+(mine?'':' <span class="pill p-wa">other faction</span>')+
   (r.why&&r.why.length?'<ul>'+li(r.why)+'</ul>':'')+'<p class="note" style="margin:.3em 0 0"><b>Racial:</b> '+R.racials.map(function(x){return (PROFRE.test(x[0]+' '+x[2])?'⚒ ':'')+'<b>'+x[0]+'</b>'}).join(' · ')+'</p>'+
   ((r.bestFor||[]).length?'<p class="note" style="margin:.2em 0 0"><b>Classes:</b> '+r.bestFor.filter(function(c){return D.classes[c]}).map(function(c){return D.classes[c].name}).join(', ')+'</p>':'')+'</div></div></div>'}).join('')+'</div>'}
@@ -902,6 +934,9 @@ function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('na
  var w=$('lwrap');if(t==='livello')$('miniHost').appendChild(w);else if(w.parentNode.id==='miniHost')$('mappa').insertBefore(w,$('lchips'));
  if(MAP)setTimeout(function(){MAP.invalidateSize()},30);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}
 $('nav').addEventListener('click',function(e){var b=e.target.closest('button');if(b)showTab(b.dataset.tab)});
+// freccia "torna in alto": visibile dopo una schermata e mezza di scorrimento
+window.addEventListener('scroll',function(){$('totop').classList.toggle('on',window.scrollY>innerHeight*1.5)},{passive:true});
+$('totop').onclick=function(){window.scrollTo({top:0,behavior:SM})};
 $('bAllChaps').onclick=function(){var c=$('chaps').classList.toggle('all');this.textContent=c?'Show only the current chapter':'Show the whole route'};
 
 /* ---- filtro "solo dati confermati": nasconde ogni voce che contiene 🟡 ---- */

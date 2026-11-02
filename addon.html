@@ -46,6 +46,8 @@ summary{cursor:pointer;padding:12px 0;font-weight:700}details[open]{padding-bott
 .wow .r b.on{background:#111 linear-gradient(45deg,transparent 40%,#ffd100 40% 55%,transparent 55%)}
 [data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en]{display:block}
 html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
+.totop{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card2);color:var(--gold);border:1px solid var(--gold);box-shadow:0 6px 18px #000a;cursor:pointer;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}.totop.on{opacity:1;transform:none;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){.totop{transition:none}html{scroll-behavior:auto}}
 @media(max-width:520px){.btn,.back,.lang{min-height:44px}.back{display:inline-flex;align-items:center;padding:0 6px}.lang{min-width:44px;align-items:center;justify-content:center}}
 @media(max-width:480px){.hero h1{font-size:1.8rem}td:first-child{white-space:normal}}
 </style></head><body>
@@ -227,6 +229,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <p class="note">Found a mistake or have an idea? <a href="https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues" target="_blank" rel="noopener">Report it here</a>. Free personal project, not affiliated with Blizzard Entertainment. World of Warcraft © Blizzard Entertainment.</p>
 </div>
 </main>
+<button class="totop" id="totop" type="button" aria-label="Torna in alto / Back to top"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 5l-7 7m7-7l7 7M12 5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 
 <script>
 // combinazioni razza-classe dell'addon (stesse chiavi di Data.lua)
@@ -236,6 +239,10 @@ document.getElementById('keysIt').innerHTML=document.getElementById('keysEn').in
 function setLang(l){document.documentElement.lang=l;document.getElementById('flagEn').style.display=l==='it'?'':'none';document.getElementById('flagIt').style.display=l==='en'?'':'none'}
 var lg='it';try{lg=localStorage.getItem('wfcLang')||(/^it/i.test(navigator.language)?'it':'en')}catch(e){}
 setLang(lg);
+// freccia "torna in alto"
+var tt=document.getElementById('totop'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+addEventListener('scroll',function(){tt.classList.toggle('on',scrollY>innerHeight*1.5)},{passive:true});
+tt.onclick=function(){scrollTo({top:0,behavior:rm?'auto':'smooth'})};
 document.getElementById('lang').onclick=function(){var l=document.documentElement.lang==='it'?'en':'it';setLang(l);try{localStorage.setItem('wfcLang',l)}catch(e){}};
 </script>
 </body></html>

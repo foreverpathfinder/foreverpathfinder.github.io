@@ -285,24 +285,39 @@ function altRule(P){var o=[];[0,1].forEach(function(i){P.forEach(function(p){var
 function renderAlt(){var A=D.alts||(D.profs&&D.profs.alts)||{},P=S.o.prof,k=function(x){return x.split(/\s*\+\s*/).map(function(y){return y.trim().toLowerCase()}).sort().join('+')};
  var m=P.length===2&&(A.complements||[]).filter(function(c){return k(c.main)===k(P.join('+'))})[0];
  $('altMine').innerHTML=P.length===2?(m?'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+m.alt+'.</b> '+m.why:'<b>Il tuo main fa '+P.join(' + ')+': all’alt fai '+altRule(P).join(' + ')+'.</b> Regola: l’alt usa i materiali che il main raccoglie, o raccoglie quelli che il main lavora (Mining → Blacksmithing/Engineering, Herbalism → Alchemy, Skinning → Leatherworking, Tailoring ↔ Enchanting). Nessuna fonte tratta questa coppia: è un consiglio ricavato, non verificato 🟡.'):'Scegli 2 profession del main in <b>👥 Personaggi</b>: qui comparirà la coppia giusta per il tuo alt.';
- var L=A.legacy||{},list=function(t,a,ol){return a&&a.length?'<div class="card"><h3>'+t+'</h3><'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'></div>':''};
- $('altx').innerHTML=(A.intro?'<p>'+A.intro+'</p>':'')+
-  list('Il primo alt, passo per passo',A.firstAlt,1)+list('Livellare l’alt più in fretta',A.faster)+
-  ((L.how&&L.how.length)||(L.perks||A.legacy||[]).length?'<h3>Legacy: cosa resta all’account</h3>'+(L.how?'<div class="card"><ul>'+li(L.how)+'</ul></div>':'')+'<div class="wrap card"><table><tr><th>Perk</th><th>Effetto</th><th>Costo</th><th>Note</th></tr>'+(L.perks||(Array.isArray(A.legacy)?A.legacy:[])).map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':'')+
-  (A.complements&&A.complements.length?'<h3>Profession: main → alt</h3><div class="wrap card"><table><tr><th>Main</th><th>Alt</th><th>Perché</th></tr>'+A.complements.map(function(c){var on=m===c;return '<tr'+(on?' style="background:#2a2412"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
-  altClasses(A)+altRaces(A)+
-  '<div class="grid">'+list('Bank alt',A.bankAlt)+list('Alt per il crafting',A.craftAlts||A.craftAlt)+list('Quale alt fare e quando',A.order)+'</div>'+
-  list('Errori da evitare',A.mistakes)+list('Consigli',A.tips)}
+ // prima la scelta (altPicks), poi il resto in sezioni richiudibili: si legge solo quello che serve
+ var L=A.legacy||{},ul=function(a,ol){return a&&a.length?'<'+(ol?'ol':'ul')+'>'+li(a)+'</'+(ol?'ol':'ul')+'>':''},fold=function(t,body){return body?'<details><summary>'+t+'</summary>'+body+'</details>':''};
+ $('altPick').innerHTML=altPicks(A);
+ $('altx').innerHTML=
+  fold('Il primo alt, passo per passo',ul(A.firstAlt,1))+fold('Livellare l’alt più in fretta',ul(A.faster))+
+  fold('Legacy: cosa resta all’account',(L.how?ul(L.how):'')+((L.perks||[]).length?'<div class="wrap"><table><tr><th>Perk</th><th>Effetto</th><th>Costo</th><th>Note</th></tr>'+L.perks.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+(r.length>3?r[2]:'')+'</td><td>'+(r.length>3?r[3]:r[2]||'')+'</td></tr>'}).join('')+'</table></div>':''))+
+  fold('Profession: main → alt',(A.complements||[]).length?'<div class="wrap"><table><tr><th>Main</th><th>Alt</th><th>Perché</th></tr>'+A.complements.map(function(c){return '<tr'+(m===c?' class="hl"':'')+'><td><b>'+c.main+'</b></td><td><b>'+c.alt+'</b></td><td>'+c.why+'</td></tr>'}).join('')+'</table></div>':'')+
+  fold('Tutte le classi come alt',altClasses(A))+fold('Tutte le razze come alt',altRaces(A))+
+  fold('Bank alt',ul(A.bankAlt))+fold('Alt per il crafting',ul(A.craftAlts||A.craftAlt))+fold('Errori da evitare',ul(A.mistakes))+fold('Consigli',ul(A.tips))}
+// i 3 alt più adatti al main: classi della stessa fazione che lo completano (withMain), +3 punti Legacy se la classe è nuova
+// per l'account; quelle già presenti tra i personaggi scendono in fondo. Razza: la consigliata per quella classe (bestFor)
+function altPicks(A){var have={};P.list.forEach(function(x){if(x.s&&x.s.c)have[x.s.c]=1});
+ var rOf=function(c){return Object.keys(D.races).filter(function(r){return D.races[r].faction===RA.faction&&D.races[r].classes.indexOf(c)>-1})};
+ var L=(A.altClasses||[]).filter(function(c){return c['class']!==S.c&&D.classes[c['class']]&&rOf(c['class']).length}).map(function(c,i){var good=(c.withMain||[]).indexOf(S.c)>-1,h=!!have[c['class']];return {c:c,good:good,h:h,i:i,sc:(good?2:0)-(h?3:0)}}).sort(function(a,b){return b.sc-a.sc||a.i-b.i});
+ if(!L.length)return '';
+ return '<h3>I 3 alt più adatti al tuo '+CL.name+'</h3><p class="note">In ordine: prima le classi che completano il tuo main, poi le altre. Quelle che hai già tra i personaggi vanno in fondo.</p><div class="grid">'+L.slice(0,3).map(function(o,n){var c=o.c,k=c['class'],X=D.classes[k],rs=rOf(k),best=(A.altRaces||[]).filter(function(r){return rs.indexOf(r.race)>-1&&(r.bestFor||[]).indexOf(k)>-1}).map(function(r){return r.race}),race=(best[0]||rs[0]);
+  return '<div class="card apick'+(n?'':' top')+'"><div class="row">'+img('classicon_'+k)+'<div><b class="an">'+(n+1)+'. '+X.name+'</b><br><span class="note">'+(c.role||'')+'</span></div></div>'+
+   '<p class="tags">'+(o.good?'<span class="pill p-ok">completa il tuo main</span> ':'')+(o.h?'<span class="pill p-wa">ce l’hai già</span>':'<span class="pill p-new">+3 punti Legacy</span>')+'</p>'+
+   '<ul>'+li((c.why||[]).slice(0,2))+'</ul>'+(c.leveling?'<p class="note"><b>Leveling:</b> '+c.leveling+'</p>':'')+
+   '<p class="note"><b>Razza consigliata:</b> '+(best.length?best:rs).map(function(r){return D.races[r].name}).join(', ')+'</p>'+
+   '<button class="btn'+(n?'':' pr')+'" type="button" data-alt="'+race+'|'+k+'">＋ Crea '+D.races[race].name+' '+X.name+'</button></div>'}).join('')+'</div>'}
+// "Crea questo alt": nuovo personaggio salvato, si apre al livello 1
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-alt]');if(!b)return;var x=b.dataset.alt.split('|');P.list.push({n:'',s:{r:x[0],c:x[1]}});usePreset(P.list.length-1);showTab('livello');window.scrollTo({top:0,behavior:SM})});
 
 // classi come alt: tutte e 9, con utilità per l'account, gold, leveling e abbinamento col tuo main
 function altClasses(A){var L=A.altClasses||(A.classes||[]).filter(function(c){return D.classes[c['class']]}).map(function(c){return {'class':c['class'],why:[c.why]}});if(!L.length)return '';
- return '<h3>Quale classe come alt</h3><p class="note">Il tuo main è '+CL.name+': le classi con “si abbina al tuo main” lo completano meglio.</p><div class="grid">'+L.slice().sort(function(x,y){var w=function(c){return c['class']===S.c?2:(c.withMain||[]).indexOf(S.c)>-1?0:1};return w(x)-w(y)}).map(function(c){var k=c['class'],X=D.classes[k]||{name:k},me=k===S.c,good=(c.withMain||[]).indexOf(S.c)>-1;
+ return '<p class="note">Il tuo main è '+CL.name+': le classi con “si abbina al tuo main” lo completano meglio.</p><div class="grid">'+L.slice().sort(function(x,y){var w=function(c){return c['class']===S.c?2:(c.withMain||[]).indexOf(S.c)>-1?0:1};return w(x)-w(y)}).map(function(c){var k=c['class'],X=D.classes[k]||{name:k},me=k===S.c,good=(c.withMain||[]).indexOf(S.c)>-1;
   return '<div class="card" style="margin:0;padding:10px"><div class="row">'+img('classicon_'+k)+'<div><b>'+X.name+'</b>'+(c.role?' <span class="note">· '+c.role+'</span>':'')+(good?' <span class="pill p-ok">si abbina al tuo main</span>':'')+(me?' <span class="pill p-wa">è la classe del tuo main</span>':'')+
   '<ul>'+li(c.why||[])+'</ul>'+(c.gold?'<p class="note" style="margin:.2em 0"><b>Gold e profession:</b> '+c.gold+'</p>':'')+(c.leveling?'<p class="note" style="margin:.2em 0"><b>Leveling:</b> '+c.leveling+'</p>':'')+'</div></div></div>'}).join('')+'</div>'}
 // razze come alt: tutte e 10, racial dai dati del client (⚒ = profession) + perché sceglierla
 var PROFRE=/Herbalism|Mining|Skinning|Engineering|Alchemy|Leatherworking|Blacksmithing|Tailoring|Enchanting|Fishing|Cooking|First Aid|Lockpicking|\berb[ae]\b/i;
 function altRaces(A){var M={};(A.altRaces||[]).forEach(function(r){M[r.race]=r});
- return '<h3>Quale razza come alt</h3><p class="note">⚒ = racial che aiuta una profession. Solo le razze della tua fazione possono scambiarsi oggetti via mail con il main.</p><div class="grid">'+Object.keys(D.races).sort(function(x,y){return (D.races[x].faction===RA.faction?0:1)-(D.races[y].faction===RA.faction?0:1)}).map(function(k){var R=D.races[k],r=M[k]||{},mine=R.faction===RA.faction;
+ return '<p class="note">⚒ = racial che aiuta una profession. Solo le razze della tua fazione possono scambiarsi oggetti via mail con il main.</p><div class="grid">'+Object.keys(D.races).sort(function(x,y){return (D.races[x].faction===RA.faction?0:1)-(D.races[y].faction===RA.faction?0:1)}).map(function(k){var R=D.races[k],r=M[k]||{},mine=R.faction===RA.faction;
   return '<div class="card" style="margin:0;padding:10px'+(mine?'':';opacity:.75')+'"><div class="row">'+img(R.icon)+'<div><b>'+R.name+'</b> <span class="note">· '+FN[R.faction]+'</span>'+(mine?'':' <span class="pill p-wa">altra fazione</span>')+
   (r.why&&r.why.length?'<ul>'+li(r.why)+'</ul>':'')+'<p class="note" style="margin:.3em 0 0"><b>Racial:</b> '+R.racials.map(function(x){return (PROFRE.test(x[0]+' '+x[2])?'⚒ ':'')+'<b>'+x[0]+'</b>'}).join(' · ')+'</p>'+
   ((r.bestFor||[]).length?'<p class="note" style="margin:.2em 0 0"><b>Classi:</b> '+r.bestFor.filter(function(c){return D.classes[c]}).map(function(c){return D.classes[c].name}).join(', ')+'</p>':'')+'</div></div></div>'}).join('')+'</div>'}
@@ -409,6 +424,9 @@ function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('na
  var w=$('lwrap');if(t==='livello')$('miniHost').appendChild(w);else if(w.parentNode.id==='miniHost')$('mappa').insertBefore(w,$('lchips'));
  if(MAP)setTimeout(function(){MAP.invalidateSize()},30);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}
 $('nav').addEventListener('click',function(e){var b=e.target.closest('button');if(b)showTab(b.dataset.tab)});
+// freccia "torna in alto": visibile dopo una schermata e mezza di scorrimento
+window.addEventListener('scroll',function(){$('totop').classList.toggle('on',window.scrollY>innerHeight*1.5)},{passive:true});
+$('totop').onclick=function(){window.scrollTo({top:0,behavior:SM})};
 $('bAllChaps').onclick=function(){var c=$('chaps').classList.toggle('all');this.textContent=c?'Mostra solo il capitolo attuale':'Mostra tutto il percorso'};
 
 /* ---- filtro "solo dati confermati": nasconde ogni voce che contiene 🟡 ---- */
