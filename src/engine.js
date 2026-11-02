@@ -407,7 +407,7 @@ $('shareCopy').onclick=function(){var i=$('shareUrl');i.select();try{navigator.c
 
 /* ---- segnala un errore: issue già compilata nel repo GitHub ---- */
 function bugLink(){var t='Errore: '+RA.name+' '+CL.name+' liv. '+S.L+' ('+(S.tab||'livello')+')',b='**Personaggio:** '+RA.name+' '+CL.name+' – build '+(CL.B?CL.B.name:CL.spec)+'\n**Livello:** '+S.L+'\n**Scheda:** '+(S.tab||'livello')+'\n**Percorso:** '+RT.name+(PT?' + '+PT.title:'')+'\n\n**Cosa non torna:**\n\n\n**Cosa dovrebbe dire (se lo sai):**\n';
- $('bBug').href='https://github.com/Stalioot/wow-forever-leveling-companion/issues/new?title='+encodeURIComponent(t)+'&body='+encodeURIComponent(b)}
+ $('bBug').href='https://github.com/forever-companion/forever-companion.github.io/issues/new?title='+encodeURIComponent(t)+'&body='+encodeURIComponent(b)}
 
 /* ---- pagina iniziale: personaggi salvati + scelta razza/classe; barra compatta del personaggio sopra le schede ---- */
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return '&#'+c.charCodeAt(0)+';'})}
