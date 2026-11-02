@@ -17,21 +17,29 @@ var pkey=function(n){return n.toLowerCase().replace(/ /g,'-')};
 function lv0(s){return parseInt(s)||1}
 function lv1(s){var p=String(s).split(/[–-]/);return parseInt(p[1]||p[0])||MAXL}
 
-/* ---- stato: razza, classe, opzioni, livello, checklist ---- */
-var FIRST=!store('wfc'),SHARED=null;
-var S=(function(){var s={};try{s=JSON.parse(store('wfc')||'{}')}catch(e){}var h=location.hash.match(/^#(\w+)-(\w+)$/);if(h){s.r=h[1];s.c=h[2]}
- // link da un altro dispositivo: #s=<base64 di {r,c,L,o,d}>
- var m=location.hash.match(/^#s=([\w\-]+)/);if(m){try{var j=JSON.parse(decodeURIComponent(escape(atob(m[1].replace(/-/g,'+').replace(/_/g,'/')))));s.r=j.r;s.c=j.c;s.L=j.L;s.o=j.o;SHARED=j.d||[];FIRST=false}catch(e){}}
- if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
- s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.b=s.o.b||{};s.done=s.done||{};return s})();
+/* ---- stato: personaggi salvati (preset), ognuno con razza, classe, opzioni, livello, checklist ---- */
+// wfcP = {cur, sure, list:[{n: nome scelto, s: {r,c,L,o,tab,done}}]}; il vecchio wfc (un solo personaggio) diventa il primo preset
+var SHARED=null,HOME=!/^#\w/.test(location.hash);
+var P=(function(){var p=null;try{p=JSON.parse(store('wfcP'))}catch(e){}
+ if(!p||!p.list||!p.list.length){var s={};try{s=JSON.parse(store('wfc')||'{}')}catch(e){}p={cur:0,sure:!!s.sure,list:[{n:'',s:s}]}}
+ p.cur=Math.min(p.cur|0,p.list.length-1);var cur=p.list[p.cur].s,h=location.hash.match(/^#(\w+)-(\w+)$/);if(h){cur.r=h[1];cur.c=h[2]}
+ // link da un altro dispositivo: #s=<base64 di {r,c,L,o,d,n}> → aggiorna il personaggio con la stessa razza e classe, altrimenti ne crea uno
+ var m=location.hash.match(/^#s=([\w\-]+)/);if(m){try{var j=JSON.parse(decodeURIComponent(escape(atob(m[1].replace(/-/g,'+').replace(/_/g,'/'))))),i=-1;
+  p.list.forEach(function(x,k){if(x.s.r===j.r&&x.s.c===j.c)i=k});if(i<0){i=p.list.push({n:j.n||'',s:{}})-1}
+  var t=p.list[i].s;t.r=j.r;t.c=j.c;t.L=j.L;t.o=j.o;p.cur=i;SHARED=j.d||[]}catch(e){}}
+ return p})();
+function fix(s){if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
+ s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.b=s.o.b||{};s.done=s.done||{};return s}
+var S=fix(P.list[P.cur].s);
 function ok(r,c){return D.races[r]&&D.races[r].classes.indexOf(c)>-1&&!!D.classes[c]}
-function save(){store('wfc',JSON.stringify(S))}
+function save(){store('wfcP',JSON.stringify(P))}
+function setHash(){history.replaceState(null,'',HOME?location.pathname+location.search:'#'+S.r+'-'+S.c)}
 var RA,CL,TAL,RT,FA,PT,CK;
 // build scelta (A/B/C): sovrascrive ordine dei talent, albero, spec e rotation della classe
 function buildView(base){var bs=base.builds||[],B=bs.filter(function(b){return b.id===S.o.b[S.c]})[0]||bs[0];if(!B)return base;
  var o=Object.create(base);o.B=B;if(B.build&&B.build.length){o.build=B.build;o.treeIndex=B.treeIndex}if(B.spec)o.spec=B.spec;if(B.icon)o.specIcon=B.icon;if(B.rotation&&B.rotation.length)o.rotation=B.rotation;return o}
 function bind(){RA=D.races[S.r];CL=buildView(D.classes[S.c]);TAL=D.talents[S.c];FA=D.factions[RA.faction];RT=compose();CK=S.r+'-'+S.c+(PT?'-x':'');S.done[CK]=S.done[CK]||{};
- if(SHARED){SHARED.forEach(function(id){S.done[CK][id]=1});SHARED=null;history.replaceState(null,'','#'+S.r+'-'+S.c)}save()}
+ if(SHARED){SHARED.forEach(function(id){S.done[CK][id]=1});SHARED=null;setHash()}save()}
 
 /* ---- percorso: rotta naturale, oppure zona iniziale + cambio di continente + rotta dell'altro continente ---- */
 function transferFor(R){var to=R.trunk==='kalimdor'?'eastern-kingdoms':'kalimdor',t=D.transfers&&D.transfers[RA.faction+':'+R.trunk+'>'+to];return t&&D.routes[t.joinRoute]?t:null}
@@ -96,11 +104,12 @@ document.addEventListener('change',function(e){var c=e.target;if(!c.dataset||!c.
 function drawPick(){
  $('pkF').innerHTML=['A','H'].filter(function(f){return Object.keys(D.races).some(function(k){return D.races[k].faction===f})}).map(function(f){return '<button data-f="'+f+'" class="'+f+(RA.faction===f?' on':'')+'">'+FN[f]+'</button>'}).join('');
  $('pkR').innerHTML=Object.keys(D.races).filter(function(k){return D.races[k].faction===RA.faction}).map(function(k){var r=D.races[k];return '<button data-r="'+k+'"'+(k===S.r?' class="on"':'')+'><img src="'+IC(r.icon)+'" alt="">'+r.name+'</button>'}).join('');
+ $('pkInfo').innerHTML=pickInfo();drawPresets();
  $('pkC').innerHTML=RA.classes.map(function(k){var c=D.classes[k];return '<button data-c="'+k+'"'+(k===S.c?' class="on"':'')+(c?'':' disabled')+'><img src="'+IC('classicon_'+k)+'" alt="">'+(c?c.name:k)+'</button>'}).join('');
  var R=D.routes[RA.start],T=transferFor(R),to=R.trunk==='kalimdor'?'eastern-kingdoms':'kalimdor',pick=D.profs&&D.profs.classPicks&&D.profs.classPicks[S.c]||'';
  var row=function(n,lab,btns,note){return '<div><div class="lab">'+n+' · '+lab+'</div><div class="opts">'+btns+'</div>'+(note?'<p class="note" style="margin:.3em 0 0">'+note+'</p>':'')+'</div>'};
  var b=function(k,v,on,label,dis){return '<button data-o="'+k+'" data-v="'+v+'"'+(on?' class="on"':'')+(dis?' disabled':'')+'>'+label+'</button>'};
- $('pkB').innerHTML=(D.classes[S.c].builds||[]).length>1?'<div class="lab">4 · Build</div><div class="bsel">'+bCards(true)+'</div>':'';
+ $('pkB').innerHTML=(D.classes[S.c].builds||[]).length>1?'<div class="lab">4 · Build</div><div class="bsel">'+bCards()+'</div>':'';
  $('pkO').innerHTML=row(5,'Percorso',b('x',0,!S.o.x,'Resta in '+CN[R.trunk])+b('x',1,!!S.o.x,T?'Passa in '+CN[to]:'Passa in '+CN[to]+' (in arrivo)',!T),T?(S.o.x?T.title+' · '+T.when:'Puoi spostarti in '+CN[to]+' dopo la zona iniziale: il percorso aggiunge quest, Flight Path e viaggi per arrivarci.'):'')+
   row(6,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ consigliate per il '+CL.name+': '+pick:'')+
   row(7,'Dungeon',b('dg',1,S.o.dg,'Sì, con le quest')+b('dg',0,!S.o.dg,'No, solo quest all’aperto'))+
@@ -113,7 +122,7 @@ $('pg').addEventListener('click',function(e){if(e.target.closest('details.bwhy')
  if(b.dataset.bid)S.o.b[S.c]=b.dataset.bid;
  if(b.dataset.p){var P=S.o.prof,i=P.indexOf(b.dataset.p);if(i>-1)P.splice(i,1);else{P.push(b.dataset.p);if(P.length>2)P.shift()}}
  if(!ok(S.r,S.c))S.c=D.races[S.r].classes.filter(function(c){return D.classes[c]})[0];
- history.replaceState(null,'','#'+S.r+'-'+S.c);renderAll()});
+ setHash();renderAll()});
 
 /* ---- il tuo percorso: capitoli lineari con checklist ---- */
 function renderPath(){var h='';
@@ -224,9 +233,7 @@ function renderClass(){
  $('srct').innerHTML='<tr><th>Fonte</th><th>Data / segnale</th><th>Cosa ho preso</th></tr>'+CL.sources.concat(FA.sources,C.sources,D.profs?D.profs.sources:[],D.alts?D.alts.sources:[]).map(srcRow).join('');
  // testata
  document.title=RA.name+' '+CL.name+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
- $('htitle').innerHTML=img('classicon_'+S.c,'')+' '+RA.name+' '+CL.name+' <span>'+CL.spec+'</span>';
  $('hsub').innerHTML='Guida leveling 1–'+MAXL+' per WoW: Forever · '+FN[RA.faction]+' · <b>'+C.version+'</b> · '+C.updated;
- $('hchips').innerHTML='<span class="chip">'+img(CL.specIcon,'')+'Build: '+CL.spec+'</span><span class="chip">'+img(RT.icon,'')+'Inizio: '+RT.name+'</span>'+(PT?'<span class="chip">🧭 '+PT.title+'</span>':'')+CL.chips.map(function(c){return '<span class="chip">'+img(c[0],'')+c[1]+'</span>'}).join('')+'<span class="chip">✔ dati dal client 1.60.1.70707</span>';
  $('herobg').innerHTML=RT.hero.map(function(u){return '<img src="'+u+'" alt="">'}).join('');
  $('foot').textContent='Guida personale · WoW: Forever Leveling Companion · '+C.version+' ('+C.updated+'). Non affiliata a Blizzard. Icone © Blizzard via Wowhead.';
  $('lvr').max=MAXL;$('tlsum').textContent='Tutto il percorso 1–'+MAXL+' in una riga temporale';
@@ -370,8 +377,8 @@ function drawMap(){
 var CRIT=[['speed','Velocità'],['ease','Facilità'],['versatility','Versatilità'],['survival','Sopravvivenza'],['aoe','AoE / pull multipli'],['gear','Indipendenza dall’equip']];
 function bars(B){var R=B.ratings||{};return '<div class="bars">'+CRIT.map(function(c){var v=R[c[0]]&&R[c[0]][0];return '<div class="bar'+(v?'':' na')+'"><span>'+c[1]+'</span><span class="tr"><i style="width:'+(v?v*20:0)+'%;background:hsl('+(v?(v-1)*30:0)+',72%,46%)"></i></span><b>'+(v||'–')+'</b></div>'}).join('')+'</div>'+
  '<details class="bwhy"><summary>Perché questi voti</summary><ul>'+CRIT.filter(function(c){return R[c[0]]&&R[c[0]][0]}).map(function(c){var r=R[c[0]];return '<li><b>'+c[1]+' '+r[0]+'/5:</b> '+r[1]+(r[2]?' <span class="note">('+r[2]+')</span>':'')+'</li>'}).join('')+'</ul></details>'}
-function bCards(small){var bs=D.classes[S.c].builds||[],cur=CL.B&&CL.B.id;return bs.map(function(B){return '<button type="button" class="bcard'+(B.id===cur?' on':'')+'" data-bid="'+B.id+'"><span class="bh">'+img(B.icon||CL.specIcon)+'<span><b>'+B.name+'</b>'+(B.id===bs[0].id?' <span class="pill p-ok">più votata</span>':'')+'<br><span class="note">'+(B.when||'')+'</span></span></span>'+
- (small?'':(B.pros&&B.pros.length?'<ul>'+li(B.pros.map(function(p){return '✔ '+p}))+li((B.cons||[]).map(function(p){return '✖ '+p}))+'</ul>':''))+bars(B)+'</button>'}).join('')}
+function bCards(){var bs=D.classes[S.c].builds||[],cur=CL.B&&CL.B.id;return bs.map(function(B){return '<button type="button" class="bcard'+(B.id===cur?' on':'')+'" data-bid="'+B.id+'"><span class="bh">'+img(B.icon||CL.specIcon)+'<span><b>'+B.name+'</b>'+(B.id===bs[0].id?' <span class="pill p-ok">più votata</span>':'')+'<br><span class="note">'+(B.when||'')+'</span></span></span>'+
+ ((B.pros&&B.pros.length?'<ul>'+li(B.pros.map(function(p){return '✔ '+p}))+li((B.cons||[]).map(function(p){return '✖ '+p}))+'</ul>':''))+bars(B)+'</button>'}).join('')}
 document.addEventListener('click',function(e){var b=e.target.closest('#bSel .bcard');if(!b||e.target.closest('details'))return;S.o.b[S.c]=b.dataset.bid;renderAll()});
 
 /* ---- schede ---- */
@@ -384,10 +391,10 @@ $('bAllChaps').onclick=function(){var c=$('chaps').classList.toggle('all');this.
 
 /* ---- filtro "solo dati confermati": nasconde ogni voce che contiene 🟡 ---- */
 function unsure(){[].forEach.call(document.querySelectorAll('main li, main .task, main tr, main .rc, main .card, main .box p, main details.chap .body>p'),function(e){e.classList.toggle('unsure',e.textContent.indexOf('🟡')>-1&&!e.querySelector('.task,.card,li'))})}
-$('bSure').onchange=function(){S.sure=this.checked;save();document.body.classList.toggle('sure',S.sure)};
+$('bSure').onchange=function(){P.sure=this.checked;save();document.body.classList.toggle('sure',P.sure)};
 
 /* ---- passa i progressi a un altro dispositivo: link + QR ---- */
-function shareUrl(){var j={r:S.r,c:S.c,L:S.L,o:S.o,d:Object.keys(S.done[CK]||{})},b=btoa(unescape(encodeURIComponent(JSON.stringify(j)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');return location.href.split('#')[0]+'#s='+b}
+function shareUrl(){var j={r:S.r,c:S.c,n:P.list[P.cur].n||undefined,L:S.L,o:S.o,d:Object.keys(S.done[CK]||{})},b=btoa(unescape(encodeURIComponent(JSON.stringify(j)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');return location.href.split('#')[0]+'#s='+b}
 $('bShare').onclick=function(){var u=shareUrl();$('shareUrl').value=u;var q=$('qr');q.innerHTML='';$('shareCopy').textContent='Copia il link';
  if(window.qrcode){try{var g=qrcode(0,'L');g.addData(u);g.make();q.innerHTML=g.createSvgTag({cellSize:4,margin:2,scalable:true})}catch(e){q.textContent='Link troppo lungo per il QR: copia il link.'}}else q.textContent='QR non disponibile offline: copia il link.';
  $('shareDlg').showModal()};
@@ -397,9 +404,31 @@ $('shareCopy').onclick=function(){var i=$('shareUrl');i.select();try{navigator.c
 function bugLink(){var t='Errore: '+RA.name+' '+CL.name+' liv. '+S.L+' ('+(S.tab||'livello')+')',b='**Personaggio:** '+RA.name+' '+CL.name+' – build '+(CL.B?CL.B.name:CL.spec)+'\n**Livello:** '+S.L+'\n**Scheda:** '+(S.tab||'livello')+'\n**Percorso:** '+RT.name+(PT?' + '+PT.title:'')+'\n\n**Cosa non torna:**\n\n\n**Cosa dovrebbe dire (se lo sai):**\n';
  $('bBug').href='https://github.com/Stalioot/wow-forever-leveling-companion/issues/new?title='+encodeURIComponent(t)+'&body='+encodeURIComponent(b)}
 
-/* ---- procedura iniziale ---- */
-$('bWiz').onclick=function(){$('wiz').showModal()};
+/* ---- pagina iniziale: personaggi salvati + scelta razza/classe; barra compatta del personaggio sopra le schede ---- */
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return '&#'+c.charCodeAt(0)+';'})}
+function pSpec(s){var bs=D.classes[s.c].builds||[],B=bs.filter(function(b){return b.id===(s.o.b||{})[s.c]})[0]||bs[0];return B&&B.spec||D.classes[s.c].spec}
+function preBtns(add){return P.list.map(function(p,i){var s=fix(p.s),rc=D.races[s.r].name+' '+D.classes[s.c].name;
+  return '<button type="button" class="pre'+(i===P.cur?' on':'')+'" data-pi="'+i+'"><img src="'+IC('classicon_'+s.c)+'" alt=""><span><b>'+esc(p.n||rc)+'</b><small>'+(p.n?rc+' ':'')+pSpec(s)+' · liv. '+s.L+'</small></span></button>'}).join('')+
+ (add?'<button type="button" class="pre add" data-pi="new">＋ Nuovo personaggio</button>':'')}
+function drawPresets(){$('pre').innerHTML=preBtns(true);$('cpre').innerHTML=preBtns(false);$('pDel').disabled=P.list.length<2}
+function usePreset(i){P.cur=i;S=fix(P.list[i].s);save();setHash();renderAll();if(!HOME)showTab(S.tab||'livello')}
+document.addEventListener('click',function(e){var b=e.target.closest('.pre[data-pi]');if(!b)return;
+ if(b.dataset.pi==='new'){P.list.push({n:'',s:{}});usePreset(P.list.length-1);$('pg').scrollIntoView({behavior:'smooth'})}else if(+b.dataset.pi!==P.cur)usePreset(+b.dataset.pi)});
+$('pRen').onclick=function(){var p=P.list[P.cur],n=prompt('Nome del personaggio (vuoto = razza e classe)',p.n||'');if(n===null)return;p.n=n.trim().slice(0,30);save();drawPresets()};
+$('pDel').onclick=function(){if(P.list.length<2||!confirm('Eliminare “'+(P.list[P.cur].n||RA.name+' '+CL.name)+'” con livello e checklist?'))return;P.list.splice(P.cur,1);usePreset(Math.max(0,P.cur-1))};
+function goHome(on){HOME=on;document.body.classList.toggle('home',on);setHash();window.scrollTo(0,0);if(!on)showTab(S.tab||'livello')}
+$('bWiz').onclick=function(){goHome(true)};
+$('bGo').onclick=function(){goHome(false)};
+// pro e contro di razza, classe e combinazione (racial e altRaces/altClasses della guida alt, build più votata)
+function pickInfo(){var A=D.alts||{},ar=(A.altRaces||[]).filter(function(x){return x.race===S.r})[0],ac=(A.altClasses||[]).filter(function(x){return x.class===S.c})[0],B=(D.classes[S.c].builds||[])[0]||{},
+  nm=function(k){return D.classes[k]?D.classes[k].name:k},pro=function(a){return li(a.map(function(x){return '✔ '+x}))},con=function(a){return li(a.map(function(x){return '✖ '+x}))},
+  best=(A.altRaces||[]).filter(function(x){return D.races[x.race]&&D.races[x.race].faction===RA.faction&&x.bestFor.indexOf(S.c)>-1}).map(function(x){return x.race}),
+  no=Object.keys(D.classes).filter(function(k){return RA.classes.indexOf(k)<0}),cr=CL.races[S.r]||CL.races[S.r.replace(/_[ah]$/,'')];
+ var box=function(icon,t,body){return '<div class="card"><h4>'+img(icon)+t+'</h4>'+body+'</div>'};
+ return box(RA.icon,RA.name+' <small>'+FN[RA.faction]+'</small>','<ul>'+pro(RA.racials.map(function(r){return '<b>'+r[0]+'</b>'+(/★/.test(r[2])?' ★':'')}))+
+   (ar&&ar.bestFor.length?pro(['Ideale per '+ar.bestFor.map(nm).join(', ')]):'')+(no.length?con(['Niente '+no.map(nm).join(', ')]):'')+'</ul><p class="note">Inizio: '+D.routes[RA.start].name+'</p>')+
+  box('classicon_'+S.c,CL.name+(ac?' <small>'+ac.role+'</small>':''),'<ul>'+pro(B.pros||[])+con(B.cons||[])+'</ul>'+(CL.chips.length?'<p class="note">'+CL.chips.map(function(c){return img(c[0])+' '+c[1]}).join(' · ')+'</p>':''))+
+  box('classicon_'+S.c,RA.name+' '+CL.name,'<ul>'+(cr?pro([cr]):'')+(best.indexOf(S.r)>-1?pro(['Tra le razze più consigliate per '+CL.name]):best.length?con(['Per '+CL.name+' sono più consigliate: '+best.map(function(k){return D.races[k].name}).join(', ')]):'')+'</ul>')}
 
-function renderAll(){bind();drawPick();renderClass();$('bSel').innerHTML=bCards(false);renderPath();drawMap();renderLevel();bugLink();unsure()}
-initMap();renderAll();showTab(S.tab||'livello');$('bSure').checked=!!S.sure;document.body.classList.toggle('sure',!!S.sure);
-if(FIRST)$('wiz').showModal();
+function renderAll(){bind();drawPick();renderClass();$('bSel').innerHTML=bCards();renderPath();drawMap();renderLevel();bugLink();unsure()}
+initMap();renderAll();$('bSure').checked=!!P.sure;document.body.classList.toggle('sure',!!P.sure);goHome(HOME);

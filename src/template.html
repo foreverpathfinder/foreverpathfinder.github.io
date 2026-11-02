@@ -12,32 +12,35 @@
 
 <header class="hero">
  <div class="herobg" aria-hidden="true"><div id="herobg"></div></div>
- <h1 id="htitle"></h1>
+ <h1 class="ttl"><small>World of Warcraft</small><b>Forever</b><i>Leveling Companion</i></h1>
  <p id="hsub"></p>
  <p>Uscita: <b id="hlaunch"></b> · <span class="cd" id="cd"></span></p>
- <div class="chips" id="hchips"></div>
- <div class="hbtns"><button class="btn pr" id="bWiz" type="button">⚙ Personaggio e opzioni</button><button class="btn" id="bShare" type="button">⇄ Passa a un altro dispositivo</button>
+ <div class="hbtns"><button class="btn" id="bShare" type="button">⇄ Passa a un altro dispositivo</button>
   <label class="btn tgl"><input type="checkbox" id="bSure"> Solo dati confermati</label><a class="btn" id="bBug" target="_blank" rel="noopener">⚑ Segnala un errore</a></div>
 </header>
+
+<section id="home"><div class="homein">
+ <h2>I tuoi personaggi</h2>
+ <p class="note">Ogni personaggio ha razza, classe, build, opzioni, livello e checklist suoi: tocca per passare da uno all'altro. Tutto resta salvato su questo dispositivo.</p>
+ <div class="pres" id="pre"></div>
+ <div class="btns" style="margin:8px 0 0"><button class="btn" type="button" id="pRen">✎ Rinomina</button><button class="btn" type="button" id="pDel">🗑 Elimina</button></div>
+ <h2 style="margin-top:1em">Razza e classe</h2>
+ <section id="pg" class="pick">
+  <div><div class="lab">1 · Fazione</div><div class="opts fac" id="pkF"></div></div>
+  <div><div class="lab">2 · Razza</div><div class="opts" id="pkR"></div></div>
+  <div><div class="lab">3 · Classe</div><div class="opts" id="pkC"></div></div>
+  <div class="pinfo" id="pkInfo"></div>
+  <div id="pkB"></div>
+  <div id="pkO"></div>
+ </section>
+ <div class="btns" style="margin:16px 0 0"><button class="btn pr big" type="button" id="bGo">Entra nella guida ›</button></div>
+</div></section>
+
+<div class="cbar" id="cbar"><div class="pres" id="cpre"></div><button class="btn pr" type="button" id="bWiz">⚙ Personaggi</button></div>
 
 <nav id="nav" role="tablist">
  <button data-tab="livello" class="on">Livello</button><button data-tab="talent">Talent</button><button data-tab="mappa">Mappa</button><button data-tab="classe">Classe</button><button data-tab="prof">Profession</button><button data-tab="alt">Alt</button><button data-tab="altro">Altro</button><button data-tab="info">Info</button>
 </nav>
-
-<dialog id="wiz">
- <form method="dialog" class="wizin">
-  <h2>Crea la tua guida</h2>
-  <p class="note">Scegli una opzione per riga: rotta, talent, spell, mappa, bag, dungeon e profession seguono le tue scelte. Tutto resta salvato su questo dispositivo.</p>
-  <section id="pg" class="pick">
-   <div><div class="lab">1 · Fazione</div><div class="opts fac" id="pkF"></div></div>
-   <div><div class="lab">2 · Razza</div><div class="opts" id="pkR"></div></div>
-   <div><div class="lab">3 · Classe</div><div class="opts" id="pkC"></div></div>
-   <div id="pkB"></div>
-   <div id="pkO"></div>
-  </section>
-  <div class="btns" style="margin:12px 0 0"><button class="btn pr" value="ok">Inizia ›</button></div>
- </form>
-</dialog>
 
 <dialog id="shareDlg">
  <form method="dialog" class="wizin">
