@@ -304,7 +304,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 <div class="cbar" id="cbar"><div class="pres" id="cpre"></div><button class="btn pers" type="button" id="bWiz"><span class="pi">👥</span><span><b>Personaggi</b><small>cambia · crea · salva</small></span></button></div>
 
 <nav id="nav" role="tablist">
- <button data-tab="livello" class="on">Livello</button><button data-tab="talent">Talent</button><button data-tab="mappa">Mappa</button><button data-tab="classe">Classe</button><button data-tab="prof">Profession</button><button data-tab="alt">Alt</button><button data-tab="altro">Altro</button><button data-tab="info">Info</button>
+ <button data-tab="livello" class="on">Livello</button><button data-tab="talent">Talent</button><button data-tab="mappa">Mappa</button><button data-tab="classe">Classe</button><button data-tab="prof">Profession</button><button data-tab="dungeon">Dungeon</button><button data-tab="alt">Alt</button><button data-tab="altro">Altro</button><button data-tab="info">Info</button>
 </nav>
 
 <dialog id="shareDlg">
@@ -408,6 +408,16 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 
 </div>
 
+<div class="tab" id="t-dungeon">
+
+<section id="dungeon">
+ <h2>Dungeon</h2>
+ <p class="note">Tocca un dungeon per ingresso, quest da prendere prima, boss e consigli. In evidenza quelli per il tuo livello; il giudizio vale per la tua fazione.</p>
+ <div class="callout g" id="dgen"></div>
+ <div id="dlist"></div>
+</section>
+</div>
+
 <div class="tab" id="t-alt">
 <section id="alt">
  <h2>Guida agli alt</h2>
@@ -443,12 +453,6 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
  <div class="card"><ol id="camps"></ol></div>
  <h3 id="campT">Priorità</h3>
  <div class="grid" id="camp"></div>
-</section>
-<section id="dungeon">
- <h2>Dungeon</h2>
- <p class="note">Tocca un dungeon per ingresso, quest da prendere prima, boss e consigli. In evidenza quelli per il tuo livello; il giudizio vale per la tua fazione.</p>
- <div class="callout g" id="dgen"></div>
- <div id="dlist"></div>
 </section>
 <section id="video">
  <h2 id="vtitle">Video</h2>
