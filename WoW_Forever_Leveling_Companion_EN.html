@@ -252,6 +252,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .cbar .btn{flex:none;padding:6px 10px;font-size:.8rem}
 .cbar .pre.on{order:-1}
 .hero .lang{position:absolute;top:10px;right:12px;left:auto;z-index:3;margin:0;display:flex;padding:5px;border-radius:7px;background:rgba(8,17,29,.65);border:1px solid var(--bd);line-height:0}.hero .lang:hover{border-color:var(--gold)}.lang svg{display:block;border-radius:2px}
+.visits{margin-top:2em;opacity:.45;text-align:right}.visits img{height:16px;vertical-align:middle}
 
 </style></head><body>
 
@@ -262,7 +263,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
  <p id="hsub"></p>
  <p>Release: <b id="hlaunch"></b> · <span class="cd" id="cd"></span></p>
  <div class="hbtns"><button class="btn" id="bShare" type="button">⇄ Continue on another device</button>
-  <label class="btn tgl"><input type="checkbox" id="bSure"> Confirmed data only</label><a class="btn" id="bBug" target="_blank" rel="noopener">⚑ Report an error</a></div>
+  <label class="btn tgl"><input type="checkbox" id="bSure"> Confirmed data only</label><a class="btn" id="bBug" target="_blank" rel="noopener">⚑ Report an error</a><a class="btn" id="bPay" href="https://paypal.me/staliot" target="_blank" rel="noopener">☕ Buy me a coffee</a></div>
 </header>
 
 <section id="home"><div class="homein">
@@ -445,6 +446,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
  <h2>Sources and reliability</h2>
  <div class="wrap card"><table id="srct"></table></div>
  <div class="callout w" id="limits"></div>
+ <p class="note visits"><!-- contatore visite (hits.sh, senza cookie): conta ogni apertura del sito online (non in locale), italiano e inglese insieme --><img data-src="https://hits.sh/stalioot.github.io/wow-forever-leveling-companion.svg?label=visits&color=1e2b3c&labelColor=0f1a26" alt=""></p>
 </section>
 </div>
 </main>
@@ -695,6 +697,7 @@ function renderClass(){
  document.title=RA.name+' '+CL.name+' '+CL.spec+' – WoW Forever';document.documentElement.style.setProperty('--cc',CL.color||'var(--ice)');
  $('hsub').innerHTML='Leveling guide 1–'+MAXL+' for WoW: Forever · '+FN[RA.faction]+' · <b>'+C.version+'</b> · '+C.updated;
  $('herobg').innerHTML=RT.hero.map(function(u){return '<img src="'+u+'" alt="">'}).join('');
+ var vi=document.querySelector('.visits img');if(location.protocol==='https:')vi.src=vi.dataset.src;
  $('foot').textContent='Personal guide · WoW: Forever Leveling Companion · '+C.version+' ('+C.updated+'). Not affiliated with Blizzard. Icons © Blizzard via Wowhead.';
  $('lvr').max=MAXL;$('tlsum').textContent='The whole route 1–'+MAXL+' as a timeline';
  WF.shown=null;wfFit();
