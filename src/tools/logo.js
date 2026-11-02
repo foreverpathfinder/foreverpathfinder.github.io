@@ -1,4 +1,4 @@
-// node src/tools/logo.js addon/pubblicazione/logo-400.png → logo dell'addon 400×400 per CurseForge e Wago: mappa dipinta (mare, foreste, montagne, fiume, rosa dei venti, sentiero fino alla X) + "!" delle quest, cornice sottile. Senza percorso: anteprima con 64 e 32 px nella cartella dello script
+// node src/tools/logo.js addon/pubblicazione/logo-400.png addon/ForeverPathfinder/icon.tga → logo dell'addon 400×400 per CurseForge e Wago: mappa dipinta (mare, foreste, montagne, fiume, rosa dei venti, sentiero fino alla X) + "!" delle quest, cornice sottile. Senza percorso: anteprima con 64 e 32 px nella cartella dello script
 const {chromium}=require(process.env.LOCALAPPDATA+'/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core');
 const fs=require('fs');const O=__dirname.replace(/\\/g,'/');const OUT=process.argv[2];
 const MAP='M54 98 L150 84 L246 102 L346 88 L352 332 L256 348 L158 332 L50 346 Z';
@@ -54,6 +54,12 @@ const svg=`<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">${DEFS}
 </svg>`;
 (async()=>{const b=await chromium.launch({channel:'chrome'});const p=await b.newPage({viewport:{width:400,height:400}});
  await p.setContent(`<html><body style="margin:0">${svg}</body></html>`);await p.screenshot({path:OUT||`${O}/logo-H.png`});
+ // secondo argomento: icona dell'addon per la minimappa, TGA 64×64 a 32 bit (WoW legge TGA e BLP)
+ const TGA=process.argv[3];
+ if(TGA){const px=await p.evaluate(svg=>new Promise(ok=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');x.drawImage(im,0,0,64,64);ok([...x.getImageData(0,0,64,64).data])};im.src='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(svg)))}),svg);
+  const h=Buffer.from([0,0,2,0,0,0,0,0,0,0,0,0,64,0,64,0,32,8]),d=Buffer.alloc(64*64*4);
+  for(let r=0;r<64;r++)for(let c=0;c<64;c++){const s=((63-r)*64+c)*4,o=(r*64+c)*4;d[o]=px[s+2];d[o+1]=px[s+1];d[o+2]=px[s];d[o+3]=px[s+3]}
+  fs.writeFileSync(TGA,Buffer.concat([h,d]))}
  if(OUT){await b.close();return}
  const img='data:image/png;base64,'+fs.readFileSync(`${O}/logo-H.png`).toString('base64');
  await p.setViewportSize({width:560,height:430});

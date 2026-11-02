@@ -1,44 +1,71 @@
--- Forever Pathfinder: finestra con le voci della guida per il tuo livello e il prossimo talento.
--- Dati in Data.lua (generati da src/tools/addon.js dal sito). /fp apre e chiude, /fp dungeon e /fp cerca scrivono in chat.
+-- Forever Pathfinder: la guida del sito dentro il gioco, con il suo aspetto. Icona sulla minimappa → finestra con le schede del sito (Percorso con la
+-- checklist da spuntare, Talent, Classe, Profession, Dungeon, Alt, Altro, Info) e le Opzioni (build, dungeon, cambio continente).
+-- Dati in Data.lua (generati da src/tools/addon.js dal sito). /fp apre e chiude, /fp dungeon, /fp cerca e /fp debug scrivono in chat.
 local ADDON = ...
 local LANG = GetLocale() == "itIT" and "it" or "en"
 local D = ForeverPathfinderData[LANG] or ForeverPathfinderData.en
+local POOL = ForeverPathfinderPool[LANG] or ForeverPathfinderPool.en
+local PAGES = ForeverPathfinderPages[LANG] or ForeverPathfinderPages.en
 local DG = ForeverPathfinderDungeons and (ForeverPathfinderDungeons[LANG] or ForeverPathfinderDungeons.en) or {}
+local LINKS = ForeverPathfinderLinks and (ForeverPathfinderLinks[LANG] or ForeverPathfinderLinks.en) or {} -- per voce: p segnaposti, q quest
 
 local T = ({
   it = {
-    level = "Liv. %d", stage = "Tappa %d: %s", build = "Build: %s",
+    level = "Liv. %d", stageWord = "TAPPA", build = "Build: %s",
     talentNow = "Talento da prendere ora: %s (%s)", talentNext = "Prossimo talento al liv. %d: %s (%s)", talentDone = "Talenti della guida completati.",
-    none = "Nessuna voce a questo livello: prosegui con la tappa.",
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
-    help = "/fp apre o chiude · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp debug",
+    help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo",
     dgNone = "Nessun dungeon consigliato al liv. %d.", dgEntry = "Ingresso: %s", dgQuests = "Prima di entrare prendi:", dgClass = "(di classe)",
     found = "Trovate %d voci per \"%s\":", notFound = "Nessuna voce della guida contiene \"%s\".", lv = "Liv.",
-    loaded = "caricato: /fp per aprire la guida.",
+    loaded = "caricato: clic sull'icona della minimappa o /fp per aprire la guida.",
     dbgGuide = "Guida: %s (%s)", dbgAuto = "automatica", dbgHand = "scelta a mano",
     dbgTal = "Talenti: spesi %s, liberi %d", dbgSave = "Salvataggi: caricamenti %d, spunte %d",
+    options = "Opzioni", now = "sei qui", mbHint = "Clic: apri o chiudi la guida\nClic destro: opzioni\nTrascina: sposta l'icona",
+    oBuild = "Build", oRoute = "Percorso", oDg = "Dungeon nel percorso (con le loro quest)", oX = "Cambia continente dopo la zona iniziale",
+    oNoX = "Per questa razza il percorso resta nello stesso continente.", oShow = "Interfaccia", oMinimap = "Icona sulla minimappa",
+    oChar = "Personaggio", oAuto = "Riconosciuto dal gioco: %s. Se sbaglia, scrivi /fp set razza-classe; /fp auto per tornare automatico.",
+    oSite = "La guida completa, con mappa e calcolatori: foreverpathfinder.github.io",
+    oLinks = "Collegamenti col gioco", oMap = "Segnaposti della tappa sulla mappa del mondo; dal segnaposto di una voce, anche sulla minimappa",
+    oQuests = "Spunta da sola le voci quando consegni la quest e mostra le quest che hai nel registro",
+    oTal = "Evidenzia il talento da prendere nella finestra dei talenti", oTrainer = "Al trainer scrive e segna gli spell della guida da comprare",
+    oEnglish = "Quest, talenti e spell si riconoscono per nome inglese: funzionano con il gioco in inglese.",
+    inLog = "nel registro", toTurn = "da consegnare", pinSet = "Segnaposto: %s · %s %.1f, %.1f", pinHere = "Sei arrivato: %s",
+    pinTip = "Mostra sulla mappa e sulla minimappa", trainerBuy = "Da comprare secondo la guida: %s", ticked = "Spuntata nella guida: %s",
+    dbgLinks = "Continenti %s · segnaposto del gioco %s · finestra talenti %s · quest nel registro %d", yes = "sì", no = "no",
   },
   en = {
-    level = "Lvl %d", stage = "Stage %d: %s", build = "Build: %s",
+    level = "Lvl %d", stageWord = "STAGE", build = "Build: %s",
     talentNow = "Talent to take now: %s (%s)", talentNext = "Next talent at lvl %d: %s (%s)", talentDone = "Guide talents done.",
-    none = "Nothing at this level: keep going with the stage.",
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
-    help = "/fp opens or closes · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp debug",
+    help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional",
     dgNone = "No recommended dungeon at lvl %d.", dgEntry = "Entrance: %s", dgQuests = "Before going in, pick up:", dgClass = "(class)",
     found = "Found %d items for \"%s\":", notFound = "No guide item contains \"%s\".", lv = "Lvl",
-    loaded = "loaded: /fp opens the guide.",
+    loaded = "loaded: click the minimap icon or type /fp to open the guide.",
     dbgGuide = "Guide: %s (%s)", dbgAuto = "automatic", dbgHand = "picked by hand",
     dbgTal = "Talents: spent %s, free %d", dbgSave = "Saved data: loads %d, checks %d",
+    options = "Options", now = "you are here", mbHint = "Click: open or close the guide\nRight click: options\nDrag: move the icon",
+    oBuild = "Build", oRoute = "Route", oDg = "Dungeons in the route (with their quests)", oX = "Switch continent after the starting zone",
+    oNoX = "For this race the route stays on the same continent.", oShow = "Interface", oMinimap = "Minimap icon",
+    oChar = "Character", oAuto = "Detected by the game: %s. If it is wrong, type /fp set race-class; /fp auto to go back to automatic.",
+    oSite = "The full guide, with map and calculators: foreverpathfinder.github.io",
+    oLinks = "Game links", oMap = "Stage waypoints on the world map; from an item's waypoint, on the minimap too",
+    oQuests = "Ticks items by itself when you turn in the quest and shows the quests in your log",
+    oTal = "Highlights the talent to take in the talent window", oTrainer = "At the trainer, prints and marks the guide spells to buy",
+    oEnglish = "Quests, talents and spells are recognized by their English name: they work with the game in English.",
+    inLog = "in your log", toTurn = "ready to turn in", pinSet = "Waypoint: %s · %s %.1f, %.1f", pinHere = "You have arrived: %s",
+    pinTip = "Show on the map and the minimap", trainerBuy = "To buy according to the guide: %s", ticked = "Ticked in the guide: %s",
+    dbgLinks = "Continents %s · game waypoint %s · talent window %s · quests in log %d", yes = "yes", no = "no",
   },
 })[LANG]
 
 -- token inglese di UnitRace → chiave del sito (Skyborne: una per fazione)
 local RACES = { Human = "human", Dwarf = "dwarf", Gnome = "gnome", NightElf = "nightelf", Orc = "orc", Troll = "troll", Tauren = "tauren", Scourge = "undead", Undead = "undead" }
 
-local C -- ForeverPathfinderChar: { done = {}, key = "razza-classe" scelto a mano }
-local view -- livello mostrato
+local C  -- ForeverPathfinderChar: { done = {}, key = "razza-classe" scelto a mano, opt = { b, dg, x }, loads }
+local DB -- ForeverPathfinderDB (tutti i personaggi): { angle, hide } dell'icona sulla minimappa
+local tab, viewCh = "livello" -- scheda aperta, tappa mostrata nel Percorso
 
 local function say(msg) DEFAULT_CHAT_FRAME:AddMessage("|cffe8b84aForever Pathfinder|r " .. msg) end
 
@@ -50,14 +77,27 @@ local function charKey()
   return r and c and (r .. "-" .. c:lower())
 end
 
-local function guide() local k = charKey(); return k and D[k], k end
+-- variante della guida per le opzioni scelte (build, dungeon, cambio continente), decodificata una volta sola
+local function guide()
+  local k = charKey()
+  local g = k and D[k]
+  if not g then return end
+  local o = C.opt
+  local b = o.b or (g.builds[1] and g.builds[1][1]) or "a"
+  local v = g.v[b .. (o.dg or 1) .. (g.x and o.x or 0)] or g.v[b .. "10"] or select(2, next(g.v))
+  if not v._tasks then
+    v._tasks, v._ch, v._tal = {}, {}, {}
+    for lv, ch, n in PAGES[v.tasks]:gmatch("(%d+),(%d+),(%d+)") do v._tasks[#v._tasks + 1] = { tonumber(lv), tonumber(ch), POOL[tonumber(n)], tonumber(n) } end
+    for n in PAGES[v.ch]:gmatch("%d+") do v._ch[#v._ch + 1] = POOL[tonumber(n)] end
+    for name, tree in POOL[v.tal]:gmatch("([^:;]+):([^;]*)") do v._tal[#v._tal + 1] = { 9 + #v._tal + 1, name, tree } end
+  end
+  return g, k, v
+end
 
--- dungeon adatti al livello per la fazione del percorso (come nella scheda Dungeon: niente "salta"), nel livello ideale
-local ALLIANCE = { human = true, dwarf = true, gnome = true, nightelf = true, skyborne_a = true }
-local function dungeonsAt(k, lv)
-  local fac = ALLIANCE[(k or ""):match("^([^-]+)")] and "A" or "H"
+-- dungeon adatti al livello per la fazione (come nella scheda Dungeon: niente "salta"), nel livello ideale
+local function dungeonsAt(g, lv)
   local out = {}
-  for _, d in ipairs(DG[fac] or {}) do
+  for _, d in ipairs(DG[g.faction] or {}) do
     -- livello ideale del giudizio ("18–22", "30+") se c'è, altrimenti tutto il range del dungeon
     local lo, hi = d[5]:match("(%d+)%D+(%d+)")
     if not lo then lo = d[5]:match("(%d+)%+"); hi = lo and d[3] end
@@ -69,115 +109,665 @@ end
 local function dgLabel(d) return d[1] .. " (" .. (T[d[4]] or "?") .. (d[5] ~= "" and " " .. d[5] or "") .. ")" end
 
 -- prossimo talento: i punti già spesi dicono a che punto dell'ordine della guida sei
-local function talentLine(g)
+local function talentLine(v)
   local spent = 0
   for i = 1, (GetNumTalentTabs and GetNumTalentTabs() or 0) do spent = spent + (select(3, GetTalentTabInfo(i)) or 0) end
-  local t = g.tal[spent + 1]
+  local t = v._tal[spent + 1]
   if not t then return T.talentDone end
   local free = UnitCharacterPoints and UnitCharacterPoints("player") or 0
   if free > 0 then return T.talentNow:format(t[2], t[3]) end
   return T.talentNext:format(t[1], t[2], t[3])
 end
 
--- finestra
-local f = CreateFrame("Frame", "ForeverPathfinderFrame", UIParent, BackdropTemplateMixin and "BackdropTemplate" or nil)
-f:SetSize(330, 120)
-f:SetPoint("RIGHT", UIParent, "RIGHT", -60, 60)
-f:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", tile = true, tileSize = 16, edgeSize = 16, insets = { left = 4, right = 4, top = 4, bottom = 4 } })
-f:SetBackdropColor(0.03, 0.07, 0.12, 0.9)
-f:SetMovable(true); f:EnableMouse(true); f:SetClampedToScreen(true)
-f:RegisterForDrag("LeftButton")
-f:SetScript("OnDragStart", f.StartMoving)
-f:SetScript("OnDragStop", f.StopMovingOrSizing)
-f:Hide()
-
-local title = f:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-title:SetPoint("TOPLEFT", 12, -10); title:SetWidth(240); title:SetJustifyH("LEFT")
-local close = CreateFrame("Button", nil, f, "UIPanelCloseButton")
-close:SetPoint("TOPRIGHT", 0, 0)
-local prev = CreateFrame("Button", nil, f, "UIPanelButtonTemplate")
-prev:SetSize(24, 20); prev:SetText("<"); prev:SetPoint("TOPRIGHT", -56, -8)
-local nextB = CreateFrame("Button", nil, f, "UIPanelButtonTemplate")
-nextB:SetSize(24, 20); nextB:SetText(">"); nextB:SetPoint("TOPRIGHT", -30, -8)
-local sub = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-sub:SetPoint("TOPLEFT", 12, -30); sub:SetWidth(306); sub:SetJustifyH("LEFT")
-local tal = f:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-tal:SetWidth(306); tal:SetJustifyH("LEFT")
-local dgl = f:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-dgl:SetWidth(306); dgl:SetJustifyH("LEFT"); dgl:SetTextColor(0.66, 0.89, 1)
-local rows = {}
-
-local function row(i)
-  if rows[i] then return rows[i] end
-  local cb = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
-  cb:SetSize(20, 20)
-  cb.text = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  cb.text:SetWidth(278); cb.text:SetJustifyH("LEFT")
-  cb:SetScript("OnClick", function(self) C.done[self.id] = self:GetChecked() and true or nil end)
-  rows[i] = cb
-  return cb
+local function chapterOf(v, lv)
+  local ch = 1
+  for _, t in ipairs(v._tasks) do if t[1] <= lv then ch = t[2] end end
+  return ch
 end
 
-local function refresh()
-  local g, k = guide()
-  for _, r in ipairs(rows) do r:Hide(); r.text:Hide() end
-  if not g then
-    title:SetText("Forever Pathfinder"); sub:SetText(T.unknown); tal:SetText(""); dgl:SetText("")
-    tal:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -6); f:SetHeight(48 + sub:GetStringHeight()); return
-  end
-  local ch = 1
-  for _, t in ipairs(g.tasks) do if t[1] <= view then ch = t[2] end end
-  title:SetText(g.name .. " · " .. T.level:format(view))
-  sub:SetText(T.stage:format(ch, ((g.ch[ch] or ""):gsub("^%d+%.%s*", ""))) .. "\n" .. T.build:format(g.build))
-  tal:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -6)
-  tal:SetText(talentLine(g))
-  local ds, names = dungeonsAt(k, view), {}
-  for _, d in ipairs(ds) do names[#names + 1] = dgLabel(d) end
-  dgl:SetPoint("TOPLEFT", tal, "BOTTOMLEFT", 0, -4)
-  dgl:SetText(#ds > 0 and T.dungeon:format(table.concat(names, ", ")) or "")
-  -- un livello a cavallo di due tappe compare in entrambe: ogni voce una volta sola
-  local y, n, seen = -(36 + sub:GetStringHeight() + 8 + tal:GetStringHeight() + (#ds > 0 and dgl:GetStringHeight() + 4 or 0) + 8), 0, {}
-  for i, t in ipairs(g.tasks) do
-    if t[1] == view and not seen[t[3]] then
-      seen[t[3]] = true
-      n = n + 1
-      local r = row(n)
-      r.id = k .. ":" .. i
-      r:SetChecked(C.done[r.id] and true or false)
-      r:SetPoint("TOPLEFT", 10, y)
-      r.text:SetPoint("TOPLEFT", 36, y - 3)
-      r.text:SetText(t[3])
-      r:Show(); r.text:Show()
-      y = y - math.max(20, r.text:GetStringHeight()) - 6
+-- collegamenti col gioco: interruttori nelle Opzioni (accesi di base)
+local function on(name) return C.opt["no" .. name] ~= true end
+
+-- continenti del gioco per le posizioni del sito (k, e, z): Kalimdor 1414 e Eastern Kingdoms 1415 come in Classic,
+-- Zephras è l'altro continente sotto Azeroth (947) o sotto il cosmo (946); /fp debug li mostra
+local CONT
+local function continents()
+  if CONT then return CONT end
+  CONT = { k = 1414, e = 1415 }
+  if C_Map and C_Map.GetMapChildrenInfo and Enum and Enum.UIMapType then
+    for _, top in ipairs({ 947, 946 }) do
+      for _, m in ipairs(C_Map.GetMapChildrenInfo(top, Enum.UIMapType.Continent) or {}) do
+        if m.mapID ~= 1414 and m.mapID ~= 1415 and (not CONT.z or (m.name or ""):find("Zephras")) then CONT.z = m.mapID end
+      end
     end
   end
-  if n == 0 then
-    local r = row(1); r.text:SetPoint("TOPLEFT", 14, y - 3); r.text:SetText(T.none); r.text:Show()
-    y = y - r.text:GetStringHeight() - 6
-  end
-  f:SetHeight(-y + 10)
+  return CONT
+end
+-- posizione 0–1 sul continente → sulla mappa indicata (il continente stesso o una sua zona); nil se fuori
+local function onMap(mapID, cont, x, y)
+  if mapID == cont then return x, y end
+  if not (C_Map and C_Map.GetMapRectOnMap) then return end
+  local l, r, t, b = C_Map.GetMapRectOnMap(mapID, cont)
+  if not l or r == l or b == t then return end
+  local px, py = (x - l) / (r - l), (y - t) / (b - t)
+  if px >= 0 and px <= 1 and py >= 0 and py <= 1 then return px, py end
 end
 
-prev:SetScript("OnClick", function() view = math.max(1, view - 1); refresh() end)
-nextB:SetScript("OnClick", function() view = math.min(60, view + 1); refresh() end)
+-- quest nel registro: titolo → "log" o "done" (completa, da consegnare); id → titolo per riconoscere la consegna
+local inLog, idTitle = {}, {}
+local function scanLog()
+  for k in pairs(inLog) do inLog[k] = nil end
+  for i = 1, (GetNumQuestLogEntries and GetNumQuestLogEntries() or 0) do
+    local title, _, _, isHeader, _, isComplete, _, questID = GetQuestLogTitle(i)
+    if title and not isHeader then
+      inLog[title] = (isComplete == 1 or isComplete == true) and "done" or "log"
+      if questID then idTitle[questID] = title end
+    end
+  end
+end
+-- stato delle quest di una voce, da scrivere accanto al testo
+local function questTag(n)
+  local L = LINKS[n]
+  if not (L and on("quests")) then return "" end
+  local st
+  for _, q in ipairs(L.q) do st = (inLog[q] == "done" and "done") or st or (inLog[q] and "log") end
+  if st == "done" then return "  |cff5fd68b[" .. T.toTurn .. "]|r" elseif st then return "  |cffa9e4ff[" .. T.inLog .. "]|r" end
+  return ""
+end
+local setTarget -- segnaposto scelto da una voce (più sotto, con la minimappa)
+
+-- aspetto del sito: colori di style.css (:root), Cinzel per i titoli, Inter per i testi, riquadri (card) e icone del gioco
+local HEX = { bg = "08111d", card = "112236", deep = "0b1828", tx = "e7eef7", mu = "93a6be", ac = "6fc3ff", ice = "a9e4ff",
+  gold = "e8b84a", ok = "5fd68b", bd = "21384f", frame = "5a4a22", chip = "173a5c" }
+local COL = {}
+for k, h in pairs(HEX) do COL[k] = { tonumber(h:sub(1, 2), 16) / 255, tonumber(h:sub(3, 4), 16) / 255, tonumber(h:sub(5, 6), 16) / 255 } end
+local FONTS = "Interface\\AddOns\\ForeverPathfinder\\Fonts\\"
+local function font(file, size)
+  local fo = CreateFont("ForeverPathfinderFont" .. file:gsub("%W", "") .. size)
+  -- se il carattere dell'addon non si carica, quello standard del gioco
+  if fo:SetFont(FONTS .. file, size, "") == false then fo:SetFont(STANDARD_TEXT_FONT or "Fonts\\FRIZQT__.TTF", size, "") end
+  fo:SetShadowOffset(1, -1); fo:SetShadowColor(0, 0, 0, 0.7)
+  return fo
+end
+local F = {
+  title = font("Cinzel-Bold.ttf", 18), big = font("Cinzel-Bold.ttf", 26), h1 = font("Cinzel-Bold.ttf", 15), brand = font("Cinzel-Bold.ttf", 10),
+  h2 = font("Inter-Bold.ttf", 13), h3 = font("Inter-Bold.ttf", 12), p = font("Inter-Regular.ttf", 12), small = font("Inter-Bold.ttf", 10), nav = font("Inter-Bold.ttf", 11),
+  x = font("Inter-Regular.ttf", 22),
+}
+-- tipo di riga delle schede: carattere, colore, spazio prima
+local KIND = { ["1"] = { F.h1, "ice", 0 }, ["2"] = { F.h2, "gold", 10 }, ["3"] = { F.h3, "tx", 8 }, ["0"] = { F.p, "tx", 5 } }
+local function paint(t, c, a) t:SetColorTexture(COL[c][1], COL[c][2], COL[c][3], a or 1) end
+local function colorize(s) return (s:gsub("{", "|cffe8b84a"):gsub("}", "|r")) end
+local function iconPath(n) return "Interface\\Icons\\" .. n end
+
+local W, H, TOP = 680, 500, 112
+local f = CreateFrame("Frame", nil, UIParent)
+_G.ForeverPathfinderFrame = f
+tinsert(UISpecialFrames, "ForeverPathfinderFrame") -- Esc chiude
+f:SetSize(W, H); f:SetPoint("CENTER"); f:SetFrameStrata("HIGH"); f:SetToplevel(true)
+f:SetMovable(true); f:EnableMouse(true); f:SetClampedToScreen(true)
+f:RegisterForDrag("LeftButton"); f:SetScript("OnDragStart", f.StartMoving); f:SetScript("OnDragStop", f.StopMovingOrSizing)
+f:Hide()
+-- rettangolo pieno e bordo di 1 px
+local function rect(parent, layer, c, a, x, y, w, h)
+  local t = parent:CreateTexture(nil, layer); paint(t, c, a); t:SetPoint("TOPLEFT", x, y); t:SetSize(w, h); return t
+end
+local function frame(parent, c, w, h)
+  rect(parent, "BORDER", c, 1, 0, 0, w, 1); rect(parent, "BORDER", c, 1, 0, -h + 1, w, 1)
+  rect(parent, "BORDER", c, 1, 0, 0, 1, h); rect(parent, "BORDER", c, 1, w - 1, 0, 1, h)
+end
+rect(f, "BACKGROUND", "bg", 0.97, 0, 0, W, H)
+rect(f, "BACKGROUND", "chip", 0.35, 0, 0, W, 70) -- testata più chiara, come il bagliore in cima al sito
+frame(f, "frame", W, H)
+rect(f, "BORDER", "bd", 1, 1, -70, W - 2, 1)
+
+-- testata: icona della classe, "Forever Pathfinder", nome del personaggio, livello e build
+local crest = f:CreateTexture(nil, "ARTWORK"); crest:SetPoint("TOPLEFT", 16, -14); crest:SetSize(42, 42)
+local crestB = CreateFrame("Frame", nil, f); crestB:SetPoint("TOPLEFT", 15, -13); crestB:SetSize(44, 44); frame(crestB, "gold", 44, 44)
+local function text(parent, fo, c, x, y, w)
+  local s = parent:CreateFontString(nil, "OVERLAY"); s:SetFontObject(fo); s:SetTextColor(unpack(COL[c])); s:SetJustifyH("LEFT")
+  s:SetPoint("TOPLEFT", x, y); if w then s:SetWidth(w) end; return s
+end
+text(f, F.brand, "ice", 70, -14):SetText("FOREVER PATHFINDER")
+local title = text(f, F.title, "gold", 70, -28, W - 140)
+local sub = text(f, F.nav, "mu", 70, -51, W - 140)
+local close = CreateFrame("Button", nil, f); close:SetPoint("TOPLEFT", W - 34, -10); close:SetSize(24, 24)
+local closeT = text(close, F.x, "mu", 5, 1); closeT:SetText("×")
+close:SetScript("OnClick", function() f:Hide() end)
+close:SetScript("OnEnter", function() closeT:SetTextColor(unpack(COL.tx)) end)
+close:SetScript("OnLeave", function() closeT:SetTextColor(unpack(COL.mu)) end)
+
+-- pulsante a pillola come le schede del sito: acceso = fondo chip e testo ice
+local function pill(parent, label)
+  local b = CreateFrame("Button", nil, parent)
+  b.bg = b:CreateTexture(nil, "BACKGROUND"); b.bg:SetAllPoints()
+  b.fs = text(b, F.nav, "mu", 11, -6); b.fs:SetText(label)
+  b:SetSize(math.floor((b.fs:GetStringWidth() or 40) + 22), 24)
+  local hl = b:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.06)
+  b.set = function(on) paint(b.bg, on and "chip" or "card", on and 1 or 0.6); b.fs:SetTextColor(unpack(COL[on and "ice" or "mu"])) end
+  b.set(false)
+  return b
+end
+
+-- contenuto a scorrimento: rotella del mouse e barra sottile a destra
+local scroll = CreateFrame("ScrollFrame", nil, f)
+scroll:SetPoint("TOPLEFT", 12, -TOP); scroll:SetSize(W - 38, H - TOP - 12)
+local BW = W - 38
+local body = CreateFrame("Frame", nil, scroll)
+body:SetSize(BW, 10)
+scroll:SetScrollChild(body)
+local bar = CreateFrame("Slider", nil, f)
+bar:SetPoint("TOPLEFT", W - 18, -TOP); bar:SetSize(6, H - TOP - 12); bar:SetOrientation("VERTICAL")
+rect(bar, "BACKGROUND", "deep", 1, 0, 0, 6, H - TOP - 12)
+local thumb = bar:CreateTexture(nil, "OVERLAY"); paint(thumb, "bd"); thumb:SetSize(6, 48); bar:SetThumbTexture(thumb)
+bar:SetMinMaxValues(0, 0); bar:SetValueStep(1); bar:SetValue(0)
+bar:SetScript("OnValueChanged", function(_, v) scroll:SetVerticalScroll(v) end)
+scroll:EnableMouseWheel(true)
+scroll:SetScript("OnMouseWheel", function(_, d) local lo, hi = bar:GetMinMaxValues(); bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 48))) end)
+
+-- elementi riusati a ogni disegno: testi, icone, rettangoli (card e righe di separazione), caselle, pulsanti
+local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {} }
+local N = { fs = 0, ic = 0, rc = 0, ln = 0, cb = 0, bt = 0, pn = 0 }
+local y = 0
+local function take(kind, make)
+  N[kind] = N[kind] + 1
+  local o = P[kind][N[kind]]
+  if not o then o = make(); P[kind][N[kind]] = o end
+  return o
+end
+local function put(o, x, yy, w, h) o:ClearAllPoints(); o:SetPoint("TOPLEFT", x, yy); if w then o:SetWidth(w) end; if h then o:SetHeight(h) end; o:Show(); return o end
+local function str(fo, c, s, x, w)
+  local o = take("fs", function() local t = body:CreateFontString(nil, "OVERLAY"); t:SetJustifyH("LEFT"); return t end)
+  o:SetFontObject(fo); o:SetTextColor(unpack(COL[c])); put(o, x, y, w); o:SetText(colorize(s))
+  return o
+end
+local function icon(name, x, yy, size)
+  local o = take("ic", function() local t = body:CreateTexture(nil, "ARTWORK"); t:SetTexCoord(0.07, 0.93, 0.07, 0.93); return t end)
+  o:SetTexture(iconPath(name)); return put(o, x, yy, size, size)
+end
+-- fondo delle card nel livello BACKGROUND, bordi e righe di separazione sopra (BORDER)
+local function box(c, a, x, yy, w, h, line)
+  local o = take(line and "ln" or "rc", function() return body:CreateTexture(nil, line and "BORDER" or "BACKGROUND") end)
+  paint(o, c, a); return put(o, x, yy, w, h)
+end
+-- card del sito: fondo card e bordo bd, disegnata quando si sa dove finisce
+local cardTop
+local function cardOpen() cardTop = y end
+local function cardClose()
+  if not cardTop then return end
+  y = y - 12
+  local h = cardTop - y
+  box("card", 1, 0, cardTop, BW, h)
+  box("bd", 1, 0, cardTop, BW, 1, true); box("bd", 1, 0, y + 1, BW, 1, true); box("bd", 1, 0, cardTop, 1, h, true); box("bd", 1, BW - 1, cardTop, 1, h, true)
+  cardTop = nil
+  y = y - 10
+end
+local function check(id, x, yy)
+  local o = take("cb", function()
+    local c = CreateFrame("CheckButton", nil, body); c:SetSize(18, 18)
+    local bg = c:CreateTexture(nil, "BACKGROUND"); bg:SetAllPoints(); paint(bg, "deep")
+    frame(c, "bd", 18, 18)
+    local ck = c:CreateTexture(nil, "OVERLAY"); ck:SetTexture("Interface\\Buttons\\UI-CheckBox-Check"); ck:SetPoint("TOPLEFT", -3, 3); ck:SetSize(24, 24); c:SetCheckedTexture(ck)
+    local hl = c:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.1)
+    c:SetScript("OnClick", function(self) if self.onClick then self.onClick(self:GetChecked()) else C.done[self.id] = self:GetChecked() and true or nil end end)
+    return c
+  end)
+  o.id, o.onClick = id, nil
+  o:SetChecked(C.done[id] and true or false)
+  return put(o, x, yy)
+end
+local function button(label, x, yy, fn)
+  local o = take("bt", function() return pill(body, label) end)
+  o.fs:SetText(label); o:SetWidth(math.floor((o.fs:GetStringWidth() or 20) + 22)); o.set(true)
+  o:SetScript("OnClick", fn); return put(o, x, yy)
+end
+local function clear()
+  for k, l in pairs(P) do for i = 1, N[k] do l[i]:Hide() end; N[k] = 0 end
+  y, cardTop = 0, nil
+end
+-- riga di testo dentro la card, con le sue icone ("^a,b^testo"): una icona a sinistra, più icone in fila sopra
+local PAD = 14
+local function line(kind, s)
+  local k = KIND[kind] or KIND["0"]
+  local icons, rest = s:match("^%^([^%^]*)%^(.*)$")
+  s = rest or s
+  y = y - k[3]
+  local x, w, single = PAD, BW - 2 * PAD, false
+  if s:sub(1, 3) == "• " then x, w = x + 8, w - 8 end
+  if icons then
+    local list = {}
+    for n in icons:gmatch("[^,]+") do list[#list + 1] = n end
+    if #list > 1 then
+      for i, n in ipairs(list) do icon(n, x + (i - 1) * 26, y, 22) end
+      y = y - 28
+    else
+      icon(list[1], x, y - 1, kind == "0" and 18 or 20); x, w, single = x + 26, w - 26, true
+    end
+  end
+  local o = str(k[1], k[2], s, x, w)
+  y = y - math.max(o:GetStringHeight(), single and 18 or 0)
+  return o
+end
+
+local render
+-- Percorso: card della tappa (numero grande, nome, frecce), card "ora" (build, talento, dungeon), card delle voci per livello
+local function drawPath(g, k, v)
+  local lv = UnitLevel("player")
+  viewCh = viewCh or chapterOf(v, lv)
+  local n = #v._ch
+  cardOpen(); y = y - 12
+  str(F.small, "mu", T.stageWord, PAD, nil)
+  button("<", BW - PAD - 68, y + 2, function() viewCh = math.max(1, viewCh - 1); render(true) end)
+  button(">", BW - PAD - 32, y + 2, function() viewCh = math.min(n, viewCh + 1); render(true) end)
+  y = y - 14
+  str(F.big, "gold", viewCh .. "", PAD, nil)
+  str(F.nav, "mu", "/ " .. n, PAD + 38, nil):SetPoint("TOPLEFT", PAD + 38, y - 10)
+  local name = str(F.h1, "ice", ((v._ch[viewCh] or ""):gsub("^%d+%.%s*", "")), PAD + 76, BW - PAD * 2 - 76 - 76)
+  name:SetPoint("TOPLEFT", PAD + 76, y - 6)
+  y = y - 34
+  line("0", "{" .. T.oBuild .. ":} " .. v.build)
+  y = y - 4; str(F.h3, "gold", talentLine(v), PAD, BW - 2 * PAD); y = y - 16
+  local ds, names = dungeonsAt(g, lv), {}
+  for _, d in ipairs(ds) do names[#names + 1] = dgLabel(d) end
+  if #ds > 0 then y = y - 2; local o = str(F.p, "ice", T.dungeon:format(table.concat(names, ", ")), PAD, BW - 2 * PAD); y = y - o:GetStringHeight() end
+  cardClose()
+  -- voci: livello a sinistra (verde se è il tuo), casella, icona, testo; una riga sottile tra le voci
+  cardOpen(); y = y - 6
+  local cur, seen, here, first = nil, {}, nil, true
+  for _, t in ipairs(v._tasks) do
+    if t[2] == viewCh and not seen[t[4]] then
+      seen[t[4]] = true -- un livello a cavallo di due tappe compare in entrambe: ogni voce una volta sola
+      if not first then box("bd", 1, PAD, y, BW - 2 * PAD, 1, true) end
+      first = false
+      y = y - 8
+      local top = y
+      if t[1] ~= cur then
+        cur = t[1]
+        if cur <= lv then here = -y end
+        str(F.small, cur == lv and "ok" or "ac", T.level:format(cur), PAD, 50)
+        if cur == lv then y = y - 13; str(F.small, "ok", T.now, PAD, 50); y = top end
+      end
+      check(k .. ":" .. t[4], PAD + 52, y + 1)
+      local ic, s = t[3]:match("^%^([^%^,]*)[^%^]*%^(.*)$")
+      local x = PAD + 78
+      if ic then icon(ic, x, y + 1, 18); x = x + 24 end
+      -- a destra il segnaposto della voce (mappa e minimappa), accanto al testo lo stato della quest nel registro
+      local L, right = LINKS[t[4]], 0
+      if L and L.p[1] and on("map") then
+        local p = L.p[1]
+        local b = take("pn", function()
+          local o = CreateFrame("Button", nil, body); o:SetSize(20, 20)
+          local tx = o:CreateTexture(nil, "ARTWORK"); tx:SetAllPoints(); tx:SetTexture(iconPath("inv_misc_map_01")); tx:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+          frame(o, "gold", 20, 20)
+          local hl = o:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.2)
+          o:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_LEFT"); GameTooltip:AddLine(self.p[4]); GameTooltip:AddLine(T.pinTip, 1, 1, 1); GameTooltip:Show() end)
+          o:SetScript("OnLeave", function() GameTooltip:Hide() end)
+          o:SetScript("OnClick", function(self) setTarget(self.p) end)
+          return o
+        end)
+        b.p = p; put(b, BW - PAD - 20, y)
+        right = 28
+      end
+      local o = str(F.p, "tx", (s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
+      y = top - math.max(o:GetStringHeight(), 20) - 6
+    end
+  end
+  cardClose()
+  return here
+end
+
+-- una scheda del sito: ogni titolo "1…" apre una card, poi titoli "2…"/"3…" e paragrafi "0…"
+local function drawPage(v, name)
+  for n in PAGES[v.tabs[name]]:gmatch("%d+") do
+    local s = POOL[tonumber(n)]
+    local kind = s:sub(1, 1)
+    if kind == "1" or not cardTop then cardClose(); cardOpen(); y = y - 12; if kind ~= "1" then y = y + 5 end end
+    line(kind, s:sub(2))
+  end
+  cardClose()
+end
+
+local mb -- icona sulla minimappa
+local function drawOptions(g, k)
+  local o = C.opt
+  local function opt(label, on, fn)
+    y = y - 6
+    local cb = check("opt", PAD, y)
+    cb:SetChecked(on); cb.onClick = function(val) fn(val); render() end
+    local s = str(F.p, "tx", label, PAD + 28, BW - 2 * PAD - 28); s:SetPoint("TOPLEFT", PAD + 28, y - 2)
+    y = y - math.max(18, s:GetStringHeight())
+  end
+  cardOpen(); y = y - 12
+  line("1", T.options)
+  line("2", T.oBuild)
+  for _, b in ipairs(g.builds) do opt(b[2], (o.b or g.builds[1][1]) == b[1], function() o.b = b[1] end) end
+  line("2", T.oRoute)
+  opt(T.oDg, (o.dg or 1) == 1, function(on) o.dg = on and 1 or 0 end)
+  if g.x then opt(T.oX, o.x == 1, function(on) o.x = on and 1 or 0 end) else line("0", T.oNoX) end
+  line("2", T.oShow)
+  opt(T.oMinimap, not DB.hide, function(on) DB.hide = not on; if on then mb:Show() else mb:Hide() end end)
+  line("2", T.oLinks)
+  for _, l in ipairs({ { "map", T.oMap }, { "quests", T.oQuests }, { "tal", T.oTal }, { "trainer", T.oTrainer } }) do
+    opt(l[2], o["no" .. l[1]] ~= true, function(val) o["no" .. l[1]] = not val or nil end)
+  end
+  line("0", T.oEnglish)
+  line("2", T.oChar)
+  line("0", T.oAuto:format(g.name .. " (" .. k .. ")"))
+  line("0", T.oSite)
+  cardClose()
+end
+
+-- schede in alto, come sul sito
+local navB, nx = {}, 12
+local function navList()
+  local l = {}
+  for _, t in ipairs(D._tabs) do l[#l + 1] = t end
+  l[#l + 1] = { "opzioni", T.options }
+  return l
+end
+for _, t in ipairs(navList()) do
+  local b = pill(f, t[2]); b:SetPoint("TOPLEFT", nx, -80); nx = nx + b:GetWidth() + 4
+  b:SetScript("OnClick", function() tab = t[1]; render(true) end)
+  navB[t[1]] = b
+end
+
+render = function(top)
+  clear()
+  local g, k, v = guide()
+  for id, b in pairs(navB) do b.set(id == tab) end
+  if not g then
+    title:SetText("Forever Pathfinder"); sub:SetText(""); crest:SetTexture(iconPath("inv_misc_map_01"))
+    cardOpen(); y = y - 12; line("0", T.unknown); cardClose()
+  else
+    local cls = k:match("-(%a+)$")
+    crest:SetTexture(iconPath("classicon_" .. cls))
+    title:SetText(g.name)
+    sub:SetText(T.level:format(UnitLevel("player")) .. "  ·  " .. v.build)
+    local here
+    if tab == "livello" then here = drawPath(g, k, v)
+    elseif tab == "opzioni" then drawOptions(g, k)
+    else drawPage(v, tab) end
+    body:SetHeight(-y + 10)
+    if scroll.UpdateScrollChildRect then scroll:UpdateScrollChildRect() end
+    local range = math.max(0, -y - (H - TOP - 12))
+    bar:SetMinMaxValues(0, range)
+    if range > 0 then bar:Show() else bar:Hide() end
+    if top then bar:SetValue(here and math.min(range, math.max(0, here - 60)) or 0) end
+  end
+  body:SetHeight(-y + 10)
+end
+
+local function open(t)
+  if t then tab = t end
+  viewCh = nil
+  f:Show(); render(true)
+end
+
+-- icona sulla minimappa: clic apre la guida, clic destro le opzioni, si trascina lungo il bordo
+mb = CreateFrame("Button", "ForeverPathfinderMinimapButton", Minimap)
+mb:SetSize(31, 31); mb:SetFrameStrata("MEDIUM"); mb:SetFrameLevel(8)
+mb:RegisterForClicks("LeftButtonUp", "RightButtonUp"); mb:RegisterForDrag("LeftButton")
+local icon = mb:CreateTexture(nil, "BACKGROUND")
+icon:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon"); icon:SetSize(20, 20); icon:SetPoint("TOPLEFT", 7, -5)
+local border = mb:CreateTexture(nil, "OVERLAY")
+border:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder"); border:SetSize(53, 53); border:SetPoint("TOPLEFT")
+mb:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
+local function place()
+  local a = math.rad(DB.angle or 200)
+  mb:ClearAllPoints(); mb:SetPoint("CENTER", Minimap, "CENTER", math.cos(a) * 80, math.sin(a) * 80)
+end
+mb:SetScript("OnDragStart", function(self)
+  self:SetScript("OnUpdate", function()
+    local mx, my = Minimap:GetCenter()
+    local cx, cy = GetCursorPosition()
+    local s = Minimap:GetEffectiveScale()
+    DB.angle = math.deg((math.atan2 or math.atan)(cy / s - my, cx / s - mx)); place() -- atan2 in WoW (Lua 5.1), atan nelle prove (5.3)
+  end)
+end)
+mb:SetScript("OnDragStop", function(self) self:SetScript("OnUpdate", nil) end)
+mb:SetScript("OnClick", function(_, btn)
+  if btn == "RightButton" then open("opzioni") elseif f:IsShown() then f:Hide() else open() end
+end)
+mb:SetScript("OnEnter", function(self)
+  GameTooltip:SetOwner(self, "ANCHOR_LEFT"); GameTooltip:AddLine("Forever Pathfinder"); GameTooltip:AddLine(T.mbHint, 1, 1, 1); GameTooltip:Show()
+end)
+mb:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
+-- mappa del mondo: i segnaposti della tappa (quella mostrata nel Percorso, o quella del tuo livello) sopra la mappa aperta
+local mapPins = {}
+local function stagePins()
+  local g, _, v = guide()
+  if not g then return {} end
+  local ch = viewCh or chapterOf(v, UnitLevel("player"))
+  local out, seen = {}, {}
+  for _, t in ipairs(v._tasks) do
+    local L = t[2] == ch and LINKS[t[4]]
+    if L then for _, p in ipairs(L.p) do
+      local id = p[4] .. p[2]
+      if not seen[id] then seen[id] = true; out[#out + 1] = { p[1], p[2], p[3], p[4], t[1] } end
+    end end
+  end
+  return out
+end
+local function drawMapPins()
+  for _, p in ipairs(mapPins) do p:Hide() end
+  if not (C and WorldMapFrame and WorldMapFrame:IsShown() and on("map")) then return end
+  local canvas = WorldMapFrame.ScrollContainer and WorldMapFrame.ScrollContainer.Child
+  local mapID = WorldMapFrame.GetMapID and WorldMapFrame:GetMapID()
+  if not (canvas and mapID) then return end
+  local cw, ch = canvas:GetWidth(), canvas:GetHeight()
+  local cont, n = continents(), 0
+  for _, p in ipairs(stagePins()) do
+    local x, y
+    if cont[p[1]] then x, y = onMap(mapID, cont[p[1]], p[2], p[3]) end
+    if x then
+      n = n + 1
+      local pin = mapPins[n]
+      if not pin then
+        pin = CreateFrame("Button", nil, canvas); pin:SetSize(24, 24)
+        local tx = pin:CreateTexture(nil, "OVERLAY"); tx:SetAllPoints(); tx:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon")
+        pin:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.p[4]); GameTooltip:AddLine("Forever Pathfinder · " .. T.level:format(self.p[5]), 1, 1, 1); GameTooltip:Show() end)
+        pin:SetScript("OnLeave", function() GameTooltip:Hide() end)
+        pin:SetScript("OnClick", function(self) setTarget(self.p) end)
+        mapPins[n] = pin
+      end
+      pin.p = p
+      pin:SetFrameLevel(canvas:GetFrameLevel() + 2000)
+      pin:ClearAllPoints(); pin:SetPoint("CENTER", canvas, "TOPLEFT", x * cw, -y * ch); pin:Show()
+    end
+  end
+end
+if WorldMapFrame then
+  WorldMapFrame:HookScript("OnShow", drawMapPins)
+  if WorldMapFrame.OnMapChanged then hooksecurefunc(WorldMapFrame, "OnMapChanged", drawMapPins) end
+end
+
+-- segnaposto scelto da una voce: quello del gioco (mappa e minimappa) se questa versione lo permette, altrimenti il nostro sulla minimappa
+local target
+local mm = CreateFrame("Frame", nil, Minimap); mm:SetSize(16, 16); mm:SetFrameLevel(Minimap:GetFrameLevel() + 10); mm:Hide()
+local mmT = mm:CreateTexture(nil, "OVERLAY"); mmT:SetAllPoints(); mmT:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon")
+-- diametro della minimappa in yard per livello di zoom (all'aperto, come in Classic)
+local MMY = { 466.67, 400, 333.33, 266.67, 200, 133.33 }
+local function playerOn(cont) -- posizione del giocatore 0–1 sul continente
+  local zone = C_Map and C_Map.GetBestMapForUnit and C_Map.GetBestMapForUnit("player")
+  local pos = zone and C_Map.GetPlayerMapPosition(zone, "player")
+  if not pos then return end
+  local px, py = pos:GetXY()
+  if zone == cont then return px, py end
+  local l, r, t, b = C_Map.GetMapRectOnMap(zone, cont)
+  if l then return l + px * (r - l), t + py * (b - t) end
+end
+local elapsed = 0
+mm:SetScript("OnUpdate", function(self, dt)
+  elapsed = elapsed + (dt or 0)
+  if elapsed < 0.1 then return end
+  elapsed = 0
+  local cont = target and continents()[target[1]]
+  local px, py, wy, hy -- (niente "a and f()": taglierebbe i valori restituiti a uno solo)
+  if cont then px, py = playerOn(cont) end
+  if cont and C_Map.GetMapWorldSize then wy, hy = C_Map.GetMapWorldSize(cont) end
+  if not (px and wy and wy > 0 and hy) then mmT:SetAlpha(0); return end
+  mmT:SetAlpha(1)
+  local dx, dy = (target[2] - px) * wy, (target[3] - py) * hy -- yard, x verso est, y verso sud
+  local dist = math.sqrt(dx * dx + dy * dy)
+  if dist < 8 then say(T.pinHere:format(target[4])); target = nil; self:Hide(); return end
+  -- ponytail: minimappa non ruotata (impostazione di base); con "Ruota minimappa" il punto va ruotato con GetPlayerFacing
+  local r = Minimap:GetWidth() / 2
+  local k = r / ((MMY[(Minimap:GetZoom() or 0) + 1] or 466.67) / 2)
+  local ox, oy = dx * k, -dy * k
+  local d = math.sqrt(ox * ox + oy * oy)
+  if d > r - 6 then ox, oy = ox * (r - 6) / d, oy * (r - 6) / d end -- fuori portata: resta sul bordo, nella direzione giusta
+  self:ClearAllPoints(); self:SetPoint("CENTER", Minimap, "CENTER", ox, oy)
+end)
+setTarget = function(p)
+  target = p
+  local cont = continents()[p[1]]
+  local zone = cont and C_Map and C_Map.GetMapInfoAtPosition and C_Map.GetMapInfoAtPosition(cont, p[2], p[3])
+  local zx, zy = p[2], p[3]
+  if zone then zx, zy = onMap(zone.mapID, cont, p[2], p[3]) end
+  say(T.pinSet:format(p[4], zone and zone.name or "", (zx or 0) * 100, (zy or 0) * 100))
+  if zone and zx and C_Map.CanSetUserWaypointOnMap and C_Map.CanSetUserWaypointOnMap(zone.mapID) and UiMapPoint then
+    C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(zone.mapID, zx, zy))
+    if C_SuperTrack and C_SuperTrack.SetSuperTrackedUserWaypoint then C_SuperTrack.SetSuperTrackedUserWaypoint(true) end
+    mm:Hide()
+  else
+    mm:Show()
+  end
+end
+
+-- quest consegnata: segna la consegna; una voce si spunta quando tutte le sue quest sono consegnate
+local function turnedIn(questID)
+  local title = idTitle[questID] or (C_QuestLog and C_QuestLog.GetQuestInfo and C_QuestLog.GetQuestInfo(questID))
+  if not title then return end
+  C.turned[title] = true
+  if not on("quests") then return end
+  local g, k, v = guide()
+  if not g then return end
+  for _, t in ipairs(v._tasks) do
+    local L = LINKS[t[4]]
+    if L and L.q[1] and not C.done[k .. ":" .. t[4]] then
+      local all = true
+      for _, q in ipairs(L.q) do all = all and C.turned[q] end
+      if all then C.done[k .. ":" .. t[4]] = true; say(T.ticked:format(t[3]:gsub("^%^[^%^]*%^", ""):sub(1, 90))) end
+    end
+  end
+end
+
+-- finestra dei talenti di Blizzard: bordo luminoso sul talento da prendere (o sulla sua scheda, se è in un altro albero)
+local glow = CreateFrame("Frame", nil, UIParent); glow:Hide()
+local glowT = glow:CreateTexture(nil, "OVERLAY"); glowT:SetAllPoints(); glowT:SetTexture("Interface\\Buttons\\UI-ActionButton-Border"); glowT:SetBlendMode("ADD")
+local function talentUI() return (_G.TalentFrame and "TalentFrame") or (_G.PlayerTalentFrame and "PlayerTalentFrame") end
+local function talentGlow()
+  glow:Hide()
+  local pre = talentUI()
+  if not (C and pre and on("tal") and _G[pre]:IsShown()) then return end
+  local g, _, v = guide()
+  if not g then return end
+  local spent = 0
+  for i = 1, GetNumTalentTabs() do spent = spent + (select(3, GetTalentTabInfo(i)) or 0) end
+  local want = v._tal[spent + 1]
+  if not want then return end
+  local tf = _G[pre]
+  local sel = (PanelTemplates_GetSelectedTab and PanelTemplates_GetSelectedTab(tf)) or tf.selectedTab or 1
+  for tabI = 1, GetNumTalentTabs() do
+    for i = 1, (GetNumTalents(tabI) or 0) do
+      if GetTalentInfo(tabI, i) == want[2] then
+        local b = tabI == sel and _G[pre .. "Talent" .. i] or _G[pre .. "Tab" .. tabI]
+        if b then
+          glow:SetParent(b); glow:SetFrameLevel(b:GetFrameLevel() + 5)
+          glow:ClearAllPoints(); glow:SetPoint("CENTER", b, "CENTER"); glow:SetSize(b:GetWidth() * 1.9, b:GetHeight() * 1.9); glow:Show()
+        end
+        return
+      end
+    end
+  end
+end
+
+-- trainer: spell della guida fino al tuo livello (voci "Trainer: A, B") che il trainer ha disponibili
+local function wanted()
+  local g, _, v = guide()
+  local w = {}
+  if not g then return w end
+  for _, t in ipairs(v._tasks) do
+    if t[1] <= UnitLevel("player") then
+      local list = t[3]:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$")
+      if list then for n in list:gsub("%b()", ""):gmatch("[^,;]+") do w[(n:gsub("^%s+", ""):gsub("%s+$", ""))] = true end end
+    end
+  end
+  return w
+end
+local stars = {}
+local function trainerMarks()
+  for _, s in pairs(stars) do s:Hide() end
+  if not (C and on("trainer") and GetNumTrainerServices) then return end
+  local w = wanted()
+  for i = 1, 30 do
+    local b = _G["ClassTrainerSkill" .. i]
+    if not b then break end
+    local name, _, cat = GetTrainerServiceInfo(b:GetID())
+    if b:IsShown() and cat == "available" and w[name] then
+      local s = stars[i]
+      if not s then s = b:CreateTexture(nil, "OVERLAY"); s:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon"); s:SetSize(14, 14); s:SetPoint("RIGHT", b, "RIGHT", -4, 0); stars[i] = s end
+      s:Show()
+    end
+  end
+end
+local function trainerSay()
+  if not (C and on("trainer") and GetNumTrainerServices) then return end
+  local w, buy = wanted(), {}
+  for i = 1, GetNumTrainerServices() do
+    local name, sub, cat = GetTrainerServiceInfo(i)
+    if cat == "available" and w[name] then buy[#buy + 1] = name .. (sub and sub ~= "" and " (" .. sub .. ")" or "") end
+  end
+  if #buy > 0 then say(T.trainerBuy:format(table.concat(buy, ", "))) end
+end
+-- le finestre di Blizzard si caricano solo quando servono: aggancio quando arrivano
+local hooked = {}
+local function hookBlizzard()
+  if not hooked.tal and talentUI() then
+    hooked.tal = true
+    _G[talentUI()]:HookScript("OnShow", talentGlow)
+    for _, fn in ipairs({ "TalentFrame_Update", "PlayerTalentFrame_Update" }) do if _G[fn] then hooksecurefunc(fn, talentGlow) end end
+  end
+  if not hooked.tr and _G.ClassTrainerFrame_Update then hooked.tr = true; hooksecurefunc("ClassTrainerFrame_Update", trainerMarks) end
+end
 
 f:RegisterEvent("ADDON_LOADED")
+f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("PLAYER_LEVEL_UP")
 f:RegisterEvent("CHARACTER_POINTS_CHANGED")
+for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW" }) do pcall(f.RegisterEvent, f, e) end
 f:SetScript("OnEvent", function(_, event, arg1)
   if event == "ADDON_LOADED" then
-    if arg1 ~= ADDON then return end
+    if arg1 ~= ADDON then hookBlizzard(); return end
     ForeverPathfinderChar = ForeverPathfinderChar or {}
-    C = ForeverPathfinderChar
+    ForeverPathfinderDB = ForeverPathfinderDB or {}
+    C, DB = ForeverPathfinderChar, ForeverPathfinderDB
     C.done = C.done or {}
+    C.opt = C.opt or {}
     C.loads = (C.loads or 0) + 1 -- /fp debug: se dopo un /reload resta 1, il gioco non rilegge i salvataggi
-    view = UnitLevel("player")
+    C.turned = C.turned or {} -- titoli delle quest consegnate
+    place(); if DB.hide then mb:Hide() end
+    hookBlizzard()
+    return
+  elseif event == "PLAYER_LOGIN" then
     say(T.loaded)
     if not guide() then say(T.unknown) end
+    scanLog()
+    return
   elseif event == "PLAYER_LEVEL_UP" then
-    view = arg1
+    viewCh = nil
+  elseif event == "QUEST_LOG_UPDATE" then
+    scanLog()
+  elseif event == "QUEST_TURNED_IN" then
+    turnedIn(arg1)
+  elseif event == "TRAINER_SHOW" then
+    hookBlizzard(); trainerSay(); return
+  elseif event == "CHARACTER_POINTS_CHANGED" then
+    talentGlow()
   end
-  if f:IsShown() then refresh() end
+  if f:IsShown() then render(event == "PLAYER_LEVEL_UP") end
+  drawMapPins()
 end)
 
 SLASH_FOREVERPATHFINDER1 = "/fp"
@@ -185,19 +775,21 @@ SLASH_FOREVERPATHFINDER2 = "/pathfinder"
 SlashCmdList.FOREVERPATHFINDER = function(msg)
   local cmd, arg = (msg or ""):lower():match("^%s*(%S*)%s*(.-)%s*$")
   if cmd == "set" then
-    if D[arg] then C.key = arg; say(D[arg].name) else say(T.unknown) end
+    if D[arg] and arg:find("-", 1, true) then C.key = arg; say(D[arg].name) else say(T.unknown) end
   elseif cmd == "auto" then
     C.key = nil
   elseif cmd == "list" then
     local keys = {}
-    for key in pairs(D) do keys[#keys + 1] = key end -- solo le combinazioni razza-classe
+    for key in pairs(D) do if key:sub(1, 1) ~= "_" then keys[#keys + 1] = key end end -- solo le combinazioni razza-classe
     table.sort(keys); say(table.concat(keys, ", ")); return
+  elseif cmd == "opzioni" or cmd == "options" or cmd == "config" then
+    open("opzioni"); return
   elseif cmd == "dungeon" or cmd == "dungeons" or cmd == "dg" then
-    -- in chat: per ogni dungeon del livello mostrato (o di quello attuale) giudizio, ingresso, quest da prendere prima
+    -- in chat: per ogni dungeon del tuo livello giudizio, ingresso, quest da prendere prima
     local g, k = guide()
     if not g then say(T.unknown); return end
-    local lv = f:IsShown() and view or UnitLevel("player")
-    local ds = dungeonsAt(k, lv)
+    local lv = UnitLevel("player")
+    local ds = dungeonsAt(g, lv)
     if #ds == 0 then say(T.dgNone:format(lv)); return end
     local cls = k:match("-(%a+)$")
     for _, d in ipairs(ds) do
@@ -209,17 +801,17 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     end
     return
   elseif cmd == "cerca" or cmd == "find" or cmd == "search" then
-    -- cerca il testo in tutte le voci della guida: le prime 8 in chat, la finestra si apre al livello della prima
-    local g = guide()
+    -- cerca il testo in tutte le voci della guida: le prime 8 in chat, il Percorso si apre sulla tappa della prima
+    local g, _, v = guide()
     if not g then say(T.unknown); return end
     local hits, seen = {}, {}
-    for _, t in ipairs(g.tasks) do
-      if arg ~= "" and not seen[t[3]] and t[3]:lower():find(arg, 1, true) then seen[t[3]] = true; hits[#hits + 1] = t end
+    for _, t in ipairs(v._tasks) do
+      if arg ~= "" and not seen[t[4]] and t[3]:lower():find(arg, 1, true) then seen[t[4]] = true; hits[#hits + 1] = t end
     end
     if #hits == 0 then say(T.notFound:format(arg)); return end
     say(T.found:format(#hits, arg))
     for i = 1, math.min(8, #hits) do DEFAULT_CHAT_FRAME:AddMessage("  |cffffd100" .. T.lv .. " " .. hits[i][1] .. "|r " .. hits[i][3]:sub(1, 140)) end
-    view = hits[1][1]; f:Show(); refresh(); return
+    tab = "livello"; f:Show(); viewCh = hits[1][2]; render(true); return
   elseif cmd == "debug" then
     -- tutto ciò che va controllato nel gioco vero, in poche righe da fotografare: versioni, token di razza e classe, talenti, salvataggi
     local meta = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
@@ -235,12 +827,15 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgGuide:format(charKey() or "?", C.key and T.dbgHand or T.dbgAuto))
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgTal:format(table.concat(tabs, "/"), UnitCharacterPoints and UnitCharacterPoints("player") or 0))
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgSave:format(C.loads, done))
+    local cs, nq = continents(), 0
+    for _ in pairs(inLog) do nq = nq + 1 end
+    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgLinks:format("k" .. tostring(cs.k) .. " e" .. tostring(cs.e) .. " z" .. tostring(cs.z),
+      (C_Map and C_Map.SetUserWaypoint) and T.yes or T.no, tostring(talentUI() or "-"), nq))
     return
   elseif cmd == "help" or cmd == "?" then
     say(T.help); return
   elseif f:IsShown() then
     f:Hide(); return
   end
-  view = UnitLevel("player")
-  f:Show(); refresh()
+  open()
 end
