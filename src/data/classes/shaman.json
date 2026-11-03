@@ -14,16 +14,16 @@
   "Mental Dexterity",
   "Mental Dexterity",
   "Mental Dexterity",
-  "Improved Ghost Wolf",
-  "Improved Ghost Wolf",
+  "Improved Lightning Shield",
+  "Improved Lightning Shield",
   "Shamanistic Focus",
   "Elemental Weapons",
   "Elemental Weapons",
   "Elemental Weapons",
   "Anticipation",
+  "Improved Ghost Wolf",
+  "Improved Ghost Wolf",
   "Stormstrike",
-  "Flurry",
-  "Flurry",
   "Flurry",
   "Flurry",
   "Improved Stormstrike",
@@ -56,17 +56,17 @@
   "Earthbound",
   "Trial by Fire",
   "Trial by Fire",
-  "Convection"
+  "Flurry"
  ],
  "buildSource": "wowforever.be (client 1.60.1.70707: Enhancement fino al 41, poi Elemental 42–60) = Warcraft Tavern (build finale 26 punti) = Mobalytics Tiqqle (10–23, 25–29). 31–60: solo wowforever.be 🟡 (Method e Tavern non danno l'ordine oltre il 30–35; Tiqqle va Resto 36–41). Differenze: 24 Ancestral Knowledge (wowforever.be) vs Anticipation (Tiqqle); 30 Spirit Weapons vs Improved Stormstrike. · Liv. 24 Anticipation e 30 Improved Stormstrike da Mobalytics Tiqqle (66 ♥, guida più votata) al posto di wowforever.be.",
  "why": {
   "Thundering Strikes": "+1% crit per Rank su melee E spell: 5% fisso dal 14 e carburante per Flurry.",
   "Mental Dexterity": "★ Attack Power = 33/66/100% del tuo Intellect: l'Intellect (gear, Incense Candle) diventa AP; sblocca Flurry.",
-  "Improved Ghost Wolf": "Ghost Wolf istantaneo e usabile al chiuso: +40% di velocità senza mount fino al 40. Method: 2/2 prima del 20.",
+  "Improved Ghost Wolf": "Ghost Wolf istantaneo e usabile al chiuso: +40% di velocità senza mount fino al 40. Method la voleva 2/2 prima del 20, ma dal 3 nov è in riga 4: qui al 25–26.",
   "Shamanistic Focus": "★ Shock e Lightning Shield costano il 45% in meno: risolve il collo di bottiglia del Mana.",
   "Elemental Weapons": "+20% all'AP di Rockbiter Weapon (la tua imbue fino al 30), poi +40% a Windfury Weapon.",
   "Ancestral Knowledge": "+2% Intellect (1 punto): riempitivo verso Stormstrike; l'Intellect conta con Mental Dexterity.",
-  "Stormstrike": "Il tuo colpo principale: attacco extra, 8 s di cooldown, +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock. Si prende al 25.",
+  "Stormstrike": "Il tuo colpo principale: attacco extra, 6 s di cooldown, +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock. Si prende al 27.",
   "Flurry": "+5% attack speed per Rank (25% al 5/5) per 3 swing dopo un crit in melee: stacka con Thundering Strikes.",
   "Spirit Weapons": "Parry e threat; per il solo leveling è un punto di passaggio (Tiqqle prende Improved Stormstrike al 30 al suo posto).",
   "Improved Stormstrike": "★ Stormstrike ti dà rigen del Mana (50% in cast per 15 s) e si resetta quando schivi o pari: sostenibilità del Mana.",
@@ -77,10 +77,11 @@
   "Elemental Devastation": "I crit con spell danno crit in melee (+9% al 3/3 per 10 s): ponte tra shock e swing.",
   "Call of Flame": "+15% a Fire Totem, Flame Shock, Fire Nova e +9 s di durata del Flame Shock (3/3).",
   "Elemental Focus": "Clearcasting: 10% di cast gratis, aiuta il Mana.",
-  "Convection": "-2% Mana per Rank su Shock/Lightning Bolt/Lava Burst/Chain Lightning (10% al 5/5).",
+  "Convection": "-2% Mana per Rank su Shock/Lightning Bolt/Chain Lightning (10% al 5/5).",
   "Earthbound": "★ Earthbind Totem immobilizza 5 s: controllo di pull e fuga.",
   "Trial by Fire": "Fire Nova +20% danno e -4 s di cooldown; Magma Totem +20 s (2/2).",
-  "Anticipation": "Dodge in più: meno danno preso, meno pause per curarti."
+  "Anticipation": "Dodge in più: meno danno preso, meno pause per curarti.",
+  "Improved Lightning Shield": "+15% danno dei globi di Lightning Shield (18–19, come wowforever.gg del 3 nov): Improved Ghost Wolf ora è in riga 4 e non si può prendere prima del 25."
  },
  "compare": [
   {
@@ -133,7 +134,7 @@
   },
   {
    "title": "Elemental",
-   "html": "<p>Tavern: più mana-hungry e senza melee come ripiego. Lava Burst è un talent (20 punti Elemental, quindi dopo il 30) e Lightning Overload è nuovo ★. Mobalytics ha una guida Elemental 1-30 di Tiqqle (10 ♥). Meno adatta al leveling in solitaria.</p>"
+   "html": "<p>Tavern: più mana-hungry e senza melee come ripiego. Lava Burst è stato tolto il 3 nov (al suo posto Call of Thunder) e Lightning Overload è nuovo ★. Mobalytics ha una guida Elemental 1-30 di Tiqqle (10 ♥). Meno adatta al leveling in solitaria.</p>"
   },
   {
    "title": "Restoration",
@@ -251,7 +252,7 @@
    20,
    "Ghost Wolf",
    "spell_nature_spiritwolf",
-   "+40% di velocità. Con Improved Ghost Wolf 2/2 è istantaneo e funziona al chiuso: il tuo \"mount\" fino al 40 (Method: il migliore dal 20 al 39)."
+   "+40% di velocità. Con Improved Ghost Wolf 2/2 (dal 26) è istantaneo e funziona al chiuso: il tuo \"mount\" fino al 40 (Method: il migliore dal 20 al 39)."
   ],
   [
    20,
@@ -291,9 +292,9 @@
   ],
   [
    22,
-   "Totemic Projection",
+   "Totemic Call",
    "ability_shaman_totemrelocation",
-   "★ Sposta i totem attivi nel punto indicato (30 yd, 1 min cooldown)."
+   "★ Riporta i totem attivi dove sei tu (30 s di cooldown). Prima si chiamava Totemic Projection."
   ],
   [
    22,
@@ -418,16 +419,16 @@
  ],
  "talentSpells": [
   [
-   19,
+   26,
    "Improved Ghost Wolf",
    "spell_nature_spiritwolf",
-   "Con 2/2 Ghost Wolf è istantaneo e usabile al chiuso (da avere prima del 20)."
+   "Con 2/2 Ghost Wolf è istantaneo e usabile al chiuso (dal 3 nov in riga 4: al 25–26)."
   ],
   [
-   25,
+   27,
    "Stormstrike",
    "ability_shaman_stormstrike",
-   "Instant, melee, 8 s di cooldown, costo 8% del Mana base: +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock per 12 s."
+   "Instant, melee, 6 s di cooldown, costo 8% del Mana base: +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock per 12 s."
   ],
   [
    31,
@@ -524,7 +525,7 @@
    "seq": [
     [
      "ability_shaman_stormstrike",
-     "Stormstrike (8 s)"
+     "Stormstrike (6 s)"
     ],
     [
      "spell_nature_earthshock",
@@ -539,7 +540,7 @@
      "Searing Totem"
     ]
    ],
-   "text": "Stormstrike a ogni cooldown, poi Earth Shock (o Lightning Bolt) con il +20%. Mantieni Flame Shock e Searing Totem. Flurry (26–29) accelera i colpi dopo un crit. Al 30 passi a Windfury Weapon e a un 2H (Method); Improved Stormstrike dal 31 per il Mana."
+   "text": "Stormstrike a ogni cooldown, poi Earth Shock (o Lightning Bolt) con il +20%. Mantieni Flame Shock e Searing Totem. Flurry (28–29) accelera i colpi dopo un crit. Al 30 passi a Windfury Weapon e a un 2H (Method); Improved Stormstrike dal 31 per il Mana."
   },
   {
    "title": "Pull multipli / AoE",
@@ -597,7 +598,7 @@
   },
   {
    "title": "Rotation Elemental (alternativa)",
-   "html": "<ul><li>Lightning Shield, Searing Totem/Magma Totem, Mana Spring Totem.</li><li>Lava Burst per pullare e Flame Shock subito dopo (crit garantito, Tavern).</li><li>Lightning Bolt come filler.</li></ul><p>Tavern: problemi di Mana più gravi e bilanciamento ancora in flusso.</p>"
+   "html": "<ul><li>Lightning Shield, Searing Totem/Magma Totem, Mana Spring Totem.</li><li>Lightning Bolt come filler.</li></ul><p>Tavern: problemi di Mana più gravi e bilanciamento ancora in flusso.</p>"
   }
  ],
  "milestones": [
@@ -882,14 +883,15 @@
  },
  "forever": [
   "★ Shaman Alleanza: solo Dwarf; trainer nuovi Teo Hammerstorm, Ingrid Dunwald, Eldrun Stormbreaker (wowforever.be, wmd.json ✔).",
-  "★ Nuovi talent Enhancement: Mental Dexterity, Shamanistic Focus, Mental Quickness, Improved Stormstrike, Maelstrom Weapon, Rage of the Farseer; Elemental: Lava Burst, Lightning Overload, Earthbound; Resto: Water Shield, Riptide, Mindfulness (client wowforever.be).",
+  "★ Nuovi talent Enhancement: Mental Dexterity, Shamanistic Focus, Mental Quickness, Improved Stormstrike, Maelstrom Weapon, Rage of the Farseer; Elemental: Lightning Overload, Earthbound (Lava Burst tolto il 3 nov, torna Call of Thunder); Resto: Water Shield, Riptide, Mindfulness (client wowforever.be).",
   "★ Stormstrike è un talent al 25 (Tavern); Rage of the Farseer è il \"Bloodlust\" personale al 40 (Method).",
-  "★ Totem twisting rimosso; arrivano Call of the Elements, Call of the Ancestors, Totemic Recall, Totemic Projection e Astral Recall con cooldown di 15 min (Tavern).",
+  "★ Totem twisting rimosso; arrivano Call of the Elements, Call of the Ancestors, Totemic Recall, Totemic Projection (dal 3 nov Totemic Call) e Astral Recall con cooldown di 15 min (Tavern).",
   "★ Improved Ghost Wolf: Ghost Wolf istantaneo e usabile al chiuso (Method, Tavern).",
   "★ Enhancement solo 2H, niente dual wield (wowforever.be, Skidrow).",
   "★ Talent: 51 punti da livello 10, traguardi a 11/21/31 punti, uno nuovo a 16; respec dal Trainer di una capitale; Dual Spec al 40 (wowforever.be).",
   "Racial 26–27 ott (Blizzard via Warcraft Tavern): Dwarf Artisan's Precision, Orc senza Axe Spec/Savage, Troll Berserking 15 s, Orc Blood Fury 2 min.",
-  "Tavern: le build sono pensate per la Beta cap 30; le build 60 arriveranno al lancio. Dati pre-lancio."
+  "Tavern: le build sono pensate per la Beta cap 30; le build 60 arriveranno al lancio. Dati pre-lancio.",
+  "★ Al lancio (note Blizzard del 3 nov): Earth Shock, Flame Shock e Frost Shock tornano ai danni di Classic; Lightning Bolt fa più danno; Stormstrike 150% del danno dell'arma e 6 s di cooldown; Maelstrom Weapon si attiva il doppio; Mental Dexterity fino al 150% dell'Intellect in Attack Power; Riptide solo cura nel tempo, 12 s di cooldown."
  ],
  "sources": [
   {
@@ -1071,7 +1073,8 @@
   "Ricompense (Earth/Fire/Water/Air Totem) dalla vecchia versione, non confermate dai tooltip.",
   "Call of Fire Dwarf: il ritorno della torcia accesa a Bruegs non è confermato dai tooltip.",
   "Call of Earth lvl 10 Dwarf (quest 96243, Find Teo Hammerstorm in Dun Morogh, da Eldrun Stormbreaker o Ingrid Dunwald): non chiaro se fa parte della catena. Non inserito.",
-  "Il vecchio testo Call of Fire Dwarf elencava il Searing Totem come ricompensa: non verificato, non inserito."
+  "Il vecchio testo Call of Fire Dwarf elencava il Searing Totem come ricompensa: non verificato, non inserito.",
+  "🟡 3 nov: Improved Ghost Wolf è passato in riga 4 (servono 15 punti). Al 18–19 c'è Improved Lightning Shield 2/3 (come wowforever.gg del 3 nov), Improved Ghost Wolf al 25–26, Stormstrike al 27; Flurry arriva a 4/5 (l'ultimo punto al 60). Scelta mia."
  ],
  "builds": [
   {
@@ -1151,16 +1154,16 @@
    "name": "Elemental (caster)",
    "spec": "Elemental",
    "icon": "spell_nature_lightning",
-   "when": "Se preferisci stare a distanza con spell e Lava Burst: più lenta e con più mana da gestire (Tavern).",
+   "when": "Se preferisci stare a distanza con le spell: più lenta e con più mana da gestire (Tavern).",
    "pros": [
-    "Lava Burst e Flame Shock con crit garantito (Tavern)",
+    "Lightning Bolt e Shock fanno molto più danno al lancio (note Blizzard, 3 nov)",
     "Lightning Overload ed Elemental Fury aumentano il danno delle spell",
     "Nessun melee da gestire"
    ],
    "cons": [
     "Mana: i problemi sono più gravi che in Enhancement (Tavern)",
     "Proc irregolari",
-    "Lava Burst solo dal 30"
+    "Lava Burst tolto il 3 nov: al 30 c'è Call of Thunder (+5% crit)"
    ],
    "ratings": {
     "speed": [
@@ -1170,7 +1173,7 @@
     ],
     "ease": [
      2,
-     "Tavern: Enhancement è il percorso più facile; Elemental richiede timing di Lava Burst e Flame Shock.",
+     "Tavern: Enhancement è il percorso più facile (Elemental chiedeva il timing di Lava Burst, tolto il 3 nov).",
      "Warcraft Tavern"
     ],
     "survival": [
@@ -1210,7 +1213,7 @@
     "Eye of the Storm",
     "Eye of the Storm",
     "Eye of the Storm",
-    "Lava Burst",
+    "Call of Thunder",
     "Lightning Overload",
     "Lightning Overload",
     "Lightning Overload",
@@ -1234,25 +1237,25 @@
        "Searing Totem"
       ]
      ],
-     "text": "Prima del 30 non c'è Lava Burst: pulla con Lightning Bolt, Flame Shock e Searing Totem. Lightning Shield sempre attivo (Tavern)."
+     "text": "Pulla con Lightning Bolt, Flame Shock e Searing Totem. Lightning Shield sempre attivo (Tavern)."
     },
     {
-     "title": "30+ · Lava Burst",
+     "title": "30+ · Call of Thunder",
      "seq": [
       [
-       "spell_fire_fireball02",
-       "Lava Burst"
+       "spell_nature_lightning",
+       "Lightning Bolt"
       ],
       [
        "spell_fire_flameshock",
        "Flame Shock"
       ],
       [
-       "spell_nature_lightning",
-       "Lightning Bolt"
+       "spell_fire_searingtotem",
+       "Searing Totem"
       ]
      ],
-     "text": "Lava Burst per pullare, Flame Shock subito dopo per il crit garantito, Lightning Bolt come filler (Tavern)."
+     "text": "Lava Burst non c'è più (3 nov): al 30 prendi Call of Thunder (+5% crit a Lightning Bolt e Chain Lightning). Pulla con Lightning Bolt, Flame Shock e Searing Totem; Lightning Bolt come filler."
     }
    ],
    "sources": [
@@ -1398,6 +1401,7 @@
   "Elemental (B) e Restoration (C): ordine decodificato dall'hash del talent calculator di Warcraft Tavern (pick in ordine di livello, 10–35). La guida è costruita per la beta fino al 30 più 5 punti Legacy: dal 36 in poi nessun ordine.",
   "Enhancement (A): 24 Anticipation e 30 Improved Stormstrike (Tiqqle) invece di Ancestral Knowledge e Spirit Weapons del client, come già segnalato.",
   "Stat priority in conflitto: Method (Agility > Strength > Stamina > Intellect) e Tavern (Hit/Expertise > Strength > Intellect > Crit) divergono.",
-  "Icy Veins (Enhancement) bloccata da Cloudflare; Mobalytics Tiqqle non letta direttamente, solo come riportato dalla guida precedente."
+  "Icy Veins (Enhancement) bloccata da Cloudflare; Mobalytics Tiqqle non letta direttamente, solo come riportato dalla guida precedente.",
+  "🟡 Build B, 3 nov: Lava Burst (30) è stato tolto dal gioco; al suo posto Call of Thunder, come la build Elemental di wowforever.gg del 3 nov."
  ]
 }

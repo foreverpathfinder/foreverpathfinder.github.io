@@ -896,7 +896,7 @@
      "levels": "15–18",
      "town": "Undercity",
      "zoneIcon": "achievement_zone_tirisfalglades_01",
-     "text": "Flight Path di Michael Garrett. Ingresso alle Ruins of Lordaeron fuori dal portone di Undercity (circa 72.4 11.6). Quest: Light's Justice (Morbin Lightbane), The Wrath of Rath'mael (Deathguard Kristof) e Unending Torment (Faranell). (quest di livello 21–22) 🟡",
+     "text": "Flight Path di Michael Garrett. Ingresso alle Ruins of Lordaeron fuori dal portone di Undercity (circa 72.4 11.6). Quest: Light's Justice (Morbin Lightbane), The Wrath of Rath'mael (Deathguard Kristof) e Unending Torment (Faranell). (quest di livello 21–22, si prendono dal 15) 🟡",
      "fp": "Undercity (Michael Garrett)"
     },
     {
@@ -965,7 +965,7 @@
     },
     {
      "l": 15,
-     "t": "<b>Ruins of Lordaeron</b> (liv. 15–20): Light's Justice (Morbin Lightbane) e The Wrath of Rath'mael (Deathguard Kristof). (quest di livello 21–22) 🟡",
+     "t": "<b>Ruins of Lordaeron</b> (liv. 15–20): Light's Justice (Morbin Lightbane) e The Wrath of Rath'mael (Deathguard Kristof). (quest di livello 21–22, si prendono dal 15) 🟡",
      "npc": [
       "Morbin Lightbane",
       "Deathguard Kristof"

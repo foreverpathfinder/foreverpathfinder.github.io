@@ -1,7 +1,8 @@
 {
  "cls": "druid",
- "src": "https://wowforever.be/leveling/druid/",
- "fetched": "2026-11-01",
+ "src": "https://foreverchanges.pro/talents/druid",
+ "fetched": "2026-11-03",
+ "wfSame": true,
  "trees": [
   {
    "key": "balance",
@@ -113,7 +114,7 @@
      "col": 3,
      "max": 1,
      "needs": 10,
-     "req": "",
+     "req": "nature-s-majesty",
      "flag": "New in Forever",
      "cost": "",
      "r1": "Increases the duration of your Moonfire and Rejuvenation spells by 3 sec, your Regrowth spell by 6 sec, and your Insect Swarm spell by 2 sec.",
@@ -201,7 +202,7 @@
      "flag": "New in Forever",
      "cost": "",
      "r1": "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.17 sec. Stores up to 4 charges. Lasts 15 sec.",
-     "rmax": "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.5 sec. Stores up to 4 charges. Lasts 15 sec."
+     "rmax": "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.50 sec. Stores up to 4 charges. Lasts 15 sec."
     },
     "moonfury": {
      "index": 14,
@@ -228,8 +229,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "35% of base mana · Instant",
-     "r1": "Shapeshift into Moonkin Form, increasing Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells. The act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
-     "rmax": "Shapeshift into Moonkin Form, increasing Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells. The act of shapeshifting frees the caster of Polymorph and Movement Impairing effects."
+     "r1": "Shapeshift into Moonkin Form, increasing Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+     "rmax": "Shapeshift into Moonkin Form, increasing Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects."
     }
    }
   },
@@ -318,8 +319,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "While in Bear Form, Cat Form, Dire Bear Form, or Moonkin Form, you gain 1 additional base Armor per level and another 0.67 base Armor for each point of defense skill beyond five times your level. This amount can be further increased by multipliers from those forms.",
-     "rmax": "While in Bear Form, Cat Form, Dire Bear Form, or Moonkin Form, you gain 3 additional base Armor per level and another 2 base Armor for each point of defense skill beyond five times your level. This amount can be further increased by multipliers from those forms."
+     "r1": "While in Bear Form, Cat Form, Dire Bear Form, or Moonkin Form, you gain 178 additional base Armor per level and another 0.67 base Armor for each point of defense skill beyond five times your level. This amount can be further increased by multipliers from those forms.",
+     "rmax": "While in Bear Form, Cat Form, Dire Bear Form, or Moonkin Form, you gain 180 additional base Armor per level and another 2.00 base Armor for each point of defense skill beyond five times your level. This amount can be further increased by multipliers from those forms."
     },
     "shredding-attacks": {
      "index": 6,
@@ -360,8 +361,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "5 Rage · 25 yd range · Instant · 15 sec cooldown",
-     "r1": "Requires Bear Form, Dire Bear Form. Charge an enemy, immobilizing them and interrupting any spell they are casting for 4 sec. Leap behind an enemy.",
-     "rmax": "Requires Bear Form, Dire Bear Form. Charge an enemy, immobilizing them and interrupting any spell they are casting for 4 sec. Leap behind an enemy."
+     "r1": "Requires Bear Form, Dire Bear Form\nCharge an enemy, immobilizing them and interrupting any spell they are casting for 4 sec.\n\nLeap behind an enemy.",
+     "rmax": "Requires Bear Form, Dire Bear Form\nCharge an enemy, immobilizing them and interrupting any spell they are casting for 4 sec.\n\nLeap behind an enemy."
     },
     "sharpened-claws": {
      "index": 9,
@@ -401,7 +402,7 @@
      "needs": 15,
      "req": "savage-fury",
      "flag": "New in Forever",
-     "cost": "15 Rage · Melee Range · Instant",
+     "cost": "15 Rage · Melee range · Instant",
      "r1": "Lacerates the enemy target, making them bleed for 20 damage over 15 sec plus 10% weapon damage per existing application of Lacerate on the target. Causes a high amount of threat. This effect stacks up to 5 times on the same target.",
      "rmax": "Lacerates the enemy target, making them bleed for 20 damage over 15 sec plus 10% weapon damage per existing application of Lacerate on the target. Causes a high amount of threat. This effect stacks up to 5 times on the same target."
     },
@@ -472,8 +473,8 @@
      "req": "predatory-strikes",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Increases damage done by your melee abilities on Bleeding targets by 2%.",
-     "rmax": "Increases damage done by your melee abilities on Bleeding targets by 10%."
+     "r1": "Increases damage done by your melee abilities on Bleeding targets by 3%.",
+     "rmax": "Increases damage done by your melee abilities on Bleeding targets by 15%."
     },
     "natural-reaction": {
      "index": 17,
@@ -499,7 +500,7 @@
      "needs": 30,
      "req": "leader-of-the-pack",
      "flag": "New in Forever",
-     "cost": "20 Rage · Melee Range · Instant · 6 sec cooldown",
+     "cost": "20 Rage · Melee range · Instant · 6 sec cooldown",
      "r1": "Bite the target, dealing 100% normal damage plus 42 and generating a high amount of threat.",
      "rmax": "Bite the target, dealing 100% normal damage plus 42 and generating a high amount of threat."
     },
@@ -514,10 +515,34 @@
      "req": "predatory-discipline",
      "flag": "New in Forever",
      "cost": "55% of base mana · Instant · 8 sec cooldown",
-     "r1": "Instantly convert 55% of Base Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting.",
-     "rmax": "Instantly convert 55% of Base Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting."
+     "r1": "Instantly convert 55% of base Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting.",
+     "rmax": "Instantly convert 55% of base Mana into 40 Energy. Shifting Power's cost is reduced by effects that reduce the cost of Shapeshifting."
     }
-   }
+   },
+   "link": [
+    "ferocity",
+    "furor",
+    "feral-swiftness",
+    "feral-instinct",
+    "brutal-impact",
+    "thick-hide",
+    "savage-fury",
+    "feral-charge",
+    "sharpened-claws",
+    "shredding-attacks",
+    "primal-bite",
+    "predatory-strikes",
+    "blood-frenzy",
+    "natural-instinct",
+    "leader-of-the-pack",
+    "shifting-power",
+    "natural-reaction",
+    "rend-and-tear",
+    "",
+    "",
+    "lacerate",
+    "predatory-discipline"
+   ]
   },
   {
    "key": "restoration",
@@ -588,7 +613,7 @@
      "max": 3,
      "needs": 5,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Reduces the mana cost of all shapeshifting by 10%.",
      "rmax": "Reduces the mana cost of all shapeshifting by 30%."
@@ -658,7 +683,7 @@
      "max": 3,
      "needs": 15,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the effect of your Rejuvenation spell by 5%.",
      "rmax": "Increases the effect of your Rejuvenation spell by 15%."
@@ -728,7 +753,7 @@
      "max": 5,
      "needs": 25,
      "req": "improved-rejuvenation",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the critical effect chance of your Regrowth spell by 10%.",
      "rmax": "Increases the critical effect chance of your Regrowth spell by 50%."
@@ -747,7 +772,25 @@
      "r1": "Heals the target and their party for 336 over 7 sec. Party members must be within 43.5 yards of target. The amount healed is applied quickly at first, and slows down as Wild Growth reaches its full duration.",
      "rmax": "Heals the target and their party for 336 over 7 sec. Party members must be within 43.5 yards of target. The amount healed is applied quickly at first, and slows down as Wild Growth reaches its full duration."
     }
-   }
+   },
+   "link": [
+    "nature-s-focus",
+    "heart-of-the-wild",
+    "naturalist",
+    "subtlety",
+    "natural-shapeshifter",
+    "reflection",
+    "gift-of-nature",
+    "bloom",
+    "tranquil-spirit",
+    "improved-rejuvenation",
+    "swiftmend",
+    "nature-s-swiftness",
+    "living-spirit",
+    "improved-tranquility",
+    "improved-regrowth",
+    "wild-growth"
+   ]
   }
  ],
  "order": [

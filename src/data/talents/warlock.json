@@ -1,7 +1,8 @@
 {
  "cls": "warlock",
- "src": "https://wowforever.be/leveling/warlock/",
- "fetched": "2026-11-01",
+ "src": "https://foreverchanges.pro/talents/warlock",
+ "fetched": "2026-11-03",
+ "wfSame": true,
  "trees": [
   {
    "key": "affliction",
@@ -16,7 +17,7 @@
      "max": 2,
      "needs": 0,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the amount of Mana awarded by your Life Tap spell by 10%.",
      "rmax": "Increases the amount of Mana awarded by your Life Tap spell by 20%."
@@ -58,7 +59,7 @@
      "max": 2,
      "needs": 5,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the range of your Affliction spells by 10%.",
      "rmax": "Increases the range of your Affliction spells by 20%."
@@ -226,7 +227,7 @@
      "max": 5,
      "needs": 25,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the damage dealt or life drained by your Shadow spells by 2%.",
      "rmax": "Increases the damage dealt or life drained by your Shadow spells by 10%."
@@ -241,9 +242,9 @@
      "needs": 30,
      "req": "siphon-life",
      "flag": "New in Forever",
-     "cost": "200 Mana · 30 yd range · Instant",
-     "r1": "Tears the target apart from within, inflicting 36 Shadow damage every 1 sec and increasing the damage they take from your other Shadow damage over time effects by 10% for 6 sec.",
-     "rmax": "Tears the target apart from within, inflicting 36 Shadow damage every 1 sec and increasing the damage they take from your other Shadow damage over time effects by 10% for 6 sec."
+     "cost": "200 Mana · 30 yd range · Channeled",
+     "r1": "Tears the target apart from within, inflicting 86 Shadow damage every 1 sec and increasing the damage they take from your other Shadow damage over time effects by 10% for 6 sec.",
+     "rmax": "Tears the target apart from within, inflicting 86 Shadow damage every 1 sec and increasing the damage they take from your other Shadow damage over time effects by 10% for 6 sec."
     }
    }
   },
@@ -330,7 +331,7 @@
      "max": 3,
      "needs": 5,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "",
      "cost": "",
      "r1": "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 10%.",
      "rmax": "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 30%."
@@ -388,8 +389,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "100 yd range · Instant",
-     "r1": "When activated, sacrifices your summoned Demon to enhance the opposing aspect of your power, granting you an effect that lasts 2 hrs. The effect is canceled if any Demon is summoned. Imp: Increases your Shadow damage by 15%. Voidwalker: Restores 2% of your total Mana every 4 sec. Succubus/Incubus: Increases your Fire damage by 15%. Felhunter: Restores 3% of your total Health every 4 sec.",
-     "rmax": "When activated, sacrifices your summoned Demon to enhance the opposing aspect of your power, granting you an effect that lasts 2 hrs. The effect is canceled if any Demon is summoned. Imp: Increases your Shadow damage by 15%. Voidwalker: Restores 2% of your total Mana every 4 sec. Succubus/Incubus: Increases your Fire damage by 15%. Felhunter: Restores 3% of your total Health every 4 sec."
+     "r1": "When activated, sacrifices your summoned Demon to enhance the opposing aspect of your power, granting you an effect that lasts 2 hr. The effect is canceled if any Demon is summoned.\n\nImp: Increases your Shadow damage by 15%.\n\nVoidwalker: Restores 2% of your total Mana every 4 sec.\n\nSuccubus/Incubus: Increases your Fire damage by 15%.\n\nFelhunter: Restores 3% of your total Health every 4 sec.",
+     "rmax": "When activated, sacrifices your summoned Demon to enhance the opposing aspect of your power, granting you an effect that lasts 2 hr. The effect is canceled if any Demon is summoned.\n\nImp: Increases your Shadow damage by 15%.\n\nVoidwalker: Restores 2% of your total Mana every 4 sec.\n\nSuccubus/Incubus: Increases your Fire damage by 15%.\n\nFelhunter: Restores 3% of your total Health every 4 sec."
     },
     "master-summoner": {
      "index": 10,
@@ -400,7 +401,7 @@
      "max": 2,
      "needs": 10,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Reduces the casting time of your Imp, Voidwalker, Succubus, Incubus, and Felhunter Summoning spells by 2 sec and the Mana cost by 20%.",
      "rmax": "Reduces the casting time of your Imp, Voidwalker, Succubus, Incubus, and Felhunter Summoning spells by 4 sec and the Mana cost by 40%."
@@ -428,7 +429,7 @@
      "max": 1,
      "needs": 15,
      "req": "master-summoner",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "Instant · 5 min cooldown",
      "r1": "Your next Imp, Voidwalker, Succubus, Incubus, or Felhunter Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%.",
      "rmax": "Your next Imp, Voidwalker, Succubus, Incubus, or Felhunter Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%."
@@ -444,8 +445,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Your Searing Pain generates 17% less threat and brands the target for 10 sec. Your pet's next 2 attacks against the target deal (65 + 7.8% of the higher of Fire and Shadow Spell Power) to (68 + 7.8% of the higher of Fire and Shadow Spell Power) Fire or Shadow damage based on the pet. If Shadow damage is dealt, it has high threat.",
-     "rmax": "Your Searing Pain generates 50% less threat and brands the target for 10 sec. Your pet's next 6 attacks against the target deal (65 + 7.8% of the higher of Fire and Shadow Spell Power) to (68 + 7.8% of the higher of Fire and Shadow Spell Power) Fire or Shadow damage based on the pet. If Shadow damage is dealt, it has high threat."
+     "r1": "Your Searing Pain generates 17% less threat and brands the target for 10 sec. Your pet's next 2 attacks against the target deal 1 to 1 Fire or Shadow damage based on the pet. If Shadow damage is dealt, it has high threat.",
+     "rmax": "Your Searing Pain generates 50% less threat and brands the target for 10 sec. Your pet's next 6 attacks against the target deal 1 to 1 Fire or Shadow damage based on the pet. If Shadow damage is dealt, it has high threat."
     },
     "improved-felhunter": {
      "index": 14,
@@ -500,8 +501,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Grants both the Warlock and the summoned demon an effect as long as that demon is active. Imp - Increases Fire damage done by 2%. Voidwalker - Reduces Physical damage taken by 2%. Succubus/Incubus - Increases Shadow damage done by 2%. Felhunter - Reduces Magic damage taken by 2%.",
-     "rmax": "Grants both the Warlock and the summoned demon an effect as long as that demon is active. Imp - Increases Fire damage done by 10%. Voidwalker - Reduces Physical damage taken by 10%. Succubus/Incubus - Increases Shadow damage done by 10%. Felhunter - Reduces Magic damage taken by 10%."
+     "r1": "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 2%.\n\nVoidwalker - Reduces Physical damage taken by 2%.\n\nSuccubus/Incubus - Increases Shadow damage done by 2%.\n\nFelhunter - Reduces Magic damage taken by 2%.",
+     "rmax": "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 10%.\n\nVoidwalker - Reduces Physical damage taken by 10%.\n\nSuccubus/Incubus - Increases Shadow damage done by 10%.\n\nFelhunter - Reduces Magic damage taken by 10%."
     },
     "demonic-pact": {
      "index": 18,
@@ -532,7 +533,7 @@
      "max": 2,
      "needs": 0,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the range of your Destruction spells by 10%.",
      "rmax": "Increases the range of your Destruction spells by 20%."
@@ -674,8 +675,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "100 Mana · 30 yd range · Instant · 10 sec cooldown",
-     "r1": "Ignites a target that is already afflicted by your Immolate spell, dealing 87 to 112 Fire damage and consuming your Immolate effect.",
-     "rmax": "Ignites a target that is already afflicted by your Immolate spell, dealing 87 to 112 Fire damage and consuming your Immolate effect."
+     "r1": "Ignites a target that is already afflicted by your Immolate spell, dealing 88 to 111 Fire damage and consuming your Immolate effect.",
+     "rmax": "Ignites a target that is already afflicted by your Immolate spell, dealing 88 to 111 Fire damage and consuming your Immolate effect."
     },
     "pyroclasm": {
      "index": 11,
@@ -730,8 +731,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 2% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 2% for 20 sec. In addition, Conflagrate has a 20% chance not to consume Immolate, and Shadowburn has a 20% chance to instantly refund a Soul Shard.",
-     "rmax": "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 10% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 10% for 20 sec. In addition, Conflagrate has a 100% chance not to consume Immolate, and Shadowburn has a 100% chance to instantly refund a Soul Shard."
+     "r1": "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 4% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 4% for 20 sec. In addition, Conflagrate has a 20% chance not to consume Immolate, and Shadowburn has a 20% chance to instantly refund a Soul Shard.",
+     "rmax": "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 20% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 20% for 20 sec. In addition, Conflagrate has a 100% chance not to consume Immolate, and Shadowburn has a 100% chance to instantly refund a Soul Shard."
     },
     "incinerate": {
      "index": 15,
@@ -744,8 +745,8 @@
      "req": "bane-of-havoc",
      "flag": "New in Forever",
      "cost": "205 Mana · 30 yd range · 2.5 sec cast",
-     "r1": "Deals 99 to 115 Fire damage to your target and an additional 25% damage if the target is afflicted by Immolate.",
-     "rmax": "Deals 99 to 115 Fire damage to your target and an additional 25% damage if the target is afflicted by Immolate."
+     "r1": "Deals 100 to 114 Fire damage to your target and an additional 25% damage if the target is afflicted by Immolate.",
+     "rmax": "Deals 100 to 114 Fire damage to your target and an additional 25% damage if the target is afflicted by Immolate."
     }
    }
   }

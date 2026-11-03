@@ -57,6 +57,8 @@ for (const [k, cl] of dir('classes')) {
       if (ranks[t.key] > t.n.max) W(`${ctx}: "${nm}" oltre il rank massimo al liv. ${10 + i}`);
       const spent = build.filter(b => b.split('/')[0] === t.key.split('/')[0]).length;
       if (spent < t.n.needs) W(`${ctx}: "${nm}" al liv. ${10 + i} richiede ${t.n.needs} punti nell'albero (ne hai ${spent})`);
+      const rq = t.n.req && wf.trees[t.ti].nodes[t.n.req], rk = t.key.split('/')[0] + '/' + t.n.req;
+      if (rq && (ranks[rk] || 0) < rq.max) W(`${ctx}: "${nm}" al liv. ${10 + i} richiede ${rq.name} ${rq.max}/${rq.max} (ne hai ${ranks[rk] || 0})`);
       used[t.key] = [t.n.name, t.n.icon, t.n.max, t.n.rmax, t.n.flag];
       build.push(t.key);
     });
@@ -71,7 +73,9 @@ for (const [k, cl] of dir('classes')) {
     if (i && o.build.length && o.build.length < MAXL - 9) W(`${k} build ${o.id}: ordine corto (${o.build.length} punti)`);
     return o;
   });
-  talents[k] = { trees: wf.trees.map(t => [t.key, t.name, Object.entries(t.nodes).sort((a, b) => a[1].index - b[1].index).map(e => e[0])]), n: used };
+  talents[k] = { trees: wf.trees.map(t => [t.key, t.name, Object.entries(t.nodes).sort((a, b) => a[1].index - b[1].index).map(e => e[0])]), n: used,
+    // albero diverso da quello di wowforever.be → niente iframe, link al calcolatore di foreverchanges (ordine dei nodi suo)
+    ...(wf.wfSame === false ? { fc: wf.trees.map(t => t.link || null) } : {}) };
   const src = s => Array.isArray(s) ? s : [s.name + (s.author && !s.name.includes(s.author) ? ' (' + s.author + ')' : ''), s.url, [s.date, s.signal].filter(Boolean).join(' · '), s.used];
   const chips = (cl.chips || cl.talentSpells.filter(x => x[0] <= MAXL && !/non in build/i.test(x[1])).slice(0, 2).map(x => [x[2], x[1].replace(/ \(talent\)/i, '') + ' al ' + x[0]]));
   const races = {}; Object.entries(cl.races || {}).forEach(([rk, v]) => { const n = rk.toLowerCase().replace(/[^a-z_]/g, '').replace(/^skyborne_?(alliance|a)$/, 'skyborne_a').replace(/^skyborne_?(horde|h)$/, 'skyborne_h'); if (n === 'skyborne') { races.skyborne_a = races.skyborne_h = v; } else races[n] = v; });

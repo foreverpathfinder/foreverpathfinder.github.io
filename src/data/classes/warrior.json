@@ -50,8 +50,8 @@
   "Improved Tactical Mastery",
   "Improved Tactical Mastery",
   "Improved Tactical Mastery",
-  "Improved Tactical Mastery",
-  "Improved Tactical Mastery",
+  "Improved Overpower",
+  "Improved Overpower",
   "Anger Management",
   "Improved Sunder Armor",
   "Improved Charge",
@@ -77,7 +77,8 @@
   "Improved Tactical Mastery": "Fino a 25 Rage mantenuti nei cambi di Stance (10 base + 15): stance dance meno costosa.",
   "Anger Management": "★ 1 Rage ogni 3 s in combat e -30% Rage persa fuori combat.",
   "Improved Charge": "+6 Rage da Charge (2/2): apertura pull più ricca.",
-  "Unbridled Wrath": "60% di avere 1 Rage in più per colpo con arma (5 punti): Rage extra da auto-attack."
+  "Unbridled Wrath": "60% di avere 1 Rage in più per colpo con arma (5 punti): Rage extra da auto-attack.",
+  "Improved Overpower": "+50% crit su Overpower (54–55): ponte verso Anger Management, come la build Protection di wowforever.gg (3 nov)."
  },
  "compare": [
   {
@@ -646,10 +647,11 @@
   "★ Protection: Shield Specialization dà 5 Rage per Block e 100% di chance; Master of Defense, Vanguard e Focused Rage sono nuovi; Bastion +10% danni con scudo; Shield Block blocca 2 attacchi per 7 s (Kami 30 set).",
   "★ Dal 24 set Bastion e Focused Rage si sono scambiati di riga; dall'1 ott Iron Will, Anticipation e Improved Bloodrage sono nelle prime due righe e Toughness è stato rimosso (note Blizzard).",
   "★ Tactical Mastery e Victory Rush (20) sono spell base; Berserker Rage al 30 (era 32); Slam al 20; Battle Shout raid-wide dal 15 ott (Blizzard / wowforever.be).",
-  "★ Nuovi talent Arms: Spearing Strike (dall'1 ott niente 2H, richiede Battle Stance), Bloodthrill (4–20%, solo Main Hand), Weaponmaster; Fury: Lingering Rage, Furious Precision, Raging Blows, Gore Drinker (1 ott).",
+  "★ Nuovi talent Arms: Spearing Strike (dall'1 ott niente 2H, richiede Battle Stance), Bloodthrill (dal 3 nov 2 rank, 10–20%, solo Main Hand), Weaponmaster; Fury: Lingering Rage, Furious Precision, Gore Drinker (1 ott), Reckless Swings e Improved Whirlwind (3 nov, al posto di Raging Blows).",
   "★ 8 ott: Rage per quest warrior ribilanciata (circa 20–40% per livello); Demoralizing Shout genera threat; 16 ott: Overpower funziona su mob molto più bassi, Slam non subisce pushback.",
   "★ Dual Talent Specialization al livello 40 (wowforever.be, Warcraft Tavern). Zephras Isle ha nuovi Warrior Trainer (Warcraft Tavern).",
-  "🟡 Hotfix server del 30 ott (216 talent/spell toccati, aggregatore non verificato): impossibile sapere se riguardano il Warrior; ricontrolla i tooltip in gioco."
+  "🟡 Hotfix server del 30 ott (216 talent/spell toccati, aggregatore non verificato): impossibile sapere se riguardano il Warrior; ricontrolla i tooltip in gioco.",
+  "★ Al lancio (note Blizzard del 3 nov): Defensive Stance +80% di threat (era 30%), Defiance fino al 20%, Two-Handed Weapon Specialization 2/4/6%, Slam 15 s di cooldown; Improved Tactical Mastery ora 3 rank (5/10/15 Rage), Flurry 3 rank e senza Death Wish, Bloodthirst richiede Death Wish, Enrage in riga 3."
  ],
  "sources": [
   {
@@ -785,7 +787,8 @@
   "🟡 Il nome 'A Warrior's Training' / 'Path of Defense' è l'indice; il fatto che la quest dia Defensive Stance viene dalle fonti di classe, non riletto.",
   "🟡 Mapping NPC per razza per il 10: indice dà Lyria Du Lac e Ilsa Corbin (A) e Uzzek (H), ma non lega ogni NPC a una razza.",
   "🟡 Quest armatura/arma al 20 (Brutal Hauberk, Fire Hardened Hauberk, Welding Shield): nessuna trovata nell'indice Forever. Non inserite come quest finché non confermate in gioco.",
-  "🟡 Whirlwind Axe: l'indice dà The Summoning a livello 40, non 30 come nel JSON precedente."
+  "🟡 Whirlwind Axe: l'indice dà The Summoning a livello 40, non 30 come nel JSON precedente.",
+  "🟡 3 nov: Improved Tactical Mastery ha 3 rank invece di 5; i 2 punti liberati al 54–55 vanno su Improved Overpower (come la build Protection di wowforever.gg). Scelta mia."
  ],
  "builds": [
   {
@@ -924,19 +927,19 @@
     "Improved Tactical Mastery",
     "Improved Tactical Mastery",
     "Improved Tactical Mastery",
-    "Improved Tactical Mastery",
-    "Improved Tactical Mastery",
+    "Anger Management",
     "Improved Overpower",
     "Improved Overpower",
     "Deep Wounds",
     "Deep Wounds",
     "Deep Wounds",
+    "Two-Handed Weapon Specialization",
     "Sweeping Strikes",
     "Bloodthrill",
     "Bloodthrill",
-    "Bloodthrill",
-    "Bloodthrill",
-    "Bloodthrill",
+    "Two-Handed Weapon Specialization",
+    "Two-Handed Weapon Specialization",
+    "Impale",
     "Improved Slam",
     "Improved Slam",
     "Weaponmaster",
@@ -1018,6 +1021,7 @@
   "Icy Veins (pagina Arms) risponde 403: l'ordine Arms non è stato letto direttamente.",
   "Mobalytics Ahlaundoh (48 ♥) non ha URL registrato: fonte citata dal testo dei dati esistenti in classes/warrior.json.",
   "Il file mobalytics.md indicato nel brief non esiste nella cartella scratchpad: la classifica ♥ è quella già presente in classes/warrior.json.",
-  "🟡 Protection (A): 31–60 solo da wowforever.be; la sequenza dopo il 40 non è confermata da altre fonti."
+  "🟡 Protection (A): 31–60 solo da wowforever.be; la sequenza dopo il 40 non è confermata da altre fonti.",
+  "🟡 Build B, 3 nov: Improved Tactical Mastery (3 rank) e Bloodthrill (2 rank) hanno meno rank; i 5 punti liberati vanno su Anger Management (23), Two-Handed Weapon Specialization 3/3 e Impale, come la build Arms di wowforever.gg del 3 nov. Ordine mio."
  ]
 }

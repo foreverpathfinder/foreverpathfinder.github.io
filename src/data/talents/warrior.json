@@ -1,7 +1,8 @@
 {
  "cls": "warrior",
- "src": "https://wowforever.be/leveling/warrior/",
- "fetched": "2026-11-01",
+ "src": "https://foreverchanges.pro/talents/warrior",
+ "fetched": "2026-11-03",
+ "wfSame": false,
  "trees": [
   {
    "key": "arms",
@@ -69,12 +70,12 @@
      "icon": "spell_nature_enchantarmor",
      "row": 2,
      "col": 2,
-     "max": 5,
+     "max": 3,
      "needs": 5,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Tactical Mastery lets you retain up to an additional 3 Rage when you change stances.",
+     "r1": "Tactical Mastery lets you retain up to an additional 5 Rage when you change stances.",
      "rmax": "Tactical Mastery lets you retain up to an additional 15 Rage when you change stances."
     },
     "improved-overpower": {
@@ -86,7 +87,7 @@
      "max": 2,
      "needs": 5,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the critical strike chance of your Overpower ability by 25%.",
      "rmax": "Increases the critical strike chance of your Overpower ability by 50%."
@@ -129,9 +130,9 @@
      "needs": 15,
      "req": "",
      "flag": "New in Forever",
-     "cost": "15 Rage · Melee Range · Instant · 20 sec cooldown",
-     "r1": "A brutal attack that deals 40% weapon damage. Deals an additional 80% weapon damage against Giants, Dragonkin, and mounted targets. Mounted targets are dismounted.",
-     "rmax": "A brutal attack that deals 40% weapon damage. Deals an additional 80% weapon damage against Giants, Dragonkin, and mounted targets. Mounted targets are dismounted."
+     "cost": "15 Rage · Melee range · Instant · 20 sec cooldown",
+     "r1": "A brutal attack that deals 75% weapon damage. Deals an additional 75% weapon damage against Giants, Dragonkin, and mounted targets. Mounted targets are dismounted.",
+     "rmax": "A brutal attack that deals 75% weapon damage. Deals an additional 75% weapon damage against Giants, Dragonkin, and mounted targets. Mounted targets are dismounted."
     },
     "two-handed-weapon-specialization": {
      "index": 9,
@@ -144,8 +145,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the damage you deal with two-handed melee weapons by 1%.",
-     "rmax": "Increases the damage you deal with two-handed melee weapons by 3%."
+     "r1": "Increases the damage you deal with two-handed melee weapons by 2%.",
+     "rmax": "Increases the damage you deal with two-handed melee weapons by 6%."
     },
     "impale": {
      "index": 10,
@@ -167,12 +168,12 @@
      "icon": "inv_sword_01",
      "row": 5,
      "col": 1,
-     "max": 5,
+     "max": 2,
      "needs": 20,
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Grants your Main Hand melee attacks against enemies afflicted by your Rend a 4% chance to allow an activation of Overpower.",
+     "r1": "Grants your Main Hand melee attacks against enemies afflicted by your Rend a 10% chance to allow an activation of Overpower.",
      "rmax": "Grants your Main Hand melee attacks against enemies afflicted by your Rend a 20% chance to allow an activation of Overpower."
     },
     "sweeping-strikes": {
@@ -200,8 +201,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Gives your melee weapon attacks a benefit depending on the weapon. Axe/Polearm: Increases your critical strike chance by 1%. Mace/Staff: Your attacks ignore 3% of your target's armor. Sword: Your successful melee attacks have a 1% chance to trigger an extra attack on the target.",
-     "rmax": "Gives your melee weapon attacks a benefit depending on the weapon. Axe/Polearm: Increases your critical strike chance by 5%. Mace/Staff: Your attacks ignore 15% of your target's armor. Sword: Your successful melee attacks have a 5% chance to trigger an extra attack on the target."
+     "r1": "Gives your melee weapon attacks a benefit depending on the weapon.\n\nAxe/Polearm: Increases your\ncritical strike chance by 1%.\n\nMace/Staff: Your attacks ignore\n3% of your target's armor.\n\nSword: Your successful melee\nattacks have a 1% chance to\ntrigger an extra attack on the\ntarget.",
+     "rmax": "Gives your melee weapon attacks a benefit depending on the weapon.\n\nAxe/Polearm: Increases your\ncritical strike chance by 5%.\n\nMace/Staff: Your attacks ignore\n15% of your target's armor.\n\nSword: Your successful melee\nattacks have a 5% chance to\ntrigger an extra attack on the\ntarget."
     },
     "improved-slam": {
      "index": 14,
@@ -214,8 +215,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the global cooldown and cast time of your Slam ability by 0.25 sec. In addition, Slam no longer interrupts or delays your melee swing and Slam's cooldown is reduced by 3 sec.",
-     "rmax": "Reduces the global cooldown and cast time of your Slam ability by 0.5 sec. In addition, Slam no longer interrupts or delays your melee swing and Slam's cooldown is reduced by 3 sec."
+     "r1": "Reduces the cooldown of your Slam ability by 2.5 sec, the cast time and global cooldown by 0.25 sec, and Slam no longer interrupts or delays your melee swing.",
+     "rmax": "Reduces the cooldown of your Slam ability by 5.0 sec, the cast time and global cooldown by 0.50 sec, and Slam no longer interrupts or delays your melee swing."
     },
     "improved-hamstring": {
      "index": 15,
@@ -241,7 +242,7 @@
      "needs": 30,
      "req": "sweeping-strikes",
      "flag": "",
-     "cost": "30 Rage · Melee Range · Instant · 6 sec cooldown",
+     "cost": "30 Rage · Melee range · Instant · 6 sec cooldown",
      "r1": "A vicious strike that deals weapon damage plus 85 and wounds the target, reducing the effectiveness of any healing by 50% for 10 sec.",
      "rmax": "A vicious strike that deals weapon damage plus 85 and wounds the target, reducing the effectiveness of any healing by 50% for 10 sec."
     }
@@ -262,8 +263,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the area of effect of your Shouts by 10% and reduces their Rage cost by 5%.",
-     "rmax": "Increases the area of effect of your Shouts by 50% and reduces their Rage cost by 25%."
+     "r1": "Increases the area of effect of your Shouts by 10% and reduces the Rage cost by of your Shouts and Howls by 5%.",
+     "rmax": "Increases the area of effect of your Shouts by 50% and reduces the Rage cost by of your Shouts and Howls by 25%."
     },
     "cruelty": {
      "index": 1,
@@ -330,7 +331,7 @@
      "max": 1,
      "needs": 10,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "10 Rage · Instant",
      "r1": "Causes all enemies within 10 yds to be Dazed, reducing movement speed by 50% for 6 sec.",
      "rmax": "Causes all enemies within 10 yds to be Dazed, reducing movement speed by 50% for 6 sec."
@@ -349,8 +350,22 @@
      "r1": "Regenerates 1% of your total Health over 6 sec after being the victim of a critical strike or suffering more than 20% of your maximum Health from a single attack.",
      "rmax": "Regenerates 3% of your total Health over 6 sec after being the victim of a critical strike or suffering more than 20% of your maximum Health from a single attack."
     },
-    "dual-wield-specialization": {
+    "enrage": {
      "index": 7,
+     "name": "Enrage",
+     "icon": "spell_shadow_unholyfrenzy",
+     "row": 3,
+     "col": 4,
+     "max": 5,
+     "needs": 10,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Gives you a 30% chance to deal 2% increased Physical damage for 12 sec after being the victim of any damaging attack.",
+     "rmax": "Gives you a 30% chance to deal 10% increased Physical damage for 12 sec after being the victim of any damaging attack."
+    },
+    "dual-wield-specialization": {
+     "index": 8,
      "name": "Dual Wield Specialization",
      "icon": "ability_dualwield",
      "row": 4,
@@ -363,33 +378,19 @@
      "r1": "Increases the damage done by your off-hand weapon by 5% and the Rage generated by your off-hand attacks by 10%.",
      "rmax": "Increases the damage done by your off-hand weapon by 25% and the Rage generated by your off-hand attacks by 50%."
     },
-    "raging-blows": {
-     "index": 8,
-     "name": "Raging Blows",
-     "icon": "ability_whirlwind",
+    "reckless-swings": {
+     "index": 9,
+     "name": "Reckless Swings",
+     "icon": "ability_warrior_bloodfrenzy",
      "row": 4,
      "col": 2,
      "max": 1,
      "needs": 15,
      "req": "",
      "flag": "New in Forever",
-     "cost": "",
-     "r1": "Reduces the Rage cost of your Cleave and Whirlwind abilities by 3.",
-     "rmax": "Reduces the Rage cost of your Cleave and Whirlwind abilities by 3."
-    },
-    "enrage": {
-     "index": 9,
-     "name": "Enrage",
-     "icon": "spell_shadow_unholyfrenzy",
-     "row": 4,
-     "col": 3,
-     "max": 5,
-     "needs": 15,
-     "req": "",
-     "flag": "Changed from Classic",
-     "cost": "",
-     "r1": "Gives you a 30% chance to deal 2% increased Physical damage for 12 sec after being the victim of any damaging attack.",
-     "rmax": "Gives you a 30% chance to deal 10% increased Physical damage for 12 sec after being the victim of any damaging attack."
+     "cost": "25% of base health · Instant · 15 sec cooldown",
+     "r1": "Your next 4 melee attacks generate 5 additional Rage. Lasts 8 sec.",
+     "rmax": "Your next 4 melee attacks generate 5 additional Rage. Lasts 8 sec."
     },
     "improved-execute": {
      "index": 10,
@@ -433,8 +434,22 @@
      "r1": "When activated, increases your Physical damage done by 20% and makes you immune to Fear effects, but increases all damage you take by 5%. Lasts 30 sec.",
      "rmax": "When activated, increases your Physical damage done by 20% and makes you immune to Fear effects, but increases all damage you take by 5%. Lasts 30 sec."
     },
-    "improved-intercept": {
+    "gore-drinker": {
      "index": 13,
+     "name": "Gore Drinker",
+     "icon": "racial_troll_berserk",
+     "row": 5,
+     "col": 3,
+     "max": 2,
+     "needs": 20,
+     "req": "blood-craze",
+     "flag": "New in Forever",
+     "cost": "",
+     "r1": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, and Bloodthirst abilities cause your next 3 melee attacks to restore 0.5% of your maximum Health.",
+     "rmax": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, and Bloodthirst abilities cause your next 3 melee attacks to restore 1.0% of your maximum Health."
+    },
+    "improved-intercept": {
+     "index": 14,
      "name": "Improved Intercept",
      "icon": "ability_rogue_sprint",
      "row": 5,
@@ -447,49 +462,72 @@
      "r1": "Reduces the cooldown of your Intercept ability by 5 sec.",
      "rmax": "Reduces the cooldown of your Intercept ability by 10 sec."
     },
+    "improved-whirlwind": {
+     "index": 15,
+     "name": "Improved Whirlwind",
+     "icon": "ability_whirlwind",
+     "row": 6,
+     "col": 1,
+     "max": 2,
+     "needs": 25,
+     "req": "",
+     "flag": "New in Forever",
+     "cost": "",
+     "r1": "Reduces the cooldown of your Whirlwind ability by 1 sec and increases the damage it deals to the closest enemy by 15%.",
+     "rmax": "Reduces the cooldown of your Whirlwind ability by 2 sec and increases the damage it deals to the closest enemy by 30%."
+    },
     "flurry": {
-     "index": 14,
+     "index": 16,
      "name": "Flurry",
      "icon": "ability_ghoulfrenzy",
      "row": 6,
-     "col": 2,
-     "max": 5,
+     "col": 3,
+     "max": 3,
      "needs": 25,
-     "req": "death-wish",
+     "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases your melee attack speed by 5% for your next 3 swings after dealing a melee critical strike.",
-     "rmax": "Increases your melee attack speed by 25% for your next 3 swings after dealing a melee critical strike."
-    },
-    "gore-drinker": {
-     "index": 15,
-     "name": "Gore Drinker",
-     "icon": "racial_troll_berserk",
-     "row": 6,
-     "col": 3,
-     "max": 2,
-     "needs": 25,
-     "req": "enrage",
-     "flag": "New in Forever",
-     "cost": "",
-     "r1": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, and Bloodthirst abilities cause your next 3 melee attacks to restore 0.5% of your maximum Health.",
-     "rmax": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, and Bloodthirst abilities cause your next 3 melee attacks to restore 1% of your maximum Health."
+     "r1": "Increases your melee attack speed by 10% for your next 3 swings after dealing a melee critical strike.",
+     "rmax": "Increases your melee attack speed by 30% for your next 3 swings after dealing a melee critical strike."
     },
     "bloodthirst": {
-     "index": 16,
+     "index": 17,
      "name": "Bloodthirst",
      "icon": "spell_nature_bloodlust",
      "row": 7,
      "col": 2,
      "max": 1,
      "needs": 30,
-     "req": "",
+     "req": "death-wish",
      "flag": "Changed from Classic",
-     "cost": "30 Rage · Melee Range · Instant · 6 sec cooldown",
+     "cost": "30 Rage · Melee range · Instant · 6 sec cooldown",
      "r1": "Instantly attack the target causing damage equal to 45% of your Attack Power plus 30 and increasing your movement speed by 10% for 10 sec.",
      "rmax": "Instantly attack the target causing damage equal to 45% of your Attack Power plus 30 and increasing your movement speed by 10% for 10 sec."
     }
-   }
+   },
+   "link": [
+    "booming-voice",
+    "cruelty",
+    "lingering-rage",
+    "unbridled-wrath",
+    "",
+    "piercing-howl",
+    "blood-craze",
+    "furious-precision",
+    "dual-wield-specialization",
+    "",
+    "enrage",
+    "improved-execute",
+    "",
+    "death-wish",
+    "improved-intercept",
+    "improved-berserker-rage",
+    "flurry",
+    "bloodthirst",
+    "gore-drinker",
+    "reckless-swings",
+    "improved-whirlwind"
+   ]
   },
   {
    "key": "protection",
@@ -632,8 +670,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases all threat generated in Defensive stance by an additional 5% while a shield is equipped.",
-     "rmax": "Increases all threat generated in Defensive stance by an additional 15% while a shield is equipped."
+     "r1": "Increases all threat generated in Defensive stance by an additional 7% while a shield is equipped.",
+     "rmax": "Increases all threat generated in Defensive stance by an additional 20% while a shield is equipped."
     },
     "improved-sunder-armor": {
      "index": 10,
@@ -689,7 +727,7 @@
      "flag": "Changed from Classic",
      "cost": "",
      "r1": "Reduces the cooldown of your Shield Wall ability by 5.5 min.",
-     "rmax": "Reduces the cooldown of your Shield Wall ability by 11 min."
+     "rmax": "Reduces the cooldown of your Shield Wall ability by 11.0 min."
     },
     "concussion-blow": {
      "index": 14,
@@ -701,7 +739,7 @@
      "needs": 20,
      "req": "",
      "flag": "Changed from Classic",
-     "cost": "10 Rage · Melee Range · Instant · 45 sec cooldown",
+     "cost": "10 Rage · Melee range · Instant · 45 sec cooldown",
      "r1": "Stuns the target for 5 sec.",
      "rmax": "Stuns the target for 5 sec."
     },
@@ -743,11 +781,32 @@
      "needs": 30,
      "req": "concussion-blow",
      "flag": "Changed from Classic",
-     "cost": "20 Rage · Melee Range · Instant · 6 sec cooldown",
+     "cost": "20 Rage · Melee range · Instant · 6 sec cooldown",
      "r1": "Slam the target with your shield, causing 421 to 439 damage, increased by your Block Value, and has a 50% chance of dispelling 1 magic effect on the target. Causes a very high amount of threat.",
      "rmax": "Slam the target with your shield, causing 421 to 439 damage, increased by your Block Value, and has a 50% chance of dispelling 1 magic effect on the target. Causes a very high amount of threat."
     }
-   }
+   },
+   "link": [
+    "shield-specialization",
+    "anticipation",
+    "improved-bloodrage",
+    "",
+    "improved-thunder-clap",
+    "last-stand",
+    "master-of-defense",
+    "improved-revenge",
+    "defiance",
+    "improved-sunder-armor",
+    "improved-disarm",
+    "vanguard",
+    "improved-shield-wall",
+    "concussion-blow",
+    "improved-shield-bash",
+    "bastion",
+    "focused-rage",
+    "shield-slam",
+    "iron-will"
+   ]
   }
  ],
  "order": [
