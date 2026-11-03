@@ -1,7 +1,8 @@
 {
  "cls": "mage",
- "src": "https://wowforever.be/leveling/mage/",
- "fetched": "2026-11-01",
+ "src": "https://foreverchanges.pro/talents/mage",
+ "fetched": "2026-11-03",
+ "wfSame": true,
  "trees": [
   {
    "key": "arcane",
@@ -16,7 +17,7 @@
      "max": 2,
      "needs": 0,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases your damage with Wands by 13%.",
      "rmax": "Increases your damage with Wands by 25%."
@@ -102,8 +103,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Gives your Arcane Blast spell a 20% chance, and your Arcane Wrath, Fireball, Frostbolt, Frost Blast, and Frostfire Bolt spells a 10% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec.",
-     "rmax": "Gives your Arcane Blast spell a 40% chance, and your Arcane Wrath, Fireball, Frostbolt, Frost Blast, and Frostfire Bolt spells a 20% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec."
+     "r1": "Gives your Arcane Blast spell a 20% chance, and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a 10% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec.",
+     "rmax": "Gives your Arcane Blast spell a 40% chance, and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a 20% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec."
     },
     "arcane-geometry": {
      "index": 7,
@@ -144,8 +145,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "15% of base mana · 30 yd range · 1.5 sec cast",
-     "r1": "Blasts the target with energy, dealing 33 to 39 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application.",
-     "rmax": "Blasts the target with energy, dealing 33 to 39 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
+     "r1": "Blasts the target with energy, dealing 34 to 38 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application.",
+     "rmax": "Blasts the target with energy, dealing 34 to 38 Arcane damage. Each time you cast Arcane Blast, you gain 12% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 100%. Effect stacks up to 4 times and lasts 18 sec from time of initial application."
     },
     "arcane-shielding": {
      "index": 10,
@@ -200,8 +201,8 @@
      "req": "arcane-blast",
      "flag": "New in Forever",
      "cost": "140 Mana · 30 yd range · 3.5 sec cast · 6 sec cooldown",
-     "r1": "Launches a projectile of pure Arcane energy at the enemy target, causing 121 to 147 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana.",
-     "rmax": "Launches a projectile of pure Arcane energy at the enemy target, causing 121 to 147 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
+     "r1": "Launches a projectile of pure Arcane energy at the enemy target, causing 122 to 146 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana.",
+     "rmax": "Launches a projectile of pure Arcane energy at the enemy target, causing 122 to 146 Arcane damage. This spell gains additional Spell Damage equal to 5% of your maximum Mana."
     },
     "presence-of-mind": {
      "index": 14,
@@ -259,7 +260,28 @@
      "r1": "For the next 15 sec, your spells deal 30% more damage while costing 30% more mana to cast.",
      "rmax": "For the next 15 sec, your spells deal 30% more damage while costing 30% more mana to cast."
     }
-   }
+   },
+   "link": [
+    "wand-specialization",
+    "",
+    "improved-channeling",
+    "arcane-subtlety",
+    "magic-absorption",
+    "arcane-concentration",
+    "arcane-resilience",
+    "arcane-geometry",
+    "arcane-impact",
+    "arcane-blast",
+    "arcane-shielding",
+    "improved-counterspell",
+    "arcane-meditation",
+    "missile-barrage",
+    "presence-of-mind",
+    "arcane-mind",
+    "arcane-instability",
+    "arcane-power",
+    "arcane-wrath"
+   ]
   },
   {
    "key": "fire",
@@ -374,8 +396,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "125 Mana · 35 yd range · 6 sec cast",
-     "r1": "Hurls an immense fiery boulder that causes 100 to 132 Fire damage and an additional 44 Fire damage over 12 sec.",
-     "rmax": "Hurls an immense fiery boulder that causes 100 to 132 Fire damage and an additional 44 Fire damage over 12 sec."
+     "r1": "Hurls an immense fiery boulder that causes 101 to 131 Fire damage and an additional 44 Fire damage over 12 sec.",
+     "rmax": "Hurls an immense fiery boulder that causes 101 to 131 Fire damage and an additional 44 Fire damage over 12 sec."
     },
     "improved-fire-blast": {
      "index": 8,
@@ -472,8 +494,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "215 Mana · Instant · 45 sec cooldown",
-     "r1": "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 153 to 185 Fire damage, and Dazing them for 50% reduced movement speed for 6 sec.",
-     "rmax": "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 153 to 185 Fire damage, and Dazing them for 50% reduced movement speed for 6 sec."
+     "r1": "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 184 Fire damage, and Dazing them for 50% reduced movement speed for 6 sec.",
+     "rmax": "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 184 Fire damage, and Dazing them for 50% reduced movement speed for 6 sec."
     },
     "fire-power": {
      "index": 15,
@@ -503,7 +525,26 @@
      "r1": "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 non-periodic critical strikes with Fire spells.",
      "rmax": "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 non-periodic critical strikes with Fire spells."
     }
-   }
+   },
+   "link": [
+    "improved-fire-blast",
+    "incineration",
+    "accelerant",
+    "ignite",
+    "flame-throwing",
+    "impact",
+    "burning-soul",
+    "improved-flamestrike",
+    "pyroblast",
+    "improved-scorch",
+    "improved-fire-ward",
+    "heating-up",
+    "master-of-elements",
+    "critical-mass",
+    "blast-wave",
+    "fire-power",
+    "combustion"
+   ]
   },
   {
    "key": "frost",
@@ -574,7 +615,7 @@
      "max": 3,
      "needs": 5,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "",
      "cost": "",
      "r1": "Gives your Chill effects a 5% chance to Freeze the target for 5 sec.",
      "rmax": "Gives your Chill effects a 15% chance to Freeze the target for 5 sec."
@@ -616,7 +657,7 @@
      "max": 3,
      "needs": 10,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Reduces the mana cost of your Frost spells by 5% and reduces the threat caused by your Frost spells by 10%.",
      "rmax": "Reduces the mana cost of your Frost spells by 15% and reduces the threat caused by your Frost spells by 30%."
@@ -646,8 +687,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "45 Mana · 30 yd range · Instant · 8 sec cooldown",
-     "r1": "Deals 28 to 33 Frost damage to an enemy target. Deals 300% increased damage to Frozen targets.",
-     "rmax": "Deals 28 to 33 Frost damage to an enemy target. Deals 300% increased damage to Frozen targets."
+     "r1": "Deals 28 to 32 Frost damage to an enemy target. Deals 300% increased damage to Frozen targets.",
+     "rmax": "Deals 28 to 32 Frost damage to an enemy target. Deals 300% increased damage to Frozen targets."
     },
     "arctic-reach": {
      "index": 10,
@@ -758,10 +799,31 @@
      "req": "cold-snap",
      "flag": "Changed from Classic",
      "cost": "305 Mana · Instant · 30 sec cooldown",
-     "r1": "Shield yourself, absorbing (448 + 10% of Frost Spell Power) damage and increasing your Frost damage by 15% for 1 min. While shielded, your Frost damage is increased by an additional 5% and you do not lose casting time when you take damage.",
-     "rmax": "Shield yourself, absorbing (448 + 10% of Frost Spell Power) damage and increasing your Frost damage by 15% for 1 min. While shielded, your Frost damage is increased by an additional 5% and you do not lose casting time when you take damage."
+     "r1": "Shield yourself, absorbing 493 damage and increasing your Frost damage by 15% for 1 min. While shielded, your Frost damage is increased by an additional 5% and you do not lose casting time when you take damage.",
+     "rmax": "Shield yourself, absorbing 493 damage and increasing your Frost damage by 15% for 1 min. While shielded, your Frost damage is increased by an additional 5% and you do not lose casting time when you take damage."
     }
-   }
+   },
+   "link": [
+    "frost-warding",
+    "improved-frostbolt",
+    "precision",
+    "ice-shards",
+    "permafrost",
+    "improved-frost-nova",
+    "frostbite",
+    "",
+    "frost-channeling",
+    "ice-lance",
+    "improved-blizzard",
+    "arctic-reach",
+    "ice-block",
+    "shatter",
+    "improved-cone-of-cold",
+    "cold-snap",
+    "fingers-of-frost",
+    "winter-s-chill",
+    "ice-barrier"
+   ]
   }
  ],
  "order": [

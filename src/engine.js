@@ -64,7 +64,7 @@ function compose(){
 /* ---- talent (con il perk Talented i punti arrivano 5 livelli prima) ---- */
 function off(){return S.o.tal?5:0}
 function rankAt(l){var s={},n=Math.min(CL.build.length,Math.max(0,l-9+off()));for(var i=0;i<n;i++)s[CL.build[i]]=(s[CL.build[i]]||0)+1;return s}
-function tEnc(l){var s=rankAt(l);return TAL.trees.map(function(t){return t[2].map(function(n){return s[t[0]+'/'+n]||0}).join('').replace(/0+$/,'')}).join('-').replace(/-+$/,'')}
+function tEnc(l,fc){var s=rankAt(l);return TAL.trees.map(function(t,i){return ((fc&&fc[i])||t[2]).map(function(n){return n&&s[t[0]+'/'+n]||0}).join('').replace(/0+$/,'')}).join('-').replace(/-+$/,'')}
 function tAt(l){var i=l-10+off();return i>=0&&i<CL.build.length?CL.build[i]:null}
 
 /* ---- click and go: pulsanti che portano sulla mappa ---- */
@@ -199,7 +199,11 @@ function wfLoad(){if(!WF.vis||WF.loading!==null||WF.want===WF.shown)return;
  clearTimeout(WF.to);WF.to=setTimeout(function(){if(WF.loading===u){WF.loading=null;wfBadge.textContent='wowforever.be non risponde: tocca “Apri ↗”'}},15000);
  f.onload=function(){if(WF.loading!==u)return;f.style.visibility='visible';wfF[wfA].style.visibility='hidden';wfA=1-wfA;WF.shown=u;WF.loading=null;wfBadge.hidden=true;wfLoad()};
  f.src=u}
-function wfSet(){var lv=Math.max(10-off(),S.L);$('wfLv').textContent=lv;var u=wfUrl(tEnc(lv));$('wfLink').href=u;
+// albero cambiato e wowforever.be ancora vecchio (TAL.fc): niente iframe, «Apri ↗» porta al calcolatore di foreverchanges.pro (non si può incorporare)
+function wfSet(){var lv=Math.max(10-off(),S.L),fc=!!TAL.fc;$('wfLv').textContent=lv;
+ ['wfBox','wfModes','wfNote'].forEach(function(i){$(i).style.display=fc?'none':''});$('fcNote').style.display=fc?'':'none';
+ if(fc){$('wfLink').href='https://foreverchanges.pro/talents/'+S.c+'?b='+tEnc(lv,TAL.fc)+'&l='+lv;return}
+ var u=wfUrl(tEnc(lv));$('wfLink').href=u;
  WF.want=u;clearTimeout(WF.t);WF.t=setTimeout(wfLoad,WF.shown?700:0)}
 if('IntersectionObserver' in window)new IntersectionObserver(function(es){WF.vis=es[0].isIntersecting;wfLoad()},{rootMargin:'400px'}).observe(wfBox);else WF.vis=true;
 $('wfm').onclick=function(){S.L=Math.max(10-off(),S.L-1);renderLevel()};

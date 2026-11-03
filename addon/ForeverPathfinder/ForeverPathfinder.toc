@@ -3,7 +3,7 @@
 ## Notes: The leveling guide of foreverpathfinder.github.io inside WoW: Forever: route checklist, talents, class, professions, dungeons (Italiano / English)
 ## Notes-itIT: La guida di leveling di foreverpathfinder.github.io dentro WoW: Forever: checklist del percorso, talenti, classe, profession, dungeon
 ## Author: Forever Pathfinder
-## Version: 1.1.1
+## Version: 1.1.2
 ## X-Website: https://foreverpathfinder.github.io/addon.html
 ## IconTexture: Interface\AddOns\ForeverPathfinder\icon
 ## SavedVariables: ForeverPathfinderDB

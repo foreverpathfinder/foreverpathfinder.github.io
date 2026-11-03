@@ -1,7 +1,8 @@
 {
  "cls": "shaman",
- "src": "https://wowforever.be/leveling/shaman/",
- "fetched": "2026-11-01",
+ "src": "https://foreverchanges.pro/talents/shaman",
+ "fetched": "2026-11-03",
+ "wfSame": false,
  "trees": [
   {
    "key": "elemental",
@@ -16,10 +17,10 @@
      "max": 5,
      "needs": 0,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "",
      "cost": "",
-     "r1": "Reduces the mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by 2%.",
-     "rmax": "Reduces the mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by 10%."
+     "r1": "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 2%.",
+     "rmax": "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 10%."
     },
     "concussion": {
      "index": 1,
@@ -58,10 +59,10 @@
      "max": 5,
      "needs": 5,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Reduces the cooldown of your Shock spells by 0.2 sec.",
-     "rmax": "Reduces the cooldown of your Shock spells by 1 sec."
+     "rmax": "Reduces the cooldown of your Shock spells by 1.0 sec."
     },
     "elemental-alacrity": {
      "index": 4,
@@ -74,8 +75,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by 0.17 sec.",
-     "rmax": "Reduces the cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by 0.5 sec."
+     "r1": "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by 0.17 sec.",
+     "rmax": "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by 0.50 sec."
     },
     "call-of-flame": {
      "index": 5,
@@ -88,8 +89,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the damage done by your Fire Totems and by your Flame Shock, Fire Nova, and Lava Burst spells by 5%, as well as increases the duration of your Flame Shock spell by 3 sec.",
-     "rmax": "Increases the damage done by your Fire Totems and by your Flame Shock, Fire Nova, and Lava Burst spells by 15%, as well as increases the duration of your Flame Shock spell by 9 sec."
+     "r1": "Increases the damage done by your Fire Totems and by your Flame Shock and Fire Nova spells by 5%, as well as increases the duration of your Flame Shock spell by 3 sec.",
+     "rmax": "Increases the damage done by your Fire Totems and by your Flame Shock and Fire Nova spells by 15%, as well as increases the duration of your Flame Shock spell by 9 sec."
     },
     "elemental-focus": {
      "index": 6,
@@ -144,8 +145,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Gives your Lightning Bolt, Chain Lightning, and Lava Burst spells a 23% chance to not lose casting time when you take damage.",
-     "rmax": "Gives your Lightning Bolt, Chain Lightning, and Lava Burst spells a 70% chance to not lose casting time when you take damage."
+     "r1": "Gives your Lightning Bolt and Chain Lightning spells a 23% chance to not lose casting time when you take damage.",
+     "rmax": "Gives your Lightning Bolt and Chain Lightning spells a 70% chance to not lose casting time when you take damage."
     },
     "earthbound": {
      "index": 10,
@@ -172,22 +173,22 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 3 yards and reduces the cooldown of Totemic Projection by 10 sec.",
-     "rmax": "Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 6 yards and reduces the cooldown of Totemic Projection by 20 sec."
+     "r1": "Increases the range of your Lightning Bolt, Chain Lightning, and Fire Nova spells by 3 yards.",
+     "rmax": "Increases the range of your Lightning Bolt, Chain Lightning, and Fire Nova spells by 6 yards."
     },
-    "lava-burst": {
+    "call-of-thunder": {
      "index": 12,
-     "name": "Lava Burst",
-     "icon": "spell_shaman_lavaburst",
+     "name": "Call of Thunder",
+     "icon": "spell_nature_callstorm",
      "row": 5,
      "col": 2,
      "max": 1,
      "needs": 20,
      "req": "",
-     "flag": "New in Forever",
-     "cost": "135 Mana · 30 yd range · 2.5 sec cast · 10 sec cooldown",
-     "r1": "You hurl molten lava at the target, dealing 113 to 146 Fire damage. If your Flame Shock is on the target, Lava Burst deals 20% increased damage.",
-     "rmax": "You hurl molten lava at the target, dealing 113 to 146 Fire damage. If your Flame Shock is on the target, Lava Burst deals 20% increased damage."
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 5%.",
+     "rmax": "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 5%."
     },
     "lightning-overload": {
      "index": 13,
@@ -200,8 +201,8 @@
      "req": "elemental-alacrity",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Gives your Lightning Bolt and Chain Lightning spells a 3% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat.",
-     "rmax": "Gives your Lightning Bolt and Chain Lightning spells a 10% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat."
+     "r1": "Gives your Lightning Bolt and Chain Lightning spells a 10% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat.",
+     "rmax": "Gives your Lightning Bolt and Chain Lightning spells a 30% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat."
     },
     "elemental-fury": {
      "index": 14,
@@ -217,21 +218,41 @@
      "r1": "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 20%.",
      "rmax": "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 100%."
     },
-    "elemental-mastery": {
+    "lightning-mastery": {
      "index": 15,
-     "name": "Elemental Mastery",
+     "name": "Lightning Mastery",
      "icon": "spell_nature_wispheal",
      "row": 7,
      "col": 2,
      "max": 1,
      "needs": 30,
-     "req": "lava-burst",
+     "req": "call-of-thunder",
      "flag": "Changed from Classic",
      "cost": "Instant · 3 min cooldown",
-     "r1": "Gain mastery over Fire and Lightning, reducing the cast time of Lightning Bolt and Lava Burst by 0.5 sec, and removing the cooldown from Chain Lightning. Lasts 15 sec.",
-     "rmax": "Gain mastery over Fire and Lightning, reducing the cast time of Lightning Bolt and Lava Burst by 0.5 sec, and removing the cooldown from Chain Lightning. Lasts 15 sec."
+     "r1": "Gain mastery over Lightning, reducing the cast time of Lightning Bolt by 0.5 sec, and removing the cooldown from Chain Lightning. Lasts 15 sec.",
+     "rmax": "Gain mastery over Lightning, reducing the cast time of Lightning Bolt by 0.5 sec, and removing the cooldown from Chain Lightning. Lasts 15 sec."
     }
-   }
+   },
+   "link": [
+    "convection",
+    "concussion",
+    "elemental-warding",
+    "reverberation",
+    "call-of-flame",
+    "elemental-devastation",
+    "elemental-focus",
+    "elemental-fury",
+    "trial-by-fire",
+    "eye-of-the-storm",
+    "",
+    "elemental-reach",
+    "lightning-overload",
+    "earthbound",
+    "elemental-alacrity",
+    "",
+    "lightning-mastery",
+    "call-of-thunder"
+   ]
   },
   {
    "key": "enhancement",
@@ -246,7 +267,7 @@
      "max": 2,
      "needs": 0,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the health of your Stoneclaw Totem by 25% and the radius of your Earthbind Totem by 10%.",
      "rmax": "Increases the health of your Stoneclaw Totem by 50% and the radius of your Earthbind Totem by 20%."
@@ -304,25 +325,11 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Increases your Attack Power by an amount equal to 33% of your Intellect.",
-     "rmax": "Increases your Attack Power by an amount equal to 100% of your Intellect."
-    },
-    "improved-ghost-wolf": {
-     "index": 5,
-     "name": "Improved Ghost Wolf",
-     "icon": "spell_nature_spiritwolf",
-     "row": 2,
-     "col": 3,
-     "max": 2,
-     "needs": 5,
-     "req": "",
-     "flag": "Changed from Classic",
-     "cost": "",
-     "r1": "Reduces the cast time of your Ghost Wolf spell by 1 sec, and Ghost Wolf may be used indoors.",
-     "rmax": "Reduces the cast time of your Ghost Wolf spell by 3 sec, and Ghost Wolf may be used indoors."
+     "r1": "Increases your Attack Power by an amount equal to 50% of your Intellect.",
+     "rmax": "Increases your Attack Power by an amount equal to 150% of your Intellect."
     },
     "improved-lightning-shield": {
-     "index": 6,
+     "index": 5,
      "name": "Improved Lightning Shield",
      "icon": "spell_nature_lightningshield",
      "row": 2,
@@ -336,7 +343,7 @@
      "rmax": "Increases the damage done by your Lightning Shield orbs by 15%."
     },
     "elemental-weapons": {
-     "index": 7,
+     "index": 6,
      "name": "Elemental Weapons",
      "icon": "spell_fire_flametounge",
      "row": 3,
@@ -350,7 +357,7 @@
      "rmax": "Increases the melee attack power bonus of your Rockbiter Weapon by 20%, your Windfury Weapon effect by 40% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 15%."
     },
     "shamanistic-focus": {
-     "index": 8,
+     "index": 7,
      "name": "Shamanistic Focus",
      "icon": "spell_nature_elementalabsorption",
      "row": 3,
@@ -364,7 +371,7 @@
      "rmax": "Reduces the mana cost of your Shock and Lightning Shield spells by 45%."
     },
     "anticipation": {
-     "index": 9,
+     "index": 8,
      "name": "Anticipation",
      "icon": "spell_nature_mirrorimage",
      "row": 3,
@@ -378,7 +385,7 @@
      "rmax": "Increases your chance to dodge by an additional 6%."
     },
     "toughness": {
-     "index": 10,
+     "index": 9,
      "name": "Toughness",
      "icon": "spell_holy_devotion",
      "row": 4,
@@ -392,7 +399,7 @@
      "rmax": "Increases your Stamina by 10%."
     },
     "flurry": {
-     "index": 11,
+     "index": 10,
      "name": "Flurry",
      "icon": "ability_ghoulfrenzy",
      "row": 4,
@@ -402,11 +409,11 @@
      "req": "mental-dexterity",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases your attack speed by 5% for your next 3 swings after dealing a melee critical strike.",
-     "rmax": "Increases your attack speed by 25% for your next 3 swings after dealing a melee critical strike."
+     "r1": "Increases your attack speed by 6% for your next 3 swings after dealing a melee critical strike.",
+     "rmax": "Increases your attack speed by 30% for your next 3 swings after dealing a melee critical strike."
     },
     "stormstrike": {
-     "index": 12,
+     "index": 11,
      "name": "Stormstrike",
      "icon": "ability_shaman_stormstrike",
      "row": 4,
@@ -415,9 +422,23 @@
      "needs": 15,
      "req": "",
      "flag": "Changed from Classic",
-     "cost": "8% of base mana · Melee Range · Instant · 8 sec cooldown",
-     "r1": "Instantly strike for normal weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec.",
-     "rmax": "Instantly strike for normal weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
+     "cost": "8% of base mana · Melee range · Instant · 6 sec cooldown",
+     "r1": "Instantly strike for 150% normalized weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec.",
+     "rmax": "Instantly strike for 150% normalized weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
+    },
+    "improved-ghost-wolf": {
+     "index": 12,
+     "name": "Improved Ghost Wolf",
+     "icon": "spell_nature_spiritwolf",
+     "row": 4,
+     "col": 4,
+     "max": 2,
+     "needs": 15,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Reduces the cast time of your Ghost Wolf spell by 1.0 sec, and Ghost Wolf may be used indoors.",
+     "rmax": "Reduces the cast time of your Ghost Wolf spell by 3.0 sec, and Ghost Wolf may be used indoors."
     },
     "spirit-weapons": {
      "index": 13,
@@ -489,7 +510,27 @@
      "r1": "Increases your attack speed by 30% for 25 sec.",
      "rmax": "Increases your attack speed by 30% for 25 sec."
     }
-   }
+   },
+   "link": [
+    "earth-s-grasp",
+    "thundering-strikes",
+    "ancestral-knowledge",
+    "guardian-totems",
+    "mental-dexterity",
+    "improved-ghost-wolf",
+    "improved-lightning-shield",
+    "elemental-weapons",
+    "shamanistic-focus",
+    "anticipation",
+    "toughness",
+    "flurry",
+    "stormstrike",
+    "spirit-weapons",
+    "mental-quickness",
+    "improved-stormstrike",
+    "maelstrom-weapon",
+    "rage-of-the-farseer"
+   ]
   },
   {
    "key": "restoration",
@@ -617,9 +658,9 @@
      "needs": 10,
      "req": "",
      "flag": "New in Forever",
-     "cost": "",
-     "r1": "The caster is surrounded by 3 globes of water. When a spell, melee, or ranged attack hits the caster or when one of the caster's spells gets a critical result, 2% of maximum mana is restored to the caster, expending one water globe. Only one globe will activate every few seconds. Lasts 10 min. Only one Elemental Shield can be active on the Shaman at any one time.",
-     "rmax": "The caster is surrounded by 3 globes of water. When a spell, melee, or ranged attack hits the caster or when one of the caster's spells gets a critical result, 2% of maximum mana is restored to the caster, expending one water globe. Only one globe will activate every few seconds. Lasts 10 min. Only one Elemental Shield can be active on the Shaman at any one time."
+     "cost": "Instant",
+     "r1": "The caster is surrounded by 3 globes of water. When a spell, melee, or ranged attack hits the caster or when one of the caster's spells gets a critical result, 2% of maximum mana is restored to the caster, expending one water globe. Only one globe will activate every few seconds. Lasts 10 min.\n\nOnly one Elemental Shield can be active on the Shaman at any one time.",
+     "rmax": "The caster is surrounded by 3 globes of water. When a spell, melee, or ranged attack hits the caster or when one of the caster's spells gets a critical result, 2% of maximum mana is restored to the caster, expending one water globe. Only one globe will activate every few seconds. Lasts 10 min.\n\nOnly one Elemental Shield can be active on the Shaman at any one time."
     },
     "tidal-mastery": {
      "index": 9,
@@ -715,11 +756,29 @@
      "needs": 30,
      "req": "healing-way",
      "flag": "New in Forever",
-     "cost": "245 Mana · 40 yd range · Instant · 6 sec cooldown",
-     "r1": "Heals a friendly target for 484 to 535, an additional 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%.",
-     "rmax": "Heals a friendly target for 484 to 535, an additional 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%."
+     "cost": "245 Mana · 40 yd range · Instant · 12 sec cooldown",
+     "r1": "Heals a friendly target for 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%.",
+     "rmax": "Heals a friendly target for 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%."
     }
-   }
+   },
+   "link": [
+    "improved-healing-wave",
+    "totemic-focus",
+    "mindfulness",
+    "natural-grace",
+    "tidal-focus",
+    "improved-reincarnation",
+    "ancestral-healing",
+    "healing-focus",
+    "water-shield",
+    "tidal-mastery",
+    "restorative-totems",
+    "mana-tide-totem",
+    "healing-way",
+    "nature-s-swiftness",
+    "purification",
+    "riptide"
+   ]
   }
  ],
  "order": [

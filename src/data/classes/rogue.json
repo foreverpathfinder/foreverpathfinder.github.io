@@ -4,15 +4,13 @@
  "resource": "Energy",
  "spec": "Combat",
  "specIcon": "ability_backstab",
- "summary": "Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Ho preso l'ordine di wowforever.be (10–35), che coincide con Method e Warcraft Tavern (Remorseless Attacks ×2 all'inizio, Puncturing Wounds per Backstab col pugnale, Deflection + Riposte). Il 36–60 NON esiste in nessuna fonte con un ordine per livello: l'ho composto io dalle liste di Method e dalle build 60 di Warcraft Tavern e di Rogue's Diary (vedi buildSource).",
+ "summary": "Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): l'ordine segue la build Combat di wowforever.gg aggiornata il 3 nov, con Puncturing Wounds al posto di Endurance + Improved Sprint come consiglia Method per chi usa un pugnale.",
  "build": [
-  "Remorseless Attacks",
-  "Remorseless Attacks",
-  "Improved Sinister Strike",
-  "Improved Sinister Strike",
-  "Improved Eviscerate",
-  "Improved Eviscerate",
-  "Improved Eviscerate",
+  "Efficient Strikes",
+  "Efficient Strikes",
+  "Coup de Grace",
+  "Coup de Grace",
+  "Coup de Grace",
   "Puncturing Wounds",
   "Puncturing Wounds",
   "Puncturing Wounds",
@@ -23,65 +21,74 @@
   "Precision",
   "Precision",
   "Precision",
-  "Flawless Execution",
-  "Dual Wield Specialization",
-  "Dual Wield Specialization",
+  "Weapon Expertise",
+  "Weapon Expertise",
+  "Aggression",
+  "Aggression",
+  "Aggression",
   "Dual Wield Specialization",
   "Dual Wield Specialization",
   "Blade Flurry",
-  "Opportunity",
-  "Opportunity",
   "Hack and Slash",
   "Hack and Slash",
   "Hack and Slash",
   "Hack and Slash",
-  "Weapon Expertise",
-  "Weapon Expertise",
-  "Aggression",
-  "Aggression",
-  "Aggression",
+  "Flash of Steel",
+  "Flash of Steel",
+  "Flash of Steel",
   "Adrenaline Rush",
-  "Hack and Slash",
-  "Dual Wield Specialization",
-  "Malice",
-  "Malice",
-  "Malice",
-  "Malice",
-  "Malice",
+  "Improved Gouge",
+  "Improved Gouge",
+  "Improved Gouge",
+  "Remorseless Attacks",
+  "Remorseless Attacks",
   "Ruthlessness",
   "Ruthlessness",
   "Ruthlessness",
-  "Relentless Strikes",
-  "Lethality",
-  "Lethality",
+  "Improved Expose Armor",
+  "Improved Expose Armor",
+  "Malice",
+  "Malice",
+  "Malice",
   "Improved Slice and Dice",
   "Improved Slice and Dice",
-  "Improved Slice and Dice"
+  "Vile Poisons",
+  "Vile Poisons",
+  "Vile Poisons",
+  "Vile Poisons",
+  "Vile Poisons"
  ],
- "buildSource": "Livelli 10–35: wowforever.be (dati client 1.60.1.70707, pagina 'Build di livellamento Rogue', letta 1 nov) = Warcraft Tavern (build 30 Combat, senza Remorseless Attacks) = Method (Remorseless Attacks ×2 fino al 30). Livelli 36–60 🟡 composti da me, NON copiati da una fonte: wowforever.be si ferma al 35; Warcraft Tavern dà solo il punteggio finale (60 Combat 18/33/0 e versione dagger 16/33/2, preliminari) senza ordine; Method elenca la priorità 'Hack and Slash 5/5, Weapon Expertise 2/2, Aggression 3/3, Adrenaline Rush'; Rogue's Diary (Mobalytics, 28 ♥) dà un ordine 31–60 completo ma per una build senza Puncturing Wounds (con Endurance), non compatibile punto per punto. Ho seguito la priorità di Method nel Combat, poi il ramo Assassination come nelle build 60 (Malice → Ruthlessness → Relentless Strikes → Lethality → Improved Slice and Dice, ordine di Rogue's Diary). Totale finale 16/33/2 (Remorseless Attacks 2, Malice 5, Ruthlessness 3, Relentless Strikes 1, Lethality 2, Improved SnD 3 / Combat 33 / Opportunity 2). Prerequisiti verificati con uno script sui dati client. Adrenaline Rush arriva al 44 (non al 40) perché servono 30 punti in Combat e 4 punti sono in Assassination/Subtlety.",
+ "buildSource": "Dal 3 nov: checkpoint 10/20/30/40/50/60 della build Combat di wowforever.gg (aggiornata il 3 nov sull'albero nuovo), con Puncturing Wounds 3 al posto di Endurance 2 + Improved Sprint 1 (Method: Puncturing Wounds con un pugnale, Endurance senza). Dentro ogni blocco di 10 livelli l'ordine è mio 🟡, nel rispetto di needs e prerequisiti (controllo della build). Totale finale 15/36/0: Combat fino ad Adrenaline Rush al 40, poi Improved Gouge, Remorseless Attacks, Ruthlessness, Improved Expose Armor, Malice, Improved Slice and Dice e Vile Poisons come wowforever.gg.",
  "why": {
-  "Remorseless Attacks": "Dopo ogni kill, +20% / +40% crit sul prossimo Sinister Strike, Backstab, Ambush… per 20 s: ideale per catene di mob singoli (Method e Rogue's Diary la prendono per prima; Method la sposta al 30).",
-  "Improved Sinister Strike": "Sinister Strike costa 5 Energy in meno: è il builder principale di Combat.",
-  "Improved Eviscerate": "+20% danno a Eviscerate, il finisher più usato in leveling.",
+  "Remorseless Attacks": "Dopo ogni kill, +20% / +40% crit sul prossimo Sinister Strike, Backstab, Ambush… per 20 s: ideale per catene di mob singoli (Method e Rogue's Diary la prendevano per prima; con l'albero del 3 nov wowforever.gg la mette al 44).",
   "Puncturing Wounds": "★ Nuovo in Forever: +30% crit a Backstab e 45% di Combo Point extra; per chi usa un pugnale (Blade of Cunning, quest del 10). Se non hai pugnali, Method sposta questi 3 punti su Endurance 2 + Lightning Reflexes 1.",
   "Deflection": "Parry +6%: meno danni in mischia e attiva Riposte.",
   "Riposte": "Colpo 150% danno + Disarm 6 s dopo un Parry; Rogue's Diary la considerava il miglior talent da leveling prima di Endurance. Si mette in macro con Sinister Strike.",
   "Precision": "★ Ora 3 rank, +3% Hit totale: meno Miss su attacchi e Poison.",
-  "Flawless Execution": "★ Eviscerate costa 10 Energy in meno: più Eviscerate, più Energy per i Combo Point.",
-  "Dual Wield Specialization": "Danno della off-hand +25% a 5 rank: i colpi automatici sono metà del tuo danno.",
+  "Dual Wield Specialization": "Danno della off-hand +50% in 2 rank (dal 3 nov): i colpi automatici sono metà del tuo danno.",
   "Blade Flurry": "+20% velocità d'attacco e colpisci un secondo bersaglio per 15 s: l'unico cleave del Rogue, perfetto con Evasion (mob multipli).",
-  "Opportunity": "Backstab, Garrote, Ambush +10% (2 rank): solo wowforever.be lo prende (33–34) per il ramo Backstab; alternative sono Endurance o Improved Sprint.",
   "Hack and Slash": "★ Un solo talent per tutte le armi: Dagger/Fist +5% crit, Spada/Ascia 5% di colpo extra, Mace ignora 15% armor. Per Method e Warcraft Tavern è 'make-or-break'.",
   "Weapon Expertise": "Meno Dodge/Parry sui tuoi attacchi (−2%).",
   "Aggression": "Sinister Strike, Backstab ed Eviscerate +6%.",
   "Adrenaline Rush": "Energy regen +100% per 15 s: il tuo burst per i pull da 3–5 mob.",
   "Malice": "+5% crit su tutti gli attacchi e anche sui Poison (che ora possono critare).",
   "Ruthlessness": "60% di Combo Point extra con i finisher: meno Energy sprecata.",
-  "Relentless Strikes": "Finisher con 20% per Combo Point di restituire 25 Energy.",
-  "Lethality": "Più danno sui crit di Sinister Strike, Backstab e Gouge.",
-  "Improved Slice and Dice": "+45% di durata a Slice and Dice: meno refresh."
+  "Improved Slice and Dice": "+45% di durata a Slice and Dice: meno refresh.",
+  "Efficient Strikes": "★ Sinister Strike (e Hemorrhage) costa 5 Energy in meno: è il builder principale di Combat. Prima si chiamava Improved Sinister Strike.",
+  "Coup de Grace": "+20% danno a Eviscerate, il finisher più usato in leveling. Prima si chiamava Improved Eviscerate.",
+  "Flash of Steel": "★ Shank ridà fino a 15 Energy in più e ha fino a 2 s di cooldown in meno (5/5).",
+  "Improved Gouge": "Gouge dura fino a 1,5 s in più: più tempo per una bandage o per scappare.",
+  "Improved Expose Armor": "Expose Armor costa 10 Energy in meno e con 5 Combo Point te ne ridà 2.",
+  "Vile Poisons": "Poison +20% di danno: con gli Instant Poison raddoppiati al lancio pesano di più."
  },
  "compare": [
+  {
+   "source": "wowforever.gg – Rogue Combat Leveling (albero del 3 nov)",
+   "signal": "agg. 3 nov 2026, checkpoint ogni 10 livelli",
+   "l10_19": "Efficient Strikes 2, Coup de Grace 3, Deflection 3, Precision 3 (al 20)",
+   "l20": "idem",
+   "l21_30": "Riposte, Endurance 2, Improved Sprint 1, Weapon Expertise 2, Aggression 3, Dual Wield Spec 1 (al 30); al 40 Dual Wield Spec 2, Blade Flurry, Hack and Slash 4, Flash of Steel 3, Adrenaline Rush"
+  },
   {
    "source": "wowforever.be – build di livellamento (client)",
    "signal": "dati client 1.60.1.70707, letta 1 nov",
@@ -136,7 +143,7 @@
   },
   {
    "title": "Subtlety (Ambush / Hemorrhage) – solo per curiosità o PvP",
-   "html": "<p>Mobalytics la descrive come la spec da PvP: in solo i mob ti guardano in faccia e Ambush richiede Stealth. Warcraft Tavern: la build Ambush 'non va bene in dungeon' finché non arriva Cutthroat (35, ma 'le build beta non hanno abbastanza punti'). Gaunerh (65k views) trova Hemorrhage/Subtlety 'sorprendentemente forte' ma non ho letto la sua conclusione finale (nessuna trascrizione).</p>"
+   "html": "<p>Mobalytics la descrive come la spec da PvP: in solo i mob ti guardano in faccia e Ambush richiede Stealth. Warcraft Tavern: la build Ambush 'non va bene in dungeon'; Cutthroat, che doveva rimediare, è stato tolto il 3 nov. Gaunerh (65k views) trova Hemorrhage/Subtlety 'sorprendentemente forte' ma non ho letto la sua conclusione finale (nessuna trascrizione).</p>"
   },
   {
    "title": "Legacy Points e \"Talented\" (+5 livelli prima)",
@@ -253,6 +260,12 @@
    "Opener da Stealth con pugnale: grande danno. Method: meglio di Garrote o Backstab iniziale."
   ],
   [
+   18,
+   "Poised",
+   "ability_rogue_fleetfooted",
+   "★ Passiva: a Energy piena e fuori combattimento la prima abilità costa 10 Energy in meno."
+  ],
+  [
    20,
    "Rupture",
    "ability_rogue_rupture",
@@ -281,6 +294,12 @@
    "Mind-numbing Poison",
    "spell_nature_nullifydisease",
    "Allunga i cast dei caster (ricetta al Trainer)."
+  ],
+  [
+   24,
+   "Shank",
+   "ability_theblackarrow",
+   "★ Colpo con l'arma in off-hand (50% del danno) che ridà 15 Energy: costa 5 Energy, 10 s di cooldown, non manca mai. Rank 2 al 44 (25 Energy)."
   ],
   [
    26,
@@ -328,21 +347,15 @@
  "talentSpells": [
   [
    10,
-   "Remorseless Attacks",
-   "ability_fiegndead",
-   "Dopo un kill, prossimo Sinister Strike/Backstab/Ambush con +40% crit per 20 s."
+   "Efficient Strikes",
+   "spell_shadow_ritualofsacrifice",
+   "★ Sinister Strike costa 5 Energy in meno (era Improved Sinister Strike)."
   ],
   [
-   23,
+   21,
    "Riposte",
    "ability_warrior_challange",
    "Si attiva dopo un Parry: 150% weapon damage e Disarm 6 s. Metti in macro: /cast Riposte /cast Sinister Strike."
-  ],
-  [
-   27,
-   "Flawless Execution",
-   "inv_sword_35",
-   "Eviscerate costa 10 Energy in meno."
   ],
   [
    32,
@@ -351,13 +364,19 @@
    "+20% attack speed e colpi su un bersaglio extra per 15 s. Cooldown 2 minuti con Endurance, in coppia con Evasion."
   ],
   [
-   35,
+   33,
    "Hack and Slash",
    "inv_sword_27",
    "Passiva: Dagger/Fist +5% crit, Sword/Axe 5% colpo extra, Mace ignora 15% armor."
   ],
   [
-   44,
+   37,
+   "Flash of Steel",
+   "ability_rogue_restlessblades",
+   "★ Shank ridà più Energy e torna prima (5 rank)."
+  ],
+  [
+   40,
    "Adrenaline Rush",
    "spell_shadow_shadowworddominate",
    "Energy regen +100% per 15 s (20 Energy al secondo): burst per 3–5 mob."
@@ -406,7 +425,7 @@
      "Eviscerate"
     ]
    ],
-   "text": "Con Dual Wield e Slice and Dice (10): Sinister Strike due volte, poi Slice and Dice, poi continua a Sinister Strike e finisci con Eviscerate (DonTheCrown). Slice and Dice ha priorità solo se il combattimento durerà abbastanza o se attacchi subito un altro mob. Con Remorseless Attacks attacca il prossimo mob prima che scadano i 20 s. Usa Kick (12) sui caster. Da 14 puoi usare Expose Armor solo su mob che vivono tutta la durata. Con pugnale in main hand: Ambush da Stealth (18)."
+   "text": "Con Dual Wield e Slice and Dice (10): Sinister Strike due volte, poi Slice and Dice, poi continua a Sinister Strike e finisci con Eviscerate (DonTheCrown). Slice and Dice ha priorità solo se il combattimento durerà abbastanza o se attacchi subito un altro mob. Usa Kick (12) sui caster. Da 14 puoi usare Expose Armor solo su mob che vivono tutta la durata. Con pugnale in main hand: Ambush da Stealth (18)."
   },
   {
    "title": "20–31 · Poison, Riposte, Cheap Shot",
@@ -436,7 +455,7 @@
      "Eviscerate"
     ]
    ],
-   "text": "Dal 20, Instant Poison su entrambe le armi (quasi sempre meglio di Deadly Poison per mob che muoiono presto, DonTheCrown e Rogue's Diary). Dal 26, Stealth → Cheap Shot (2 Combo Point) → Slice and Dice, e se possibile aggrega i mob mentre entri in Stealth. Riposte quando si attiva (macro con Sinister Strike). Rupture non serve. Kidney Shot dal 30 per i mob pericolosi."
+   "text": "Dal 20, Instant Poison su entrambe le armi (quasi sempre meglio di Deadly Poison per mob che muoiono presto, DonTheCrown e Rogue's Diary). Dal 26, Stealth → Cheap Shot (2 Combo Point) → Slice and Dice, e se possibile aggrega i mob mentre entri in Stealth. Riposte quando si attiva (macro con Sinister Strike). ★ Dal 24 Shank (off-hand, 5 Energy, ti ridà 15 Energy, 10 s di cooldown) a ogni cooldown. Rupture non serve. Kidney Shot dal 30 per i mob pericolosi."
   },
   {
    "title": "32+ · Blade Flurry e mob multipli",
@@ -462,7 +481,7 @@
      "Eviscerate 5 punti"
     ]
    ],
-   "text": "Con 2–4 mob: Sap per isolare, poi Blade Flurry + Evasion (con Endurance hanno entrambi 2 minuti di cooldown), concentra Sinister Strike sul mob più forte per salire a 5 Combo Point: l'Eviscerate colpisce anche il secondo bersaglio. Dal 44, Adrenaline Rush permette pull da 3–5 mob (Rogue's Diary). Sprint e Evasion si sincronizzano col Blade Flurry (Rogue's Diary)."
+   "text": "Con 2–4 mob: Sap per isolare, poi Blade Flurry + Evasion (con Endurance hanno entrambi 2 minuti di cooldown), concentra Sinister Strike sul mob più forte per salire a 5 Combo Point: l'Eviscerate colpisce anche il secondo bersaglio. Dal 40, Adrenaline Rush permette pull da 3–5 mob (Rogue's Diary). Sprint e Evasion si sincronizzano col Blade Flurry (Rogue's Diary)."
   },
   {
    "title": "Energy, Combo Point e downtime",
@@ -476,7 +495,7 @@
      "Bandage"
     ]
    ],
-   "text": "Energy 100, ora si rigenera in modo continuo (1 ogni 0,1 s = 10 al secondo, Warcraft Tavern). Mai un builder con 5 Combo Point e mai un finisher con pochi punti. Non cambiare bersaglio mentre costruisci Combo Point: li perdi. Thistle Tea (+100 Energy, ricetta dalla quest del 20 oppure Smudge Thunderwood a Ravenholdt Manor): usala vicino a 0 Energy, meglio dentro Blade Flurry. Senza self-heal: bandage (First Aid) dopo Gouge/Blind/Kidney Shot, ma solo se non ci sono DoT sul mob. Food con +5% XP prima di pullare."
+   "text": "Energy 100, ora si rigenera in modo continuo (1 ogni 0,1 s = 10 al secondo, Warcraft Tavern). ★ Dal 18 Poised: a Energy piena e fuori combattimento la prima abilità costa 10 Energy in meno, quindi apri il pull a Energy piena. Mai un builder con 5 Combo Point e mai un finisher con pochi punti. Non cambiare bersaglio mentre costruisci Combo Point: li perdi. Thistle Tea (+100 Energy, ricetta dalla quest del 20 oppure Smudge Thunderwood a Ravenholdt Manor): usala vicino a 0 Energy, meglio dentro Blade Flurry. Senza self-heal: bandage (First Aid) dopo Gouge/Blind/Kidney Shot, ma solo se non ci sono DoT sul mob. Food con +5% XP prima di pullare."
   }
  ],
  "rotNotes": [
@@ -646,8 +665,9 @@
   "★ Poison: scalano con Attack Power, possono fare crit, hanno più cariche (Instant Poison 175, Deadly Poison 180 al rank massimo) e si cumulano con Sharpening Stones, Weightstones e Windfury Totem (video ufficiale WoW Forever 18 ott; Warcraft Tavern; Blizzard class deep dive Rogue/Warlock).",
   "★ Sap non rompe più lo Stealth; Distract abbassa la detection per 10 s; Feint riduce il doppio della minaccia; Expose Armor vale 5 Sunder Armor e non blocca Sunder (video ufficiale 18 ott).",
   "★ Il Rogue può imparare le asce a una mano (Buliwyf Stonehand a Ironforge, Hanashi/Sayoc a Orgrimmar) (Warcraft Tavern, video ufficiale).",
-  "★ Talent nuovi (Combat): Flawless Execution, Hack and Slash, Puncturing Wounds (client: 'New in Forever'). Cambiati: Deflection 3 rank (6% Parry), Precision 3 rank (3% Hit), Dual Wield Specialization +25% off-hand, Weapon Expertise −2% dodge/parry, Improved Eviscerate nel tree Combat (+20%), Endurance −60% cooldown Sprint/Evasion, Improved Kick silence 2 s.",
-  "★ Assassination: Mutilate (richiede due pugnali) e Venom (finisher); Subtlety: Cutthroat, Quietus, Thousand Cuts, Dirty Tricks, Improved Distract. Opportunity ha solo 2 rank (nerf).",
+  "★ Talent nuovi (Combat): Flawless Execution, Hack and Slash, Puncturing Wounds (client: 'New in Forever'). Cambiati: Deflection 3 rank (6% Parry), Precision 3 rank (3% Hit), Dual Wield Specialization +50% off-hand in 2 rank, Weapon Expertise −2% dodge/parry, Coup de Grace (era Improved Eviscerate, +20%), Efficient Strikes (era Improved Sinister Strike); dal 3 nov anche Composure e Flash of Steel, Endurance −60% cooldown Sprint/Evasion, Improved Kick silence 2 s.",
+  "★ Al lancio (note Blizzard del 3 nov): nuova abilità Shank al 24 (colpo di off-hand al 50%, ridà 15 Energy, 10 s di cooldown; rank 2 al 44), Poised al 18, Instant Poison e Deadly Poison prendono il doppio dell'Attack Power, Flawless Execution toglie 15 Energy a Eviscerate, Seal Fate 3 rank, Lethality 2 rank.",
+  "★ Assassination: Mutilate (riga 7, due pugnali) e Venom (dal 3 nov passivo legato a Shank), Blood Splatter; Subtlety: Dirty Tricks, Quick Getaway, Boot Knife e Death Mark (31 punti). Il 3 nov sono stati tolti Murder, Improved Distract, Quietus, Cutthroat e Thousand Cuts; Opportunity torna a 5 rank.",
   "★ Cibo con stat dà anche +5% XP; la Thistle Tea ricarica 100 Energy; i dungeon danno molta meno XP (DonTheCrown).",
   "★ Cambi alle razze del 15 ottobre e del 27 ottobre (video ufficiale; changelog di Rogue's Diary): rileggi i racial in gioco.",
   "★ Cooking dà accesso ai Camp object (campfire, Fish Bowl ecc.).",
@@ -814,8 +834,8 @@
   }
  ],
  "doubts": [
-  "🟡 Il 36–60 è composto da me (nessuna fonte dà l'ordine per la build wowforever.be). Warcraft Tavern dice che le build 60 sono provvisorie e saranno rilasciate al lancio.",
-  "🟡 Remorseless Attacks: wowforever.be e Method la prendono ×2; Warcraft Tavern e le build ufficiali no (Mobalytics Rogue's Diary la prende ma fa respec al 20). Se hai pochi Legacy Points, Method suggerisce il respec al 30.",
+  "🟡 Dal 3 nov l'albero è nuovo: l'unica fonte già aggiornata è wowforever.gg (checkpoint ogni 10 livelli); l'ordine dentro i blocchi e la variante con Puncturing Wounds sono miei. Le altre righe del confronto (Warcraft Tavern, Method, Mobalytics) sono dell'albero di prima.",
+  "🟡 Remorseless Attacks: wowforever.be e Method la prendevano ×2 all'inizio; con l'albero del 3 nov wowforever.gg la mette fra il 41 e il 50.",
   "🟡 Puncturing Wounds (wowforever.be, Warcraft Tavern) o Endurance + Improved Sprint (Mobalytics ×2, video ufficiale, Method per chi non usa pugnali): scegli in base all'arma.",
   "🟡 Livello e nome della class quest del 10 non verificati per ogni razza in Forever: Mobalytics e Method dicono solo che dà Blade of Cunning (pugnale). Le catene di Classic: Human 'Seek out SI:7', Dwarf/Gnome 'Snatch and Grab', Night Elf 'Destiny Calls' (warcraft.wiki.gg, Classic, non Forever).",
   "🟡 The Eye of Bhossca: db livello 25, in beta mail a 30; The Horn of Xelthos livello 20 (ConquestCapped); un'altra fonte lo mette a 23 (Wiki, Classic).",
@@ -923,7 +943,7 @@
    ],
    "cons": [
     "Lenta all'inizio: i punti servono a raggiungere Hemorrhage (Icy Veins, snippet).",
-    "Vanish in combattimento fino a Cutthroat, e Stealth rallenta (Tavern).",
+    "Vanish obbligato in combattimento (Cutthroat è stato tolto il 3 nov), e Stealth rallenta (Tavern).",
     "Peggiore in dungeon (Tavern); più dipendente dal pugnale (Tavern)."
    ],
    "ratings": {
@@ -944,7 +964,7 @@
     ],
     "survival": [
      3,
-     "Vanish e Preparation come fuga sicura (wowforever.gg); Vanish è obbligato in combattimento fino a Cutthroat (Tavern) 🟡.",
+     "Vanish e Preparation come fuga sicura (wowforever.gg); Vanish è obbligato in combattimento (Tavern) e Cutthroat è stato tolto il 3 nov 🟡.",
      "wowforever.gg – Subtlety; Warcraft Tavern – Rogue"
     ],
     "gear": [
@@ -956,35 +976,35 @@
    "build": [
     "Opportunity",
     "Opportunity",
+    "Opportunity",
+    "Opportunity",
+    "Opportunity",
     "Camouflage",
     "Camouflage",
     "Camouflage",
-    "Setup",
-    "Setup",
     "Improved Ambush",
     "Improved Ambush",
     "Improved Ambush",
+    "Initiative",
+    "Initiative",
+    "Initiative",
+    "Serrated Blades",
+    "Serrated Blades",
+    "Serrated Blades",
     "Ghostly Strike",
     "Setup",
-    "Dirty Tricks",
-    "Initiative",
-    "Initiative",
-    "Initiative",
-    "Premeditation",
-    "Serrated Blades",
-    "Serrated Blades",
-    "Serrated Blades",
+    "Setup",
     "Hemorrhage",
-    "Camouflage",
-    "Camouflage",
+    "Setup",
+    "Premeditation",
     "Dirty Tricks",
-    "Master of Deception",
-    "Master of Deception",
-    "Master of Deception",
     "Preparation",
-    "Cutthroat",
-    "Cutthroat",
-    "Thousand Cuts",
+    "Boot Knife",
+    "Boot Knife",
+    "Boot Knife",
+    "Boot Knife",
+    "Boot Knife",
+    "Death Mark",
     "Improved Gouge",
     "Improved Gouge",
     "Improved Gouge",
@@ -993,13 +1013,13 @@
     "Ruthlessness",
     "Ruthlessness",
     "Ruthlessness",
-    "Murder",
-    "Murder",
-    "Improved Slice and Dice",
-    "Improved Slice and Dice",
-    "Relentless Strikes",
     "Improved Expose Armor",
     "Improved Expose Armor",
+    "Malice",
+    "Malice",
+    "Malice",
+    "Improved Slice and Dice",
+    "Improved Slice and Dice",
     "Vile Poisons",
     "Vile Poisons",
     "Vile Poisons",
@@ -1023,7 +1043,7 @@
        "Vanish"
       ]
      ],
-     "text": "Scegli target e apertura prima del pull (wowforever.gg). Ambush da Stealth con Improved Ambush 3/3 (dal 19). Vanish per uscire se va male."
+     "text": "Scegli target e apertura prima del pull (wowforever.gg). Ambush da Stealth con Improved Ambush 3/3 (dal 20). Vanish per uscire se va male."
     },
     {
      "title": "Dal 30 · Hemorrhage come builder",
@@ -1124,24 +1144,26 @@
     ]
    },
    "build": [
-    "Improved Sinister Strike",
-    "Improved Sinister Strike",
-    "Improved Eviscerate",
-    "Improved Eviscerate",
-    "Improved Eviscerate",
+    "Efficient Strikes",
+    "Efficient Strikes",
+    "Coup de Grace",
+    "Coup de Grace",
+    "Coup de Grace",
     "Deflection",
     "Deflection",
     "Deflection",
     "Precision",
     "Precision",
     "Precision",
-    "Endurance",
-    "Endurance",
     "Riposte",
+    "Endurance",
+    "Endurance",
     "Improved Sprint",
-    "Dual Wield Specialization",
-    "Dual Wield Specialization",
-    "Dual Wield Specialization",
+    "Weapon Expertise",
+    "Weapon Expertise",
+    "Aggression",
+    "Aggression",
+    "Aggression",
     "Dual Wield Specialization",
     "Dual Wield Specialization",
     "Blade Flurry",
@@ -1149,11 +1171,9 @@
     "Hack and Slash",
     "Hack and Slash",
     "Hack and Slash",
-    "Weapon Expertise",
-    "Weapon Expertise",
-    "Aggression",
-    "Aggression",
-    "Aggression",
+    "Flash of Steel",
+    "Flash of Steel",
+    "Flash of Steel",
     "Adrenaline Rush",
     "Improved Gouge",
     "Improved Gouge",
@@ -1163,13 +1183,13 @@
     "Ruthlessness",
     "Ruthlessness",
     "Ruthlessness",
-    "Murder",
-    "Murder",
-    "Improved Slice and Dice",
-    "Improved Slice and Dice",
-    "Relentless Strikes",
     "Improved Expose Armor",
     "Improved Expose Armor",
+    "Malice",
+    "Malice",
+    "Malice",
+    "Improved Slice and Dice",
+    "Improved Slice and Dice",
     "Vile Poisons",
     "Vile Poisons",
     "Vile Poisons",
@@ -1178,7 +1198,7 @@
    ],
    "rotation": [
     {
-     "title": "Dal 21 · Endurance",
+     "title": "Dal 23 · Endurance",
      "seq": [
       [
        "spell_shadow_ritualofsacrifice",
@@ -1193,7 +1213,7 @@
        "Evasion"
       ]
      ],
-     "text": "Endurance (dal 21) dà Sprint ed Evasion ogni 2 min. Evasion sui mob forti o con più mob addosso, come in A."
+     "text": "Endurance (dal 23) dà Sprint ed Evasion ogni 2 min. Evasion sui mob forti o con più mob addosso, come in A."
     }
    ],
    "sources": [
@@ -1224,7 +1244,7 @@
  "buildDoubts": [
   "🟡 Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥) e Icy Veins sono bloccati dal controllo Cloudflare: i dati Mobalytics vengono dalle note precedenti del progetto, non riletti oggi.",
   "🟡 Build B e C: ordine per livello dai checkpoint wowforever.gg (10–60), dentro ogni finestra di 10 livelli l'ordine è mio, nel rispetto di needs e req. Tutti i 51 punti passano il controllo node.",
-  "🟡 Il ramo Subtlety di wowforever.gg coincide con i core talent del sito (Ghostly Strike 20, Hemorrhage 30, Preparation 37, Thousand Cuts 40), ma il 28 di Premeditation non è riprodotto: è a 26 nel mio ordine.",
+  "🟡 Subtlety (wowforever.gg, 3 nov): nel mio ordine Ghostly Strike al 27, Hemorrhage al 30, Boot Knife 35–39 e Death Mark al 40; la fonte dà solo i checkpoint.",
   "🟡 C è la variante \"Combat senza pugnali\" di wowforever.gg: prende Improved Sprint 1 e non Lightning Reflexes come suggerisce Method. Method dice Endurance 2 + LR 1: scelta mia di restare sul checkpoint.",
   "🟡 Tavern: la guida è per la beta con cap 30; le build 60 sono provvisorie (dichiarato nella fonte).",
   "🟡 Icona di B: \"ability_stealth\" è l'icona dello spell Stealth (client), non l'icona spec Wowhead, che non ho verificato.",

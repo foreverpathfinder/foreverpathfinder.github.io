@@ -1,6 +1,6 @@
 {
- "version": "v10",
- "updated": "2 novembre 2026",
+ "version": "v11",
+ "updated": "3 novembre 2026",
  "maxLevel": 30,
  "launchUTC": "2026-11-04T23:00:00Z",
  "launchText": "5 novembre, mezzanotte (ora italiana)",
@@ -15,15 +15,16 @@
   "<b>Quest verdi sì:</b> danno buona XP e si chiudono in fretta (Icy Veins).",
   "<b>Non comprare equip all’Auction House:</b> conta soprattutto la weapon. Risparmia per le bag.",
   "<b>Duo:</b> la densità di quest è più alta che in Era; in coppia si livella molto bene e si fanno le Elite quest.",
-  "<b>Lancio affollato:</b> le zone iniziali saranno piene. Se i mob non bastano, vai avanti nella zona, cambia layer o fai gruppo.",
+  "<b>Lancio affollato:</b> le zone iniziali saranno piene. Se i mob non bastano, vai avanti nella zona, cambia layer o fai gruppo. Al lancio i mob ricompaiono più in fretta, soprattutto nelle zone iniziali (note Blizzard del 3 nov).",
   "Compra Food e Water di Rank massimo appena puoi: meno downtime.",
+  "Le spell nuove non vanno più da sole sulle barre (note Blizzard del 3 nov): dopo ogni Trainer trascinale tu dal libro.",
   "Legacy Points condivisi tra account dello stesso Battle.net 🟡 (detto da Kargoz in un podcast, non confermato)."
  ],
  "bagsCommon": [
   ["—", "Vendor", "6 / 10", "Small Brown Pouch 5 argenti · Heavy Brown Bag 2 oro"],
   ["—", "Tailoring", "8–12", "Red Linen Bag 8 (skill 70), Woolen 8, Small Silk Pack 10, Mageweave 12"]
  ],
- "bagsNote": "Hai 4 bag slot + uno slot <b>Reagent Bag</b> separato per i materiali: usalo appena puoi se raccogli.",
+ "bagsNote": "Hai 4 bag slot + uno slot <b>Reagent Bag</b> separato per i materiali: usalo appena puoi se raccogli. ★ Dal lancio le bag non si equipaggiano più da sole: mettile tu negli slot.",
  "profTier": "<b>Mobalytics:</b> S = Cooking, Fishing, Mining, Herbalism, Skinning, Alchemy, Enchanting · A = Engineering, Tailoring, Blacksmithing · B = Leatherworking · C = First Aid.",
  "profErrors": ["Niente power-leveling di crafting con il gold delle bag.", "Non vendere al vendor ciò che serve a una crate.", "Mai mettere all’Auction House sotto il prezzo vendor (dopo la commissione).", "Diffida delle cifre gold/ora: nessuna fonte le ha misurate seriamente.", "Legacy utili 🟡: Bountiful Harvest, Reagent Economy, Field Guide, Permanence."],
  "profGold": "<b>Mining + Herbalism</b> (o Skinning al posto di una). Raccogli lungo la rotta e vendi i grezzi: è il consiglio più condiviso per il gold dal livello 1 (7 guide).",

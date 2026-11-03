@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–30 (v10)
+# Forever Pathfinder – WoW: Forever leveling 1–30 (v11)
 
-> Aggiornato: **2 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **3 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: 5 novembre, mezzanotte (ora italiana). Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -88,29 +88,30 @@ Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalyti
 - 28–30: Shadow Weaving 3/3
 
 ### Rogue – Combat
-Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Ho preso l'ordine di wowforever.be (10–35), che coincide con Method e Warcraft Tavern (Remorseless Attacks ×2 all'inizio, Puncturing Wounds per Backstab col pugnale, Deflection + Riposte). Il 36–60 NON esiste in nessuna fonte con un ordine per livello: l'ho composto io dalle liste di Method e dalle build 60 di Warcraft Tavern e di Rogue's Diary (vedi buildSource).
+Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): l'ordine segue la build Combat di wowforever.gg aggiornata il 3 nov, con Puncturing Wounds al posto di Endurance + Improved Sprint come consiglia Method per chi usa un pugnale.
 
-- 10–11: Remorseless Attacks 2/2
-- 12–13: Improved Sinister Strike 2/2
-- 14–16: Improved Eviscerate 3/3
-- 17–19: Puncturing Wounds 3/3
-- 20–22: Deflection 3/3
-- 23: Riposte 1/1
-- 24–26: Precision 3/3
-- 27: Flawless Execution 1/1
-- 28–30: Dual Wield Specialization 3/5
+- 10–11: Efficient Strikes 2/2
+- 12–14: Coup de Grace 3/3
+- 15–17: Puncturing Wounds 3/3
+- 18–20: Deflection 3/3
+- 21: Riposte 1/1
+- 22–24: Precision 3/3
+- 25–26: Weapon Expertise 2/2
+- 27–29: Aggression 3/3
+- 30: Dual Wield Specialization 1/2
 
 ### Shaman – Enhancement
 Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui convergono Method (Erik, agg. 23 ott: "la più forte"), Warcraft Tavern (build da 26 punti, "la via più pulita"), Mobalytics Tiqqle (66 ♥, Verified, 31 ott: la guida Shaman più salvata) e wowforever.be (dati client). La build 10–30 di wowforever.be coincide con quella di Tiqqle fino al 29: Thundering Strikes, Mental Dexterity, Improved Ghost Wolf, Shamanistic Focus, Elemental Weapons, Stormstrike al 25, Flurry. Il Mana è il vero limite: Elemental e Resto sono più lenti da soli.
 
 - 10–14: Thundering Strikes 5/5
 - 15–17: Mental Dexterity 3/3
-- 18–19: Improved Ghost Wolf 2/2
+- 18–19: Improved Lightning Shield 2/3
 - 20: Shamanistic Focus 1/1
 - 21–23: Elemental Weapons 3/3
 - 24: Anticipation 1/3
-- 25: Stormstrike 1/1
-- 26–29: Flurry 4/5
+- 25–26: Improved Ghost Wolf 2/2
+- 27: Stormstrike 1/1
+- 28–29: Flurry 2/5
 - 30: Improved Stormstrike 1/2
 
 ### Warlock – Affliction

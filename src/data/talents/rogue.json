@@ -1,7 +1,8 @@
 {
  "cls": "rogue",
- "src": "https://wowforever.be/leveling/rogue/",
- "fetched": "2026-11-01",
+ "src": "https://foreverchanges.pro/talents/rogue",
+ "fetched": "2026-11-03",
+ "wfSame": false,
  "trees": [
   {
    "key": "assassination",
@@ -58,15 +59,15 @@
      "max": 3,
      "needs": 5,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "",
      "cost": "",
      "r1": "Gives your finishing moves a 20% chance to add a Combo Point to your target.",
      "rmax": "Gives your finishing moves a 60% chance to add a Combo Point to your target."
     },
-    "murder": {
+    "improved-expose-armor": {
      "index": 4,
-     "name": "Murder",
-     "icon": "spell_shadow_deathscream",
+     "name": "Improved Expose Armor",
+     "icon": "ability_warrior_riposte",
      "row": 2,
      "col": 2,
      "max": 2,
@@ -74,8 +75,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases all damage dealt by 2% against Humanoid and Giant targets.",
-     "rmax": "Increases all damage dealt by 4% against Humanoid and Giant targets."
+     "r1": "Reduces the Energy cost of your Expose Armor ability by 5, and refunds 1 Combo Points when cast with 5 Combo Points.",
+     "rmax": "Reduces the Energy cost of your Expose Armor ability by 10, and refunds 2 Combo Points when cast with 5 Combo Points."
     },
     "improved-slice-and-dice": {
      "index": 5,
@@ -91,33 +92,33 @@
      "r1": "Increases the duration of your Slice and Dice ability by 15%.",
      "rmax": "Increases the duration of your Slice and Dice ability by 45%."
     },
-    "relentless-strikes": {
+    "vigor": {
      "index": 6,
-     "name": "Relentless Strikes",
-     "icon": "ability_warrior_decisivestrike",
+     "name": "Vigor",
+     "icon": "spell_nature_earthbindtotem",
      "row": 3,
      "col": 1,
-     "max": 1,
-     "needs": 10,
-     "req": "",
-     "flag": "Changed from Classic",
-     "cost": "",
-     "r1": "Your finishing moves have a 20% chance per Combo Point to restore 25 Energy.",
-     "rmax": "Your finishing moves have a 20% chance per Combo Point to restore 25 Energy."
-    },
-    "improved-expose-armor": {
-     "index": 7,
-     "name": "Improved Expose Armor",
-     "icon": "ability_warrior_riposte",
-     "row": 3,
-     "col": 2,
      "max": 2,
      "needs": 10,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the Energy cost of your Expose Armor ability by 5, and refunds 1 Combo Point when cast with 5 Combo Points.",
-     "rmax": "Reduces the Energy cost of your Expose Armor ability by 10, and refunds 2 Combo Points when cast with 5 Combo Points."
+     "r1": "Increases your maximum Energy by 5.",
+     "rmax": "Increases your maximum Energy by 10."
+    },
+    "blood-splatter": {
+     "index": 7,
+     "name": "Blood Splatter",
+     "icon": "ability_rogue_rupture",
+     "row": 3,
+     "col": 2,
+     "max": 1,
+     "needs": 10,
+     "req": "",
+     "flag": "New in Forever",
+     "cost": "",
+     "r1": "Increases the duration of your Rupture ability by 6 sec and your Garrote ability by 9 sec.",
+     "rmax": "Increases the duration of your Rupture ability by 6 sec and your Garrote ability by 9 sec."
     },
     "lethality": {
      "index": 8,
@@ -125,12 +126,12 @@
      "icon": "ability_criticalstrike",
      "row": 3,
      "col": 3,
-     "max": 5,
+     "max": 2,
      "needs": 10,
      "req": "malice",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Mutilate, Ghostly Strike, and Hemorrhage abilities by 4%.",
+     "r1": "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Mutilate, Ghostly Strike, and Hemorrhage abilities by 10%.",
      "rmax": "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Mutilate, Ghostly Strike, and Hemorrhage abilities by 20%."
     },
     "vile-poisons": {
@@ -142,7 +143,7 @@
      "max": 5,
      "needs": 15,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the damage dealt by your poisons by 4% and gives your poisons an additional 8% chance to resist dispel effects.",
      "rmax": "Increases the damage dealt by your poisons by 20% and gives your poisons an additional 40% chance to resist dispel effects."
@@ -175,33 +176,33 @@
      "r1": "Increases the chance to apply Poisons to your target by 2%, and gives Poison applications a 10% chance to not consume a charge.",
      "rmax": "Increases the chance to apply Poisons to your target by 10%, and gives Poison applications a 50% chance to not consume a charge."
     },
-    "vigor": {
+    "relentless-strikes": {
      "index": 12,
-     "name": "Vigor",
-     "icon": "spell_nature_earthbindtotem",
+     "name": "Relentless Strikes",
+     "icon": "ability_warrior_decisivestrike",
      "row": 5,
      "col": 1,
-     "max": 2,
+     "max": 5,
      "needs": 20,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases your maximum Energy by 5.",
-     "rmax": "Increases your maximum Energy by 10."
+     "r1": "Your finishing moves have a 4% chance per Combo Point to restore 25 Energy.",
+     "rmax": "Your finishing moves have a 20% chance per Combo Point to restore 25 Energy."
     },
-    "mutilate": {
+    "venom": {
      "index": 13,
-     "name": "Mutilate",
-     "icon": "ability_rogue_deadlybrew",
+     "name": "Venom",
+     "icon": "inv_sword_31",
      "row": 5,
      "col": 2,
      "max": 1,
      "needs": 20,
      "req": "",
      "flag": "New in Forever",
-     "cost": "60 Energy · Melee Range · Instant",
-     "r1": "Instantly attacks with both weapons for 75% weapon damage plus an additional 17.25 with each weapon. Damage increased by 20% against Poisoned targets. Awards 2 Combo Points.",
-     "rmax": "Instantly attacks with both weapons for 75% weapon damage plus an additional 17.25 with each weapon. Damage increased by 20% against Poisoned targets. Awards 2 Combo Points."
+     "cost": "",
+     "r1": "Causes your Shank ability to increase your Poison damage by 30% and your chance to apply Poisons by 20% for 6 sec.",
+     "rmax": "Causes your Shank ability to increase your Poison damage by 30% and your chance to apply Poisons by 20% for 6 sec."
     },
     "improved-kidney-shot": {
      "index": 14,
@@ -223,37 +224,57 @@
      "icon": "spell_shadow_chilltouch",
      "row": 6,
      "col": 3,
-     "max": 5,
+     "max": 3,
      "needs": 25,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Your critical strikes from abilities that add Combo Points have a 20% chance to add an additional Combo Point.",
+     "r1": "Your critical strikes from abilities that add Combo Points have a 33% chance to add an additional Combo Point.",
      "rmax": "Your critical strikes from abilities that add Combo Points have a 100% chance to add an additional Combo Point."
     },
-    "venom": {
+    "mutilate": {
      "index": 16,
-     "name": "Venom",
-     "icon": "inv_sword_31",
+     "name": "Mutilate",
+     "icon": "ability_rogue_deadlybrew",
      "row": 7,
      "col": 2,
      "max": 1,
      "needs": 30,
-     "req": "mutilate",
+     "req": "venom",
      "flag": "New in Forever",
-     "cost": "25 Energy / 1 Power · 100 yd range · Instant",
-     "r1": "Finishing move that increases the damage of your Poisons by 30% and your chance to apply Poisons by 10%. Lasts longer per combo point: 1 point : 9 sec 2 points: 12 sec 3 points: 15 sec 4 points: 18 sec 5 points: 21 sec",
-     "rmax": "Finishing move that increases the damage of your Poisons by 30% and your chance to apply Poisons by 10%. Lasts longer per combo point: 1 point : 9 sec 2 points: 12 sec 3 points: 15 sec 4 points: 18 sec 5 points: 21 sec"
+     "cost": "60 Energy · Melee range · Instant",
+     "r1": "Instantly attacks with both weapons for 90% weapon damage plus an additional 40 with each weapon. Damage increased by 20% against Poisoned targets. Awards 2 Combo Points.",
+     "rmax": "Instantly attacks with both weapons for 90% weapon damage plus an additional 40 with each weapon. Damage increased by 20% against Poisoned targets. Awards 2 Combo Points."
     }
-   }
+   },
+   "link": [
+    "improved-gouge",
+    "remorseless-attacks",
+    "malice",
+    "ruthlessness",
+    "",
+    "improved-slice-and-dice",
+    "relentless-strikes",
+    "improved-expose-armor",
+    "lethality",
+    "vile-poisons",
+    "cold-blood",
+    "improved-poisons",
+    "vigor",
+    "mutilate",
+    "improved-kidney-shot",
+    "seal-fate",
+    "venom",
+    "blood-splatter"
+   ]
   },
   {
    "key": "combat",
    "name": "Combat",
    "nodes": {
-    "improved-eviscerate": {
+    "coup-de-grace": {
      "index": 0,
-     "name": "Improved Eviscerate",
+     "name": "Coup de Grace",
      "icon": "ability_rogue_eviscerate",
      "row": 1,
      "col": 1,
@@ -262,22 +283,22 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the damage done by your Eviscerate ability by 7%.",
-     "rmax": "Increases the damage done by your Eviscerate ability by 20%."
+     "r1": "Increases the damage done by your Eviscerate ability by 7%, and the damage and storage rate of your Death Mark ability by 7%.",
+     "rmax": "Increases the damage done by your Eviscerate ability by 20%, and the damage and storage rate of your Death Mark ability by 20%."
     },
-    "improved-sinister-strike": {
+    "efficient-strikes": {
      "index": 1,
-     "name": "Improved Sinister Strike",
+     "name": "Efficient Strikes",
      "icon": "spell_shadow_ritualofsacrifice",
      "row": 1,
      "col": 2,
      "max": 2,
      "needs": 0,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the Energy cost of your Sinister Strike ability by 3.",
-     "rmax": "Reduces the Energy cost of your Sinister Strike ability by 5."
+     "r1": "Reduces the Energy cost of your Sinister Strike and Hemorrhage abilities by 3.",
+     "rmax": "Reduces the Energy cost of your Sinister Strike and Hemorrhage abilities by 5."
     },
     "lightning-reflexes": {
      "index": 2,
@@ -335,8 +356,22 @@
      "r1": "Improves your chance to hit by 1%.",
      "rmax": "Improves your chance to hit by 3%."
     },
-    "endurance": {
+    "improved-sprint": {
      "index": 6,
+     "name": "Improved Sprint",
+     "icon": "ability_rogue_sprint",
+     "row": 2,
+     "col": 4,
+     "max": 2,
+     "needs": 5,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Gives a 50% chance to remove all movement impairing effects when you activate your Sprint ability.",
+     "rmax": "Gives a 100% chance to remove all movement impairing effects when you activate your Sprint ability."
+    },
+    "endurance": {
+     "index": 7,
      "name": "Endurance",
      "icon": "spell_shadow_shadowward",
      "row": 3,
@@ -350,7 +385,7 @@
      "rmax": "Reduces the cooldown of your Sprint and Evasion abilities by 60%."
     },
     "riposte": {
-     "index": 7,
+     "index": 8,
      "name": "Riposte",
      "icon": "ability_warrior_challange",
      "row": 3,
@@ -359,26 +394,26 @@
      "needs": 10,
      "req": "deflection",
      "flag": "",
-     "cost": "10 Energy · Melee Range · Instant · 6 sec cooldown",
+     "cost": "10 Energy · Melee range · Instant · 6 sec cooldown",
      "r1": "A strike that becomes active after parrying an opponent's attack. This attack deals 150% weapon damage and disarms the target for 6 sec.",
      "rmax": "A strike that becomes active after parrying an opponent's attack. This attack deals 150% weapon damage and disarms the target for 6 sec."
     },
-    "improved-sprint": {
-     "index": 8,
-     "name": "Improved Sprint",
-     "icon": "ability_rogue_sprint",
+    "composure": {
+     "index": 9,
+     "name": "Composure",
+     "icon": "ability_rogue_fleetfooted",
      "row": 3,
      "col": 4,
      "max": 2,
      "needs": 10,
      "req": "",
-     "flag": "",
+     "flag": "New in Forever",
      "cost": "",
-     "r1": "Gives a 50% chance to remove all movement impairing effects when you activate your Sprint ability.",
-     "rmax": "Gives a 100% chance to remove all movement impairing effects when you activate your Sprint ability."
+     "r1": "Increases the Energy cost reduction of your Poised ability by 5.",
+     "rmax": "Increases the Energy cost reduction of your Poised ability by 10."
     },
     "improved-kick": {
-     "index": 9,
+     "index": 10,
      "name": "Improved Kick",
      "icon": "ability_kick",
      "row": 4,
@@ -386,13 +421,13 @@
      "max": 2,
      "needs": 15,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "",
      "cost": "",
      "r1": "Gives your Kick ability a 50% chance to Silence the target for 2 sec.",
      "rmax": "Gives your Kick ability a 100% chance to Silence the target for 2 sec."
     },
     "flawless-execution": {
-     "index": 10,
+     "index": 11,
      "name": "Flawless Execution",
      "icon": "inv_sword_35",
      "row": 4,
@@ -402,25 +437,53 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Reduces the Energy cost of your Eviscerate ability by 10.",
-     "rmax": "Reduces the Energy cost of your Eviscerate ability by 10."
+     "r1": "Reduces the Energy cost of your Eviscerate ability by 15.",
+     "rmax": "Reduces the Energy cost of your Eviscerate ability by 15."
     },
-    "dual-wield-specialization": {
-     "index": 11,
-     "name": "Dual Wield Specialization",
-     "icon": "ability_dualwield",
+    "weapon-expertise": {
+     "index": 12,
+     "name": "Weapon Expertise",
+     "icon": "spell_holy_blessingofstrength",
      "row": 4,
      "col": 3,
-     "max": 5,
+     "max": 2,
      "needs": 15,
      "req": "precision",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the damage done by your off-hand weapon by 5%.",
-     "rmax": "Increases the damage done by your off-hand weapon by 25%."
+     "r1": "Reduces the chance for your attacks to be Dodged or Parried by 1%.",
+     "rmax": "Reduces the chance for your attacks to be Dodged or Parried by 2%."
+    },
+    "aggression": {
+     "index": 13,
+     "name": "Aggression",
+     "icon": "ability_racial_avatar",
+     "row": 4,
+     "col": 4,
+     "max": 3,
+     "needs": 15,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Increases the damage of your Sinister Strike and Eviscerate abilities by 5%.",
+     "rmax": "Increases the damage of your Sinister Strike and Eviscerate abilities by 15%."
+    },
+    "dual-wield-specialization": {
+     "index": 14,
+     "name": "Dual Wield Specialization",
+     "icon": "ability_dualwield",
+     "row": 5,
+     "col": 1,
+     "max": 2,
+     "needs": 20,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Increases the damage done by your off-hand weapon by 25%.",
+     "rmax": "Increases the damage done by your off-hand weapon by 50%."
     },
     "blade-flurry": {
-     "index": 12,
+     "index": 15,
      "name": "Blade Flurry",
      "icon": "ability_warrior_punishingblow",
      "row": 5,
@@ -434,7 +497,7 @@
      "rmax": "Increases your melee attack speed by 20% and your melee attacks strike an additional nearby opponent. Lasts 15 sec."
     },
     "hack-and-slash": {
-     "index": 13,
+     "index": 16,
      "name": "Hack and Slash",
      "icon": "inv_sword_27",
      "row": 5,
@@ -444,70 +507,77 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Gives your melee weapon attacks a benefit depending on the weapon. Axe/Sword: Your successful melee attacks have a 1% chance to trigger an extra attack on the target. Dagger/Fist: Increases your critical strike chance by 1%. Mace: Your attacks ignore 3% of your target's armor.",
-     "rmax": "Gives your melee weapon attacks a benefit depending on the weapon. Axe/Sword: Your successful melee attacks have a 5% chance to trigger an extra attack on the target. Dagger/Fist: Increases your critical strike chance by 5%. Mace: Your attacks ignore 15% of your target's armor."
+     "r1": "Gives your melee weapon attacks a benefit depending on the weapon.\n\nAxe/Sword: Your successful\nmelee attacks have a 1% chance\nto trigger an extra attack on the\ntarget.\n\nDagger/Fist: Increases your\ncritical strike chance by 1%.\n\nMace: Your attacks ignore 3% of\nyour target's armor.",
+     "rmax": "Gives your melee weapon attacks a benefit depending on the weapon.\n\nAxe/Sword: Your successful\nmelee attacks have a 5% chance\nto trigger an extra attack on the\ntarget.\n\nDagger/Fist: Increases your\ncritical strike chance by 5%.\n\nMace: Your attacks ignore 15% of\nyour target's armor."
     },
-    "weapon-expertise": {
-     "index": 14,
-     "name": "Weapon Expertise",
-     "icon": "spell_holy_blessingofstrength",
-     "row": 6,
-     "col": 2,
-     "max": 2,
-     "needs": 25,
-     "req": "blade-flurry",
-     "flag": "Changed from Classic",
-     "cost": "",
-     "r1": "Reduces the chance for your attacks to be Dodged or Parried by 1%.",
-     "rmax": "Reduces the chance for your attacks to be Dodged or Parried by 2%."
-    },
-    "aggression": {
-     "index": 15,
-     "name": "Aggression",
-     "icon": "ability_racial_avatar",
+    "flash-of-steel": {
+     "index": 17,
+     "name": "Flash of Steel",
+     "icon": "ability_rogue_restlessblades",
      "row": 6,
      "col": 3,
-     "max": 3,
+     "max": 5,
      "needs": 25,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "New in Forever",
      "cost": "",
-     "r1": "Increases the damage of your Sinister Strike, Backstab, and Eviscerate abilities by 2%.",
-     "rmax": "Increases the damage of your Sinister Strike, Backstab, and Eviscerate abilities by 6%."
+     "r1": "Increases the Energy generated by your Shank ability by 3 and reduces its cooldown by 0.4 sec.",
+     "rmax": "Increases the Energy generated by your Shank ability by 15 and reduces its cooldown by 2.0 sec."
     },
     "adrenaline-rush": {
-     "index": 16,
+     "index": 18,
      "name": "Adrenaline Rush",
      "icon": "spell_shadow_shadowworddominate",
      "row": 7,
      "col": 2,
      "max": 1,
      "needs": 30,
-     "req": "",
-     "flag": "",
+     "req": "blade-flurry",
+     "flag": "Changed from Classic",
      "cost": "Instant · 5 min cooldown",
      "r1": "Increases your Energy regeneration rate by 100% for 15 sec.",
      "rmax": "Increases your Energy regeneration rate by 100% for 15 sec."
     }
-   }
+   },
+   "link": [
+    "coup-de-grace",
+    "efficient-strikes",
+    "lightning-reflexes",
+    "puncturing-wounds",
+    "deflection",
+    "precision",
+    "endurance",
+    "riposte",
+    "improved-sprint",
+    "improved-kick",
+    "flawless-execution",
+    "dual-wield-specialization",
+    "blade-flurry",
+    "hack-and-slash",
+    "weapon-expertise",
+    "aggression",
+    "adrenaline-rush",
+    "composure",
+    "flash-of-steel"
+   ]
   },
   {
    "key": "subtlety",
    "name": "Subtlety",
    "nodes": {
-    "camouflage": {
+    "setup": {
      "index": 0,
-     "name": "Camouflage",
-     "icon": "ability_stealth",
+     "name": "Setup",
+     "icon": "spell_nature_mirrorimage",
      "row": 1,
      "col": 1,
-     "max": 5,
+     "max": 3,
      "needs": 0,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces your speed penalty from your Stealth ability by 3% and reduces its cooldown by 2 sec.",
-     "rmax": "Reduces your speed penalty from your Stealth ability by 15% and reduces its cooldown by 6 sec."
+     "r1": "Gives you a 15% chance to add a Combo Point to your target after Dodging their attack or fully resisting one of their spells.",
+     "rmax": "Gives you a 45% chance to add a Combo Point to your target after Dodging their attack or fully resisting one of their spells."
     },
     "master-of-deception": {
      "index": 1,
@@ -529,48 +599,62 @@
      "icon": "ability_warrior_warcry",
      "row": 1,
      "col": 3,
-     "max": 2,
+     "max": 5,
      "needs": 0,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 5%.",
-     "rmax": "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 10%."
+     "r1": "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 4%.",
+     "rmax": "Increases the damage dealt by your Backstab, Garrote, Ambush, and Mutilate abilities by 20%."
     },
-    "setup": {
+    "dirty-deeds": {
      "index": 3,
-     "name": "Setup",
-     "icon": "spell_nature_mirrorimage",
+     "name": "Dirty Deeds",
+     "icon": "spell_shadow_summonsuccubus",
      "row": 2,
      "col": 1,
+     "max": 2,
+     "needs": 5,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Reduces the Energy cost of your Cheap Shot and Garrote abilities by 10, and your Garrote ability no longer requires you to be behind your target.",
+     "rmax": "Reduces the Energy cost of your Cheap Shot and Garrote abilities by 20, and your Garrote ability no longer requires you to be behind your target."
+    },
+    "camouflage": {
+     "index": 4,
+     "name": "Camouflage",
+     "icon": "ability_stealth",
+     "row": 2,
+     "col": 2,
      "max": 3,
      "needs": 5,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Gives you a 33% chance to add a Combo Point to your target after Dodging one of their attacks or fully resisting one of their spells.",
-     "rmax": "Gives you a 100% chance to add a Combo Point to your target after Dodging one of their attacks or fully resisting one of their spells."
+     "r1": "Reduces your speed penalty from your Stealth ability by 5% and reduces its cooldown by 2 sec.",
+     "rmax": "Reduces your speed penalty from your Stealth ability by 15% and reduces its cooldown by 6 sec."
     },
-    "elusiveness": {
-     "index": 4,
-     "name": "Elusiveness",
-     "icon": "spell_magic_lesserinvisibilty",
+    "improved-ambush": {
+     "index": 5,
+     "name": "Improved Ambush",
+     "icon": "ability_rogue_ambush",
      "row": 2,
-     "col": 2,
-     "max": 2,
+     "col": 3,
+     "max": 3,
      "needs": 5,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the cooldown of your Vanish and Blind abilities by 45 sec.",
-     "rmax": "Reduces the cooldown of your Vanish and Blind abilities by 90 sec."
+     "r1": "Increases the critical strike chance of your Ambush ability by 15%.",
+     "rmax": "Increases the critical strike chance of your Ambush ability by 45%."
     },
     "dirty-tricks": {
-     "index": 5,
+     "index": 6,
      "name": "Dirty Tricks",
      "icon": "ability_sap",
      "row": 2,
-     "col": 3,
+     "col": 4,
      "max": 2,
      "needs": 5,
      "req": "",
@@ -578,20 +662,6 @@
      "cost": "",
      "r1": "Reduces the Energy cost of your Sap and Blind abilities by 25%.",
      "rmax": "Reduces the Energy cost of your Sap and Blind abilities by 50%."
-    },
-    "improved-ambush": {
-     "index": 6,
-     "name": "Improved Ambush",
-     "icon": "ability_rogue_ambush",
-     "row": 2,
-     "col": 4,
-     "max": 3,
-     "needs": 5,
-     "req": "",
-     "flag": "",
-     "cost": "",
-     "r1": "Increases the critical strike chance of your Ambush ability by 15%.",
-     "rmax": "Increases the critical strike chance of your Ambush ability by 45%."
     },
     "initiative": {
      "index": 7,
@@ -607,56 +677,14 @@
      "r1": "Gives you a 33% chance to add an additional combo point to your target when using your Ambush, Garrote, or Cheap Shot ability.",
      "rmax": "Gives you a 100% chance to add an additional combo point to your target when using your Ambush, Garrote, or Cheap Shot ability."
     },
-    "ghostly-strike": {
-     "index": 8,
-     "name": "Ghostly Strike",
-     "icon": "spell_shadow_curse",
-     "row": 3,
-     "col": 2,
-     "max": 1,
-     "needs": 10,
-     "req": "",
-     "flag": "Changed from Classic",
-     "cost": "40 Energy · Melee Range · Instant · 20 sec cooldown",
-     "r1": "A strike that deals 125% (180% if a Dagger is equipped in your Main Hand) weapon damage and increases your chance to dodge by 15% for 7 sec. Awards 1 combo point.",
-     "rmax": "A strike that deals 125% (180% if a Dagger is equipped in your Main Hand) weapon damage and increases your chance to dodge by 15% for 7 sec. Awards 1 combo point."
-    },
-    "improved-distract": {
-     "index": 9,
-     "name": "Improved Distract",
-     "icon": "ability_rogue_distract",
-     "row": 3,
-     "col": 3,
-     "max": 2,
-     "needs": 10,
-     "req": "",
-     "flag": "New in Forever",
-     "cost": "",
-     "r1": "Increases the radius of your Distract ability by 3 yds, and further reduces the Stealth detection of distracted enemies as though they were an additional 1 levels lower.",
-     "rmax": "Increases the radius of your Distract ability by 5 yds, and further reduces the Stealth detection of distracted enemies as though they were an additional 2 levels lower."
-    },
-    "heightened-senses": {
-     "index": 10,
-     "name": "Heightened Senses",
-     "icon": "ability_ambush",
-     "row": 4,
-     "col": 1,
-     "max": 2,
-     "needs": 15,
-     "req": "",
-     "flag": "Changed from Classic",
-     "cost": "",
-     "r1": "Increases your Stealth detection as if you were 1 level higher and reduces your chance to be hit by spells and ranged attacks by 2%.",
-     "rmax": "Increases your Stealth detection as if you were 3 levels higher and reduces your chance to be hit by spells and ranged attacks by 4%."
-    },
     "premeditation": {
-     "index": 11,
+     "index": 8,
      "name": "Premeditation",
      "icon": "spell_shadow_possession",
-     "row": 4,
+     "row": 3,
      "col": 2,
      "max": 1,
-     "needs": 15,
+     "needs": 10,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "20 yd range · Instant · 2 min cooldown",
@@ -664,23 +692,65 @@
      "rmax": "Adds 2 Combo Points to your target. You must add to or use those combo points within 20 sec or the combo points are lost."
     },
     "serrated-blades": {
-     "index": 12,
+     "index": 9,
      "name": "Serrated Blades",
      "icon": "inv_sword_17",
-     "row": 4,
+     "row": 3,
      "col": 3,
      "max": 3,
-     "needs": 15,
+     "needs": 10,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
      "r1": "Causes your attacks to ignore 3% of your target's Armor and increases the damage dealt by your Rupture ability by 10%.",
      "rmax": "Causes your attacks to ignore 9% of your target's Armor and increases the damage dealt by your Rupture ability by 30%."
     },
-    "dirty-deeds": {
+    "elusiveness": {
+     "index": 10,
+     "name": "Elusiveness",
+     "icon": "spell_magic_lesserinvisibilty",
+     "row": 4,
+     "col": 1,
+     "max": 2,
+     "needs": 15,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "",
+     "r1": "Reduces the cooldown of your Vanish and Blind abilities by 45 sec.",
+     "rmax": "Reduces the cooldown of your Vanish and Blind abilities by 90 sec."
+    },
+    "ghostly-strike": {
+     "index": 11,
+     "name": "Ghostly Strike",
+     "icon": "spell_shadow_curse",
+     "row": 4,
+     "col": 2,
+     "max": 1,
+     "needs": 15,
+     "req": "",
+     "flag": "Changed from Classic",
+     "cost": "40 Energy · Melee range · Instant · 20 sec cooldown",
+     "r1": "A strike that deals 125% (180% if a Dagger is equipped in your Main Hand) weapon damage, increases your chance to dodge by 15% for 7 sec, and causes your next Ambush or Garrote cast within 7 sec to not require Stealth. Awards 1 combo points.",
+     "rmax": "A strike that deals 125% (180% if a Dagger is equipped in your Main Hand) weapon damage, increases your chance to dodge by 15% for 7 sec, and causes your next Ambush or Garrote cast within 7 sec to not require Stealth. Awards 1 combo points."
+    },
+    "quick-getaway": {
+     "index": 12,
+     "name": "Quick Getaway",
+     "icon": "ability_rogue_blackjack",
+     "row": 4,
+     "col": 4,
+     "max": 2,
+     "needs": 15,
+     "req": "dirty-tricks",
+     "flag": "New in Forever",
+     "cost": "",
+     "r1": "Increases the maximum number of targets you may have Sapped by 1, and increases your movement speed by 15% for 3 sec after Sapping a target.",
+     "rmax": "Increases the maximum number of targets you may have Sapped by 1, and increases your movement speed by 30% for 3 sec after Sapping a target."
+    },
+    "heightened-senses": {
      "index": 13,
-     "name": "Dirty Deeds",
-     "icon": "spell_shadow_summonsuccubus",
+     "name": "Heightened Senses",
+     "icon": "ability_ambush",
      "row": 5,
      "col": 1,
      "max": 2,
@@ -688,8 +758,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the Energy cost of your Cheap Shot and Garrote abilities by 10, and your Garrote ability no longer requires you to be behind your target.",
-     "rmax": "Reduces the Energy cost of your Cheap Shot and Garrote abilities by 20, and your Garrote ability no longer requires you to be behind your target."
+     "r1": "Increases your Stealth detection as if you were 1 level higher and reduces your chance to be hit by spells and ranged attacks by 2%.",
+     "rmax": "Increases your Stealth detection as if you were 3 levels higher and reduces your chance to be hit by spells and ranged attacks by 4%."
     },
     "preparation": {
      "index": 14,
@@ -715,28 +785,14 @@
      "needs": 20,
      "req": "serrated-blades",
      "flag": "Changed from Classic",
-     "cost": "35 Energy · Melee Range · Instant",
-     "r1": "An instant strike that deals 100% weapon damage (145% if a Dagger is equipped) and causes the target to take 15% increased Rupture damage from the Rogue. Lasts 15 sec. Awards 1 Combo Point.",
-     "rmax": "An instant strike that deals 100% weapon damage (145% if a Dagger is equipped) and causes the target to take 15% increased Rupture damage from the Rogue. Lasts 15 sec. Awards 1 Combo Point."
+     "cost": "35 Energy · Melee range · Instant",
+     "r1": "An instant strike that deals 100% weapon damage (145% if a Dagger is equipped) and causes the target to take 15% increased Rupture and Garrote damage from the Rogue. Lasts 15 sec. Awards 1 Combo Points.",
+     "rmax": "An instant strike that deals 100% weapon damage (145% if a Dagger is equipped) and causes the target to take 15% increased Rupture and Garrote damage from the Rogue. Lasts 15 sec. Awards 1 Combo Points."
     },
-    "quietus": {
+    "boot-knife": {
      "index": 16,
-     "name": "Quietus",
-     "icon": "ability_rogue_garrote",
-     "row": 6,
-     "col": 1,
-     "max": 5,
-     "needs": 25,
-     "req": "dirty-deeds",
-     "flag": "New in Forever",
-     "cost": "",
-     "r1": "Your Sinister Strike, Ghostly Strike, and Hemorrhage abilities cause 2% more damage against targets below 35% health.",
-     "rmax": "Your Sinister Strike, Ghostly Strike, and Hemorrhage abilities cause 10% more damage against targets below 35% health."
-    },
-    "cutthroat": {
-     "index": 17,
-     "name": "Cutthroat",
-     "icon": "classicon_rogue",
+     "name": "Boot Knife",
+     "icon": "inv_sword_32",
      "row": 6,
      "col": 3,
      "max": 5,
@@ -744,24 +800,48 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Your Backstab has a 3% chance to cause your next Ambush within 10 sec to not require Stealth.",
-     "rmax": "Your Backstab has a 15% chance to cause your next Ambush within 10 sec to not require Stealth."
+     "r1": "Grants your Shank ability a 20% chance to add 2 Combo Points to the target.",
+     "rmax": "Grants your Shank ability a 100% chance to add 2 Combo Points to the target."
     },
-    "thousand-cuts": {
-     "index": 18,
-     "name": "Thousand Cuts",
-     "icon": "ability_rogue_rupture",
+    "death-mark": {
+     "index": 17,
+     "name": "Death Mark",
+     "icon": "ability_creature_cursed_02",
      "row": 7,
      "col": 2,
      "max": 1,
      "needs": 30,
      "req": "preparation",
      "flag": "New in Forever",
-     "cost": "",
-     "r1": "When your Rupture ability deals periodic damage, the Energy cost of your next Hemorrhage or Backstab ability within 10 sec is reduced by 3, stacking up to 5 times.",
-     "rmax": "When your Rupture ability deals periodic damage, the Energy cost of your next Hemorrhage or Backstab ability within 10 sec is reduced by 3, stacking up to 5 times."
+     "cost": "25 Energy · 20 yd range · Instant · 10 sec cooldown",
+     "r1": "Finishing move that marks the target, storing a portion of the damage dealt by your attacks per Combo Point. Garrote and Rupture damage is stored at twice the rate. After 6 sec, the stored damage is dealt, up to a maximum increased by Attack Power and Critical Strike chance:\n1 point : 12% stored, (169.95 + 4.12% of attack power) damage cap\n2 points: 24% stored, (275.01 + 8.24% of attack power) damage cap\n3 points: 36% stored, (380.07 + 12.36% of attack power) damage cap\n4 points: 48% stored, (485.13 + 16.48% of attack power) damage cap\n5 points: 60% stored, (590.19 + 20.6% of attack power) damage cap",
+     "rmax": "Finishing move that marks the target, storing a portion of the damage dealt by your attacks per Combo Point. Garrote and Rupture damage is stored at twice the rate. After 6 sec, the stored damage is dealt, up to a maximum increased by Attack Power and Critical Strike chance:\n1 point : 12% stored, (169.95 + 4.12% of attack power) damage cap\n2 points: 24% stored, (275.01 + 8.24% of attack power) damage cap\n3 points: 36% stored, (380.07 + 12.36% of attack power) damage cap\n4 points: 48% stored, (485.13 + 16.48% of attack power) damage cap\n5 points: 60% stored, (590.19 + 20.6% of attack power) damage cap"
     }
-   }
+   },
+   "link": [
+    "camouflage",
+    "master-of-deception",
+    "opportunity",
+    "setup",
+    "elusiveness",
+    "dirty-tricks",
+    "improved-ambush",
+    "initiative",
+    "ghostly-strike",
+    "",
+    "heightened-senses",
+    "premeditation",
+    "serrated-blades",
+    "dirty-deeds",
+    "preparation",
+    "hemorrhage",
+    "",
+    "",
+    "",
+    "quick-getaway",
+    "boot-knife",
+    "death-mark"
+   ]
   }
  ],
  "order": [
