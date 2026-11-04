@@ -51,8 +51,8 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  <button class="lang" id="lang" type="button" aria-label="Lingua / Language"><svg id="flagEn" viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg><svg id="flagIt" viewBox="0 0 3 2" width="23" height="15" aria-hidden="true" style="display:none"><path fill="#009246" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#CE2B37" d="M2 0h1v2H2z"/></svg></button>
  <small>Forever Pathfinder</small>
  <h1><span data-l="it">Addon in gioco</span><span data-l="en">In-game addon</span></h1>
- <p data-l="it">Porta la guida dentro il gioco: tutte le schede del sito in una finestra, con i segnaposti sulla mappa, le quest che si spuntano da sole, il talento da prendere evidenziato e gli spell da comprare al trainer. GRATIS. <span class="pill">versione 1.1.2 · prova</span></p>
- <p data-l="en">Brings the guide into the game: every tab of the website in one window, with waypoints on the map, quests that tick themselves, the talent to take highlighted and the spells to buy at the trainer. Free. <span class="pill">version 1.1.2 · test</span></p>
+ <p data-l="it">Porta la guida dentro il gioco: tutte le schede del sito in una finestra, con i segnaposti sulla mappa, le quest che si spuntano da sole, il talento da prendere evidenziato e gli spell da comprare al trainer. Collegata a Questie (obbligatorio), OneForAll e MapUtils. GRATIS. <span class="pill">versione 1.2.0 · prova</span></p>
+ <p data-l="en">Brings the guide into the game: every tab of the website in one window, with waypoints on the map, quests that tick themselves, the talent to take highlighted and the spells to buy at the trainer. Linked to Questie (required), OneForAll and MapUtils. Free. <span class="pill">version 1.2.0 · test</span></p>
  <div class="btns"><a class="btn" href="ForeverPathfinder.zip" download><span data-l="it">⬇ Scarica l’addon (.zip, 770 KB)</span><span data-l="en">⬇ Download the addon (.zip, 770 KB)</span></a><a class="btn sec" href="./"><span data-l="it">Apri la guida sul sito</span><span data-l="en">Open the guide on the website</span></a></div>
 </header>
 
@@ -68,8 +68,9 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <li><b>Tutte le schede del sito</b> nella stessa finestra e con lo stesso aspetto: Percorso, Talent, Classe, Profession, Dungeon, Alt, Altro, Info. Riconosce da solo razza, classe e livello.</li>
    <li><b>Percorso:</b> una tappa alla volta, con le voci per livello da spuntare (restano salvate per ogni personaggio), il talento da prendere e i dungeon adatti al tuo livello.</li>
    <li><b>Mappa e minimappa:</b> aprendo la mappa del mondo vedi i segnaposti della tappa; il pulsante con la mappa accanto a una voce mette il segnaposto anche sulla minimappa e scrive in chat zona e coordinate.</li>
-   <li><b>Quest:</b> accanto alle voci vedi «nel registro» o «da consegnare»; quando consegni la quest la voce si spunta da sola.</li>
-   <li><b>Talenti:</b> nella finestra dei talenti del gioco il talento da prendere ha un bordo luminoso.</li>
+   <li><b>Quest, con Questie:</b> accanto alle voci vedi «nel registro» o «da consegnare»; la voce si spunta da sola quando consegni la quest, e anche per le quest fatte prima di installare l’addon. Il pulsante mappa di una voce con quest apre la mappa con le icone di Questie (chi la dà o, se è nel registro, obiettivi e consegna); il libro apre la sua scheda nel Journey di Questie.</li>
+   <li><b>Talenti:</b> nella finestra dei talenti del gioco il talento da prendere ha un bordo luminoso; con <b>OneForAll</b>, nella scheda Talent «Apri in OneForAll» carica tutta la build nel suo calcolatore.</li>
+   <li><b>Dungeon:</b> nella scheda Dungeon «Mappa» apre la mappa del mondo sull’ingresso con il segnaposto (con <b>MapUtils</b> un clic sull’icona d’ingresso apre la mappa interna); con <b>OneForAll</b> «Boss e loot» apre il dungeon nella sua scheda.</li>
    <li><b>Trainer:</b> appena lo apri, scrive in chat gli spell della guida da comprare e li segna nell’elenco.</li>
    <li><b>Opzioni</b> nel gioco: build, dungeon sì o no, cambio di continente, icona e ogni collegamento col gioco da accendere o spegnere.</li>
    <li><b>Inglese o italiano</b>, a scelta nelle Opzioni o con <kbd>/fp lang</kbd> (di base inglese). In italiano i nomi di quest, NPC, spell e oggetti restano in inglese, come sul sito e nel gioco.</li>
@@ -79,6 +80,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 
  <h2>Installazione</h2>
  <ol class="steps">
+  <li><b>Serve Questie</b> (versione per WoW: Forever, da CurseForge): senza Questie l’addon non si carica. <b>OneForAll</b> e <b>MapUtils</b> sono facoltativi: se ci sono, compaiono i loro pulsanti.</li>
   <li><b>Scarica</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> ed <b>estrailo</b> (tasto destro → Estrai tutto). Ottieni la cartella <code>ForeverPathfinder</code> con dentro <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>, <code>icon.tga</code> e la cartella <code>Fonts</code>.</li>
   <li><b>Trova la cartella del gioco.</b> Nell’app Battle.net seleziona WoW: Forever, tocca l’ingranaggio ⚙ accanto a «Gioca» → <b>Mostra in Esplora risorse</b> (su Mac: Mostra nel Finder). Di solito è <code>C:\Program Files (x86)\World of Warcraft\_forever_\</code>.</li>
   <li><b>Copia la cartella</b> <code>ForeverPathfinder</code> dentro <code>Interface\AddOns</code> di quella sottocartella. Se <code>Interface</code> o <code>AddOns</code> non esistono, creale tu. Alla fine deve esserci:
@@ -130,6 +132,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 
  <h2>Problemi comuni</h2>
  <details><summary>Non compare nella lista degli AddOns</summary><p>La cartella è nel posto sbagliato o è doppia. Deve esserci il file <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> dentro la cartella di <b>Forever</b> (non di Retail o Classic Era). Poi chiudi e riapri il gioco del tutto.</p></details>
+ <details><summary>È nella lista ma in rosso, «dipendenza mancante»</summary><p>Manca <b>Questie</b> (o è spento): installalo dalla sua pagina di CurseForge, versione per WoW: Forever, e spuntalo nella lista degli AddOns.</p></details>
  <details><summary>Risulta «non aggiornato» (out of date)</summary><p>Nella schermata AddOns spunta <b>Carica AddOn non aggiornati</b>. Succede quando Blizzard aggiorna il gioco prima di noi; pubblicheremo una versione aggiornata.</p></details>
  <details><summary>«Razza o classe non riconosciute»</summary><p>Capita soprattutto con gli Skyborne, il cui nome interno lo vedremo solo al lancio. Usa <kbd>/fp set</kbd> con la tua combinazione (es. <kbd>/fp set skyborne_a-mage</kbd>) e segnalacelo con uno screenshot di <kbd>/fp debug</kbd>.</p></details>
  <details><summary>Il talento indicato non è quello che ho preso</summary><p>L’addon segue l’ordine della build scelta nelle Opzioni e conta i punti già spesi. Se hai messo punti altrove, da lì in poi i consigli scorrono di conseguenza: conta il numero di punti, non quali hai preso. Per un’altra build cambiala nelle Opzioni.</p></details>
@@ -155,8 +158,9 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <li><b>Every tab of the website</b> in the same window and with the same look: Route, Talents, Class, Professions, Dungeon, Alts, More, Info. It detects race, class and level by itself.</li>
    <li><b>Route:</b> one stage at a time, with the items per level to tick (saved per character), the talent to take and the dungeons for your level.</li>
    <li><b>Map and minimap:</b> open the world map to see the stage waypoints; the map button next to an item puts the waypoint on the minimap too and prints zone and coordinates in chat.</li>
-   <li><b>Quests:</b> next to the items you see “in your log” or “ready to turn in”; when you turn in the quest the item ticks itself.</li>
-   <li><b>Talents:</b> in the game’s talent window the talent to take has a glowing border.</li>
+   <li><b>Quests, with Questie:</b> next to the items you see “in your log” or “ready to turn in”; the item ticks itself when you turn in the quest, and also for quests done before you installed the addon. The map button of an item with a quest opens the map with Questie’s icons (who gives it or, if it is in your log, objectives and turn-in); the book opens its details in Questie’s Journey.</li>
+   <li><b>Talents:</b> in the game’s talent window the talent to take has a glowing border; with <b>OneForAll</b>, “Open in OneForAll” in the Talents tab loads the whole build into its calculator.</li>
+   <li><b>Dungeons:</b> in the Dungeon tab “Map” opens the world map on the entrance with the waypoint (with <b>MapUtils</b> a click on its entrance icon opens the dungeon’s own map); with <b>OneForAll</b> “Bosses and loot” opens the dungeon in its tab.</li>
    <li><b>Trainer:</b> as soon as you open it, it prints in chat the guide spells to buy and marks them in the list.</li>
    <li><b>Options</b> in game: build, dungeons on or off, continent switch, icon and every game link to turn on or off.</li>
    <li><b>English or Italian</b>, your choice in the Options or with <kbd>/fp lang</kbd> (English by default). In Italian the names of quests, NPCs, spells and items stay in English, as on the website and in the game.</li>
@@ -166,6 +170,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 
  <h2>Installation</h2>
  <ol class="steps">
+  <li><b>You need Questie</b> (the WoW: Forever version, from CurseForge): without Questie the addon does not load. <b>OneForAll</b> and <b>MapUtils</b> are optional: if they are there, their buttons appear.</li>
   <li><b>Download</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> and <b>extract it</b> (right click → Extract All). You get the <code>ForeverPathfinder</code> folder with <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>, <code>icon.tga</code> and the <code>Fonts</code> folder inside.</li>
   <li><b>Find the game folder.</b> In the Battle.net app select WoW: Forever, click the ⚙ gear next to “Play” → <b>Show in Explorer</b> (on Mac: Show in Finder). It is usually <code>C:\Program Files (x86)\World of Warcraft\_forever_\</code>.</li>
   <li><b>Copy the</b> <code>ForeverPathfinder</code> <b>folder</b> into <code>Interface\AddOns</code> of that subfolder. If <code>Interface</code> or <code>AddOns</code> do not exist, create them. In the end you must have:
@@ -217,6 +222,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 
  <h2>Common problems</h2>
  <details><summary>It does not appear in the AddOns list</summary><p>The folder is in the wrong place or doubled. You must have the file <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> inside the <b>Forever</b> folder (not Retail or Classic Era). Then close and reopen the game completely.</p></details>
+ <details><summary>It is in the list but red, “missing dependency”</summary><p><b>Questie</b> is missing (or turned off): install it from its CurseForge page, the WoW: Forever version, and tick it in the AddOns list.</p></details>
  <details><summary>It shows as “out of date”</summary><p>On the AddOns screen tick <b>Load out of date AddOns</b>. It happens when Blizzard updates the game before we do; we will publish an updated version.</p></details>
  <details><summary>“Race or class not recognized”</summary><p>It happens mostly with Skyborne, whose internal name we will only see at launch. Use <kbd>/fp set</kbd> with your combination (e.g. <kbd>/fp set skyborne_a-mage</kbd>) and let us know with a screenshot of <kbd>/fp debug</kbd>.</p></details>
  <details><summary>The suggested talent is not the one I took</summary><p>The addon follows the order of the build picked in the Options and counts the points you have spent. If you put points elsewhere, the suggestions move on accordingly: it counts how many points, not which ones. For another build change it in the Options.</p></details>

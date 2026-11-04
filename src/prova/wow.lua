@@ -60,6 +60,8 @@ local methods = {
   SetParent = function(s, p) detach(s); s.parent = p; p.kids[#p.kids + 1] = s end, GetParent = function(s) return s.parent end,
   GetID = function(s) return s.ID or 0 end, SetID = function(s, i) s.ID = i end, GetName = function(s) return s.name end,
   GetEffectiveScale = function() return 1 end, GetZoom = function() return 0 end, GetScale = function() return 1 end,
+  GetChildren = function(s) return unpack(s.kids) end, GetRegions = function(s) return unpack(s.regs) end,
+  IsObjectType = function(s, t) return s.kind == t end, Click = function(s) if s.scripts.OnClick then s.scripts.OnClick(s, "LeftButton") end end,
 }
 new = function(kind, parent, layer)
   nextId = nextId + 1
@@ -95,7 +97,8 @@ PLAYER = PLAYER or { race = "Human", class = "WARRIOR", faction = "Alliance", le
 local CL = { WARRIOR = "Warrior", MAGE = "Mage", PRIEST = "Priest", ROGUE = "Rogue", HUNTER = "Hunter", WARLOCK = "Warlock", DRUID = "Druid", PALADIN = "Paladin", SHAMAN = "Shaman" }
 GetLocale = function() return PLAYER.locale end
 UnitRace = function() return PLAYER.race, PLAYER.race end
-UnitClass = function() return CL[PLAYER.class] or PLAYER.class, PLAYER.class end
+local CLASSID = { WARRIOR = 1, PALADIN = 2, HUNTER = 3, ROGUE = 4, PRIEST = 5, SHAMAN = 7, MAGE = 8, WARLOCK = 9, DRUID = 11 }
+UnitClass = function() return CL[PLAYER.class] or PLAYER.class, PLAYER.class, CLASSID[PLAYER.class] end
 UnitFactionGroup = function() return PLAYER.faction end
 UnitLevel = function() return PLAYER.level end
 UnitName = function() return "Aldric" end
@@ -223,10 +226,78 @@ canvas:SetScript("OnClick", function(_, _, x, y) PLAYER.cont = WorldMapFrame:Get
 -- minimappa in alto a destra
 Minimap = CreateFrame("Frame", "Minimap", UIParent); Minimap:SetPoint("TOPLEFT", SW - 170, -20); Minimap:SetSize(140, 140); Minimap.round = true
 Minimap.GetCenter = function() return SW - 100, SH - 90 end
+ShowUIPanel = function(fr) fr:SetParent(UIParent); fr:Show() end
+WorldMapFrame.SetMapID = function(_, id) MAPID = id end
+
+-- Questie finto (l'addon lo richiede): ID per nome, quest già consegnate (QDONE, salvate con il personaggio),
+-- mappa con i suoi segni (! chi dà la quest, ? obiettivi e consegna) e la scheda della quest nel suo Journey
+QDONE = QDONE or {}
+local QNAME = {}
+local function QID(name) local h = 0; for i = 1, #name do h = (h * 31 + name:byte(i)) % 100000 end; QNAME[h + 1] = name; return h + 1 end
+LibQuestieDB = { Quest = { IdsByName = function(n) return { QID(n) } end } }
+Questie = { API = { isReady = true, RegisterOnReady = function(cb) cb() end }, db = { char = { complete = QDONE } } }
+C_AddOns = { IsAddOnLoaded = function(n) return n == "Questie" or n == "OneForAll" or n == "MapUtils" end }
+-- dove la guida mette la quest (primo segnaposto della voce che la nomina): lì il segno di Questie
+local function questPin(title)
+  local L = ForeverPathfinderLinks[(ForeverPathfinderDB or {}).lang or "en"] or {}
+  for _, l in pairs(L) do for _, q in ipairs(l.q) do if q == title and l.p[1] then return l.p[1] end end end
+end
+local CONTID = { k = 1414, e = 1415, z = 2000 }
+local qMark = canvas:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge"); qMark.shown = false
+local function questieShow(title, sign)
+  local p = questPin(title)
+  if p then MAPID = CONTID[p[1]]; qMark:SetText(sign); qMark:SetTextColor(1, 0.82, 0); qMark:SetPoint("TOPLEFT", p[2] * 1000 - 6, -p[3] * 614 + 14); qMark.cont = MAPID; qMark:Show() end
+  WorldMapFrame:SetParent(UIParent); WorldMapFrame:Show(); WorldMapFrame:OnMapChanged()
+  DEFAULT_CHAT_FRAME:AddMessage("|cff1eff00Questie|r " .. (sign == "!" and "chi dà" or "obiettivi e consegna di") .. " |cffffd100" .. title .. "|r sulla mappa" .. (p and "" or " (posizione non nota al banco di prova)"))
+  return true
+end
+local journey = CreateFrame("Frame", "QuestieJourneyFrame", UIParent); panel(journey, 380, 220, "Questie · My Journey"); journey:SetPoint("TOPLEFT", 460, -120)
+local jText = journey:CreateFontString(nil, "OVERLAY", "GameFontHighlight"); jText:SetPoint("TOPLEFT", 14, -40); jText:SetWidth(352)
+local QMOD = {
+  QuestieDB = { IsDoable = function() return true end, QueryQuestSingle = function(id, k) return k == "startedBy" and { { id } } or nil end,
+    QueryNPCSingle = function() return { [1] = { { 50, 50 } } } end, QueryObjectSingle = function() end },
+  ZoneDB = { GetUiMapIdByAreaId = function() return PLAYER.cont end },
+  QuestieMap = { ShowNPC = function(_, id) questieShow(QNAME[id] or "?", "!") end, ShowObject = function() end },
+  QuestieCompat = { OpenWorldMap = function() return true end },
+  TrackerUtils = { ShowQuestOnMap = function(id) return questieShow(QNAME[id] or "?", "?") end },
+  QuestieJourney = { IsShown = function() return journey.shown end, ToggleJourneyWindow = function() if journey.shown then journey:Hide() else journey:SetParent(UIParent); journey:Show() end end, tabGroup = { SelectTab = function() end } },
+  QuestieSearchResults = { SetSearch = function(_, _, id)
+    local t, st = QNAME[id] or "?", "da prendere"
+    for _, q in ipairs(QUESTS) do if q.title == t then st = q.done and "completa, da consegnare" or "nel registro" end end
+    if QDONE[id] then st = "consegnata" end
+    local p = questPin(t)
+    jText:SetText("|cffffd100" .. t .. "|r\n\nQuest ID " .. id .. " · " .. st .. (p and ("\nIniziata da: " .. p[4]) or "") .. "\n\n(Scheda Cerca del Journey di Questie: nel gioco vero obiettivi, ricompense e NPC.)")
+  end },
+}
+QuestieLoader = { ImportModule = function(_, n) return QMOD[n] end }
+-- quest che Questie sa già consegnate (fatte prima di installare l'addon): la pagina le segna, poi /reload
+function QUEST_PAST(t) QDONE[QID(t)] = true end
+
+-- OneForAll finto: finestra con la scheda Talent Trees (pulsante "Import build") o Dungeons & Raids
+local ofaF = CreateFrame("Frame", "OneForAllFrame", UIParent); panel(ofaF, 460, 420, "OneForAll"); ofaF:SetPoint("TOPLEFT", 420, -80)
+local ofaText = ofaF:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall"); ofaText:SetPoint("TOPLEFT", 14, -70); ofaText:SetWidth(432)
+local ofaRanks = {}
+OneForAll = { TalentCode = {
+    Encode = function(cls, ranks) ofaRanks = ranks; local n = 0; for _, r in pairs(ranks) do n = n + r end; return "OFA1:" .. tostring(cls) .. ":" .. n end,
+    ShowImport = function() end,
+    ShowExport = function(code) ofaText:SetText("Export build\n\n" .. code .. "\n\n(Ctrl+C, poi Import)") end },
+  OpenPanel = function(_, key) ofaF.title:SetText(key == "talents" and "OneForAll · Talent Trees" or "OneForAll · Dungeons & Raids"); ofaText:SetText(""); ofaF.imp[key == "talents" and "Show" or "Hide"](ofaF.imp); ofaF:SetParent(UIParent); ofaF:Show() end, -- SetParent: in cima, come la sua strata DIALOG
+  DUNGEONS = {}, UI = { OpenDungeon = function(d) ofaText:SetText("|cffffd100" .. d.name .. "|r\n\nBoss, loot e quest del dungeon nella scheda Dungeons di OneForAll (qui una finestra finta).") end } }
+ofaF.imp = textButton(ofaF, "Import build", 14, -34, 120, 24, function()
+  OneForAll.TalentCode.ShowImport(function(code)
+    local list = {}
+    for k, r in pairs(ofaRanks) do list[#list + 1] = k .. " " .. r end
+    table.sort(list)
+    ofaText:SetText("|cff66ff66Build imported|r  " .. code .. "\n\n" .. table.concat(list, " · "))
+  end)
+end)
 
 -- caricamento dell'addon con i salvataggi passati dalla pagina
 function LOAD_ADDON(data, core)
   assert(load(data, "Data.lua"))()
+  Questie.db.char.complete = QDONE -- QDONE arriva dai salvataggi della pagina
+  OneForAll.DUNGEONS = {}
+  for _, d in ipairs(ForeverPathfinderDungeonPos or {}) do OneForAll.DUNGEONS[#OneForAll.DUNGEONS + 1] = { name = d[1] } end
   assert(load(core, "Core.lua"))("ForeverPathfinder")
   for _, o in ipairs(all) do if o.events.ADDON_LOADED and o.scripts.OnEvent then o.scripts.OnEvent(o, "ADDON_LOADED", "ForeverPathfinder") end end
   FIRE("PLAYER_LOGIN")
@@ -271,7 +342,7 @@ function STAGE_QUESTS()
   for lv, c in G[v.tasks]:gmatch("(%d+),(%d+),%d+") do if tonumber(lv) <= PLAYER.level then ch = tonumber(c) end end
   for lv, c, k in G[v.tasks]:gmatch("(%d+),(%d+),(%d+)") do
     local l = L[tonumber(k)]
-    if tonumber(c) == ch and l then for _, q in ipairs(l.q) do if not seen[q] then seen[q] = true; rows[#rows + 1] = '{"t":' .. jstr(q) .. ',"lv":' .. lv .. ',"turned":' .. tostring(((ForeverPathfinderChar or {}).turned or {})[q] == true) .. '}' end end end
+    if tonumber(c) == ch and l then for _, q in ipairs(l.q) do if not seen[q] then seen[q] = true; rows[#rows + 1] = '{"t":' .. jstr(q) .. ',"lv":' .. lv .. ',"turned":' .. tostring(((ForeverPathfinderChar or {}).turned or {})[q] == true or QDONE[QID(q)] == true) .. '}' end end end
   end
   return "[" .. table.concat(rows, ",") .. "]"
 end
@@ -388,7 +459,7 @@ local function ser(v, ind)
   if type(v) == "string" then return string.format("%q", v) end
   return tostring(v)
 end
-function SAVED_CHAR() return "ForeverPathfinderChar=" .. ser(ForeverPathfinderChar or {}) end
+function SAVED_CHAR() return "ForeverPathfinderChar=" .. ser(ForeverPathfinderChar or {}) .. "\nQDONE=" .. ser(QDONE) end
 function SAVED_DB() return "ForeverPathfinderDB=" .. ser(ForeverPathfinderDB or {}) end
 -- comandi della pagina
 function SETCURSOR(x, y) CURSOR_X, CURSOR_Y = x, y end
@@ -398,12 +469,12 @@ function SPENT() return PLAYER.spent end
 local qid = 1000
 function QUEST_ADD(t) for _, q in ipairs(QUESTS) do if q.title == t then return end end; qid = qid + 1; QUESTS[#QUESTS + 1] = { title = t, id = qid }; FIRE("QUEST_LOG_UPDATE") end
 function QUEST_DONE(id) for _, q in ipairs(QUESTS) do if q.id == id then q.done = true end end; FIRE("QUEST_LOG_UPDATE") end
-function QUEST_TURNIN(id) for i, q in ipairs(QUESTS) do if q.id == id then table.remove(QUESTS, i); FIRE("QUEST_TURNED_IN", id); break end end; FIRE("QUEST_LOG_UPDATE") end
+function QUEST_TURNIN(id) for i, q in ipairs(QUESTS) do if q.id == id then table.remove(QUESTS, i); QUEST_PAST(q.title); FIRE("QUEST_TURNED_IN", id); break end end; FIRE("QUEST_LOG_UPDATE") end
 function KEYS() local k = {}
   for key in pairs(ForeverPathfinderData.it) do if key:sub(1, 1) ~= "_" then k[#k + 1] = jstr(key) end end
   table.sort(k); return "[" .. table.concat(k, ",") .. "]" end
-function TOGGLE(name) local f = _G[name]; if f.shown then f:Hide() else f:Show() end end
-function SET_MAP(id) MAPID = id; WorldMapFrame:OnMapChanged() end
+function TOGGLE(name) local f = _G[name]; if f.shown then f:Hide() else f:SetParent(UIParent); f:Show() end end
+function SET_MAP(id) MAPID = id; if qMark.cont ~= id then qMark:Hide() end; WorldMapFrame:OnMapChanged() end
 function OPEN_TRAINER() MAKE_TRAINER(); ClassTrainerFrame:Show(); FIRE("TRAINER_SHOW"); ClassTrainerFrame_Update() end
 function LEVEL(lv) PLAYER.level = lv; FIRE("PLAYER_LEVEL_UP", lv); if TalentFrame.shown then TalentFrame_Update() end end
 function SPEND() if UnitCharacterPoints() > 0 then PLAYER.spent = PLAYER.spent + 1; FIRE("CHARACTER_POINTS_CHANGED"); if TalentFrame.shown then TalentFrame_Update() end end end

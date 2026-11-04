@@ -38,6 +38,14 @@ local TT = {
     inLog = "nel registro", toTurn = "da consegnare", pinSet = "Segnaposto: %s · %s %.1f, %.1f", pinHere = "Sei arrivato: %s",
     pinTip = "Mostra sulla mappa e sulla minimappa", trainerBuy = "Da comprare secondo la guida: %s", ticked = "Spuntata nella guida: %s",
     dbgLinks = "Continenti %s · segnaposto del gioco %s · finestra talenti %s · quest nel registro %d", yes = "sì", no = "no",
+    qMap = "Mostra la quest sulla mappa", qMapTip = "Con le icone di Questie: chi la dà o, se è nel registro, obiettivi e consegna",
+    qInfo = "Scheda della quest", qInfoTip = "Apre la quest nel Journey di Questie", qWait = "Questie si sta ancora caricando: riprova tra un momento.",
+    qOff = "Questie non è attivo: spunte automatiche, mappa e schede delle quest passano da Questie.", qSync = "Spuntate %d voci con quest già consegnate.",
+    ofa = "Apri in OneForAll", ofaTip = "Carica questa build (fino al 60) nel calcolatore dei talenti di OneForAll",
+    ofaFail = "OneForAll non ha caricato la build da solo: copiala con Ctrl+C e incollala in Import.",
+    dgMap = "Mappa", dgMapTip = "Apre la mappa del mondo sull'ingresso, con il segnaposto", dgMapMU = "Clic sull'icona d'ingresso di MapUtils: si apre la mappa interna del dungeon",
+    dgLoot = "Boss e loot", dgLootTip = "Apre il dungeon in OneForAll (boss, loot, quest)",
+    dbgAddons = "Addon collegati: Questie %s · OneForAll %s · MapUtils %s",
   },
   en = {
     level = "Lvl %d", stageWord = "STAGE", build = "Build: %s",
@@ -62,6 +70,14 @@ local TT = {
     inLog = "in your log", toTurn = "ready to turn in", pinSet = "Waypoint: %s · %s %.1f, %.1f", pinHere = "You have arrived: %s",
     pinTip = "Show on the map and the minimap", trainerBuy = "To buy according to the guide: %s", ticked = "Ticked in the guide: %s",
     dbgLinks = "Continents %s · game waypoint %s · talent window %s · quests in log %d", yes = "yes", no = "no",
+    qMap = "Show the quest on the map", qMapTip = "With Questie's icons: who gives it or, if it is in your log, objectives and turn-in",
+    qInfo = "Quest details", qInfoTip = "Opens the quest in Questie's Journey", qWait = "Questie is still loading: try again in a moment.",
+    qOff = "Questie is not active: automatic ticks, map and quest details go through Questie.", qSync = "Ticked %d items with quests already turned in.",
+    ofa = "Open in OneForAll", ofaTip = "Loads this build (up to 60) into OneForAll's talent calculator",
+    ofaFail = "OneForAll did not load the build by itself: copy it with Ctrl+C and paste it into Import.",
+    dgMap = "Map", dgMapTip = "Opens the world map on the entrance, with the waypoint", dgMapMU = "Click MapUtils' entrance icon: the dungeon's own map opens",
+    dgLoot = "Bosses and loot", dgLootTip = "Opens the dungeon in OneForAll (bosses, loot, quests)",
+    dbgAddons = "Linked addons: Questie %s · OneForAll %s · MapUtils %s",
   },
 }
 local T = TT.en
@@ -181,6 +197,65 @@ local function questTag(n)
   return ""
 end
 local setTarget -- segnaposto scelto da una voce (più sotto, con la minimappa)
+
+-- Questie (obbligatorio, ## RequiredDeps): le quest della guida per nome → ID del suo database (LibQuestieDB),
+-- così si spuntano anche quelle consegnate prima dell'addon, e mappa e scheda della quest usano la sua interfaccia.
+-- Moduli interni di Questie (QuestieLoader): sempre dentro pcall, se cambiano resta il resto dell'addon.
+local function QZ() return _G.Questie and Questie.API and Questie.API.isReady and _G.LibQuestieDB and _G.QuestieLoader and true end
+local function mod(name) return QuestieLoader:ImportModule(name) end
+local function qIDs(name)
+  if not QZ() then return end
+  local ok, ids = pcall(LibQuestieDB.Quest.IdsByName, name)
+  return ok and ids or nil
+end
+-- ponytail: basta un ID con quel nome consegnato; due quest omonime (Alleanza e Orda) sarebbero un falso positivo, raro nel leveling
+local function qDone(name)
+  local done = Questie.db and Questie.db.char and Questie.db.char.complete or {}
+  for _, id in ipairs(qIDs(name) or {}) do
+    if done[id] or (C_QuestLog and C_QuestLog.IsQuestFlaggedCompleted and C_QuestLog.IsQuestFlaggedCompleted(id)) then return true end
+  end
+end
+-- l'ID da mostrare: quello nel registro, altrimenti il primo che Questie dice fattibile per il personaggio
+local function qPick(name)
+  local ids = qIDs(name)
+  if not ids then return end
+  for _, id in ipairs(ids) do if idTitle[id] == name then return id end end
+  local ok, DBQ = pcall(mod, "QuestieDB")
+  for _, id in ipairs(ids) do if not (ok and DBQ.IsDoable) or DBQ.IsDoable(id) then return id end end
+  return ids[1]
+end
+-- mappa del mondo sulla quest: nel registro obiettivi e consegna (come il tracker di Questie), altrimenti chi la dà
+local function qMap(name)
+  local id = qPick(name)
+  if not id then return false end
+  local ok, done = pcall(function()
+    if inLog[name] and mod("TrackerUtils").ShowQuestOnMap(id) then return true end
+    local DBQ, Zone, QM, Compat = mod("QuestieDB"), mod("ZoneDB"), mod("QuestieMap"), mod("QuestieCompat")
+    local by = DBQ.QueryQuestSingle(id, "startedBy") or {}
+    for kind = 1, 2 do -- 1 NPC, 2 oggetti
+      for _, sid in ipairs(by[kind] or {}) do
+        local sp = kind == 1 and DBQ.QueryNPCSingle(sid, "spawns") or DBQ.QueryObjectSingle(sid, "spawns")
+        for area, coords in pairs(sp or {}) do
+          if coords[1] then
+            if kind == 1 then QM:ShowNPC(sid) else QM:ShowObject(sid) end
+            return Compat.OpenWorldMap(Zone:GetUiMapIdByAreaId(area))
+          end
+        end
+      end
+    end
+  end)
+  return ok and done
+end
+-- la scheda della quest nel Journey di Questie (scheda Cerca, per ID)
+local function qInfo(name)
+  local id = qPick(name)
+  if not id then return false end
+  return pcall(function()
+    local J = mod("QuestieJourney")
+    if not J:IsShown() then J:ToggleJourneyWindow() end
+    J.tabGroup:SelectTab("search"); mod("QuestieSearchResults"):SetSearch("quest", id)
+  end)
+end
 
 -- aspetto del sito: colori di style.css (:root), Cinzel per i titoli, Inter per i testi, riquadri (card) e icone del gioco
 local HEX = { bg = "08111d", card = "112236", deep = "0b1828", tx = "e7eef7", mu = "93a6be", ac = "6fc3ff", ice = "a9e4ff",
@@ -327,6 +402,21 @@ local function button(label, x, yy, fn)
   o.fs:SetText(label); o:SetWidth(math.floor((o.fs:GetStringWidth() or 20) + 22)); o.set(true)
   o:SetScript("OnClick", fn); return put(o, x, yy)
 end
+-- pulsantino quadrato con un'icona del gioco (segnaposto, scheda della quest) e il suo tooltip
+local function mini(ic, x, yy, tip, tip2, fn)
+  local o = take("pn", function()
+    local b = CreateFrame("Button", nil, body); b:SetSize(20, 20)
+    b.tx = b:CreateTexture(nil, "ARTWORK"); b.tx:SetAllPoints(); b.tx:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+    frame(b, "gold", 20, 20)
+    local hl = b:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.2)
+    b:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_LEFT"); GameTooltip:AddLine(self.tip); GameTooltip:AddLine(self.tip2, 1, 1, 1, true); GameTooltip:Show() end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    b:SetScript("OnClick", function(self) self.fn() end)
+    return b
+  end)
+  o.tx:SetTexture(iconPath(ic)); o.tip, o.tip2, o.fn = tip, tip2, fn
+  return put(o, x, yy)
+end
 local function clear()
   for k, l in pairs(P) do for i = 1, N[k] do l[i]:Hide() end; N[k] = 0 end
   y, cardTop = 0, nil
@@ -397,21 +487,19 @@ local function drawPath(g, k, v)
       local ic, s = t[3]:match("^%^([^%^,]*)[^%^]*%^(.*)$")
       local x = PAD + 78
       if ic then icon(ic, x, y + 1, 18); x = x + 24 end
-      -- a destra il segnaposto della voce (mappa e minimappa), accanto al testo lo stato della quest nel registro
+      -- a destra: voce con quest → mappa e scheda di Questie; altrimenti il segnaposto della voce (mappa e minimappa).
+      -- Accanto al testo lo stato della quest nel registro
       local L, right = LINKS[t[4]], 0
-      if L and L.p[1] and on("map") then
-        local p = L.p[1]
-        local b = take("pn", function()
-          local o = CreateFrame("Button", nil, body); o:SetSize(20, 20)
-          local tx = o:CreateTexture(nil, "ARTWORK"); tx:SetAllPoints(); tx:SetTexture(iconPath("inv_misc_map_01")); tx:SetTexCoord(0.07, 0.93, 0.07, 0.93)
-          frame(o, "gold", 20, 20)
-          local hl = o:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.2)
-          o:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_LEFT"); GameTooltip:AddLine(self.p[4]); GameTooltip:AddLine(T.pinTip, 1, 1, 1); GameTooltip:Show() end)
-          o:SetScript("OnLeave", function() GameTooltip:Hide() end)
-          o:SetScript("OnClick", function(self) setTarget(self.p) end)
-          return o
+      local q, p = L and L.q[1], L and L.p[1]
+      if q and on("map") then
+        mini("inv_misc_map_01", BW - PAD - 20, y, q, T.qMapTip, function()
+          -- la mappa del mondo sta sotto la guida: la guida si chiude (si riapre dall'icona)
+          if not QZ() then say(T.qWait) elseif qMap(q) then f:Hide() elseif p then setTarget(p) end
         end)
-        b.p = p; put(b, BW - PAD - 20, y)
+        mini("inv_misc_book_09", BW - PAD - 46, y, q, T.qInfoTip, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end)
+        right = 54
+      elseif p and on("map") then
+        mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() setTarget(p) end)
         right = 28
       end
       local o = str(F.p, "tx", (s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
@@ -422,13 +510,88 @@ local function drawPath(g, k, v)
   return here
 end
 
--- una scheda del sito: ogni titolo "1…" apre una card, poi titoli "2…"/"3…" e paragrafi "0…"
+local function loaded(name) local fn = (C_AddOns and C_AddOns.IsAddOnLoaded) or IsAddOnLoaded; return fn and fn(name) and true or false end
+local function norm(s) return (s:lower():gsub("^the ", ""):gsub("[^%w]", "")) end
+
+-- dungeon: ingresso dalla mappa del sito (Data.lua) → mappa del mondo con il segnaposto, dove MapUtils mette la sua icona
+-- d'ingresso (un clic apre la mappa interna: MapUtils non ha funzioni per altri addon); boss e loot nella scheda di OneForAll
+local DPOS
+local function dgFind(title) -- il nome più lungo con cui comincia il titolo ("The Deadmines Livelli 17–26 …")
+  if not DPOS then DPOS = {}; for _, d in ipairs(ForeverPathfinderDungeonPos or {}) do DPOS[#DPOS + 1] = { d[2], d[3], d[4], d[1], norm(d[1]) } end end
+  local t, best = norm(title)
+  for _, p in ipairs(DPOS) do if t:sub(1, #p[5]) == p[5] and (not best or #p[5] > #best[5]) then best = p end end
+  return best
+end
+local focus -- ingresso scelto: resta sulla mappa del mondo insieme ai segnaposti della tappa
+local drawMapPins
+local function dgMap(p)
+  focus = p; setTarget(p)
+  local cont = continents()[p[1]]
+  local zone = cont and C_Map.GetMapInfoAtPosition and C_Map.GetMapInfoAtPosition(cont, p[2], p[3])
+  local id = zone and zone.mapID or cont
+  if not id then return end
+  if C_Map.OpenWorldMap then C_Map.OpenWorldMap(id) else if not WorldMapFrame:IsShown() then ShowUIPanel(WorldMapFrame) end; WorldMapFrame:SetMapID(id) end
+  f:Hide(); drawMapPins()
+  if loaded("MapUtils") then say(T.dgMapMU) end
+end
+local function ofaDungeon(name)
+  local O = _G.OneForAll
+  if not (O and O.DUNGEONS and O.OpenPanel) then return end
+  local n = norm(name)
+  for _, d in ipairs(O.DUNGEONS) do
+    if norm(d.name) == n or (d.short and norm(d.short) == n) then return d end
+    for _, a in ipairs(d.aliases or {}) do if norm(a) == n then return d end end
+  end
+end
+
+-- OneForAll: la build della guida (tutti i punti fino al 60) come codice del suo calcolatore (TalentCode, pubblico), poi il suo
+-- pulsante "Import build" con il codice già dentro; se non riesce, la sua finestra Export con il codice da copiare
+local function findButton(fr, text, depth)
+  if not fr or depth > 14 then return end
+  if fr.IsObjectType and fr:IsObjectType("Button") and fr:IsVisible() then
+    for _, r in ipairs({ fr:GetRegions() }) do if r.GetText and r:GetText() == text then return fr end end
+  end
+  for _, c in ipairs({ fr:GetChildren() }) do local b = findButton(c, text, depth + 1); if b then return b end end
+end
+local function ofaLoad(v)
+  local O = _G.OneForAll
+  local TC = O and O.TalentCode
+  local ranks = {}
+  for _, t in ipairs(v._tal) do local key = t[2]:gsub("’", "'"):lower(); ranks[key] = (ranks[key] or 0) + 1 end
+  local okc, code = pcall(TC.Encode, select(3, UnitClass("player")), ranks)
+  if not (okc and code) then say(T.ofaFail); return end
+  O:OpenPanel("talents")
+  local imp, show, ok = findButton(_G.OneForAllFrame, "Import build", 0), TC.ShowImport, false
+  if imp then
+    TC.ShowImport = function(cb) TC.ShowImport = show; ok = cb(code) == nil end
+    pcall(imp.Click, imp)
+    TC.ShowImport = show
+  end
+  if not ok then say(T.ofaFail); TC.ShowExport(code) end
+end
+
+-- una scheda del sito: ogni titolo "1…" apre una card, poi titoli "2…"/"3…" e paragrafi "0…".
+-- Talent: in cima "Apri in OneForAll"; Dungeon: sotto il titolo di ogni dungeon "Mappa" e "Boss e loot"
 local function drawPage(v, name)
+  if name == "talent" and _G.OneForAll and OneForAll.TalentCode and OneForAll.OpenPanel then
+    cardOpen(); y = y - 12
+    button(T.ofa .. " ↗", PAD, y, function() ofaLoad(v) end); y = y - 26
+    line("0", T.ofaTip)
+    cardClose()
+  end
   for n in PAGES[v.tabs[name]]:gmatch("%d+") do
     local s = POOL[tonumber(n)]
     local kind = s:sub(1, 1)
     if kind == "1" or not cardTop then cardClose(); cardOpen(); y = y - 12; if kind ~= "1" then y = y + 5 end end
     line(kind, s:sub(2))
+    local p = name == "dungeon" and kind == "3" and dgFind(s:sub(2))
+    if p then
+      y = y - 4
+      local b = button(T.dgMap, PAD, y, function() dgMap(p) end)
+      local d = ofaDungeon(p[4])
+      if d then button(T.dgLoot, PAD + b:GetWidth() + 8, y, function() OneForAll:OpenPanel("dungeons"); if OneForAll.UI and OneForAll.UI.OpenDungeon then OneForAll.UI.OpenDungeon(d) end end) end
+      y = y - 26
+    end
   end
   cardClose()
 end
@@ -576,7 +739,7 @@ local function stagePins()
   end
   return out
 end
-local function drawMapPins()
+drawMapPins = function()
   for _, p in ipairs(mapPins) do p:Hide() end
   if not (C and WorldMapFrame and WorldMapFrame:IsShown() and on("map")) then return end
   local canvas = WorldMapFrame.ScrollContainer and WorldMapFrame.ScrollContainer.Child
@@ -584,7 +747,9 @@ local function drawMapPins()
   if not (canvas and mapID) then return end
   local cw, ch = canvas:GetWidth(), canvas:GetHeight()
   local cont, n = continents(), 0
-  for _, p in ipairs(stagePins()) do
+  local list = stagePins()
+  if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player") } end
+  for _, p in ipairs(list) do
     local x, y
     if cont[p[1]] then x, y = onMap(mapID, cont[p[1]], p[2], p[3]) end
     if x then
@@ -662,22 +827,32 @@ setTarget = function(p)
   end
 end
 
--- quest consegnata: segna la consegna; una voce si spunta quando tutte le sue quest sono consegnate
-local function turnedIn(questID)
-  local title = idTitle[questID] or (C_QuestLog and C_QuestLog.GetQuestInfo and C_QuestLog.GetQuestInfo(questID))
-  if not title then return end
-  C.turned[title] = true
+-- una voce si spunta quando tutte le sue quest sono consegnate: viste consegnare dall'addon o già fatte secondo Questie.
+-- quiet: all'avvio (quest fatte prima) una riga sola col conteggio, invece di una per voce
+local function tick(quiet)
   if not on("quests") then return end
   local g, k, v = guide()
   if not g then return end
+  local n = 0
   for _, t in ipairs(v._tasks) do
     local L = LINKS[t[4]]
     if L and L.q[1] and not C.done[k .. ":" .. t[4]] then
       local all = true
-      for _, q in ipairs(L.q) do all = all and C.turned[q] end
-      if all then C.done[k .. ":" .. t[4]] = true; say(T.ticked:format(t[3]:gsub("^%^[^%^]*%^", ""):sub(1, 90))) end
+      for _, q in ipairs(L.q) do all = all and (C.turned[q] or qDone(q)) end
+      if all then
+        C.done[k .. ":" .. t[4]] = true; n = n + 1
+        if not quiet then say(T.ticked:format(t[3]:gsub("^%^[^%^]*%^", ""):sub(1, 90))) end
+      end
     end
   end
+  if quiet and n > 0 then say(T.qSync:format(n)) end
+end
+-- quest consegnata: segna la consegna (anche senza Questie pronto) e ricontrolla le voci
+local function turnedIn(questID)
+  local title = idTitle[questID] or (C_QuestLog and C_QuestLog.GetQuestInfo and C_QuestLog.GetQuestInfo(questID))
+  if not title then return end
+  C.turned[title] = true
+  tick()
 end
 
 -- finestra dei talenti di Blizzard: bordo luminoso sul talento da prendere (o sulla sua scheda, se è in un altro albero)
@@ -782,6 +957,12 @@ f:SetScript("OnEvent", function(_, event, arg1)
     say(T.loaded)
     if not guide() then say(T.unknown) end
     scanLog()
+    -- Questie pronto: spunta le voci con quest già consegnate (anche prima di installare l'addon)
+    if _G.Questie and Questie.API and Questie.API.RegisterOnReady then
+      Questie.API.RegisterOnReady(function() tick(true); if f:IsShown() then render() end end)
+    else
+      say(T.qOff)
+    end
     return
   elseif event == "PLAYER_LEVEL_UP" then
     viewCh = nil
@@ -859,6 +1040,7 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     for _ in pairs(inLog) do nq = nq + 1 end
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgLinks:format("k" .. tostring(cs.k) .. " e" .. tostring(cs.e) .. " z" .. tostring(cs.z),
       (C_Map and C_Map.SetUserWaypoint) and T.yes or T.no, tostring(talentUI() or "-"), nq))
+    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgAddons:format(QZ() and T.yes or (loaded("Questie") and "…" or T.no), loaded("OneForAll") and T.yes or T.no, loaded("MapUtils") and T.yes or T.no))
     return
   elseif cmd == "lang" or cmd == "lingua" or cmd == "language" then
     setLang(arg == "it" and "it" or arg == "en" and "en" or (LANG == "it" and "en" or "it")); return

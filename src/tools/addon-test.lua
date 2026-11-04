@@ -63,6 +63,37 @@ TRAINER = {}
 GetNumTrainerServices = function() return #TRAINER end
 GetTrainerServiceInfo = function(i) local s = TRAINER[i]; if s then return s, "", "available" end end
 
+ShowUIPanel = function(fr) fr:Show() end
+-- Questie finto: ID per nome, quest consegnate (QDONE), moduli interni che l'addon chiama (QCALLS registra le chiamate)
+QDONE, QCALLS = {}, {}
+function QID(name) local h = 0; for i = 1, #name do h = (h * 31 + name:byte(i)) % 100000 end; return h + 1 end
+LibQuestieDB = { Quest = { IdsByName = function(n) return { QID(n) } end } }
+local readyCbs = {}
+Questie = { API = { isReady = false, RegisterOnReady = function(cb) if Questie.API.isReady then cb() else readyCbs[#readyCbs + 1] = cb end end }, db = { char = { complete = QDONE } } }
+function QUESTIE_READY() Questie.API.isReady = true; for _, cb in ipairs(readyCbs) do cb() end; readyCbs = {} end
+local QMOD = {
+  QuestieDB = { IsDoable = function() return true end, QueryQuestSingle = function(_, k) return k == "startedBy" and { { 4242 } } or nil end,
+    QueryNPCSingle = function() return { [12] = { { 40, 60 } } } end, QueryObjectSingle = function() end },
+  ZoneDB = { GetUiMapIdByAreaId = function() return 1429 end },
+  QuestieMap = { ShowNPC = function(_, id) QCALLS[#QCALLS + 1] = "npc" .. id end, ShowObject = function() end },
+  QuestieCompat = { OpenWorldMap = function(id) QCALLS[#QCALLS + 1] = "map" .. id; return true end },
+  TrackerUtils = { ShowQuestOnMap = function(id) QCALLS[#QCALLS + 1] = "track" .. id; return true end },
+  QuestieJourney = { IsShown = function() return false end, ToggleJourneyWindow = function() QCALLS[#QCALLS + 1] = "journey" end,
+    tabGroup = { SelectTab = function(_, t) QCALLS[#QCALLS + 1] = "tab " .. t end } },
+  QuestieSearchResults = { SetSearch = function(_, t, id) QCALLS[#QCALLS + 1] = t .. id end },
+}
+QuestieLoader = { ImportModule = function(_, n) return QMOD[n] end }
+-- OneForAll finto: codice della build, scheda Talent Trees col pulsante "Import build", dungeon
+OFA = {}
+OneForAll = { TalentCode = { ShowExport = function(t) OFA.export = t end, ShowImport = function() end,
+    Encode = function(cls, ranks) local n = 0; for _, r in pairs(ranks) do n = n + r end; OFA.n = n; return "OFA1:" .. tostring(cls) .. ":" .. n end },
+  OpenPanel = function(_, k) OFA.panel = k end, DUNGEONS = { { name = "Deadmines", key = "dm" } }, UI = { OpenDungeon = function(d) OFA.dungeon = d.name end } }
+local impB = obj("Button"); impB.IsObjectType = function() return true end; impB.IsVisible = function() return true end
+impB.GetRegions = function() local fs = obj("FontString"); fs.text = "Import build"; return fs end
+impB.Click = function() OneForAll.TalentCode.ShowImport(function(code) OFA.imported = code end) end
+OneForAllFrame = obj("Frame"); OneForAllFrame.GetChildren = function() return impB end
+IsAddOnLoaded = function(n) return n == "Questie" or n == "OneForAll" or n == "MapUtils" end
+
 ForeverPathfinderDB = ADDON_LANG and { lang = ADDON_LANG } or nil -- lingua scelta nell addon (di base inglese, qualunque sia la lingua del gioco)
 assert(loadfile(DIR .. "/Data.lua"))()
 assert(loadfile(DIR .. "/Core.lua"))("ForeverPathfinder")
@@ -141,7 +172,7 @@ local n0 = #chat; fp("find zzzzzz"); check(#chat == n0 + 1, "ricerca senza risul
 -- 4c) /fp debug: versioni, token di razza e guida riconosciuta
 fp("auto"); n0 = #chat; fp("debug")
 local dbg = table.concat(chat, "\n", n0 + 1)
-check(#chat == n0 + 6 and dbg:find("Interface 16001", 1, true) and dbg:find("/ " .. RACE, 1, true) and dbg:find(EXPECT_KEY, 1, true), "/fp debug: 5 righe con Interface, razza, guida\n" .. dbg)
+check(#chat == n0 + 7 and dbg:find("OneForAll", 1, true) and dbg:find("Interface 16001", 1, true) and dbg:find("/ " .. RACE, 1, true) and dbg:find(EXPECT_KEY, 1, true), "/fp debug: 5 righe con Interface, razza, guida\n" .. dbg)
 -- 4d) collegamenti col gioco (Human Warrior al livello 1)
 fp("set human-warrior"); ForeverPathfinderChar.opt = {}
 local hw = D["human-warrior"]
@@ -159,12 +190,42 @@ LEVEL = qtask[1]; f.shown = false; fp("")
 check(has(lang == "it" and "da consegnare" or "ready to turn in"), "stato della quest nel registro: " .. qname)
 for _, q in ipairs(L[qtask[4]].q) do QUESTLOG = { { q, 777, true } }; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.scripts.OnEvent(f, "QUEST_TURNED_IN", 777) end
 check(ForeverPathfinderChar.done["human-warrior:" .. qtask[4]] == true, "voce spuntata alla consegna di " .. qname)
--- segnaposto di una voce: segnaposto del gioco e messaggio con zona e coordinate
-local pinB = find(function(o) return o.kind == "Button" and rawget(o, "p") and o.shown end)
-check(pinB ~= nil, "pulsante del segnaposto nella voce")
-pinB.scripts.OnClick(pinB)
-check(WAYPOINT and WAYPOINT[1] == 1429 and said("Elwynn Forest"), "segnaposto del gioco impostato")
--- mappa del mondo aperta: segnaposti della tappa sulla tela
+-- Questie pronto: le voci con quest già consegnate (storico di Questie) si spuntano da sole, con una riga sola in chat
+local qtask2
+for _, t in ipairs(hv._tasks) do if t ~= qtask and L[t[4]] and L[t[4]].q[1] and not ForeverPathfinderChar.done["human-warrior:" .. t[4]] then qtask2 = t; break end end
+check(qtask2 ~= nil, "un'altra voce con quest")
+for _, q in ipairs(L[qtask2[4]].q) do QDONE[QID(q)] = true end
+QUESTIE_READY()
+check(ForeverPathfinderChar.done["human-warrior:" .. qtask2[4]] == true and said(lang == "it" and "Spuntate" or "Ticked"), "voce spuntata dallo storico di Questie")
+-- pulsanti della voce con quest: mappa con le icone di Questie (chi la dà: NPC 4242 nella sua zona) e scheda nel Journey
+LEVEL = qtask[1]; QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.shown = false; fp("")
+local function mini(name, tip2) return find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip == name and (not tip2 or o.tip2:find(tip2, 1, true)) end) end
+local qMapB, qInfoB = mini(qname, "Questie"), mini(qname, "Journey")
+check(qMapB and qInfoB, "pulsanti mappa e scheda di Questie nella voce di " .. qname)
+qMapB.scripts.OnClick(qMapB)
+check(table.concat(QCALLS, ","):find("npc4242,map1429", 1, true), "mappa: chi dà la quest con le icone di Questie (" .. table.concat(QCALLS, ",") .. ")")
+QUESTLOG = { { qname, QID(qname), false } }; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); QCALLS = {}
+qMapB = mini(qname, "Questie"); qMapB.scripts.OnClick(qMapB)
+check(QCALLS[1] == "track" .. QID(qname), "mappa: quest nel registro come nel tracker di Questie")
+QCALLS = {}; qInfoB.scripts.OnClick(qInfoB)
+check(table.concat(QCALLS, ",") == "journey,tab search,quest" .. QID(qname), "scheda della quest nel Journey (" .. table.concat(QCALLS, ",") .. ")")
+QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE")
+-- Talent: "Apri in OneForAll" carica tutta la build (un punto per livello dal 10) con il suo Import
+local tabName = function(key) for _, t in ipairs(D._tabs) do if t[1] == key then return t[2] end end end
+nav(tabName("talent")).scripts.OnClick()
+local ofaB = nav((lang == "it" and "Apri in OneForAll" or "Open in OneForAll") .. " ↗")
+check(ofaB ~= nil, "pulsante Apri in OneForAll")
+ofaB.scripts.OnClick(ofaB)
+check(OFA.panel == "talents" and OFA.imported and OFA.n == #hv._tal and not OFA.export, "build importata in OneForAll (" .. tostring(OFA.n) .. "/" .. #hv._tal .. ")")
+-- Dungeon: "Mappa" apre la mappa del mondo sull'ingresso con il segnaposto; "Boss e loot" apre il dungeon in OneForAll
+nav(tabName("dungeon")).scripts.OnClick()
+local dmB, lootB = nav(lang == "it" and "Mappa" or "Map"), nav(lang == "it" and "Boss e loot" or "Bosses and loot")
+check(dmB and lootB, "pulsanti Mappa e Boss e loot nella scheda Dungeon")
+WorldMapFrame.shown = false; dmB.scripts.OnClick(dmB)
+check(WorldMapFrame.shown and said("Elwynn Forest") and said("MapUtils"), "mappa sull'ingresso, segnaposto e indicazione per MapUtils")
+lootB.scripts.OnClick(lootB)
+check(OFA.panel == "dungeons" and OFA.dungeon == "Deadmines", "dungeon aperto in OneForAll")
+-- mappa del mondo aperta: segnaposti della tappa (e l'ingresso scelto) sulla tela
 WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.point and o.point[2] == canvas end) ~= nil, "segnaposti sulla mappa del mondo")
 -- finestra dei talenti: bordo sul talento da prendere
