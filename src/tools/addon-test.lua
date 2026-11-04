@@ -49,6 +49,7 @@ C_Map = {
   GetMapChildrenInfo = function() return { { mapID = 1414 }, { mapID = 1415 }, { mapID = 2500, name = "Zephras Isle" } } end,
   GetMapRectOnMap = function() return 0.3, 0.5, 0.6, 0.8 end,
   GetMapInfoAtPosition = function() return { mapID = 1429, name = "Elwynn Forest" } end,
+  GetMapInfo = function(id) return { mapID = id, name = "zona" .. id } end,
   CanSetUserWaypointOnMap = function() return true end, SetUserWaypoint = function(p) WAYPOINT = p end,
   GetBestMapForUnit = function() return 1429 end, GetPlayerMapPosition = function() return { GetXY = function() return 0.5, 0.5 end } end,
   GetMapWorldSize = function() return 30000, 30000 end,
@@ -197,7 +198,7 @@ local n0 = #chat; fp("find zzzzzz"); check(#chat == n0 + 1, "ricerca senza risul
 -- 4c) /fp debug: versioni, token di razza e guida riconosciuta
 fp("auto"); n0 = #chat; fp("debug")
 local dbg = table.concat(chat, "\n", n0 + 1)
-check(#chat == n0 + 7 and dbg:find("OneForAll", 1, true) and dbg:find("Interface 16001", 1, true) and dbg:find("/ " .. RACE, 1, true) and dbg:find(EXPECT_KEY, 1, true), "/fp debug: 5 righe con Interface, razza, guida\n" .. dbg)
+check(#chat == n0 + 8 and dbg:find("OneForAll", 1, true) and dbg:find("Interface 16001", 1, true) and dbg:find("/ " .. RACE, 1, true) and dbg:find(EXPECT_KEY, 1, true), "/fp debug: 5 righe con Interface, razza, guida\n" .. dbg)
 -- 4d) collegamenti col gioco (Human Warrior al livello 1)
 fp("set human-warrior"); ForeverPathfinderChar.opt = {}
 local hw = D["human-warrior"]
@@ -234,6 +235,15 @@ check(not ForeverPathfinderChar.done["human-warrior:" .. ttask[4]], "voce Traine
 KNOWN[spells[#spells]] = true
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(ForeverPathfinderChar.done["human-warrior:" .. ttask[4]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
+-- segnaposto di una voce: sulla zona del gioco (uiMapID da ForeverPathfinderZoneMaps), non dai bordi del continente di Wowhead
+LEVEL = 1; f.shown = false; fp("")
+local pinB = find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip2 == (lang == "it" and "Mostra sulla mappa e sulla minimappa" or "Show on the map and the minimap") end)
+check(pinB ~= nil, "pulsante del segnaposto di una voce")
+WAYPOINT = nil; pinB.scripts.OnClick(pinB)
+local zid = WAYPOINT and WAYPOINT[1]
+local inZM = false
+for _, a in pairs(ForeverPathfinderZoneMaps) do for _, z in ipairs(a) do if z[1] == zid then inZM = true end end end
+check(inZM and WAYPOINT[2] >= 0 and WAYPOINT[2] <= 1 and WAYPOINT[3] >= 0 and WAYPOINT[3] <= 1 and said("zona" .. zid), "segnaposto sulla zona del gioco (uiMap " .. tostring(zid) .. ")")
 -- pulsanti della voce con quest: mappa con le icone di Questie (chi la dà: NPC 4242 nella sua zona) e scheda nel Journey
 LEVEL = qtask[1]; QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.shown = false; fp("")
 local function mini(name, tip2) return find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip == name and (not tip2 or o.tip2:find(tip2, 1, true)) end) end
@@ -259,7 +269,7 @@ nav(tabName("dungeon")).scripts.OnClick()
 local dmB, lootB = nav(lang == "it" and "Mappa" or "Map"), nav(lang == "it" and "Boss e loot" or "Bosses and loot")
 check(dmB and lootB, "pulsanti Mappa e Boss e loot nella scheda Dungeon")
 WorldMapFrame.shown = false; dmB.scripts.OnClick(dmB)
-check(WorldMapFrame.shown and said("Elwynn Forest") and said("MapUtils"), "mappa sull'ingresso, segnaposto e indicazione per MapUtils")
+check(WorldMapFrame.shown and said("zona") and said("MapUtils"), "mappa sull'ingresso, segnaposto e indicazione per MapUtils")
 lootB.scripts.OnClick(lootB)
 check(OFA.panel == "dungeons" and OFA.dungeon == "Deadmines", "dungeon aperto in OneForAll")
 -- mappa del mondo aperta: segnaposti della tappa (e l'ingresso scelto) sulla tela

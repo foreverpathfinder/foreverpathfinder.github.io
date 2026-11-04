@@ -45,6 +45,7 @@ local TT = {
     ofaFail = "OneForAll non ha caricato la build da solo: copiala con Ctrl+C e incollala in Import.",
     dgMap = "Mappa", dgMapTip = "Apre la mappa del mondo sull'ingresso, con il segnaposto", dgMapMU = "Clic sull'icona d'ingresso di MapUtils: si apre la mappa interna del dungeon",
     dgLoot = "Boss e loot", dgLootTip = "Apre il dungeon in OneForAll (boss, loot, quest)",
+    dbgSpell = "Spell nel libro: %d · voce Trainer %s, mancano: %s",
     dbgAddons = "Addon collegati: Questie %s · OneForAll %s · MapUtils %s",
     behind = "Rimaste indietro (%d)", behindMore = "e altre %d: le trovi tornando indietro con <",
   },
@@ -78,6 +79,7 @@ local TT = {
     ofaFail = "OneForAll did not load the build by itself: copy it with Ctrl+C and paste it into Import.",
     dgMap = "Map", dgMapTip = "Opens the world map on the entrance, with the waypoint", dgMapMU = "Click MapUtils' entrance icon: the dungeon's own map opens",
     dgLoot = "Bosses and loot", dgLootTip = "Opens the dungeon in OneForAll (bosses, loot, quests)",
+    dbgSpell = "Spells in the spellbook: %d · Trainer item %s, missing: %s",
     dbgAddons = "Linked addons: Questie %s · OneForAll %s · MapUtils %s",
     behind = "Left behind (%d)", behindMore = "and %d more: go back with < to find them",
   },
@@ -175,6 +177,31 @@ local function onMap(mapID, cont, x, y)
   if not l or r == l or b == t then return end
   local px, py = (x - l) / (r - l), (y - t) / (b - t)
   if px >= 0 and px <= 1 and py >= 0 and py <= 1 then return px, py end
+end
+
+-- posizione del sito (0–1 sul continente di Wowhead) → zona del gioco e posizione sul continente del gioco. I bordi della mappa
+-- del continente nel gioco non sono quelli di Wowhead (Anvilmar finiva a Stormwind), quelli delle zone sì: passo dalla zona più
+-- piccola che contiene il punto (uiMapID e rettangolo da Wowhead) e da C_Map.GetMapRectOnMap. Senza dati resta com'è.
+local ZM = ForeverPathfinderZoneMaps or {}
+local function gameXY(ck, x, y)
+  local best, ba
+  for _, z in ipairs(ZM[ck] or {}) do
+    if x >= z[2] and x <= z[4] and y >= z[3] and y <= z[5] then
+      local a = (z[4] - z[2]) * (z[5] - z[3])
+      if not ba or a < ba then best, ba = z, a end
+    end
+  end
+  if not best then return x, y end
+  local lx, ly = (x - best[2]) / (best[4] - best[2]), (y - best[3]) / (best[5] - best[3])
+  local cont, l, r, t, b = continents()[ck]
+  if cont and C_Map and C_Map.GetMapRectOnMap then l, r, t, b = C_Map.GetMapRectOnMap(best[1], cont) end
+  if l and r ~= l then x, y = l + lx * (r - l), t + ly * (b - t) end
+  return x, y, best[1], lx, ly
+end
+-- segnaposto { continente, x, y, nome }: posizione nel gioco calcolata una volta (gx, gy sul continente; zm, zx, zy nella zona)
+local function xy(p)
+  if not p.gx then p.gx, p.gy, p.zm, p.zx, p.zy = gameXY(p[1], p[2], p[3]) end
+  return p.gx, p.gy
 end
 
 -- quest nel registro: titolo → "log" o "done" (completa, da consegnare); id → titolo per riconoscere la consegna
@@ -565,8 +592,9 @@ local drawMapPins
 local function dgMap(p)
   focus = p; setTarget(p)
   local cont = continents()[p[1]]
-  local zone = cont and C_Map.GetMapInfoAtPosition and C_Map.GetMapInfoAtPosition(cont, p[2], p[3])
-  local id = zone and zone.mapID or cont
+  local gx, gy = xy(p)
+  local zone = not p.zm and cont and C_Map.GetMapInfoAtPosition and C_Map.GetMapInfoAtPosition(cont, gx, gy)
+  local id = p.zm or zone and zone.mapID or cont
   if not id then return end
   if C_Map.OpenWorldMap then C_Map.OpenWorldMap(id) else if not WorldMapFrame:IsShown() then ShowUIPanel(WorldMapFrame) end; WorldMapFrame:SetMapID(id) end
   f:Hide(); drawMapPins()
@@ -778,7 +806,8 @@ drawMapPins = function()
   if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player") } end
   for _, p in ipairs(list) do
     local x, y
-    if cont[p[1]] then x, y = onMap(mapID, cont[p[1]], p[2], p[3]) end
+    local gx, gy = xy(p)
+    if mapID == p.zm then x, y = p.zx, p.zy elseif cont[p[1]] then x, y = onMap(mapID, cont[p[1]], gx, gy) end
     if x then
       n = n + 1
       local pin = mapPins[n]
@@ -827,7 +856,8 @@ mm:SetScript("OnUpdate", function(self, dt)
   if cont and C_Map.GetMapWorldSize then wy, hy = C_Map.GetMapWorldSize(cont) end
   if not (px and wy and wy > 0 and hy) then mmT:SetAlpha(0); return end
   mmT:SetAlpha(1)
-  local dx, dy = (target[2] - px) * wy, (target[3] - py) * hy -- yard, x verso est, y verso sud
+  local tx, ty = xy(target)
+  local dx, dy = (tx - px) * wy, (ty - py) * hy -- yard, x verso est, y verso sud
   local dist = math.sqrt(dx * dx + dy * dy)
   if dist < 8 then say(T.pinHere:format(target[4])); target = nil; self:Hide(); return end
   -- ponytail: minimappa non ruotata (impostazione di base); con "Ruota minimappa" il punto va ruotato con GetPlayerFacing
@@ -841,9 +871,16 @@ end)
 setTarget = function(p)
   target = p
   local cont = continents()[p[1]]
-  local zone = cont and C_Map and C_Map.GetMapInfoAtPosition and C_Map.GetMapInfoAtPosition(cont, p[2], p[3])
-  local zx, zy = p[2], p[3]
-  if zone then zx, zy = onMap(zone.mapID, cont, p[2], p[3]) end
+  local gx, gy = xy(p)
+  local zone, zx, zy
+  if p.zm then
+    zone, zx, zy = C_Map and C_Map.GetMapInfo and C_Map.GetMapInfo(p.zm), p.zx, p.zy
+    if zone then zone.mapID = zone.mapID or p.zm end
+  else
+    zone = cont and C_Map and C_Map.GetMapInfoAtPosition and C_Map.GetMapInfoAtPosition(cont, gx, gy)
+    zx, zy = gx, gy
+    if zone then zx, zy = onMap(zone.mapID, cont, gx, gy) end
+  end
   say(T.pinSet:format(p[4], zone and zone.name or "", (zx or 0) * 100, (zy or 0) * 100))
   if zone and zx and C_Map.CanSetUserWaypointOnMap and C_Map.CanSetUserWaypointOnMap(zone.mapID) and UiMapPoint then
     C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(zone.mapID, zx, zy))
@@ -862,8 +899,34 @@ local function trainerList(text)
   for n in list:gsub("%b()", ""):gmatch("[^,;]+") do out[#out + 1] = (n:gsub("^%s+", ""):gsub("%s+$", "")) end
   return out
 end
--- spell già appresa: per nome il gioco trova solo quelle nel tuo libro (C_Spell nei client moderni come Forever)
-local function known(name)
+-- nomi delle spell nel libro degli incantesimi (come OneForAll: API vecchia e C_SpellBook dei client moderni, tutte e due se ci sono)
+local function spellBook()
+  local set = {}
+  pcall(function()
+    if GetNumSpellTabs and GetSpellTabInfo and GetSpellBookItemName then
+      for tab = 1, GetNumSpellTabs() do
+        local _, _, off, num = GetSpellTabInfo(tab)
+        for i = (off or 0) + 1, (off or 0) + (num or 0) do local n = GetSpellBookItemName(i, BOOKTYPE_SPELL or "spell"); if n then set[n] = true end end
+      end
+    end
+  end)
+  pcall(function()
+    if C_SpellBook and C_SpellBook.GetNumSpellBookSkillLines then
+      local bank = (Enum and Enum.SpellBookSpellBank and Enum.SpellBookSpellBank.Player) or 0
+      for line = 1, C_SpellBook.GetNumSpellBookSkillLines() do
+        local li = C_SpellBook.GetSpellBookSkillLineInfo(line)
+        for i = (li and li.itemIndexOffset or 0) + 1, (li and li.itemIndexOffset or 0) + (li and li.numSpellBookItems or 0) do
+          local info = C_SpellBook.GetSpellBookItemInfo(i, bank)
+          if type(info) == "table" and info.name then set[info.name] = true end
+        end
+      end
+    end
+  end)
+  return set
+end
+-- spell già appresa: nel libro, o per nome con C_Spell (trova solo quelle che conosci) e IsPlayerSpell
+local function known(name, book)
+  if book and book[name] then return true end
   local info = C_Spell and C_Spell.GetSpellInfo and C_Spell.GetSpellInfo(name)
   local id = info and info.spellID or (GetSpellInfo and select(7, GetSpellInfo(name)))
   if not id then return false end
@@ -876,7 +939,7 @@ end
 local function tick(quiet)
   local g, k, v = guide()
   if not g then return end
-  local n = 0
+  local n, book = 0, spellBook()
   for _, t in ipairs(v._tasks) do
     local L = LINKS[t[4]]
     if not C.done[k .. ":" .. t[4]] then
@@ -886,7 +949,7 @@ local function tick(quiet)
         for _, q in ipairs(L.q) do all = all and (C.turned[q] or qDone(q)) end
       elseif sp and sp[1] then
         all = true
-        for _, s in ipairs(sp) do all = all and known(s) end
+        for _, s in ipairs(sp) do all = all and known(s, book) end
       end
       if all then
         C.done[k .. ":" .. t[4]] = true; n = n + 1
@@ -1091,6 +1154,17 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     for _ in pairs(inLog) do nq = nq + 1 end
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgLinks:format("k" .. tostring(cs.k) .. " e" .. tostring(cs.e) .. " z" .. tostring(cs.z),
       (C_Map and C_Map.SetUserWaypoint) and T.yes or T.no, tostring(talentUI() or "-"), nq))
+    local book, nb, miss, mt = spellBook(), 0, {}, nil
+    for _ in pairs(book) do nb = nb + 1 end
+    local g2, k2, v2 = guide()
+    for _, t in ipairs(g2 and v2._tasks or {}) do
+      local sp = trainerList(t[3])
+      if sp and t[1] <= UnitLevel("player") and not C.done[k2 .. ":" .. t[4]] then
+        for _, s in ipairs(sp) do if not known(s, book) then miss[#miss + 1] = s end end
+        mt = t[1]; break
+      end
+    end
+    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgSpell:format(nb, mt and T.level:format(mt) or "-", #miss > 0 and table.concat(miss, ", ") or "-"))
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgAddons:format(QZ() and T.yes or (loaded("Questie") and "…" or T.no), loaded("OneForAll") and T.yes or T.no, loaded("MapUtils") and T.yes or T.no))
     return
   elseif cmd == "lang" or cmd == "lingua" or cmd == "language" then
