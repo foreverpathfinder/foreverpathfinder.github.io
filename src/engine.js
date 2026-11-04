@@ -194,7 +194,11 @@ function wfUrl(enc){return 'https://wowforever.be/it/talents/'+S.c+'/'+(enc?'?t=
 function wfFit(){var W=wfBox.parentNode.clientWidth||380,all=WF.mode==='all',c=all?[22,444,1045,528]:[0,WFY[CL.treeIndex],380,520],s=Math.min(1,W/c[2]);
  wfBox.style.width=Math.round(c[2]*s)+'px';wfBox.style.height=Math.round(c[3]*s)+'px';
  wfF.forEach(function(f){f.style.width=(all?1100:380)+'px';f.style.height=(all?1400:2600)+'px';f.style.transform='scale('+s+') translate('+(-c[0])+'px,'+(-c[1])+'px)'})}
-function wfLoad(){if(!WF.vis||WF.loading!==null||WF.want===WF.shown)return;
+// iframe solo dopo il consenso: wowforever.be salva i cookie di Google Analytics
+var wfOk=$('wfOk'),wfNo=$('wfNo');wfNo.hidden=store('wfcCk')!=='1';
+wfOk.querySelector('button').onclick=function(){store('wfcCk','1');wfOk.hidden=true;wfNo.hidden=false;wfLoad()};
+wfNo.onclick=function(e){e.preventDefault();store('wfcCk','0');location.reload()};
+function wfLoad(){if(!WF.vis||WF.loading!==null||WF.want===WF.shown)return;if(store('wfcCk')!=='1'){wfOk.hidden=false;wfBadge.hidden=true;return}
  var u=WF.want,f=wfF[1-wfA];WF.loading=u;wfBadge.textContent='Carico il talent tree…';wfBadge.hidden=false;
  clearTimeout(WF.to);WF.to=setTimeout(function(){if(WF.loading===u){WF.loading=null;wfBadge.textContent='wowforever.be non risponde: tocca “Apri ↗”'}},15000);
  f.onload=function(){if(WF.loading!==u)return;f.style.visibility='visible';wfF[wfA].style.visibility='hidden';wfA=1-wfA;WF.shown=u;WF.loading=null;wfBadge.hidden=true;wfLoad()};
@@ -344,11 +348,9 @@ function altRaces(A){var M={};(A.altRaces||[]).forEach(function(r){M[r.race]=r})
 
 /* ---- sezioni fisse ---- */
 (function(){
- $('hlaunch').textContent=C.launchText;
  $('xpc').innerHTML=C.xpCards.map(function(x){return card(x[0],x[1],x[2])}).join('');$('xpr').innerHTML=li(C.rules);
  $('bagn').innerHTML=C.bagsNote;$('proft').innerHTML=C.profTier;$('profe').innerHTML=li(C.profErrors);$('camps').innerHTML=li(C.campSteps);
  $('limits').innerHTML='<b>Limiti onesti:</b> '+C.limits;
- var end=Date.parse(C.launchUTC),el=$('cd');function t(){var d=end-Date.now();if(d<=0){el.textContent='Forever è uscito!';return}var h=Math.floor(d/36e5);el.textContent='mancano '+Math.floor(h/24)+' g '+(h%24)+' h'}t();setInterval(t,6e4);
 })();
 
 /* ---- mappa del mondo: i 3 continenti sulla stessa tela (coordinate globali di Wowhead, pixel a zoom 7) ---- */
