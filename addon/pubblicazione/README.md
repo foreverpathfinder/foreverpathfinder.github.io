@@ -8,6 +8,7 @@ Materiale pronto da copiare. Prima della pubblicazione: prova nel gioco vero (`/
 | Nome | Forever Pathfinder |
 | Gioco / versione | WoW: Forever, quando compare tra le versioni (in beta Interface 16001) |
 | Categoria | Quests & Leveling |
+| Dipendenze | **Questie** obbligatoria (CurseForge «Required Dependency»); **OneForAll** e **MapUtils** facoltative («Optional Dependency») |
 | Licenza | MIT (testo in `addon/LICENSE`) |
 | Logo | `logo-400.png` (400×400) |
 | Sito / sorgenti | https://foreverpathfinder.github.io/addon.html · https://github.com/foreverpathfinder/foreverpathfinder.github.io |
@@ -28,8 +29,9 @@ The whole leveling guide in game: route checklist, talents, class, dungeons, way
 - **Every tab of the website** in one window with the same look: Route, Talents, Class, Professions, Dungeon, Alts, More, Info.
 - **Route**: one stage at a time, items per level to tick (saved per character), the talent to take and the dungeons for your level.
 - **Map and minimap**: stage waypoints on the world map; one click on an item puts its waypoint on the minimap too.
-- **Quests**: see which ones are in your log or ready to turn in; items tick themselves when you turn in the quest.
-- **Talents**: the talent to take glows in the game's talent window.
+- **Quests, with Questie (required)**: see which ones are in your log or ready to turn in; items tick themselves when you turn in the quest, also for quests done before installing the addon. The map button shows the quest with Questie's icons, the book opens it in Questie's Journey.
+- **Talents**: the talent to take glows in the game's talent window; with **OneForAll**, one click loads the whole build into its talent calculator.
+- **Dungeons**: a Map button opens the world map on the entrance (with **MapUtils**, click its entrance icon for the dungeon map); with **OneForAll**, Bosses and loot opens the dungeon in its tab.
 - **Trainer**: prints and marks the guide spells to buy.
 - **Options** in game: build, dungeons, continent switch, and every game link on or off.
 - English or Italian, your choice in the Options (or `/fp lang`); game names stay in English. Quests, talents and spells are matched by English name.

@@ -76,6 +76,7 @@ DEFAULT_CHAT_FRAME = { AddMessage = function() end }
 hooksecurefunc = function() end
 GetNumQuestLogEntries = function() return 2 end
 GetQuestLogTitle = function(i) if i == 1 then return "The Defias Brotherhood", 18, nil, false, false, nil, nil, 1 end return "Red Silk Bandanas", 18, nil, false, false, true, nil, 2 end
+ForeverPathfinderDB = { lang = LOCALE == "itIT" and "it" or "en" } -- dalla 1.1 la lingua si sceglie nelle Opzioni (di base inglese)
 assert(loadfile(DIR .. "/Data.lua"))()
 assert(loadfile(DIR .. "/Core.lua"))("ForeverPathfinder")
 local f = ForeverPathfinderFrame

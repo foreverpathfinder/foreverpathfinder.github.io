@@ -59,7 +59,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
    const G=(D.dungeons||{}).dungeons||{},dg={};
    for(const f of ['A','H'])dg[f]=D.factions[f].dungeons.filter(d=>d[1]<=MAXL+2).map(d=>{const x=G[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[f]||[],q=x.q||{},last=a=>a.filter(s=>typeof s==='string').pop()||'';
     return [d[0].replace(/[★✔🟡]/g,'').trim(),d[1],d[2],v[0]||'',v[1]||'',v[2]||'',x.e||'',(q[f]||[]).concat(q.N||[]).map(y=>[y[0],last(y.slice(1))]),(q.C||[]).map(y=>[y[0],y[1],last(y.slice(2))])]});
-   out._dg=dg;out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
+   out._dg=dg;out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3]]);out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
  await b.close();
  // elenco unico dei testi (voci della checklist e pagine delle schede): ogni testo una volta sola
  const pool=[],pix=new Map(),P=s=>{s=clean(s);if(!pix.has(s)){pix.set(s,pool.length+1);pool.push(s)}return pix.get(s)};
@@ -99,6 +99,8 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  for(const l of ['it','en']){s+=' '+l+' = {\n';
   for(const f of ['A','H'])s+='  '+f+' = {\n'+all[l]._dg[f].map(d=>'   { '+tx(d[0])+', '+d[1]+', '+d[2]+', '+lua(d[3])+', '+tx(d[4])+', '+tx(d[5])+', '+tx(d[6])+',\n    { '+d[7].map(q=>'{ '+tx(q[0])+', '+tx(q[1])+' }').join(', ')+' },\n    { '+d[8].map(q=>'{ '+tx(q[0])+', '+lua(q[1])+', '+tx(q[2])+' }').join(', ')+' } },').join('\n')+'\n  },\n';
   s+=' },\n'}
+ // ingressi dei dungeon (icone della mappa del sito): { nome, continente, x, y } per il pulsante Mappa della scheda Dungeon
+ s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+' },'}).filter(Boolean).join('\n')+'\n';
  fs.writeFileSync(path.join(OUT,'Data.lua'),s+'}\n');
  const zip=path.join(ROOT,'ForeverPathfinder.zip');if(fs.existsSync(zip))fs.unlinkSync(zip);
  // tar di Windows (non quello di Git, che non fa zip): percorsi con / (lo zip di PowerShell usa \ e su Mac si estrae male)
