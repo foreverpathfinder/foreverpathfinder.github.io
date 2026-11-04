@@ -40,7 +40,7 @@ local TT = {
     dbgLinks = "Continenti %s · segnaposto del gioco %s · finestra talenti %s · quest nel registro %d", yes = "sì", no = "no",
     qMap = "Mostra la quest sulla mappa", qMapTip = "Con le icone di Questie: chi la dà o, se è nel registro, obiettivi e consegna",
     qInfo = "Scheda della quest", qInfoTip = "Apre la quest nel Journey di Questie", qWait = "Questie si sta ancora caricando: riprova tra un momento.",
-    qOff = "Questie non è attivo: spunte automatiche, mappa e schede delle quest passano da Questie.", qSync = "Spuntate %d voci con quest già consegnate.",
+    qOff = "Questie non è attivo: spunte automatiche, mappa e schede delle quest passano da Questie.", qSync = "Spuntate %d voci già fatte (quest consegnate o spell già apprese).",
     ofa = "Apri in OneForAll", ofaTip = "Carica questa build (fino al 60) nel calcolatore dei talenti di OneForAll",
     ofaFail = "OneForAll non ha caricato la build da solo: copiala con Ctrl+C e incollala in Import.",
     dgMap = "Mappa", dgMapTip = "Apre la mappa del mondo sull'ingresso, con il segnaposto", dgMapMU = "Clic sull'icona d'ingresso di MapUtils: si apre la mappa interna del dungeon",
@@ -73,7 +73,7 @@ local TT = {
     dbgLinks = "Continents %s · game waypoint %s · talent window %s · quests in log %d", yes = "yes", no = "no",
     qMap = "Show the quest on the map", qMapTip = "With Questie's icons: who gives it or, if it is in your log, objectives and turn-in",
     qInfo = "Quest details", qInfoTip = "Opens the quest in Questie's Journey", qWait = "Questie is still loading: try again in a moment.",
-    qOff = "Questie is not active: automatic ticks, map and quest details go through Questie.", qSync = "Ticked %d items with quests already turned in.",
+    qOff = "Questie is not active: automatic ticks, map and quest details go through Questie.", qSync = "Ticked %d items already done (quests turned in or spells already learned).",
     ofa = "Open in OneForAll", ofaTip = "Loads this build (up to 60) into OneForAll's talent calculator",
     ofaFail = "OneForAll did not load the build by itself: copy it with Ctrl+C and paste it into Import.",
     dgMap = "Map", dgMapTip = "Opens the world map on the entrance, with the waypoint", dgMapMU = "Click MapUtils' entrance icon: the dungeon's own map opens",
@@ -181,8 +181,16 @@ end
 local inLog, idTitle = {}, {}
 local function scanLog()
   for k in pairs(inLog) do inLog[k] = nil end
-  for i = 1, (GetNumQuestLogEntries and GetNumQuestLogEntries() or 0) do
-    local title, _, _, isHeader, _, isComplete, _, questID = GetQuestLogTitle(i)
+  local Q = C_QuestLog and C_QuestLog.GetInfo and C_QuestLog
+  local num = Q and Q.GetNumQuestLogEntries or GetNumQuestLogEntries
+  for i = 1, (num and num() or 0) do
+    local title, isHeader, isComplete, questID, _
+    if Q then
+      local q = Q.GetInfo(i)
+      if q then title, isHeader, questID = q.title, q.isHeader, q.questID; isComplete = Q.IsComplete and Q.IsComplete(questID) end
+    else
+      title, _, _, isHeader, _, isComplete, _, questID = GetQuestLogTitle(i)
+    end
     if title and not isHeader then
       inLog[title] = (isComplete == 1 or isComplete == true) and "done" or "log"
       if questID then idTitle[questID] = title end
@@ -626,7 +634,7 @@ local function drawPage(v, name)
   cardClose()
 end
 
-local mb -- icona sulla minimappa
+local minimapIcon -- icona sulla minimappa (più sotto)
 local setLang -- lingua dell addon (più sotto, con le schede)
 local function drawOptions(g, k)
   local o = C.opt
@@ -645,7 +653,7 @@ local function drawOptions(g, k)
   opt(T.oDg, (o.dg or 1) == 1, function(on) o.dg = on and 1 or 0 end)
   if g.x then opt(T.oX, o.x == 1, function(on) o.x = on and 1 or 0 end) else line("0", T.oNoX) end
   line("2", T.oShow)
-  opt(T.oMinimap, not DB.hide, function(on) DB.hide = not on; if on then mb:Show() else mb:Hide() end end)
+  opt(T.oMinimap, not DB.hide, function(on) DB.hide = not on; minimapIcon() end)
   line("2", T.oLinks)
   for _, l in ipairs({ { "map", T.oMap }, { "quests", T.oQuests }, { "tal", T.oTal }, { "trainer", T.oTrainer } }) do
     opt(l[2], o["no" .. l[1]] ~= true, function(val) o["no" .. l[1]] = not val or nil end)
@@ -723,35 +731,24 @@ local function open(t)
   f:Show(); render(true)
 end
 
--- icona sulla minimappa: clic apre la guida, clic destro le opzioni, si trascina lungo il bordo
-mb = CreateFrame("Button", "ForeverPathfinderMinimapButton", Minimap)
-mb:SetSize(31, 31); mb:SetFrameStrata("MEDIUM"); mb:SetFrameLevel(8)
-mb:RegisterForClicks("LeftButtonUp", "RightButtonUp"); mb:RegisterForDrag("LeftButton")
-local icon = mb:CreateTexture(nil, "BACKGROUND")
-icon:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon"); icon:SetSize(20, 20); icon:SetPoint("TOPLEFT", 7, -5)
-local border = mb:CreateTexture(nil, "OVERLAY")
-border:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder"); border:SetSize(53, 53); border:SetPoint("TOPLEFT")
-mb:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
-local function place()
-  local a = math.rad(DB.angle or 200)
-  mb:ClearAllPoints(); mb:SetPoint("CENTER", Minimap, "CENTER", math.cos(a) * 80, math.sin(a) * 80)
-end
-mb:SetScript("OnDragStart", function(self)
-  self:SetScript("OnUpdate", function()
-    local mx, my = Minimap:GetCenter()
-    local cx, cy = GetCursorPosition()
-    local s = Minimap:GetEffectiveScale()
-    DB.angle = math.deg((math.atan2 or math.atan)(cy / s - my, cx / s - mx)); place() -- atan2 in WoW (Lua 5.1), atan nelle prove (5.3)
-  end)
-end)
-mb:SetScript("OnDragStop", function(self) self:SetScript("OnUpdate", nil) end)
-mb:SetScript("OnClick", function(_, btn)
+-- icona sulla minimappa: clic apre la guida, clic destro le opzioni. Forever ha la minimappa moderna: l'icona la mette
+-- LibDBIcon (la stessa di Questie, che è obbligatorio, quindi c'è sempre); il riquadro degli addon usa AddonCompartmentFunc del .toc
+local function mbClick(_, btn)
   if btn == "RightButton" then open("opzioni") elseif f:IsShown() then f:Hide() else open() end
-end)
-mb:SetScript("OnEnter", function(self)
-  GameTooltip:SetOwner(self, "ANCHOR_LEFT"); GameTooltip:AddLine("Forever Pathfinder"); GameTooltip:AddLine(T.mbHint, 1, 1, 1); GameTooltip:Show()
-end)
-mb:SetScript("OnLeave", function() GameTooltip:Hide() end)
+end
+ForeverPathfinder_OnCompartment = mbClick
+local DBI = LibStub and LibStub("LibDBIcon-1.0", true)
+local LDB = LibStub and LibStub("LibDataBroker-1.1", true)
+minimapIcon = function()
+  if not (DBI and LDB) then return end
+  DB.icon = DB.icon or {}
+  DB.icon.hide = DB.hide and true or false
+  if not DBI:IsRegistered(ADDON) then
+    DBI:Register(ADDON, LDB:NewDataObject(ADDON, { type = "launcher", icon = "Interface\\AddOns\\ForeverPathfinder\\icon", OnClick = mbClick,
+      OnTooltipShow = function(tt) tt:AddLine("Forever Pathfinder"); tt:AddLine(T.mbHint, 1, 1, 1) end }), DB.icon)
+  end
+  if DB.hide then DBI:Hide(ADDON) else DBI:Show(ADDON) end
+end
 
 -- mappa del mondo: i segnaposti della tappa (quella mostrata nel Percorso, o quella del tuo livello) sopra la mappa aperta
 local mapPins = {}
@@ -857,18 +854,40 @@ setTarget = function(p)
   end
 end
 
--- una voce si spunta quando tutte le sue quest sono consegnate: viste consegnare dall'addon o già fatte secondo Questie.
--- quiet: all'avvio (quest fatte prima) una riga sola col conteggio, invece di una per voce
+-- spell della voce "Trainer: A, B (nota)", senza le note tra parentesi
+local function trainerList(text)
+  local list = text:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$")
+  if not list then return end
+  local out = {}
+  for n in list:gsub("%b()", ""):gmatch("[^,;]+") do out[#out + 1] = (n:gsub("^%s+", ""):gsub("%s+$", "")) end
+  return out
+end
+-- spell già appresa: per nome il gioco trova solo quelle nel tuo libro (C_Spell nei client moderni come Forever)
+local function known(name)
+  local info = C_Spell and C_Spell.GetSpellInfo and C_Spell.GetSpellInfo(name)
+  local id = info and info.spellID or (GetSpellInfo and select(7, GetSpellInfo(name)))
+  if not id then return false end
+  if IsPlayerSpell then return IsPlayerSpell(id) end
+  return true
+end
+-- una voce si spunta quando tutte le sue quest sono consegnate (viste consegnare dall'addon o già fatte secondo Questie)
+-- o, per le voci Trainer, quando conosci già tutte le sue spell.
+-- quiet: all'avvio e quando cambiano le spell una riga sola col conteggio, invece di una per voce
 local function tick(quiet)
-  if not on("quests") then return end
   local g, k, v = guide()
   if not g then return end
   local n = 0
   for _, t in ipairs(v._tasks) do
     local L = LINKS[t[4]]
-    if L and L.q[1] and not C.done[k .. ":" .. t[4]] then
-      local all = true
-      for _, q in ipairs(L.q) do all = all and (C.turned[q] or qDone(q)) end
+    if not C.done[k .. ":" .. t[4]] then
+      local all, sp = false, on("trainer") and trainerList(t[3])
+      if on("quests") and L and L.q[1] then
+        all = true
+        for _, q in ipairs(L.q) do all = all and (C.turned[q] or qDone(q)) end
+      elseif sp and sp[1] then
+        all = true
+        for _, s in ipairs(sp) do all = all and known(s) end
+      end
       if all then
         C.done[k .. ":" .. t[4]] = true; n = n + 1
         if not quiet then say(T.ticked:format(t[3]:gsub("^%^[^%^]*%^", ""):sub(1, 90))) end
@@ -922,8 +941,7 @@ local function wanted()
   if not g then return w end
   for _, t in ipairs(v._tasks) do
     if t[1] <= UnitLevel("player") then
-      local list = t[3]:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$")
-      if list then for n in list:gsub("%b()", ""):gmatch("[^,;]+") do w[(n:gsub("^%s+", ""):gsub("%s+$", ""))] = true end end
+      for _, n in ipairs(trainerList(t[3]) or {}) do w[n] = true end
     end
   end
   return w
@@ -968,7 +986,7 @@ f:RegisterEvent("ADDON_LOADED")
 f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("PLAYER_LEVEL_UP")
 f:RegisterEvent("CHARACTER_POINTS_CHANGED")
-for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW" }) do pcall(f.RegisterEvent, f, e) end
+for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW", "SPELLS_CHANGED" }) do pcall(f.RegisterEvent, f, e) end
 f:SetScript("OnEvent", function(_, event, arg1)
   if event == "ADDON_LOADED" then
     if arg1 ~= ADDON then hookBlizzard(); return end
@@ -979,7 +997,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     C.opt = C.opt or {}
     C.loads = (C.loads or 0) + 1 -- /fp debug: se dopo un /reload resta 1, il gioco non rilegge i salvataggi
     C.turned = C.turned or {} -- titoli delle quest consegnate
-    place(); if DB.hide then mb:Hide() end
+    minimapIcon()
     setLang(DB.lang or "en")
     hookBlizzard()
     return
@@ -1000,6 +1018,9 @@ f:SetScript("OnEvent", function(_, event, arg1)
     scanLog()
   elseif event == "QUEST_TURNED_IN" then
     turnedIn(arg1)
+  elseif event == "SPELLS_CHANGED" then
+    if not C then return end
+    tick(true)
   elseif event == "TRAINER_SHOW" then
     hookBlizzard(); trainerSay(); return
   elseif event == "CHARACTER_POINTS_CHANGED" then
