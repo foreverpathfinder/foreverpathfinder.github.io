@@ -54,8 +54,20 @@ C_Map = {
   GetMapWorldSize = function() return 30000, 30000 end,
 }
 QUESTLOG = {}
-GetNumQuestLogEntries = function() return #QUESTLOG end
-GetQuestLogTitle = function(i) local q = QUESTLOG[i]; return q[1], 1, nil, false, false, q[3], nil, q[2] end
+-- registro delle quest come in Forever: solo l'API moderna C_QuestLog (niente GetQuestLogTitle)
+C_QuestLog = { GetNumQuestLogEntries = function() return #QUESTLOG end,
+  GetInfo = function(i) local q = QUESTLOG[i]; return q and { title = q[1], questID = q[2], isHeader = false } end,
+  IsComplete = function(id) for _, q in ipairs(QUESTLOG) do if q[2] == id then return q[3] end end return false end }
+-- spell nel libro: per nome il gioco trova solo quelle che conosci
+KNOWN = {}
+C_Spell = { GetSpellInfo = function(n) if KNOWN[n] then return { spellID = #n } end end }
+IsPlayerSpell = function() return true end
+-- LibDBIcon e LibDataBroker come li porta Questie
+DBICON = {}
+local LIBS = { ["LibDataBroker-1.1"] = { NewDataObject = function(_, _, o) return o end },
+  ["LibDBIcon-1.0"] = { Register = function(_, n, o, db) DBICON[n] = { o = o, db = db } end, IsRegistered = function(_, n) return DBICON[n] ~= nil end,
+    Show = function(_, n) DBICON[n].shown = true end, Hide = function(_, n) DBICON[n].shown = false end } }
+LibStub = function(n) return LIBS[n] end
 TALENT = nil
 GetNumTalents = function() return 1 end
 GetTalentInfo = function() return TALENT end
@@ -117,10 +129,11 @@ local function nav(label) return find(function(o) return o.kind == "Button" and 
 
 -- 0) messaggio di benvenuto e icona sulla minimappa
 check(said(lang == "it" and "minimappa" or "minimap"), "messaggio di caricamento")
-local mb = ForeverPathfinderMinimapButton
-check(mb ~= nil, "icona sulla minimappa")
+local mb = DBICON.ForeverPathfinder
+check(mb ~= nil and mb.shown, "icona sulla minimappa (LibDBIcon)")
+check(ForeverPathfinder_OnCompartment ~= nil, "voce nel riquadro degli addon")
 -- 1) clic sull'icona: si apre il Percorso sulla tappa del livello, con build e voci da spuntare
-mb.scripts.OnClick(mb, "LeftButton")
+mb.o.OnClick(nil, "LeftButton")
 check(f.shown, "il clic sull'icona apre la finestra")
 check(has(g.name), "titolo con " .. g.name)
 check(has(lang == "it" and "TAPPA" or "STAGE") and has("/ 9"), "tappa 1 di 9")
@@ -209,6 +222,18 @@ check(qtask2 ~= nil, "un'altra voce con quest")
 for _, q in ipairs(L[qtask2[4]].q) do QDONE[QID(q)] = true end
 QUESTIE_READY()
 check(ForeverPathfinderChar.done["human-warrior:" .. qtask2[4]] == true and said(lang == "it" and "Spuntate" or "Ticked"), "voce spuntata dallo storico di Questie")
+-- voci Trainer: si spuntano da sole quando conosci già tutte le loro spell (SPELLS_CHANGED)
+local ttask
+for _, t in ipairs(hv._tasks) do if t[3]:find("Trainer:", 1, true) and not ForeverPathfinderChar.done["human-warrior:" .. t[4]] then ttask = t; break end end
+check(ttask ~= nil, "una voce Trainer")
+local spells = {}
+for n in ttask[3]:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$"):gsub("%b()", ""):gmatch("[^,;]+") do spells[#spells + 1] = (n:gsub("^%s+", ""):gsub("%s+$", "")) end
+for i = 1, #spells - 1 do KNOWN[spells[i]] = true end
+f.scripts.OnEvent(f, "SPELLS_CHANGED")
+check(not ForeverPathfinderChar.done["human-warrior:" .. ttask[4]], "voce Trainer non spuntata con una spell mancante: " .. spells[#spells])
+KNOWN[spells[#spells]] = true
+f.scripts.OnEvent(f, "SPELLS_CHANGED")
+check(ForeverPathfinderChar.done["human-warrior:" .. ttask[4]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
 -- pulsanti della voce con quest: mappa con le icone di Questie (chi la dà: NPC 4242 nella sua zona) e scheda nel Journey
 LEVEL = qtask[1]; QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.shown = false; fp("")
 local function mini(name, tip2) return find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip == name and (not tip2 or o.tip2:find(tip2, 1, true)) end) end
@@ -257,10 +282,8 @@ fp("set nessuna-razza")
 check(chat[#chat]:find("/fp set", 1, true) ~= nil, "messaggio per razza sconosciuta")
 fp("auto")
 -- 6) clic destro sull'icona: Opzioni; trascinamento: l'icona cambia posto; /fp chiude
-mb.scripts.OnClick(mb, "RightButton")
+mb.o.OnClick(nil, "RightButton")
 check(has(lang == "it" and "Opzioni" or "Options"), "clic destro apre le opzioni")
-mb.scripts.OnDragStart(mb); mb.scripts.OnUpdate(); mb.scripts.OnDragStop(mb)
-check(ForeverPathfinderDB.angle and math.abs(ForeverPathfinderDB.angle - 90) < 1, "icona trascinata sopra la minimappa")
 fp(""); check(not f.shown, "/fp chiude")
 -- 7) lingua solo nelle Opzioni (niente pulsante in testata): la casella dell'altra lingua cambia i nomi delle schede; /fp lang torna indietro
 fp("opzioni")

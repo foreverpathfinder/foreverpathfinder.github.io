@@ -151,7 +151,11 @@ C_Map = {
 QUESTS = {}
 GetNumQuestLogEntries = function() return #QUESTS end
 GetQuestLogTitle = function(i) local q = QUESTS[i]; return q.title, PLAYER.level, nil, false, false, q.done and 1 or nil, nil, q.id end
-C_QuestLog = { GetQuestInfo = function(id) for _, q in ipairs(QUESTS) do if q.id == id then return q.title end end end }
+-- Forever ha l'API moderna: l'addon legge C_QuestLog.GetInfo (quelle vecchie qui sopra restano solo per confronto)
+C_QuestLog = { GetQuestInfo = function(id) for _, q in ipairs(QUESTS) do if q.id == id then return q.title end end end,
+  GetNumQuestLogEntries = function() return #QUESTS end,
+  GetInfo = function(i) local q = QUESTS[i]; return q and { title = q.title, questID = q.id, isHeader = false, level = PLAYER.level } end,
+  IsComplete = function(id) for _, q in ipairs(QUESTS) do if q.id == id then return q.done == true end end return false end }
 
 -- finestre di Blizzard finte, con fondo e bordo da texture (le disegna lo stesso motore)
 local function panel(f, w, h, title)
@@ -198,13 +202,16 @@ end
 TalentFrame:SetScript("OnShow", function() TalentFrame_Update() end)
 -- trainer: spell della guida fino a qualche livello sopra il tuo; quelli già imparati non sono più "available"
 LEARNED = LEARNED or {}
+-- spell nel libro: per nome il gioco trova solo quelle apprese (al trainer finto, o le prime del livello 1)
+C_Spell = { GetSpellInfo = function(n) if LEARNED[n] then return { spellID = 1, name = n } end end }
+IsPlayerSpell = function() return true end
 TRAINER = {}
 GetNumTrainerServices = function() return #TRAINER end
 GetTrainerServiceInfo = function(i) local s = TRAINER[i]; if s then return s[1], "", LEARNED[s[1]] and "used" or (s[2] <= PLAYER.level and "available" or "unavailable") end end
 ClassTrainerFrame = CreateFrame("Frame", "ClassTrainerFrame", UIParent); panel(ClassTrainerFrame, 340, 460, "Trainer"); ClassTrainerFrame:SetPoint("TOPLEFT", 40, -90)
 for i = 1, 14 do
   local b = textButton(ClassTrainerFrame, "", 12, -34 - (i - 1) * 29, 316, 26, function(self)
-    local s = TRAINER[self:GetID()]; if s and s[2] <= PLAYER.level then LEARNED[s[1]] = true; ClassTrainerFrame_Update() end end)
+    local s = TRAINER[self:GetID()]; if s and s[2] <= PLAYER.level then LEARNED[s[1]] = true; ClassTrainerFrame_Update(); FIRE("SPELLS_CHANGED") end end)
   b.shown = false; _G["ClassTrainerSkill" .. i] = b
 end
 ClassTrainerFrame_Update = function()
@@ -226,6 +233,23 @@ canvas:SetScript("OnClick", function(_, _, x, y) PLAYER.cont = WorldMapFrame:Get
 -- minimappa in alto a destra
 Minimap = CreateFrame("Frame", "Minimap", UIParent); Minimap:SetPoint("TOPLEFT", SW - 170, -20); Minimap:SetSize(140, 140); Minimap.round = true
 Minimap.GetCenter = function() return SW - 100, SH - 90 end
+-- LibDBIcon e LibDataBroker come li porta Questie: un pulsante tondo sul bordo della minimappa
+local LIBS = { ["LibDataBroker-1.1"] = { NewDataObject = function(_, _, o) return o end } }
+LIBS["LibDBIcon-1.0"] = {
+  btn = {},
+  Register = function(self, n, o)
+    local b = CreateFrame("Button", "LibDBIcon10_" .. n, Minimap); b:SetSize(31, 31); b:SetPoint("CENTER", Minimap, "CENTER", -75, -27)
+    local ic = b:CreateTexture(nil, "BACKGROUND"); ic:SetTexture(o.icon); ic:SetSize(20, 20); ic:SetPoint("TOPLEFT", 7, -5)
+    local bd = b:CreateTexture(nil, "OVERLAY"); bd:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder"); bd:SetSize(53, 53); bd:SetPoint("TOPLEFT")
+    b:SetScript("OnClick", function(_, btn) o.OnClick(b, btn) end)
+    b:SetScript("OnEnter", function() GameTooltip:SetOwner(b, "ANCHOR_LEFT"); o.OnTooltipShow(GameTooltip); GameTooltip:Show() end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    self.btn[n] = b
+  end,
+  IsRegistered = function(self, n) return self.btn[n] ~= nil end,
+  Show = function(self, n) self.btn[n]:Show() end, Hide = function(self, n) self.btn[n]:Hide() end,
+}
+LibStub = function(n) return LIBS[n] end
 ShowUIPanel = function(fr) fr:SetParent(UIParent); fr:Show() end
 WorldMapFrame.SetMapID = function(_, id) MAPID = id end
 
