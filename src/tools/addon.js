@@ -101,6 +101,10 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
   s+=' },\n'}
  // ingressi dei dungeon (icone della mappa del sito): { nome, continente, x, y } per il pulsante Mappa della scheda Dungeon
  s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+' },'}).filter(Boolean).join('\n')+'\n';
+ // zone del gioco (uiMapID e rettangolo 0–1 sul continente del sito, da uimaps.json): l'addon ci converte i segnaposti, perché
+ // i bordi della mappa del continente nel gioco non sono quelli di Wowhead, quelli delle zone sì
+ const UM=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/uimaps.json'),'utf8')).continents;
+ s+='}\nForeverPathfinderZoneMaps = {\n'+Object.entries(UM).map(([k,a])=>{const c=WM[k];return '  '+CONT[k]+' = { '+a.map(z=>'{ '+z[0]+', '+(z[2]/c.w).toFixed(4)+', '+(z[3]/c.h).toFixed(4)+', '+(z[4]/c.w).toFixed(4)+', '+(z[5]/c.h).toFixed(4)+', '+lua(z[1])+' }').join(', ')+' },'}).join('\n')+'\n';
  fs.writeFileSync(path.join(OUT,'Data.lua'),s+'}\n');
  const zip=path.join(ROOT,'ForeverPathfinder.zip');if(fs.existsSync(zip))fs.unlinkSync(zip);
  // tar di Windows (non quello di Git, che non fa zip): percorsi con / (lo zip di PowerShell usa \ e su Mac si estrae male)

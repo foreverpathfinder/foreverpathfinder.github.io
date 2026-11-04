@@ -139,9 +139,10 @@ Enum = { UIMapType = { Continent = 2 } }
 local CNAME = { [1414] = "Kalimdor", [1415] = "Eastern Kingdoms", [2000] = "Zephras Isle" }
 C_Map = {
   GetMapChildrenInfo = function() return { { mapID = 1414, name = "Kalimdor" }, { mapID = 1415, name = "Eastern Kingdoms" }, { mapID = 2000, name = "Zephras Isle" } } end,
-  GetMapRectOnMap = function(a, b) if a == b then return 0, 1, 0, 1 end end,
+  -- zone: lo stesso rettangolo che l'addon ha in ForeverPathfinderZoneMaps (qui il continente finto è quello del sito)
+  GetMapRectOnMap = function(a, b) if a == b then return 0, 1, 0, 1 end; for _, l in pairs(ForeverPathfinderZoneMaps or {}) do for _, z in ipairs(l) do if z[1] == a then return z[2], z[4], z[3], z[5] end end end end,
   GetMapInfoAtPosition = function() return nil end,
-  GetMapInfo = function(id) return { mapID = id, name = CNAME[id] } end,
+  GetMapInfo = function(id) local n = CNAME[id]; for _, l in pairs(ForeverPathfinderZoneMaps or {}) do for _, z in ipairs(l) do if z[1] == id then n = z[6] end end end; return { mapID = id, name = n } end,
   CanSetUserWaypointOnMap = function() return false end,
   GetBestMapForUnit = function() return PLAYER.cont end,
   GetPlayerMapPosition = function(m) if m == PLAYER.cont then return { GetXY = function() return PLAYER.x, PLAYER.y end } end end,
