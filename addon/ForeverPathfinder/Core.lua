@@ -46,6 +46,7 @@ local TT = {
     dgMap = "Mappa", dgMapTip = "Apre la mappa del mondo sull'ingresso, con il segnaposto", dgMapMU = "Clic sull'icona d'ingresso di MapUtils: si apre la mappa interna del dungeon",
     dgLoot = "Boss e loot", dgLootTip = "Apre il dungeon in OneForAll (boss, loot, quest)",
     dbgAddons = "Addon collegati: Questie %s · OneForAll %s · MapUtils %s",
+    behind = "Rimaste indietro (%d)", behindMore = "e altre %d: le trovi tornando indietro con <",
   },
   en = {
     level = "Lvl %d", stageWord = "STAGE", build = "Build: %s",
@@ -78,6 +79,7 @@ local TT = {
     dgMap = "Map", dgMapTip = "Opens the world map on the entrance, with the waypoint", dgMapMU = "Click MapUtils' entrance icon: the dungeon's own map opens",
     dgLoot = "Bosses and loot", dgLootTip = "Opens the dungeon in OneForAll (bosses, loot, quests)",
     dbgAddons = "Linked addons: Questie %s · OneForAll %s · MapUtils %s",
+    behind = "Left behind (%d)", behindMore = "and %d more: go back with < to find them",
   },
 }
 local T = TT.en
@@ -446,10 +448,58 @@ local function line(kind, s)
 end
 
 local render
+-- una voce della checklist dalla casella in poi: casella, icona, testo, a destra i pulsanti; top = y della riga
+local function itemRow(k, t, top, after)
+  local cb = check(k .. ":" .. t[4], PAD + 52, y + 1)
+  if after then cb.onClick = function(v) C.done[cb.id] = v and true or nil; after() end end
+  local ic, s = t[3]:match("^%^([^%^,]*)[^%^]*%^(.*)$")
+  local x = PAD + 78
+  if ic then icon(ic, x, y + 1, 18); x = x + 24 end
+  -- a destra: voce con quest → mappa e scheda di Questie; altrimenti il segnaposto della voce (mappa e minimappa).
+  -- Accanto al testo lo stato della quest nel registro
+  local L, right = LINKS[t[4]], 0
+  local q, p = L and L.q[1], L and L.p[1]
+  if q and on("map") then
+    mini("inv_misc_map_01", BW - PAD - 20, y, q, T.qMapTip, function()
+      -- la mappa del mondo sta sotto la guida: la guida si chiude (si riapre dall'icona)
+      if not QZ() then say(T.qWait) elseif qMap(q) then f:Hide() elseif p then setTarget(p) end
+    end)
+    mini("inv_misc_book_09", BW - PAD - 46, y, q, T.qInfoTip, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end)
+    right = 54
+  elseif p and on("map") then
+    mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() setTarget(p) end)
+    right = 28
+  end
+  local o = str(F.p, "tx", (s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
+  y = top - math.max(o:GetStringHeight(), 20) - 6
+end
+-- rimaste indietro: voci dei livelli già superati non spuntate delle tappe prima (quelle di questa tappa sono sotto), le prime 5;
+-- spuntandone una sparisce
+local BEHIND = 5
+local function drawBehind(k, v, lv, ch)
+  local list, seen = {}, {}
+  for _, t in ipairs(v._tasks) do
+    if t[1] < lv and t[2] < ch and not seen[t[4]] and not C.done[k .. ":" .. t[4]] then seen[t[4]] = true; list[#list + 1] = t end
+  end
+  if #list == 0 then return end
+  cardOpen(); y = y - 12
+  str(F.h3, "gold", T.behind:format(#list), PAD, BW - 2 * PAD); y = y - 20
+  for i = 1, math.min(BEHIND, #list) do
+    local t = list[i]
+    if i > 1 then box("bd", 1, PAD, y, BW - 2 * PAD, 1, true) end
+    y = y - 8
+    local top = y
+    str(F.small, "mu", T.level:format(t[1]), PAD, 50)
+    itemRow(k, t, top, function() render() end)
+  end
+  if #list > BEHIND then y = y - 4; local o = str(F.small, "mu", T.behindMore:format(#list - BEHIND), PAD, BW - 2 * PAD); y = y - o:GetStringHeight() end
+  cardClose()
+end
 -- Percorso: card della tappa (numero grande, nome, frecce), card "ora" (build, talento, dungeon), card delle voci per livello
 local function drawPath(g, k, v)
   local lv = UnitLevel("player")
   viewCh = viewCh or chapterOf(v, lv)
+  if viewCh == chapterOf(v, lv) then drawBehind(k, v, lv, viewCh) end
   local n = #v._ch
   cardOpen(); y = y - 12
   str(F.small, "mu", T.stageWord, PAD, nil)
@@ -483,27 +533,7 @@ local function drawPath(g, k, v)
         str(F.small, cur == lv and "ok" or "ac", T.level:format(cur), PAD, 50)
         if cur == lv then y = y - 13; str(F.small, "ok", T.now, PAD, 50); y = top end
       end
-      check(k .. ":" .. t[4], PAD + 52, y + 1)
-      local ic, s = t[3]:match("^%^([^%^,]*)[^%^]*%^(.*)$")
-      local x = PAD + 78
-      if ic then icon(ic, x, y + 1, 18); x = x + 24 end
-      -- a destra: voce con quest → mappa e scheda di Questie; altrimenti il segnaposto della voce (mappa e minimappa).
-      -- Accanto al testo lo stato della quest nel registro
-      local L, right = LINKS[t[4]], 0
-      local q, p = L and L.q[1], L and L.p[1]
-      if q and on("map") then
-        mini("inv_misc_map_01", BW - PAD - 20, y, q, T.qMapTip, function()
-          -- la mappa del mondo sta sotto la guida: la guida si chiude (si riapre dall'icona)
-          if not QZ() then say(T.qWait) elseif qMap(q) then f:Hide() elseif p then setTarget(p) end
-        end)
-        mini("inv_misc_book_09", BW - PAD - 46, y, q, T.qInfoTip, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end)
-        right = 54
-      elseif p and on("map") then
-        mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() setTarget(p) end)
-        right = 28
-      end
-      local o = str(F.p, "tx", (s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
-      y = top - math.max(o:GetStringHeight(), 20) - 6
+      itemRow(k, t, top)
     end
   end
   cardClose()

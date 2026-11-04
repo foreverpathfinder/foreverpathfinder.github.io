@@ -139,6 +139,18 @@ f.scripts.OnEvent(f, "CHARACTER_POINTS_CHANGED")
 local again = false
 for _, x in ipairs(boxes()) do if x.id == id and x.checked then again = true end end
 check(again, "spunta ancora visibile")
+-- 3b) rimaste indietro: al livello 12 le voci non spuntate delle tappe prima stanno in cima; spuntandone una sparisce
+local function behind() for _, t in ipairs(shownTexts()) do local n = t:match("^Rimaste indietro %((%d+)%)") or t:match("^Left behind %((%d+)%)"); if n then return tonumber(n) end end end
+LEVEL = 12; f.scripts.OnEvent(f, "PLAYER_LEVEL_UP")
+local nb = behind()
+check(nb and nb > 0, "card Rimaste indietro al livello 12")
+local bcb = find(function(o) return o.kind == "CheckButton" and o.shown and rawget(o, "onClick") end)
+check(bcb ~= nil, "casella di una voce rimasta indietro")
+local bid = bcb.id -- la casella si riusa al nuovo disegno
+bcb.checked = true; bcb.scripts.OnClick(bcb)
+check(ForeverPathfinderChar.done[bid] == true and (behind() or 0) == nb - 1, "spuntata: la voce sparisce dalla card (" .. tostring(behind()) .. ")")
+ForeverPathfinderChar.done[bid] = nil; LEVEL = 1; f.scripts.OnEvent(f, "PLAYER_LEVEL_UP")
+check(behind() == nil, "al livello 1 nessuna voce rimasta indietro")
 -- 4) ogni razza-classe: ogni scheda ha contenuto, ogni tappa con < >, ogni opzione cliccabile, senza errori
 local keys = {}
 for k in pairs(D) do if k:sub(1, 1) ~= "_" then keys[#keys + 1] = k end end
