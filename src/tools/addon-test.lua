@@ -144,6 +144,17 @@ FREE = 1; f.scripts.OnEvent(f, "CHARACTER_POINTS_CHANGED")
 local v = select(2, next(g.v))
 local firstTal = ForeverPathfinderPool[lang][v.tal]:match("^([^:]+)")
 if firstTal then check(has(firstTal), "talento " .. firstTal) end
+-- 2b) talenti come in Forever (sistema moderno C_ClassTalents / C_Traits): un punto speso → il Percorso propone il secondo talento
+local tals = {}; for n in ForeverPathfinderPool[lang][v.tal]:gmatch("([^:;]+):[^;]*") do tals[#tals + 1] = n end
+if tals[2] then
+  local oldFree = FREE; FREE = 0
+  C_ClassTalents = { GetActiveConfigID = function() return 7 end }
+  C_Traits = { GetConfigInfo = function() return { treeIDs = { 1 } } end, GetTreeNodes = function() return { 11, 12 } end,
+    GetNodeInfo = function(_, n) return { ranksPurchased = n == 11 and 1 or 0 } end, GetTreeCurrencyInfo = function() return { { quantity = 0 } } end }
+  f.scripts.OnEvent(f, "TRAIT_CONFIG_UPDATED")
+  check(has(tals[2]) and has(lang == "it" and "Prossimo talento al liv. 11" or "Next talent at lvl 11"), "talenti moderni: dopo un punto speso il talento successivo (" .. tals[2] .. ")")
+  C_ClassTalents, C_Traits, FREE = nil, nil, oldFree; f.scripts.OnEvent(f, "CHARACTER_POINTS_CHANGED")
+end
 -- 3) spunta: resta salvata e si rivede dopo un nuovo disegno
 local cb = boxes()[1]
 cb.checked = true; cb.scripts.OnClick(cb)

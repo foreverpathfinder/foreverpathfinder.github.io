@@ -136,13 +136,39 @@ local function dungeonsAt(g, lv)
 end
 local function dgLabel(d) return d[1] .. " (" .. (T[d[4]] or "?") .. (d[5] ~= "" and " " .. d[5] or "") .. ")" end
 
+-- punti talento spesi e liberi. Forever ha il sistema dei talenti dei client moderni (C_ClassTalents / C_Traits: si sommano i
+-- punti dei nodi della configurazione attiva, come fa OneForAll); i client vecchi GetTalentTabInfo. Restituisce spesi, liberi e
+-- da dove li ha letti ("traits", "tabs" o nil)
+local function talentPoints()
+  local spent, free = 0, UnitCharacterPoints and UnitCharacterPoints("player") or 0
+  local ok, got = pcall(function()
+    local cfg = C_ClassTalents and C_ClassTalents.GetActiveConfigID and C_ClassTalents.GetActiveConfigID()
+    local ci = cfg and C_Traits and C_Traits.GetConfigInfo and C_Traits.GetConfigInfo(cfg)
+    if not (ci and ci.treeIDs) then return end
+    local n, cur = 0, 0
+    for _, tree in ipairs(ci.treeIDs) do
+      for _, node in ipairs(C_Traits.GetTreeNodes(tree) or {}) do
+        local ni = C_Traits.GetNodeInfo(cfg, node)
+        if ni then n = n + (ni.ranksPurchased or ni.currentRank or 0) end
+      end
+      for _, c in ipairs(C_Traits.GetTreeCurrencyInfo and C_Traits.GetTreeCurrencyInfo(cfg, tree, false) or {}) do cur = math.max(cur, c.quantity or 0) end
+    end
+    return { n, cur }
+  end)
+  if ok and got then
+    spent = got[1]
+    if free == 0 then free = got[2] end
+    return spent, free, "traits"
+  end
+  local tabs = GetNumTalentTabs and GetNumTalentTabs() or 0
+  for i = 1, tabs do spent = spent + (select(3, GetTalentTabInfo(i)) or 0) end
+  return spent, free, tabs > 0 and "tabs" or nil
+end
 -- prossimo talento: i punti già spesi dicono a che punto dell'ordine della guida sei
 local function talentLine(v)
-  local spent = 0
-  for i = 1, (GetNumTalentTabs and GetNumTalentTabs() or 0) do spent = spent + (select(3, GetTalentTabInfo(i)) or 0) end
+  local spent, free = talentPoints()
   local t = v._tal[spent + 1]
   if not t then return T.talentDone end
-  local free = UnitCharacterPoints and UnitCharacterPoints("player") or 0
   if free > 0 then return T.talentNow:format(t[2], t[3]) end
   return T.talentNext:format(t[1], t[2], t[3])
 end
@@ -1053,8 +1079,8 @@ local function talentGlow()
   if not (C and pre and on("tal") and _G[pre]:IsShown()) then return end
   local g, _, v = guide()
   if not g then return end
-  local spent = 0
-  for i = 1, GetNumTalentTabs() do spent = spent + (select(3, GetTalentTabInfo(i)) or 0) end
+  local spent, _, src = talentPoints()
+  if src ~= "tabs" then return end -- ponytail: finestra dei talenti moderna (Forever) senza bordo luminoso; servirebbero i suoi pulsanti per nodo
   local want = v._tal[spent + 1]
   if not want then return end
   local tf = _G[pre]
@@ -1125,6 +1151,7 @@ f:RegisterEvent("ADDON_LOADED")
 f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("PLAYER_LEVEL_UP")
 f:RegisterEvent("CHARACTER_POINTS_CHANGED")
+for _, e in ipairs({ "TRAIT_CONFIG_UPDATED", "TRAIT_NODE_CHANGED", "PLAYER_TALENT_UPDATE" }) do pcall(f.RegisterEvent, f, e) end
 for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW", "SPELLS_CHANGED" }) do pcall(f.RegisterEvent, f, e) end
 f:SetScript("OnEvent", function(_, event, arg1)
   if event == "ADDON_LOADED" then
@@ -1162,7 +1189,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     BOOK = nil; tick(true)
   elseif event == "TRAINER_SHOW" then
     hookBlizzard(); trainerSay(); return
-  elseif event == "CHARACTER_POINTS_CHANGED" then
+  elseif event == "CHARACTER_POINTS_CHANGED" or event == "TRAIT_CONFIG_UPDATED" or event == "TRAIT_NODE_CHANGED" or event == "PLAYER_TALENT_UPDATE" then
     talentGlow()
   end
   if f:IsShown() then render(event == "PLAYER_LEVEL_UP") end
@@ -1218,13 +1245,14 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     local rl, rt = UnitRace("player")
     local _, ct = UnitClass("player")
     local tabs = {}
-    for i = 1, (GetNumTalentTabs and GetNumTalentTabs() or 0) do tabs[#tabs + 1] = select(3, GetTalentTabInfo(i)) or 0 end
+    local tsp, tfr, tsrc = talentPoints()
+    tabs[1] = tostring(tsp) .. " (" .. tostring(tsrc or "-") .. ")"
     local done = 0
     for _ in pairs(C.done) do done = done + 1 end
     say("v" .. tostring(meta and meta(ADDON, "Version")) .. " · client " .. tostring(ver) .. " (" .. tostring(build) .. ") · Interface " .. tostring(toc) .. " · " .. GetLocale())
     DEFAULT_CHAT_FRAME:AddMessage("  UnitRace " .. tostring(rl) .. " / " .. tostring(rt) .. " · UnitClass " .. tostring(ct) .. " · " .. tostring(UnitFactionGroup("player")) .. " · " .. T.level:format(UnitLevel("player")))
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgGuide:format(charKey() or "?", C.key and T.dbgHand or T.dbgAuto))
-    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgTal:format(table.concat(tabs, "/"), UnitCharacterPoints and UnitCharacterPoints("player") or 0))
+    DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgTal:format(table.concat(tabs, "/"), tfr))
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgSave:format(C.loads, done))
     local cs, nq = continents(), 0
     for _ in pairs(inLog) do nq = nq + 1 end
