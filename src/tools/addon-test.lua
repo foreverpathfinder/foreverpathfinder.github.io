@@ -210,8 +210,8 @@ for lv, _, n in PG[gv.tasks]:gmatch("(%d+),(%d+),(%d+),%w+") do local l = L[tonu
 check(gok, "Gnome Mage: trainer del livello 1 ad Anvilmar")
 -- quest: una voce con quest nel registro mostra lo stato; alla consegna si spunta da sola
 local qtask
-for _, t in ipairs(hv._tasks or {}) do if L[t[4]] and L[t[4]].q[1] then qtask = t; break end end
-if not qtask then fp(""); fp(""); hv = select(2, next(hw.v)); for _, t in ipairs(hv._tasks) do if L[t[4]] and L[t[4]].q[1] then qtask = t; break end end end
+for _, t in ipairs(hv._tasks or {}) do if L[t[4]] and L[t[4]].q[1] and not L[t[4]].any then qtask = t; break end end
+if not qtask then fp(""); fp(""); hv = select(2, next(hw.v)); for _, t in ipairs(hv._tasks) do if L[t[4]] and L[t[4]].q[1] and not L[t[4]].any then qtask = t; break end end end
 check(qtask ~= nil, "una voce con una quest")
 local qname = L[qtask[4]].q[1]
 QUESTLOG = { { qname, 777, true } }
@@ -222,7 +222,7 @@ for _, q in ipairs(L[qtask[4]].q) do QUESTLOG = { { q, 777, true } }; f.scripts.
 check(ForeverPathfinderChar.done["human-warrior:" .. qtask[5]] == true, "voce spuntata alla consegna di " .. qname)
 -- Questie pronto: le voci con quest già consegnate (storico di Questie) si spuntano da sole, con una riga sola in chat
 local qtask2
-for _, t in ipairs(hv._tasks) do if t ~= qtask and L[t[4]] and L[t[4]].q[1] and not ForeverPathfinderChar.done["human-warrior:" .. t[5]] then qtask2 = t; break end end
+for _, t in ipairs(hv._tasks) do if t ~= qtask and L[t[4]] and L[t[4]].q[1] and not L[t[4]].any and not ForeverPathfinderChar.done["human-warrior:" .. t[5]] then qtask2 = t; break end end
 check(qtask2 ~= nil, "un'altra voce con quest")
 for _, q in ipairs(L[qtask2[4]].q) do QDONE[QID(q)] = true end
 QUESTIE_READY()
@@ -240,6 +240,16 @@ if #spells > 1 then LEVEL = ttask[1]; f.shown = false; fp(""); check(has("|cff5f
 KNOWN[spells[#spells]] = true
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(ForeverPathfinderChar.done["human-warrior:" .. ttask[5]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
+-- lettera di classe: basta una delle lettere (any), quella della propria classe (qui Simple Letter, Human Warrior)
+local ltask
+for _, t in ipairs(hv._tasks) do if L[t[4]] and L[t[4]].any then ltask = t; break end end
+check(ltask ~= nil, "voce della lettera di classe")
+-- (la prova dello storico di Questie può averla già spuntata con tutte le lettere: si riparte da zero)
+for _, q in ipairs(L[ltask[4]].q) do QDONE[QID(q)] = nil; ForeverPathfinderChar.turned[q] = nil end
+ForeverPathfinderChar.done["human-warrior:" .. ltask[5]] = nil; f.scripts.OnEvent(f, "SPELLS_CHANGED")
+check(not ForeverPathfinderChar.done["human-warrior:" .. ltask[5]], "lettera di classe non consegnata: voce da spuntare")
+QDONE[QID("Simple Letter")] = true; f.scripts.OnEvent(f, "SPELLS_CHANGED")
+check(ForeverPathfinderChar.done["human-warrior:" .. ltask[5]] == true, "lettera di classe consegnata: voce spuntata")
 -- segnaposto di una voce: sulla zona del gioco (uiMapID da ForeverPathfinderZoneMaps), non dai bordi del continente di Wowhead
 LEVEL = 1; f.shown = false; fp("")
 local pinB = find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip2 == (lang == "it" and "Mostra sulla mappa e sulla minimappa" or "Show on the map and the minimap") end)
