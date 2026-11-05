@@ -153,6 +153,12 @@ if tals[2] then
     GetNodeInfo = function(_, n) return { ranksPurchased = n == 11 and 1 or 0 } end, GetTreeCurrencyInfo = function() return { { quantity = 0 } } end }
   f.scripts.OnEvent(f, "TRAIT_CONFIG_UPDATED")
   check(has(tals[2]) and has(lang == "it" and "Prossimo talento al liv. 11" or "Next talent at lvl 11"), "talenti moderni: dopo un punto speso il talento successivo (" .. tals[2] .. ")")
+  -- e la voce "Talent:" del livello 10 (primo punto della guida) si spunta da sola
+  local tv, tt
+  for _, x in pairs(g.v) do if x._tasks then tv = x end end
+  for _, t in ipairs(tv and tv._tasks or {}) do if t[1] == 10 and t[3]:gsub("^%^[^%^]*%^", ""):find("^Talent:") then tt = t end end
+  check(tt == nil or ForeverPathfinderChar.done[EXPECT_KEY .. ":" .. tt[5]] == true, "voce Talent del livello 10 spuntata dopo il primo punto")
+  if tt then ForeverPathfinderChar.done[EXPECT_KEY .. ":" .. tt[5]] = nil end
   C_ClassTalents, C_Traits, FREE = nil, nil, oldFree; f.scripts.OnEvent(f, "CHARACTER_POINTS_CHANGED")
 end
 -- 3) spunta: resta salvata e si rivede dopo un nuovo disegno

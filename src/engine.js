@@ -135,12 +135,16 @@ $('pg').addEventListener('click',function(e){if(e.target.closest('details.bwhy')
  setHash();renderAll()});
 
 /* ---- il tuo percorso: capitoli lineari con checklist ---- */
+// voce "Prendi il Flight Path" di una capitale (già imparato in Forever)
+var CAPFP=/Flight Path:\s*(<b>)?\s*(Stormwind|Ironforge|Darnassus|Orgrimmar|Thunder Bluff|Undercity)\b/;
 function renderPath(){var h='';SEQ={};
  RT.steps.forEach(function(s,i){var r=stepRange(i),rows='',key=i+':';
   if(PT&&PT.steps.indexOf(s)>-1&&PT.steps.indexOf(s)===0)rows+=taskRow(['<b>Prima di partire:</b><ul>'+li(PT.unlocks)+'</ul>'+(PT.quests.length?'<b>Quest:</b><ul>'+li(PT.quests.map(function(q){return '<i>'+q[0]+'</i> – '+q[1]+', '+q[2]+' (liv. '+q[3]+'): '+q[4]}))+'</ul>':''),''],r[0],key);
-  if(s[7])rows+=taskRow(['✈ Prendi il Flight Path: <b>'+s[7]+'</b>',npcBtn(near(D.map.fp,s[2],s[3]),'Flight Master')],r[0],key);
+  // in Forever i Flight Path delle capitali sono già imparati: niente voce (il numero della voce avanza lo stesso, così le spunte salvate restano al loro posto)
+  var skip=function(l){SEQ[key+l]=(SEQ[key+l]||0)+1};
+  if(s[7]){if(CAPFP.test('Flight Path: '+s[7]))skip(r[0]);else rows+=taskRow(['✈ Prendi il Flight Path: <b>'+s[7]+'</b>',npcBtn(near(D.map.fp,s[2],s[3]),'Flight Master')],r[0],key)}
   var fpn=s[7]?s[7].split(' (')[0]:'';
-  for(var l=r[0];l<=r[1];l++)tasksFor(l,l===r[0]).forEach(function(t){if(fpn&&/Flight Path/i.test(t[0])&&txt(t[0]).indexOf(fpn)>-1)return;rows+=taskRow(t,l,key)}); // il Flight Path della tappa c'è già
+  for(var l=r[0];l<=r[1];l++)tasksFor(l,l===r[0]).forEach(function(t){if(fpn&&/Flight Path/i.test(t[0])&&txt(t[0]).indexOf(fpn)>-1)return;if(CAPFP.test(t[0])){skip(l);return}rows+=taskRow(t,l,key)}); // il Flight Path della tappa c'è già
   var cur=S.L>=r[0]&&S.L<=r[1],nxt=i===stepAt(S.L)+1;
   h+='<details class="chap'+(cur?' cur':'')+(nxt?' nxt':'')+'" data-i="'+i+'"'+(cur?' open':'')+'><summary><img loading="lazy" src="'+IC(s[5])+'" alt=""><span><b>'+(i+1)+'. '+s[0]+'</b><small>Livelli '+r[0]+(r[1]>r[0]?'–'+r[1]:'')+(PT&&PT.steps.indexOf(s)>-1?' · cambio continente':'')+'</small></span><span class="pct"></span></summary><div class="body"><p>'+s[6]+'</p><div class="btns" style="margin:6px 0">'+hubBtns(s)+'<button class="go" data-lv="'+r[0]+'">Sono qui</button></div>'+rows+'</div></details>'});
  $('chaps').innerHTML=h;progress()}
