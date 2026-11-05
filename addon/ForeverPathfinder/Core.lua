@@ -874,9 +874,17 @@ local function paintPin(tx, p)
   if full then tx:SetTexCoord(0.08, 0.92, 0.08, 0.92) else tx:SetTexCoord(0, 1, 0, 1) end
 end
 -- cornice delle nostre icone: bordo viola di 2 pixel e fondo scuro, così non si confondono con quelle di Questie
+-- misura dell'icona e del bordo: il bordo è 1/14 dell'icona (18 pixel → poco più di 1 pixel), così con lo zoom della mappa
+-- cresce insieme all'icona in unità della tela ma sullo schermo resta sottile
+local function sizePin(fr, z)
+  fr:SetSize(z, z)
+  local t = z / 14
+  fr.bd:ClearAllPoints(); fr.bd:SetPoint("TOPLEFT", -t, t); fr.bd:SetPoint("BOTTOMRIGHT", t, -t)
+end
 local function pinFrame(fr)
-  local bd = fr:CreateTexture(nil, "BACKGROUND", nil, -1); bd:SetPoint("TOPLEFT", -2, 2); bd:SetPoint("BOTTOMRIGHT", 2, -2); bd:SetColorTexture(0.64, 0.21, 0.93, 1)
+  local bd = fr:CreateTexture(nil, "BACKGROUND", nil, -1); bd:SetColorTexture(0.64, 0.21, 0.93, 1); fr.bd = bd
   local bg = fr:CreateTexture(nil, "BACKGROUND", nil, 0); bg:SetAllPoints(); bg:SetColorTexture(0.04, 0.06, 0.1, 0.9)
+  sizePin(fr, fr:GetWidth() > 0 and fr:GetWidth() or 16)
 end
 -- misura dell'icona sulla tela della mappa per restare 18 pixel sullo schermo (la tela è ingrandita, e di più con lo zoom)
 local function pinSize(canvas)
@@ -893,7 +901,7 @@ if WorldMapFrame then
     local canvas = WorldMapFrame.ScrollContainer and WorldMapFrame.ScrollContainer.Child
     if not canvas then return end
     local z = pinSize(canvas)
-    if z ~= pinZoom then pinZoom = z; for _, p in ipairs(mapPins) do p:SetSize(z, z) end end
+    if z ~= pinZoom then pinZoom = z; for _, p in ipairs(mapPins) do sizePin(p, z) end end
   end)
 end
 drawMapPins = function()
@@ -925,7 +933,7 @@ drawMapPins = function()
       pin.p = p
       paintPin(pin.tx, p); pin:SetAlpha(p.done and 0.45 or 1) -- voce già spuntata: più chiara
       pin:SetFrameLevel(canvas:GetFrameLevel() + 2000)
-      pin:SetSize(pinSize(canvas), pinSize(canvas))
+      sizePin(pin, pinSize(canvas))
       pin:ClearAllPoints(); pin:SetPoint("CENTER", canvas, "TOPLEFT", x * cw, -y * ch); pin:Show()
     end
   end
