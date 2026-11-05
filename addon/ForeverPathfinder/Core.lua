@@ -113,7 +113,9 @@ local function guide()
   local v = g.v[b .. (o.dg or 1) .. (g.x and o.x or 0)] or g.v[b .. "10"] or select(2, next(g.v))
   if not v._tasks then
     v._tasks, v._ch, v._tal = {}, {}, {}
-    for lv, ch, n in PAGES[v.tasks]:gmatch("(%d+),(%d+),(%d+)") do v._tasks[#v._tasks + 1] = { tonumber(lv), tonumber(ch), POOL[tonumber(n)], tonumber(n) } end
+    -- voce: livello, tappa, testo, numero del testo (collegamenti), codice della voce sul sito: con questo si salvano le spunte,
+    -- uguale in tutte le lingue e dopo ogni aggiornamento dei dati (il numero del testo invece cambia)
+    for lv, ch, n, id in PAGES[v.tasks]:gmatch("(%d+),(%d+),(%d+),(%w+)") do v._tasks[#v._tasks + 1] = { tonumber(lv), tonumber(ch), POOL[tonumber(n)], tonumber(n), id } end
     for n in PAGES[v.ch]:gmatch("%d+") do v._ch[#v._ch + 1] = POOL[tonumber(n)] end
     for name, tree in POOL[v.tal]:gmatch("([^:;]+):([^;]*)") do v._tal[#v._tal + 1] = { 9 + #v._tal + 1, name, tree } end
   end
@@ -485,7 +487,7 @@ end
 local render
 -- una voce della checklist dalla casella in poi: casella, icona, testo, a destra i pulsanti; top = y della riga
 local function itemRow(k, t, top, after)
-  local cb = check(k .. ":" .. t[4], PAD + 52, y + 1)
+  local cb = check(k .. ":" .. t[5], PAD + 52, y + 1)
   if after then cb.onClick = function(v) C.done[cb.id] = v and true or nil; after() end end
   local ic, s = t[3]:match("^%^([^%^,]*)[^%^]*%^(.*)$")
   local x = PAD + 78
@@ -514,7 +516,7 @@ local BEHIND = 5
 local function drawBehind(k, v, lv, ch)
   local list, seen = {}, {}
   for _, t in ipairs(v._tasks) do
-    if t[1] < lv and t[2] < ch and not seen[t[4]] and not C.done[k .. ":" .. t[4]] then seen[t[4]] = true; list[#list + 1] = t end
+    if t[1] < lv and t[2] < ch and not seen[t[4]] and not C.done[k .. ":" .. t[5]] then seen[t[4]] = true; list[#list + 1] = t end
   end
   if #list == 0 then return end
   cardOpen(); y = y - 12
@@ -942,7 +944,7 @@ local function tick(quiet)
   local n, book = 0, spellBook()
   for _, t in ipairs(v._tasks) do
     local L = LINKS[t[4]]
-    if not C.done[k .. ":" .. t[4]] then
+    if not C.done[k .. ":" .. t[5]] then
       local all, sp = false, on("trainer") and trainerList(t[3])
       if on("quests") and L and L.q[1] then
         all = true
@@ -952,7 +954,7 @@ local function tick(quiet)
         for _, s in ipairs(sp) do all = all and known(s, book) end
       end
       if all then
-        C.done[k .. ":" .. t[4]] = true; n = n + 1
+        C.done[k .. ":" .. t[5]] = true; n = n + 1
         if not quiet then say(T.ticked:format(t[3]:gsub("^%^[^%^]*%^", ""):sub(1, 90))) end
       end
     end
@@ -1159,7 +1161,7 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     local g2, k2, v2 = guide()
     for _, t in ipairs(g2 and v2._tasks or {}) do
       local sp = trainerList(t[3])
-      if sp and t[1] <= UnitLevel("player") and not C.done[k2 .. ":" .. t[4]] then
+      if sp and t[1] <= UnitLevel("player") and not C.done[k2 .. ":" .. t[5]] then
         for _, s in ipairs(sp) do if not known(s, book) then miss[#miss + 1] = s end end
         mt = t[1]; break
       end

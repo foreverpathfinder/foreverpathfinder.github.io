@@ -50,7 +50,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
        // segnaposti 📍 (coordinate globali della mappa del sito) e nomi in grassetto (candidati quest)
        const pins=[...t.querySelectorAll('button.go[data-x]')].map(e=>[+e.dataset.x,+e.dataset.y,e.textContent.replace(/^\W+/,'').trim()]);
        const bold=[...t.querySelectorAll('.tx b')].map(e=>e.textContent.replace(/[:\s]+$/,'').trim());
-       tasks.push([parseInt(t.querySelector('.lv').textContent.replace(/\D/g,''))||1,i+1,ic+y.textContent.replace(/;\s*$/,'').trim(),pins,bold])})});
+       tasks.push([parseInt(t.querySelector('.lv').textContent.replace(/\D/g,''))||1,i+1,ic+y.textContent.replace(/;\s*$/,'').trim(),pins,bold,t.querySelector('input[data-id]').dataset.id])})});
      const tal=CL.build.map((k,i)=>{const t=TAL.trees.filter(z=>z[0]===k.split('/')[0])[0];return [i+10,TAL.n[k][0],t?t[1]:'']});
      const tabs={};for(const t of TABS){const e=document.getElementById('t-'+t);tabs[t]=e?lines(e):[]}
      v[bb+dg+x]={build:CL.B?CL.B.name:CL.spec,ch,tasks,tal,tabs}}
@@ -71,17 +71,20 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  const WM=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/worldmap.json'),'utf8')).continents,CONT={kalimdor:'k','eastern-kingdoms':'e','zephras-isle':'z'};
  const where=(x,y)=>{for(const [k,c] of Object.entries(WM))if(x>=c.ox&&x<c.ox+c.w&&y>=c.oy&&y<c.oy+c.h)return [CONT[k],(x-c.ox)/c.w,(y-c.oy)/c.h];return null};
  const QN=new Set(fs.readFileSync(path.join(ROOT,'src/data/quests.txt'),'utf8').split('\n').map(x=>x.split(' | ')[0].trim()).filter(Boolean));
- const ext=new Map(),Tk=t=>{const i=P(t[2]);if(!ext.has(i)){const pins=t[3].map(p=>{const w=where(p[0],p[1]);return w&&[w[0],w[1].toFixed(4),w[2].toFixed(4),clean(p[2])]}).filter(Boolean),q=[...new Set(t[4].filter(x=>QN.has(x)))];
-  ext.set(i,(pins.length||q.length)?{pins,q}:null)}return i};
+ // la stessa frase può avere segnaposti diversi per razza (es. "Trainer: Fireball…": Northshire per l'Human, Anvilmar per lo Gnome):
+ // allora prende un altro numero dell'elenco, con lo stesso testo, perché l'addon legge i collegamenti per numero
+ const ext=new Map(),sig=new Map(),Tk=t=>{const pins=t[3].map(p=>{const w=where(p[0],p[1]);return w&&[w[0],w[1].toFixed(4),w[2].toFixed(4),clean(p[2])]}).filter(Boolean),q=[...new Set(t[4].filter(x=>QN.has(x)))];
+  const e=(pins.length||q.length)?{pins,q}:null,k=clean(t[2])+'\x00'+JSON.stringify(e);if(sig.has(k))return sig.get(k);
+  let i=P(t[2]);if(ext.has(i)){pool.push(clean(t[2]));i=pool.length}ext.set(i,e);sig.set(k,i);return i};
  let s='-- generato da src/tools/addon.js: non modificare a mano\nForeverPathfinderData = {\n';
  const pools={},pagesL={},links={};
- for(const l of ['it','en']){pool.length=0;pix.clear();pages.length=0;gix.clear();ext.clear();s+=' '+l+' = {\n';
+ for(const l of ['it','en']){pool.length=0;pix.clear();pages.length=0;gix.clear();ext.clear();sig.clear();s+=' '+l+' = {\n';
   s+='  _tabs = { '+all[l]._tabs.filter(t=>TABS.includes(t[0])||t[0]==='livello').map(t=>'{ '+lua(t[0])+', '+lua(clean(t[1]))+' }').join(', ')+' },\n';
   for(const [k,g] of Object.entries(all[l]))if(k[0]!=='_'){
    s+='  ['+lua(k)+'] = { name = '+lua(g.name)+', faction = '+lua(g.faction)+', x = '+(g.xs.length>1)+',\n   builds = { '+g.builds.map(x=>'{ '+lua(x[0])+', '+lua(clean(x[1]))+' }').join(', ')+' },\n   v = {\n';
    for(const [vk,v] of Object.entries(g.v))
     // ch e tasks ("livello,tappa,testo;…" con i numeri dell'elenco unico) stanno in Pages, lette solo quando servono
-    s+='    ['+lua(vk)+'] = { build = '+lua(clean(v.build))+', ch = '+G(v.ch.map(P).join(','))+', tasks = '+G(v.tasks.map(t=>t[0]+','+t[1]+','+Tk(t)).join(';'))+
+    s+='    ['+lua(vk)+'] = { build = '+lua(clean(v.build))+', ch = '+G(v.ch.map(P).join(','))+', tasks = '+G(v.tasks.map(t=>t[0]+','+t[1]+','+Tk(t)+','+t[5]).join(';'))+
      // tal: "nome:albero;…" dal livello 10, uguale per tutte le varianti della stessa build
      ', tal = '+P(v.tal.map(t=>t[1]+':'+t[2]).join(';'))+',\n     tabs = { '+TABS.map(t=>t+' = '+page(v.tabs[t])).join(', ')+' } },\n';
    s+='   },\n  },\n'}
