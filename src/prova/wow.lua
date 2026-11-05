@@ -341,7 +341,7 @@ function MAKE_TRAINER()
   local v = g.v[b .. (o.dg or 1) .. (g.x and o.x or 0)] or select(2, next(g.v))
   local P, G = ForeverPathfinderPool[lang], ForeverPathfinderPages[lang]
   TRAINER = {}
-  for lv, _, k in G[v.tasks]:gmatch("(%d+),(%d+),(%d+)") do
+  for lv, _, k in G[v.tasks]:gmatch("(%d+),(%d+),(%d+),%w+") do
     lv = tonumber(lv)
     local list = P[tonumber(k)]:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$")
     if list and lv >= PLAYER.level - 8 and lv <= PLAYER.level + 6 then
@@ -364,8 +364,8 @@ function STAGE_QUESTS()
   local v = g.v[b .. (o.dg or 1) .. (g.x and o.x or 0)] or select(2, next(g.v))
   local P, G, L = ForeverPathfinderPool[lang], ForeverPathfinderPages[lang], ForeverPathfinderLinks[lang]
   local ch, rows, seen = 1, {}, {}
-  for lv, c in G[v.tasks]:gmatch("(%d+),(%d+),%d+") do if tonumber(lv) <= PLAYER.level then ch = tonumber(c) end end
-  for lv, c, k in G[v.tasks]:gmatch("(%d+),(%d+),(%d+)") do
+  for lv, c in G[v.tasks]:gmatch("(%d+),(%d+),%d+,%w+") do if tonumber(lv) <= PLAYER.level then ch = tonumber(c) end end
+  for lv, c, k in G[v.tasks]:gmatch("(%d+),(%d+),(%d+),%w+") do
     local l = L[tonumber(k)]
     if tonumber(c) == ch and l then for _, q in ipairs(l.q) do if not seen[q] then seen[q] = true; rows[#rows + 1] = '{"t":' .. jstr(q) .. ',"lv":' .. lv .. ',"turned":' .. tostring(((ForeverPathfinderChar or {}).turned or {})[q] == true or QDONE[QID(q)] == true) .. '}' end end end
   end

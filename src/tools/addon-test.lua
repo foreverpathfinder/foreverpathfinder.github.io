@@ -204,6 +204,10 @@ fp("set human-warrior"); ForeverPathfinderChar.opt = {}
 local hw = D["human-warrior"]
 local hv = select(2, next(hw.v))
 local L = ForeverPathfinderLinks[lang]
+-- stessa frase, segnaposti della propria razza: lo Gnome Mage va dal trainer di Anvilmar (Marryk Nurribit), non da quello di Northshire
+local gv, PL, PG, gok = select(2, next(D["gnome-mage"].v)), ForeverPathfinderPool[lang], ForeverPathfinderPages[lang], false
+for lv, _, n in PG[gv.tasks]:gmatch("(%d+),(%d+),(%d+),%w+") do local l = L[tonumber(n)]; if lv == "1" and PL[tonumber(n)]:find("Trainer:", 1, true) and l and l.p[1] and math.abs(l.p[1][2] - 0.3592) < 0.002 then gok = true end end
+check(gok, "Gnome Mage: trainer del livello 1 ad Anvilmar")
 -- quest: una voce con quest nel registro mostra lo stato; alla consegna si spunta da sola
 local qtask
 for _, t in ipairs(hv._tasks or {}) do if L[t[4]] and L[t[4]].q[1] then qtask = t; break end end
@@ -215,26 +219,26 @@ f.scripts.OnEvent(f, "QUEST_LOG_UPDATE")
 LEVEL = qtask[1]; f.shown = false; fp("")
 check(has(lang == "it" and "da consegnare" or "ready to turn in"), "stato della quest nel registro: " .. qname)
 for _, q in ipairs(L[qtask[4]].q) do QUESTLOG = { { q, 777, true } }; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.scripts.OnEvent(f, "QUEST_TURNED_IN", 777) end
-check(ForeverPathfinderChar.done["human-warrior:" .. qtask[4]] == true, "voce spuntata alla consegna di " .. qname)
+check(ForeverPathfinderChar.done["human-warrior:" .. qtask[5]] == true, "voce spuntata alla consegna di " .. qname)
 -- Questie pronto: le voci con quest già consegnate (storico di Questie) si spuntano da sole, con una riga sola in chat
 local qtask2
-for _, t in ipairs(hv._tasks) do if t ~= qtask and L[t[4]] and L[t[4]].q[1] and not ForeverPathfinderChar.done["human-warrior:" .. t[4]] then qtask2 = t; break end end
+for _, t in ipairs(hv._tasks) do if t ~= qtask and L[t[4]] and L[t[4]].q[1] and not ForeverPathfinderChar.done["human-warrior:" .. t[5]] then qtask2 = t; break end end
 check(qtask2 ~= nil, "un'altra voce con quest")
 for _, q in ipairs(L[qtask2[4]].q) do QDONE[QID(q)] = true end
 QUESTIE_READY()
-check(ForeverPathfinderChar.done["human-warrior:" .. qtask2[4]] == true and said(lang == "it" and "Spuntate" or "Ticked"), "voce spuntata dallo storico di Questie")
+check(ForeverPathfinderChar.done["human-warrior:" .. qtask2[5]] == true and said(lang == "it" and "Spuntate" or "Ticked"), "voce spuntata dallo storico di Questie")
 -- voci Trainer: si spuntano da sole quando conosci già tutte le loro spell (SPELLS_CHANGED)
 local ttask
-for _, t in ipairs(hv._tasks) do if t[3]:find("Trainer:", 1, true) and not ForeverPathfinderChar.done["human-warrior:" .. t[4]] then ttask = t; break end end
+for _, t in ipairs(hv._tasks) do if t[3]:find("Trainer:", 1, true) and not ForeverPathfinderChar.done["human-warrior:" .. t[5]] then ttask = t; break end end
 check(ttask ~= nil, "una voce Trainer")
 local spells = {}
 for n in ttask[3]:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$"):gsub("%b()", ""):gmatch("[^,;]+") do spells[#spells + 1] = (n:gsub("^%s+", ""):gsub("%s+$", "")) end
 for i = 1, #spells - 1 do KNOWN[spells[i]] = true end
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
-check(not ForeverPathfinderChar.done["human-warrior:" .. ttask[4]], "voce Trainer non spuntata con una spell mancante: " .. spells[#spells])
+check(not ForeverPathfinderChar.done["human-warrior:" .. ttask[5]], "voce Trainer non spuntata con una spell mancante: " .. spells[#spells])
 KNOWN[spells[#spells]] = true
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
-check(ForeverPathfinderChar.done["human-warrior:" .. ttask[4]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
+check(ForeverPathfinderChar.done["human-warrior:" .. ttask[5]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
 -- segnaposto di una voce: sulla zona del gioco (uiMapID da ForeverPathfinderZoneMaps), non dai bordi del continente di Wowhead
 LEVEL = 1; f.shown = false; fp("")
 local pinB = find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip2 == (lang == "it" and "Mostra sulla mappa e sulla minimappa" or "Show on the map and the minimap") end)
