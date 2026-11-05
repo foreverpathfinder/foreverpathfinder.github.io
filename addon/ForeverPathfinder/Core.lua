@@ -40,7 +40,7 @@ local TT = {
     dbgLinks = "Continenti %s · segnaposto del gioco %s · finestra talenti %s · quest nel registro %d", yes = "sì", no = "no",
     qMap = "Mostra la quest sulla mappa", qMapTip = "Con le icone di Questie: chi la dà o, se è nel registro, obiettivi e consegna",
     qInfo = "Scheda della quest", qInfoTip = "Apre la quest nel Journey di Questie", qWait = "Questie si sta ancora caricando: riprova tra un momento.",
-    qOff = "Questie non è attivo: spunte automatiche, mappa e schede delle quest passano da Questie.", qSync = "Spuntate %d voci già fatte (quest consegnate o spell già apprese).",
+    qOff = "Questie non è attivo: spunte automatiche, mappa e schede delle quest passano da Questie.", qSync = "Spuntate %d voci già fatte (quest consegnate, spell già apprese o talenti spesi).",
     ofa = "Apri in OneForAll", ofaTip = "Carica questa build (fino al 60) nel calcolatore dei talenti di OneForAll",
     ofaFail = "OneForAll non ha caricato la build da solo: copiala con Ctrl+C e incollala in Import.",
     dgMap = "Mappa", dgMapTip = "Apre la mappa del mondo sull'ingresso, con il segnaposto", dgMapMU = "Clic sull'icona d'ingresso di MapUtils: si apre la mappa interna del dungeon",
@@ -74,7 +74,7 @@ local TT = {
     dbgLinks = "Continents %s · game waypoint %s · talent window %s · quests in log %d", yes = "yes", no = "no",
     qMap = "Show the quest on the map", qMapTip = "With Questie's icons: who gives it or, if it is in your log, objectives and turn-in",
     qInfo = "Quest details", qInfoTip = "Opens the quest in Questie's Journey", qWait = "Questie is still loading: try again in a moment.",
-    qOff = "Questie is not active: automatic ticks, map and quest details go through Questie.", qSync = "Ticked %d items already done (quests turned in or spells already learned).",
+    qOff = "Questie is not active: automatic ticks, map and quest details go through Questie.", qSync = "Ticked %d items already done (quests turned in, spells already learned or talents spent).",
     ofa = "Open in OneForAll", ofaTip = "Loads this build (up to 60) into OneForAll's talent calculator",
     ofaFail = "OneForAll did not load the build by itself: copy it with Ctrl+C and paste it into Import.",
     dgMap = "Map", dgMapTip = "Opens the world map on the entrance, with the waypoint", dgMapMU = "Click MapUtils' entrance icon: the dungeon's own map opens",
@@ -1038,7 +1038,7 @@ end
 local function tick(quiet)
   local g, k, v = guide()
   if not g then return end
-  local n, bk = 0, book()
+  local n, bk, tp = 0, book(), nil
   for _, t in ipairs(v._tasks) do
     local L = LINKS[t[4]]
     if not C.done[k .. ":" .. t[5]] then
@@ -1052,6 +1052,10 @@ local function tick(quiet)
       elseif sp and sp[1] then
         all = true
         for _, s in ipairs(sp) do all = all and known(s, bk) end
+      elseif on("tal") and t[3]:gsub("^%^[^%^]*%^", ""):find("^Talent:") then
+        -- voce Talent del livello L = punto numero L-9 dell'ordine della guida: spuntata quando ne hai spesi almeno tanti
+        tp = tp or { talentPoints() }
+        if tp[3] then for i, x in ipairs(v._tal) do if x[1] == t[1] then all = tp[1] >= i end end end
       end
       if all then
         C.done[k .. ":" .. t[5]] = true; n = n + 1
@@ -1190,6 +1194,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
   elseif event == "TRAINER_SHOW" then
     hookBlizzard(); trainerSay(); return
   elseif event == "CHARACTER_POINTS_CHANGED" or event == "TRAIT_CONFIG_UPDATED" or event == "TRAIT_NODE_CHANGED" or event == "PLAYER_TALENT_UPDATE" then
+    if C then tick(true) end
     talentGlow()
   end
   if f:IsShown() then render(event == "PLAYER_LEVEL_UP") end
