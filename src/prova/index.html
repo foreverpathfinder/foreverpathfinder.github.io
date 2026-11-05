@@ -144,6 +144,7 @@ function render(){
   else if(o.k==='icon'){const p=o.path,n=p.split('\\').pop().toLowerCase();const op=`opacity:${o.a}`;
    if(/^interface\\icons\\/i.test(p))h+=ICONS[n]?`<img src="${ICONS[n]}" alt="" style="${st};${op};object-fit:cover">`:`<div style="${st};${op};background:#2a3442"></div>`;
    else if(/ForeverPathfinder\\icon$/.test(p))h+=`<img src="${ICONS.__logo}" alt="" style="${st};${op};object-fit:cover;border-radius:4px">`;
+   else if(/GossipFrame\\(Available|Active)QuestIcon$/i.test(p))h+=`<div style="${st};${op};color:#ffd100;font:900 ${Math.round(o.h)}px/1 Inter,sans-serif;text-align:center;text-shadow:0 0 2px #000,0 0 2px #000">${/Active/i.test(p)?'?':'!'}</div>`;
    else if(/TrackingBorder/.test(p))h+=`<div style="left:${o.l+5}px;top:${o.t+3}px;width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 3px #c9a860,0 0 0 4px #1a1206;${op}"></div>`;
    else if(/CheckBox-Check/.test(p))h+=`<div style="${st};color:#ffd100;font:700 ${Math.round(o.h*.72)}px Arial;line-height:${o.h}px;text-align:center;text-shadow:0 0 2px #000">✔</div>`;
    else if(/ActionButton-Border/.test(p))h+=`<div style="left:${o.l+o.w*.24}px;top:${o.t+o.h*.24}px;width:${o.w*.52}px;height:${o.h*.52}px;border-radius:6px;box-shadow:0 0 0 3px #ffd84a,0 0 18px 6px rgba(255,200,60,.8);${op}"></div>`}

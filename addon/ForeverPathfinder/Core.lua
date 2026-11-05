@@ -839,7 +839,7 @@ end
 -- mappa del mondo: i segnaposti della tappa (quella mostrata nel Percorso, o quella del tuo livello) sopra la mappa aperta
 local mapPins = {}
 local function stagePins()
-  local g, _, v = guide()
+  local g, k, v = guide()
   if not g then return {} end
   local ch = viewCh or chapterOf(v, UnitLevel("player"))
   local out, seen = {}, {}
@@ -847,10 +847,31 @@ local function stagePins()
     local L = t[2] == ch and LINKS[t[4]]
     if L then for _, p in ipairs(L.p) do
       local id = p[4] .. p[2]
-      if not seen[id] then seen[id] = true; out[#out + 1] = { p[1], p[2], p[3], p[4], t[1], z = p.z } end
+      if not seen[id] then seen[id] = true; out[#out + 1] = { p[1], p[2], p[3], p[4], t[1], z = p.z, q = L.q, done = C.done[k .. ":" .. t[5]] } end
     end end
   end
   return out
+end
+-- icona del segnaposto, come sulla mappa del sito: trainer di classe → icona della classe, Flight Master → grifone o viverna,
+-- ingresso di un dungeon → teschio, NPC di una quest → "!" (o "?" se la quest è nel registro), altrimenti l'icona dell'addon.
+-- full = icona quadrata del gioco (si ritaglia il bordo e ha il fondo scuro)
+local PCLASS = { Druid = 1, Hunter = 1, Mage = 1, Paladin = 1, Priest = 1, Rogue = 1, Shaman = 1, Warlock = 1, Warrior = 1 }
+local function pinIcon(p)
+  local n = p[4] or ""
+  local cls = n:match("^(%a+) Trainer$")
+  if p.dg or (DPOS and p[5] and p[5] == norm(n)) then return iconPath("INV_Misc_Bone_HumanSkull_01"), true end
+  if cls and PCLASS[cls] then return iconPath("ClassIcon_" .. cls), true end
+  if n == "Flight Master" then return iconPath(UnitFactionGroup("player") == "Horde" and "Ability_Mount_Wyvern_01" or "Ability_Mount_Gryphon_01"), true end
+  if p.q and p.q[1] then
+    for _, q in ipairs(p.q) do if inLog[q] then return "Interface\\GossipFrame\\ActiveQuestIcon" end end
+    return "Interface\\GossipFrame\\AvailableQuestIcon"
+  end
+  return "Interface\\AddOns\\ForeverPathfinder\\icon"
+end
+local function paintPin(tx, bg, p)
+  local ic, full = pinIcon(p)
+  tx:SetTexture(ic)
+  if full then tx:SetTexCoord(0.08, 0.92, 0.08, 0.92); bg:Show() else tx:SetTexCoord(0, 1, 0, 1); bg:Hide() end
 end
 -- misura dell'icona sulla tela della mappa per restare 18 pixel sullo schermo (la tela è ingrandita, e di più con lo zoom)
 local function pinSize(canvas)
@@ -879,7 +900,7 @@ drawMapPins = function()
   local cw, ch = canvas:GetWidth(), canvas:GetHeight()
   local cont, n = continents(), 0
   local list = stagePins()
-  if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player"), z = focus.z } end
+  if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player"), z = focus.z, dg = true } end
   for _, p in ipairs(list) do
     local x, y
     local gx, gy = xy(p)
@@ -889,13 +910,15 @@ drawMapPins = function()
       local pin = mapPins[n]
       if not pin then
         pin = CreateFrame("Button", nil, canvas); pin:SetSize(24, 24)
-        local tx = pin:CreateTexture(nil, "OVERLAY"); tx:SetAllPoints(); tx:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon")
+        pin.bg = pin:CreateTexture(nil, "BACKGROUND"); pin.bg:SetPoint("TOPLEFT", -1, 1); pin.bg:SetPoint("BOTTOMRIGHT", 1, -1); pin.bg:SetColorTexture(0, 0, 0, 0.85)
+        pin.tx = pin:CreateTexture(nil, "OVERLAY"); pin.tx:SetAllPoints()
         pin:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.p[4]); GameTooltip:AddLine("Forever Pathfinder · " .. T.level:format(self.p[5]), 1, 1, 1); GameTooltip:Show() end)
         pin:SetScript("OnLeave", function() GameTooltip:Hide() end)
         pin:SetScript("OnClick", function(self) setTarget(self.p) end)
         mapPins[n] = pin
       end
       pin.p = p
+      paintPin(pin.tx, pin.bg, p); pin:SetAlpha(p.done and 0.45 or 1) -- voce già spuntata: più chiara
       pin:SetFrameLevel(canvas:GetFrameLevel() + 2000)
       pin:SetSize(pinSize(canvas), pinSize(canvas))
       pin:ClearAllPoints(); pin:SetPoint("CENTER", canvas, "TOPLEFT", x * cw, -y * ch); pin:Show()
@@ -910,7 +933,8 @@ end
 -- segnaposto scelto da una voce: quello del gioco (mappa e minimappa) se questa versione lo permette, altrimenti il nostro sulla minimappa
 local target
 local mm = CreateFrame("Frame", nil, Minimap); mm:SetSize(16, 16); mm:SetFrameLevel(Minimap:GetFrameLevel() + 10); mm:Hide()
-local mmT = mm:CreateTexture(nil, "OVERLAY"); mmT:SetAllPoints(); mmT:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon")
+local mmB = mm:CreateTexture(nil, "BACKGROUND"); mmB:SetPoint("TOPLEFT", -1, 1); mmB:SetPoint("BOTTOMRIGHT", 1, -1); mmB:SetColorTexture(0, 0, 0, 0.85)
+local mmT = mm:CreateTexture(nil, "OVERLAY"); mmT:SetAllPoints(); mmT:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon"); mmB:Hide()
 -- diametro della minimappa in yard per livello di zoom (all'aperto, come in Classic)
 local MMY = { 466.67, 400, 333.33, 266.67, 200, 133.33 }
 local function playerOn(cont) -- posizione del giocatore 0–1 sul continente
@@ -947,6 +971,7 @@ mm:SetScript("OnUpdate", function(self, dt)
 end)
 setTarget = function(p)
   target = p
+  paintPin(mmT, mmB, p)
   local cont = continents()[p[1]]
   local gx, gy = xy(p)
   local zone, zx, zy
