@@ -36,7 +36,10 @@ td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--bd);vertical
 td:first-child{white-space:nowrap}
 details{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);margin:10px 0;padding:0 14px}
 summary{cursor:pointer;padding:12px 0;font-weight:700}details[open]{padding-bottom:12px}
-.shot{display:block;width:100%;max-width:680px;height:auto;margin:14px auto;border-radius:6px;box-shadow:0 8px 24px #000a}
+.gal{display:grid;grid-template-columns:1fr;gap:18px;margin:14px 0}
+.gal figure{margin:0}
+.gal img{display:block;width:auto;max-width:100%;height:auto;margin:0 auto;border-radius:6px;box-shadow:0 8px 24px #000a}
+.gal figcaption{color:var(--mu);font-size:.88rem;margin-top:8px;text-align:center}
 .keys{display:flex;flex-wrap:wrap;gap:6px}.keys code{font-size:.8rem}
 [data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en]{display:block}
 html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
@@ -60,8 +63,15 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 <!-- ================= ITALIANO ================= -->
 <div data-l="it">
  <h2>Cosa fa</h2>
- <img class="shot" src="addon/pubblicazione/anteprima-it.png" width="680" height="500" alt="La finestra di Forever Pathfinder in gioco: Human Warrior al livello 18, scheda Percorso" loading="lazy">
- <p class="note" style="text-align:center">Anteprima ricostruita dal codice e dai dati veri dell’addon (Human Warrior al livello 18). Nel gioco caratteri, colori e icone sono gli stessi.</p>
+ <div class="gal">
+  <figure><img src="addon/pubblicazione/gioco-percorso.webp" width="680" height="500" alt="Percorso: voci spuntate da sole (quest consegnate) e spell del trainer già apprese in verde." loading="lazy"><figcaption>Percorso: voci spuntate da sole (quest consegnate) e spell del trainer già apprese in verde.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-mappa.webp" width="1038" height="535" alt="Mappa del mondo: i segnaposti della guida con il bordo viola (trainer, quest), accanto alle icone di Questie." loading="lazy"><figcaption>Mappa del mondo: i segnaposti della guida con il bordo viola (trainer, quest), accanto alle icone di Questie.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-talenti.webp" width="680" height="500" alt="Talenti: «Open in OneForAll» carica la build nel suo calcolatore; sotto, l’ordine dei punti." loading="lazy"><figcaption>Talenti: «Open in OneForAll» carica la build nel suo calcolatore; sotto, l’ordine dei punti.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-dungeon.webp" width="680" height="500" alt="Dungeon: «Map» apre la mappa sull’ingresso, «Bosses and loot» il dungeon in OneForAll." loading="lazy"><figcaption>Dungeon: «Map» apre la mappa sull’ingresso, «Bosses and loot» il dungeon in OneForAll.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-opzioni.webp" width="684" height="500" alt="Opzioni: build, dungeon, cambio di continente, icona e collegamenti col gioco." loading="lazy"><figcaption>Opzioni: build, dungeon, cambio di continente, icona e collegamenti col gioco.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-minimappa.webp" width="412" height="300" alt="Icona sulla minimappa: clic apre la guida, clic destro le opzioni." loading="lazy"><figcaption>Icona sulla minimappa: clic apre la guida, clic destro le opzioni.</figcaption></figure>
+ </div>
+ <p class="note" style="text-align:center">Screenshot dal gioco vero, WoW: Forever (Gnome Mage al livello 10, addon in inglese).</p>
  <div class="card">
   <ul>
    <li><b>Icona sulla minimappa</b>, come gli altri addon: clic apre la guida, clic destro le opzioni, si trascina lungo il bordo.</li>
@@ -150,8 +160,15 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
 <!-- ================= ENGLISH ================= -->
 <div data-l="en">
  <h2>What it does</h2>
- <img class="shot" src="addon/pubblicazione/anteprima-en.png" width="680" height="500" alt="The Forever Pathfinder window in game: Human Warrior at level 18, Route tab" loading="lazy">
- <p class="note" style="text-align:center">Preview rebuilt from the addon’s real code and data (Human Warrior at level 18). In game the fonts, colors and icons are the same.</p>
+ <div class="gal">
+  <figure><img src="addon/pubblicazione/gioco-percorso.webp" width="680" height="500" alt="Route: items ticked by themselves (quests turned in) and trainer spells you already know in green." loading="lazy"><figcaption>Route: items ticked by themselves (quests turned in) and trainer spells you already know in green.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-mappa.webp" width="1038" height="535" alt="World map: the guide’s waypoints with a purple border (trainer, quests), next to Questie’s icons." loading="lazy"><figcaption>World map: the guide’s waypoints with a purple border (trainer, quests), next to Questie’s icons.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-talenti.webp" width="680" height="500" alt="Talents: “Open in OneForAll” loads the build into its calculator; below, the point order." loading="lazy"><figcaption>Talents: “Open in OneForAll” loads the build into its calculator; below, the point order.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-dungeon.webp" width="680" height="500" alt="Dungeon: “Map” opens the map on the entrance, “Bosses and loot” the dungeon in OneForAll." loading="lazy"><figcaption>Dungeon: “Map” opens the map on the entrance, “Bosses and loot” the dungeon in OneForAll.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-opzioni.webp" width="684" height="500" alt="Options: build, dungeons, continent switch, icon and game links." loading="lazy"><figcaption>Options: build, dungeons, continent switch, icon and game links.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-minimappa.webp" width="412" height="300" alt="Minimap icon: click opens the guide, right click the options." loading="lazy"><figcaption>Minimap icon: click opens the guide, right click the options.</figcaption></figure>
+ </div>
+ <p class="note" style="text-align:center">Screenshots from the real game, WoW: Forever (Gnome Mage at level 10, addon in English).</p>
  <div class="card">
   <ul>
    <li><b>Minimap icon</b>, like other addons: click opens the guide, right click the options, drag it along the edge.</li>

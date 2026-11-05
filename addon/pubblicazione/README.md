@@ -14,7 +14,7 @@ Materiale pronto da copiare. Prima della pubblicazione: prova nel gioco vero (`/
 | Sito / sorgenti | https://foreverpathfinder.github.io/addon.html · https://github.com/foreverpathfinder/foreverpathfinder.github.io |
 | Segnalazioni | https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues |
 | File | `ForeverPathfinder.zip`, tipo di rilascio **Beta** finché non è provato da più persone |
-| Screenshot | dal gioco vero: finestra (Percorso e una scheda), segnaposti sulla mappa, finestra dei talenti, trainer (da fare dal 5 nov); intanto `anteprima-en.png` |
+| Screenshot | dal gioco vero (5 nov, Gnome Mage liv. 10, addon 1.3.0): `gioco-percorso.webp`, `gioco-mappa.webp`, `gioco-talenti.webp`, `gioco-dungeon.webp`, `gioco-opzioni.webp`, `gioco-minimappa.webp` (ritagliati senza chat né nomi di giocatori) |
 
 ## Riassunto (CurseForge «Summary», Wago «Short description»)
 The whole leveling guide in game: route checklist, talents, class, dungeons, waypoints and quests that tick themselves. EN / IT.
