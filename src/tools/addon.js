@@ -79,10 +79,18 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  // (es. "Grund and Gozwin"), ma non i nomi di NPC né le voci Trainer (si spuntano con le spell) e "Prima di partire" (tante cose insieme). "Lettera di classe: NPC": tutte le lettere di livello 1 di quell'NPC (Simple/Etched/Glyphic… Rune,
  // Letter, Memorandum…), any = true: ognuno può fare solo quella della sua classe, quindi basta una consegnata
  const LETTER=/^(Simple|Etched|Consecrated|Encrypted|Glyphic|Hallowed|Tainted|Archaic|Verdant|Rune-Inscribed) /,NPCN=new Set(QL.map(x=>x[2])),QLONG=[...QN].filter(n=>n.length>=12&&n.includes(' ')&&!NPCN.has(n)),qc=new Map();
- const questsOf=t=>{const plain=clean(t[2]).replace(/^\^[^^]*\^/,''),m=plain.match(/^(?:Lettera di classe|Class letter):\s*([^,.]+)/);
+ // chi può fare una quest (questinfo.json, da MapUtils): fazione, razze, classi a bit; CUR = il personaggio che si sta esportando.
+ // Una quest che non c'è nell'indice resta collegata (meglio una spunta che manca che una voce che non si spunta mai)
+ const QI=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/questinfo.json'),'utf8')).quests;
+ const RID={human:1,orc:2,dwarf:3,nightelf:4,scourge:5,tauren:6,gnome:7,troll:8,skyborne_a:33,skyborne_h:34},CID={warrior:1,paladin:2,hunter:3,rogue:4,priest:5,shaman:7,mage:8,warlock:9,druid:11};
+ const bit=(m,n)=>!m||!n||Math.floor(m/2**(n-1))%2===1;let CUR=null;
+ // quest con lo stesso nome (Encrypted Letter: lettera del Rogue al 1 e un'altra al 34): contano quelle entro 10 livelli dalla voce, se ce ne sono
+ const doable=(n,lv)=>{if(!CUR||!QI[n])return true;const near=QI[n].filter(e=>Math.abs(e[3]-lv)<=10),E=near.length?near:QI[n];return E.some(e=>(!e[0]||e[0]===CUR.side)&&bit(e[1],CUR.race)&&bit(e[2],CUR.cls))};
+ const questsOf=t=>{const o=questsAll(t);o.q=o.q.filter(n=>doable(n,t[0]));if(o.any&&o.q.length===1)o.any=false;return o};
+ const questsAll=t=>{const plain=clean(t[2]).replace(/^\^[^^]*\^/,''),m=plain.match(/^(?:Lettera di classe|Class letter):\s*([^,.]+)/);
   if(m)return {q:[...new Set(QL.filter(x=>x[2]===m[1].trim()&&x[1]==='1'&&LETTER.test(x[0])).map(x=>x[0]))],any:true};
   const q=[...new Set(t[4].filter(x=>QN.has(x)))];if(q.length||/^(Trainer|Prima di partire|Before you leave)/.test(plain))return {q};
-  if(!qc.has(plain))qc.set(plain,QLONG.filter(n=>plain.includes(n)));return {q:qc.get(plain)}};
+  if(!qc.has(plain))qc.set(plain,QLONG.filter(n=>plain.includes(n)));return {q:qc.get(plain).slice()}};
  // la stessa frase può avere segnaposti diversi per razza (es. "Trainer: Fireball…": Northshire per l'Human, Anvilmar per lo Gnome):
  // allora prende un altro numero dell'elenco, con lo stesso testo, perché l'addon legge i collegamenti per numero
  const ext=new Map(),sig=new Map(),Tk=t=>{const pins=t[3].map(p=>{const w=where(p[0],p[1]);return w&&[w[0],w[1].toFixed(4),w[2].toFixed(4),clean(p[2]),w[3]]}).filter(Boolean),{q,any}=questsOf(t);
@@ -92,7 +100,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  const pools={},pagesL={},links={};
  for(const l of ['it','en']){pool.length=0;pix.clear();pages.length=0;gix.clear();ext.clear();sig.clear();s+=' '+l+' = {\n';
   s+='  _tabs = { '+all[l]._tabs.filter(t=>TABS.includes(t[0])||t[0]==='livello').map(t=>'{ '+lua(t[0])+', '+lua(clean(t[1]))+' }').join(', ')+' },\n';
-  for(const [k,g] of Object.entries(all[l]))if(k[0]!=='_'){
+  for(const [k,g] of Object.entries(all[l]))if(k[0]!=='_'){const [rk,ck]=k.split('-');CUR={side:g.faction==='A'?1:2,race:RID[rk],cls:CID[ck]};
    s+='  ['+lua(k)+'] = { name = '+lua(g.name)+', faction = '+lua(g.faction)+', x = '+(g.xs.length>1)+',\n   builds = { '+g.builds.map(x=>'{ '+lua(x[0])+', '+lua(clean(x[1]))+' }').join(', ')+' },\n   v = {\n';
    for(const [vk,v] of Object.entries(g.v))
     // ch e tasks ("livello,tappa,testo;…" con i numeri dell'elenco unico) stanno in Pages, lette solo quando servono

@@ -240,10 +240,10 @@ if #spells > 1 then LEVEL = ttask[1]; f.shown = false; fp(""); check(has("|cff5f
 KNOWN[spells[#spells]] = true
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(ForeverPathfinderChar.done["human-warrior:" .. ttask[5]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
--- lettera di classe: basta una delle lettere (any), quella della propria classe (qui Simple Letter, Human Warrior)
+-- lettera di classe: solo quella della propria classe e razza (Human Warrior: Simple Letter), che la spunta
 local ltask
-for _, t in ipairs(hv._tasks) do if L[t[4]] and L[t[4]].any then ltask = t; break end end
-check(ltask ~= nil, "voce della lettera di classe")
+for _, t in ipairs(hv._tasks) do if t[3]:find(lang == "it" and "Lettera di classe" or "Class letter", 1, true) then ltask = t; break end end
+check(ltask ~= nil and L[ltask[4]] and #L[ltask[4]].q == 1 and L[ltask[4]].q[1] == "Simple Letter", "lettera di classe dello Human Warrior: Simple Letter")
 -- (la prova dello storico di Questie può averla già spuntata con tutte le lettere: si riparte da zero)
 for _, q in ipairs(L[ltask[4]].q) do QDONE[QID(q)] = nil; ForeverPathfinderChar.turned[q] = nil end
 ForeverPathfinderChar.done["human-warrior:" .. ltask[5]] = nil; f.scripts.OnEvent(f, "SPELLS_CHANGED")
