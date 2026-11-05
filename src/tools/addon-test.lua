@@ -236,6 +236,7 @@ for n in ttask[3]:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$"):gsub("%b()"
 for i = 1, #spells - 1 do KNOWN[spells[i]] = true end
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(not ForeverPathfinderChar.done["human-warrior:" .. ttask[5]], "voce Trainer non spuntata con una spell mancante: " .. spells[#spells])
+if #spells > 1 then LEVEL = ttask[1]; f.shown = false; fp(""); check(has("|cff5fd68b" .. spells[1] .. "|r"), "spell già appresa in verde nella voce Trainer: " .. spells[1]) end
 KNOWN[spells[#spells]] = true
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(ForeverPathfinderChar.done["human-warrior:" .. ttask[5]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))

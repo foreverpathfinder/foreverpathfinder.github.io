@@ -69,7 +69,10 @@ function tAt(l){var i=l-10+off();return i>=0&&i<CL.build.length?CL.build[i]:null
 
 /* ---- click and go: pulsanti che portano sulla mappa ---- */
 function mine(side){return !side||side===(RA.faction==='A'?1:2)}
-function near(list,x,y){var b=null,d=1e12;(list||[]).forEach(function(p){if(!mine(p[1]))return;var e=(p[2]-x)*(p[2]-x)+(p[3]-y)*(p[3]-y);if(e<d){d=e;b=p}});return b}
+// NPC più vicino della tua fazione, sullo stesso continente (sulla tela del sito i continenti sono affiancati: da Hillsbrad il Druid
+// Trainer "più vicino" era su Zephras Isle); se lì non c'è, il più vicino in assoluto fuori da Zephras Isle (isola iniziale)
+function contAt(x,y){var r=null;Object.keys(D.map.conts).forEach(function(k){var M=D.map.conts[k];if(x>=M.ox&&x<M.ox+M.w&&y>=M.oy&&y<M.oy+M.h)r=k});return r}
+function near(list,x,y){var c=contAt(x,y),pick=function(same){var b=null,d=1e12;(list||[]).forEach(function(p){var pc=contAt(p[2],p[3]);if(!mine(p[1])||(same?pc!==c:pc==='zephras-isle'))return;var e=(p[2]-x)*(p[2]-x)+(p[3]-y)*(p[3]-y);if(e<d){d=e;b=p}});return b};return (c&&pick(true))||pick(false)}
 function goBtn(label,x,y,z,pop){return '<button class="go" data-x="'+Math.round(x)+'" data-y="'+Math.round(y)+'" data-z="'+(z||6)+'" data-t="'+String(pop||label).replace(/"/g,'&quot;')+'">📍 '+label+'</button>'}
 function npcBtn(p,label){return p?goBtn(label||p[0],p[2],p[3],6.25,'<b>'+(label||p[0])+'</b><br>'+p[0]):''}
 function hubBtns(s){var x=s[2],y=s[3],h=goBtn(s[0],x,y,s[4],'<b>'+s[0]+'</b>');

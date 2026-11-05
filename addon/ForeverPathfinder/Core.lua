@@ -185,9 +185,10 @@ end
 -- del continente nel gioco non sono quelli di Wowhead (Anvilmar finiva a Stormwind), quelli delle zone sì: passo dalla zona più
 -- piccola che contiene il punto (uiMapID e rettangolo da Wowhead) e da C_Map.GetMapRectOnMap. Senza dati resta com'è.
 local ZM = ForeverPathfinderZoneMaps or {}
-local function gameXY(ck, x, y)
+local function gameXY(ck, x, y, zid)
   local best, ba
-  for _, z in ipairs(ZM[ck] or {}) do
+  for _, z in ipairs(ZM[ck] or {}) do if z[1] == zid then best = z end end -- zona scritta nei dati (griglia di Wowhead): esatta
+  for _, z in ipairs(best and {} or ZM[ck] or {}) do
     if x >= z[2] and x <= z[4] and y >= z[3] and y <= z[5] then
       local a = (z[4] - z[2]) * (z[5] - z[3])
       if not ba or a < ba then best, ba = z, a end
@@ -202,7 +203,7 @@ local function gameXY(ck, x, y)
 end
 -- segnaposto { continente, x, y, nome }: posizione nel gioco calcolata una volta (gx, gy sul continente; zm, zx, zy nella zona)
 local function xy(p)
-  if not p.gx then p.gx, p.gy, p.zm, p.zx, p.zy = gameXY(p[1], p[2], p[3]) end
+  if not p.gx then p.gx, p.gy, p.zm, p.zx, p.zy = gameXY(p[1], p[2], p[3], p.z) end
   return p.gx, p.gy
 end
 
@@ -442,6 +443,61 @@ local function button(label, x, yy, fn)
   o:SetScript("OnClick", fn); return put(o, x, yy)
 end
 -- pulsantino quadrato con un'icona del gioco (segnaposto, scheda della quest) e il suo tooltip
+-- spell della voce "Trainer: A, B (nota)", senza le note tra parentesi
+local function trainerList(text)
+  local list = text:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$")
+  if not list then return end
+  local out = {}
+  for n in list:gsub("%b()", ""):gmatch("[^,;]+") do out[#out + 1] = (n:gsub("^%s+", ""):gsub("%s+$", "")) end
+  return out
+end
+-- nomi delle spell nel libro degli incantesimi (come OneForAll: API vecchia e C_SpellBook dei client moderni, tutte e due se ci sono)
+local function spellBook()
+  local set = {}
+  pcall(function()
+    if GetNumSpellTabs and GetSpellTabInfo and GetSpellBookItemName then
+      for tab = 1, GetNumSpellTabs() do
+        local _, _, off, num = GetSpellTabInfo(tab)
+        for i = (off or 0) + 1, (off or 0) + (num or 0) do local n = GetSpellBookItemName(i, BOOKTYPE_SPELL or "spell"); if n then set[n] = true end end
+      end
+    end
+  end)
+  pcall(function()
+    if C_SpellBook and C_SpellBook.GetNumSpellBookSkillLines then
+      local bank = (Enum and Enum.SpellBookSpellBank and Enum.SpellBookSpellBank.Player) or 0
+      for line = 1, C_SpellBook.GetNumSpellBookSkillLines() do
+        local li = C_SpellBook.GetSpellBookSkillLineInfo(line)
+        for i = (li and li.itemIndexOffset or 0) + 1, (li and li.itemIndexOffset or 0) + (li and li.numSpellBookItems or 0) do
+          local info = C_SpellBook.GetSpellBookItemInfo(i, bank)
+          if type(info) == "table" and info.name then set[info.name] = true end
+        end
+      end
+    end
+  end)
+  return set
+end
+-- spell già appresa: nel libro, o per nome con C_Spell (trova solo quelle che conosci) e IsPlayerSpell
+local function known(name, book)
+  if book and book[name] then return true end
+  local info = C_Spell and C_Spell.GetSpellInfo and C_Spell.GetSpellInfo(name)
+  local id = info and info.spellID or (GetSpellInfo and select(7, GetSpellInfo(name)))
+  if not id then return false end
+  if IsPlayerSpell then return IsPlayerSpell(id) end
+  return true
+end
+-- libro letto una volta e riletto quando cambiano le spell (SPELLS_CHANGED)
+local BOOK
+local function book() BOOK = BOOK or spellBook(); return BOOK end
+-- voce Trainer: le spell che conosci già in verde
+local function trainerText(t, s)
+  if not on("trainer") then return s end
+  local sp = trainerList(t[3])
+  if not sp then return s end
+  for _, n in ipairs(sp) do
+    if known(n, book()) then s = s:gsub(n:gsub("%p", "%%%0"), "|cff5fd68b" .. n:gsub("%%", "%%%%") .. "|r", 1) end
+  end
+  return s
+end
 local function mini(ic, x, yy, tip, tip2, fn)
   local o = take("pn", function()
     local b = CreateFrame("Button", nil, body); b:SetSize(20, 20)
@@ -507,7 +563,7 @@ local function itemRow(k, t, top, after)
     mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() setTarget(p) end)
     right = 28
   end
-  local o = str(F.p, "tx", (s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
+  local o = str(F.p, "tx", trainerText(t, s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
   y = top - math.max(o:GetStringHeight(), 20) - 6
 end
 -- rimaste indietro: voci dei livelli già superati non spuntate delle tappe prima (quelle di questa tappa sono sotto), le prime 5;
@@ -584,7 +640,7 @@ local function norm(s) return (s:lower():gsub("^the ", ""):gsub("[^%w]", "")) en
 -- d'ingresso (un clic apre la mappa interna: MapUtils non ha funzioni per altri addon); boss e loot nella scheda di OneForAll
 local DPOS
 local function dgFind(title) -- il nome più lungo con cui comincia il titolo ("The Deadmines Livelli 17–26 …")
-  if not DPOS then DPOS = {}; for _, d in ipairs(ForeverPathfinderDungeonPos or {}) do DPOS[#DPOS + 1] = { d[2], d[3], d[4], d[1], norm(d[1]) } end end
+  if not DPOS then DPOS = {}; for _, d in ipairs(ForeverPathfinderDungeonPos or {}) do DPOS[#DPOS + 1] = { d[2], d[3], d[4], d[1], norm(d[1]), z = d.z } end end
   local t, best = norm(title)
   for _, p in ipairs(DPOS) do if t:sub(1, #p[5]) == p[5] and (not best or #p[5] > #best[5]) then best = p end end
   return best
@@ -791,10 +847,28 @@ local function stagePins()
     local L = t[2] == ch and LINKS[t[4]]
     if L then for _, p in ipairs(L.p) do
       local id = p[4] .. p[2]
-      if not seen[id] then seen[id] = true; out[#out + 1] = { p[1], p[2], p[3], p[4], t[1] } end
+      if not seen[id] then seen[id] = true; out[#out + 1] = { p[1], p[2], p[3], p[4], t[1], z = p.z } end
     end end
   end
   return out
+end
+-- misura dell'icona sulla tela della mappa per restare 18 pixel sullo schermo (la tela è ingrandita, e di più con lo zoom)
+local function pinSize(canvas)
+  local cs = canvas.GetEffectiveScale and canvas:GetEffectiveScale() or 1
+  local us = UIParent.GetEffectiveScale and UIParent:GetEffectiveScale() or 1
+  return 18 * us / ((cs and cs > 0) and cs or 1)
+end
+local pinZoom, pinT = nil, 0
+if WorldMapFrame then
+  WorldMapFrame:HookScript("OnUpdate", function(_, dt) -- con la rotella la tela cambia scala: rimisuro le icone
+    pinT = pinT + (dt or 0)
+    if pinT < 0.1 then return end
+    pinT = 0
+    local canvas = WorldMapFrame.ScrollContainer and WorldMapFrame.ScrollContainer.Child
+    if not canvas then return end
+    local z = pinSize(canvas)
+    if z ~= pinZoom then pinZoom = z; for _, p in ipairs(mapPins) do p:SetSize(z, z) end end
+  end)
 end
 drawMapPins = function()
   for _, p in ipairs(mapPins) do p:Hide() end
@@ -805,7 +879,7 @@ drawMapPins = function()
   local cw, ch = canvas:GetWidth(), canvas:GetHeight()
   local cont, n = continents(), 0
   local list = stagePins()
-  if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player") } end
+  if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player"), z = focus.z } end
   for _, p in ipairs(list) do
     local x, y
     local gx, gy = xy(p)
@@ -823,6 +897,7 @@ drawMapPins = function()
       end
       pin.p = p
       pin:SetFrameLevel(canvas:GetFrameLevel() + 2000)
+      pin:SetSize(pinSize(canvas), pinSize(canvas))
       pin:ClearAllPoints(); pin:SetPoint("CENTER", canvas, "TOPLEFT", x * cw, -y * ch); pin:Show()
     end
   end
@@ -893,55 +968,13 @@ setTarget = function(p)
   end
 end
 
--- spell della voce "Trainer: A, B (nota)", senza le note tra parentesi
-local function trainerList(text)
-  local list = text:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$")
-  if not list then return end
-  local out = {}
-  for n in list:gsub("%b()", ""):gmatch("[^,;]+") do out[#out + 1] = (n:gsub("^%s+", ""):gsub("%s+$", "")) end
-  return out
-end
--- nomi delle spell nel libro degli incantesimi (come OneForAll: API vecchia e C_SpellBook dei client moderni, tutte e due se ci sono)
-local function spellBook()
-  local set = {}
-  pcall(function()
-    if GetNumSpellTabs and GetSpellTabInfo and GetSpellBookItemName then
-      for tab = 1, GetNumSpellTabs() do
-        local _, _, off, num = GetSpellTabInfo(tab)
-        for i = (off or 0) + 1, (off or 0) + (num or 0) do local n = GetSpellBookItemName(i, BOOKTYPE_SPELL or "spell"); if n then set[n] = true end end
-      end
-    end
-  end)
-  pcall(function()
-    if C_SpellBook and C_SpellBook.GetNumSpellBookSkillLines then
-      local bank = (Enum and Enum.SpellBookSpellBank and Enum.SpellBookSpellBank.Player) or 0
-      for line = 1, C_SpellBook.GetNumSpellBookSkillLines() do
-        local li = C_SpellBook.GetSpellBookSkillLineInfo(line)
-        for i = (li and li.itemIndexOffset or 0) + 1, (li and li.itemIndexOffset or 0) + (li and li.numSpellBookItems or 0) do
-          local info = C_SpellBook.GetSpellBookItemInfo(i, bank)
-          if type(info) == "table" and info.name then set[info.name] = true end
-        end
-      end
-    end
-  end)
-  return set
-end
--- spell già appresa: nel libro, o per nome con C_Spell (trova solo quelle che conosci) e IsPlayerSpell
-local function known(name, book)
-  if book and book[name] then return true end
-  local info = C_Spell and C_Spell.GetSpellInfo and C_Spell.GetSpellInfo(name)
-  local id = info and info.spellID or (GetSpellInfo and select(7, GetSpellInfo(name)))
-  if not id then return false end
-  if IsPlayerSpell then return IsPlayerSpell(id) end
-  return true
-end
 -- una voce si spunta quando tutte le sue quest sono consegnate (viste consegnare dall'addon o già fatte secondo Questie)
 -- o, per le voci Trainer, quando conosci già tutte le sue spell.
 -- quiet: all'avvio e quando cambiano le spell una riga sola col conteggio, invece di una per voce
 local function tick(quiet)
   local g, k, v = guide()
   if not g then return end
-  local n, book = 0, spellBook()
+  local n, bk = 0, book()
   for _, t in ipairs(v._tasks) do
     local L = LINKS[t[4]]
     if not C.done[k .. ":" .. t[5]] then
@@ -951,7 +984,7 @@ local function tick(quiet)
         for _, q in ipairs(L.q) do all = all and (C.turned[q] or qDone(q)) end
       elseif sp and sp[1] then
         all = true
-        for _, s in ipairs(sp) do all = all and known(s, book) end
+        for _, s in ipairs(sp) do all = all and known(s, bk) end
       end
       if all then
         C.done[k .. ":" .. t[5]] = true; n = n + 1
@@ -1085,7 +1118,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     turnedIn(arg1)
   elseif event == "SPELLS_CHANGED" then
     if not C then return end
-    tick(true)
+    BOOK = nil; tick(true)
   elseif event == "TRAINER_SHOW" then
     hookBlizzard(); trainerSay(); return
   elseif event == "CHARACTER_POINTS_CHANGED" then
