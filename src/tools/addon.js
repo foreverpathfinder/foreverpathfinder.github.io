@@ -74,11 +74,19 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  const zoneAt=(k,x,y)=>{const g=GRID[k];if(!g)return 0;const r=Math.floor((y-g.y)/g.cell),c=Math.floor((x-g.x)/g.cell),row=g.rows.find(w=>w[0]===r);if(!row)return 0;for(let i=1;i+2<row.length;i+=2)if(c>=row[i]&&c<row[i+2])return row[i+1];return 0};
  const where=(x,y)=>{for(const [k,c] of Object.entries(WM))if(x>=c.ox&&x<c.ox+c.w&&y>=c.oy&&y<c.oy+c.h)return [CONT[k],(x-c.ox)/c.w,(y-c.oy)/c.h,zoneAt(k,x-c.ox,y-c.oy)];return null};
  const zf=z=>z?', z = '+z:'';
- const QN=new Set(fs.readFileSync(path.join(ROOT,'src/data/quests.txt'),'utf8').split('\n').map(x=>x.split(' | ')[0].trim()).filter(Boolean));
+ const QL=fs.readFileSync(path.join(ROOT,'src/data/quests.txt'),'utf8').split('\n').map(x=>x.split(' | ').map(y=>y.trim())).filter(x=>x[0]),QN=new Set(QL.map(x=>x[0]));
+ // quest di una voce: i nomi in grassetto che esistono in Forever; se non ce ne sono, i nomi di quest lunghi scritti nel testo
+ // (es. "Grund and Gozwin"), ma non i nomi di NPC né le voci Trainer (si spuntano con le spell) e "Prima di partire" (tante cose insieme). "Lettera di classe: NPC": tutte le lettere di livello 1 di quell'NPC (Simple/Etched/Glyphic… Rune,
+ // Letter, Memorandum…), any = true: ognuno può fare solo quella della sua classe, quindi basta una consegnata
+ const LETTER=/^(Simple|Etched|Consecrated|Encrypted|Glyphic|Hallowed|Tainted|Archaic|Verdant|Rune-Inscribed) /,NPCN=new Set(QL.map(x=>x[2])),QLONG=[...QN].filter(n=>n.length>=12&&n.includes(' ')&&!NPCN.has(n)),qc=new Map();
+ const questsOf=t=>{const plain=clean(t[2]).replace(/^\^[^^]*\^/,''),m=plain.match(/^(?:Lettera di classe|Class letter):\s*([^,.]+)/);
+  if(m)return {q:[...new Set(QL.filter(x=>x[2]===m[1].trim()&&x[1]==='1'&&LETTER.test(x[0])).map(x=>x[0]))],any:true};
+  const q=[...new Set(t[4].filter(x=>QN.has(x)))];if(q.length||/^(Trainer|Prima di partire|Before you leave)/.test(plain))return {q};
+  if(!qc.has(plain))qc.set(plain,QLONG.filter(n=>plain.includes(n)));return {q:qc.get(plain)}};
  // la stessa frase può avere segnaposti diversi per razza (es. "Trainer: Fireball…": Northshire per l'Human, Anvilmar per lo Gnome):
  // allora prende un altro numero dell'elenco, con lo stesso testo, perché l'addon legge i collegamenti per numero
- const ext=new Map(),sig=new Map(),Tk=t=>{const pins=t[3].map(p=>{const w=where(p[0],p[1]);return w&&[w[0],w[1].toFixed(4),w[2].toFixed(4),clean(p[2]),w[3]]}).filter(Boolean),q=[...new Set(t[4].filter(x=>QN.has(x)))];
-  const e=(pins.length||q.length)?{pins,q}:null,k=clean(t[2])+'\x00'+JSON.stringify(e);if(sig.has(k))return sig.get(k);
+ const ext=new Map(),sig=new Map(),Tk=t=>{const pins=t[3].map(p=>{const w=where(p[0],p[1]);return w&&[w[0],w[1].toFixed(4),w[2].toFixed(4),clean(p[2]),w[3]]}).filter(Boolean),{q,any}=questsOf(t);
+  const e=(pins.length||q.length)?{pins,q,any}:null,k=clean(t[2])+'\x00'+JSON.stringify(e);if(sig.has(k))return sig.get(k);
   let i=P(t[2]);if(ext.has(i)){pool.push(clean(t[2]));i=pool.length}ext.set(i,e);sig.set(k,i);return i};
  let s='-- generato da src/tools/addon.js: non modificare a mano\nForeverPathfinderData = {\n';
  const pools={},pagesL={},links={};
@@ -99,7 +107,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  for(const l of ['it','en'])s+=' '+l+' = {\n'+pagesL[l].map(x=>'  '+lua(x)+',').join('\n')+'\n },\n';
  // collegamenti delle voci (numero del testo): p = segnaposti { continente, x, y, nome }, q = quest da consegnare
  s+='}\nForeverPathfinderLinks = {\n';
- for(const l of ['it','en'])s+=' '+l+' = {\n'+links[l].map(([i,e])=>'  ['+i+'] = { p = { '+e.pins.map(p=>'{ '+lua(p[0])+', '+p[1]+', '+p[2]+', '+lua(p[3])+zf(p[4])+' }').join(', ')+' }, q = { '+e.q.map(lua).join(', ')+' } },').join('\n')+'\n },\n';
+ for(const l of ['it','en'])s+=' '+l+' = {\n'+links[l].map(([i,e])=>'  ['+i+'] = { p = { '+e.pins.map(p=>'{ '+lua(p[0])+', '+p[1]+', '+p[2]+', '+lua(p[3])+zf(p[4])+' }').join(', ')+' }, q = { '+e.q.map(lua).join(', ')+' }'+(e.any?', any = true':'')+' },').join('\n')+'\n },\n';
  // dungeon: { nome, min, max, giudizio go/opt/skip, livello ideale, perché, ingresso, {quest, dove}, {quest di classe, classe, dove} }
  const tx=x=>lua(clean(String(x).replace(/<[^>]+>/g,'')));
  s+='}\nForeverPathfinderDungeons = {\n';

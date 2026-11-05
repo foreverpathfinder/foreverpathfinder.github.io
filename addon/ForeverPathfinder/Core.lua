@@ -551,7 +551,7 @@ local function itemRow(k, t, top, after)
   -- a destra: voce con quest → mappa e scheda di Questie; altrimenti il segnaposto della voce (mappa e minimappa).
   -- Accanto al testo lo stato della quest nel registro
   local L, right = LINKS[t[4]], 0
-  local q, p = L and L.q[1], L and L.p[1]
+  local q, p = L and not L.any and L.q[1], L and L.p[1] -- lettere di classe: niente pulsanti di Questie (la quest giusta dipende dalla classe)
   if q and on("map") then
     mini("inv_misc_map_01", BW - PAD - 20, y, q, T.qMapTip, function()
       -- la mappa del mondo sta sotto la guida: la guida si chiude (si riapre dall'icona)
@@ -980,8 +980,11 @@ local function tick(quiet)
     if not C.done[k .. ":" .. t[5]] then
       local all, sp = false, on("trainer") and trainerList(t[3])
       if on("quests") and L and L.q[1] then
-        all = true
-        for _, q in ipairs(L.q) do all = all and (C.turned[q] or qDone(q)) end
+        all = not L.any -- any: una sola basta (lettere di classe: ognuno fa solo la sua)
+        for _, q in ipairs(L.q) do
+          local d = C.turned[q] or qDone(q)
+          if L.any then all = all or d else all = all and d end
+        end
       elseif sp and sp[1] then
         all = true
         for _, s in ipairs(sp) do all = all and known(s, bk) end
