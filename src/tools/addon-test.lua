@@ -161,6 +161,27 @@ if tals[2] then
   if tt then ForeverPathfinderChar.done[EXPECT_KEY .. ":" .. tt[5]] = nil end
   C_ClassTalents, C_Traits, FREE = nil, nil, oldFree; f.scripts.OnEvent(f, "CHARACTER_POINTS_CHANGED")
 end
+-- 2c) Flight Path: aprendo la mappa dei voli, le voci "Flight Path: X" dei voli conosciuti si spuntano da sole
+do
+  local fv, ft
+  for _, x in pairs(g.v) do if x._tasks then fv = x end end
+  for _, t in ipairs(fv and fv._tasks or {}) do if not ft and t[3]:find("Flight Path:", 1, true) then ft = t end end
+  if ft then
+    local name = ft[3]:match("Flight Path:%s*([^,(<]+)"):gsub("%s+$", "")
+    local nodes = { { name .. ", Somewhere", "REACHABLE" }, { "Elsewhere, Nowhere", "NONE" } }
+    NumTaxiNodes = function() return #nodes end
+    TaxiNodeName = function(i) return nodes[i][1] end
+    TaxiNodeGetType = function(i) return nodes[i][2] end
+    local key = EXPECT_KEY .. ":" .. ft[5]
+    ForeverPathfinderChar.done[key] = nil
+    f.scripts.OnEvent(f, "TAXIMAP_OPENED")
+    check(ForeverPathfinderChar.done[key] == true, "Flight Path " .. name .. " spuntato aprendo la mappa dei voli")
+    check(ForeverPathfinderChar.fp["Elsewhere, Nowhere"] == nil, "Flight Path non conosciuto non salvato")
+    ForeverPathfinderChar.done[key] = nil; ForeverPathfinderChar.fp = {}
+    NumTaxiNodes, TaxiNodeName, TaxiNodeGetType = nil, nil, nil
+    FPTESTED = (FPTESTED or 0) + 1
+  end
+end
 -- 3) spunta: resta salvata e si rivede dopo un nuovo disegno
 local cb = boxes()[1]
 cb.checked = true; cb.scripts.OnClick(cb)

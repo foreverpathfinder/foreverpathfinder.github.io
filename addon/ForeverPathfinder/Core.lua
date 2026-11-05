@@ -1035,10 +1035,49 @@ end
 -- una voce si spunta quando tutte le sue quest sono consegnate (viste consegnare dall'addon o già fatte secondo Questie)
 -- o, per le voci Trainer, quando conosci già tutte le sue spell.
 -- quiet: all'avvio e quando cambiano le spell una riga sola col conteggio, invece di una per voce
+-- Flight Path conosciuti: salvati ogni volta che si apre la mappa dei voli (anche quando ne impari uno nuovo); in più quelli di
+-- C_TaxiMap.GetTaxiNodesForMap sui continenti, ma solo se il gioco segna anche i non conosciuti (stato 2), sennò non distingue
+local function fpSave()
+  for i = 1, (NumTaxiNodes and NumTaxiNodes() or 0) do
+    local n = TaxiNodeName(i)
+    if n and TaxiNodeGetType(i) ~= "NONE" then C.fp[n] = true end
+  end
+end
+local function fpKnown()
+  local k, got, unk = {}, {}, false
+  for n in pairs(C.fp) do k[#k + 1] = n:lower() end
+  if C_TaxiMap and C_TaxiMap.GetTaxiNodesForMap then
+    for _, m in pairs(continents()) do
+      local ok, nodes = pcall(C_TaxiMap.GetTaxiNodesForMap, m)
+      for _, nd in ipairs(ok and type(nodes) == "table" and nodes or {}) do
+        if nd.state == 2 then unk = true elseif nd.name then got[#got + 1] = nd.name:lower() end
+      end
+    end
+  end
+  if unk then for _, n in ipairs(got) do k[#k + 1] = n end end
+  return k
+end
+-- "Flight Path: Thelsamar" o "Flight Path: Splintertree Post (Vhulgra), Zoram'gar (Andruk)": tutti conosciuti? Il gioco li chiama
+-- "Thelsamar, Loch Modan", "Zoram'gar Outpost, Ashenvale": basta che il nome del gioco cominci con quello della guida
+local function fpDone(text, known)
+  local list = text:match("Flight Path:%s*(.*)")
+  if not list then return false end
+  local all, any = true, false
+  for nm in list:gsub("<[^>]*>", ""):gsub("%b()", ""):gmatch("[^,]+") do
+    nm = nm:match("^%s*(.-)%s*$"):lower()
+    if nm ~= "" then
+      any = true
+      local hit = false
+      for _, g in ipairs(known) do if g:sub(1, #nm) == nm then hit = true end end
+      all = all and hit
+    end
+  end
+  return any and all
+end
 local function tick(quiet)
   local g, k, v = guide()
   if not g then return end
-  local n, bk, tp = 0, book(), nil
+  local n, bk, tp, fk = 0, book(), nil, nil
   for _, t in ipairs(v._tasks) do
     local L = LINKS[t[4]]
     if not C.done[k .. ":" .. t[5]] then
@@ -1052,6 +1091,9 @@ local function tick(quiet)
       elseif sp and sp[1] then
         all = true
         for _, s in ipairs(sp) do all = all and known(s, bk) end
+      elseif t[3]:find("Flight Path:", 1, true) then
+        fk = fk or fpKnown()
+        all = fpDone(t[3], fk)
       elseif on("tal") and t[3]:gsub("^%^[^%^]*%^", ""):find("^Talent:") then
         -- voce Talent del livello L = punto numero L-9 dell'ordine della guida: spuntata quando ne hai spesi almeno tanti
         tp = tp or { talentPoints() }
@@ -1156,7 +1198,7 @@ f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("PLAYER_LEVEL_UP")
 f:RegisterEvent("CHARACTER_POINTS_CHANGED")
 for _, e in ipairs({ "TRAIT_CONFIG_UPDATED", "TRAIT_NODE_CHANGED", "PLAYER_TALENT_UPDATE" }) do pcall(f.RegisterEvent, f, e) end
-for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW", "SPELLS_CHANGED" }) do pcall(f.RegisterEvent, f, e) end
+for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW", "SPELLS_CHANGED", "TAXIMAP_OPENED" }) do pcall(f.RegisterEvent, f, e) end
 f:SetScript("OnEvent", function(_, event, arg1)
   if event == "ADDON_LOADED" then
     if arg1 ~= ADDON then hookBlizzard(); return end
@@ -1167,6 +1209,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     C.opt = C.opt or {}
     C.loads = (C.loads or 0) + 1 -- /fp debug: se dopo un /reload resta 1, il gioco non rilegge i salvataggi
     C.turned = C.turned or {} -- titoli delle quest consegnate
+    C.fp = C.fp or {} -- Flight Path conosciuti, visti sulla mappa dei voli
     minimapIcon()
     setLang(DB.lang or "en")
     hookBlizzard()
@@ -1191,6 +1234,9 @@ f:SetScript("OnEvent", function(_, event, arg1)
   elseif event == "SPELLS_CHANGED" then
     if not C then return end
     BOOK = nil; tick(true)
+  elseif event == "TAXIMAP_OPENED" then
+    if not C then return end
+    fpSave(); tick()
   elseif event == "TRAINER_SHOW" then
     hookBlizzard(); trainerSay(); return
   elseif event == "CHARACTER_POINTS_CHANGED" or event == "TRAIT_CONFIG_UPDATED" or event == "TRAIT_NODE_CHANGED" or event == "PLAYER_TALENT_UPDATE" then
