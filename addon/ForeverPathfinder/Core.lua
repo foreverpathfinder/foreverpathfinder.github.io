@@ -868,10 +868,15 @@ local function pinIcon(p)
   end
   return "Interface\\AddOns\\ForeverPathfinder\\icon"
 end
-local function paintPin(tx, bg, p)
+local function paintPin(tx, p)
   local ic, full = pinIcon(p)
   tx:SetTexture(ic)
-  if full then tx:SetTexCoord(0.08, 0.92, 0.08, 0.92); bg:Show() else tx:SetTexCoord(0, 1, 0, 1); bg:Hide() end
+  if full then tx:SetTexCoord(0.08, 0.92, 0.08, 0.92) else tx:SetTexCoord(0, 1, 0, 1) end
+end
+-- cornice delle nostre icone: bordo viola di 2 pixel e fondo scuro, così non si confondono con quelle di Questie
+local function pinFrame(fr)
+  local bd = fr:CreateTexture(nil, "BACKGROUND", nil, -1); bd:SetPoint("TOPLEFT", -2, 2); bd:SetPoint("BOTTOMRIGHT", 2, -2); bd:SetColorTexture(0.64, 0.21, 0.93, 1)
+  local bg = fr:CreateTexture(nil, "BACKGROUND", nil, 0); bg:SetAllPoints(); bg:SetColorTexture(0.04, 0.06, 0.1, 0.9)
 end
 -- misura dell'icona sulla tela della mappa per restare 18 pixel sullo schermo (la tela è ingrandita, e di più con lo zoom)
 local function pinSize(canvas)
@@ -910,7 +915,7 @@ drawMapPins = function()
       local pin = mapPins[n]
       if not pin then
         pin = CreateFrame("Button", nil, canvas); pin:SetSize(24, 24)
-        pin.bg = pin:CreateTexture(nil, "BACKGROUND"); pin.bg:SetPoint("TOPLEFT", -1, 1); pin.bg:SetPoint("BOTTOMRIGHT", 1, -1); pin.bg:SetColorTexture(0, 0, 0, 0.85)
+        pinFrame(pin)
         pin.tx = pin:CreateTexture(nil, "OVERLAY"); pin.tx:SetAllPoints()
         pin:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.p[4]); GameTooltip:AddLine("Forever Pathfinder · " .. T.level:format(self.p[5]), 1, 1, 1); GameTooltip:Show() end)
         pin:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -918,7 +923,7 @@ drawMapPins = function()
         mapPins[n] = pin
       end
       pin.p = p
-      paintPin(pin.tx, pin.bg, p); pin:SetAlpha(p.done and 0.45 or 1) -- voce già spuntata: più chiara
+      paintPin(pin.tx, p); pin:SetAlpha(p.done and 0.45 or 1) -- voce già spuntata: più chiara
       pin:SetFrameLevel(canvas:GetFrameLevel() + 2000)
       pin:SetSize(pinSize(canvas), pinSize(canvas))
       pin:ClearAllPoints(); pin:SetPoint("CENTER", canvas, "TOPLEFT", x * cw, -y * ch); pin:Show()
@@ -933,8 +938,8 @@ end
 -- segnaposto scelto da una voce: quello del gioco (mappa e minimappa) se questa versione lo permette, altrimenti il nostro sulla minimappa
 local target
 local mm = CreateFrame("Frame", nil, Minimap); mm:SetSize(16, 16); mm:SetFrameLevel(Minimap:GetFrameLevel() + 10); mm:Hide()
-local mmB = mm:CreateTexture(nil, "BACKGROUND"); mmB:SetPoint("TOPLEFT", -1, 1); mmB:SetPoint("BOTTOMRIGHT", 1, -1); mmB:SetColorTexture(0, 0, 0, 0.85)
-local mmT = mm:CreateTexture(nil, "OVERLAY"); mmT:SetAllPoints(); mmT:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon"); mmB:Hide()
+pinFrame(mm)
+local mmT = mm:CreateTexture(nil, "OVERLAY"); mmT:SetAllPoints(); mmT:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon")
 -- diametro della minimappa in yard per livello di zoom (all'aperto, come in Classic)
 local MMY = { 466.67, 400, 333.33, 266.67, 200, 133.33 }
 local function playerOn(cont) -- posizione del giocatore 0–1 sul continente
@@ -971,7 +976,7 @@ mm:SetScript("OnUpdate", function(self, dt)
 end)
 setTarget = function(p)
   target = p
-  paintPin(mmT, mmB, p)
+  paintPin(mmT, p)
   local cont = continents()[p[1]]
   local gx, gy = xy(p)
   local zone, zx, zy

@@ -34,9 +34,11 @@ local methods = {
     local rel, rp, x, y = nil, p, 0, 0
     if type(a) == "number" then x, y = a, b or 0
     elseif type(a) == "table" then rel = a; if type(b) == "string" then rp, x, y = b, c or 0, d or 0 else x, y = b or 0, c or 0 end end
-    s.pt = { p = p, rel = rel, rp = rp, x = x, y = y }; s.fill = nil
+    -- due punti (TOPLEFT poi BOTTOMRIGHT, es. un bordo più grande del pulsante): il secondo angolo resta a parte
+    if p == "BOTTOMRIGHT" and s.pt and s.pt.p == "TOPLEFT" and not rel then s.pt2 = { x = x, y = y }; return end
+    s.pt = { p = p, rel = rel, rp = rp, x = x, y = y }; s.pt2 = nil; s.fill = nil
   end,
-  ClearAllPoints = function(s) s.pt = nil end, SetAllPoints = function(s) s.fill = true end,
+  ClearAllPoints = function(s) s.pt = nil; s.pt2 = nil end, SetAllPoints = function(s) s.fill = true end,
   Show = function(s) if not s.shown then s.shown = true; if s.scripts.OnShow then s.scripts.OnShow(s) end end end,
   Hide = function(s) s.shown = false end, IsShown = function(s) return s.shown end, IsVisible = function(s) return s.shown end,
   SetScript = function(s, n, fn) s.scripts[n] = fn end, GetScript = function(s, n) return s.scripts[n] end,
@@ -386,6 +388,9 @@ local function rect(o)
   elseif o.parent and o.parent.child == o then
     local pl, pt = rect(o.parent); l, t = pl, pt - (o.parent.off or 0); w, h = size(o)
   elseif o.fill then l, t, w, h = rect(o.parent)
+  elseif o.pt2 and not o.pt.rel then
+    local pl, pt, pw, ph = rect(o.parent)
+    l, t = pl + o.pt.x, pt - o.pt.y; w, h = pw + o.pt2.x - o.pt.x, ph - o.pt2.y + o.pt.y
   else
     w, h = size(o)
     local rl, rt, rw, rh = rect(o.pt and o.pt.rel or o.parent)
