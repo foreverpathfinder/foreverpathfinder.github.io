@@ -8,7 +8,7 @@ const ICO=path.join(OUT,'icone');fs.mkdirSync(ICO,{recursive:true});
 for(const f of ['index.html','wow.lua'])fs.copyFileSync(path.join(ROOT,'src/prova',f),path.join(OUT,f));
 for(const f of ['Data.lua','Core.lua'])fs.copyFileSync(path.join(ROOT,'addon/ForeverPathfinder',f),path.join(OUT,f));
 const data=fs.readFileSync(path.join(OUT,'Data.lua'),'utf8');
-const names=new Set(['inv_misc_map_01','inv_misc_book_09',...['warrior','mage','priest','rogue','hunter','warlock','druid','paladin','shaman'].map(c=>'classicon_'+c)]);
+const names=new Set(['inv_misc_map_01','inv_misc_book_09','ability_mount_gryphon_01','ability_mount_wyvern_01','inv_misc_bone_humanskull_01',...['warrior','mage','priest','rogue','hunter','warlock','druid','paladin','shaman'].map(c=>'classicon_'+c)]);
 for(const m of data.matchAll(/\^([a-z0-9_,-]+)\^/g))for(const n of m[1].split(','))names.add(n);
 const I={};
 for(const n of names){const f=path.join(ICO,n+'.jpg');
