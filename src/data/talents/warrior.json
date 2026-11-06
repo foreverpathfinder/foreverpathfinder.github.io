@@ -1,8 +1,8 @@
 {
  "cls": "warrior",
  "src": "https://foreverchanges.pro/talents/warrior",
- "fetched": "2026-11-03",
- "wfSame": false,
+ "fetched": "2026-11-06",
+ "wfSame": true,
  "trees": [
   {
    "key": "arms",

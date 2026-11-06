@@ -4,63 +4,63 @@
  "resource": "Energy",
  "spec": "Combat",
  "specIcon": "ability_backstab",
- "summary": "Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): l'ordine segue la build Combat di wowforever.gg aggiornata il 3 nov, con Puncturing Wounds al posto di Endurance + Improved Sprint come consiglia Method per chi usa un pugnale.",
+ "summary": "Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): dal 6 nov l'ordine è quello di Mobalytics Djexde (agg. 5 nov), con la stessa ripartizione 16/35/0 di Rogue’s Diary (agg. 4 nov): Remorseless Attacks subito, Endurance al 24–25, Blade Flurry al 32, Adrenaline Rush al 42. La variante con pugnale (Puncturing Wounds, wowforever.gg) è la build C.",
  "build": [
+  "Remorseless Attacks",
+  "Remorseless Attacks",
   "Efficient Strikes",
   "Efficient Strikes",
   "Coup de Grace",
   "Coup de Grace",
   "Coup de Grace",
-  "Puncturing Wounds",
-  "Puncturing Wounds",
-  "Puncturing Wounds",
   "Deflection",
   "Deflection",
   "Deflection",
+  "Precision",
+  "Precision",
   "Riposte",
   "Precision",
-  "Precision",
-  "Precision",
+  "Endurance",
+  "Endurance",
+  "Lightning Reflexes",
   "Weapon Expertise",
   "Weapon Expertise",
   "Aggression",
   "Aggression",
   "Aggression",
-  "Dual Wield Specialization",
-  "Dual Wield Specialization",
   "Blade Flurry",
+  "Dual Wield Specialization",
+  "Dual Wield Specialization",
   "Hack and Slash",
   "Hack and Slash",
-  "Hack and Slash",
-  "Hack and Slash",
+  "Flash of Steel",
+  "Flash of Steel",
   "Flash of Steel",
   "Flash of Steel",
   "Flash of Steel",
   "Adrenaline Rush",
-  "Improved Gouge",
-  "Improved Gouge",
-  "Improved Gouge",
-  "Remorseless Attacks",
-  "Remorseless Attacks",
-  "Ruthlessness",
-  "Ruthlessness",
-  "Ruthlessness",
-  "Improved Expose Armor",
-  "Improved Expose Armor",
+  "Hack and Slash",
+  "Hack and Slash",
+  "Hack and Slash",
   "Malice",
   "Malice",
   "Malice",
   "Improved Slice and Dice",
   "Improved Slice and Dice",
-  "Vile Poisons",
-  "Vile Poisons",
-  "Vile Poisons",
-  "Vile Poisons",
-  "Vile Poisons"
+  "Improved Slice and Dice",
+  "Malice",
+  "Malice",
+  "Vigor",
+  "Vigor",
+  "Blood Splatter",
+  "Lethality",
+  "Lethality",
+  "Cold Blood",
+  "Flawless Execution"
  ],
- "buildSource": "Dal 3 nov: checkpoint 10/20/30/40/50/60 della build Combat di wowforever.gg (aggiornata il 3 nov sull'albero nuovo), con Puncturing Wounds 3 al posto di Endurance 2 + Improved Sprint 1 (Method: Puncturing Wounds con un pugnale, Endurance senza). Dentro ogni blocco di 10 livelli l'ordine è mio 🟡, nel rispetto di needs e prerequisiti (controllo della build). Totale finale 15/36/0: Combat fino ad Adrenaline Rush al 40, poi Improved Gouge, Remorseless Attacks, Ruthlessness, Improved Expose Armor, Malice, Improved Slice and Dice e Vile Poisons come wowforever.gg.",
+ "buildSource": "Mobalytics Djexde «Rogue Leveling Guide 1-60» (Progress, agg. 5 nov): ordine 10–60 per livello, 16/35/0 al 60; Rogue’s Diary «Complete Combat Leveling 1-60» (50 ♥, agg. 4 nov) arriva alla stessa ripartizione. La vecchia A (checkpoint wowforever.gg con Puncturing Wounds) è ora la build C.",
  "why": {
-  "Remorseless Attacks": "Dopo ogni kill, +20% / +40% crit sul prossimo Sinister Strike, Backstab, Ambush… per 20 s: ideale per catene di mob singoli (Method e Rogue's Diary la prendevano per prima; con l'albero del 3 nov wowforever.gg la mette al 44).",
+  "Remorseless Attacks": "Dopo ogni kill, +20% / +40% crit sul prossimo Sinister Strike, Backstab, Ambush… per 20 s: ideale per catene di mob singoli. Djexde la prende per prima (10–11).",
   "Puncturing Wounds": "★ Nuovo in Forever: +30% crit a Backstab e 45% di Combo Point extra; per chi usa un pugnale (Blade of Cunning, quest del 10). Se non hai pugnali, Method sposta questi 3 punti su Endurance 2 + Lightning Reflexes 1.",
   "Deflection": "Parry +6%: meno danni in mischia e attiva Riposte.",
   "Riposte": "Colpo 150% danno + Disarm 6 s dopo un Parry; Rogue's Diary la considerava il miglior talent da leveling prima di Endurance. Si mette in macro con Sinister Strike.",
@@ -79,9 +79,18 @@
   "Flash of Steel": "★ Shank ridà fino a 15 Energy in più e ha fino a 2 s di cooldown in meno (5/5).",
   "Improved Gouge": "Gouge dura fino a 1,5 s in più: più tempo per una bandage o per scappare.",
   "Improved Expose Armor": "Expose Armor costa 10 Energy in meno e con 5 Combo Point te ne ridà 2.",
-  "Vile Poisons": "Poison +20% di danno: con gli Instant Poison raddoppiati al lancio pesano di più."
+  "Vile Poisons": "Poison +20% di danno: con gli Instant Poison raddoppiati al lancio pesano di più.",
+  "Endurance": "★ Sprint ed Evasion con il 60% di cooldown in meno: li usi a quasi ogni pull difficile.",
+  "Lightning Reflexes": "+1% Dodge per Rank: meno danno preso, meno pause per mangiare."
  },
  "compare": [
+  {
+   "source": "Mobalytics – Djexde, Rogue Leveling 1-60 – BUILD A",
+   "signal": "36 ♥ · agg. 5 nov · 16/35/0 a 60",
+   "l10_19": "Remorseless Attacks 2 (10–11), Efficient Strikes 2, Coup de Grace 3, Deflection 3 (17–19)",
+   "l20": "Precision",
+   "l21_30": "Precision, Riposte (22), Precision 3/3, Endurance 2 (24–25), Lightning Reflexes, Weapon Expertise 2, Aggression; Blade Flurry al 32, Adrenaline Rush al 42"
+  },
   {
    "source": "wowforever.gg – Rogue Combat Leveling (albero del 3 nov)",
    "signal": "agg. 3 nov 2026, checkpoint ogni 10 livelli",
@@ -119,7 +128,7 @@
   },
   {
    "source": "Mobalytics – Rogue's Diary (Combat 1–60 con ordine, 20/31/0)",
-   "signal": "28 ♥ (lista) / 23 ♥ (pagina), Verified, 30 ott",
+   "signal": "50 ♥ · agg. 4 nov · 16/35/0 a 60",
    "l10_19": "Remorseless Attacks 2 (10–11), Improved Sinister Strike 2, Improved Eviscerate 3, Precision 3",
    "l20": "respec al 20: Improved Eviscerate 3, Improved Sinister Strike 2, Precision 2, Deflection 3, Riposte",
    "l21_30": "Endurance 2 (21–22), Precision 3, Lightning Reflexes/Improved Sprint, DWS 26–29, Blade Flurry al 30; 31–34 Hack and Slash, 35–36 Weapon Expertise, 37 H&S, 38–39 Aggression, 40 Adrenaline Rush, poi Remorseless Attacks, Malice, Ruthlessness, Relentless Strikes, Lethality, Cold Blood, Improved Slice and Dice"
@@ -346,13 +355,13 @@
  ],
  "talentSpells": [
   [
-   10,
+   12,
    "Efficient Strikes",
    "spell_shadow_ritualofsacrifice",
    "★ Sinister Strike costa 5 Energy in meno (era Improved Sinister Strike)."
   ],
   [
-   21,
+   22,
    "Riposte",
    "ability_warrior_challange",
    "Si attiva dopo un Parry: 150% weapon damage e Disarm 6 s. Metti in macro: /cast Riposte /cast Sinister Strike."
@@ -364,7 +373,7 @@
    "+20% attack speed e colpi su un bersaglio extra per 15 s. Cooldown 2 minuti con Endurance, in coppia con Evasion."
   ],
   [
-   33,
+   35,
    "Hack and Slash",
    "inv_sword_27",
    "Passiva: Dagger/Fist +5% crit, Sword/Axe 5% colpo extra, Mace ignora 15% armor."
@@ -376,7 +385,7 @@
    "★ Shank ridà più Energy e torna prima (5 rank)."
   ],
   [
-   40,
+   42,
    "Adrenaline Rush",
    "spell_shadow_shadowworddominate",
    "Energy regen +100% per 15 s (20 Energy al secondo): burst per 3–5 mob."
@@ -853,80 +862,73 @@
  "builds": [
   {
    "id": "a",
-   "name": "Combat (con Puncturing Wounds)",
+   "name": "Combat (Endurance)",
    "spec": "Combat",
    "icon": "ability_backstab",
-   "when": "Vuoi levellare da solo in modo veloce e semplice: è la scelta di tutte le fonti.",
+   "when": "Leveling da solo veloce e semplice con qualsiasi arma: la build Combat delle due guide Mobalytics aggiornate dopo il lancio.",
    "pros": [
-    "Tutte le fonti scelgono Combat per il leveling solo (Tavern, Method, wowforever.be, Mobalytics).",
-    "Sinister Strike, Slice and Dice ed Eviscerate: rotazione semplice.",
-    "Hack and Slash: usi qualsiasi arma."
+    "Due guide Mobalytics aggiornate dopo il lancio (Djexde 5 nov, Rogue’s Diary 4 nov) fanno la stessa build 16/35/0.",
+    "Endurance: Sprint ed Evasion ogni 2 min.",
+    "Sinister Strike, Slice and Dice ed Eviscerate: rotazione semplice; Hack and Slash con qualsiasi arma."
    ],
    "cons": [
-    "Puncturing Wounds (3 punti) vale solo con un pugnale (Method).",
+    "Niente Puncturing Wounds: meno danno con pugnale (+30% crit a Backstab, client).",
     "Aoe limitata: Blade Flurry per un bersaglio extra.",
     "Dungeon e gruppo: non verificati."
    ],
    "ratings": {
     "speed": [
      4,
-     "Tavern: Combat \"quickly kill one mob after another without downtime\"; Method e wowforever.be la scelgono 🟡.",
-     "Warcraft Tavern – Rogue; Method – Rogue (9 ott)"
+     "Stessa spec di A: Tavern \"quickly kill one mob after another\"; senza PW non cambia la rotazione 🟡.",
+     "Warcraft Tavern – Rogue"
     ],
     "ease": [
      4,
-     "Rotazione Sinister Strike, Slice and Dice, Eviscerate (DonTheCrown, nota precedente) 🟡.",
+     "Stessa rotazione di A (Sinister Strike, Slice and Dice, Eviscerate) 🟡.",
      "Mobalytics – DonTheCrown (28 ott)"
     ],
     "versatility": [
      4,
-     "Hack and Slash: usa qualsiasi arma (client); solo e duo ok, dungeon non verificate 🟡.",
-     "wowforever.be – build Rogue (client)"
+     "Senza pugnale nessun vincolo di arma; Method consiglia la variante per chi non lo usa 🟡.",
+     "Method – Rogue (9 ott)"
     ],
     "survival": [
      4,
-     "Tavern: Combat \"boosts survivability\" (difesa e offesa); Deflection +6% parry 🟡.",
-     "Warcraft Tavern – Rogue"
+     "Endurance: Sprint ed Evasion ogni 2 min, \"il miglior talent da leveling\" per Rogue's Diary 🟡.",
+     "Mobalytics – Rogue's Diary (30 ott)"
     ],
     "aoe": [
-     2,
-     "Blade Flurry: un bersaglio extra per 15 s (client); la rotazione è single target 🟡.",
-     "wowforever.be (talent client); Warcraft Tavern – Rogue"
+     3,
+     "Blade Flurry con Endurance: cooldown 2 min in coppia con Evasion (talent client) 🟡.",
+     "wowforever.be (talent client); Mobalytics – Rogue's Diary"
     ],
     "gear": [
-     3,
-     "Puncturing Wounds richiede un pugnale (Method); con poco equip Tavern suggerisce Lightning Reflexes 🟡.",
-     "Method – Rogue (9 ott); Warcraft Tavern – Rogue"
+     4,
+     "Hack and Slash: qualsiasi arma; nessun pugnale richiesto (Method) 🟡.",
+     "Method – Rogue (9 ott)"
     ]
    },
    "sources": [
     {
-     "name": "wowforever.be – Build di livellamento Rogue",
-     "url": "https://wowforever.be/it/leveling/rogue/?level=10",
-     "date": "letta 1 nov",
-     "signal": "dati client 1.60.1.70707; solo fino al 35",
-     "used": "ordine 10–35"
+     "name": "Mobalytics – Rogue Leveling Guide 1-60 (Djexde, Progress)",
+     "url": "https://mobalytics.gg/wow-forever/classes/rogue-leveling-guide",
+     "date": "5 nov 2026",
+     "signal": "36 ♥",
+     "used": "ordine talent 10–60"
+    },
+    {
+     "name": "Mobalytics – Complete Combat Leveling 1-60 (Rogue's Diary)",
+     "url": "https://mobalytics.gg/wow-forever/classes/combat-rogue-leveling-guide",
+     "date": "4 nov 2026",
+     "signal": "50 ♥",
+     "used": "stessa ripartizione 16/35/0"
     },
     {
      "name": "Method – Rogue Leveling Guide & Talents",
      "url": "https://www.method.gg/wow-forever/wow-forever-rogue-leveling-guide-and-talents",
      "date": "9 ott 2026",
      "signal": "Method (reputazione alta)",
-     "used": "PW → Endurance se non usi pugnali (letta 2 nov)"
-    },
-    {
-     "name": "Warcraft Tavern – Rogue Leveling Guide",
-     "url": "https://www.warcrafttavern.com/forever/guides/rogue-leveling/",
-     "date": "nessuna data; beta cap 30",
-     "signal": "sito di riferimento",
-     "used": "Combat \"boosts survivability\"; LR come alternativa (letta 2 nov)"
-    },
-    {
-     "name": "Mobalytics – Rogue Leveling (DonTheCrown)",
-     "url": "https://mobalytics.gg/wow-forever/classes/rogue-leveling-donthecrown",
-     "date": "28 ott",
-     "signal": "37 ♥ (lista), nota precedente; pagina bloccata oggi",
-     "used": "rotazione (nota precedente)"
+     "used": "\"Puncturing Wounds → Endurance 2/2 se non usi pugnali\" (letta 2 nov)"
     }
    ]
   },
@@ -1097,68 +1099,105 @@
   },
   {
    "id": "c",
-   "name": "Combat senza pugnali (Endurance)",
+   "name": "Combat con pugnale (Puncturing Wounds)",
    "spec": "Combat",
    "icon": "ability_backstab",
-   "when": "Non usi pugnali o cambi arma spesso: Endurance ti dà Sprint ed Evasion ogni 2 minuti.",
+   "when": "Se usi un pugnale in main hand: Puncturing Wounds al posto di Endurance, come consiglia Method.",
    "pros": [
-    "Niente pugnale richiesto: Method consiglia questa variante per chi non lo usa.",
-    "Endurance: Sprint ed Evasion ogni 2 min (Mobalytics Rogue's Diary, nota precedente).",
-    "Stessa rotazione di A."
+    "Sinister Strike, Slice and Dice ed Eviscerate: rotazione semplice.",
+    "Hack and Slash: usi qualsiasi arma.",
+    "Ordine con checkpoint di wowforever.gg (albero del 3 nov)."
    ],
    "cons": [
-    "Niente Puncturing Wounds: meno danno con pugnale (+30% crit a Backstab, client).",
-    "Ordine 10–60 derivato da checkpoint di wowforever.gg: fonte fan, non confermata da Method.",
-    "Remorseless Attacks solo dal 44 (wowforever.gg): nei primi livelli non c'è il suo crit extra."
+    "Puncturing Wounds (3 punti) vale solo con un pugnale (Method).",
+    "Aoe limitata: Blade Flurry per un bersaglio extra.",
+    "Dungeon e gruppo: non verificati."
    ],
    "ratings": {
     "speed": [
      4,
-     "Stessa spec di A: Tavern \"quickly kill one mob after another\"; senza PW non cambia la rotazione 🟡.",
-     "Warcraft Tavern – Rogue"
+     "Tavern: Combat \"quickly kill one mob after another without downtime\"; Method e wowforever.be la scelgono 🟡.",
+     "Warcraft Tavern – Rogue; Method – Rogue (9 ott)"
     ],
     "ease": [
      4,
-     "Stessa rotazione di A (Sinister Strike, Slice and Dice, Eviscerate) 🟡.",
+     "Rotazione Sinister Strike, Slice and Dice, Eviscerate (DonTheCrown, nota precedente) 🟡.",
      "Mobalytics – DonTheCrown (28 ott)"
     ],
     "versatility": [
      4,
-     "Senza pugnale nessun vincolo di arma; Method consiglia la variante per chi non lo usa 🟡.",
-     "Method – Rogue (9 ott)"
+     "Hack and Slash: usa qualsiasi arma (client); solo e duo ok, dungeon non verificate 🟡.",
+     "wowforever.be – build Rogue (client)"
     ],
     "survival": [
      4,
-     "Endurance: Sprint ed Evasion ogni 2 min, \"il miglior talent da leveling\" per Rogue's Diary 🟡.",
-     "Mobalytics – Rogue's Diary (30 ott)"
+     "Tavern: Combat \"boosts survivability\" (difesa e offesa); Deflection +6% parry 🟡.",
+     "Warcraft Tavern – Rogue"
     ],
     "aoe": [
-     3,
-     "Blade Flurry con Endurance: cooldown 2 min in coppia con Evasion (talent client) 🟡.",
-     "wowforever.be (talent client); Mobalytics – Rogue's Diary"
+     2,
+     "Blade Flurry: un bersaglio extra per 15 s (client); la rotazione è single target 🟡.",
+     "wowforever.be (talent client); Warcraft Tavern – Rogue"
     ],
     "gear": [
-     4,
-     "Niente Puncturing Wounds: nessun pugnale richiesto (Method) 🟡.",
-     "Method – Rogue (9 ott)"
+     3,
+     "Puncturing Wounds richiede un pugnale (Method); con poco equip Tavern suggerisce Lightning Reflexes 🟡.",
+     "Method – Rogue (9 ott); Warcraft Tavern – Rogue"
     ]
    },
+   "sources": [
+    {
+     "name": "wowforever.be – Build di livellamento Rogue",
+     "url": "https://wowforever.be/it/leveling/rogue/?level=10",
+     "date": "letta 1 nov",
+     "signal": "dati client 1.60.1.70707; solo fino al 35",
+     "used": "ordine 10–35"
+    },
+    {
+     "name": "Method – Rogue Leveling Guide & Talents",
+     "url": "https://www.method.gg/wow-forever/wow-forever-rogue-leveling-guide-and-talents",
+     "date": "9 ott 2026",
+     "signal": "Method (reputazione alta)",
+     "used": "PW → Endurance se non usi pugnali (letta 2 nov)"
+    },
+    {
+     "name": "Warcraft Tavern – Rogue Leveling Guide",
+     "url": "https://www.warcrafttavern.com/forever/guides/rogue-leveling/",
+     "date": "nessuna data; beta cap 30",
+     "signal": "sito di riferimento",
+     "used": "Combat \"boosts survivability\"; LR come alternativa (letta 2 nov)"
+    },
+    {
+     "name": "Mobalytics – Rogue Leveling (DonTheCrown)",
+     "url": "https://mobalytics.gg/wow-forever/classes/rogue-leveling-donthecrown",
+     "date": "28 ott",
+     "signal": "37 ♥ (lista), nota precedente; pagina bloccata oggi",
+     "used": "rotazione (nota precedente)"
+    },
+    {
+     "name": "wowforever.gg – Rogue Combat Leveling Build",
+     "url": "https://wowforever.gg/en/builds/rogue-combat-leveling/",
+     "date": "nessuna data visibile",
+     "signal": "sito fan non ufficiale; calcolatore con checkpoint 10–60",
+     "used": "ordine 10–60 senza Puncturing Wounds (checkpoint)"
+    }
+   ],
    "build": [
     "Efficient Strikes",
     "Efficient Strikes",
     "Coup de Grace",
     "Coup de Grace",
     "Coup de Grace",
+    "Puncturing Wounds",
+    "Puncturing Wounds",
+    "Puncturing Wounds",
     "Deflection",
     "Deflection",
     "Deflection",
-    "Precision",
-    "Precision",
-    "Precision",
     "Riposte",
-    "Endurance",
-    "Endurance",
-    "Improved Sprint",
+    "Precision",
+    "Precision",
+    "Precision",
     "Weapon Expertise",
     "Weapon Expertise",
     "Aggression",
@@ -1195,49 +1234,6 @@
     "Vile Poisons",
     "Vile Poisons",
     "Vile Poisons"
-   ],
-   "rotation": [
-    {
-     "title": "Dal 23 · Endurance",
-     "seq": [
-      [
-       "spell_shadow_ritualofsacrifice",
-       "Sinister Strike"
-      ],
-      [
-       "ability_rogue_eviscerate",
-       "Eviscerate"
-      ],
-      [
-       "spell_shadow_shadowward",
-       "Evasion"
-      ]
-     ],
-     "text": "Endurance (dal 23) dà Sprint ed Evasion ogni 2 min. Evasion sui mob forti o con più mob addosso, come in A."
-    }
-   ],
-   "sources": [
-    {
-     "name": "Method – Rogue Leveling Guide & Talents",
-     "url": "https://www.method.gg/wow-forever/wow-forever-rogue-leveling-guide-and-talents",
-     "date": "9 ott 2026",
-     "signal": "Method (reputazione alta)",
-     "used": "\"Puncturing Wounds → Endurance 2/2 se non usi pugnali\" (letta 2 nov)"
-    },
-    {
-     "name": "wowforever.gg – Rogue Combat Leveling Build",
-     "url": "https://wowforever.gg/en/builds/rogue-combat-leveling/",
-     "date": "nessuna data visibile",
-     "signal": "sito fan non ufficiale; calcolatore con checkpoint 10–60",
-     "used": "ordine 10–60 senza Puncturing Wounds (checkpoint)"
-    },
-    {
-     "name": "Mobalytics – Complete Combat Leveling 1-60 (Rogue's Diary)",
-     "url": "https://mobalytics.gg/wow-forever/classes/combat-rogue-leveling-guide",
-     "date": "30 ott",
-     "signal": "28 ♥ (lista), nota precedente; pagina bloccata oggi",
-     "used": "Endurance \"il miglior talent da leveling\" (nota precedente)"
-    }
    ]
   }
  ],

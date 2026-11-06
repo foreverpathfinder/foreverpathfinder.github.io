@@ -1,7 +1,7 @@
 {
  "cls": "mage",
  "src": "https://foreverchanges.pro/talents/mage",
- "fetched": "2026-11-03",
+ "fetched": "2026-11-06",
  "wfSame": true,
  "trees": [
   {
@@ -573,10 +573,10 @@
      "max": 5,
      "needs": 0,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "",
      "cost": "",
-     "r1": "Reduces the casting time of your Frostbolt and Frost Blast spells by 0.1 sec.",
-     "rmax": "Reduces the casting time of your Frostbolt and Frost Blast spells by 0.5 sec."
+     "r1": "Reduces the casting time of your Frostbolt spell by 0.1 sec.",
+     "rmax": "Reduces the casting time of your Frostbolt spell by 0.5 sec."
     },
     "precision": {
      "index": 2,
@@ -701,8 +701,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the range of your Frostbolt, Frost Blast, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 10%.",
-     "rmax": "Increases the range of your Frostbolt, Frost Blast, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 20%."
+     "r1": "Increases the range of your Frostbolt, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 10%.",
+     "rmax": "Increases the range of your Frostbolt, Ice Lance, and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 20%."
     },
     "ice-block": {
      "index": 11,
@@ -785,8 +785,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Gives your Frostbolt, Frost Blast, and Fingers of Frost empowered Ice Lance spells a 20% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times.",
-     "rmax": "Gives your Frostbolt, Frost Blast, and Fingers of Frost empowered Ice Lance spells a 100% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times."
+     "r1": "Gives your Frostbolt and Fingers of Frost empowered Ice Lance spells a 20% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times.",
+     "rmax": "Gives your Frostbolt and Fingers of Frost empowered Ice Lance spells a 100% chance to apply Winter's Chill, increasing the target's damage taken from your next Cone of Cold by 20% and it gains an additional 7% of your spell damage, stacking up to 5 times."
     },
     "ice-barrier": {
      "index": 17,

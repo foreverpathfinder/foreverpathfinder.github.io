@@ -4,61 +4,61 @@
  "resource": "Mana (+ Rage in Bear Form, Energy e Combo Point in Cat Form)",
  "spec": "Feral",
  "specIcon": "ability_druid_catform",
- "summary": "Feral (Bear 10–19, Cat dal 20) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez, agg. 30 ott) 'la scelta più veloce e popolare', Mobalytics Ruse_Cruize (Verified, 47 ♥, 28 ott, 0/21/0 = tutti i 21 punti in Feral), games.gg (Larc). Dal 30 ott (build 70707) Blizzard ha rimescolato l'albero Druid: la build qui è l'ordine di wowforever.be, letto dal client 70707, quindi l'unico ordine che rispetta il nuovo albero; coincide con il consenso su Ferocity 10–14, Feral Swiftness entro il 19, Feral Charge al 20 e Leader of the Pack al 30. Le altre guide (Tavern, Method, wowforever.gg) descrivono ancora il vecchio albero con Primal Bite/Shifting Power al 25 e Berserk.",
+ "summary": "Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez) 'la scelta più veloce e popolare', mmonster (tier list del 5 nov) e Mobalytics. Dal 6 nov la build A è quella di Mobalytics <b>yumytv</b> (87 ♥, guida Druid 1–60 aggiornata dopo il lancio): Ferocity, Furor 5 (Energy e Rage quando cambi forma), Feral Swiftness, Sharpened Claws e Savage Fury, Feral Charge al 24, Leader of the Pack al 30, Shifting Power al 40; poi Balance (Genesis, Nature's Majesty) e Restoration (Heart of the Wild, Naturalist), 9/31/11 al 60. wowforever.be (dati client) fa 0/34/17.",
  "build": [
   "Ferocity",
   "Ferocity",
   "Ferocity",
-  "Ferocity",
-  "Ferocity",
-  "Feral Instinct",
-  "Feral Instinct",
-  "Feral Instinct",
+  "Furor",
+  "Furor",
+  "Furor",
+  "Furor",
+  "Furor",
   "Feral Swiftness",
   "Feral Swiftness",
+  "Sharpened Claws",
+  "Sharpened Claws",
+  "Savage Fury",
+  "Savage Fury",
   "Feral Charge",
-  "Savage Fury",
-  "Savage Fury",
-  "Shredding Attacks",
-  "Shredding Attacks",
-  "Shredding Attacks",
-  "Sharpened Claws",
-  "Sharpened Claws",
-  "Lacerate",
   "Predatory Discipline",
+  "Blood Frenzy",
+  "Blood Frenzy",
+  "Predatory Strikes",
+  "Predatory Strikes",
   "Leader of the Pack",
   "Natural Instinct",
   "Natural Instinct",
-  "Blood Frenzy",
-  "Blood Frenzy",
-  "Furor",
-  "Furor",
-  "Furor",
-  "Furor",
-  "Furor",
-  "Primal Bite",
+  "Predatory Strikes",
+  "Ferocity",
+  "Rend and Tear",
+  "Rend and Tear",
+  "Rend and Tear",
+  "Rend and Tear",
+  "Rend and Tear",
   "Shifting Power",
-  "Brutal Impact",
-  "Brutal Impact",
+  "Genesis",
+  "Genesis",
+  "Genesis",
+  "Genesis",
+  "Genesis",
+  "Nature's Majesty",
+  "Nature's Majesty",
+  "Nature's Reach",
+  "Nature's Reach",
   "Heart of the Wild",
   "Heart of the Wild",
   "Heart of the Wild",
   "Heart of the Wild",
   "Heart of the Wild",
-  "Natural Shapeshifter",
-  "Natural Shapeshifter",
-  "Natural Shapeshifter",
   "Naturalist",
   "Naturalist",
   "Naturalist",
   "Naturalist",
   "Naturalist",
-  "Reflection",
-  "Reflection",
-  "Reflection",
-  "Swiftmend"
+  "Natural Shapeshifter"
  ],
- "buildSource": "wowforever.be (client 1.60.1.70707, letto 1 nov) per 10–60. 10–20 coincide con la guida Mobalytics Bear (Ferocity, Feral Instinct 15–17, Feral Swiftness 18–19, Feral Charge 20; solo snippet) 🟡. 31–60 solo wowforever.be 🟡: nessun'altra fonte ha una build 31–60 sul nuovo albero. Con il Legacy 'Talented' (5 rank) i talent arrivano fino a 5 livelli prima (primo punto al 5 invece del 10 con 5/5).",
+ "buildSource": "Mobalytics yumytv «Druid Leveling Guide 1-60» (87 ♥, agg. 4 nov): ordine 10–60 per livello, 9/31/11 al 60. Fino al 5 nov: wowforever.be (client 70707), 0/34/17.",
  "why": {
   "Ferocity": "Costo di Maul, Swipe, Claw e Rake −5 Rage/Energy a 5/5: in Bear Form più Maul, in Cat Form rotazione molto più economica. Unanimità delle fonti: primo talent.",
   "Feral Instinct": "Swipe +30% e stealth come +3 livelli: con Swipe (16) è il tuo AoE da Bear nel 10–19 (Mobalytics bear + wowforever.be).",
@@ -72,7 +72,7 @@
   "Leader of the Pack": "+3% crit a te e al party in Cat/Bear Form, ora su tutti i crit (hotfix 30 ott). Il talent del 30 per tutte le fonti.",
   "Natural Instinct": "★ +20% crit damage delle abilità melee a 2/2 (e healing da Intellect).",
   "Blood Frenzy": "100% di +5 Rage sui crit in Bear Form; da Cat i crit dei builder danno un Combo Point extra al 100%.",
-  "Furor": "Cambio forma = 10 Rage (Bear) o restituisce 100% dell'Energy (Cat): rende gestibile il passare da Cat a Bear. Dopo l'hotfix 30 ott è nell'albero Feral.",
+  "Furor": "★ Cambiare forma ti dà 10 Rage in Bear e ti ridà l'Energy in Cat: passi da una forma all'altra senza perdere ritmo (yumytv, 13–17).",
   "Primal Bite": "★ Morso con 42/62/77 di danno extra e tanta threat (hotfix 30 ott), spostato a riga 7: serve 30 punti nell'albero, quindi arriva al 40.",
   "Shifting Power": "★ Converte 55% del Base Mana in 40 Energy (CD 8 s dopo hotfix 30 ott): Mana come seconda barra Energy. Riga 7 = livello 41 nel client.",
   "Brutal Impact": "Bash e Pounce stunnano +1 s e Bash −30 s di CD: controllo extra per i pull difficili.",
@@ -80,9 +80,17 @@
   "Natural Shapeshifter": "−30% costo mana di tutte le trasformazioni: meno tempo a bere se cambi forma spesso.",
   "Naturalist": "+10% a tutto il danno che infliggi (e Healing Touch/Wild Growth più veloci): danno extra gratis nel Resto.",
   "Reflection": "Fino al 50% della rigenerazione mana continua mentre lanci: aiuta heal e shift.",
-  "Swiftmend": "Heal istantaneo che consuma il tuo Rejuvenation/Regrowth: capstone del 60 per curarti in solo."
+  "Swiftmend": "Heal istantaneo che consuma il tuo Rejuvenation/Regrowth: capstone del 60 per curarti in solo.",
+  "Predatory Strikes": "Attack Power in Cat e Bear Form pari al 150% del tuo livello (3/3): più danno senza gear."
  },
  "compare": [
+  {
+   "source": "Mobalytics – yumytv, Druid Leveling Guide 1-60 – BUILD A",
+   "signal": "87 ♥ · agg. 4 nov · 9/31/11 a 60",
+   "l10_19": "Ferocity 3 (10–12), Furor 5 (13–17), Feral Swiftness 2 (18–19)",
+   "l20": "Sharpened Claws",
+   "l21_30": "Sharpened Claws 2/2, Savage Fury 2, Feral Charge (24), Predatory Discipline, Blood Frenzy 2, Predatory Strikes 2, Leader of the Pack al 30; Shifting Power al 40"
+  },
   {
    "source": "wowforever.be – build client (albero 70707)",
    "signal": "dati client, 1 nov",
@@ -463,14 +471,14 @@
  ],
  "talentSpells": [
   [
-   20,
+   24,
    "Feral Charge",
    "ability_hunter_pet_bear",
    "Bear: charge + root + interrupt 4 s; Cat: salta dietro il bersaglio (CD 30 s)."
   ],
   [
    28,
-   "Lacerate",
+   "Lacerate (non in build)",
    "ability_druid_lacerate",
    "★ Bleed stackabile fino a 5 per threat da Bear (talent su wowforever.be; Tavern/Method lo danno come trainer 42, Zockify come talent 25: 🟡)."
   ],
@@ -482,19 +490,19 @@
   ],
   [
    40,
-   "Primal Bite",
+   "Primal Bite (non in build)",
    "ability_racial_cannibalize",
    "★ Morso con 42 danni extra e tanta threat (riga 7 = livello 40)."
   ],
   [
-   41,
+   40,
    "Shifting Power",
    "spell_druid_displacement",
    "★ 55% del Base Mana in 40 Energy, CD 8 s (da Cat)."
   ],
   [
    60,
-   "Swiftmend",
+   "Swiftmend (non in build)",
    "inv_relics_idolofrejuvenation",
    "Heal istantaneo che consuma il tuo Rejuvenation/Regrowth."
   ]
@@ -1184,7 +1192,7 @@
    ],
    "cons": [
     "Dipende dall'equip: Intellect e Spirit (Method).",
-    "Method, Tavern e wowforever.gg descrivono l'albero vecchio (Berserk, Primal Bite a 25): l'ordine A è dal client 70707.",
+    "L'ordine A è di yumytv (Mobalytics, 4 nov): wowforever.be (client) preferisce Feral Instinct e Shredding Attacks a Furor.",
     "Aoe non valutata: le fonti parlano di Berserk, non più nel client."
    ],
    "ratings": {
@@ -1216,11 +1224,18 @@
    },
    "sources": [
     {
+     "name": "Mobalytics – Druid Leveling Guide 1-60 (yumytv)",
+     "url": "https://mobalytics.gg/wow-forever/classes/druid-leveling-guide",
+     "date": "4 nov 2026",
+     "signal": "87 ♥",
+     "used": "ordine talent 10–60"
+    },
+    {
      "name": "wowforever.be – Druid leveling build (client 70707)",
      "url": "https://wowforever.be/leveling/druid/",
      "date": "letto 1 nov",
      "signal": "dati client, albero post-hotfix; 10–60",
-     "used": "ordine 10–60"
+     "used": "confronto (ordine fino al 5 nov)"
     },
     {
      "name": "Method – Druid Leveling Guide & Talents",

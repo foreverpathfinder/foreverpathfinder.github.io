@@ -4,7 +4,7 @@
  "resource": "Mana",
  "spec": "Shadow",
  "specIcon": "spell_shadow_shadowform",
- "summary": "Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug “Mid Game Shadow (Recommended)” 47 ♥ (29 ott, Verified), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Shadow Reach, Mind Flay, Vampiric Embrace, Shadow Weaving (30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.",
+ "summary": "Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug (<b>128 ♥</b>, Verified, agg. 4 nov), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Mind Flay al 22, Vampiric Embrace al 27, Shadow Weaving (28–30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.",
  "build": [
   "Wand Specialization",
   "Wand Specialization",
@@ -18,21 +18,21 @@
   "Shadow Focus",
   "Shadow Focus",
   "Shadow Focus",
-  "Shadow Reach",
-  "Shadow Reach",
   "Mind Flay",
   "Improved Mind Flay",
   "Improved Mind Flay",
+  "Shadow Focus",
+  "Shadow Focus",
   "Vampiric Embrace",
   "Shadow Weaving",
   "Shadow Weaving",
   "Shadow Weaving",
-  "Shadow Focus",
+  "Dark Inspiration",
   "Silence",
   "Devouring Contagion",
   "Devouring Contagion",
-  "Shadow Focus",
-  "Improved Mind Blast",
+  "Dark Inspiration",
+  "Dark Inspiration",
   "Darkness",
   "Darkness",
   "Darkness",
@@ -42,23 +42,23 @@
   "Twin Disciplines",
   "Twin Disciplines",
   "Twin Disciplines",
-  "Mental Strength",
-  "Mental Strength",
-  "Mental Strength",
+  "Martyrdom",
+  "Martyrdom",
   "Twin Disciplines",
   "Twin Disciplines",
+  "Mental Strength",
   "Meditation",
   "Meditation",
   "Meditation",
+  "Mental Agility",
+  "Mental Agility",
+  "Mental Agility",
   "Improved Power Word: Shield",
   "Improved Power Word: Shield",
   "Improved Power Word: Shield",
-  "Twilight Focus",
-  "Twilight Focus",
-  "Twilight Focus",
   "Inner Focus"
  ],
- "buildSource": "10–42: Mobalytics DoubleZug “Mid Game Shadow (Recommended)”, 47 ♥, 29 ott (ordine dalle sue note di livello; dove i range si sovrappongono ho assegnato un punto per livello 🟡). 43–60: sua sezione Late Game (Twin Disciplines, Meditation, Twilight Focus, Inner Focus) adattata 🟡: dopo lo spostamento di Improved Power Word: Shield in riga 3 (15 ott) servono 10 punti Disc, quindi ho inserito Mental Strength ×3 (come nella sua griglia finale 17/3/31) e IPWS dopo Meditation; il suo testo (IPWS 45–48, Mental Agility, Soul Warding) non è coerente con la griglia. Validato su wf/priest.json (max rank, punti per riga, prerequisiti). Nessun respec.",
+ "buildSource": "Mobalytics DoubleZug «Priest Leveling Guide 1–60» (128 ♥, Verified, agg. 4 nov): ordine 10–60 per livello, 20/0/31 al 60. Rispetto alla versione del 29 ott: niente Shadow Reach, Mind Flay al 22; Dark Inspiration, Martyrdom e Mental Agility al posto di Improved Mind Blast, Mental Strength e Twilight Focus. Nessun respec.",
  "why": {
   "Wand Specialization": "+25% danni wand a 2/2: all’inizio la wand fa più danni di ogni spell tranne Shadow Word: Pain (DoubleZug: “by far the most impactful talent for the early game”).",
   "Spirit Tap": "Dopo ogni kill: +100% Spirit per 15 s e regen mana anche mentre lanci. È il motore del leveling Priest (mana quasi infinito), ma serve il colpo di grazia tuo.",
@@ -104,11 +104,11 @@
    "l21_30": "Mental Strength, Martyrdom, Meditation (Mental Strength al posto di Imp. PW:S dopo il 15 ott). Opzione Penance: 21 punti Disc se curi dungeon."
   },
   {
-   "source": "Mobalytics – DoubleZug (Priest 1–60, “Mid Game Shadow (Recommended)”) – BUILD PRINCIPALE",
-   "signal": "47 ♥ (lista) · 29 ott · Verified; 17/3/31 a 60",
+   "source": "Mobalytics – DoubleZug (Priest 1–60) – BUILD PRINCIPALE",
+   "signal": "128 ♥ · agg. 4 nov · Verified; 20/0/31 a 60",
    "l10_19": "Wand 2/2 (10–11), Spirit Tap 5/5 (12–16), ISWP 2/2 (17–18)",
-   "l20": "Shadow Focus 3/5 (≈18–21), poi Shadow Reach 2/2",
-   "l21_30": "Mind Flay (24), Imp. Mind Flay 2/2, Vampiric Embrace (27), Shadow Weaving 3/3 (27–30). 31–39: Shadow Focus, Silence, Devouring Contagion, Imp. Mind Blast, Darkness. Dice che Disc+Meditation rende “very similarly”."
+   "l20": "Shadow Focus 3/5 (19–21)",
+   "l21_30": "Mind Flay (22), Imp. Mind Flay 2/2 (23–24), Shadow Focus 5/5 (25–26), Vampiric Embrace (27), Shadow Weaving 3/3 (28–30). 31–41: Dark Inspiration, Silence, Devouring Contagion, Darkness; Shadowform al 42."
   },
   {
    "source": "wowforever.gg – Priest Shadow leveling",
@@ -401,7 +401,7 @@
  ],
  "talentSpells": [
   [
-   24,
+   22,
    "Mind Flay",
    "spell_shadow_siphonmana",
    "Talento Shadow: channel 3 s, 63 danno, slow 50% (fermare mob in fuga). Filler con Improved Mind Flay + Shadowform."
@@ -1031,7 +1031,7 @@
    "icon": "spell_shadow_shadowform",
    "when": "Se vuoi giocare wand + Shadow fino al 60 senza respec: è la guida Priest più salvata su Mobalytics.",
    "pros": [
-    "Mobalytics DoubleZug 47 ♥, Verified: la guida Shadow più salvata",
+    "Mobalytics DoubleZug 128 ♥, Verified (agg. 4 nov): la guida Shadow più salvata",
     "Nessun respec: il build resta su Shadow dall'inizio (Warcraft Tavern, Icy Veins)"
    ],
    "cons": [
@@ -1074,9 +1074,9 @@
     {
      "name": "Mobalytics – Priest Leveling Guide 1–60",
      "url": "https://mobalytics.gg/wow-forever/classes/priest-leveling-guide-1-60",
-     "date": "29 ott 2026",
-     "signal": "DoubleZug, Mid Game Shadow, 47 ♥",
-     "used": "when, pros, gear"
+     "date": "4 nov 2026",
+     "signal": "DoubleZug, 128 ♥, Verified",
+     "used": "build A (10–60), when, pros, gear"
     },
     {
      "name": "KamiLabs – WoW Forever Priest: The Wand Replaces Smite",
