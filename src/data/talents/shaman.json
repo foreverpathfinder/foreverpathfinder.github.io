@@ -1,8 +1,8 @@
 {
  "cls": "shaman",
  "src": "https://foreverchanges.pro/talents/shaman",
- "fetched": "2026-11-03",
- "wfSame": false,
+ "fetched": "2026-11-06",
+ "wfSame": true,
  "trees": [
   {
    "key": "elemental",
@@ -187,8 +187,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 5%.",
-     "rmax": "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional 5%."
+     "r1": "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by 5%.",
+     "rmax": "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by 5%."
     },
     "lightning-overload": {
      "index": 13,
@@ -221,7 +221,7 @@
     "lightning-mastery": {
      "index": 15,
      "name": "Lightning Mastery",
-     "icon": "spell_nature_wispheal",
+     "icon": "spell_nature_unrelentingstorm",
      "row": 7,
      "col": 2,
      "max": 1,
@@ -229,8 +229,8 @@
      "req": "call-of-thunder",
      "flag": "Changed from Classic",
      "cost": "Instant · 3 min cooldown",
-     "r1": "Gain mastery over Lightning, reducing the cast time of Lightning Bolt by 0.5 sec, and removing the cooldown from Chain Lightning. Lasts 15 sec.",
-     "rmax": "Gain mastery over Lightning, reducing the cast time of Lightning Bolt by 0.5 sec, and removing the cooldown from Chain Lightning. Lasts 15 sec."
+     "r1": "Gain mastery over Lightning, reducing the cast time of your Lightning Bolt spell by 0.5 sec, and removing the cooldown from your Chain Lightning spell. Lasts 15 sec.",
+     "rmax": "Gain mastery over Lightning, reducing the cast time of your Lightning Bolt spell by 0.5 sec, and removing the cooldown from your Chain Lightning spell. Lasts 15 sec."
     }
    },
    "link": [
@@ -333,11 +333,11 @@
      "name": "Improved Lightning Shield",
      "icon": "spell_nature_lightningshield",
      "row": 2,
-     "col": 4,
+     "col": 3,
      "max": 3,
      "needs": 5,
      "req": "",
-     "flag": "",
+     "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the damage done by your Lightning Shield orbs by 5%.",
      "rmax": "Increases the damage done by your Lightning Shield orbs by 15%."
@@ -423,8 +423,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "8% of base mana · Melee range · Instant · 6 sec cooldown",
-     "r1": "Instantly strike for 150% normalized weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec.",
-     "rmax": "Instantly strike for 150% normalized weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
+     "r1": "Instantly strike for 150% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec.",
+     "rmax": "Instantly strike for 150% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
     },
     "improved-ghost-wolf": {
      "index": 12,
@@ -756,7 +756,7 @@
      "needs": 30,
      "req": "healing-way",
      "flag": "New in Forever",
-     "cost": "245 Mana · 40 yd range · Instant · 12 sec cooldown",
+     "cost": "150 Mana · 40 yd range · Instant · 12 sec cooldown",
      "r1": "Heals a friendly target for 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%.",
      "rmax": "Heals a friendly target for 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%."
     }

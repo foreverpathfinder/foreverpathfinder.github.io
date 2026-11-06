@@ -4,7 +4,7 @@
  "resource": "Mana (+ Health via Life Tap) · Soul Shard",
  "spec": "Affliction",
  "specIcon": "spell_shadow_deathcoil",
- "summary": "Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 109 ♥, 1 nov, la guida Warlock più salvata) con Siphon Life al 33 per arrivare a Wrack al 40; è in linea con Warcraft Tavern, Maxroll, wowforeverbuilds e Kargoz (drain tank dal 22–30). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives. Finale 41/10/0, vicino al 40/11/0 di Icy Veins/Skidrow.",
+ "summary": "Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime. L'ordine dei talent è quello di Mobalytics – Crix (Verified, <b>337 ♥</b>, agg. 5 nov, la guida Warlock più salvata): Pandemic al 33–34 e al 40, Siphon Life e Wrack solo come punti liberi; è in linea con Warcraft Tavern, Maxroll, wowforeverbuilds e Kargoz (drain tank dal 22–30). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives. Finale 41/10/0, vicino al 40/11/0 di Icy Veins/Skidrow.",
  "build": [
   "Improved Corruption",
   "Improved Corruption",
@@ -29,14 +29,14 @@
   "Soul Siphon",
   "Soul Siphon",
   "Soul Siphon",
-  "Siphon Life",
+  "Pandemic",
   "Pandemic",
   "Shadow Mastery",
   "Shadow Mastery",
   "Shadow Mastery",
   "Shadow Mastery",
   "Shadow Mastery",
-  "Wrack",
+  "Pandemic",
   "Unholy Power",
   "Unholy Power",
   "Unholy Power",
@@ -54,11 +54,11 @@
   "Fel Vitality",
   "Improved Bane of Agony",
   "Improved Bane of Agony",
-  "Improved Life Tap",
-  "Improved Life Tap",
-  "Pandemic"
+  "Soul Harvest",
+  "Soul Harvest",
+  "Siphon Life"
  ],
- "buildSource": "Mobalytics Crix (109 ♥) 10–39 con Siphon Life al 33 e Pandemic al 34 (nostro aggiustamento per Wrack al 40); 41–57 da Crix (riassunto); 58–60 nostri (Improved Life Tap ×2, Pandemic) 🟡. wowforever.be (client) e Method 10–40 in alternatives; non coincidono col consenso.",
+ "buildSource": "Mobalytics Crix «Affliction 1-60» (337 ♥, agg. 5 nov): ordine 10–60 per livello. Gli ultimi 3 punti (58–60) sono liberi: Crix mette Soul Harvest 2 e Siphon Life 1 e propone in alternativa Amplify Curse, Curse of Exhaustion (PvP) o Siphon Life + Wrack. wowforever.be (client) e Method in alternatives.",
  "why": {
   "Improved Corruption": "5 rank = Corruption istantanea (−2 s di cast) e +10% danno: la applichi in movimento su ogni mob. Tutte le fonti la prendono per prima.",
   "Suppression": "+1% Hit per rank (5% a 5/5) e meno threat: con 4 rank non manchi mai un mob del tuo livello, con 5 anche quelli più alti.",
@@ -76,15 +76,20 @@
   "Malevolence": "★ +1% crit per rank (5% a 5/5) agli incantesimi Shadow: fa rendere DoT critici e Pandemic.",
   "Fel Vitality": "+5/15% a HP e Mana del demone e al tuo mana massimo: più Life Tap e demone che regge.",
   "Improved Bane of Agony": "+5/10% danno a Bane of Agony: il DoT più forte sul lungo.",
-  "Improved Life Tap": "+10/20% mana da Life Tap: in combinazione con Drain Life ogni HP drenato vale 1,2 mana."
+  "Improved Life Tap": "+10/20% mana da Life Tap: in combinazione con Drain Life ogni HP drenato vale 1,2 mana.",
+  "Master Summoner": "-4 s di cast e -40% Mana per evocare i demoni (2/2): lo rimetti subito se muore.",
+  "Improved Sayaad": "+30% a Lash of Pain e Soothing Kiss di Succubus/Incubus (3/3): il demone che fa più danno (Crix).",
+  "Demonic Brand": "★ Searing Pain fa metà threat e marchia il bersaglio: i prossimi 6 attacchi del pet fanno danno in più (con molta threat se Shadow). Il pet tiene il mob.",
+  "Fel Domination": "Il prossimo demone si evoca 5,5 s prima e costa il 50% in meno: salva i pull andati male.",
+  "Demonic Sacrifice": "Sacrifichi il demone per un bonus di 2 ore (Succubus: +15% danni Fire, Voidwalker: Mana): per i momenti senza pet."
  },
  "compare": [
   {
-   "source": "Mobalytics – Crix (Verified, 36/12/0)",
-   "signal": "109 ♥ (la guida Warlock più salvata) · agg. 1 nov",
+   "source": "Mobalytics – Crix (Verified, 41/10/0)",
+   "signal": "337 ♥ (la guida Warlock più salvata) · agg. 5 nov",
    "l10_19": "Improved Corruption 5 (10–14), Suppression 5 (15–19)",
    "l20": "Grim Reach 1/2",
-   "l21_30": "Grim Reach 2/2, Improved Drains 3, Nightfall 2, Fel Concentration 3, Soul Siphon da 30; 33–34 Pandemic, 35–39 Shadow Mastery; poi Unholy Power, Demonic Energies, Malevolence, Fel Vitality, Improved Bane of Agony. Non cita Siphon Life: noi l'abbiamo inserito al 33 perché serve a Wrack."
+   "l21_30": "Grim Reach 2/2, Improved Drains 3, Nightfall 2, Fel Concentration 3, Soul Siphon da 30; 33–34 Pandemic, 35–39 Shadow Mastery, 40 Pandemic; poi Unholy Power, Demonic Energies, Malevolence, Fel Vitality, Improved Bane of Agony; 58–60 punti liberi (Soul Harvest, Siphon Life)."
   },
   {
    "source": "wowforever.be (client 70707) = Method – Roguery",
@@ -440,14 +445,14 @@
    "Shadow Trance: il prossimo Shadow Bolt è istantaneo. Spendilo subito."
   ],
   [
-   33,
+   60,
    "Siphon Life",
    "spell_shadow_requiem",
    "DoT che ti cura; usalo su mob che vivono almeno 2/3 della durata (Warcraft Tavern)."
   ],
   [
    40,
-   "Wrack",
+   "Wrack (non in build)",
    "ability_deathknight_hemorrhagicfever",
    "Canalizzato 6 s: +10% ai tuoi altri DoT Shadow."
   ],
@@ -563,7 +568,7 @@
      "Drain Life"
     ]
    ],
-   "text": "Dal 30 Drain Life Rank 3 + Soul Siphon (+12% per DoT sul bersaglio) rendono il Drain il filler: DoT, poi Drain Life fino alla morte; Wand solo a vita piena o mob quasi morto. Siphon Life dal 33 su mob lunghi. Wrack dal 40."
+   "text": "Dal 30 Drain Life Rank 3 + Soul Siphon (+12% per DoT sul bersaglio) rendono il Drain il filler: DoT, poi Drain Life fino alla morte; Wand solo a vita piena o mob quasi morto. Siphon Life e Wrack solo se li scegli come punti liberi (58–60)."
   },
   {
    "title": "Pull multipli",
@@ -1114,7 +1119,7 @@
    ],
    "cons": [
     "AoE quasi assente (Rain of Fire e Hellfire)",
-    "Wrack (40) non testato oltre il 30",
+    "Siphon Life e Wrack solo come punti liberi (Crix)",
     "Il pet va gestito per i pull grossi (Fear, Voidwalker)"
    ],
    "ratings": {
@@ -1153,9 +1158,9 @@
     {
      "name": "Mobalytics – Warlock Leveling (Crix)",
      "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
-     "date": "1 nov 2026",
-     "signal": "109 ♥",
-     "used": "build A"
+     "date": "5 nov 2026",
+     "signal": "337 ♥",
+     "used": "build A (10–60)"
     },
     {
      "name": "wowforever.be – Warlock leveling (client 1.60.1.70707)",
@@ -1185,10 +1190,10 @@
    "name": "Demonology (pet)",
    "spec": "Demonology",
    "icon": "spell_shadow_metamorphosis",
-   "when": "Se vuoi un pet forte, accettando un leveling più lento fino al 25: Method la dice non ideale per partire.",
+   "when": "Se vuoi un pet forte e la sopravvivenza di Soul Link (31): Crix la dà come seconda scelta dopo Affliction.",
    "pros": [
     "Unholy Power 5 e Fel Vitality 3 potenziano il demone",
-    "Demonic Brand dal 29 fa tenere il threat al pet",
+    "Demonic Brand dal 26 fa tenere il threat al pet",
     "Demonic Energies e Master Summoner tengono il pet vivo e lo richiamano"
    ],
    "cons": [
@@ -1224,39 +1229,61 @@
     ]
    },
    "build": [
-    "Suppression",
-    "Suppression",
-    "Suppression",
-    "Suppression",
+    "Improved Corruption",
     "Unholy Power",
     "Unholy Power",
     "Unholy Power",
     "Unholy Power",
     "Unholy Power",
-    "Fel Vitality",
-    "Fel Vitality",
-    "Fel Vitality",
     "Demonic Energies",
     "Demonic Energies",
+    "Fel Vitality",
+    "Fel Vitality",
+    "Fel Vitality",
     "Master Summoner",
     "Master Summoner",
-    "Demonic Aegis",
-    "Demonic Aegis",
-    "Demonic Embrace",
+    "Improved Sayaad",
+    "Improved Sayaad",
+    "Improved Sayaad",
     "Demonic Brand",
     "Demonic Brand",
     "Demonic Brand",
-    "Demonic Embrace",
     "Fel Domination",
-    "Demonic Knowledge",
-    "Demonic Knowledge",
-    "Demonic Knowledge",
     "Demonic Sacrifice",
-    "Soul Link"
+    "Soul Link",
+    "Demonic Knowledge",
+    "Demonic Knowledge",
+    "Demonic Knowledge",
+    "Demonic Embrace",
+    "Master Demonologist",
+    "Master Demonologist",
+    "Master Demonologist",
+    "Master Demonologist",
+    "Master Demonologist",
+    "Demonic Pact",
+    "Improved Corruption",
+    "Improved Corruption",
+    "Improved Corruption",
+    "Improved Corruption",
+    "Suppression",
+    "Suppression",
+    "Suppression",
+    "Suppression",
+    "Suppression",
+    "Pandemic",
+    "Pandemic",
+    "Pandemic",
+    "Improved Bane of Agony",
+    "Improved Bane of Agony",
+    "Malevolence",
+    "Malevolence",
+    "Malevolence",
+    "Malevolence",
+    "Malevolence"
    ],
    "rotation": [
     {
-     "title": "10–28 · Pet, DoT e Shadow Bolt",
+     "title": "10–25 · Pet, DoT e Shadow Bolt",
      "seq": [
       [
        "spell_shadow_summonvoidwalker",
@@ -1282,7 +1309,7 @@
      "text": "Pet attack prima di ogni attacco, poi Immolate e Bane of Agony; finisci con Shadow Bolt e Wand (Method)."
     },
     {
-     "title": "29+ · Demonic Brand",
+     "title": "26+ · Demonic Brand",
      "seq": [
       [
        "spell_shadow_metamorphosis",
@@ -1298,11 +1325,18 @@
    ],
    "sources": [
     {
+     "name": "Mobalytics – Warlock Leveling, Demonology 1-60 (Crix)",
+     "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
+     "date": "5 nov 2026",
+     "signal": "337 ♥",
+     "used": "ordine talent 10–60"
+    },
+    {
      "name": "Method – Warlock Leveling (Roguery)",
      "url": "https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents",
      "date": "17 ott 2026",
      "signal": "guida Method",
-     "used": "ordine Demonology, ratings, razze"
+     "used": "ratings, razze, rotazione"
     },
     {
      "name": "wowforever.be – Warlock leveling (client 1.60.1.70707)",
@@ -1410,8 +1444,8 @@
   }
  ],
  "buildDoubts": [
-  "Demonology (B): ordine dei livelli 10–38 dal testo Method (la calc di Method non è leggibile). Decimation e Soul Fire non sono nel nostro ordine; livelli 39+ non dati.",
-  "Affliction A: ordine dal riassunto Mobalytics Crix; Siphon Life al 33 e Pandemic al 34 sono scelte nostre.",
+  "Demonology (B): dal 6 nov ordine 10–60 di Mobalytics Crix (agg. 5 nov). Crix propone anche di passare da Affliction a Demonology al 26 (respec).",
+  "Affliction A: ordine per livello di Crix (agg. 5 nov); gli ultimi 3 punti sono liberi.",
   "Wrack non testato oltre il 30 (wowforever.gg). Alcune guide non lo prendono (Maxroll).",
   "Affliction C: uguale nel client wowforever.be e nel testo Method fino al 40; le valutazioni di speed sono 🟡 perché l'effetto dei crit prima dei drain viene da una sola guida."
  ]

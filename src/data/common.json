@@ -1,6 +1,6 @@
 {
- "version": "v11",
- "updated": "3 novembre 2026",
+ "version": "v12",
+ "updated": "6 novembre 2026",
  "maxLevel": 30,
  "xpCards": [
   ["inv_misc_food_14", "Food con bonus XP: +5%", "In Forever alcuni food danno un buff Well Fed con XP extra. Kargoz: <i>Roasted Boar Meat</i> (Cooking 1) dà +5% XP 🟡; conserva i Chunk of Boar Meat e cucina. Il bonus vale sulle kill XP (circa 60% della tua XP)."],

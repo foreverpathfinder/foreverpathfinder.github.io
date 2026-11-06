@@ -4,7 +4,7 @@
  "resource": "Mana",
  "spec": "Frost",
  "specIcon": "spell_frost_frostbolt02",
- "summary": "Frost puro, tutti i talent point nel talent tree Frost. È la build della guida mago più salvata su Mobalytics (Asuna_qt, <b>40 preferiti</b>, 31 ott), identica nei punti chiave a quella di <b>wowforever.be</b> (letta dal client) e a Warcraft Tavern, che la definisce “la build Frost più forte al 30”. Ordine di wowforever.be: Precision 2/3 (4% Hit) basta già per non avere Miss sui mob del tuo livello (Icy Veins), e Frostbite 3/3 dà più Freeze per Ice Lance.",
+ "summary": "Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, <b>112 preferiti</b>, agg. 4 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a <b>wowforever.be</b> (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.",
  "build": [
   "Improved Frostbolt",
   "Improved Frostbolt",
@@ -13,7 +13,7 @@
   "Improved Frostbolt",
   "Precision",
   "Precision",
-  "Frostbite",
+  "Precision",
   "Frostbite",
   "Frostbite",
   "Ice Lance",
@@ -21,19 +21,44 @@
   "Ice Shards",
   "Ice Shards",
   "Ice Shards",
-  "Shatter",
-  "Shatter",
-  "Shatter",
   "Ice Block",
+  "Shatter",
+  "Shatter",
+  "Shatter",
   "Ice Shards",
   "Fingers of Frost",
   "Fingers of Frost",
-  "Precision",
-  "Permafrost",
-  "Permafrost",
-  "Improved Cone of Cold"
+  "Cold Snap",
+  "Improved Cone of Cold",
+  "Improved Cone of Cold",
+  "Winter's Chill",
+  "Winter's Chill",
+  "Winter's Chill",
+  "Winter's Chill",
+  "Winter's Chill",
+  "Ice Barrier",
+  "Improved Cone of Cold",
+  "Frostbite",
+  "Frost Channeling",
+  "Frost Channeling",
+  "Frost Channeling",
+  "Improved Blizzard",
+  "Improved Blizzard",
+  "Improved Blizzard",
+  "Improved Channeling",
+  "Improved Channeling",
+  "Improved Channeling",
+  "Improved Channeling",
+  "Improved Channeling",
+  "Missile Barrage",
+  "Arcane Subtlety",
+  "Arcane Subtlety",
+  "Arcane Concentration",
+  "Arcane Concentration",
+  "Arcane Concentration",
+  "Arcane Concentration"
  ],
- "buildSource": "wowforever.be (client 70707) = Mobalytics Asuna_qt nei punti chiave; 31–35 da wowforever.be",
+ "buildSource": "Mobalytics Asuna_qt «Frost Leveling 1-60» (112 ♥, Verified, agg. 4 nov): ordine 10–60 per livello. Fino al 5 nov: wowforever.be (client 70707), solo fino al 35.",
  "why": {
   "Improved Frostbolt": "Frostbolt più rapido: è il 90% dei tuoi cast.",
   "Precision": "Niente “Resisted”: con 2 talent point niente Miss sui mob del tuo livello.",
@@ -48,15 +73,15 @@
  },
  "compare": [
   {
-   "source": "<b>Questa guida</b> (= wowforever.be)",
-   "signal": "dati client 70707",
+   "source": "wowforever.be (client)",
+   "signal": "dati client 70707 (fino al 35)",
    "l10_19": "IFB 5 · Precision 2 · Frostbite 3",
    "l20": "Ice Lance",
    "l21_30": "Ice Shards 4 · Shatter 3 · Ice Block · Ice Shards 5 · FoF"
   },
   {
-   "source": "Mobalytics – Asuna_qt",
-   "signal": "40 ♥, “Verified”, 31 ott",
+   "source": "<b>Questa guida</b> (= Mobalytics – Asuna_qt)",
+   "signal": "112 ♥, “Verified”, agg. 4 nov",
    "l10_19": "IFB 5 · Precision 3 · Frostbite 2",
    "l20": "Ice Lance",
    "l21_30": "Ice Shards 4 · Ice Block · Shatter 3 · Ice Shards 5 · FoF"
@@ -224,7 +249,7 @@
    "★ 8 s di cooldown, +300% sui target Frozen."
   ],
   [
-   28,
+   25,
    "Ice Block (talent)",
    "spell_frost_frost",
    "Immune 10 s, cooldown 5 min."
@@ -576,16 +601,16 @@
     {
      "name": "Mobalytics – Mage Leveling (Asuna_qt)",
      "url": "https://mobalytics.gg/wow-forever/classes/mage-leveling-guide",
-     "date": "31 ott 2026",
-     "signal": "40 ♥, Verified",
-     "used": "build A"
+     "date": "4 nov 2026",
+     "signal": "112 ♥ · Verified",
+     "used": "build A (10–60)"
     },
     {
      "name": "wowforever.be – Mage leveling",
      "url": "https://wowforever.be/it/leveling/mage/",
      "date": "1 nov 2026",
      "signal": "dati client",
-     "used": "ordine talent build A"
+     "used": "confronto (ordine fino al 5 nov)"
     },
     {
      "name": "Method – Mage Leveling (Celz)",
