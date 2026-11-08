@@ -146,4 +146,16 @@ list[#list + 1] = { "opzioni", LOCALE == "itIT" and "Opzioni" or "Options" }
 for _, t in ipairs(list) do
   if ONLY == "" or ONLY == t[1] then findPill(t[2]).scripts.OnClick(); snap(t[1]) end
 end
+-- scheda di un dungeon (menu della 1.5): "dgscheda" = The Deadmines dall'inizio, "dgscheda2" = più in basso
+if ONLY == "dgscheda" or ONLY == "dgscheda2" then
+  for _, t in ipairs(list) do if t[1] == "dungeon" then findPill(t[2]).scripts.OnClick() end end
+  for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text == "The Deadmines" and o.shown and o.parent ~= f then o.scripts.OnClick(o); break end end
+  snap(ONLY)
+  if ONLY == "dgscheda2" then
+    items = {}
+    for _, o in ipairs(all) do if o.kind == "Slider" then o:SetValue(420) end end
+    walk(f, 0, 0)
+    scenes[#scenes] = '{"name":' .. jstr(ONLY) .. ',"W":' .. f.w .. ',"H":' .. f.h .. ',"items":[' .. table.concat(items, ",") .. ']}'
+  end
+end
 OUT = '{"reqs":[' .. table.concat(REQ, ",") .. '],"scenes":[' .. table.concat(scenes, ",") .. ']}'

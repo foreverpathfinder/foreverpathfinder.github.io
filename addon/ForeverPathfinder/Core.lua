@@ -20,7 +20,11 @@ local TT = {
     talentNow = "Talento da prendere ora: %s (%s)", talentNext = "Prossimo talento al liv. %d: %s (%s)", talentDone = "Talenti della guida completati.",
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
     help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp lang · /fp debug",
-    dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo",
+    dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo", skip = "da saltare",
+    dgAll = "‹ Tutti i dungeon", dgPick = "Clic su un dungeon: quest, catena, boss e consigli.", dgYou = "adatto al tuo livello", dgLv = "Livelli %d–%d",
+    dgIdeal = "ideale %s", dgWhere = "Dove si trova", dgKey = "Chiave d'ingresso", dgQ = "Quest da prendere prima di entrare", dgQC = "Quest di classe",
+    dgNoQ = "Nessuna quest nei dati per la tua fazione.", dgFrom = "Da: %s", dgChain = "Catena: prima fai {%s}%s", dgChainBy = " (%s)", dgChainTip = "Mostra sulla mappa chi dà la prima quest della catena",
+    dgBoss = "Boss", dgTips = "Consigli", dgInfo = "Come conviene farli", dgNote = "Nota", qDoneTag = "fatta", dgNew = "nuovo in Forever",
     dgNone = "Nessun dungeon consigliato al liv. %d.", dgEntry = "Ingresso: %s", dgQuests = "Prima di entrare prendi:", dgClass = "(di classe)",
     found = "Trovate %d voci per \"%s\":", notFound = "Nessuna voce della guida contiene \"%s\".", lv = "Liv.",
     loaded = "caricato: clic sull'icona della minimappa o /fp per aprire la guida.",
@@ -55,7 +59,11 @@ local TT = {
     talentNow = "Talent to take now: %s (%s)", talentNext = "Next talent at lvl %d: %s (%s)", talentDone = "Guide talents done.",
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
     help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp lang · /fp debug",
-    dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional",
+    dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional", skip = "skip",
+    dgAll = "‹ All dungeons", dgPick = "Click a dungeon: quests, chain, bosses and tips.", dgYou = "right for your level", dgLv = "Levels %d–%d",
+    dgIdeal = "best at %s", dgWhere = "Where it is", dgKey = "Entry key", dgQ = "Quests to pick up before going in", dgQC = "Class quests",
+    dgNoQ = "No quests in the data for your faction.", dgFrom = "From: %s", dgChain = "Chain: first do {%s}%s", dgChainBy = " (%s)", dgChainTip = "Shows on the map who gives the first quest of the chain",
+    dgBoss = "Bosses", dgTips = "Tips", dgInfo = "How to run them", dgNote = "Note", qDoneTag = "done", dgNew = "new in Forever",
     dgNone = "No recommended dungeon at lvl %d.", dgEntry = "Entrance: %s", dgQuests = "Before going in, pick up:", dgClass = "(class)",
     found = "Found %d items for \"%s\":", notFound = "No guide item contains \"%s\".", lv = "Lvl",
     loaded = "loaded: click the minimap icon or type /fp to open the guide.",
@@ -94,6 +102,7 @@ local RACES = { Human = "human", Dwarf = "dwarf", Gnome = "gnome", NightElf = "n
 local C  -- ForeverPathfinderChar: { done = {}, key = "razza-classe" scelto a mano, opt = { b, dg, x }, loads }
 local DB -- ForeverPathfinderDB (tutti i personaggi): { angle, hide } dell'icona sulla minimappa
 local tab, viewCh = "livello" -- scheda aperta, tappa mostrata nel Percorso
+local dgSel -- scheda Dungeon: nome del dungeon aperto, nil = menu
 
 local function say(msg) DEFAULT_CHAT_FRAME:AddMessage("|cffe8b84aForever Pathfinder|r " .. msg) end
 
@@ -323,6 +332,35 @@ local function qInfo(name)
     if not J:IsShown() then J:ToggleJourneyWindow() end
     J.tabGroup:SelectTab("search"); mod("QuestieSearchResults"):SetSearch("quest", id)
   end)
+end
+-- prima quest della catena che porta a questa (nome, chi la dà e zona), nil se la quest non ha quest richieste prima
+local CHAIN = {}
+local function qChain(name)
+  if CHAIN[name] ~= nil then return CHAIN[name] or nil end
+  local id = qPick(name)
+  if not id then return end
+  local ok, res = pcall(function()
+    local DBQ = mod("QuestieDB")
+    local cur, seen, n = id, { [id] = true }, 0
+    while n < 20 do
+      local pre = DBQ.QueryQuestSingle(cur, "preQuestSingle")
+      if not (pre and pre[1]) then pre = DBQ.QueryQuestSingle(cur, "preQuestGroup") end
+      local p = pre and pre[1]
+      if not p or seen[p] or not DBQ.QueryQuestSingle(p, "name") then break end
+      seen[p], cur, n = true, p, n + 1
+    end
+    if cur == id then return false end
+    local by = DBQ.QueryQuestSingle(cur, "startedBy") or {}
+    local npc = by[1] and by[1][1]
+    local who = npc and DBQ.QueryNPCSingle(npc, "name")
+    local zid = npc and DBQ.QueryNPCSingle(npc, "zoneID")
+    local zone = zid and select(2, pcall(function() return mod("TrackerUtils"):GetZoneNameByID(zid) end))
+    if type(zone) ~= "string" then zone = nil end
+    return { DBQ.QueryQuestSingle(cur, "name"), who and (zone and who .. ", " .. zone or who) or zone }
+  end)
+  if not ok then return end
+  CHAIN[name] = res or false
+  return res or nil
 end
 
 -- aspetto del sito: colori di style.css (:root), Cinzel per i titoli, Inter per i testi, riquadri (card) e icone del gioco
@@ -696,6 +734,110 @@ local function ofaDungeon(name)
   end
 end
 
+-- scheda Dungeon (dalla 1.5): menu con tutti i dungeon della fazione; un clic apre la scheda del dungeon
+-- (giudizio, dove si trova, chiave, quest con Questie e la prima quest della catena, boss con i loro consigli)
+local VCOL = { go = "ok", opt = "gold", skip = "mu" }
+local function low(x) return (x:gsub("’", "'"):lower()) end
+local function questRow(name, from)
+  y = y - 8
+  local top, right = y, 0
+  if on("map") then
+    mini("inv_misc_map_01", BW - PAD - 20, y, name, T.qMapTip, function() if not QZ() then say(T.qWait) elseif qMap(name) then f:Hide() end end)
+    mini("inv_misc_book_09", BW - PAD - 46, y, name, T.qInfoTip, function() if not (QZ() and qInfo(name)) then say(T.qWait) end end)
+    right = 54
+  end
+  local w = BW - 2 * PAD - right
+  local st = inLog[name] == "done" and "  |cff5fd68b[" .. T.toTurn .. "]|r" or inLog[name] and "  |cffa9e4ff[" .. T.inLog .. "]|r"
+    or (QZ() and qDone(name) and "  |cff5fd68b[" .. T.qDoneTag .. "]|r") or ""
+  local o = str(F.h3, "gold", name .. st, PAD, w); y = y - o:GetStringHeight() - 2
+  if from and from ~= "" then o = str(F.p, "mu", T.dgFrom:format(from), PAD, w); y = y - o:GetStringHeight() end
+  local ch = QZ() and qChain(name)
+  if ch then
+    y = y - 3
+    o = str(F.p, "ice", T.dgChain:format(ch[1], ch[2] and T.dgChainBy:format(ch[2]) or ""), PAD + 10, w - 10); y = y - o:GetStringHeight()
+    if on("map") then mini("inv_misc_map_01", BW - PAD - 20, y + o:GetStringHeight(), ch[1], T.dgChainTip, function() if qMap(ch[1]) then f:Hide() end end) end
+  end
+  y = math.min(y, top - 22)
+end
+local function drawDungeons(g)
+  local lv, list, fit, d = UnitLevel("player"), DG[g.faction] or {}, {}, nil
+  for _, x in ipairs(dungeonsAt(g, lv)) do fit[x[1]] = true end
+  for _, x in ipairs(list) do if x[1] == dgSel then d = x end end
+  if not d then
+    dgSel = nil
+    local sorted = {}
+    for _, x in ipairs(list) do sorted[#sorted + 1] = x end
+    table.sort(sorted, function(a, b) if a[2] ~= b[2] then return a[2] < b[2] end return a[1] < b[1] end)
+    cardOpen(); y = y - 12
+    line("1", "Dungeon"); line("0", T.dgPick); y = y - 4
+    for _, x in ipairs(sorted) do
+      y = y - 6
+      local top = y
+      local b = button(x[1], PAD, y, function() dgSel = x[1]; render(true) end)
+      local bx = PAD + b:GetWidth() + 10
+      local t = x[2] .. "–" .. x[3] .. (x[4] ~= "" and "  ·  " .. (T[x[4]] or x[4]) or "") .. (x[15] and "  ·  " .. T.dgNew or "") .. (fit[x[1]] and "  ·  |cff5fd68b" .. T.dgYou .. "|r" or "")
+      local o = str(F.p, VCOL[x[4]] or "tx", t, bx, BW - PAD - bx); o:SetPoint("TOPLEFT", bx, y - 5)
+      y = top - math.max(24, o:GetStringHeight() + 10)
+    end
+    cardClose()
+    if DG.info and #DG.info > 0 then
+      cardOpen(); y = y - 12
+      line("2", T.dgInfo)
+      for _, t in ipairs(DG.info) do line("0", "• " .. t) end
+      if DG.glossary and DG.glossary ~= "" then line("0", DG.glossary) end
+      cardClose()
+    end
+    return
+  end
+  button(T.dgAll, 0, y, function() dgSel = nil; render(true) end); y = y - 32
+  -- giudizio, dove si trova, mappa e boss e loot, chiave
+  cardOpen(); y = y - 12
+  line("1", d[1])
+  local vt = d[4] ~= "" and (T[d[4]] or d[4]) .. (d[5] ~= "" and " · " .. T.dgIdeal:format(d[5]) or "") or ""
+  y = y - 4
+  local o = str(F.h3, VCOL[d[4]] or "tx", T.dgLv:format(d[2], d[3]) .. (vt ~= "" and "  ·  " .. vt or "") .. (d[15] and "  ·  " .. T.dgNew or "") .. (fit[d[1]] and "  ·  |cff5fd68b" .. T.dgYou .. "|r" or ""), PAD, BW - 2 * PAD)
+  y = y - o:GetStringHeight()
+  if d[6] ~= "" then line("0", d[6]) end
+  local p, od = dgFind(d[1]), ofaDungeon(d[1])
+  if p or od then
+    y = y - 8
+    local bx = PAD
+    if p then local b = button(T.dgMap, bx, y, function() dgMap(p) end); bx = bx + b:GetWidth() + 8 end
+    if od then button(T.dgLoot, bx, y, function() OneForAll:OpenPanel("dungeons"); if OneForAll.UI and OneForAll.UI.OpenDungeon then OneForAll.UI.OpenDungeon(od) end end) end
+    y = y - 26
+  end
+  line("2", T.dgWhere); line("0", d[7] ~= "" and d[7] or d[13])
+  if d[10] ~= "" then line("2", T.dgKey); line("0", d[10]) end
+  if d[7] == "" and d[14] ~= "" then line("2", T.dgNote); line("0", d[14]) end
+  cardClose()
+  -- quest: chi la dà, stato, Questie (mappa e scheda) e la prima quest della catena
+  cardOpen(); y = y - 12
+  line("2", T.dgQ)
+  if #d[8] == 0 then line("0", T.dgNoQ) end
+  for _, q in ipairs(d[8]) do questRow(q[1], q[2]) end
+  local cls, mine = low(select(2, UnitClass("player")) or ""), {}
+  for _, q in ipairs(d[9]) do if low(q[2]) == cls then mine[#mine + 1] = q end end
+  if #mine > 0 then line("2", T.dgQC); for _, q in ipairs(mine) do questRow(q[1], q[3]) end end
+  cardClose()
+  -- boss in ordine, ognuno con i consigli che lo nominano in grassetto; poi gli altri consigli
+  if #d[11] > 0 or #d[12] > 0 then
+    cardOpen(); y = y - 12
+    local used = {}
+    if #d[11] > 0 then line("2", T.dgBoss) end
+    for _, b in ipairs(d[11]) do
+      line("3", b)
+      local bn = low(b:gsub("%s*%b()", ""))
+      for i, t in ipairs(d[12]) do
+        local bold = t:match("{([^}]*)}")
+        if not used[i] and bold and bold ~= "" and (low(bold):find(bn, 1, true) or bn:find(low(bold), 1, true)) then line("0", "• " .. t); used[i] = true end
+      end
+    end
+    local head = false
+    for i, t in ipairs(d[12]) do if not used[i] then if not head then line("2", T.dgTips); head = true end; line("0", "• " .. t) end end
+    cardClose()
+  end
+end
+
 -- OneForAll: la build della guida (tutti i punti fino al 60) come codice del suo calcolatore (TalentCode, pubblico), poi il suo
 -- pulsante "Import build" con il codice già dentro; se non riesce, la sua finestra Export con il codice da copiare
 local function findButton(fr, text, depth)
@@ -794,7 +936,7 @@ local function navList()
 end
 for _, t in ipairs(navList()) do
   local b = pill(f, t[2])
-  b:SetScript("OnClick", function() tab = t[1]; render(true) end)
+  b:SetScript("OnClick", function() if t[1] == "dungeon" then dgSel = nil end; tab = t[1]; render(true) end)
   navB[t[1]] = b
 end
 -- nomi delle schede nella lingua scelta, una accanto all'altra
@@ -830,6 +972,7 @@ render = function(top)
     local here
     if tab == "livello" then here = drawPath(g, k, v)
     elseif tab == "opzioni" then drawOptions(g, k)
+    elseif tab == "dungeon" then drawDungeons(g)
     else drawPage(v, tab) end
     body:SetHeight(-y + 10)
     if scroll.UpdateScrollChildRect then scroll:UpdateScrollChildRect() end

@@ -85,12 +85,19 @@ local readyCbs = {}
 Questie = { API = { isReady = false, RegisterOnReady = function(cb) if Questie.API.isReady then cb() else readyCbs[#readyCbs + 1] = cb end end }, db = { char = { complete = QDONE } } }
 function QUESTIE_READY() Questie.API.isReady = true; for _, cb in ipairs(readyCbs) do cb() end; readyCbs = {} end
 local QMOD = {
-  QuestieDB = { IsDoable = function() return true end, QueryQuestSingle = function(_, k) return k == "startedBy" and { { 4242 } } or nil end,
-    QueryNPCSingle = function() return { [12] = { { 40, 60 } } } end, QueryObjectSingle = function() end },
+  -- catena finta: The Defias Brotherhood richiede prima la quest 777 (The Defias Traitor), data da Gryan Stoutmantle in Westfall
+  QuestieDB = { IsDoable = function() return true end,
+    QueryQuestSingle = function(id, k)
+      if k == "startedBy" then return { { 4242 } } end
+      if k == "preQuestSingle" and id == QID("The Defias Brotherhood") then return { 777 } end
+      if k == "name" then return id == 777 and "The Defias Traitor" or "Q" .. id end
+    end,
+    QueryNPCSingle = function(_, k) if k == "name" then return "Gryan Stoutmantle" elseif k == "zoneID" then return 40 end return { [12] = { { 40, 60 } } } end,
+    QueryObjectSingle = function() end },
   ZoneDB = { GetUiMapIdByAreaId = function() return 1429 end },
   QuestieMap = { ShowNPC = function(_, id) QCALLS[#QCALLS + 1] = "npc" .. id end, ShowObject = function() end },
   QuestieCompat = { OpenWorldMap = function(id) QCALLS[#QCALLS + 1] = "map" .. id; return true end },
-  TrackerUtils = { ShowQuestOnMap = function(id) QCALLS[#QCALLS + 1] = "track" .. id; return true end },
+  TrackerUtils = { ShowQuestOnMap = function(id) QCALLS[#QCALLS + 1] = "track" .. id; return true end, GetZoneNameByID = function() return "Westfall" end },
   QuestieJourney = { IsShown = function() return false end, ToggleJourneyWindow = function() QCALLS[#QCALLS + 1] = "journey" end,
     tabGroup = { SelectTab = function(_, t) QCALLS[#QCALLS + 1] = "tab " .. t end } },
   QuestieSearchResults = { SetSearch = function(_, t, id) QCALLS[#QCALLS + 1] = t .. id end },
@@ -320,8 +327,16 @@ local ofaB = nav((lang == "it" and "Apri in OneForAll" or "Open in OneForAll") .
 check(ofaB ~= nil, "pulsante Apri in OneForAll")
 ofaB.scripts.OnClick(ofaB)
 check(OFA.panel == "talents" and OFA.imported and OFA.n == #hv._tal and not OFA.export, "build importata in OneForAll (" .. tostring(OFA.n) .. "/" .. #hv._tal .. ")")
--- Dungeon: "Mappa" apre la mappa del mondo sull'ingresso con il segnaposto; "Boss e loot" apre il dungeon in OneForAll
+-- Dungeon (dalla 1.5): menu con i dungeon; un clic apre la scheda del dungeon. "Mappa" apre la mappa del mondo sull'ingresso
+-- con il segnaposto; "Boss e loot" apre il dungeon in OneForAll; le quest con la prima della catena (Questie)
 nav(tabName("dungeon")).scripts.OnClick()
+local dmMenu = nav("The Deadmines")
+check(dmMenu and nav("Hall of Thanes") and not nav(lang == "it" and "Mappa" or "Map"), "menu dei dungeon (senza pulsanti Mappa)")
+dmMenu.scripts.OnClick(dmMenu)
+check(has("Rhahk'zor") and has(lang == "it" and "Dove si trova" or "Where it is") and nav(lang == "it" and "‹ Tutti i dungeon" or "‹ All dungeons"), "scheda dei Deadmines: dove, boss, ritorno al menu")
+if g.faction == "A" then
+  check(has("Red Silk Bandanas") and has("The Defias Traitor") and has("Gryan Stoutmantle, Westfall"), "quest dei Deadmines con la prima quest della catena da Questie")
+end
 local dmB, lootB = nav(lang == "it" and "Mappa" or "Map"), nav(lang == "it" and "Boss e loot" or "Bosses and loot")
 check(dmB and lootB, "pulsanti Mappa e Boss e loot nella scheda Dungeon")
 WorldMapFrame.shown = false; dmB.scripts.OnClick(dmB)
