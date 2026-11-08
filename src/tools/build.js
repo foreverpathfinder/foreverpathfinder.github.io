@@ -108,7 +108,11 @@ const RKEY = (k, f) => { k = k.toLowerCase().replace(/[^a-z]/g, ''); if (k === '
 for (const [fk, F] of dir('factions')) {
   const f = F.faction, side = f === 'A' ? 1 : 2;
   for (const [rk, r] of Object.entries(F.races)) races[RKEY(rk, f)] = { name: r.name, faction: f, start: r.start, icon: r.icon, classes: r.classes, racials: r.racials || [], tips: r.tips || '' };
-  for (const [key, R] of Object.entries(F.routes)) {
+  for (const [key, R0] of Object.entries(F.routes)) {
+    // dal 30: tappe comuni della fazione (F.late), con la prima tappa scelta da dove finisce la rotta di partenza
+    const LT = F.late, FV = LT && LT.first.find(v => v.routes.includes(key));
+    if (LT && !FV) W(`${key}: nessuna prima tappa dopo il 30 in late.first`);
+    const R = !FV ? R0 : { ...R0, segments: R0.segments.concat(FV.segment, LT.segments), steps: R0.steps.concat(FV.step, LT.steps), milestones: (R0.milestones || []).concat(FV.milestones || [], LT.milestones || []) };
     const cont0 = R.continent;
     const steps = R.steps.map(s => {
       const p = findPlace(s.town, cont0) || findPlace(s.zone, cont0);

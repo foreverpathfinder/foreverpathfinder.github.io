@@ -1500,7 +1500,119 @@
    26,
    45,
    "Tirisfal Glades",
-   "Oltre il 30 per l'Alleanza (WT: Graveyard 30-38). Non nella rotta."
+   "Oltre il 30 per l'Alleanza (WT: Graveyard 30-38)."
+  ],
+  [
+   "Razorfen Kraul",
+   29,
+   38,
+   "Southern Barrens (Kalimdor)",
+   "Solo 2 quest per l'Alleanza: non consigliato per il leveling."
+  ],
+  [
+   "The Drowned City ★",
+   35,
+   40,
+   "Stranglethorn Vale (costa a ovest di Grom'gol, ingresso sott'acqua)",
+   "Range da mmonster: Wowhead non lo dà."
+  ],
+  [
+   "Uldaman",
+   35,
+   47,
+   "Badlands",
+   ""
+  ],
+  [
+   "Razorfen Downs",
+   37,
+   46,
+   "Southern Barrens (Kalimdor)",
+   "Lontano e con poche quest per l'Alleanza: non consigliato per il leveling."
+  ],
+  [
+   "Krol'dok Stronghold ★",
+   40,
+   45,
+   "Riverglades",
+   ""
+  ],
+  [
+   "Zul'Farrak",
+   44,
+   54,
+   "Tanaris",
+   ""
+  ],
+  [
+   "Maraudon",
+   46,
+   55,
+   "Desolace",
+   ""
+  ],
+  [
+   "Alcaz Prison ★",
+   48,
+   53,
+   "Dustwallow Marsh (Alcaz Island)",
+   ""
+  ],
+  [
+   "The Temple of Atal'Hakkar",
+   50,
+   56,
+   "Swamp of Sorrows",
+   ""
+  ],
+  [
+   "Blackrock Depths",
+   52,
+   60,
+   "Blackrock Mountain (tra Searing Gorge e Burning Steppes)",
+   ""
+  ],
+  [
+   "Blackrock Spire",
+   55,
+   60,
+   "Blackrock Mountain",
+   ""
+  ],
+  [
+   "Blackmaw Hold ★",
+   55,
+   60,
+   "Azshara",
+   ""
+  ],
+  [
+   "Dire Maul",
+   55,
+   60,
+   "Feralas",
+   ""
+  ],
+  [
+   "Scholomance",
+   58,
+   60,
+   "Western Plaguelands",
+   ""
+  ],
+  [
+   "Stratholme",
+   58,
+   60,
+   "Eastern Plaguelands",
+   ""
+  ],
+  [
+   "The Shaper's Terrace ★",
+   58,
+   60,
+   "Un'Goro Crater",
+   "Si entra con i Power Crystal di Un'Goro."
   ]
  ],
  "notes": [
@@ -1635,5 +1747,267 @@
   "Zephras Alleanza: Valennia Stormfist dà Tower Defense (indice) e non Yorana Windyreed; Yorana dà Breaking the Breaker e Disrupting Logistics. Riportato nell'ordine dell'indice.",
   "Zephras Horde: Ayessa Dawnsinger è solo Horde (A Firm Response, Blood for Blood, A Grand Adventure). Tolta dalla versione Alleanza."
  ],
- "crates": "Marcy Baker, Three Corners (Redridge) <code>/way 9.5 71.1</code>"
+ "crates": "Marcy Baker, Three Corners (Redridge) <code>/way 9.5 71.1</code>",
+ "late": {
+  "first": [
+   {
+    "routes": [
+     "elwynn",
+     "dunmorogh",
+     "zephras_a"
+    ],
+    "segment": {
+     "from": 30,
+     "to": 33,
+     "zone": "Arathi Highlands",
+     "hub": "Refuge Pointe",
+     "note": "Wowhead 30–40."
+    },
+    "step": {
+     "title": "Arathi Highlands",
+     "levels": "30–33",
+     "town": "Refuge Pointe",
+     "zoneIcon": "achievement_zone_arathihighlands_01",
+     "text": "Da Menethil Harbor vai a nord-est oltre il Thandol Span fino a Refuge Pointe (Arathi Highlands, liv. 30–40). Hearthstone e Flight Path di Refuge Pointe; quest di Captain Nials (quelle di Skuerto sono di livello 39). 🟡",
+     "fp": "Refuge Pointe"
+    },
+    "milestones": [
+     {
+      "l": 30,
+      "t": "<b>Northfold Manor</b> da Captain Nials (Refuge Pointe).",
+      "npc": [
+       "Captain Nials"
+      ]
+     }
+    ]
+   },
+   {
+    "routes": [
+     "teldrassil"
+    ],
+    "segment": {
+     "from": 30,
+     "to": 33,
+     "zone": "Desolace",
+     "hub": "Nijel's Point",
+     "note": "Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35."
+    },
+    "step": {
+     "title": "Desolace",
+     "levels": "30–33",
+     "town": "Nijel's Point",
+     "zoneIcon": "achievement_zone_desolace",
+     "text": "Da Astranaar passa per Stonetalon Mountains e scendi a Desolace: Nijel’s Point (liv. 30–39). Flight Path e quest di Captain Pentigast, Kreldig Ungor e Vahlarriel Demonslayer. Le quest dei centauri Gelkis e Magram partono dal 35. Poi boat Ratchet → Booty Bay. 🟡",
+     "fp": "Nijel's Point"
+    },
+    "milestones": [
+     {
+      "l": 30,
+      "t": "<b>Centaur Bounty</b> da Corporal Melkins e <b>Vahlarriel's Search</b> da Vahlarriel Demonslayer (Nijel's Point).",
+      "npc": [
+       "Corporal Melkins",
+       "Vahlarriel Demonslayer"
+      ]
+     }
+    ]
+   }
+  ],
+  "segments": [
+   {
+    "from": 33,
+    "to": 36,
+    "zone": "Stranglethorn Vale",
+    "hub": "Rebel Camp / Booty Bay",
+    "note": "Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44)."
+   },
+   {
+    "from": 36,
+    "to": 44,
+    "zone": "Riverglades ★",
+    "hub": "Farholde Keep",
+    "note": "Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold."
+   },
+   {
+    "from": 44,
+    "to": 47,
+    "zone": "Tanaris",
+    "hub": "Gadgetzan",
+    "note": "Wowhead 40–50; Zul’Farrak 44–54."
+   },
+   {
+    "from": 47,
+    "to": 50,
+    "zone": "Feralas",
+    "hub": "Feathermoon Stronghold",
+    "note": "Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49)."
+   },
+   {
+    "from": 50,
+    "to": 53,
+    "zone": "Un'Goro Crater",
+    "hub": "Marshal's Refuge",
+    "note": "Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro."
+   },
+   {
+    "from": 53,
+    "to": 55,
+    "zone": "Felwood",
+    "hub": "Talonbranch Glade",
+    "note": "Wowhead 47–54."
+   },
+   {
+    "from": 55,
+    "to": 57,
+    "zone": "Winterspring",
+    "hub": "Everlook",
+    "note": "Wowhead 55–60."
+   },
+   {
+    "from": 57,
+    "to": 60,
+    "zone": "Western / Eastern Plaguelands",
+    "hub": "Chillwind Camp / Light's Hope Chapel",
+    "note": "Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59)."
+   },
+   {
+    "from": 60,
+    "to": 60,
+    "zone": "Mount Hyjal ★",
+    "hub": "Tainted Foothills",
+    "note": "Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta."
+   }
+  ],
+  "steps": [
+   {
+    "title": "Stranglethorn Vale",
+    "levels": "33–36",
+    "town": "Booty Bay",
+    "zoneIcon": "achievement_zone_stranglethorn_01",
+    "text": "Nord di Stranglethorn Vale (liv. 30–44): Rebel Camp (Lieutenant Doren, Sergeant Yohwa) e Nesingwary’s Expedition (Tiger, Panther e Raptor Mastery). Flight Path a Booty Bay, dove prendi anche le quest dei goblin. Da Kalimdor: boat Ratchet → Booty Bay. 🟡",
+    "fp": "Booty Bay"
+   },
+   {
+    "title": "Riverglades ★",
+    "levels": "36–44",
+    "town": "Farholde Keep",
+    "zoneIcon": "inv_misc_map_01",
+    "text": "★ Riverglades, la zona nuova di Forever a est di Badlands e Burning Steppes (liv. 36–44, più di 150 quest): l’Alleanza lavora a Farholde Keep con la Brotherhood of the Horse. Ci arrivi dalla strada nuova che parte da Redridge Mountains; la nave di Steamwheedle Port la collega a Tanaris. Flight Path di Farholde Keep. Dentro c’è il dungeon Krol’dok Stronghold (40–45). Le singole quest non sono ancora nelle banche dati: segui quelle di Farholde Keep. 🟡",
+    "fp": "Farholde Keep"
+   },
+   {
+    "title": "Tanaris",
+    "levels": "44–47",
+    "town": "Gadgetzan",
+    "zoneIcon": "achievement_zone_tanaris_01",
+    "text": "Nave da Riverglades a Steamwheedle Port, oppure boat Menethil Harbor → Theramore e volo. Gadgetzan (liv. 40–50): Chief Engineer Bilgewhizzle, Trenton Lighthammer e Senior Surveyor Fizzledowser. Zul’Farrak (44–54) è a nord-ovest. 🟡",
+    "fp": "Gadgetzan"
+   },
+   {
+    "title": "Feralas",
+    "levels": "47–50",
+    "town": "Feathermoon Stronghold",
+    "zoneIcon": "achievement_zone_feralas",
+    "text": "Feathermoon Stronghold, sull’isola al largo di Feralas (liv. 40–50): Shandris Feathermoon, Latronicus Moonspear e Ginro Hearthkindle. In alternativa The Hinterlands da Aerie Peak (41–49): Gryphon Master Talonaxe e Fraggar Thundermantle. 🟡",
+    "fp": "Feathermoon"
+   },
+   {
+    "title": "Un'Goro Crater",
+    "levels": "50–53",
+    "town": "Marshal's Refuge",
+    "zoneIcon": "achievement_zone_ungorocrater_01",
+    "text": "Marshal’s Refuge (liv. 48–55): Linken, J.D. Collie, Williden Marshal e Muigin. I Power Crystal di Un’Goro servono anche per il dungeon nuovo The Shaper’s Terrace (58–60). 🟡",
+    "fp": "Marshal's Refuge"
+   },
+   {
+    "title": "Felwood",
+    "levels": "53–55",
+    "town": "Talonbranch Glade",
+    "zoneIcon": "achievement_zone_felwood",
+    "text": "Talonbranch Glade, a nord di Felwood (liv. 47–54): Flight Path e quest contro la corruzione della foresta. A nord-est Timbermaw Hold porta a Winterspring. 🟡",
+    "fp": "Talonbranch Glade"
+   },
+   {
+    "title": "Winterspring",
+    "levels": "55–57",
+    "town": "Everlook",
+    "zoneIcon": "achievement_zone_winterspring",
+    "text": "Everlook (liv. 55–60): Gregor Greystone, Felnok Steelspring e Harlo Wigglesworth. 🟡",
+    "fp": "Everlook"
+   },
+   {
+    "title": "Western / Eastern Plaguelands",
+    "levels": "57–59",
+    "town": "Chillwind Camp",
+    "zoneIcon": "achievement_zone_westernplaguelands_01",
+    "text": "Chillwind Camp, Western Plaguelands (liv. 46–57): Commander Ashlam Valorfist e High Priestess MacDonnell. Poi Light’s Hope Chapel, Eastern Plaguelands (54–59), per l’Argent Dawn. In alternativa Burning Steppes da Morgan’s Vigil (50–59). 🟡",
+    "fp": "Chillwind Camp"
+   },
+   {
+    "title": "Mount Hyjal ★",
+    "levels": "60",
+    "town": "Tainted Foothills",
+    "zoneIcon": "inv_misc_map_01",
+    "text": "★ Mount Hyjal, la zona nuova di fine leveling (mostri 54–60): base a Tainted Foothills, con il Flight Path. Le sue quest non erano nella beta. Dal 9 dicembre i raid Hyjal Summit e Barrow Deeps. 🟡",
+    "fp": "Tainted Foothills"
+   }
+  ],
+  "milestones": [
+   {
+    "l": 33,
+    "t": "<b>Tiger Mastery</b> e <b>Panther Mastery</b> a Nesingwary's Expedition (Ajeck Rouack, Sir S. J. Erlgadin); <b>The Second Rebellion</b> da Sergeant Yohwa (Rebel Camp).",
+    "npc": [
+     "Ajeck Rouack",
+     "Sir S. J. Erlgadin",
+     "Sergeant Yohwa"
+    ]
+   },
+   {
+    "l": 44,
+    "t": "<b>Wastewander Justice</b> da Chief Engineer Bilgewhizzle (Gadgetzan).",
+    "npc": [
+     "Chief Engineer Bilgewhizzle"
+    ]
+   },
+   {
+    "l": 47,
+    "t": "<b>Against the Hatecrest</b> e <b>The Ruins of Solarsal</b> da Shandris Feathermoon (Feathermoon Stronghold).",
+    "npc": [
+     "Shandris Feathermoon"
+    ]
+   },
+   {
+    "l": 50,
+    "t": "<b>Crystals of Power</b> da J.D. Collie e <b>Expedition Salvation</b> da Williden Marshal (Marshal's Refuge).",
+    "npc": [
+     "J.D. Collie",
+     "Williden Marshal"
+    ]
+   },
+   {
+    "l": 55,
+    "t": "<b>The Everlook Report</b> da Gregor Greystone (Everlook).",
+    "npc": [
+     "Gregor Greystone"
+    ]
+   },
+   {
+    "l": 57,
+    "t": "<b>Clear the Way</b> e <b>Dispelling Evil</b> da Commander Ashlam Valorfist; <b>Target: Felstone Field</b> da High Priestess MacDonnell (Chillwind Camp).",
+    "npc": [
+     "Commander Ashlam Valorfist",
+     "High Priestess MacDonnell"
+    ]
+   }
+  ]
+ },
+ "milestones": [
+  {
+   "l": 40,
+   "t": "<b>Riding</b> (Apprentice, circa 100 g) dal Riding trainer della tua razza: la prima mount. 🟡"
+  },
+  {
+   "l": 60,
+   "t": "<b>Journeyman Riding</b> (circa 1000 g): mount veloce. 🟡"
+  }
+ ]
 }

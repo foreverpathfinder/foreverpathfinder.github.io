@@ -137,7 +137,10 @@ check(ForeverPathfinder_OnCompartment ~= nil, "voce nel riquadro degli addon")
 mb.o.OnClick(nil, "LeftButton")
 check(f.shown, "il clic sull'icona apre la finestra")
 check(has(g.name), "titolo con " .. g.name)
-check(has(lang == "it" and "TAPPA" or "STAGE") and has("/ 9"), "tappa 1 di 9")
+-- il numero di tappe cambia con la razza; dall'8 nov il percorso arriva al 60 (almeno 17 tappe)
+local nStages = 0
+for _, t in ipairs(shownTexts()) do local n = tonumber(t:match("^/ (%d+)$")); if n then nStages = n end end
+check(has(lang == "it" and "TAPPA" or "STAGE") and nStages >= 17, "tappa 1 di N fino al 60 (trovate " .. nStages .. ")")
 check(#boxes() > 0, "voci da spuntare")
 -- 2) un punto talento libero: la riga gialla dice quale prendere
 FREE = 1; f.scripts.OnEvent(f, "CHARACTER_POINTS_CHANGED")

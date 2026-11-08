@@ -4,7 +4,7 @@
  "resource": "Rage",
  "spec": "Protection",
  "specIcon": "ability_warrior_defensivestance",
- "summary": "Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 124 ♥), Icy Veins la chiama \"the fastest Warrior spec for leveling\" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 124 ♥, agg. 6 nov); Fury non decolla prima del 36–40.",
+ "summary": "Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 138 ♥), Icy Veins la chiama \"the fastest Warrior spec for leveling\" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (165 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 165 ♥, agg. 6 nov); Fury non decolla prima del 36–40.",
  "build": [
   "Shield Specialization",
   "Shield Specialization",
@@ -18,19 +18,19 @@
   "Improved Thunder Clap",
   "Master of Defense",
   "Master of Defense",
+  "Last Stand",
   "Improved Thunder Clap",
-  "Improved Bloodrage",
-  "Improved Bloodrage",
+  "Defiance",
   "Vanguard",
   "Defiance",
   "Defiance",
-  "Defiance",
-  "Improved Sunder Armor",
+  "Improved Bloodrage",
+  "Improved Bloodrage",
   "Concussion Blow",
   "Focused Rage",
   "Focused Rage",
   "Focused Rage",
-  "Improved Sunder Armor",
+  "Improved Shield Wall",
   "Bastion",
   "Bastion",
   "Bastion",
@@ -42,23 +42,23 @@
   "Cruelty",
   "Cruelty",
   "Cruelty",
+  "Lingering Rage",
+  "Lingering Rage",
+  "Lingering Rage",
+  "Lingering Rage",
+  "Lingering Rage",
+  "Enrage",
+  "Enrage",
+  "Enrage",
+  "Enrage",
+  "Enrage",
+  "Improved Rend",
+  "Improved Rend",
+  "Improved Rend",
   "Deflection",
-  "Deflection",
-  "Deflection",
-  "Deflection",
-  "Deflection",
-  "Improved Tactical Mastery",
-  "Improved Tactical Mastery",
-  "Improved Tactical Mastery",
-  "Improved Overpower",
-  "Improved Overpower",
-  "Anger Management",
-  "Improved Sunder Armor",
-  "Improved Charge",
-  "Improved Charge",
-  "Unbridled Wrath"
+  "Deflection"
  ],
- "buildSource": "wowforever.be (client) = consenso Protection: Shield Specialization → Improved Revenge → Defiance (Icy Veins, snippet) / Master of Defense + Vanguard + Bastion + Focused Rage (Method, Zockify); Concussion Blow al 30 e Shield Slam al 40 (Zockify, Icy Veins). 31–60: solo wowforever.be (nessun'altra fonte con ordine 31–60 trovata): finisce Protection (Shield Slam 40), poi passa a Cruelty 41–45, Deflection 46–50, Improved Tactical Mastery 51–55, Anger Management 56, Improved Sunder Armor 57, Improved Charge 58–59, Unbridled Wrath 60 (pensata per Dual Spec dal 40 / respec).",
+ "buildSource": "Mobalytics Ahlaundoh «Warrior Leveling 1-60», scheda Protection 1-60 (165 ♥, la guida Warrior più votata, agg. 6 nov): ordine 10–60 per livello, 5/15/31 al 60. Fino al 40 è quasi uguale a wowforever.be (client) e al consenso Protection (Shield Specialization → Improved Revenge → Defiance; Concussion Blow al 30, Shield Slam al 40); dopo il 40 Cruelty 41–45, Lingering Rage 46–50, Enrage 51–55, Improved Rend 56–58, Deflection 59–60. Anche KallTorak (138 ♥) dopo il 40 va su Fury (Cruelty, Unbridled Wrath, Enrage). Fino all’8 nov il 31–60 veniva solo da wowforever.be (Deflection, Improved Tactical Mastery, Anger Management).",
  "why": {
   "Shield Specialization": "+5% Block e 5 Rage a ogni Block: è tutta la Rage economy della build, quindi va al 5/5 per primo (Method, Icy Veins, wowforever.be).",
   "Improved Revenge": "+60% danno di Revenge (14+), la tua abilità principale in Defensive Stance dopo block/dodge/parry.",
@@ -84,9 +84,20 @@
   "Spearing Strike": "Attacco da 75% weapon damage, +75% contro Giants, Dragonkin e bersagli a cavallo (Ahlaundoh al 25).",
   "Two-Handed Weapon Specialization": "+6% danni con le armi a due mani (3/3): la base della build Arms.",
   "Impale": "+20% al bonus dei crit delle tue abilità (2/2): Mortal Strike e Overpower colpiscono più forte.",
-  "Sweeping Strikes": "I prossimi 5 attacchi in melee colpiscono anche un secondo mob vicino: per i pull da due (30)."
+  "Sweeping Strikes": "I prossimi 5 attacchi in melee colpiscono anche un secondo mob vicino: per i pull da due (30).",
+  "Last Stand": "Attivo: +30% della vita massima per 20 s, poi la perdi; 3 min di cooldown. Salva i pull andati male.",
+  "Improved Shield Wall": "Accorcia il cooldown di Shield Wall (2 rank): lo hai più spesso per i pull grandi.",
+  "Lingering Rage": "Fuori dal combattimento la Rage inizia a calare 10 s più tardi (a 5/5): arrivi al pull successivo con Rage.",
+  "Enrage": "Quando subisci un colpo hai il 30% di probabilità di fare +10% di danno fisico per 12 s (a 5/5): con lo scudo ti colpiscono spesso, quindi è quasi sempre attivo."
  },
  "compare": [
+  {
+   "source": "Mobalytics – Ahlaundoh, Warrior Leveling 1-60 (scheda Protection 1-60)",
+   "signal": "165 ♥ (guida Warrior più votata), agg. 6 nov, 5/15/31 al 60",
+   "l10_19": "Shield Specialization 5 (10–14), Improved Revenge 3 (15–17), Improved Thunder Clap 2 (18–19)",
+   "l20": "Master of Defense 2 (20–21)",
+   "l21_30": "Last Stand 22, Improved Thunder Clap 23, Defiance 24, Vanguard 25, Defiance 26–27, Improved Bloodrage 28–29, Concussion Blow 30. Poi Focused Rage 31–33, Improved Shield Wall 34, Bastion 35–39, Shield Slam 40, Cruelty 41–45, Lingering Rage 46–50, Enrage 51–55, Improved Rend 56–58, Deflection 59–60."
+  },
   {
    "source": "wowforever.be – build di leveling (client 1.60.1.70707)",
    "signal": "dati client, 1 nov",
@@ -96,10 +107,10 @@
   },
   {
    "source": "Mobalytics – KallTorak, Protection Warrior Guide (leveling + end game)",
-   "signal": "82 ♥ (guida Warrior più salvata), 30 ott, finisce 0/0/21 al 30",
+   "signal": "138 ♥, agg. 7 nov; 0/0/21 al 30, 3/15/33 per il 30–60, ordine per livello solo nella build da 60 (endgame)",
    "l10_19": "ordine per livello non letto (pagina bloccata)",
    "l20": "non trovato",
-   "l21_30": "totale 0/0/21 come wowforever.be (stesso numero di punti in Protection)"
+   "l21_30": "totale 0/0/21 come wowforever.be; dopo Shield Slam la build da 60 va su Cruelty, Unbridled Wrath ed Enrage"
   },
   {
    "source": "Icy Veins – Protection Warrior Leveling (WoW Forever)",
@@ -131,7 +142,7 @@
   },
   {
    "source": "Mobalytics – Ahlaundoh, Warrior Leveling 1-60 (Verified, Arms)",
-   "signal": "124 ♥, agg. 6 nov, 32/19/0 al 60",
+   "signal": "165 ♥, agg. 6 nov, 32/19/0 al 60",
    "l10_19": "Improved Rend 3 (10–12), Deflection, Improved Overpower, Improved Charge",
    "l20": "Deep Wounds 3 (20–22)",
    "l21_30": "Deflection 5, Spearing Strike (25), Two-Handed Weapon Specialization 3, Impale, Sweeping Strikes (30); poi Bloodthrill, Weaponmaster, Improved Slam, Mortal Strike al 40, Fury dal 42"
@@ -354,6 +365,12 @@
  ],
  "talentSpells": [
   [
+   22,
+   "Last Stand",
+   "spell_holy_ashestoashes",
+   "Talent Protection: +30% della vita massima per 20 s, poi la perdi; 3 min di cooldown."
+  ],
+  [
    25,
    "Vanguard",
    "ability_warrior_shieldcharge",
@@ -483,7 +500,7 @@
      "Shield Wall (28)"
     ]
    ],
-   "text": "Protection è la spec che regge meglio i pack (Warcraft Tavern, Zockify): Demoralizing Shout (14) + Thunder Clap (-20% velocità d'attacco, 4 bersagli), poi Revenge e Cleave (20) al posto di Heroic Strike. Cooldown da usare per pullare di più: Intimidating Shout (22), Retaliation, Shield Wall (28), Last Stand (se preso)."
+   "text": "Protection è la spec che regge meglio i pack (Warcraft Tavern, Zockify): Demoralizing Shout (14) + Thunder Clap (-20% velocità d'attacco, 4 bersagli), poi Revenge e Cleave (20) al posto di Heroic Strike. Cooldown da usare per pullare di più: Intimidating Shout (22), Retaliation, Shield Wall (28), Last Stand (22)."
   }
  ],
  "rotNotes": [
@@ -661,6 +678,14 @@
  ],
  "sources": [
   {
+   "name": "Mobalytics – Warrior Leveling 1-60, Protection 1-60 (Ahlaundoh)",
+   "url": "https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide",
+   "author": "Ahlaundoh",
+   "date": "agg. 6 nov 2026",
+   "signal": "165 ♥: la guida Warrior più votata",
+   "used": "ordine dei talent Protection 10–60 (dall’8 nov)"
+  },
+  {
    "name": "wowforever.be – Build di leveling Warrior",
    "url": "https://wowforever.be/leveling/warrior/",
    "author": "wowforever.be",
@@ -782,9 +807,9 @@
  ],
  "doubts": [
   "🟡 Ordine per livello di Icy Veins, Mobalytics (KallTorak, Kargoz), Siax e Tactyks non letto (pagine bloccate / video senza sottotitoli): verifica dell'ordine solo tramite totali e snippet; wowforever.be è l'unico ordine completo.",
-  "🟡 31–60: unica fonte wowforever.be; la build torna a spezzoni Fury/Arms dopo il 40 (Cruelty, Deflection, Improved Tactical Mastery), probabile pensiero per respec/Dual Spec. Non confermata altrove.",
+  "🟡 31–60: dall’8 nov ordine di Ahlaundoh (Protection 1-60). Dopo il 40 i punti vanno in Fury e Arms (Lingering Rage, Enrage, Improved Rend), come fa anche KallTorak (Unbridled Wrath, Enrage); wowforever.be invece prendeva Deflection e Improved Tactical Mastery.",
   "🟡 Defiance 3/3 (26–28) è tank-oriented; per solo leveling potrebbe valere altro, ma nessuna fonte propone un'alternativa con ordine; Warcraft Tavern suggerisce di spostare punti su Improved Thunder Clap (già 3/3 qui).",
-  "Last Stand (talent) non è nella build di wowforever.be; nessuna fonte letta spiega perché.",
+  "Last Stand (talent): Ahlaundoh lo prende al 22, wowforever.be no.",
   "Dove ottenere le armi/scudi elencati da Zockify: non trovato. Nome e valore del camp object di Blacksmithing: non trovato.",
   "Racial: Human Ruthless 1% (Tavern, tooltip) vs 2% (note 16 ott); Orc Blood Fury CD 2 min (tooltip) vs 3 min (note 16 ott); Berserking durata 15 s (tooltip) vs 10 s (Tavern).",
   "Zockify vs Warcraft Tavern: Zockify dice Whirlwind Weapon quest livello 40; Method/Zockify citano Alterac Mountains; nome quest Berserker Stance diverso tra fonti (The Islander / The Affray).",
@@ -794,7 +819,7 @@
   "🟡 Mapping NPC per razza per il 10: indice dà Lyria Du Lac e Ilsa Corbin (A) e Uzzek (H), ma non lega ogni NPC a una razza.",
   "🟡 Quest armatura/arma al 20 (Brutal Hauberk, Fire Hardened Hauberk, Welding Shield): nessuna trovata nell'indice Forever. Non inserite come quest finché non confermate in gioco.",
   "🟡 Whirlwind Axe: l'indice dà The Summoning a livello 40, non 30 come nel JSON precedente.",
-  "🟡 3 nov: Improved Tactical Mastery ha 3 rank invece di 5; i 2 punti liberati al 54–55 vanno su Improved Overpower (come la build Protection di wowforever.gg). Scelta mia."
+  "🟡 3 nov: Improved Tactical Mastery ha 3 rank invece di 5; dall’8 nov la build A non lo prende più (ordine di Ahlaundoh)."
  ],
  "builds": [
   {
@@ -804,13 +829,13 @@
    "icon": "ability_warrior_defensivestance",
    "when": "Livellare da soli con scudo: è la spec più raccomandata per il solo leveling sulle fonti Forever fino al ~40.",
    "pros": [
-    "Build 10–40 completa dal client wowforever.be",
+    "Ordine 10–60 della guida Warrior più votata (Ahlaundoh), quasi uguale a wowforever.be fino al 40",
     "Revenge e Shield Specialization danno Rage e tengono il ritmo nei pack",
     "Consenso di Mobalytics, Icy Veins e Zockify per il solo leveling"
    ],
    "cons": [
     "Revenge richiede block, dodge o parry per dare Rage",
-    "Oltre il 40 la build torna a spezzoni Fury/Arms, poco verificati"
+    "Dopo il 40 i punti vanno in Fury (Cruelty, Enrage) e Arms: aiutano, ma non cambiano la rotazione Protection"
    ],
    "ratings": {
     "speed": [
@@ -841,11 +866,18 @@
    },
    "sources": [
     {
+     "name": "Mobalytics – Warrior Leveling 1-60, scheda Protection (Ahlaundoh)",
+     "url": "https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide",
+     "date": "agg. 6 nov 2026",
+     "signal": "165 ♥: la guida Warrior più votata",
+     "used": "ordine 10–60"
+    },
+    {
      "name": "wowforever.be – Build di leveling Warrior",
      "url": "https://wowforever.be/leveling/warrior/",
      "date": "1 nov 2026 (client 1.60.1.70707)",
      "signal": "dati client, ordine 10–60",
-     "used": "build 10–60"
+     "used": "build 10–60 fino all’8 nov"
     },
     {
      "name": "Icy Veins – Protection Warrior Leveling",
@@ -1038,11 +1070,11 @@
   }
  ],
  "buildDoubts": [
-  "Arms (B): dal 6 nov ordine 10–60 di Mobalytics Ahlaundoh (124 ♥, agg. 6 nov), letto per livello.",
+  "Arms (B): dal 6 nov ordine 10–60 di Mobalytics Ahlaundoh (165 ♥, agg. 6 nov), letto per livello.",
   "Icy Veins dice Slam al 20 e Spearing Strike al 25: non usato, perché Improved Slam richiede 25 punti Arms.",
   "Method cita Cruelty come primo talent e Unbridled Wrath a fine build: non inserito in B. Unbridled Wrath richiede 5 punti in Fury.",
   "Fury (Kargoz, 0/21/0 a 30): solo totali, nessun ordine per livello leggibile. Non proposta come C.",
   "Icy Veins (pagina Arms) risponde 403: l'ordine Arms non è stato letto direttamente.",
-  "🟡 Protection (A): 31–60 solo da wowforever.be; la sequenza dopo il 40 non è confermata da altre fonti."
+  "Protection (A): dall’8 nov ordine 10–60 di Mobalytics Ahlaundoh (scheda Protection 1-60, 165 ♥), letto per livello."
  ]
 }

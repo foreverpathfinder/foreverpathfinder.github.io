@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–30 (v12)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v13)
 
-> Aggiornato: **6 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **8 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -17,7 +17,7 @@
 | Undead | Orda | Tirisfal Glades (Undead) | Mage, Paladin, Priest, Rogue, Warlock, Warrior |
 | Skyborne Windshaper | Orda | Zephras Isle (Skyborne Windshaper) | Druid, Hunter, Rogue, Shaman, Warrior |
 
-## Build per classe (talent point 10–30)
+## Build per classe (talent point 10–60)
 
 ### Druid – Feral
 Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez) 'la scelta più veloce e popolare', mmonster (tier list del 5 nov) e Mobalytics. Dal 6 nov la build A è quella di Mobalytics yumytv (87 ♥, guida Druid 1–60 aggiornata dopo il lancio): Ferocity, Furor 5 (Energy e Rage quando cambi forma), Feral Swiftness, Sharpened Claws e Savage Fury, Feral Charge al 24, Leader of the Pack al 30, Shifting Power al 40; poi Balance (Genesis, Nature's Majesty) e Restoration (Heart of the Wild, Naturalist), 9/31/11 al 60. wowforever.be (dati client) fa 0/34/17.
@@ -32,20 +32,42 @@ Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliat
 - 26–27: Blood Frenzy 2/2
 - 28–29: Predatory Strikes 2/3
 - 30: Leader of the Pack 1/1
+- 31–32: Natural Instinct 2/2
+- 33: Predatory Strikes 3/3
+- 34: Ferocity 4/5
+- 35–39: Rend and Tear 5/5
+- 40: Shifting Power 1/1
+- 41–45: Genesis 5/5
+- 46–47: Nature's Majesty 2/2
+- 48–49: Nature's Reach 2/2
+- 50–54: Heart of the Wild 5/5
+- 55–59: Naturalist 5/5
+- 60: Natural Shapeshifter 1/3
 
 ### Hunter – Beast Mastery
-Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Mobalytics (Crix 62 ♥, Feor 38 ♥, Kargoz 30 ♥) e Zockify (25 ott), e la build di wowforever.be (client) è BM. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. L’ordine 10–30 è quello di Method/wowforever.be (legale sul client) con Summon Hawk al 25 e Intimidation al 30; 31–60 segue Zockify (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.
+Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Zockify (25 ott) e la guida Hunter più votata di Mobalytics (Feor, 222 ♥, Verified, agg. 7 nov), che dà l’ordine livello per livello dal 10 al 60. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. La build segue Feor: Pathfinding al 20–21, Summon Hawk al 25, Intimidation al 30, Bestial Wrath al 40, poi 20 punti in Marksmanship (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.
 
 - 10–14: Deadly Aspects 5/5
 - 15–16: Focused Fire 2/2
-- 17: Improved Revive Pet 1/2
-- 18–19: Endurance Training 2/5
-- 20–24: Unleashed Fury 5/5
+- 17–18: Improved Revive Pet 2/2
+- 19: Endurance Training 1/5
+- 20–21: Pathfinding 2/2
+- 22: Bestial Swiftness 1/1
+- 23–24: Unleashed Fury 2/5
 - 25: Summon Hawk 1/1
-- 26: Improved Revive Pet 2/2
-- 27–28: Ferocity 2/5
-- 29: Bestial Swiftness 1/1
+- 26–27: Unleashed Fury 4/5
+- 28–29: Ferocity 2/5
 - 30: Intimidation 1/1
+- 31–32: Bestial Discipline 2/2
+- 33–35: Ferocity 5/5
+- 36–39: Frenzy 4/5
+- 40: Bestial Wrath 1/1
+- 41–45: Lethal Attacks 5/5
+- 46–50: Careful Aim 5/5
+- 51–52: Rapid Killing 2/2
+- 53–55: Hawk Eye 3/3
+- 56: Trueshot Aura 1/1
+- 57–60: Mortal Shots 4/5
 
 ### Mage – Frost
 Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, 112 preferiti, agg. 4 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a wowforever.be (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.
@@ -58,7 +80,19 @@ Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salv
 - 25: Ice Block 1/1
 - 26–28: Shatter 3/3
 - 29: Ice Shards 5/5
-- 30: Fingers of Frost 1/2
+- 30–31: Fingers of Frost 2/2
+- 32: Cold Snap 1/1
+- 33–34: Improved Cone of Cold 2/3
+- 35–39: Winter's Chill 5/5
+- 40: Ice Barrier 1/1
+- 41: Improved Cone of Cold 3/3
+- 42: Frostbite 3/3
+- 43–45: Frost Channeling 3/3
+- 46–48: Improved Blizzard 3/3
+- 49–53: Improved Channeling 5/5
+- 54: Missile Barrage 1/2
+- 55–56: Arcane Subtlety 2/2
+- 57–60: Arcane Concentration 4/5
 
 ### Paladin – Retribution
 Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordine dei talent è quello della guida Paladin più votata, Mobalytics yumytv (102 ♥, agg. 1 nov): Deflection 10–14, Conviction, Improved Judgement, Pursuit of Justice e Seal of Command al 22, poi Sanctified Judgement e Two-Handed Weapon Specialization; split finale 12 Holy / 8 Protection / 31 Retribution, come Zockify. Concordano sulla spec anche Maxroll, Conquest Capped e Icy Veins. wowforever.be (dati client) apre invece in Holy: la trovi come build B.
@@ -72,7 +106,16 @@ Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordi
 - 25–27: Two-Handed Weapon Specialization 3/3
 - 28: Sacred Arbiter 1/1
 - 29: Sanctified Judgement 3/3
-- 30: Vengeance 1/3
+- 30–32: Vengeance 3/3
+- 33: Repentance 1/1
+- 34: Benediction 1/5
+- 35–39: Champion of the Light 5/5
+- 40: Unsealed Wrath 1/1
+- 41–45: Divine Strength 5/5
+- 46–47: Reverence 2/2
+- 48–52: Improved Seals 5/5
+- 53–57: Divine Intellect 5/5
+- 58–60: Precision 3/3
 
 ### Priest – Shadow
 Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug (128 ♥, Verified, agg. 4 nov), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Mind Flay al 22, Vampiric Embrace al 27, Shadow Weaving (28–30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.
@@ -86,6 +129,20 @@ Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalyti
 - 25–26: Shadow Focus 5/5
 - 27: Vampiric Embrace 1/1
 - 28–30: Shadow Weaving 3/3
+- 31: Dark Inspiration 1/5
+- 32: Silence 1/1
+- 33–34: Devouring Contagion 2/2
+- 35–36: Dark Inspiration 3/5
+- 37–41: Darkness 5/5
+- 42: Shadowform 1/1
+- 43–45: Twin Disciplines 3/5
+- 46–47: Martyrdom 2/2
+- 48–49: Twin Disciplines 5/5
+- 50: Mental Strength 1/5
+- 51–53: Meditation 3/3
+- 54–56: Mental Agility 3/3
+- 57–59: Improved Power Word: Shield 3/3
+- 60: Inner Focus 1/1
 
 ### Rogue – Combat
 Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): dal 6 nov l'ordine è quello di Mobalytics Djexde (agg. 5 nov), con la stessa ripartizione 16/35/0 di Rogue’s Diary (agg. 4 nov): Remorseless Attacks subito, Endurance al 24–25, Blade Flurry al 32, Adrenaline Rush al 42. La variante con pugnale (Puncturing Wounds, wowforever.gg) è la build C.
@@ -100,7 +157,21 @@ Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore
 - 24–25: Endurance 2/2
 - 26: Lightning Reflexes 1/5
 - 27–28: Weapon Expertise 2/2
-- 29–30: Aggression 2/3
+- 29–31: Aggression 3/3
+- 32: Blade Flurry 1/1
+- 33–34: Dual Wield Specialization 2/2
+- 35–36: Hack and Slash 2/5
+- 37–41: Flash of Steel 5/5
+- 42: Adrenaline Rush 1/1
+- 43–45: Hack and Slash 5/5
+- 46–48: Malice 3/5
+- 49–51: Improved Slice and Dice 3/3
+- 52–53: Malice 5/5
+- 54–55: Vigor 2/2
+- 56: Blood Splatter 1/1
+- 57–58: Lethality 2/2
+- 59: Cold Blood 1/1
+- 60: Flawless Execution 1/1
 
 ### Shaman – Enhancement
 Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui convergono Method (Erik, agg. 23 ott: "la più forte"), Warcraft Tavern ("la via più pulita"), Mobalytics Tiqqle (175 ♥, Verified, agg. 6 nov: la guida Shaman più salvata) e wowforever.be (dati client). Ordine di Tiqqle: Thundering Strikes, Mental Dexterity, Ancestral Knowledge, Shamanistic Focus al 20, Elemental Weapons, Stormstrike al 25, Improved Ghost Wolf, Flurry; dal 32 undici punti in Restoration (Tidal Focus, Mindfulness, Totemic Focus) per Water Shield al 42, come NickTew (67 ♥). Il Mana è il vero limite: Elemental e Resto sono più lenti da soli.
@@ -114,7 +185,19 @@ Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui conve
 - 25: Stormstrike 1/1
 - 26–27: Improved Ghost Wolf 2/2
 - 28–29: Flurry 2/5
-- 30: Improved Stormstrike 1/2
+- 30–31: Improved Stormstrike 2/2
+- 32–36: Tidal Focus 5/5
+- 37–39: Mindfulness 3/3
+- 40–41: Totemic Focus 2/5
+- 42: Water Shield 1/1
+- 43–44: Mental Quickness 2/2
+- 45: Flurry 3/5
+- 46–50: Maelstrom Weapon 5/5
+- 51: Rage of the Farseer 1/1
+- 52: Spirit Weapons 1/1
+- 53–54: Flurry 5/5
+- 55–56: Ancestral Knowledge 5/5
+- 57–60: Concussion 4/5
 
 ### Warlock – Affliction
 Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 337 ♥, agg. 5 nov, la guida Warlock più salvata): Pandemic al 33–34 e al 40, Siphon Life e Wrack solo come punti liberi; è in linea con Warcraft Tavern, Maxroll, wowforeverbuilds e Kargoz (drain tank dal 22–30). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives. Finale 41/10/0, vicino al 40/11/0 di Icy Veins/Skidrow.
@@ -125,21 +208,41 @@ Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più cons
 - 22–24: Improved Drains 3/3
 - 25–26: Nightfall 2/2
 - 27–29: Fel Concentration 3/3
-- 30: Soul Siphon 1/3
+- 30–32: Soul Siphon 3/3
+- 33–34: Pandemic 2/3
+- 35–39: Shadow Mastery 5/5
+- 40: Pandemic 3/3
+- 41–45: Unholy Power 5/5
+- 46–47: Demonic Energies 2/2
+- 48–52: Malevolence 5/5
+- 53–55: Fel Vitality 3/3
+- 56–57: Improved Bane of Agony 2/2
+- 58–59: Soul Harvest 2/2
+- 60: Siphon Life 1/1
 
 ### Warrior – Protection
-Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 124 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 124 ♥, agg. 6 nov); Fury non decolla prima del 36–40.
+Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 138 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (165 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 165 ♥, agg. 6 nov); Fury non decolla prima del 36–40.
 
 - 10–14: Shield Specialization 5/5
 - 15–17: Improved Revenge 3/3
 - 18–19: Improved Thunder Clap 2/3
 - 20–21: Master of Defense 2/2
-- 22: Improved Thunder Clap 3/3
-- 23–24: Improved Bloodrage 2/2
+- 22: Last Stand 1/1
+- 23: Improved Thunder Clap 3/3
+- 24: Defiance 1/3
 - 25: Vanguard 1/1
-- 26–28: Defiance 3/3
-- 29: Improved Sunder Armor 1/3
+- 26–27: Defiance 3/3
+- 28–29: Improved Bloodrage 2/2
 - 30: Concussion Blow 1/1
+- 31–33: Focused Rage 3/3
+- 34: Improved Shield Wall 1/2
+- 35–39: Bastion 5/5
+- 40: Shield Slam 1/1
+- 41–45: Cruelty 5/5
+- 46–50: Lingering Rage 5/5
+- 51–55: Enrage 5/5
+- 56–58: Improved Rend 3/3
+- 59–60: Deflection 2/5
 
 ## Rotte per zona iniziale
 
@@ -154,6 +257,16 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 18–23 | Westfall / Redridge Mountains | Lakeshire | Deadmines con le quest (17-26), poi Lakeshire e Three Corners. |
 | 22–27 | Duskwood | Darkshire | Night Watch, Stalvan, Embalmer, worgen. |
 | 27–30 | Wetlands | Menethil Harbor | Excavation Site: Wetlands (24-29); a 30 verso Hillsbrad / Arathi. |
+| 30–33 | Arathi Highlands | Refuge Pointe | Wowhead 30–40. |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
+| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ### Dun Morogh
 | Livelli | Zona | Hub | Note |
@@ -167,6 +280,16 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 18–23 | Redridge Mountains | Lakeshire | Deadmines (17-26), Three Corners per le crates. |
 | 22–27 | Duskwood | Darkshire | Night Watch, Stalvan. |
 | 27–30 | Wetlands | Menethil Harbor | Excavation Site: Wetlands; Gnomeregan (29-38) dal 29-30 in gruppo. |
+| 30–33 | Arathi Highlands | Refuge Pointe | Wowhead 30–40. |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
+| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ### Teldrassil
 | Livelli | Zona | Hub | Note |
@@ -179,6 +302,16 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 19–24 | Ashenvale | Astranaar | Maestra's Post, Zoram Strand, Silverwind Refuge; Blackfathom Deeps (24-32) dal 24. |
 | 24–27 | Stonetalon Mountains | Stonetalon Peak | Pridewings of Stonetalon, On Guard in Stonetalon (breadcrumb di Astranaar). |
 | 27–30 | Ashenvale | Astranaar | Raene's Cleansing, Forest Song, Geltharis; poi Duskwood via boat Auberdine → Stormwind, o Hillsbrad. |
+| 30–33 | Desolace | Nijel's Point | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
+| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ### Zephras Isle (Skyborne High Order)
 | Livelli | Zona | Hub | Note |
@@ -192,6 +325,16 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 12–14 | Skycutter → Dalaran → Stormwind | Valanaar | Lasci l'isola a ~12-14. |
 | 13–18 | Westfall | Sentinel Hill | Entri nella rotta comune da Stormwind. |
 | 18–30 | Redridge / Duskwood / Wetlands | Lakeshire | Rotta comune (come Elwynn). |
+| 30–33 | Arathi Highlands | Refuge Pointe | Wowhead 30–40. |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
+| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ### Durotar (Orc e Troll)
 | Livelli | Zona | Hub | Note |
@@ -205,6 +348,16 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 20–23 | Stonetalon Mountains | Sun Rock Retreat | Prima visita 18–22; Stonetalon 15–25 sulla mappa. |
 | 22–27 | Ashenvale | Splintertree Post | Splintertree Post e Zoram'gar; Blackfathom Deeps dal 24. Ashenvale 19–30 sulla mappa. |
 | 27–30 | Thousand Needles / Barrens | Freewind Post | Oppure avanzi dei Barrens e seconda visita a Stonetalon (24–27). |
+| 30–33 | Desolace | Shadowprey Village | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
+| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ### Mulgore (Tauren)
 | Livelli | Zona | Hub | Note |
@@ -218,6 +371,16 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 20–23 | Stonetalon Mountains | Sun Rock Retreat | Dal flight path di Thunder Bluff arrivi a Sun Rock Retreat. |
 | 22–27 | Ashenvale | Splintertree Post | Come Orc e Troll. |
 | 27–30 | Thousand Needles / Barrens | Freewind Post | Con Thunder Bluff → Freewind Post (flight). |
+| 30–33 | Desolace | Shadowprey Village | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
+| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ### Tirisfal Glades (Undead)
 | Livelli | Zona | Hub | Note |
@@ -229,6 +392,16 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 19–25 | Hillsbrad Foothills | Tarren Mill | Arrivo a 19–20. Battle of Hillsbrad, Elixir chains. Hillsbrad 20–31 sulla mappa. |
 | 21–27 | Silverpine Forest | The Sepulcher | Ritorno per elite lasciate (The Weaver, Beren's Peril) e Shadowfang Keep (22–30). |
 | 26–30 | Tirisfal / Alterac | Tarren Mill | Scarlet Monastery Graveyard (SM 26–45) o City of Dalaran (28–33, Alterac Mountains 16.7 68.8). Arathi Highlands dal 30. |
+| 30–33 | Arathi Highlands | Hammerfall | Wowhead 30–40. |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
+| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ### Zephras Isle (Skyborne Windshaper)
 | Livelli | Zona | Hub | Note |
@@ -242,14 +415,24 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 18–23 | The Barrens / Stonetalon | Camp Taurajo | Come Orc, Troll e Tauren. |
 | 22–27 | Ashenvale | Splintertree Post | Come le altre razze Kalimdor. |
 | 27–30 | Thousand Needles / Barrens | Freewind Post | Fine rotta. |
+| 30–33 | Desolace | Shadowprey Village | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
+| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
+| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
+| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
 
 ## Fonti principali
 - [wowforever.be – Druid leveling build (client 1.60.1.70707)](https://wowforever.be/leveling/druid/) · letto 1 nov · dati client (albero post-hotfix)
 - [wowforever.be news – Druids and Paladins get reshuffled talent trees](https://wowforever.be/news/druids-and-paladins-get-reshuffled-talent-trees/) · 31 ott · news pre-lancio
 - [GitHub alsh0083/wowforever-helper issue #455](https://github.com/alsh0083/wowforever-helper/issues/455) · 31 ott · dati client 70707
+- [Mobalytics – Hunter Leveling Guide 1-60 (Feor)](https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide) · agg. 7 nov 2026 · 222 ♥, Verified: la guida Hunter più votata
 - [wowforever.be – build di leveling Hunter](https://wowforever.be/leveling/hunter/) · client 1.60.1.70707, 1 nov · dati client; fino al 35
 - [Method – Hunter Leveling Guide & Talents (Celz)](https://www.method.gg/wow-forever/wow-forever-hunter-leveling-guide-and-talents) · 21 ott 2026 · Method (reputazione alta)
-- [Mobalytics – BM Hunter Leveling Guide 1-30 (Verified) (Crix)](https://mobalytics.gg/wow-forever/classes/beast-mastery-leveling-guide) · 28 ott · 62 ♥ (la più salvata per Hunter)
 - [Mobalytics – Mage Leveling (Asuna_qt)](https://mobalytics.gg/wow-forever/classes/mage-leveling-guide) · 31 ott · 40 ♥
 - [wowforever.be – Mage leveling](https://wowforever.be/it/leveling/mage/) · client 1.60.1.70707
 - [Icy Veins – Frost Mage Leveling (Teloril)](https://www.icy-veins.com/wow-forever/frost-mage-leveling) · 30 ott
@@ -268,9 +451,9 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 - [Mobalytics – Warlock Leveling Guide 1–60 (Crix, Verified)](https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide) · 1 nov 2026 · 109 ♥ · 36/12/0
 - [wowforever.be – Warlock leveling (dati client 1.60.1.70707)](https://wowforever.be/leveling/warlock/) · 1 nov 2026 · dati client
 - [Method – Warlock Leveling Guide & Talents (Roguery)](https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents) · 17 ott 2026 · Method (reputazione alta)
+- [Mobalytics – Warrior Leveling 1-60, Protection 1-60 (Ahlaundoh)](https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide) · agg. 6 nov 2026 · 165 ♥: la guida Warrior più votata
 - [wowforever.be – Build di leveling Warrior](https://wowforever.be/leveling/warrior/) · 1 nov (client 1.60.1.70707) · dati client
 - [Mobalytics – classifica preferiti (mobalytics.md) (KallTorak (Prot 82 ♥, 30 ott, 0/0/21); Ahlaundoh (Warrior 1-60 Verified 48 ♥, 35/14/2); Kargoz (Prot 15 ♥, 14 ott, 5/6/40))](https://mobalytics.gg/wow-forever/classes/protection-warrior-guide-kalltorak) · 14–30 ott · 82 / 48 / 15 ♥
-- [Icy Veins – Protection / Arms / Fury Warrior Leveling (WoW Forever) (non letto)](https://www.icy-veins.com/wow-forever/protection-warrior-leveling) · Arms/Fury 26 ott · reputazione alta; solo snippet
 - [wowforever.be – talent e build di leveling (dati client)](https://wowforever.be/leveling/) · client 1.60.1.70707
 - [Mobalytics – guide leveling (classifica per preferiti)](https://mobalytics.gg/wow-forever/leveling-guides) · 1 nov
 - [Wowhead – World Map Forever](https://www.wowhead.com/forever/world-map) · dati mappa

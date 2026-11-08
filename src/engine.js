@@ -123,7 +123,8 @@ function drawPick(){
  $('pkO').innerHTML=row(5,'Percorso',b('x',0,!S.o.x,'Resta in '+CN[R.trunk])+b('x',1,!!S.o.x,T?'Passa in '+CN[to]:'Passa in '+CN[to]+' (in arrivo)',!T),T?(S.o.x?T.title+' · '+T.when:'Puoi spostarti in '+CN[to]+' dopo la zona iniziale: il percorso aggiunge quest, Flight Path e viaggi per arrivarci.'):'')+
   row(6,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img loading="lazy" src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ consigliate per il '+CL.name+': '+pick:'')+
   row(7,'Dungeon',b('dg',1,S.o.dg,'Sì, con le quest')+b('dg',0,!S.o.dg,'No, solo quest all’aperto'))+
-  row(8,'Perk Legacy “Talented”',b('tal',0,!S.o.tal,'Non ce l’ho')+b('tal',1,!!S.o.tal,'Ce l’ho: talent 5 livelli prima'));
+  row(8,'Perk Legacy “Talented”',b('tal',0,!S.o.tal,'Non ce l’ho')+b('tal',1,!!S.o.tal,'Ce l’ho: talent 5 livelli prima'))+
+  (C.lateNote?'<p class="note" style="margin:.3em 0 0">'+C.lateNote+'</p>':'');
 }
 $('pg').addEventListener('click',function(e){if(e.target.closest('details.bwhy'))return;var b=e.target.closest('button');if(!b||b.disabled||b.closest('#pkO')&&!b.dataset.o&&!b.dataset.p)return;e.preventDefault();
  if(b.dataset.f&&b.dataset.f!==RA.faction){var r=Object.keys(D.races).filter(function(k){return D.races[k].faction===b.dataset.f});S.r=r.filter(function(k){return ok(k,S.c)})[0]||r[0]}
