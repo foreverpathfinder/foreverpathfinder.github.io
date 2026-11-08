@@ -4,7 +4,7 @@
  "resource": "Mana",
  "spec": "Beast Mastery",
  "specIcon": "ability_hunter_beasttaming",
- "summary": "Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Mobalytics (Crix 62 ♥, Feor 38 ♥, Kargoz 30 ♥) e Zockify (25 ott), e la build di wowforever.be (client) è BM. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. L’ordine 10–30 è quello di Method/wowforever.be (legale sul client) con Summon Hawk al 25 e Intimidation al 30; 31–60 segue Zockify (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.",
+ "summary": "Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Zockify (25 ott) e la guida Hunter più votata di Mobalytics (Feor, <b>222 ♥</b>, Verified, agg. 7 nov), che dà l’ordine livello per livello dal 10 al 60. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. La build segue Feor: Pathfinding al 20–21, Summon Hawk al 25, Intimidation al 30, Bestial Wrath al 40, poi 20 punti in Marksmanship (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.",
  "build": [
   "Deadly Aspects",
   "Deadly Aspects",
@@ -14,24 +14,24 @@
   "Focused Fire",
   "Focused Fire",
   "Improved Revive Pet",
+  "Improved Revive Pet",
   "Endurance Training",
-  "Endurance Training",
-  "Unleashed Fury",
-  "Unleashed Fury",
-  "Unleashed Fury",
+  "Pathfinding",
+  "Pathfinding",
+  "Bestial Swiftness",
   "Unleashed Fury",
   "Unleashed Fury",
   "Summon Hawk",
-  "Improved Revive Pet",
+  "Unleashed Fury",
+  "Unleashed Fury",
   "Ferocity",
   "Ferocity",
-  "Bestial Swiftness",
   "Intimidation",
+  "Bestial Discipline",
+  "Bestial Discipline",
   "Ferocity",
   "Ferocity",
   "Ferocity",
-  "Improved Mend Pet",
-  "Frenzy",
   "Frenzy",
   "Frenzy",
   "Frenzy",
@@ -47,18 +47,18 @@
   "Careful Aim",
   "Careful Aim",
   "Careful Aim",
-  "Hawk Eye",
-  "Hawk Eye",
-  "Hawk Eye",
   "Rapid Killing",
   "Rapid Killing",
+  "Hawk Eye",
+  "Hawk Eye",
+  "Hawk Eye",
   "Trueshot Aura",
   "Mortal Shots",
   "Mortal Shots",
   "Mortal Shots",
   "Mortal Shots"
  ],
- "buildSource": "10–30: Method (Celz, 21 ott; ordine decodificato dal link talent) = wowforever.be (client 70707) fino al 19; Summon Hawk al 25 e Intimidation al 30 come Mobalytics, Zockify e Warcraft Tavern. 31–60: Zockify (31 BM + 20 MM, 25 ott), adattato; wowforever.be arriva solo al 35. Ogni voce è verificata sui prerequisiti del client.",
+ "buildSource": "Mobalytics Feor «Hunter Leveling Guide 1-60» (222 ♥, Verified, agg. 7 nov): ordine 10–60 per livello, 31/20/0 al 60. Fino all’8 nov: 10–30 da Method/wowforever.be (client 70707) e 31–60 da Zockify (25 ott), con la stessa suddivisione 31 BM + 20 MM.",
  "why": {
   "Deadly Aspects": "Con Aspect of the Hawk attivo Auto Shot ha il 2% per rank (10% al rank 5) di dare +30% ranged attack speed per 12 s: è il tuo danno di base. Tutte le fonti buone la prendono per prima.",
   "Focused Fire": "★ +1% per rank (2% max) a tutti i danni tuoi e del Pet finché il Pet è attivo.",
@@ -77,9 +77,18 @@
   "Hawk Eye": "+2 yd per rank (6 yd max) al range delle armi a distanza: più tempo per sparare prima del melee.",
   "Rapid Killing": "★ Rapid Fire −1/−2 min di cooldown; dopo un kill il prossimo Shot fa +10/20%.",
   "Trueshot Aura": "Livello 56 in questa build: +15 RAP a party e raid entro 45 yd (raid-wide dal 15 ott); utile in gruppo e dungeon.",
-  "Mortal Shots": "+6% per rank (30% max) al danno dei crit di tutte le abilità a distanza."
+  "Mortal Shots": "+6% per rank (30% max) al danno dei crit di tutte le abilità a distanza.",
+  "Pathfinding": "Aspect of the Cheetah e Aspect of the Pack più veloci (+6% a 2/2): corri meno tra un mob e l’altro. È in riga 3: va preso dopo 10 punti in Beast Mastery (Feor al 20–21).",
+  "Bestial Discipline": "Il Pet rigenera il Focus il 20% più in fretta e il 50% della tua rigenerazione di Mana continua mentre lanci (a 2/2): meno pause per bere."
  },
  "compare": [
+  {
+   "source": "Mobalytics – Feor, Hunter Leveling Guide 1-60 (Verified)",
+   "signal": "222 ♥ (guida Hunter più votata), agg. 7 nov, 31/20/0 al 60",
+   "l10_19": "Deadly Aspects 5 (10–14), Focused Fire 2 (15–16), Improved Revive Pet 2 (17–18), Endurance Training (19)",
+   "l20": "Pathfinding 2 (20–21)",
+   "l21_30": "Bestial Swiftness 22, Unleashed Fury 23–24 e 26–27, Summon Hawk 25, Ferocity 28–29, Intimidation 30. Poi Bestial Discipline 31–32, Ferocity 33–35, Frenzy 36–39, Bestial Wrath 40, Lethal Attacks 41–45, Careful Aim 46–50, Rapid Killing 51–52, Hawk Eye 53–55, Trueshot Aura 56, Mortal Shots 57–60."
+  },
   {
    "source": "wowforever.be – build di leveling (client)",
    "signal": "dati client 1.60.1.70707, letta 1 nov; solo fino al 35",
@@ -121,13 +130,6 @@
    "l10_19": "Endurance Training 5 per primo, Focused Fire 2, Pathfinding 2",
    "l20": "Bestial Swiftness / Unleashed Fury",
    "l21_30": "Unleashed Fury 5, Ferocity 5, Summon Hawk (26 per ForeverWisp), Intimidation 30. Senza Deadly Aspects: fonte debole, scartata."
-  },
-  {
-   "source": "Mobalytics – Feor (31 ott) e Kargoz (22 ott)",
-   "signal": "38 ♥ e 30 ♥ · BM 31/20/0",
-   "l10_19": "ordine non letto",
-   "l20": "ordine non letto",
-   "l21_30": "Stessa suddivisione 31 BM + 20 MM di Zockify; l’ordine va letto dal browser (Mobalytics blocca WebFetch)."
   }
  ],
  "alternatives": [
@@ -648,7 +650,7 @@
   },
   {
    "l": 34,
-   "t": "Explosive Trap, Serpent Sting 5, Disengage 2. Improved Mend Pet."
+   "t": "Explosive Trap, Serpent Sting 5, Disengage 2."
   },
   {
    "l": 35,
@@ -789,6 +791,14 @@
  ],
  "sources": [
   {
+   "name": "Mobalytics – Hunter Leveling Guide 1-60 (Feor)",
+   "url": "https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide",
+   "author": "Feor",
+   "date": "agg. 7 nov 2026",
+   "signal": "222 ♥, Verified: la guida Hunter più votata",
+   "used": "ordine dei talent 10–60 (dall’8 nov)"
+  },
+  {
    "name": "wowforever.be – build di leveling Hunter",
    "url": "https://wowforever.be/leveling/hunter/",
    "author": "wowforever.be",
@@ -924,8 +934,8 @@
   }
  ],
  "doubts": [
-  "🟡 Pathfinding a 18–19 (Mobalytics Crix e Zockify) non rispetta i prerequisiti del client: la riga 3 richiede 10 punti spesi nell’albero e a 18 ne hai 8. Ho usato l’ordine di Method/wowforever.be (Endurance Training 2 al posto di Pathfinding) per restare legali con Summon Hawk 25 e Intimidation 30. Se in gioco Pathfinding fosse sbloccabile prima, la variante Crix/Zockify avrebbe un piccolo vantaggio di velocità.",
-  "🟡 31–60 deriva da Zockify (unica fonte per tutti i 51 punti, agg. 25 ott); l’ordine 41–60 in Marksmanship non è confermato da altre fonti. Gli ordini di Kargoz e Feor su Mobalytics non sono stati letti.",
+  "🟡 Pathfinding: Crix e Zockify lo mettono al 18–19, ma la riga 3 richiede 10 punti spesi nell’albero e a 18 ne hai 8. Feor lo prende al 20–21, dopo Endurance Training: è legale. Fino all’8 nov la guida usava l’ordine di Method/wowforever.be (Endurance Training 2 al posto di Pathfinding).",
+  "🟡 Dall’8 nov l’ordine 10–60 è quello di Feor (Mobalytics, 222 ♥). Zockify ha la stessa suddivisione 31 BM + 20 MM ma mette Ferocity e Frenzy 5 al posto di Bestial Discipline 2 e Frenzy 4, e Hawk Eye prima di Rapid Killing.",
   "🟡 L’ordine di Method è stato decodificato dal link talent dell’embed (non c’è un elenco testuale). wowforever.be arriva solo al 35; Warcraft Tavern ha i talent solo in immagini.",
   "🟡 Pet: livelli e zone solo da Zockify (agg. 20 ott); l’esistenza dei mob è confermata sulla mappa Wowhead Forever (Kresh, Wailing Caverns, non c’è). Bear/Swipe e Carrion Bird da wow4evernews/topbuilds; i candidati 32–60 da Petopia via LePrestore, non testati.",
   "🟡 Tame Beast: il cast time è contraddittorio tra le fonti (canalizzato con armor −100% per Warcraft Tavern). La Happiness è buggata in beta (cala solo quando il Pet muore).",
@@ -947,12 +957,12 @@
    "pros": [
     "Il Pet tiene il mob: poche morti e poco downtime.",
     "Dal 25 Summon Hawk e Intimidation: danno extra senza tirare tu il mob.",
-    "Build 10–35 legale sul client (wowforever.be)."
+    "Ordine 10–60 della guida Hunter più votata (Feor), legale sul client."
    ],
    "cons": [
     "Un mob alla volta: meno efficace su pack.",
     "Dipendi dal Pet: Happiness, Mend Pet e Revive Pet da gestire.",
-    "Pathfinding a 18–19 non è legale sul client: la build usa Endurance Training (Method)."
+    "Pathfinding (20–21) fa solo correre più veloce: nessun danno in più prima di Unleashed Fury."
    ],
    "ratings": {
     "speed": [
@@ -988,11 +998,18 @@
    },
    "sources": [
     {
+     "name": "Mobalytics – Hunter Leveling Guide 1-60 (Feor)",
+     "url": "https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide",
+     "date": "agg. 7 nov 2026",
+     "signal": "222 ♥, Verified: la guida Hunter più votata",
+     "used": "ordine 10–60"
+    },
+    {
      "name": "wowforever.be – build di leveling Hunter",
      "url": "https://wowforever.be/leveling/hunter/",
      "date": "client 1.60.1.70707, 1 nov",
      "signal": "dati client; solo fino al 35",
-     "used": "ordine 10–35"
+     "used": "ordine 10–35 fino all’8 nov"
     },
     {
      "name": "Method – Hunter Leveling Guide & Talents",
@@ -1020,7 +1037,7 @@
      "url": "https://www.zockify.com/forever/hunter/leveling/",
      "date": "agg. 25 ott",
      "signal": "build 31 BM / 20 MM fino al 60 (nota precedente)",
-     "used": "ordine 31–60 (nel progetto)"
+     "used": "ordine 31–60 fino all’8 nov"
     }
    ]
   },

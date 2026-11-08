@@ -31,6 +31,7 @@ local TT = {
     oNoX = "Per questa razza il percorso resta nello stesso continente.", oShow = "Interfaccia", oMinimap = "Icona sulla minimappa",
     oChar = "Personaggio", oAuto = "Riconosciuto dal gioco: %s. Se sbaglia, scrivi /fp set razza-classe; /fp auto per tornare automatico.",
     oSite = "La guida completa, con mappa e calcolatori: foreverpathfinder.github.io",
+    oLate = "Dal 30 al 60", oLateTxt = "Il percorso dal 30 al 60 è fatto di tappe per zona, prese da guide non ancora provate in gioco: lo aggiorneremo quando ci saranno informazioni più attendibili.",
     oLinks = "Collegamenti col gioco", oMap = "Segnaposti della tappa sulla mappa del mondo; dal segnaposto di una voce, anche sulla minimappa",
     oQuests = "Spunta da sola le voci quando consegni la quest e mostra le quest che hai nel registro",
     oTal = "Evidenzia il talento da prendere nella finestra dei talenti", oTrainer = "Al trainer scrive e segna gli spell della guida da comprare",
@@ -65,6 +66,7 @@ local TT = {
     oNoX = "For this race the route stays on the same continent.", oShow = "Interface", oMinimap = "Minimap icon",
     oChar = "Character", oAuto = "Detected by the game: %s. If it is wrong, type /fp set race-class; /fp auto to go back to automatic.",
     oSite = "The full guide, with map and calculators: foreverpathfinder.github.io",
+    oLate = "From 30 to 60", oLateTxt = "The route from 30 to 60 is made of zone stages, taken from guides not yet tested in game: we will update it when more reliable information is available.",
     oLinks = "Game links", oMap = "Stage waypoints on the world map; from an item's waypoint, on the minimap too",
     oQuests = "Ticks items by itself when you turn in the quest and shows the quests in your log",
     oTal = "Highlights the talent to take in the talent window", oTrainer = "At the trainer, prints and marks the guide spells to buy",
@@ -777,6 +779,8 @@ local function drawOptions(g, k)
   line("2", T.oChar)
   line("0", T.oAuto:format(g.name .. " (" .. k .. ")"))
   line("0", T.oSite)
+  line("2", T.oLate)
+  line("0", T.oLateTxt)
   cardClose()
 end
 

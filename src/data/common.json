@@ -1,7 +1,8 @@
 {
- "version": "v12",
- "updated": "6 novembre 2026",
- "maxLevel": 30,
+ "version": "v13",
+ "updated": "8 novembre 2026",
+ "maxLevel": 60,
+ "lateNote": "Dal 30 al 60 il percorso è fatto di tappe per zona, prese da guide non ancora provate in gioco (🟡): lo aggiorneremo quando ci saranno informazioni più attendibili.",
  "xpCards": [
   ["inv_misc_food_14", "Food con bonus XP: +5%", "In Forever alcuni food danno un buff Well Fed con XP extra. Kargoz: <i>Roasted Boar Meat</i> (Cooking 1) dà +5% XP 🟡; conserva i Chunk of Boar Meat e cucina. Il bonus vale sulle kill XP (circa 60% della tua XP)."],
   ["inv_misc_bag_10_blue", "Cozy Sleeping Bag: +3% per 2 ore", "Siediti 3 minuti. Kargoz consiglia di <b>non</b> fare la lunga catena: usa la Sleeping Bag di un altro giocatore. La catena però dà due bag da 12 slot (vedi Bags)."],
