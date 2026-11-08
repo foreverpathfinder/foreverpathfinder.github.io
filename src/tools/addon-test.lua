@@ -328,6 +328,19 @@ local ofaB = nav((lang == "it" and "Apri in OneForAll" or "Open in OneForAll") .
 check(ofaB ~= nil, "pulsante Apri in OneForAll")
 ofaB.scripts.OnClick(ofaB)
 check(OFA.panel == "talents" and OFA.imported and OFA.n == #hv._tal and not OFA.export, "build importata in OneForAll (" .. tostring(OFA.n) .. "/" .. #hv._tal .. ")")
+-- Talent (dalla 1.6): livello mostrato, › passa al dopo, nodi dell'albero con rank e tooltip
+local function lvShown() for _, t in ipairs(shownTexts()) do local n = t:match("^" .. (lang == "it" and "Livello" or "Level") .. " (%d+)$"); if n then return tonumber(n) end end end
+local l0 = lvShown()
+check(l0 ~= nil, "livello nella scheda Talent")
+local nx = nav("›"); nx.scripts.OnClick(nx)
+check(lvShown() == l0 + 1, "› mostra il livello dopo (" .. tostring(l0) .. " → " .. tostring(lvShown()) .. ")")
+check(find(function(o) return o.kind == "Button" and rawget(o, "rk") and o.shown and o.t2 and o.t2 ~= "" end) ~= nil, "nodi dell'albero con descrizione")
+-- Classe (dalla 1.6): le quattro sezioni, ognuna con contenuto
+nav(tabName("classe")).scripts.OnClick()
+for _, s in ipairs(lang == "it" and { "Rotazione", "Spell", "Razza", "Consigli" } or { "Rotation", "Spells", "Race", "Tips" }) do
+  local b = nav(s); check(b ~= nil, "sezione " .. s .. " della scheda Classe")
+  b.scripts.OnClick(b); check(#shownTexts() >= 6, "sezione " .. s .. " con contenuto")
+end
 -- Dungeon (dalla 1.5): menu con i dungeon; un clic apre la scheda del dungeon. "Mappa" apre la mappa del mondo sull'ingresso
 -- con il segnaposto; "Boss e loot" apre il dungeon in OneForAll; le quest con la prima della catena (Questie)
 nav(tabName("dungeon")).scripts.OnClick()
@@ -347,6 +360,8 @@ check(OFA.panel == "dungeons" and OFA.dungeon == "Deadmines", "dungeon aperto in
 -- mappa del mondo aperta: segnaposti della tappa (e l'ingresso scelto) sulla tela
 WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.point and o.point[2] == canvas end) ~= nil, "segnaposti sulla mappa del mondo")
+-- dalla 1.6 anche tutti i trainer della classe (con il nome dell'NPC nel tooltip)
+check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who and o.shown end) ~= nil, "trainer della classe sulla mappa del mondo")
 -- finestra dei talenti: bordo sul talento da prendere
 TalentFrame, TalentFrameTalent1 = obj("Frame"), obj("Frame")
 TALENT = hv._tal[1] and hv._tal[1][2]
