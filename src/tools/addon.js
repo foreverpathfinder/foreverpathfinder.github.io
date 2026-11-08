@@ -55,6 +55,14 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
      const tabs={};for(const t of TABS){const e=document.getElementById('t-'+t);tabs[t]=e?lines(e):[]}
      v[bb+dg+x]={build:CL.B?CL.B.name:CL.spec,ch,tasks,tal,tabs}}
     out[r+'-'+c]={name:RA.name+' '+CL.name,faction:RA.faction,builds,xs,v}}
+   // schede Talent e Classe dell'addon (1.6): dati per classe e per razza, già nella lingua della pagina
+   const cls={},rcs={};
+   for(const c of Object.keys(D.classes)){const K=D.classes[c];
+    cls[c]={why:K.why||{},summary:K.summary||'',rot:K.rotation||[],brot:Object.fromEntries((K.builds||[]).filter(b=>b.rotation&&b.rotation.length).map(b=>[b.id,b.rotation])),
+     notes:(K.rotNotes||[]).map(a=>[a.title,a.html]),stats:K.stats||'',forever:K.forever||[],races:K.races||{},
+     spells:K.spells.filter(x=>x[0]<=MAXL).map(x=>[x[0],x[1],x[2],x[3],0]).concat(K.talentSpells.filter(x=>x[0]<=MAXL&&!/non in build|not in build/i.test(x[1])).map(x=>[x[0],x[1],x[2],x[3],1])).sort((a,b)=>a[0]-b[0])}}
+   for(const r of Object.keys(D.races)){const R=D.races[r];rcs[r]={name:R.name,racials:R.racials||[],tips:R.tips||''}}
+   out._cls=cls;out._rcs=rcs;
    // dungeon per fazione, come nella scheda Dungeon: livelli, giudizio, ingresso, quest (anche di classe)
    const G=(D.dungeons||{}).dungeons||{},dg={};
    for(const f of ['A','H'])dg[f]=D.factions[f].dungeons.filter(d=>d[1]<=MAXL+2).map(d=>{const x=G[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[f]||[],q=x.q||{},last=a=>a.filter(s=>typeof s==='string').pop()||'';
@@ -128,6 +136,25 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
   // consigli generali e glossario della scheda Dungeon del sito
   s+='  info = { '+all[l]._dginfo[0].map(txb).join(', ')+' }, glossary = '+txb(all[l]._dginfo[1])+',\n';
   s+=' },\n'}
+ // schede Talent e Classe (1.6). Alberi del client (talents/<classe>.json, uguali nelle due lingue):
+ //   { nome albero, { { talent, icona, riga, colonna, rank max, talent richiesto, descrizione al rank max } } }
+ const htm=x=>lua(clean(String(x||'').replace(/\s*✔\s*client\b/g,'').replace(/\s*\((★|✔|🟡)\)/g,'').replace(/<li>/g,'\n• ').replace(/<\/(p|ul|ol|li|tr|h\d)>/g,'\n').replace(/<br\s*\/?>/g,'\n').replace(/<b>/g,'{').replace(/<\/b>/g,'}').replace(/<[^>]+>/g,'').replace(/\n+/g,'\n').trim()));
+ const TD=path.join(ROOT,'src/data/talents');
+ s+='}\nForeverPathfinderTrees = {\n';
+ for(const fn of fs.readdirSync(TD).filter(n=>n.endsWith('.json'))){const TT=JSON.parse(fs.readFileSync(path.join(TD,fn),'utf8'));
+  s+='  '+fn.replace('.json','')+' = { '+TT.trees.map(t=>'{ '+lua(t.name)+', { '+Object.values(t.nodes).sort((a,b)=>a.index-b.index).map(n=>'{ '+lua(n.name)+', '+lua(n.icon)+', '+n.row+', '+n.col+', '+n.max+', '+lua(n.req&&t.nodes[n.req]?t.nodes[n.req].name:'')+', '+lua(clean(n.rmax||n.r1||''))+' }').join(', ')+' } }').join(', ')+' },\n'}
+ // per lingua e classe: perché di ogni talent, scelta della build, rotazione (anche per build), note, stats, novità, razze, spell
+ // { livello, nome, icona, testo, talent }; _races: { nome, { { racial, icona, testo } }, consigli }
+ const rot=r=>'{ '+r.map(x=>'{ '+tx(x.title)+', { '+x.seq.map(q=>'{ '+lua(q[0])+', '+tx(q[1])+' }').join(', ')+' }, '+htm(x.text)+' }').join(', ')+' }';
+ s+='}\nForeverPathfinderClass = {\n';
+ for(const l of ['it','en']){s+=' '+l+' = {\n';
+  for(const [c,K] of Object.entries(all[l]._cls))s+='  '+c+' = { why = { '+Object.entries(K.why).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   summary = '+htm(K.summary)+', rot = '+rot(K.rot)+',\n   brot = { '+Object.entries(K.brot).map(([b,r])=>b+' = '+rot(r)).join(', ')+' },\n   notes = { '+K.notes.map(n=>'{ '+tx(n[0])+', '+htm(n[1])+' }').join(', ')+' }, stats = '+htm(K.stats)+', forever = { '+K.forever.map(htm).join(', ')+' },\n   races = { '+Object.entries(K.races).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   spells = { '+K.spells.map(x=>'{ '+x[0]+', '+tx(x[1])+', '+lua(x[2])+', '+htm(x[3])+', '+(x[4]?'true':'false')+' }').join(', ')+' } },\n';
+  s+='  _races = { '+Object.entries(all[l]._rcs).map(([k,R])=>'['+lua(k)+'] = { '+tx(R.name)+', { '+R.racials.map(x=>'{ '+tx(x[0])+', '+lua(x[1])+', '+htm(x[2])+' }').join(', ')+' }, '+htm(R.tips)+' }').join(', ')+' },\n';
+  s+=' },\n'}
+ // trainer di classe (mappa del sito, coordinate del continente): per classe { NPC, continente, x, y, fazione 0/1/2 }
+ // → l'addon li mette tutti sulla mappa del mondo (quelli della tua classe e fazione), non solo quello della voce del Percorso
+ const TRN={};for(const [k,c] of Object.entries(WM))for(const [cl,a] of Object.entries(c.trainers||{}))for(const t of a)(TRN[cl]=TRN[cl]||[]).push('{ '+lua(clean(t[0]))+', '+lua(CONT[k])+', '+(t[2]/c.w).toFixed(4)+', '+(t[3]/c.h).toFixed(4)+', '+(t[1]||0)+zf(zoneAt(k,t[2],t[3]))+' }');
+ s+='}\nForeverPathfinderTrainers = {\n'+Object.entries(TRN).map(([cl,a])=>'  '+cl+' = { '+a.join(', ')+' },').join('\n')+'\n';
  // ingressi dei dungeon (icone della mappa del sito): { nome, continente, x, y } per il pulsante Mappa della scheda Dungeon
  s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+' },'}).filter(Boolean).join('\n')+'\n';
  // zone del gioco (uiMapID e rettangolo 0–1 sul continente del sito, da uimaps.json): l'addon ci converte i segnaposti, perché

@@ -146,6 +146,20 @@ list[#list + 1] = { "opzioni", LOCALE == "itIT" and "Opzioni" or "Options" }
 for _, t in ipairs(list) do
   if ONLY == "" or ONLY == t[1] then findPill(t[2]).scripts.OnClick(); snap(t[1]) end
 end
+-- sezione o parte più in basso di una scheda: "classe.Spell" = clic sul pulsante Spell, "talent~400" = scorrimento di 400
+local tb, sub = ONLY:match("^(%a+)%.(.+)$")
+local tb2, off = ONLY:match("^(%a+)~(%d+)$")
+if tb or tb2 then
+  for _, t in ipairs(list) do if t[1] == (tb or tb2) then findPill(t[2]).scripts.OnClick() end end
+  if sub then for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text == sub and o.shown and o.parent ~= f then o.scripts.OnClick(o); break end end end
+  snap(ONLY)
+  if off then
+    items = {}
+    for _, o in ipairs(all) do if o.kind == "Slider" then o:SetValue(tonumber(off)) end end
+    walk(f, 0, 0)
+    scenes[#scenes] = '{"name":' .. jstr(ONLY) .. ',"W":' .. f.w .. ',"H":' .. f.h .. ',"items":[' .. table.concat(items, ",") .. ']}'
+  end
+end
 -- scheda di un dungeon (menu della 1.5): "dgscheda" = The Deadmines dall'inizio, "dgscheda2" = più in basso
 if ONLY == "dgscheda" or ONLY == "dgscheda2" then
   for _, t in ipairs(list) do if t[1] == "dungeon" then findPill(t[2]).scripts.OnClick() end end

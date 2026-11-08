@@ -24,7 +24,13 @@ local TT = {
     dgAll = "‹ Tutti i dungeon", dgPick = "Clic su un dungeon: quest, catena, boss e consigli.", dgYou = "adatto al tuo livello", dgLv = "Livelli %d–%d",
     dgIdeal = "ideale %s", dgWhere = "Dove si trova", dgKey = "Chiave d'ingresso", dgQ = "Quest da prendere prima di entrare", dgQC = "Quest di classe",
     dgNoQ = "Nessuna quest nei dati per la tua fazione.", dgFrom = "Da: %s", dgChain = "Catena: prima fai {%s}%s", dgChainBy = " (%s)", dgChainTip = "Mostra sulla mappa chi dà la prima quest della catena",
-    dgBoss = "Boss", dgTips = "Consigli", dgInfo = "Come conviene farli", dgNote = "Nota", qDoneTag = "fatta", dgNew = "nuovo in Forever",
+    dgBoss = "Boss", dgTips = "Consigli", dgInfo = "Come conviene farli", dgNote = "Nota", qDoneTag = "fatta", dgNew = "nuovo in Forever", oTrainers = "Tutti i trainer della tua classe sulla mappa del mondo",
+    talTitle = "Talent · %s", talLv = "Livello %d", talMine = "Il mio livello (%d)", talNow = "Al livello %d prendi: {%s} %d/%d", talNext = "Poi, al %d: %s",
+    talFrom10 = "I talenti cominciano al livello 10: qui vedi cosa prenderai.", talDone = "Build completa: dopo il %d non ci sono altri punti.", talWhy = "Perché questa build", talHide = "Nascondi",
+    talTrees = "Passa sopra un talento per la descrizione; clic per andare al livello in cui si prende.", talOrder = "Ordine dei talenti (clic per andare a quel livello)",
+    cRot = "Rotazione", cSpells = "Spell", cRace = "Razza", cNotes = "Consigli", cRotPick = "Scegli la situazione (all'apertura quella del tuo livello):",
+    cSpNow = "Da comprare e prossime", cSpAll = "Tutte", cSpNone = "Niente da comprare adesso: torna dal trainer tra qualche livello.", cBuy = "da comprare", cHave = "appresa",
+    cSoon = "al liv. %d", cTal = "talent", cSpTip = "Passa sopra una spell per la descrizione.", cStats = "Stats e armi", cForever = "Novità di Forever",
     dgNone = "Nessun dungeon consigliato al liv. %d.", dgEntry = "Ingresso: %s", dgQuests = "Prima di entrare prendi:", dgClass = "(di classe)",
     found = "Trovate %d voci per \"%s\":", notFound = "Nessuna voce della guida contiene \"%s\".", lv = "Liv.",
     loaded = "caricato: clic sull'icona della minimappa o /fp per aprire la guida.",
@@ -63,7 +69,13 @@ local TT = {
     dgAll = "‹ All dungeons", dgPick = "Click a dungeon: quests, chain, bosses and tips.", dgYou = "right for your level", dgLv = "Levels %d–%d",
     dgIdeal = "best at %s", dgWhere = "Where it is", dgKey = "Entry key", dgQ = "Quests to pick up before going in", dgQC = "Class quests",
     dgNoQ = "No quests in the data for your faction.", dgFrom = "From: %s", dgChain = "Chain: first do {%s}%s", dgChainBy = " (%s)", dgChainTip = "Shows on the map who gives the first quest of the chain",
-    dgBoss = "Bosses", dgTips = "Tips", dgInfo = "How to run them", dgNote = "Note", qDoneTag = "done", dgNew = "new in Forever",
+    dgBoss = "Bosses", dgTips = "Tips", dgInfo = "How to run them", dgNote = "Note", qDoneTag = "done", dgNew = "new in Forever", oTrainers = "All your class trainers on the world map",
+    talTitle = "Talents · %s", talLv = "Level %d", talMine = "My level (%d)", talNow = "At level %d take: {%s} %d/%d", talNext = "Then, at %d: %s",
+    talFrom10 = "Talents start at level 10: here you see what you will take.", talDone = "Build complete: no more points after %d.", talWhy = "Why this build", talHide = "Hide",
+    talTrees = "Hover a talent for its description; click to go to the level where you take it.", talOrder = "Talent order (click to go to that level)",
+    cRot = "Rotation", cSpells = "Spells", cRace = "Race", cNotes = "Tips", cRotPick = "Pick the situation (it opens on your level):",
+    cSpNow = "To buy and next", cSpAll = "All", cSpNone = "Nothing to buy now: go back to the trainer in a few levels.", cBuy = "to buy", cHave = "learned",
+    cSoon = "at lvl %d", cTal = "talent", cSpTip = "Hover a spell for its description.", cStats = "Stats and weapons", cForever = "New in Forever",
     dgNone = "No recommended dungeon at lvl %d.", dgEntry = "Entrance: %s", dgQuests = "Before going in, pick up:", dgClass = "(class)",
     found = "Found %d items for \"%s\":", notFound = "No guide item contains \"%s\".", lv = "Lvl",
     loaded = "loaded: click the minimap icon or type /fp to open the guide.",
@@ -103,6 +115,8 @@ local C  -- ForeverPathfinderChar: { done = {}, key = "razza-classe" scelto a ma
 local DB -- ForeverPathfinderDB (tutti i personaggi): { angle, hide } dell'icona sulla minimappa
 local tab, viewCh = "livello" -- scheda aperta, tappa mostrata nel Percorso
 local dgSel -- scheda Dungeon: nome del dungeon aperto, nil = menu
+local talLv, tWhy -- scheda Talent: livello mostrato (nil = il tuo), testo della scelta aperto
+local clsSec, rotSel, spAll, noteSel -- scheda Classe: sezione, rotazione, tutte le spell, consiglio aperto
 
 local function say(msg) DEFAULT_CHAT_FRAME:AddMessage("|cffe8b84aForever Pathfinder|r " .. msg) end
 
@@ -454,8 +468,8 @@ scroll:EnableMouseWheel(true)
 scroll:SetScript("OnMouseWheel", function(_, d) local lo, hi = bar:GetMinMaxValues(); bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 48))) end)
 
 -- elementi riusati a ogni disegno: testi, icone, rettangoli (card e righe di separazione), caselle, pulsanti
-local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {} }
-local N = { fs = 0, ic = 0, rc = 0, ln = 0, cb = 0, bt = 0, pn = 0 }
+local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {}, hv = {}, nd = {} }
+local N = { fs = 0, ic = 0, rc = 0, ln = 0, cb = 0, bt = 0, pn = 0, hv = 0, nd = 0 }
 local y = 0
 local function take(kind, make)
   N[kind] = N[kind] + 1
@@ -466,7 +480,7 @@ end
 local function put(o, x, yy, w, h) o:ClearAllPoints(); o:SetPoint("TOPLEFT", x, yy); if w then o:SetWidth(w) end; if h then o:SetHeight(h) end; o:Show(); return o end
 local function str(fo, c, s, x, w)
   local o = take("fs", function() local t = body:CreateFontString(nil, "OVERLAY"); t:SetJustifyH("LEFT"); return t end)
-  o:SetFontObject(fo); o:SetTextColor(unpack(COL[c])); put(o, x, y, w); o:SetText(colorize(s))
+  o:SetFontObject(fo); o:SetTextColor(unpack(COL[c])); o:SetJustifyH("LEFT"); put(o, x, y, w); o:SetText(colorize(s))
   return o
 end
 local function icon(name, x, yy, size)
@@ -868,6 +882,240 @@ local function ofaLoad(v)
   if not ok then say(T.ofaFail); TC.ShowExport(code) end
 end
 
+-- schede Talent e Classe (dalla 1.6): dati in ForeverPathfinderTrees (alberi del client) e ForeverPathfinderClass (per lingua)
+local function clsData() return ForeverPathfinderClass and (ForeverPathfinderClass[LANG] or ForeverPathfinderClass.en) or {} end
+-- zona invisibile con tooltip (spell, racial)
+local function hover(x, yy, w, h, t1, t2)
+  local o = take("hv", function()
+    local b = CreateFrame("Button", nil, body)
+    b:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.t1); if self.t2 and self.t2 ~= "" then GameTooltip:AddLine(colorize(self.t2), 1, 1, 1, true) end; GameTooltip:Show() end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    return b
+  end)
+  o.t1, o.t2 = t1, t2
+  return put(o, x, yy, w, h)
+end
+-- nodo dell'albero: icona, bordo (oro = talento del livello, verde = con punti, spento = vuoto), rank, tooltip
+local function node(ic, x, yy, st, rank, max)
+  local o = take("nd", function()
+    local b = CreateFrame("Button", nil, body); b:SetSize(30, 30)
+    b.tx = b:CreateTexture(nil, "ARTWORK"); b.tx:SetAllPoints(); b.tx:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+    b.bd = { rect(b, "OVERLAY", "bd", 1, 0, 0, 30, 2), rect(b, "OVERLAY", "bd", 1, 0, -28, 30, 2), rect(b, "OVERLAY", "bd", 1, 0, 0, 2, 30), rect(b, "OVERLAY", "bd", 1, 28, 0, 2, 30) }
+    rect(b, "OVERLAY", "bg", 0.85, 12, -19, 20, 12) -- riquadrino scuro del rank, nell'angolo in basso a destra
+    b.rk = b:CreateFontString(nil, "OVERLAY"); b.rk:SetFontObject(F.small); b.rk:SetPoint("TOPLEFT", 13, -19); b.rk:SetWidth(19); b.rk:SetJustifyH("CENTER")
+    local hl = b:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.15)
+    b:SetScript("OnEnter", function(self)
+      GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.t1); GameTooltip:AddLine(self.t2, 1, 1, 1, true)
+      if self.t3 then GameTooltip:AddLine(" "); GameTooltip:AddLine(colorize(self.t3), 0.66, 0.89, 1, true) end
+      GameTooltip:Show()
+    end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    return b
+  end)
+  o.tx:SetTexture(iconPath(ic)); o.tx:SetDesaturated(st == "off"); o.tx:SetAlpha(st == "off" and 0.4 or 1)
+  local c = st == "now" and "gold" or st == "on" and "ok" or "bd"
+  for _, t in ipairs(o.bd) do paint(t, c) end
+  o.rk:SetText(rank .. "/" .. max); o.rk:SetTextColor(unpack(COL[st == "off" and "mu" or c]))
+  return put(o, x, yy)
+end
+-- pulsanti che vanno a capo; sel = quello scelto (evidenziato)
+local function flow(labels, sel, fn)
+  local x = PAD
+  for i, l in ipairs(labels) do
+    local b = button(l, x, y, function() fn(i) end)
+    local w = b:GetWidth()
+    if x > PAD and x + w > BW - PAD then x = PAD; y = y - 28; b:ClearAllPoints(); b:SetPoint("TOPLEFT", x, y) end
+    if i ~= sel then b.set(false) end
+    x = x + w + 6
+  end
+  y = y - 30
+end
+
+-- Talent: livello scelto (‹ ›), talento di quel livello e perché, i tre alberi con i punti fino a lì, ordine dei talenti
+local function drawTalents(g, k, v)
+  local cls = k:match("-(%a+)$")
+  local CD, trees, list = clsData()[cls] or {}, ForeverPathfinderTrees and ForeverPathfinderTrees[cls] or {}, v._tal
+  local me = UnitLevel("player")
+  local first, last = list[1] and list[1][1] or 10, list[#list] and list[#list][1] or 10
+  local L = math.max(first, math.min(last, talLv or me))
+  local rk, cur, nxt, maxOf = {}, nil, nil, {}
+  for _, tr in ipairs(trees) do for _, nd in ipairs(tr[2]) do maxOf[nd[1]] = nd[5] end end
+  for _, t in ipairs(list) do
+    if t[1] <= L then rk[t[2]] = (rk[t[2]] or 0) + 1 end
+    if t[1] == L then cur = t elseif t[1] > L and not nxt then nxt = t end
+  end
+  cardOpen(); y = y - 12
+  line("1", T.talTitle:format(v.build))
+  y = y - 10
+  local top = y
+  local b1 = button("‹", PAD, y, function() talLv = math.max(first, L - 1); render() end)
+  local o = str(F.h2, "gold", T.talLv:format(L), PAD + b1:GetWidth() + 10, 90); o:SetPoint("TOPLEFT", PAD + b1:GetWidth() + 10, y - 4)
+  local bx = PAD + b1:GetWidth() + 14 + math.max(70, o:GetStringWidth())
+  local b2 = button("›", bx, y, function() talLv = math.min(last, L + 1); render() end)
+  bx = bx + b2:GetWidth() + 10
+  if L ~= math.max(first, math.min(last, me)) then button(T.talMine:format(me), bx, y, function() talLv = nil; render() end) end
+  if _G.OneForAll and OneForAll.TalentCode and OneForAll.OpenPanel then
+    local ob = button(T.ofa .. " ↗", 0, y, function() ofaLoad(v) end); ob:ClearAllPoints(); ob:SetPoint("TOPRIGHT", body, "TOPLEFT", BW - PAD, y)
+  end
+  y = top - 32
+  if me < first and not talLv then line("0", T.talFrom10) end
+  if cur then
+    y = y - 2
+    local nd
+    for _, tr in ipairs(trees) do for _, x in ipairs(tr[2]) do if x[1] == cur[2] then nd = x end end end
+    if nd then icon(nd[2], PAD, y - 1, 22) end
+    o = str(F.h2, "tx", T.talNow:format(L, cur[2], rk[cur[2]] or 1, maxOf[cur[2]] or 1) .. (cur[3] ~= "" and "  |cff93a6be(" .. cur[3] .. ")|r" or ""), PAD + 28, BW - 2 * PAD - 28)
+    y = y - math.max(22, o:GetStringHeight() + 4)
+    if CD.why and CD.why[cur[2]] then line("0", CD.why[cur[2]]) end
+  elseif L >= last then line("0", T.talDone:format(last)) end
+  if nxt then line("0", T.talNext:format(nxt[1], nxt[2])) end
+  if CD.summary and CD.summary ~= "" then
+    y = y - 8
+    button(tWhy and T.talHide or T.talWhy, PAD, y, function() tWhy = not tWhy; render() end); y = y - 28
+    if tWhy then line("0", CD.summary) end
+  end
+  cardClose()
+  -- alberi uno accanto all'altro, come nel gioco (righe e colonne del client)
+  if #trees > 0 then
+    cardOpen(); y = y - 12
+    line("0", T.talTrees); y = y - 8
+    local gap, n, step = 10, #trees, 38
+    local tw = math.floor((BW - 2 * PAD - gap * (n - 1)) / n)
+    top = y
+    local rows = 0
+    for i, tr in ipairs(trees) do
+      local x0, pts = PAD + (i - 1) * (tw + gap), 0
+      for _, nd in ipairs(tr[2]) do pts = pts + math.min(rk[nd[1]] or 0, nd[5]); rows = math.max(rows, nd[3]) end
+      y = top
+      str(F.h3, pts > 0 and "gold" or "mu", tr[1] .. "  " .. pts, x0, tw)
+      local gx = x0 + math.floor((tw - (4 * step - 8)) / 2)
+      for _, nd in ipairs(tr[2]) do
+        local r = math.min(rk[nd[1]] or 0, nd[5])
+        local b = node(nd[2], gx + (nd[4] - 1) * step, top - 22 - (nd[3] - 1) * step, cur and cur[2] == nd[1] and "now" or r > 0 and "on" or "off", r, nd[5])
+        b.t1, b.t2, b.t3 = nd[1] .. "  " .. r .. "/" .. nd[5], nd[7], CD.why and CD.why[nd[1]]
+        b:SetScript("OnClick", function() for _, t in ipairs(list) do if t[2] == nd[1] then talLv = t[1]; render(); return end end end)
+      end
+    end
+    y = top - 22 - rows * step
+    cardClose()
+  end
+  -- ordine: gruppi di livelli consecutivi con lo stesso talento
+  cardOpen(); y = y - 12
+  line("2", T.talOrder); y = y - 6
+  local groups, cnt, sel, labels = {}, {}, nil, {}
+  for _, t in ipairs(list) do
+    local gp = groups[#groups]
+    if gp and gp.n == t[2] then gp.to = t[1]; gp.c = gp.c + 1 else groups[#groups + 1] = { n = t[2], from = t[1], to = t[1], c = 1 } end
+  end
+  for i, gp in ipairs(groups) do
+    cnt[gp.n] = (cnt[gp.n] or 0) + gp.c
+    labels[i] = (gp.from == gp.to and gp.from or gp.from .. "–" .. gp.to) .. "  " .. gp.n .. " " .. cnt[gp.n] .. "/" .. (maxOf[gp.n] or "?")
+    if L >= gp.from and L <= gp.to then sel = i end
+  end
+  flow(labels, sel, function(i) talLv = groups[i].from; render() end)
+  cardClose()
+end
+
+-- Classe: sezioni a pulsanti (Rotazione, Spell, Razza, Consigli)
+local function rangeOf(title) -- "10–19 · …" → 10, 19; "20+ · …" → 20, 60; "30 · …" → 30, 30
+  local t = title:gsub("–", "-") -- la lineetta (3 byte) diventa un trattino
+  local a, b = t:match("^(%d+)%-(%d+)")
+  if a then return tonumber(a), tonumber(b) end
+  a = title:match("^(%d+)%+"); if a then return tonumber(a), 60 end
+  a = title:match("^(%d+)"); if a then return tonumber(a), tonumber(a) end
+end
+local function drawClass(g, k, v)
+  local cls, race = k:match("-(%a+)$"), k:match("^(.-)%-%a+$")
+  local CD, me = clsData()[cls] or {}, UnitLevel("player")
+  clsSec = clsSec or 1
+  cardOpen(); y = y - 12
+  flow({ T.cRot, T.cSpells, T.cRace, T.cNotes }, clsSec, function(i) clsSec = i; render(true) end)
+  y = y + 18
+  cardClose()
+  if clsSec == 1 then
+    local bid = C.opt.b or (g.builds[1] and g.builds[1][1])
+    local R = (CD.brot and CD.brot[bid]) or CD.rot or {}
+    if not (rotSel and R[rotSel]) then
+      rotSel = 1
+      for i, r in ipairs(R) do local a, b = rangeOf(r[1]); if a and me >= a and me <= b then rotSel = i end end
+    end
+    cardOpen(); y = y - 12
+    line("0", T.cRotPick); y = y - 6
+    local labels = {}
+    for i, r in ipairs(R) do labels[i] = r[1] end
+    flow(labels, rotSel, function(i) rotSel = i; render() end)
+    local r = R[rotSel]
+    if r then
+      -- sequenza: icone numerate con il nome sotto, 6 per riga
+      local per = 6
+      local cw = math.floor((BW - 2 * PAD) / per)
+      local top = y
+      for i, sp in ipairs(r[2]) do
+        local x0, y0 = PAD + ((i - 1) % per) * cw, top - math.floor((i - 1) / per) * 78
+        local ix = x0 + math.floor((cw - 34) / 2)
+        icon(sp[1], ix, y0, 34)
+        y = y0 + 2; local nb = str(F.small, "gold", tostring(i), ix - 12, 12)
+        y = y0 - 38; local nm = str(F.p, "tx", sp[2], x0 + 2, cw - 4); nm:SetJustifyH("CENTER")
+      end
+      y = top - math.ceil(#r[2] / per) * 78
+      if r[3] ~= "" then line("0", r[3]) end
+    end
+    cardClose()
+  elseif clsSec == 2 then
+    cardOpen(); y = y - 12
+    flow({ T.cSpNow, T.cSpAll }, spAll and 2 or 1, function(i) spAll = i == 2; render() end)
+    line("0", T.cSpTip); y = y - 4
+    local bk, any = book(), false
+    for _, sp in ipairs(CD.spells or {}) do
+      local base = sp[2]:gsub("%s+%d+$", "")
+      local have = base == sp[2] and known(base, bk)
+      -- con il rank nel nome ("Heroic Strike 2") il libro non dice quale rank hai: solo se è del tuo livello o di poco sopra
+      if spAll or (sp[1] <= me + 4 and not have and (base == sp[2] or sp[1] >= me - 1)) then
+        any = true
+        y = y - 6
+        local top = y
+        icon(sp[3], PAD, y, 20)
+        local st, c = sp[1] > me and T.cSoon:format(sp[1]) or have and T.cHave or T.cBuy, sp[1] > me and "mu" or have and "ok" or "gold"
+        local o = str(F.p, c, T.lv .. " " .. sp[1] .. "   {" .. sp[2] .. "}   " .. st .. (sp[5] and "  ·  " .. T.cTal or ""), PAD + 28, BW - 2 * PAD - 28)
+        o:SetPoint("TOPLEFT", PAD + 28, y - 3)
+        y = top - math.max(20, o:GetStringHeight() + 6)
+        hover(PAD, top, BW - 2 * PAD, top - y, sp[2], sp[4])
+      end
+    end
+    if not any then line("0", T.cSpNone) end
+    cardClose()
+  elseif clsSec == 3 then
+    local RC = (clsData()._races or {})[race] or {}
+    cardOpen(); y = y - 12
+    line("1", RC[1] or race)
+    local cr = CD.races and (CD.races[race] or CD.races[(race:gsub("_[ah]$", ""))])
+    if cr then line("3", g.name); line("0", cr) end
+    for _, rc in ipairs(RC[2] or {}) do
+      y = y - 10
+      local top = y
+      icon(rc[2], PAD, y, 28)
+      local o = str(F.h3, "gold", rc[1], PAD + 36, BW - 2 * PAD - 36); y = y - o:GetStringHeight() - 2
+      o = str(F.p, "tx", rc[3], PAD + 36, BW - 2 * PAD - 36); y = y - o:GetStringHeight()
+      y = math.min(y, top - 30)
+    end
+    if RC[3] and RC[3] ~= "" then y = y - 6; line("0", RC[3]) end
+    cardClose()
+  else
+    local list = {}
+    for _, n in ipairs(CD.notes or {}) do list[#list + 1] = n end
+    if CD.stats and CD.stats ~= "" then list[#list + 1] = { T.cStats, CD.stats } end
+    if CD.forever and #CD.forever > 0 then list[#list + 1] = { T.cForever, "• " .. table.concat(CD.forever, "\n• ") } end
+    noteSel = math.max(1, math.min(noteSel or 1, #list))
+    cardOpen(); y = y - 12
+    local labels = {}
+    for i, n in ipairs(list) do labels[i] = n[1] end
+    flow(labels, noteSel, function(i) noteSel = i; render() end)
+    local n = list[noteSel]
+    if n then for para in (n[2] .. "\n"):gmatch("([^\n]*)\n") do if para ~= "" then line("0", para) end end end
+    cardClose()
+  end
+end
+
 -- una scheda del sito: ogni titolo "1…" apre una card, poi titoli "2…"/"3…" e paragrafi "0…".
 -- Talent: in cima "Apri in OneForAll"; Dungeon: sotto il titolo di ogni dungeon "Mappa" e "Boss e loot"
 local function drawPage(v, name)
@@ -915,7 +1163,7 @@ local function drawOptions(g, k)
   line("2", T.oShow)
   opt(T.oMinimap, not DB.hide, function(on) DB.hide = not on; minimapIcon() end)
   line("2", T.oLinks)
-  for _, l in ipairs({ { "map", T.oMap }, { "quests", T.oQuests }, { "tal", T.oTal }, { "trainer", T.oTrainer } }) do
+  for _, l in ipairs({ { "map", T.oMap }, { "trainers", T.oTrainers }, { "quests", T.oQuests }, { "tal", T.oTal }, { "trainer", T.oTrainer } }) do
     opt(l[2], o["no" .. l[1]] ~= true, function(val) o["no" .. l[1]] = not val or nil end)
   end
   line("0", T.oEnglish)
@@ -977,6 +1225,8 @@ render = function(top)
     if tab == "livello" then here = drawPath(g, k, v)
     elseif tab == "opzioni" then drawOptions(g, k)
     elseif tab == "dungeon" then drawDungeons(g)
+    elseif tab == "talent" and ForeverPathfinderTrees then drawTalents(g, k, v)
+    elseif tab == "classe" and ForeverPathfinderClass then drawClass(g, k, v)
     else drawPage(v, tab) end
     body:SetHeight(-y + 10)
     if scroll.UpdateScrollChildRect then scroll:UpdateScrollChildRect() end
@@ -1081,6 +1331,18 @@ if WorldMapFrame then
     if z ~= pinZoom then pinZoom = z; for _, p in ipairs(mapPins) do sizePin(p, z) end end
   end)
 end
+local TRP -- segnaposti dei trainer della tua classe, calcolati una volta
+local function classTrainers()
+  if TRP then return TRP end
+  TRP = {}
+  local cls = (select(2, UnitClass("player")) or ""):lower()
+  local side = UnitFactionGroup("player") == "Horde" and 2 or 1
+  local label = cls:sub(1, 1):upper() .. cls:sub(2) .. " Trainer"
+  for _, t in ipairs(ForeverPathfinderTrainers and ForeverPathfinderTrainers[cls] or {}) do
+    if t[5] == 0 or t[5] == side then TRP[#TRP + 1] = { t[2], t[3], t[4], label, nil, z = t.z, who = t[1] } end
+  end
+  return TRP
+end
 drawMapPins = function()
   for _, p in ipairs(mapPins) do p:Hide() end
   if not (C and WorldMapFrame and WorldMapFrame:IsShown() and on("map")) then return end
@@ -1091,6 +1353,8 @@ drawMapPins = function()
   local cont, n = continents(), 0
   local list = stagePins()
   if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player"), z = focus.z, dg = true } end
+  -- tutti i trainer della tua classe e fazione (ForeverPathfinderTrainers), con l'icona della classe
+  if on("trainers") then for _, p in ipairs(classTrainers()) do list[#list + 1] = p end end
   for _, p in ipairs(list) do
     local x, y
     local gx, gy = xy(p)
@@ -1102,7 +1366,10 @@ drawMapPins = function()
         pin = CreateFrame("Button", nil, canvas); pin:SetSize(24, 24)
         pinFrame(pin)
         pin.tx = pin:CreateTexture(nil, "OVERLAY"); pin.tx:SetAllPoints()
-        pin:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.p[4]); GameTooltip:AddLine("Forever Pathfinder · " .. T.level:format(self.p[5]), 1, 1, 1); GameTooltip:Show() end)
+        pin:SetScript("OnEnter", function(self)
+          GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.p.who and self.p[4] .. ": " .. self.p.who or self.p[4])
+          GameTooltip:AddLine("Forever Pathfinder" .. (self.p[5] and " · " .. T.level:format(self.p[5]) or ""), 1, 1, 1); GameTooltip:Show()
+        end)
         pin:SetScript("OnLeave", function() GameTooltip:Hide() end)
         pin:SetScript("OnClick", function(self) setTarget(self.p) end)
         mapPins[n] = pin
