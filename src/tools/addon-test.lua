@@ -302,7 +302,8 @@ check(ForeverPathfinderChar.done["human-warrior:" .. ltask[5]] == true, "lettera
 LEVEL = 1; f.shown = false; fp("")
 local pinB = find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip2 == (lang == "it" and "Mostra sulla mappa e sulla minimappa" or "Show on the map and the minimap") end)
 check(pinB ~= nil, "pulsante del segnaposto di una voce")
-WAYPOINT = nil; pinB.scripts.OnClick(pinB)
+WAYPOINT = nil; WorldMapFrame.shown = false; pinB.scripts.OnClick(pinB)
+check(WorldMapFrame.shown and not f.shown, "il pulsante del segnaposto apre la mappa del mondo (e chiude la guida)")
 local zid = WAYPOINT and WAYPOINT[1]
 local inZM = false
 for _, a in pairs(ForeverPathfinderZoneMaps) do for _, z in ipairs(a) do if z[1] == zid then inZM = true end end end
