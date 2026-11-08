@@ -56,6 +56,214 @@
     "Fondi fino a 185, poi mina: dopo 185 la fusione non dà più skill (wowforever.be).",
     "Non deviare per Tin dopo 165 o per Silver dopo 175: non danno più skill.",
     "Il percorso 225–300 non è ancora documentato: controlla in gioco."
+   ],
+   "route": [
+    [
+     1,
+     65,
+     "Copper Vein",
+     0,
+     "inv_ore_copper_01",
+     0,
+     [],
+     "Qualsiasi zona iniziale"
+    ],
+    [
+     65,
+     125,
+     "Copper Vein, Tin Vein, Silver Vein",
+     0,
+     "inv_stone_16",
+     0,
+     [],
+     "Ashenvale, Redridge Mountains, The Barrens, Thousand Needles"
+    ],
+    [
+     125,
+     175,
+     "Tin Vein, Silver Vein, Iron Deposit, Gold Vein",
+     0,
+     "inv_ore_gold_01",
+     0,
+     [],
+     "Arathi Highlands, Desolace, Stranglethorn Vale, Thousand Needles"
+    ],
+    [
+     175,
+     225,
+     "Gold Vein, Mithril Deposit, Truesilver Deposit",
+     0,
+     "inv_ore_truesilver_01",
+     0,
+     [],
+     "Azshara, Tanaris, The Hinterlands"
+    ],
+    [
+     225,
+     245,
+     "Mithril Deposit, Truesilver Deposit, Dark Iron Deposit",
+     0,
+     "inv_ore_mithril_01",
+     0,
+     [],
+     "Searing Gorge, Burning Steppes, Badlands, The Hinterlands"
+    ],
+    [
+     245,
+     275,
+     "Truesilver Deposit, Small Thorium Vein",
+     0,
+     "inv_ore_thorium_02",
+     0,
+     [],
+     "Un'Goro Crater, Winterspring, Silithus, Feralas, Eastern e Western Plaguelands"
+    ],
+    [
+     275,
+     300,
+     "Small Thorium Vein, Rich Thorium Vein",
+     0,
+     "inv_ore_thorium_02",
+     0,
+     [],
+     "Un'Goro Crater, Winterspring, Burning Steppes, Eastern e Western Plaguelands"
+    ]
+   ],
+   "alt": [
+    [
+     1,
+     65,
+     "Smelt Copper",
+     0,
+     "inv_ingot_02",
+     130,
+     [
+      [
+       130,
+       "Copper Ore",
+       2770,
+       "inv_ore_copper_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     65,
+     75,
+     "Smelt Tin",
+     0,
+     "inv_ingot_05",
+     60,
+     [
+      [
+       60,
+       "Tin Ore",
+       2771,
+       "inv_ore_tin_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     75,
+     100,
+     "Smelt Bronze",
+     0,
+     "inv_ingot_bronze",
+     60,
+     [
+      [
+       60,
+       "Copper Bar",
+       2840,
+       "inv_ingot_02",
+       0
+      ],
+      [
+       60,
+       "Tin Bar",
+       3576,
+       "inv_ingot_05",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     100,
+     125,
+     "Smelt Silver",
+     0,
+     "inv_ingot_01",
+     70,
+     [
+      [
+       70,
+       "Silver Ore",
+       2775,
+       "inv_stone_16",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     125,
+     140,
+     "Smelt Iron",
+     0,
+     "inv_ingot_iron",
+     35,
+     [
+      [
+       35,
+       "Iron Ore",
+       2772,
+       "inv_ore_iron_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     140,
+     155,
+     "Solo minando: nessuna barra dà skill qui",
+     0,
+     "trade_mining",
+     0,
+     [],
+     ""
+    ],
+    [
+     155,
+     185,
+     "Smelt Gold",
+     0,
+     "inv_ingot_03",
+     60,
+     [
+      [
+       60,
+       "Gold Ore",
+       2776,
+       "inv_ore_gold_01",
+       0
+      ]
+     ],
+     ""
+    ]
+   ],
+   "altTitle": "Oppure fondendo (fino a 185)",
+   "apprentice": [
+    "Kelsey Fargo",
+    "Sally Swiftwrench",
+    "Fanorran Stilloak",
+    "Norzsh",
+    "Vartha Rockmane",
+    "Walter Mason"
    ]
   },
   {
@@ -115,6 +323,86 @@
     "Nessuno strumento necessario: attiva Find Herbs per vedere le erbe sulla minimappa (wowforever.be FAQ).",
     "Le erbe a volte danno anche semi: non buttarli, i livelli di camp li usano (wowforever.be).",
     "Cultivation dei Tauren richiede un livello minimo dal 27 settembre (wowforever.be)."
+   ],
+   "route": [
+    [
+     1,
+     70,
+     "Peacebloom, Silverleaf, Earthroot (da 15)",
+     0,
+     "inv_misc_herb_07",
+     0,
+     [],
+     "Qualsiasi zona iniziale"
+    ],
+    [
+     70,
+     115,
+     "Mageroyal, Briarthorn, Stranglekelp",
+     0,
+     "inv_misc_herb_11",
+     0,
+     [],
+     "Darkshore, Loch Modan, Silverpine Forest"
+    ],
+    [
+     115,
+     170,
+     "Stranglekelp, Bruiseweed, Wild Steelbloom, Kingsblood (da 125), Liferoot (da 150)",
+     0,
+     "inv_misc_root_02",
+     0,
+     [],
+     "Hillsbrad Foothills, Wetlands, Stonetalon Mountains"
+    ],
+    [
+     170,
+     205,
+     "Kingsblood, Liferoot, Fadeleaf, Goldthorn, Khadgar's Whisker (da 185)",
+     0,
+     "inv_misc_herb_08",
+     0,
+     [],
+     "Stranglethorn Vale, Arathi Highlands"
+    ],
+    [
+     205,
+     225,
+     "Fadeleaf, Goldthorn, Khadgar's Whisker, Wintersbite, Firebloom, Purple Lotus",
+     0,
+     "inv_misc_herb_17",
+     0,
+     [],
+     "Alterac Mountains, Tanaris, Searing Gorge"
+    ],
+    [
+     225,
+     270,
+     "Purple Lotus, Firebloom, Sungrass (da 230), Ghost Mushroom (da 245), Gromsblood (da 250), Golden Sansam (da 260)",
+     0,
+     "inv_misc_herb_sansamroot",
+     0,
+     [],
+     "The Hinterlands, Tanaris, Searing Gorge"
+    ],
+    [
+     270,
+     300,
+     "Golden Sansam, Dreamfoil, Mountain Silversage (da 280), Plaguebloom (da 285), Icecap (da 290)",
+     0,
+     "inv_misc_herb_icecap",
+     0,
+     [],
+     "Felwood, Un'Goro Crater, Winterspring, Eastern e Western Plaguelands"
+    ]
+   ],
+   "apprentice": [
+    "Nancy Songflower",
+    "Emrys Flintbeard",
+    "Eleyna Duskbreeze",
+    "Zor'la",
+    "Garan Sunstrider",
+    "Florence Nightshade"
    ]
   },
   {
@@ -170,6 +458,346 @@
     "Non craftare ciò che non puoi vendere: perdi gold e recuperi solo skill (snippet di ricerca, 🟡).",
     "Kami Labs: le ricette 250–300 sono 'after beta', verificale in gioco prima di pianificare.",
     "Herbalism come coppia: raccogliere le erbe da sé evita di comprarle in AH (snippet di ricerca, 🟡)."
+   ],
+   "route": [
+    [
+     1,
+     13,
+     "Elixir of Minor Force",
+     247755,
+     "inv_potion_77",
+     13,
+     [
+      [
+       13,
+       "Silverleaf",
+       765,
+       "inv_misc_herb_10",
+       0
+      ],
+      [
+       13,
+       "Empty Vial",
+       3371,
+       "inv_potion_84",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     13,
+     83,
+     "Elixir of Minor Defense",
+     5997,
+     "inv_potion_63",
+     90,
+     [
+      [
+       90,
+       "Silverleaf",
+       765,
+       "inv_misc_herb_10",
+       0
+      ],
+      [
+       90,
+       "Peacebloom",
+       2447,
+       "inv_misc_flower_02",
+       0
+      ],
+      [
+       90,
+       "Empty Vial",
+       3371,
+       "inv_potion_84",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     83,
+     94,
+     "Minor Mana Potion",
+     2455,
+     "inv_potion_70",
+     27,
+     [
+      [
+       27,
+       "Mageroyal",
+       785,
+       "inv_jewelry_talisman_03",
+       0
+      ],
+      [
+       27,
+       "Peacebloom",
+       2447,
+       "inv_misc_flower_02",
+       0
+      ],
+      [
+       27,
+       "Empty Vial",
+       3371,
+       "inv_potion_84",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     94,
+     111,
+     "Elixir of Minor Fortitude",
+     2458,
+     "inv_potion_42",
+     42,
+     [
+      [
+       84,
+       "Earthroot",
+       2449,
+       "inv_misc_herb_07",
+       0
+      ],
+      [
+       42,
+       "Peacebloom",
+       2447,
+       "inv_misc_flower_02",
+       0
+      ],
+      [
+       42,
+       "Empty Vial",
+       3371,
+       "inv_potion_84",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     111,
+     135,
+     "Elixir of Wisdom",
+     3383,
+     "inv_potion_06",
+     28,
+     [
+      [
+       28,
+       "Mageroyal",
+       785,
+       "inv_jewelry_talisman_03",
+       0
+      ],
+      [
+       56,
+       "Briarthorn",
+       2450,
+       "inv_misc_root_01",
+       0
+      ],
+      [
+       28,
+       "Empty Vial",
+       3371,
+       "inv_potion_84",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     135,
+     167,
+     "Discolored Healing Potion",
+     247240,
+     "inv_potion_37",
+     63,
+     [
+      [
+       63,
+       "Leaded Vial",
+       3372,
+       "inv_potion_85",
+       1
+      ],
+      [
+       63,
+       "Bruiseweed",
+       2453,
+       "inv_misc_herb_01",
+       0
+      ],
+      [
+       63,
+       "Murloc Eye",
+       730,
+       "inv_misc_eye_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     167,
+     175,
+     "Mana Potion",
+     3827,
+     "inv_potion_72",
+     8,
+     [
+      [
+       8,
+       "Stranglekelp",
+       3820,
+       "inv_misc_herb_11",
+       0
+      ],
+      [
+       8,
+       "Kingsblood",
+       3356,
+       "inv_misc_herb_03",
+       0
+      ],
+      [
+       8,
+       "Leaded Vial",
+       3372,
+       "inv_potion_85",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     175,
+     194,
+     "Greater Discolored Healing Potion",
+     247241,
+     "inv_potion_38",
+     26,
+     [
+      [
+       26,
+       "Leaded Vial",
+       3372,
+       "inv_potion_85",
+       1
+      ],
+      [
+       26,
+       "Kingsblood",
+       3356,
+       "inv_misc_herb_03",
+       0
+      ],
+      [
+       26,
+       "Murloc Eye",
+       730,
+       "inv_misc_eye_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     194,
+     230,
+     "Troll's Blood Elixir",
+     3826,
+     "inv_potion_80",
+     60,
+     [
+      [
+       60,
+       "Liferoot",
+       3357,
+       "inv_misc_root_02",
+       0
+      ],
+      [
+       60,
+       "Bruiseweed",
+       2453,
+       "inv_misc_herb_01",
+       0
+      ],
+      [
+       60,
+       "Leaded Vial",
+       3372,
+       "inv_potion_85",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     230,
+     279,
+     "Draught of Detect Undead",
+     9154,
+     "inv_potion_53",
+     89,
+     [
+      [
+       89,
+       "Arthas' Tears",
+       8836,
+       "inv_misc_herb_13",
+       0
+      ],
+      [
+       89,
+       "Crystal Vial",
+       8925,
+       "inv_potion_86",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     279,
+     300,
+     "Major Discolored Healing Potion",
+     241650,
+     "inv_potion_40",
+     23,
+     [
+      [
+       23,
+       "Crystal Vial",
+       8925,
+       "inv_potion_86",
+       1
+      ],
+      [
+       23,
+       "Plaguebloom",
+       13466,
+       "inv_misc_herb_plaguebloom",
+       0
+      ],
+      [
+       23,
+       "Murloc Eye",
+       730,
+       "inv_misc_eye_01",
+       0
+      ]
+     ],
+     ""
+    ]
    ]
   },
   {
@@ -215,6 +843,457 @@
    "tips": [
     "Scegli Armorsmith o Weaponsmith in base al main: la specializzazione si sblocca dopo 200 (WT).",
     "Gli oggetti BoE si vendono in AH solo se il prezzo supera il vendor (vedi common.json)."
+   ],
+   "route": [
+    [
+     1,
+     40,
+     "Rough Sharpening Stone",
+     2862,
+     "inv_stone_sharpeningstone_01",
+     53,
+     [
+      [
+       53,
+       "Rough Stone",
+       2835,
+       "inv_stone_06",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     40,
+     85,
+     "Rough Grinding Stone",
+     3470,
+     "inv_stone_grindingstone_01",
+     157,
+     [
+      [
+       314,
+       "Rough Stone",
+       2835,
+       "inv_stone_06",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     85,
+     91,
+     "Silver Skeleton Key",
+     15869,
+     "inv_misc_key_03",
+     17,
+     [
+      [
+       17,
+       "Silver Bar",
+       2842,
+       "inv_ingot_01",
+       0
+      ],
+      [
+       17,
+       "Rough Grinding Stone",
+       3470,
+       "inv_stone_grindingstone_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     91,
+     125,
+     "Rough Bronze Leggings",
+     2865,
+     "inv_pants_03",
+     35,
+     [
+      [
+       210,
+       "Bronze Bar",
+       2841,
+       "inv_ingot_bronze",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     125,
+     129,
+     "Iron Buckle",
+     7071,
+     "inv_misc_armorkit_12",
+     7,
+     [
+      [
+       7,
+       "Iron Bar",
+       3575,
+       "inv_ingot_iron",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     129,
+     143,
+     "Bronze Shortsword",
+     2850,
+     "inv_sword_04",
+     23,
+     [
+      [
+       115,
+       "Bronze Bar",
+       2841,
+       "inv_ingot_bronze",
+       0
+      ],
+      [
+       92,
+       "Weak Flux",
+       2880,
+       "inv_misc_ammo_gunpowder_02",
+       1
+      ],
+      [
+       46,
+       "Medium Leather",
+       2319,
+       "inv_misc_leatherscrap_05",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     143,
+     175,
+     "Bronze Warhammer",
+     7956,
+     "inv_hammer_18",
+     44,
+     [
+      [
+       352,
+       "Bronze Bar",
+       2841,
+       "inv_ingot_bronze",
+       0
+      ],
+      [
+       44,
+       "Strong Flux",
+       3466,
+       "inv_misc_ammo_gunpowder_01",
+       1
+      ],
+      [
+       44,
+       "Medium Leather",
+       2319,
+       "inv_misc_leatherscrap_05",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     175,
+     185,
+     "Solid Sharpening Stone",
+     7964,
+     "inv_stone_sharpeningstone_04",
+     30,
+     [
+      [
+       30,
+       "Solid Stone",
+       7912,
+       "inv_stone_10",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     185,
+     211,
+     "Heavy Mithril Gauntlet",
+     7919,
+     "inv_gauntlets_27",
+     31,
+     [
+      [
+       186,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       124,
+       "Mageweave Cloth",
+       4338,
+       "inv_fabric_mageweave_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     211,
+     225,
+     "Mithril Coif",
+     7931,
+     "inv_helmet_35",
+     14,
+     [
+      [
+       140,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       84,
+       "Mageweave Cloth",
+       4338,
+       "inv_fabric_mageweave_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     225,
+     235,
+     "Dense Sharpening Stone",
+     12404,
+     "inv_stone_sharpeningstone_05",
+     17,
+     [
+      [
+       17,
+       "Dense Stone",
+       12365,
+       "inv_misc_stonetablet_07",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     235,
+     250,
+     "Heavy Mithril Boots",
+     7933,
+     "inv_boots_plate_01",
+     67,
+     [
+      [
+       938,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       268,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     250,
+     269,
+     "Blight",
+     7959,
+     "inv_spear_07",
+     35,
+     [
+      [
+       980,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       350,
+       "Ichor of Undeath",
+       7972,
+       "inv_misc_slime_01",
+       0
+      ],
+      [
+       350,
+       "Truesilver Bar",
+       6037,
+       "inv_ingot_08",
+       0
+      ],
+      [
+       210,
+       "Solid Grinding Stone",
+       7966,
+       "inv_stone_grindingstone_04",
+       0
+      ],
+      [
+       210,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     269,
+     285,
+     "Truesilver Champion",
+     7960,
+     "inv_sword_19",
+     80,
+     [
+      [
+       2400,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       1280,
+       "Truesilver Bar",
+       6037,
+       "inv_ingot_08",
+       0
+      ],
+      [
+       480,
+       "Star Ruby",
+       7910,
+       "inv_misc_gem_ruby_02",
+       0
+      ],
+      [
+       320,
+       "Breath of Wind",
+       7081,
+       "spell_nature_cyclone",
+       0
+      ],
+      [
+       640,
+       "Solid Grinding Stone",
+       7966,
+       "inv_stone_grindingstone_04",
+       0
+      ],
+      [
+       480,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     285,
+     294,
+     "Ornate Thorium Handaxe",
+     12773,
+     "inv_axe_12",
+     22,
+     [
+      [
+       440,
+       "Thorium Bar",
+       12359,
+       "inv_ingot_07",
+       0
+      ],
+      [
+       44,
+       "Large Opal",
+       12799,
+       "inv_misc_gem_opal_01",
+       0
+      ],
+      [
+       44,
+       "Dense Grinding Stone",
+       12644,
+       "inv_stone_grindingstone_05",
+       0
+      ],
+      [
+       88,
+       "Rugged Leather",
+       8170,
+       "inv_misc_leatherscrap_02",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     294,
+     300,
+     "Goregasher Support",
+     275623,
+     "inv_belt_33",
+     13,
+     [
+      [
+       143,
+       "Thorium Bar",
+       12359,
+       "inv_ingot_07",
+       0
+      ],
+      [
+       65,
+       "Enchanted Thorium Bar",
+       12655,
+       "inv_ingot_eternium",
+       0
+      ],
+      [
+       39,
+       "Essence of Fire",
+       7078,
+       "spell_fire_volcano",
+       0
+      ],
+      [
+       13,
+       "Elemental Flux",
+       18567,
+       "spell_frost_fireresistancetotem",
+       0
+      ]
+     ],
+     ""
+    ]
    ]
   },
   {
@@ -259,6 +1338,263 @@
    "tips": [
     "Coppia suggerita con Tailoring: il Tailoring fornisce stoffa dagli umanoidi, Enchanting ricicla il gear (WT, Gfinity).",
     "Disincantare gear Green o superiore dà materiali: il materiale dipende dal livello dell'oggetto (WT)."
+   ],
+   "route": [
+    [
+     1,
+     25,
+     "Enchant Bracer - Inferior Stamina",
+     7418,
+     null,
+     31,
+     [
+      [
+       31,
+       "Mote of Magic",
+       247786,
+       "inv_elemental_mote_mana",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     25,
+     95,
+     "Enchant Chest - Inferior Stamina",
+     7420,
+     null,
+     84,
+     [
+      [
+       84,
+       "Strange Dust",
+       10940,
+       "inv_enchant_duststrange",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     95,
+     110,
+     "Enchant Bracer - Minor Stamina",
+     7457,
+     null,
+     17,
+     [
+      [
+       34,
+       "Strange Dust",
+       10940,
+       "inv_enchant_duststrange",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     110,
+     134,
+     "Enchant Cloak - Minor Protection",
+     7771,
+     null,
+     36,
+     [
+      [
+       72,
+       "Strange Dust",
+       10940,
+       "inv_enchant_duststrange",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     134,
+     144,
+     "Enchant 2H Weapon - Minor Impact",
+     7745,
+     null,
+     13,
+     [
+      [
+       13,
+       "Strange Dust",
+       10940,
+       "inv_enchant_duststrange",
+       0
+      ],
+      [
+       13,
+       "Small Glimmering Shard",
+       10978,
+       "inv_enchant_shardglimmeringsmall",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     144,
+     160,
+     "Enchant Boots - Minor Stamina",
+     7863,
+     null,
+     18,
+     [
+      [
+       72,
+       "Strange Dust",
+       10940,
+       "inv_enchant_duststrange",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     160,
+     198,
+     "Enchant Boots - Lesser Agility",
+     13637,
+     null,
+     44,
+     [
+      [
+       44,
+       "Soul Dust",
+       11083,
+       "inv_enchant_dustsoul",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     198,
+     210,
+     "Enchant Bracer - Strength",
+     13661,
+     null,
+     14,
+     [
+      [
+       14,
+       "Vision Dust",
+       11137,
+       "inv_enchant_dustvision",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     210,
+     249,
+     "Enchant Cloak - Greater Defense",
+     13746,
+     null,
+     51,
+     [
+      [
+       51,
+       "Vision Dust",
+       11137,
+       "inv_enchant_dustvision",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     249,
+     267,
+     "Enchant Gloves - Agility",
+     13815,
+     null,
+     73,
+     [
+      [
+       73,
+       "Vision Dust",
+       11137,
+       "inv_enchant_dustvision",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     267,
+     278,
+     "Enchant Chest - Superior Stamina",
+     13858,
+     null,
+     68,
+     [
+      [
+       204,
+       "Vision Dust",
+       11137,
+       "inv_enchant_dustvision",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     278,
+     294,
+     "Enchant Bracer - Greater Strength",
+     13939,
+     null,
+     50,
+     [
+      [
+       50,
+       "Dream Dust",
+       11176,
+       "inv_enchant_dustdream",
+       0
+      ],
+      [
+       100,
+       "Lesser Nether Essence",
+       11174,
+       "inv_enchant_essencenethersmall",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     294,
+     300,
+     "Enchant Gloves - Minor Haste",
+     13948,
+     null,
+     19,
+     [
+      [
+       19,
+       "Large Radiant Shard",
+       11178,
+       "inv_enchant_shardradientlarge",
+       0
+      ],
+      [
+       19,
+       "Wildvine",
+       8153,
+       "inv_misc_herb_03",
+       0
+      ]
+     ],
+     ""
+    ]
    ]
   },
   {
@@ -308,6 +1644,440 @@
    "tips": [
     "Coppia suggerita con Mining per PvP, utility e fun (WT). Per Mage e Warrior endgame: Engineering + Mining (Gfinity).",
     "Il Reagent Bot è un vendor di reagenti: compra e vende al campo (WT)."
+   ],
+   "route": [
+    [
+     1,
+     35,
+     "Rough Blasting Powder",
+     4357,
+     "inv_misc_dust_01",
+     46,
+     [
+      [
+       46,
+       "Rough Stone",
+       2835,
+       "inv_stone_06",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     35,
+     58,
+     "Rough Dynamite",
+     4358,
+     "inv_misc_bomb_06",
+     70,
+     [
+      [
+       70,
+       "Rough Blasting Powder",
+       4357,
+       "inv_misc_dust_01",
+       0
+      ],
+      [
+       70,
+       "Linen Cloth",
+       2589,
+       "inv_fabric_linen_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     58,
+     72,
+     "Rough Copper Bomb",
+     4360,
+     "inv_misc_bomb_09",
+     17,
+     [
+      [
+       17,
+       "Copper Bar",
+       2840,
+       "inv_ingot_02",
+       0
+      ],
+      [
+       17,
+       "Handful of Copper Bolts",
+       4359,
+       "inv_misc_gear_06",
+       0
+      ],
+      [
+       34,
+       "Rough Blasting Powder",
+       4357,
+       "inv_misc_dust_01",
+       0
+      ],
+      [
+       17,
+       "Linen Cloth",
+       2589,
+       "inv_fabric_linen_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     72,
+     83,
+     "Copper Tube",
+     4361,
+     "inv_gizmo_pipe_02",
+     12,
+     [
+      [
+       24,
+       "Copper Bar",
+       2840,
+       "inv_ingot_02",
+       0
+      ],
+      [
+       12,
+       "Weak Flux",
+       2880,
+       "inv_misc_ammo_gunpowder_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     83,
+     89,
+     "Crafted Heavy Shot",
+     8068,
+     "inv_ammo_bullet_02",
+     7,
+     [
+      [
+       7,
+       "Coarse Blasting Powder",
+       4364,
+       "inv_misc_dust_02",
+       0
+      ],
+      [
+       7,
+       "Copper Bar",
+       2840,
+       "inv_ingot_02",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     89,
+     98,
+     "Crude Scope",
+     4405,
+     "inv_misc_spyglass_02",
+     11,
+     [
+      [
+       11,
+       "Copper Tube",
+       4361,
+       "inv_gizmo_pipe_02",
+       1
+      ],
+      [
+       11,
+       "Malachite",
+       774,
+       "inv_misc_gem_emerald_03",
+       0
+      ],
+      [
+       11,
+       "Handful of Copper Bolts",
+       4359,
+       "inv_misc_gear_06",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     98,
+     125,
+     "Silver Contact",
+     4404,
+     "inv_ingot_04",
+     33,
+     [
+      [
+       33,
+       "Silver Bar",
+       2842,
+       "inv_ingot_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     125,
+     137,
+     "Heavy Blasting Powder",
+     4377,
+     "inv_misc_dust_06",
+     18,
+     [
+      [
+       18,
+       "Heavy Stone",
+       2838,
+       "inv_stone_12",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     137,
+     145,
+     "Whirring Bronze Gizmo",
+     4375,
+     "inv_gizmo_02",
+     12,
+     [
+      [
+       24,
+       "Bronze Bar",
+       2841,
+       "inv_ingot_bronze",
+       0
+      ],
+      [
+       12,
+       "Wool Cloth",
+       2592,
+       "inv_fabric_wool_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     145,
+     175,
+     "Bronze Framework",
+     4382,
+     "inv_gizmo_bronzeframework_01",
+     46,
+     [
+      [
+       92,
+       "Bronze Bar",
+       2841,
+       "inv_ingot_bronze",
+       0
+      ],
+      [
+       46,
+       "Medium Leather",
+       2319,
+       "inv_misc_leatherscrap_05",
+       0
+      ],
+      [
+       46,
+       "Wool Cloth",
+       2592,
+       "inv_fabric_wool_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     175,
+     186,
+     "Solid Blasting Powder",
+     10505,
+     "inv_misc_powder_black",
+     16,
+     [
+      [
+       32,
+       "Solid Stone",
+       7912,
+       "inv_stone_10",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     186,
+     201,
+     "Iron Grenade",
+     4390,
+     "inv_misc_bomb_08",
+     29,
+     [
+      [
+       29,
+       "Iron Bar",
+       3575,
+       "inv_ingot_iron",
+       0
+      ],
+      [
+       29,
+       "Heavy Blasting Powder",
+       4377,
+       "inv_misc_dust_06",
+       0
+      ],
+      [
+       29,
+       "Silk Cloth",
+       4306,
+       "inv_fabric_silk_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     201,
+     210,
+     "Mechanical Repair Kit",
+     11590,
+     "inv_gizmo_03",
+     11,
+     [
+      [
+       11,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       11,
+       "Mageweave Cloth",
+       4338,
+       "inv_fabric_mageweave_01",
+       0
+      ],
+      [
+       11,
+       "Solid Blasting Powder",
+       10505,
+       "inv_misc_powder_black",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     210,
+     245,
+     "Hi-Impact Mithril Slugs",
+     10512,
+     "inv_ammo_bullet_01",
+     80,
+     [
+      [
+       80,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       80,
+       "Solid Blasting Powder",
+       10505,
+       "inv_misc_powder_black",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     245,
+     250,
+     "Mithril Gyro-Shot",
+     10513,
+     "inv_ammo_bullet_01",
+     6,
+     [
+      [
+       12,
+       "Mithril Bar",
+       3860,
+       "inv_ingot_06",
+       0
+      ],
+      [
+       12,
+       "Solid Blasting Powder",
+       10505,
+       "inv_misc_powder_black",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     250,
+     260,
+     "Dense Blasting Powder",
+     15992,
+     "inv_misc_ammo_gunpowder_01",
+     30,
+     [
+      [
+       60,
+       "Dense Stone",
+       12365,
+       "inv_misc_stonetablet_07",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     260,
+     300,
+     "Thorium Widget",
+     15994,
+     "inv_gizmo_04",
+     92,
+     [
+      [
+       276,
+       "Thorium Bar",
+       12359,
+       "inv_ingot_07",
+       0
+      ],
+      [
+       92,
+       "Runecloth",
+       14047,
+       "inv_fabric_purplefire_01",
+       0
+      ]
+     ],
+     ""
+    ]
    ]
   },
   {
@@ -351,6 +2121,536 @@
    "tips": [
     "Coppia con Skinning per avere cuoio gratis dalle bestie in quest (Gfinity: 🟡, siti non ufficiali).",
     "Camp Tent è l'unico camp con ricarica propria: dopo di esso hai Boosted Rest per un'ora (wowforever.be camping)."
+   ],
+   "route": [
+    [
+     1,
+     27,
+     "Light Leather",
+     2318,
+     "inv_misc_leatherscrap_03",
+     28,
+     [
+      [
+       84,
+       "Ruined Leather Scraps",
+       2934,
+       "inv_misc_pelt_bear_ruin_05",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     27,
+     52,
+     "Light Armor Kit",
+     2304,
+     "inv_misc_armorkit_17",
+     42,
+     [
+      [
+       42,
+       "Light Leather",
+       2318,
+       "inv_misc_leatherscrap_03",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     52,
+     58,
+     "Cured Light Hide",
+     4231,
+     "inv_misc_pelt_wolf_01",
+     8,
+     [
+      [
+       8,
+       "Light Hide",
+       783,
+       "inv_misc_pelt_wolf_ruin_02",
+       0
+      ],
+      [
+       8,
+       "Salt",
+       4289,
+       "inv_misc_dust_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     58,
+     87,
+     "Embossed Leather Gloves",
+     4239,
+     "inv_gauntlets_05",
+     37,
+     [
+      [
+       111,
+       "Light Leather",
+       2318,
+       "inv_misc_leatherscrap_03",
+       0
+      ],
+      [
+       74,
+       "Coarse Thread",
+       2320,
+       "inv_fabric_linen_03",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     87,
+     100,
+     "Cured Medium Hide",
+     4233,
+     "inv_misc_pelt_bear_02",
+     19,
+     [
+      [
+       19,
+       "Medium Hide",
+       4232,
+       "inv_misc_pelt_boar_ruin_02",
+       0
+      ],
+      [
+       19,
+       "Salt",
+       4289,
+       "inv_misc_dust_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     100,
+     107,
+     "Fine Leather Belt",
+     4246,
+     "inv_belt_04",
+     19,
+     [
+      [
+       114,
+       "Light Leather",
+       2318,
+       "inv_misc_leatherscrap_03",
+       0
+      ],
+      [
+       38,
+       "Coarse Thread",
+       2320,
+       "inv_fabric_linen_03",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     107,
+     125,
+     "Hillman's Shoulders",
+     4251,
+     "inv_shoulder_08",
+     18,
+     [
+      [
+       18,
+       "Cured Medium Hide",
+       4233,
+       "inv_misc_pelt_bear_02",
+       0
+      ],
+      [
+       72,
+       "Medium Leather",
+       2319,
+       "inv_misc_leatherscrap_05",
+       0
+      ],
+      [
+       18,
+       "Fine Thread",
+       2321,
+       "inv_fabric_wool_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     125,
+     131,
+     "Heavy Leather",
+     4234,
+     "inv_misc_leatherscrap_07",
+     9,
+     [
+      [
+       45,
+       "Medium Leather",
+       2319,
+       "inv_misc_leatherscrap_05",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     131,
+     142,
+     "Cured Heavy Hide",
+     4236,
+     "inv_misc_pelt_wolf_02",
+     15,
+     [
+      [
+       15,
+       "Heavy Hide",
+       4235,
+       "inv_misc_pelt_wolf_ruin_03",
+       0
+      ],
+      [
+       45,
+       "Salt",
+       4289,
+       "inv_misc_dust_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     142,
+     158,
+     "Heavy Armor Kit",
+     4265,
+     "inv_misc_armorkit_16",
+     24,
+     [
+      [
+       120,
+       "Heavy Leather",
+       4234,
+       "inv_misc_leatherscrap_07",
+       0
+      ],
+      [
+       24,
+       "Fine Thread",
+       2321,
+       "inv_fabric_wool_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     158,
+     165,
+     "Hillman's Leather Gloves",
+     4247,
+     "inv_gauntlets_05",
+     21,
+     [
+      [
+       294,
+       "Medium Leather",
+       2319,
+       "inv_misc_leatherscrap_05",
+       0
+      ],
+      [
+       84,
+       "Fine Thread",
+       2321,
+       "inv_fabric_wool_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     165,
+     192,
+     "Guardian Gloves",
+     5966,
+     "inv_gauntlets_05",
+     29,
+     [
+      [
+       116,
+       "Heavy Leather",
+       4234,
+       "inv_misc_leatherscrap_07",
+       0
+      ],
+      [
+       29,
+       "Cured Heavy Hide",
+       4236,
+       "inv_misc_pelt_wolf_02",
+       0
+      ],
+      [
+       29,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     192,
+     203,
+     "Thick Armor Kit",
+     8173,
+     "inv_misc_armorkit_07",
+     13,
+     [
+      [
+       65,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ],
+      [
+       13,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     203,
+     215,
+     "Nightscape Headband",
+     8176,
+     "inv_belt_24",
+     24,
+     [
+      [
+       120,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ],
+      [
+       48,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     215,
+     225,
+     "Nightscape Pants",
+     8193,
+     "inv_pants_11",
+     10,
+     [
+      [
+       140,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ],
+      [
+       40,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     225,
+     243,
+     "Rugged Armor Kit",
+     15564,
+     "inv_misc_armorkit_09",
+     42,
+     [
+      [
+       210,
+       "Rugged Leather",
+       8170,
+       "inv_misc_leatherscrap_02",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     243,
+     250,
+     "Nightscape Boots",
+     8197,
+     "inv_boots_05",
+     52,
+     [
+      [
+       832,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ],
+      [
+       104,
+       "Heavy Silken Thread",
+       8343,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     250,
+     259,
+     "Helm of Fire",
+     8348,
+     "inv_helmet_08",
+     14,
+     [
+      [
+       560,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ],
+      [
+       112,
+       "Heart of Fire",
+       7077,
+       "spell_fire_lavaspawn",
+       0
+      ],
+      [
+       56,
+       "Core of Earth",
+       7075,
+       "inv_stone_05",
+       0
+      ],
+      [
+       28,
+       "Cured Thick Hide",
+       8172,
+       "inv_misc_pelt_bear_01",
+       0
+      ],
+      [
+       56,
+       "Heavy Silken Thread",
+       8343,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     259,
+     270,
+     "Dragonscale Breastplate",
+     8367,
+     "inv_chest_chain_07",
+     46,
+     [
+      [
+       1840,
+       "Thick Leather",
+       4304,
+       "inv_misc_leatherscrap_08",
+       0
+      ],
+      [
+       1380,
+       "Worn Dragonscale",
+       8165,
+       "inv_misc_monsterscales_17",
+       0
+      ],
+      [
+       184,
+       "Heavy Silken Thread",
+       8343,
+       "inv_fabric_silk_02",
+       1
+      ],
+      [
+       184,
+       "Cured Thick Hide",
+       8172,
+       "inv_misc_pelt_bear_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     270,
+     300,
+     "Runic Leather Headband",
+     15094,
+     "inv_misc_bandage_11",
+     42,
+     [
+      [
+       588,
+       "Rugged Leather",
+       8170,
+       "inv_misc_leatherscrap_02",
+       0
+      ],
+      [
+       420,
+       "Runecloth",
+       14047,
+       "inv_fabric_purplefire_01",
+       0
+      ],
+      [
+       42,
+       "Rune Thread",
+       14341,
+       "spell_shadow_antimagicshell",
+       1
+      ]
+     ],
+     ""
+    ]
    ]
   },
   {
@@ -390,6 +2690,68 @@
    "tips": [
     "Field Guide (Track Beasts) ti fa vedere le bestie in minimappa: utile in leveling a bestie.",
     "Nessun numero di gold per ora: non fare conti senza prezzi AH."
+   ],
+   "route": [
+    [
+     1,
+     75,
+     "Beast del livello 1–15",
+     0,
+     "inv_misc_pelt_wolf_01",
+     0,
+     [],
+     "Zone iniziali"
+    ],
+    [
+     75,
+     115,
+     "Beast del livello 10–23",
+     0,
+     "inv_misc_pelt_wolf_01",
+     0,
+     [],
+     "Alleanza: Loch Modan, Darkshore, Westfall, Redridge Mountains; Orda: The Barrens, Silverpine Forest"
+    ],
+    [
+     115,
+     150,
+     "Beast del livello 20–30",
+     0,
+     "inv_misc_pelt_wolf_01",
+     0,
+     [],
+     "The Barrens (sud), Wetlands, Hillsbrad Foothills, Ashenvale, Duskwood"
+    ],
+    [
+     150,
+     205,
+     "Beast del livello 30–41",
+     0,
+     "inv_misc_pelt_wolf_01",
+     0,
+     [],
+     "Thousand Needles, Arathi Highlands, Desolace, Alterac Mountains, Stranglethorn Vale, Swamp of Sorrows, The Riverglades, Dustwallow Marsh, Badlands"
+    ],
+    [
+     205,
+     260,
+     "Beast del livello 41–52",
+     0,
+     "inv_misc_pelt_wolf_01",
+     0,
+     [],
+     "Feralas, Tanaris, The Hinterlands, Searing Gorge, Azshara"
+    ],
+    [
+     260,
+     300,
+     "Beast del livello 52–60",
+     0,
+     "inv_misc_pelt_wolf_01",
+     0,
+     [],
+     "Un’Goro Crater, Blasted Lands, Felwood, Western Plaguelands, Silithus, Eastern Plaguelands"
+    ]
    ]
   },
   {
@@ -434,6 +2796,482 @@
    "tips": [
     "Tailoring + Enchanting per Priest, Mage, Warlock (Gfinity: 🟡).",
     "Per Mage e Warlock, Herbalism + Alchemy è la coppia endgame (Gfinity)."
+   ],
+   "route": [
+    [
+     1,
+     39,
+     "Bolt of Linen Cloth",
+     2996,
+     "inv_fabric_linen_02",
+     44,
+     [
+      [
+       88,
+       "Linen Cloth",
+       2589,
+       "inv_fabric_linen_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     39,
+     45,
+     "Simple Linen Pants",
+     10045,
+     "inv_pants_11",
+     7,
+     [
+      [
+       7,
+       "Bolt of Linen Cloth",
+       2996,
+       "inv_fabric_linen_02",
+       0
+      ],
+      [
+       7,
+       "Coarse Thread",
+       2320,
+       "inv_fabric_linen_03",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     45,
+     52,
+     "Brown Linen Vest",
+     2568,
+     "inv_shirt_05",
+     9,
+     [
+      [
+       9,
+       "Bolt of Linen Cloth",
+       2996,
+       "inv_fabric_linen_02",
+       0
+      ],
+      [
+       9,
+       "Coarse Thread",
+       2320,
+       "inv_fabric_linen_03",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     52,
+     77,
+     "Linen Belt",
+     7026,
+     "inv_belt_05",
+     48,
+     [
+      [
+       48,
+       "Bolt of Linen Cloth",
+       2996,
+       "inv_fabric_linen_02",
+       0
+      ],
+      [
+       48,
+       "Coarse Thread",
+       2320,
+       "inv_fabric_linen_03",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     77,
+     106,
+     "Woolen Cape",
+     2584,
+     "inv_misc_cape_10",
+     50,
+     [
+      [
+       50,
+       "Bolt of Woolen Cloth",
+       2997,
+       "inv_fabric_wool_03",
+       0
+      ],
+      [
+       50,
+       "Fine Thread",
+       2321,
+       "inv_fabric_wool_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     106,
+     133,
+     "Double-stitched Woolen Shoulders",
+     4314,
+     "inv_shoulder_06",
+     41,
+     [
+      [
+       123,
+       "Bolt of Woolen Cloth",
+       2997,
+       "inv_fabric_wool_03",
+       0
+      ],
+      [
+       82,
+       "Fine Thread",
+       2321,
+       "inv_fabric_wool_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     133,
+     144,
+     "Gloves of Meditation",
+     4318,
+     "inv_gauntlets_05",
+     21,
+     [
+      [
+       84,
+       "Bolt of Woolen Cloth",
+       2997,
+       "inv_fabric_wool_03",
+       0
+      ],
+      [
+       63,
+       "Fine Thread",
+       2321,
+       "inv_fabric_wool_02",
+       1
+      ],
+      [
+       21,
+       "Elixir of Wisdom",
+       3383,
+       "inv_potion_06",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     144,
+     148,
+     "Bolt of Mageweave",
+     4339,
+     "inv_fabric_mageweave_03",
+     5,
+     [
+      [
+       25,
+       "Mageweave Cloth",
+       4338,
+       "inv_fabric_mageweave_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     148,
+     154,
+     "Red Swashbuckler's Shirt",
+     6796,
+     "inv_shirt_red_01",
+     7,
+     [
+      [
+       21,
+       "Bolt of Silk Cloth",
+       4305,
+       "inv_fabric_silk_03",
+       0
+      ],
+      [
+       14,
+       "Red Dye",
+       2604,
+       "inv_potion_11",
+       1
+      ],
+      [
+       7,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     154,
+     176,
+     "Crimson Silk Vest",
+     7058,
+     "inv_shirt_04",
+     23,
+     [
+      [
+       92,
+       "Bolt of Silk Cloth",
+       4305,
+       "inv_fabric_silk_03",
+       0
+      ],
+      [
+       46,
+       "Red Dye",
+       2604,
+       "inv_potion_11",
+       1
+      ],
+      [
+       46,
+       "Fine Thread",
+       2321,
+       "inv_fabric_wool_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     176,
+     180,
+     "Crimson Silk Pantaloons",
+     7062,
+     "inv_pants_06",
+     4,
+     [
+      [
+       16,
+       "Bolt of Silk Cloth",
+       4305,
+       "inv_fabric_silk_03",
+       0
+      ],
+      [
+       8,
+       "Red Dye",
+       2604,
+       "inv_potion_11",
+       1
+      ],
+      [
+       8,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     180,
+     190,
+     "Orange Mageweave Shirt",
+     10056,
+     "inv_shirt_orange_01",
+     12,
+     [
+      [
+       12,
+       "Bolt of Mageweave",
+       4339,
+       "inv_fabric_mageweave_03",
+       0
+      ],
+      [
+       12,
+       "Orange Dye",
+       6261,
+       "inv_potion_35",
+       1
+      ],
+      [
+       12,
+       "Heavy Silken Thread",
+       8343,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     190,
+     213,
+     "Long Silken Cloak",
+     439094,
+     null,
+     25,
+     [
+      [
+       100,
+       "Bolt of Silk Cloth",
+       4305,
+       "inv_fabric_silk_03",
+       0
+      ],
+      [
+       25,
+       "Mana Potion",
+       3827,
+       "inv_potion_72",
+       0
+      ],
+      [
+       25,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     213,
+     248,
+     "Black Mageweave Leggings",
+     439088,
+     null,
+     82,
+     [
+      [
+       164,
+       "Bolt of Mageweave",
+       4339,
+       "inv_fabric_mageweave_03",
+       0
+      ],
+      [
+       246,
+       "Silken Thread",
+       4291,
+       "inv_fabric_silk_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     248,
+     255,
+     "Runecloth Belt",
+     13856,
+     "inv_belt_15",
+     68,
+     [
+      [
+       204,
+       "Bolt of Runecloth",
+       14048,
+       "inv_fabric_purplefire_02",
+       0
+      ],
+      [
+       68,
+       "Rune Thread",
+       14341,
+       "spell_shadow_antimagicshell",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     255,
+     293,
+     "Runecloth Cuffs",
+     254123,
+     "inv_bracer_13",
+     85,
+     [
+      [
+       425,
+       "Bolt of Runecloth",
+       14048,
+       "inv_fabric_purplefire_02",
+       0
+      ],
+      [
+       85,
+       "Ironweb Spider Silk",
+       14227,
+       "spell_nature_web",
+       0
+      ],
+      [
+       85,
+       "Rune Thread",
+       14341,
+       "spell_shadow_antimagicshell",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     293,
+     300,
+     "Swarmtender's Cord",
+     275608,
+     "inv_belt_03",
+     14,
+     [
+      [
+       84,
+       "Bolt of Runecloth",
+       14048,
+       "inv_fabric_purplefire_02",
+       0
+      ],
+      [
+       14,
+       "Small Brilliant Shard",
+       14343,
+       "inv_enchant_shardbrilliantsmall",
+       0
+      ],
+      [
+       42,
+       "Essence of Water",
+       7080,
+       "spell_nature_acid_01",
+       0
+      ],
+      [
+       84,
+       "Rune Thread",
+       14341,
+       "spell_shadow_antimagicshell",
+       1
+      ]
+     ],
+     ""
+    ]
    ]
   },
   {
@@ -483,7 +3321,167 @@
    "tips": [
     "Per Artisan: Zesty Clam Meat dal Big-mouth Clam (costa est di Tanaris) e Giant Egg dai mob dei Sandfury (wowforever.be).",
     "Cooking e Fishing sono consigliati a tutti, non occupano posti primari (WT)."
-   ]
+   ],
+   "route": [
+    [
+     1,
+     70,
+     "Roasted Boar Meat",
+     2681,
+     "inv_misc_food_18",
+     83,
+     [
+      [
+       83,
+       "Chunk of Boar Meat",
+       769,
+       "inv_misc_food_14",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     70,
+     99,
+     "Boiled Clams",
+     5525,
+     "inv_misc_shell_02",
+     31,
+     [
+      [
+       31,
+       "Clam Meat",
+       5503,
+       "inv_misc_food_51",
+       0
+      ],
+      [
+       31,
+       "Refreshing Spring Water",
+       159,
+       "inv_drink_07",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     99,
+     128,
+     "Dry Pork Ribs",
+     2687,
+     "inv_misc_food_48",
+     30,
+     [
+      [
+       30,
+       "Boar Ribs",
+       2677,
+       "inv_misc_food_16",
+       0
+      ],
+      [
+       30,
+       "Mild Spices",
+       2678,
+       "inv_misc_food_wheat_02",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     128,
+     198,
+     "Goblin Deviled Clams",
+     5527,
+     "inv_misc_shell_01",
+     105,
+     [
+      [
+       105,
+       "Tangy Clam Meat",
+       5504,
+       "inv_misc_food_51",
+       0
+      ],
+      [
+       105,
+       "Hot Spices",
+       2692,
+       "inv_misc_food_legion_dalapenopepper",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     198,
+     237,
+     "Barbecued Buzzard Wing",
+     4457,
+     "inv_misc_food_18",
+     49,
+     [
+      [
+       49,
+       "Buzzard Wing",
+       3404,
+       "inv_misc_monsterscales_02",
+       0
+      ],
+      [
+       49,
+       "Hot Spices",
+       2692,
+       "inv_misc_food_legion_dalapenopepper",
+       1
+      ]
+     ],
+     ""
+    ],
+    [
+     237,
+     280,
+     "Spider Sausage",
+     17222,
+     "inv_misc_food_66",
+     155,
+     [
+      [
+       310,
+       "White Spider Meat",
+       12205,
+       "inv_misc_food_51",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     280,
+     300,
+     "Poached Sunscale Salmon",
+     13932,
+     "inv_misc_fish_19",
+     22,
+     [
+      [
+       22,
+       "Raw Sunscale Salmon",
+       13760,
+       "inv_misc_fish_19",
+       0
+      ]
+     ],
+     ""
+    ]
+   ],
+   "rankHow": {
+    "Expert": "il libro Expert Cookbook (10 gold)",
+    "Artisan": "la quest Clamlette Surprise (dal livello 35)"
+   }
   },
   {
    "name": "First Aid",
@@ -541,7 +3539,171 @@
    "tips": [
     "Secondaria: non occupa uno dei due posti primari, e chiunque può averla (WT).",
     "Il libro Expert First Aid è anche in AH (wowforever.be)."
-   ]
+   ],
+   "route": [
+    [
+     1,
+     44,
+     "Linen Bandage",
+     1251,
+     "inv_misc_bandage_15",
+     48,
+     [
+      [
+       48,
+       "Linen Cloth",
+       2589,
+       "inv_fabric_linen_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     44,
+     84,
+     "Minor Healing Potion",
+     118,
+     "inv_potion_49",
+     62,
+     [
+      [
+       62,
+       "Empty Vial",
+       3371,
+       "inv_potion_84",
+       1
+      ],
+      [
+       62,
+       "Mild Spices",
+       2678,
+       "inv_misc_food_wheat_02",
+       1
+      ],
+      [
+       62,
+       "Peacebloom",
+       2447,
+       "inv_misc_flower_02",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     84,
+     129,
+     "Wool Bandage",
+     3530,
+     "inv_misc_bandage_14",
+     80,
+     [
+      [
+       80,
+       "Wool Cloth",
+       2592,
+       "inv_fabric_wool_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     129,
+     153,
+     "Heavy Wool Bandage",
+     3531,
+     "inv_misc_bandage_17",
+     39,
+     [
+      [
+       78,
+       "Wool Cloth",
+       2592,
+       "inv_fabric_wool_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     153,
+     210,
+     "Silk Bandage",
+     6450,
+     "inv_misc_bandage_01",
+     228,
+     [
+      [
+       228,
+       "Silk Cloth",
+       4306,
+       "inv_fabric_silk_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     210,
+     252,
+     "Mageweave Bandage",
+     8544,
+     "inv_misc_bandage_19",
+     72,
+     [
+      [
+       72,
+       "Mageweave Cloth",
+       4338,
+       "inv_fabric_mageweave_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     252,
+     260,
+     "Heavy Mageweave Bandage",
+     8545,
+     "inv_misc_bandage_20",
+     11,
+     [
+      [
+       22,
+       "Mageweave Cloth",
+       4338,
+       "inv_fabric_mageweave_01",
+       0
+      ]
+     ],
+     ""
+    ],
+    [
+     260,
+     300,
+     "Runecloth Bandage",
+     14529,
+     "inv_misc_bandage_11",
+     65,
+     [
+      [
+       65,
+       "Runecloth",
+       14047,
+       "inv_fabric_purplefire_01",
+       0
+      ]
+     ],
+     ""
+    ]
+   ],
+   "rankHow": {
+    "Expert": "il libro Expert First Aid - Under Wraps",
+    "Artisan": "la quest Triage (dal livello 35)"
+   }
   },
   {
    "name": "Fishing",
@@ -584,7 +3746,53 @@
    "tips": [
     "Gli Shaman raggiungono i banchi più facilmente con Far Sight e Water Walking; gli Hunter danno pesce crudo al famiglio (wowforever.be).",
     "Cooking + Fishing per tutti: +5% XP dal cibo (WT)."
-   ]
+   ],
+   "route": [
+    [
+     1,
+     75,
+     "Pesca",
+     0,
+     "trade_fishing",
+     0,
+     [],
+     "Qualsiasi zona iniziale. Sotto 25 di skill usa uno Shiny Bauble"
+    ],
+    [
+     75,
+     150,
+     "Pesca",
+     0,
+     "trade_fishing",
+     0,
+     [],
+     "Una capitale: Stormwind, Ironforge o Darnassus (Alleanza); Orgrimmar, Thunder Bluff o Undercity (Orda)"
+    ],
+    [
+     150,
+     225,
+     "Pesca",
+     0,
+     "trade_fishing",
+     0,
+     [],
+     "Dustwallow Marsh (più comoda per l’Alleanza) o Stranglethorn Vale (più comoda per l’Orda); usa le esche"
+    ],
+    [
+     225,
+     300,
+     "Pesca",
+     0,
+     "trade_fishing",
+     0,
+     [],
+     "Non ancora nella guida: le zone che si pescano da 205 sono Azshara, Feralas, The Hinterlands, Tanaris, Un’Goro Crater"
+    ]
+   ],
+   "rankHow": {
+    "Expert": "il libro Expert Fishing - The Bass and You, da Old Man Heming a Booty Bay",
+    "Artisan": "la quest Nat Pagle, Angler Extreme (dal livello 35)"
+   }
   }
  ],
  "pairs": [
@@ -740,6 +3948,13 @@
  },
  "sources": [
   {
+   "name": "wowforever.be - Livellare 1-300 (Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring, Cooking, First Aid) e guide di Mining, Herbalism e Fishing",
+   "url": "https://wowforever.be/tradeskills/forever/blacksmithing/leveling/",
+   "date": "7 novembre 2026 (build 1.60.1.70862)",
+   "signal": "Sito dati dedicato a Forever: percorsi calcolati dai dati del client.",
+   "used": "Percorso passo per passo della scheda Profession: fasce di skill, ricette, volte, materiali, zone, trainer che insegnano solo Apprentice."
+  },
+  {
    "name": "wowforever.be - Tradeskills hub (perk per professione, Legacy tradeskill)",
    "url": "https://wowforever.be/it/tradeskills/",
    "date": "non trovato (immagini BlizzCon 2026)",
@@ -880,5 +4095,26 @@
   "Timesaver (fonte singola, dallo snippet di ricerca): ogni realm riparte da zero il 4 novembre. Da verificare: conta per il piano alt.",
   "Account-wide bank: non confermato (solo 'possibilità' per un futuro non troppo lontano, intervista PC Gamer via snippet).",
   "Trainer e skill per ricetta non trovati per Blacksmithing, Tailoring, Engineering, Enchanting, Leatherworking, Skinning Artisan. Le pagine wowforever di dettaglio per questi mestieri non sono state lette in pieno."
- ]
+ ],
+ "ranks": [
+  [
+   75,
+   "Journeyman",
+   10,
+   50
+  ],
+  [
+   150,
+   "Expert",
+   20,
+   125
+  ],
+  [
+   225,
+   "Artisan",
+   35,
+   200
+  ]
+ ],
+ "routeSource": "Percorsi: wowforever.be, calcolati dai dati del client (build 1.60.1.70862, 7 nov 2026) con le ricette del trainer. Le ricette gialle e verdi non danno sempre un punto: i conteggi hanno un margine, potrebbero servirne meno. Skinning: Warcraft Tavern 🟡."
 }

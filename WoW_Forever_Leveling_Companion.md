@@ -1,4 +1,4 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v13)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v14)
 
 > Aggiornato: **8 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
