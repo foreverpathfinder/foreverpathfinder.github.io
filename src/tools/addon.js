@@ -5,8 +5,8 @@
 const {chromium}=require(process.env.LOCALAPPDATA+'/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core');
 const fs=require('fs'),path=require('path'),{execFileSync}=require('child_process');
 const ROOT=path.join(__dirname,'../..'),OUT=path.join(ROOT,'addon/ForeverPathfinder');
-// schede del sito portate nell'addon (Percorso e Mappa sono disegnate dall'addon stesso)
-const TABS=['talent','classe','prof','dungeon','alt','altro','info'];
+// schede del sito portate nell'addon (Percorso, Profession e Mappa sono disegnate dall'addon stesso)
+const TABS=['talent','classe','dungeon','alt','altro','info'];
 // i font di WoW mostrano solo l'alfabeto latino di base: via emoji e simboli, le frecce diventano "->", "|" è un codice di WoW
 const clean=s=>s.replace(/→/g,'->').replace(/\|/g,'/').replace(/[^\x20-\xFF–—‘’“”…•‹›€\n]/g,'').replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
 const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n')+'"';
@@ -70,6 +70,8 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
     const skip=!v[0]&&/non consigliat|not recommended/i.test(d[4]||'');
     return [d[0].replace(/[★✔🟡]/g,'').trim(),d[1],d[2],v[0]||(skip?'skip':''),v[1]||'',v[2]||'',x.e||'',(q[f]||[]).concat(q.N||[]).map(y=>[y[0],last(y.slice(1))]),(q.C||[]).map(y=>[y[0],y[1],last(y.slice(2))]),
      (x.k||{})[f]||'',x.b||[],x.t||[],d[3]||'',d[4]||'',/★/.test(d[0])]});
+   // scheda Profession (1.7): percorsi 1–300 di profs.json, già nella lingua della pagina
+   const X=D.profs;const nm=t=>String(t).replace(/\s*🟡/g,'');out._prof={ranks:X.ranks,src:nm(X.routeSource),picks:Object.fromEntries(Object.entries(X.classPicks||{}).map(([c,t])=>[c,nm(t)])),list:X.professions.map(p=>({name:p.name,icon:p.icon,type:p.type,route:p.route||[],alt:p.alt||[],altTitle:p.altTitle||'',how:p.rankHow||{},forever:p.forever||[],camp:p.camp||'',gold:p.gold||'',tips:p.tips||[],ap:p.apprentice||[]}))};
    out._dg=dg;out._dginfo=[(D.dungeons||{}).general||[],(D.dungeons||{}).glossary||''];out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3]]);out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
  await b.close();
  // elenco unico dei testi (voci della checklist e pagine delle schede): ogni testo una volta sola
@@ -110,7 +112,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  let s='-- generato da src/tools/addon.js: non modificare a mano\nForeverPathfinderData = {\n';
  const pools={},pagesL={},links={};
  for(const l of ['it','en']){pool.length=0;pix.clear();pages.length=0;gix.clear();ext.clear();sig.clear();s+=' '+l+' = {\n';
-  s+='  _tabs = { '+all[l]._tabs.filter(t=>TABS.includes(t[0])||t[0]==='livello').map(t=>'{ '+lua(t[0])+', '+lua(clean(t[1]))+' }').join(', ')+' },\n';
+  s+='  _tabs = { '+all[l]._tabs.filter(t=>TABS.includes(t[0])||t[0]==='livello'||t[0]==='prof').map(t=>'{ '+lua(t[0])+', '+lua(clean(t[1]))+' }').join(', ')+' },\n';
   for(const [k,g] of Object.entries(all[l]))if(k[0]!=='_'){const [rk,ck]=k.split('-');CUR={side:g.faction==='A'?1:2,race:RID[rk],cls:CID[ck]};
    s+='  ['+lua(k)+'] = { name = '+lua(g.name)+', faction = '+lua(g.faction)+', x = '+(g.xs.length>1)+',\n   builds = { '+g.builds.map(x=>'{ '+lua(x[0])+', '+lua(clean(x[1]))+' }').join(', ')+' },\n   v = {\n';
    for(const [vk,v] of Object.entries(g.v))
@@ -155,6 +157,16 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  // → l'addon li mette tutti sulla mappa del mondo (quelli della tua classe e fazione), non solo quello della voce del Percorso
  const TRN={};for(const [k,c] of Object.entries(WM))for(const [cl,a] of Object.entries(c.trainers||{}))for(const t of a)(TRN[cl]=TRN[cl]||[]).push('{ '+lua(clean(t[0]))+', '+lua(CONT[k])+', '+(t[2]/c.w).toFixed(4)+', '+(t[3]/c.h).toFixed(4)+', '+(t[1]||0)+zf(zoneAt(k,t[2],t[3]))+' }');
  s+='}\nForeverPathfinderTrainers = {\n'+Object.entries(TRN).map(([cl,a])=>'  '+cl+' = { '+a.join(', ')+' },').join('\n')+'\n';
+ // profession (1.7): per lingua gradi { cap, nome, livello, skill }, fonte, consiglio per classe, e per profession (per nome inglese)
+ //   icona, tipo, route e alt = passi { da, a, cosa, id oggetto, icona, volte, { { quanti, nome, id, icona, vendor 1/0 } }, dove }, how = gradi
+ //   che non si imparano dal trainer, novità, camp, gold, consigli
+ const step=x=>'{ '+x[0]+', '+x[1]+', '+tx(x[2])+', '+(x[3]||0)+', '+lua(x[4]||'')+', '+(x[5]||0)+', { '+x[6].map(m=>'{ '+m[0]+', '+tx(m[1])+', '+(m[2]||0)+', '+lua(m[3]||'')+', '+(m[4]||0)+' }').join(', ')+' }, '+tx(x[7]||'')+' }';
+ s+='}\nForeverPathfinderProfs = {\n';
+ for(const l of ['it','en']){const X=all[l]._prof;s+=' '+l+' = { ranks = { '+X.ranks.map(r=>'{ '+r[0]+', '+lua(r[1])+', '+r[2]+', '+r[3]+' }').join(', ')+' }, src = '+tx(X.src)+',\n  picks = { '+Object.entries(X.picks).map(([c,t])=>c+' = '+htm(t)).join(', ')+' },\n  order = { '+X.list.map(p=>lua(p.name)).join(', ')+' },\n  list = {\n'+
+  X.list.map(p=>'   ['+lua(p.name)+'] = { icon = '+lua(p.icon)+', type = '+lua(p.type)+', altTitle = '+tx(p.altTitle)+', how = { '+Object.entries(p.how).map(([k,v])=>k+' = '+tx(v)).join(', ')+' },\n    route = { '+p.route.map(step).join(', ')+' },\n    alt = { '+p.alt.map(step).join(', ')+' },\n    forever = { '+p.forever.map(htm).join(', ')+' }, camp = '+htm(p.camp)+', gold = '+htm(p.gold)+', tips = { '+p.tips.map(htm).join(', ')+' } },').join('\n')+'\n  } },\n'}
+ // trainer delle profession (mappa del sito): { NPC, continente, x, y, fazione 0/1/2, ap = insegna solo Apprentice }
+ const AP=new Set(all.it._prof.list.flatMap(p=>p.ap)),PTR={};for(const [k,c] of Object.entries(WM))for(const [pk,a] of Object.entries(c.prof||{}))for(const t of a)(PTR[pk]=PTR[pk]||[]).push('{ '+lua(clean(t[0]))+', '+lua(CONT[k])+', '+(t[2]/c.w).toFixed(4)+', '+(t[3]/c.h).toFixed(4)+', '+(t[1]||0)+zf(zoneAt(k,t[2],t[3]))+(AP.has(t[0])?', ap = true':'')+' }');
+ s+='}\nForeverPathfinderProfTrainers = {\n'+Object.entries(PTR).map(([pk,a])=>'  ['+lua(pk)+'] = { '+a.join(', ')+' },').join('\n')+'\n';
  // ingressi dei dungeon (icone della mappa del sito): { nome, continente, x, y } per il pulsante Mappa della scheda Dungeon
  s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+' },'}).filter(Boolean).join('\n')+'\n';
  // zone del gioco (uiMapID e rettangolo 0–1 sul continente del sito, da uimaps.json): l'addon ci converte i segnaposti, perché

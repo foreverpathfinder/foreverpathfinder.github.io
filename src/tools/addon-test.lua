@@ -54,6 +54,11 @@ C_Map = {
   GetBestMapForUnit = function() return 1429 end, GetPlayerMapPosition = function() return { GetXY = function() return 0.5, 0.5 end } end,
   GetMapWorldSize = function() return 30000, 30000 end,
 }
+-- profession finte (1.7): Blacksmithing 85/150 e Mining 75/75 (al massimo del grado); materiali nelle borse
+PROFS = { { "Blacksmithing", 85, 150 }, { "Mining", 75, 75 } }
+GetProfessions = function() return 1, 2 end
+GetProfessionInfo = function(i) local p = PROFS[i]; if p then return p[1], "icon", p[2], p[3] end end
+GetItemCount = function(id) return id == 2842 and 20 or 3 end
 QUESTLOG = {}
 -- registro delle quest come in Forever: solo l'API moderna C_QuestLog (niente GetQuestLogTitle)
 C_QuestLog = { GetNumQuestLogEntries = function() return #QUESTLOG end,
@@ -362,6 +367,27 @@ WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.point and o.point[2] == canvas end) ~= nil, "segnaposti sulla mappa del mondo")
 -- dalla 1.6 anche tutti i trainer della classe (con il nome dell'NPC nel tooltip)
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who and o.shown end) ~= nil, "trainer della classe sulla mappa del mondo")
+-- 1.7: Profession del gioco con la skill, passo attuale, materiali nelle borse, avviso al massimo del grado (una volta), trainer e
+-- reagent vendor (da Questie) sulla mappa quando accesi
+f.shown = true
+nav(tabName("prof")).scripts.OnClick()
+check(has("Silver Skeleton Key") and has(lang == "it" and "sei qui" or "you are here"), "Profession: passo della skill 85 di Blacksmithing")
+check(has("Silver Bar |cff5fd68b(20)"), "Profession: Silver Bar nelle borse (20 di 17)")
+local nc = #chat
+f.scripts.OnEvent(f, "SKILL_LINES_CHANGED")
+check(said("Mining 75/75") and said("Journeyman") and not said("Blacksmithing 85"), "avviso al massimo del grado")
+f.scripts.OnEvent(f, "SKILL_LINES_CHANGED")
+check(#chat == nc + 1, "avviso una volta sola")
+nav("Mining  75").scripts.OnClick()
+check(has("Copper Vein") and has(lang == "it" and "Oppure fondendo (fino a 185)" or "Or by smelting (up to 185)"), "Profession: percorso di Mining con la fusione")
+LibQuestieDB.Item = { vendors = function(id) return id == 2880 and { 1 } or nil end }
+LibQuestieDB.Npc = { friendlyToFaction = function() return "AH" end, name = function() return "Tharynn Bouden" end, spawns = function() return { [12] = { { 41.8, 67.2 } } } end }
+QMOD.ZoneDB.GetUiMapIdByAreaId = function() return 1429 end
+ForeverPathfinderChar.opt.ptr, ForeverPathfinderChar.opt.pvd = true, true
+WorldMapFrame.shown = true; WorldMapFrame.scripts.OnShow()
+check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p[4] == "Mining Trainer" and o.shown end) ~= nil, "trainer delle profession sulla mappa")
+check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who and o.p.who:find("Tharynn Bouden (Weak Flux", 1, true) and o.shown end) ~= nil, "reagent vendor da Questie sulla mappa")
+ForeverPathfinderChar.opt.ptr, ForeverPathfinderChar.opt.pvd = nil, nil
 -- finestra dei talenti: bordo sul talento da prendere
 TalentFrame, TalentFrameTalent1 = obj("Frame"), obj("Frame")
 TALENT = hv._tal[1] and hv._tal[1][2]

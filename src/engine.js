@@ -31,7 +31,7 @@ var P=(function(){var p=null;try{p=JSON.parse(store('wfcP'))}catch(e){}
   var t=p.list[i].s;t.r=j.r;t.c=j.c;t.L=j.L;t.o=j.o;p.cur=i;SHARED=j.d||[]}catch(e){}}
  return p})();
 function fix(s){if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
- s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.b=s.o.b||{};s.done=s.done||{};return s}
+ s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.ps=s.o.ps||{};s.o.b=s.o.b||{};s.done=s.done||{};return s}
 var S=fix(P.list[P.cur].s);
 // P.in = è già entrato nella guida: riaprendo il link normale torna dritto al suo personaggio (👥 Personaggi riapre la pagina iniziale)
 if(P.in)HOME=false;
@@ -100,7 +100,7 @@ function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]=
  if(b){var n=TAL.n[b];t.push([img(n[1])+'<b>Talent:</b> '+n[0]+' '+rankAt(l)[b]+'/'+n[2]+' <span class="note">'+(CL.why[n[0]]||'')+'</span>','<button class="go" data-sec="build">Calcolatore ›</button>'])}
  if(sp.length)t.push([img(sp[0][2])+'<b>Trainer:</b> '+sp.map(function(x){return x[1]}).join(', '),npcBtn(near(D.map.trainers[S.c],RT.steps[stepAt(l)][2],RT.steps[stepAt(l)][3]),CL.name+' Trainer')]);
  msFor(l).forEach(function(m){t.push([m.t,msBtns(m)])});
- profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(near(D.map.prof[pkey(p)],s[2],s[3]),p+' Trainer')}).join('')])});
+ profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(ptrain(p,s[2],s[3],l>5),p+' Trainer')}).join('')])});
  if(l===10)t.push(['Le <b>Waylaid Crates</b> diventano utilizzabili (consegna: '+(FA.crates||'—')+')','']);
  // dungeon nella checklist: stesso giudizio della scheda Dungeon (niente "salta"), con il suo perché al posto delle note interne
  if(S.o.dg)FA.dungeons.forEach(function(d){var x=((D.dungeons||{}).dungeons||{})[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[RA.faction];if(v?v[0]==='skip':/non consigliat|not recommended/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest.'+(v&&v[2]?' '+v[2]:''),dgBtn(d[0])])});
@@ -280,19 +280,48 @@ function renderClass(){
 }
 
 /* ---- professioni e alt ---- */
+var PSEC=['Cooking','First Aid','Fishing'],PCUR;
+function pby(n){return (D.profs?D.profs.professions:[]).filter(function(p){return p.name===n})[0]}
+// trainer della profession più vicino; adv = per un grado dopo Apprentice (niente trainer che insegnano solo Apprentice)
+function ptrain(p,x,y,adv){var q=pby(p),ap=adv&&q&&q.apprentice||[];return near((D.map.prof[pkey(p)]||[]).filter(function(t){return ap.indexOf(t[0])<0}),x,y)}
 function renderProf(){var P=CL.professions,X=D.profs;
  $('profc').innerHTML='<div class="card"><h3>Main: gold subito</h3><p>'+(P.gold||C.profGold)+'</p></div><div class="card"><h3>Main: più forza in leveling</h3><p>'+P.power+'</p></div><div class="card"><h3>Il consiglio per il '+CL.name+'</h3><p>'+P.advice+(X&&X.classPicks&&X.classPicks[S.c]?'<br>'+X.classPicks[S.c]:'')+'</p></div>';
- renderAlt();if(!X){$('profx').innerHTML='';return}
- var sel=S.o.prof,ps=X.professions,pc=function(p){return '<details'+(sel.indexOf(p.name)>-1?' open':'')+'><summary>'+img(p.icon,'s')+' '+p.name+' <span class="note">· '+({gathering:'raccolta',crafting:'crafting',secondary:'secondaria'}[p.type]||p.type)+(sel.indexOf(p.name)>-1?' · scelta da te':'')+'</span></summary>'+
-  '<p><b>In leveling:</b> '+p.leveling+'</p><p><b>Gold:</b> '+p.gold+'</p>'+(p.pairs&&p.pairs.length?'<p><b>Si abbina con:</b> '+p.pairs.join(', ')+'</p>':'')+(p.camp?'<p><b>Camping:</b> '+p.camp+'</p>':'')+(p.skillByLevel?'<p><b>Trainer e cap:</b> '+p.skillByLevel+'</p>':'')+
-  (p.recipes&&p.recipes.length?'<div class="wrap"><table><tr><th>Item / recipe</th><th>Skill</th><th>Perché</th></tr>'+p.recipes.map(function(r){return '<tr><td>'+r.join('</td><td>')+'</td></tr>'}).join('')+'</table></div>':'')+
-  (p.forever&&p.forever.length?'<p><b>Novità di Forever:</b></p><ul>'+li(p.forever)+'</ul>':'')+(p.tips&&p.tips.length?'<ul>'+li(p.tips)+'</ul>':'')+'</details>'};
- $('profx').innerHTML='<h3>Le coppie migliori</h3><div class="wrap card"><table><tr><th>Coppia</th><th>Per chi</th><th>Perché</th><th>Fonti</th></tr>'+X.pairs.map(function(p){return '<tr><td><b>'+p.pair+'</b></td><td>'+p.for+'</td><td>'+p.why+'</td><td class="note">'+(p.signal||'')+'</td></tr>'}).join('')+'</table></div>'+
+ renderAlt();if(!X){$('profP').innerHTML=$('profx').innerHTML='';return}
+ // pulsanti: le 2 scelte nelle opzioni del personaggio e le secondarie (senza scelta: tutte); S.o.pv = quella aperta, S.o.ps = skill per profession
+ var sel=S.o.prof,ps=X.professions,list=sel.length?sel.concat(PSEC):ps.map(function(p){return p.name}),cur=PCUR=pby(S.o.pv)?S.o.pv:list[0];
+ if(list.indexOf(cur)<0)list=list.concat([cur]);
+ var p=pby(cur),sk=Math.max(1,Math.min(300,+S.o.ps[cur]||1)),st=RT.steps[stepAt(S.L)],found=false,rt=p.route||[],tot={},keys=[],
+  pill=function(n){return '<button type="button" data-pv="'+n+'"'+(n===cur?' class="on"':'')+'>'+img(pby(n).icon)+n+(sel.indexOf(n)>-1?' ★':'')+'</button>'},
+  tb=function(adv){return npcBtn(ptrain(cur,st[2],st[3],adv),cur+' Trainer')},
+  rk=function(r){var how=(p.rankHow||{})[r[1]];return '<li class="rk'+(sk>r[0]?' past':sk>=r[3]?' due':'')+'"><span class="rg">'+r[0]+'</span><div>📜 Impara <b>'+r[1]+'</b> prima di '+r[0]+' <span class="note">· liv. '+r[2]+', skill '+r[3]+'</span>'+(how?'<br><span class="note">Si impara con '+how+'</span>':' '+tb(true))+'</div></li>'},
+  steps=function(rt,rank){var o=rank?'<li class="rk'+(sk>1?' past':'')+'"><span class="rg">1</span><div>📜 Impara <b>Apprentice</b> (skill fino a 75) '+tb(false)+'</div></li>':'',ri=0;found=false;
+   rt.forEach(function(s){if(rank)while(ri<X.ranks.length&&s[1]>X.ranks[ri][0])o+=rk(X.ranks[ri++]);
+    var c=sk>=s[1]?'past':found?'':(found=true,'cur');
+    o+='<li class="'+c+'"><span class="rg">'+s[0]+'–'+s[1]+'</span><div>'+img(s[4],'s')+' <b>'+s[2]+'</b>'+(s[5]?' <span class="pill">'+s[5]+'×</span>':'')+(c==='cur'?' <span class="pill p-here">sei qui</span>':'')+
+     (s[6].length?'<br><span class="note">'+s[6].map(function(m){return m[0]+'× '+m[1]+(m[4]?' (vendor)':'')}).join(', ')+'</span>':'')+(s[7]?'<br><span class="note">📍 '+s[7]+'</span>':'')+'</div></li>'});
+   return '<ol class="proute">'+o+'</ol>'};
+ // lista della spesa: materiali dei passi che restano da fare (fusione compresa)
+ rt.concat(p.alt||[]).forEach(function(s){if(s[1]>sk)s[6].forEach(function(m){if(!tot[m[1]]){tot[m[1]]=[0,m[4]];keys.push(m[1])}tot[m[1]][0]+=m[0]})});
+ $('profP').innerHTML='<div class="pick"><div class="opts">'+list.map(pill).join('')+'</div></div>'+(sel.length?'':'<p class="note">Non hai ancora scelto le profession: sceglile nelle opzioni del personaggio (👥 Personaggi). Intanto puoi guardarle tutte.</p>')+
+  '<div class="card"><h3>'+img(p.icon,'s')+' '+p.name+' <span class="note">· '+({gathering:'raccolta',crafting:'crafting',secondary:'secondaria'}[p.type]||p.type)+'</span></h3>'+
+  '<div class="lvctl pskill"><button type="button" data-ps="-1" aria-label="Fascia prima">‹</button><label>Skill <input type="number" id="psk" min="1" max="300" inputmode="numeric" value="'+sk+'"></label><button type="button" data-ps="1" aria-label="Fascia dopo">›</button><span class="note">la tua skill attuale: si salva per questo personaggio</span></div>'+
+  steps(rt,true)+(p.alt?'<h3>'+p.altTitle+'</h3>'+steps(p.alt,false):'')+'<p class="note">'+X.routeSource+'</p></div>'+
+  (keys.length?'<details><summary>Lista della spesa da '+sk+' a 300</summary><ul>'+keys.sort().map(function(k){return '<li>'+tot[k][0]+'× '+k+(tot[k][1]?' <span class="note">(vendor)</span>':'')+'</li>'}).join('')+'</ul></details>':'')+
+  '<details><summary>Novità di Forever, camp e gold</summary>'+(p.forever&&p.forever.length?'<ul>'+li(p.forever)+'</ul>':'')+(p.camp?'<p><b>Camping:</b> '+p.camp+'</p>':'')+'<p><b>Gold:</b> '+p.gold+'</p>'+(p.pairs&&p.pairs.length?'<p><b>Si abbina con:</b> '+p.pairs.join(', ')+'</p>':'')+(p.skillByLevel?'<p><b>Trainer e cap:</b> '+p.skillByLevel+'</p>':'')+
+  (p.recipes&&p.recipes.length?'<div class="wrap"><table><tr><th>Item / recipe</th><th>Skill</th><th>Perché</th></tr>'+p.recipes.map(function(r){return '<tr><td>'+r.join('</td><td>')+'</td></tr>'}).join('')+'</table></div>':'')+(p.tips&&p.tips.length?'<ul>'+li(p.tips)+'</ul>':'')+'</details>';
+ $('profx').innerHTML='<h3>Tutte le profession</h3><div class="pick"><div class="opts">'+ps.map(function(q){return pill(q.name)}).join('')+'</div></div><p class="note">Tocca una profession per vederne il percorso; quelle del personaggio si scelgono nelle opzioni (👥 Personaggi).</p>'+
+  '<h3>Le coppie migliori</h3><div class="wrap card"><table><tr><th>Coppia</th><th>Per chi</th><th>Perché</th><th>Fonti</th></tr>'+X.pairs.map(function(p){return '<tr><td><b>'+p.pair+'</b></td><td>'+p.for+'</td><td>'+p.why+'</td><td class="note">'+(p.signal||'')+'</td></tr>'}).join('')+'</table></div>'+
   (X.plan&&X.plan.length?'<h3>Come livellarle mentre livelli</h3><div class="card"><ol>'+li(X.plan)+'</ol></div>':'')+
-  '<h3>Tutte le profession</h3>'+ps.filter(function(p){return sel.indexOf(p.name)>-1}).concat(ps.filter(function(p){return sel.indexOf(p.name)<0})).map(pc).join('')+
-  (X.gold&&X.gold.length?'<h3>Gold</h3><div class="card"><ul>'+li(X.gold)+'</ul></div>':'');
- $('profx').innerHTML+='<div class="btns"><button class="btn" type="button" onclick="showTab(\'alt\')">Guida agli alt: cosa far fare all’alt ›</button></div>';
+  (X.gold&&X.gold.length?'<h3>Gold</h3><div class="card"><ul>'+li(X.gold)+'</ul></div>':'')+
+  '<div class="btns"><button class="btn" type="button" onclick="showTab(\'alt\')">Guida agli alt: cosa far fare all’alt ›</button></div>';
 }
+// pulsanti della scheda: profession da aprire, fascia prima/dopo (‹ ›: inizio della fascia), skill scritta a mano
+$('prof').addEventListener('click',function(e){var b=e.target.closest('button[data-pv],button[data-ps]');if(!b)return;
+ if(b.dataset.pv){S.o.pv=b.dataset.pv;if(b.closest('#profx'))$('profP').scrollIntoView({behavior:SM,block:'start'})}
+ else{var sk=+S.o.ps[PCUR]||1,bs=pby(PCUR).route.map(function(s){return s[0]}).concat([300]);
+  S.o.ps[PCUR]=+b.dataset.ps>0?(bs.filter(function(v){return v>sk})[0]||300):(bs.filter(function(v){return v<sk}).pop()||1)}
+ save();renderProf()});
+$('prof').addEventListener('change',function(e){if(e.target.id!=='psk')return;S.o.ps[PCUR]=Math.max(1,Math.min(300,parseInt(e.target.value)||1));save();renderProf()});
 
 /* ---- guida alt (data/alts.json; prima versione in profs.json) ---- */
 // chi alimenta chi: gathering → crafting che ne usa i materiali, e viceversa (Tailoring/Enchanting si aiutano: stoffa e disenchant)

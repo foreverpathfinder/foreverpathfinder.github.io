@@ -59,6 +59,13 @@ local TT = {
     dbgSpell = "Spell nel libro: %d · voce Trainer %s, mancano: %s",
     dbgAddons = "Addon collegati: Questie %s · OneForAll %s · MapUtils %s",
     behind = "Rimaste indietro (%d)", behindMore = "e altre %d: le trovi tornando indietro con <",
+    pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
+    pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
+    pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
+    pMore = "Novità di Forever, camp e gold", pHide = "Nascondi", pBag = "Tra parentesi quanti ne hai (borse e banca).", pVendor = "vendor",
+    pMapT = "Trainer delle tue profession sulla mappa del mondo", pMapV = "Reagent vendor dei materiali delle tue profession sulla mappa del mondo (da Questie)",
+    pCap = "%s %d/%d: impara %s prima di andare avanti (%s).", pCapT = "trainer: %s", pOfaTip = "Apre la ricetta in OneForAll (fonti, chi la conosce, skill-up)",
+    pVendT = "Reagent vendor", pCamp = "Camping", pGold = "Gold",
   },
   en = {
     level = "Lvl %d", stageWord = "STAGE", build = "Build: %s",
@@ -104,6 +111,13 @@ local TT = {
     dbgSpell = "Spells in the spellbook: %d · Trainer item %s, missing: %s",
     dbgAddons = "Linked addons: Questie %s · OneForAll %s · MapUtils %s",
     behind = "Left behind (%d)", behindMore = "and %d more: go back with < to find them",
+    pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
+    pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
+    pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
+    pMore = "New in Forever, camp and gold", pHide = "Hide", pBag = "In brackets how many you have (bags and bank).", pVendor = "vendor",
+    pMapT = "Your profession trainers on the world map", pMapV = "Reagent vendors for your professions' materials on the world map (from Questie)",
+    pCap = "%s %d/%d: learn %s before going on (%s).", pCapT = "trainer: %s", pOfaTip = "Opens the recipe in OneForAll (sources, who knows it, skill-ups)",
+    pVendT = "Reagent vendor", pCamp = "Camping", pGold = "Gold",
   },
 }
 local T = TT.en
@@ -380,7 +394,7 @@ end
 
 -- aspetto del sito: colori di style.css (:root), Cinzel per i titoli, Inter per i testi, riquadri (card) e icone del gioco
 local HEX = { bg = "08111d", card = "112236", deep = "0b1828", tx = "e7eef7", mu = "93a6be", ac = "6fc3ff", ice = "a9e4ff",
-  gold = "e8b84a", ok = "5fd68b", bd = "21384f", frame = "5a4a22", chip = "173a5c" }
+  gold = "e8b84a", ok = "5fd68b", bd = "21384f", frame = "5a4a22", chip = "173a5c", goldbg = "2a2412" }
 local COL = {}
 for k, h in pairs(HEX) do COL[k] = { tonumber(h:sub(1, 2), 16) / 255, tonumber(h:sub(3, 4), 16) / 255, tonumber(h:sub(5, 6), 16) / 255 } end
 local FONTS = "Interface\\AddOns\\ForeverPathfinder\\Fonts\\"
@@ -884,15 +898,19 @@ end
 
 -- schede Talent e Classe (dalla 1.6): dati in ForeverPathfinderTrees (alberi del client) e ForeverPathfinderClass (per lingua)
 local function clsData() return ForeverPathfinderClass and (ForeverPathfinderClass[LANG] or ForeverPathfinderClass.en) or {} end
--- zona invisibile con tooltip (spell, racial)
-local function hover(x, yy, w, h, t1, t2)
+-- zona invisibile con tooltip (spell, racial; item = id di un oggetto: il tooltip del gioco)
+local function hover(x, yy, w, h, t1, t2, item)
   local o = take("hv", function()
     local b = CreateFrame("Button", nil, body)
-    b:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.t1); if self.t2 and self.t2 ~= "" then GameTooltip:AddLine(colorize(self.t2), 1, 1, 1, true) end; GameTooltip:Show() end)
+    b:SetScript("OnEnter", function(self)
+      GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+      if self.item and GameTooltip.SetItemByID then GameTooltip:SetItemByID(self.item) else GameTooltip:AddLine(self.t1); if self.t2 and self.t2 ~= "" then GameTooltip:AddLine(colorize(self.t2), 1, 1, 1, true) end end
+      GameTooltip:Show()
+    end)
     b:SetScript("OnLeave", function() GameTooltip:Hide() end)
     return b
   end)
-  o.t1, o.t2 = t1, t2
+  o.t1, o.t2, o.item = t1, t2, item
   return put(o, x, yy, w, h)
 end
 -- nodo dell'albero: icona, bordo (oro = talento del livello, verde = con punti, spento = vuoto), rank, tooltip
@@ -1116,6 +1134,180 @@ local function drawClass(g, k, v)
   end
 end
 
+-- riga con casella (Opzioni e opzioni della mappa nella scheda Profession): dopo il clic ridisegna
+local function optRow(label, on, fn)
+  y = y - 6
+  local cb = check("opt", PAD, y)
+  cb:SetChecked(on); cb.onClick = function(val) fn(val); render() end
+  local s = str(F.p, "tx", label, PAD + 28, BW - 2 * PAD - 28); s:SetPoint("TOPLEFT", PAD + 28, y - 2)
+  y = y - math.max(18, s:GetStringHeight())
+end
+
+-- Profession (1.7): le profession che il personaggio ha davvero (lette dal gioco, con la skill), il percorso 1–300 a passi con
+-- quello della tua skill evidenziato, i materiali con quanti ne hai, il trainer più vicino per ogni grado, la ricetta in OneForAll;
+-- in cima le opzioni della mappa (trainer e reagent vendor delle tue profession)
+local profSel, profAll, profMore, profShop
+local nearestTrainer -- trainer più vicino di una profession (più sotto, con la posizione del giocatore)
+local function profData() return ForeverPathfinderProfs and (ForeverPathfinderProfs[LANG] or ForeverPathfinderProfs.en) end
+local function pkey(n) return (n:lower():gsub(" ", "-")) end
+-- profession del personaggio { nome inglese, skill, max }: API moderna (GetProfessions) e skill line come in Classic; prima le principali
+local function myProfs()
+  local PD, out, seen = profData(), {}, {}
+  if not PD then return out end
+  local function add(n, r, m) if n and PD.list[n] and not seen[n] then seen[n] = true; out[#out + 1] = { n, r or 0, m or 0 } end end
+  pcall(function()
+    if GetProfessions and GetProfessionInfo then
+      local l = { GetProfessions() }
+      for i = 1, 6 do if l[i] then local n, _, r, m = GetProfessionInfo(l[i]); add(n, r, m) end end
+    end
+  end)
+  pcall(function()
+    if GetNumSkillLines and GetSkillLineInfo then
+      for i = 1, GetNumSkillLines() do local n, hdr, _, r, _, _, m = GetSkillLineInfo(i); if not hdr then add(n, r, m) end end
+    end
+  end)
+  table.sort(out, function(a, b)
+    local sa, sb = PD.list[a[1]].type == "secondary", PD.list[b[1]].type == "secondary"
+    if sa ~= sb then return sb end
+    return a[1] < b[1]
+  end)
+  return out
+end
+-- quanti ne hai (borse e banca)
+local function itemCount(id)
+  if not id or id == 0 then return end
+  local fn = (C_Item and C_Item.GetItemCount) or GetItemCount
+  if not fn then return end
+  local ok, n = pcall(fn, id, true)
+  return ok and n or nil
+end
+-- ricetta nei dati di OneForAll (stesso oggetto creato, o stesso nome) e apertura nel suo pannello Professions
+local function ofaRecipe(prof, id, name)
+  local O = _G.OneForAll
+  local list = O and O.OpenPanel and O.ShowRecipeInProfessions and O.PROFESSION_RECIPES and O.PROFESSION_RECIPES[prof]
+  for _, r in ipairs(list or {}) do if (id ~= 0 and r.i == id) or r.n == name then return r end end
+end
+local function ofaRecipeOpen(prof, r)
+  pcall(function() OneForAll:OpenPanel("professions"); OneForAll.ShowRecipeInProfessions(prof, r.s) end)
+end
+-- passi del percorso: fascia, icona, cosa (tooltip dell'oggetto), volte, materiali con quanti ne hai, dove; ranks = righe dei gradi
+-- (Apprentice in cima, poi prima del passo che supera il cap); restituisce la posizione del passo attuale per lo scorrimento
+local function profSteps(name, P, rt, sk, ranks)
+  local here, found, ri, w = nil, false, 1, BW - 2 * PAD - 88 - 28
+  local function sep() box("bd", 1, PAD, y + 3, BW - 2 * PAD, 1, true) end
+  local function rankRow(cap, rname, lvl, need, first)
+    y = y - 6
+    local top = y
+    local how = not first and P.how[rname]
+    local s = first and T.pApp or T.pLearn:format(rname, cap, lvl, need)
+    if how then s = s .. "\n" .. T.pHow:format(how) end
+    str(F.small, "mu", tostring(first and 1 or cap), PAD + 4, 56)
+    icon("inv_scroll_03", PAD + 62, y, 18)
+    local o = str(F.p, sk > cap and "mu" or "ice", s, PAD + 88, w)
+    if not how then mini("inv_misc_map_01", BW - PAD - 20, top, name .. " Trainer", T.pTrainer, function() local p = nearestTrainer(name, not first); if p then mapAt(p) end end) end
+    y = top - math.max(22, o:GetStringHeight()) - 6
+    sep()
+  end
+  if ranks then rankRow(75, "Apprentice", 1, 1, true) end
+  for _, s in ipairs(rt) do
+    if ranks then while ranks[ri] and s[2] > ranks[ri][1] do local r = ranks[ri]; rankRow(r[1], r[2], r[3], r[4]); ri = ri + 1 end end
+    local past, cur = sk >= s[2], false
+    if not past and not found then found, cur = true, true end
+    y = y - 8
+    local top = y
+    str(F.small, past and "mu" or cur and "gold" or "tx", s[1] .. "–" .. s[2], PAD + 4, 56)
+    icon(s[5] ~= "" and s[5] or "inv_misc_questionmark", PAD + 62, y, 20)
+    local times = s[6] > 0 and "  ×" .. s[6] or ""
+    local o = str(F.h3, past and "mu" or "tx", past and s[3] .. times or "{" .. s[3] .. "}" .. times .. (cur and "   |cffe8b84a" .. T.pHere .. "|r" or ""), PAD + 88, w)
+    if s[4] ~= 0 then hover(PAD + 88, top, math.min(w, o:GetStringWidth() + 4), 16, nil, nil, s[4]) end
+    y = y - o:GetStringHeight() - 3
+    if #s[7] > 0 then
+      local parts = {}
+      for _, m in ipairs(s[7]) do
+        local h = not past and itemCount(m[3])
+        parts[#parts + 1] = m[1] .. "× " .. m[2] .. (m[5] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and ((h >= m[1] and " |cff5fd68b(" or " |cffe7eef7(") .. h .. ")|r") or "")
+      end
+      local mo = str(F.p, "mu", table.concat(parts, ", "), PAD + 88, w); y = y - mo:GetStringHeight() - 2
+    end
+    if s[8] ~= "" then local wo = str(F.p, "mu", s[8], PAD + 88, w); y = y - wo:GetStringHeight() - 2 end
+    local r = s[6] > 0 and ofaRecipe(name, s[4], s[3])
+    if r then mini(P.icon, BW - PAD - 20, top, s[3], T.pOfaTip, function() ofaRecipeOpen(name, r) end) end
+    y = math.min(y, top - 22) - 4
+    if cur then
+      here = -top
+      box("goldbg", 1, PAD - 4, top + 4, BW - 2 * PAD + 8, top - y, true)
+      box("gold", 1, PAD - 4, top + 4, 2, top - y, true)
+    end
+    sep()
+  end
+  return here
+end
+local function drawProfs(g, k)
+  local PD = profData()
+  if not PD then return end
+  local mine, own, names, labels, sel = myProfs(), {}, {}, {}, nil
+  for _, p in ipairs(mine) do own[p[1]] = p; names[#names + 1] = p[1] end
+  if not (profSel and PD.list[profSel]) then profSel = mine[1] and mine[1][1] end
+  if #mine == 0 or profAll then for _, n in ipairs(PD.order) do if not own[n] then names[#names + 1] = n end end end
+  cardOpen(); y = y - 12
+  optRow(T.pMapT, C.opt.ptr == true, function(v) C.opt.ptr = v or nil; drawMapPins() end)
+  optRow(T.pMapV, C.opt.pvd == true, function(v) C.opt.pvd = v or nil; drawMapPins() end)
+  y = y - 8
+  if #mine == 0 then
+    line("0", T.pNone)
+    local pick = PD.picks[k:match("-(%a+)$")]
+    if pick then line("0", pick) end
+    y = y - 4; line("0", T.pBrowse); y = y - 6
+  end
+  for i, n in ipairs(names) do labels[i] = own[n] and (n .. "  " .. own[n][2]) or n; if n == profSel then sel = i end end
+  if #mine > 0 and not profAll then labels[#labels + 1] = T.pOthers end
+  y = y - 4
+  flow(labels, sel, function(i) if names[i] then profSel = names[i] else profAll = true end; render(true) end)
+  y = y + 18
+  cardClose()
+  if not profSel then return end
+  local P, o = PD.list[profSel], own[profSel]
+  local sk = o and math.max(1, o[2]) or 1
+  cardOpen(); y = y - 12
+  local top = y
+  icon(P.icon, PAD, y, 30)
+  str(F.h1, "ice", profSel, PAD + 40, BW - 2 * PAD - 40)
+  y = top - 18
+  str(F.h2, o and "gold" or "mu", o and T.pSkill:format(o[2], o[3]) or T.pNotYours, PAD + 40, BW - 2 * PAD - 40)
+  y = top - 38
+  if o then line("0", T.pBag); y = y - 4 end
+  local here = profSteps(profSel, P, P.route, sk, PD.ranks)
+  if #P.alt > 0 then y = y - 10; line("2", P.altTitle); profSteps(profSel, P, P.alt, sk) end
+  y = y - 6; line("0", PD.src)
+  cardClose()
+  -- lista della spesa (dalla tua skill a 300) e novità, a scomparsa
+  cardOpen(); y = y - 12
+  local b1 = button(T.pShop:format(sk), PAD, y, function() profShop = not profShop; render() end); b1.set(profShop and true or false)
+  local b2 = button(T.pMore, PAD + b1:GetWidth() + 8, y, function() profMore = not profMore; render() end); b2.set(profMore and true or false)
+  y = y - 30
+  if profShop then
+    local tot, keys = {}, {}
+    for _, list in ipairs({ P.route, P.alt }) do for _, s in ipairs(list) do if s[2] > sk then for _, m in ipairs(s[7]) do
+      if not tot[m[2]] then tot[m[2]] = { 0, m[3], m[5] }; keys[#keys + 1] = m[2] end
+      tot[m[2]][1] = tot[m[2]][1] + m[1]
+    end end end end
+    table.sort(keys)
+    for _, n in ipairs(keys) do
+      local t, h = tot[n], itemCount(tot[n][2])
+      line("0", "• " .. t[1] .. "× " .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff5fd68b(" .. h .. ")|r" or ""))
+    end
+  end
+  if profMore then
+    for _, x in ipairs(P.forever) do line("0", "• " .. x) end
+    if P.camp ~= "" then line("3", T.pCamp); line("0", P.camp) end
+    if P.gold ~= "" then line("3", T.pGold); line("0", P.gold) end
+    for _, x in ipairs(P.tips) do line("0", "• " .. x) end
+  end
+  if profShop or profMore then y = y - 4 else y = y + 18 end
+  cardClose()
+  return here
+end
+
 -- una scheda del sito: ogni titolo "1…" apre una card, poi titoli "2…"/"3…" e paragrafi "0…".
 -- Talent: in cima "Apri in OneForAll"; Dungeon: sotto il titolo di ogni dungeon "Mappa" e "Boss e loot"
 local function drawPage(v, name)
@@ -1146,13 +1338,7 @@ local minimapIcon -- icona sulla minimappa (più sotto)
 local setLang -- lingua dell addon (più sotto, con le schede)
 local function drawOptions(g, k)
   local o = C.opt
-  local function opt(label, on, fn)
-    y = y - 6
-    local cb = check("opt", PAD, y)
-    cb:SetChecked(on); cb.onClick = function(val) fn(val); render() end
-    local s = str(F.p, "tx", label, PAD + 28, BW - 2 * PAD - 28); s:SetPoint("TOPLEFT", PAD + 28, y - 2)
-    y = y - math.max(18, s:GetStringHeight())
-  end
+  local opt = optRow
   cardOpen(); y = y - 12
   line("1", T.options)
   line("2", T.oBuild)
@@ -1166,6 +1352,9 @@ local function drawOptions(g, k)
   for _, l in ipairs({ { "map", T.oMap }, { "trainers", T.oTrainers }, { "quests", T.oQuests }, { "tal", T.oTal }, { "trainer", T.oTrainer } }) do
     opt(l[2], o["no" .. l[1]] ~= true, function(val) o["no" .. l[1]] = not val or nil end)
   end
+  -- trainer e reagent vendor delle profession (1.7): spenti di base, come le caselle in cima alla scheda Profession
+  opt(T.pMapT, o.ptr == true, function(val) o.ptr = val or nil end)
+  opt(T.pMapV, o.pvd == true, function(val) o.pvd = val or nil end)
   line("0", T.oEnglish)
   line("2", "Language · Lingua")
   opt("English", LANG == "en", function() setLang("en") end)
@@ -1227,6 +1416,7 @@ render = function(top)
     elseif tab == "dungeon" then drawDungeons(g)
     elseif tab == "talent" and ForeverPathfinderTrees then drawTalents(g, k, v)
     elseif tab == "classe" and ForeverPathfinderClass then drawClass(g, k, v)
+    elseif tab == "prof" and ForeverPathfinderProfs then here = drawProfs(g, k)
     else drawPage(v, tab) end
     body:SetHeight(-y + 10)
     if scroll.UpdateScrollChildRect then scroll:UpdateScrollChildRect() end
@@ -1284,6 +1474,7 @@ end
 -- full = icona quadrata del gioco (si ritaglia il bordo e ha il fondo scuro)
 local PCLASS = { Druid = 1, Hunter = 1, Mage = 1, Paladin = 1, Priest = 1, Rogue = 1, Shaman = 1, Warlock = 1, Warrior = 1 }
 local function pinIcon(p)
+  if p.ic then return iconPath(p.ic), true end -- trainer e reagent vendor delle profession: icona della profession o della borsa
   local n = p[4] or ""
   local cls = n:match("^(%a+) Trainer$")
   if p.dg or (DPOS and p[5] and p[5] == norm(n)) then return iconPath("INV_Misc_Bone_HumanSkull_01"), true end
@@ -1343,6 +1534,66 @@ local function classTrainers()
   end
   return TRP
 end
+-- reagent vendor delle tue profession (1.7): chi vende i materiali "vendor" dei loro percorsi, dal database di Questie
+-- (Item.vendors → NPC amici della tua fazione → spawns per zona); calcolati una volta per insieme di profession
+local PVP, PVK
+local function vendorPins(mine)
+  local key = {}
+  for _, p in ipairs(mine) do key[#key + 1] = p[1] end
+  key = table.concat(key, ",")
+  if PVP and PVK == key then return PVP end
+  if not (QZ() and LibQuestieDB.Item and LibQuestieDB.Npc) then return {} end
+  PVK, PVP = key, {}
+  local fac = UnitFactionGroup("player") == "Horde" and "H" or "A"
+  local cont, Zone, byNpc = continents(), mod("ZoneDB"), {}
+  for _, pr in ipairs(mine) do
+    for _, s in ipairs(profData().list[pr[1]].route) do for _, m in ipairs(s[7]) do
+      if m[5] == 1 and m[3] ~= 0 then
+        local ok, ids = pcall(LibQuestieDB.Item.vendors, m[3])
+        for _, npc in ipairs(ok and ids or {}) do
+          local ok2, fr = pcall(LibQuestieDB.Npc.friendlyToFaction, npc)
+          if ok2 and fr and fr:find(fac) then
+            local e = byNpc[npc] or { mats = {}, seen = {} }
+            byNpc[npc] = e
+            if not e.seen[m[2]] then e.seen[m[2]] = true; e.mats[#e.mats + 1] = m[2] end
+          end
+        end
+      end
+    end end
+  end
+  for npc, e in pairs(byNpc) do
+    local _, name = pcall(LibQuestieDB.Npc.name, npc)
+    local ok, sp = pcall(LibQuestieDB.Npc.spawns, npc)
+    for area, list in pairs(ok and type(sp) == "table" and sp or {}) do
+      local okz, zm = pcall(Zone.GetUiMapIdByAreaId, Zone, area)
+      for _, c in ipairs(okz and zm and zm ~= 0 and list or {}) do
+        if c[1] and c[1] >= 0 then
+          local p = { nil, 0, 0, T.pVendT, nil, who = tostring(name or "?") .. " (" .. table.concat(e.mats, ", ") .. ")", ic = "inv_misc_bag_10", zm = zm, zx = c[1] / 100, zy = c[2] / 100 }
+          for ck, cid in pairs(cont) do
+            local okr, l, r, t, b = pcall(C_Map.GetMapRectOnMap, zm, cid)
+            if okr and l and r ~= l and l >= 0 and r <= 1 and t >= 0 and b <= 1 then p[1] = ck; p.gx, p.gy = l + p.zx * (r - l), t + p.zy * (b - t); break end
+          end
+          if p[1] then PVP[#PVP + 1] = p end
+        end
+      end
+    end
+  end
+  return PVP
+end
+-- segnaposti delle profession sulla mappa del mondo: trainer (mappa del sito) e reagent vendor, se accesi nelle opzioni
+local function profPins()
+  local out, mine = {}, myProfs()
+  local side = UnitFactionGroup("player") == "Horde" and 2 or 1
+  if C.opt.ptr then
+    for _, pr in ipairs(mine) do
+      for _, t in ipairs(ForeverPathfinderProfTrainers and ForeverPathfinderProfTrainers[pkey(pr[1])] or {}) do
+        if t[5] == 0 or t[5] == side then out[#out + 1] = { t[2], t[3], t[4], pr[1] .. " Trainer", nil, z = t.z, who = t[1], ic = profData().list[pr[1]].icon } end
+      end
+    end
+  end
+  if C.opt.pvd then for _, p in ipairs(vendorPins(mine)) do out[#out + 1] = p end end
+  return out
+end
 drawMapPins = function()
   for _, p in ipairs(mapPins) do p:Hide() end
   if not (C and WorldMapFrame and WorldMapFrame:IsShown() and on("map")) then return end
@@ -1355,6 +1606,7 @@ drawMapPins = function()
   if focus then list[#list + 1] = { focus[1], focus[2], focus[3], focus[4], UnitLevel("player"), z = focus.z, dg = true } end
   -- tutti i trainer della tua classe e fazione (ForeverPathfinderTrainers), con l'icona della classe
   if on("trainers") then for _, p in ipairs(classTrainers()) do list[#list + 1] = p end end
+  if C.opt.ptr or C.opt.pvd then for _, p in ipairs(profPins()) do list[#list + 1] = p end end
   for _, p in ipairs(list) do
     local x, y
     local gx, gy = xy(p)
@@ -1402,6 +1654,37 @@ local function playerOn(cont) -- posizione del giocatore 0–1 sul continente
   if zone == cont then return px, py end
   local l, r, t, b = C_Map.GetMapRectOnMap(zone, cont)
   if l then return l + px * (r - l), t + py * (b - t) end
+end
+-- trainer più vicino di una profession sul tuo continente (della tua fazione; adv = per un grado dopo Apprentice: niente trainer
+-- delle zone iniziali che insegnano solo Apprentice); se sul continente non c'è, il primo che va bene
+nearestTrainer = function(prof, adv)
+  local side, here, best, bd, any = UnitFactionGroup("player") == "Horde" and 2 or 1, {}
+  for ck, cid in pairs(continents()) do local px, py = playerOn(cid); if px and px >= 0 and px <= 1 and py >= 0 and py <= 1 then here[ck] = { px, py } end end
+  for _, t in ipairs(ForeverPathfinderProfTrainers and ForeverPathfinderProfTrainers[pkey(prof)] or {}) do
+    if (t[5] == 0 or t[5] == side) and not (adv and t.ap) then
+      local p = { t[2], t[3], t[4], prof .. " Trainer", nil, z = t.z, who = t[1] }
+      any = any or p
+      local h = here[t[2]]
+      if h then local gx, gy = xy(p); local d = (gx - h[1]) ^ 2 + (gy - h[2]) ^ 2; if not bd or d < bd then best, bd = p, d end end
+    end
+  end
+  return best or any
+end
+-- al massimo del grado (75, 150, 225) una riga in chat, una volta per profession e grado: cosa imparare e da chi
+local function capCheck()
+  local PD = profData()
+  if not (PD and C) then return end
+  C.capw = C.capw or {}
+  for _, p in ipairs(myProfs()) do
+    for _, r in ipairs(PD.ranks) do
+      if p[3] == r[1] and p[2] >= r[1] and not C.capw[p[1] .. r[1]] then
+        C.capw[p[1] .. r[1]] = true
+        local how = PD.list[p[1]].how[r[2]]
+        if not how then local t = nearestTrainer(p[1], true); how = T.pCapT:format(t and t.who or "?") end
+        say(T.pCap:format(p[1], p[2], p[3], r[2], how))
+      end
+    end
+  end
 end
 local elapsed = 0
 mm:SetScript("OnUpdate", function(self, dt)
@@ -1616,7 +1899,7 @@ f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("PLAYER_LEVEL_UP")
 f:RegisterEvent("CHARACTER_POINTS_CHANGED")
 for _, e in ipairs({ "TRAIT_CONFIG_UPDATED", "TRAIT_NODE_CHANGED", "PLAYER_TALENT_UPDATE" }) do pcall(f.RegisterEvent, f, e) end
-for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW", "SPELLS_CHANGED", "TAXIMAP_OPENED" }) do pcall(f.RegisterEvent, f, e) end
+for _, e in ipairs({ "QUEST_LOG_UPDATE", "QUEST_TURNED_IN", "TRAINER_SHOW", "SPELLS_CHANGED", "TAXIMAP_OPENED", "SKILL_LINES_CHANGED", "CHAT_MSG_SKILL", "BAG_UPDATE_DELAYED" }) do pcall(f.RegisterEvent, f, e) end
 f:SetScript("OnEvent", function(_, event, arg1)
   if event == "ADDON_LOADED" then
     if arg1 ~= ADDON then hookBlizzard(); return end
@@ -1655,6 +1938,13 @@ f:SetScript("OnEvent", function(_, event, arg1)
   elseif event == "TAXIMAP_OPENED" then
     if not C then return end
     fpSave(); tick()
+  elseif event == "SKILL_LINES_CHANGED" or event == "CHAT_MSG_SKILL" then -- profession: avviso al massimo del grado, scheda aggiornata
+    if not C then return end
+    capCheck()
+    if tab ~= "prof" then return end
+  elseif event == "BAG_UPDATE_DELAYED" then -- materiali nelle borse della scheda Profession
+    if tab == "prof" and f:IsShown() then render() end
+    return
   elseif event == "TRAINER_SHOW" then
     hookBlizzard(); trainerSay(); return
   elseif event == "CHARACTER_POINTS_CHANGED" or event == "TRAIT_CONFIG_UPDATED" or event == "TRAIT_NODE_CHANGED" or event == "PLAYER_TALENT_UPDATE" then
