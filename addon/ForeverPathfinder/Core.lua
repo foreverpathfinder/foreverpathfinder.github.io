@@ -274,6 +274,7 @@ local function questTag(n)
   return ""
 end
 local setTarget -- segnaposto scelto da una voce (più sotto, con la minimappa)
+local mapAt -- segnaposto e mappa del mondo aperta lì (più sotto, con i dungeon)
 
 -- Questie (obbligatorio, ## RequiredDeps): le quest della guida per nome → ID del suo database (LibQuestieDB),
 -- così si spuntano anche quelle consegnate prima dell'addon, e mappa e scheda della quest usano la sua interfaccia.
@@ -621,12 +622,12 @@ local function itemRow(k, t, top, after)
   if q and on("map") then
     mini("inv_misc_map_01", BW - PAD - 20, y, q, T.qMapTip, function()
       -- la mappa del mondo sta sotto la guida: la guida si chiude (si riapre dall'icona)
-      if not QZ() then say(T.qWait) elseif qMap(q) then f:Hide() elseif p then setTarget(p) end
+      if not QZ() then say(T.qWait) elseif qMap(q) then f:Hide() elseif p then mapAt(p) end
     end)
     mini("inv_misc_book_09", BW - PAD - 46, y, q, T.qInfoTip, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end)
     right = 54
   elseif p and on("map") then
-    mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() setTarget(p) end)
+    mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() mapAt(p) end)
     right = 28
   end
   local o = str(F.p, "tx", trainerText(t, s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
@@ -713,8 +714,10 @@ local function dgFind(title) -- il nome più lungo con cui comincia il titolo ("
 end
 local focus -- ingresso scelto: resta sulla mappa del mondo insieme ai segnaposti della tappa
 local drawMapPins
-local function dgMap(p)
-  focus = p; setTarget(p)
+-- segnaposto e mappa del mondo aperta sulla sua zona (la guida si chiude: la mappa sta sotto); dg = ingresso di un dungeon
+mapAt = function(p, dg)
+  if dg then focus = p end
+  setTarget(p)
   local cont = continents()[p[1]]
   local gx, gy = xy(p)
   local zone = not p.zm and cont and C_Map.GetMapInfoAtPosition and C_Map.GetMapInfoAtPosition(cont, gx, gy)
@@ -722,8 +725,9 @@ local function dgMap(p)
   if not id then return end
   if C_Map.OpenWorldMap then C_Map.OpenWorldMap(id) else if not WorldMapFrame:IsShown() then ShowUIPanel(WorldMapFrame) end; WorldMapFrame:SetMapID(id) end
   f:Hide(); drawMapPins()
-  if loaded("MapUtils") then say(T.dgMapMU) end
+  return true
 end
+local function dgMap(p) if mapAt(p, true) and loaded("MapUtils") then say(T.dgMapMU) end end
 local function ofaDungeon(name)
   local O = _G.OneForAll
   if not (O and O.DUNGEONS and O.OpenPanel) then return end
