@@ -58,8 +58,11 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
    // dungeon per fazione, come nella scheda Dungeon: livelli, giudizio, ingresso, quest (anche di classe)
    const G=(D.dungeons||{}).dungeons||{},dg={};
    for(const f of ['A','H'])dg[f]=D.factions[f].dungeons.filter(d=>d[1]<=MAXL+2).map(d=>{const x=G[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[f]||[],q=x.q||{},last=a=>a.filter(s=>typeof s==='string').pop()||'';
-    return [d[0].replace(/[★✔🟡]/g,'').trim(),d[1],d[2],v[0]||'',v[1]||'',v[2]||'',x.e||'',(q[f]||[]).concat(q.N||[]).map(y=>[y[0],last(y.slice(1))]),(q.C||[]).map(y=>[y[0],y[1],last(y.slice(2))])]});
-   out._dg=dg;out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3]]);out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
+    // dal menu dei dungeon (1.5): anche dove si trova e nota della fazione, catena della chiave, boss e consigli; senza giudizio, "salta" se la nota lo sconsiglia
+    const skip=!v[0]&&/non consigliat|not recommended/i.test(d[4]||'');
+    return [d[0].replace(/[★✔🟡]/g,'').trim(),d[1],d[2],v[0]||(skip?'skip':''),v[1]||'',v[2]||'',x.e||'',(q[f]||[]).concat(q.N||[]).map(y=>[y[0],last(y.slice(1))]),(q.C||[]).map(y=>[y[0],y[1],last(y.slice(2))]),
+     (x.k||{})[f]||'',x.b||[],x.t||[],d[3]||'',d[4]||'',/★/.test(d[0])]});
+   out._dg=dg;out._dginfo=[(D.dungeons||{}).general||[],(D.dungeons||{}).glossary||''];out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3]]);out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
  await b.close();
  // elenco unico dei testi (voci della checklist e pagine delle schede): ogni testo una volta sola
  const pool=[],pix=new Map(),P=s=>{s=clean(s);if(!pix.has(s)){pix.set(s,pool.length+1);pool.push(s)}return pix.get(s)};
@@ -116,11 +119,14 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  // collegamenti delle voci (numero del testo): p = segnaposti { continente, x, y, nome }, q = quest da consegnare
  s+='}\nForeverPathfinderLinks = {\n';
  for(const l of ['it','en'])s+=' '+l+' = {\n'+links[l].map(([i,e])=>'  ['+i+'] = { p = { '+e.pins.map(p=>'{ '+lua(p[0])+', '+p[1]+', '+p[2]+', '+lua(p[3])+zf(p[4])+' }').join(', ')+' }, q = { '+e.q.map(lua).join(', ')+' }'+(e.any?', any = true':'')+' },').join('\n')+'\n },\n';
- // dungeon: { nome, min, max, giudizio go/opt/skip, livello ideale, perché, ingresso, {quest, dove}, {quest di classe, classe, dove} }
- const tx=x=>lua(clean(String(x).replace(/<[^>]+>/g,'')));
+ // dungeon: { nome, min, max, giudizio go/opt/skip, livello ideale, perché, ingresso, {quest, dove}, {quest di classe, classe, dove},
+ //   catena della chiave, {boss}, {consigli}, dove si trova, nota, nuovo (true/false) }; grassetto tra { } (l'addon lo colora)
+ const tx=x=>lua(clean(String(x).replace(/<[^>]+>/g,''))),txb=x=>lua(clean(String(x).replace(/<b>/g,'{').replace(/<\/b>/g,'}').replace(/<[^>]+>/g,'')));
  s+='}\nForeverPathfinderDungeons = {\n';
  for(const l of ['it','en']){s+=' '+l+' = {\n';
-  for(const f of ['A','H'])s+='  '+f+' = {\n'+all[l]._dg[f].map(d=>'   { '+tx(d[0])+', '+d[1]+', '+d[2]+', '+lua(d[3])+', '+tx(d[4])+', '+tx(d[5])+', '+tx(d[6])+',\n    { '+d[7].map(q=>'{ '+tx(q[0])+', '+tx(q[1])+' }').join(', ')+' },\n    { '+d[8].map(q=>'{ '+tx(q[0])+', '+lua(q[1])+', '+tx(q[2])+' }').join(', ')+' } },').join('\n')+'\n  },\n';
+  for(const f of ['A','H'])s+='  '+f+' = {\n'+all[l]._dg[f].map(d=>'   { '+tx(d[0])+', '+d[1]+', '+d[2]+', '+lua(d[3])+', '+tx(d[4])+', '+tx(d[5])+', '+tx(d[6])+',\n    { '+d[7].map(q=>'{ '+tx(q[0])+', '+tx(q[1])+' }').join(', ')+' },\n    { '+d[8].map(q=>'{ '+tx(q[0])+', '+lua(q[1])+', '+tx(q[2])+' }').join(', ')+' },\n    '+tx(d[9])+', { '+d[10].map(tx).join(', ')+' }, { '+d[11].map(txb).join(', ')+' }, '+tx(d[12])+', '+tx(d[13])+', '+(d[14]?'true':'false')+' },').join('\n')+'\n  },\n';
+  // consigli generali e glossario della scheda Dungeon del sito
+  s+='  info = { '+all[l]._dginfo[0].map(txb).join(', ')+' }, glossary = '+txb(all[l]._dginfo[1])+',\n';
   s+=' },\n'}
  // ingressi dei dungeon (icone della mappa del sito): { nome, continente, x, y } per il pulsante Mappa della scheda Dungeon
  s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+' },'}).filter(Boolean).join('\n')+'\n';
