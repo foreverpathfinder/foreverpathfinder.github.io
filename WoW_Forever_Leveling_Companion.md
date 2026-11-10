@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v14)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v15)
 
-> Aggiornato: **8 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **10 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -118,7 +118,7 @@ Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordi
 - 58–60: Precision 3/3
 
 ### Priest – Shadow
-Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug (128 ♥, Verified, agg. 4 nov), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Mind Flay al 22, Vampiric Embrace al 27, Shadow Weaving (28–30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.
+Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug (165 ♥, Verified, agg. 9 nov), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Mind Flay al 22, Vampiric Embrace al 27, Shadow Weaving (28–30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.
 
 - 10–11: Wand Specialization 2/2
 - 12–16: Spirit Tap 5/5
@@ -135,14 +135,12 @@ Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalyti
 - 35–36: Dark Inspiration 3/5
 - 37–41: Darkness 5/5
 - 42: Shadowform 1/1
-- 43–45: Twin Disciplines 3/5
-- 46–47: Martyrdom 2/2
-- 48–49: Twin Disciplines 5/5
-- 50: Mental Strength 1/5
+- 43–47: Twin Disciplines 5/5
+- 48–50: Mental Strength 3/5
 - 51–53: Meditation 3/3
-- 54–56: Mental Agility 3/3
-- 57–59: Improved Power Word: Shield 3/3
-- 60: Inner Focus 1/1
+- 54–56: Twilight Focus 3/3
+- 57: Inner Focus 1/1
+- 58–60: Mental Agility 3/3
 
 ### Rogue – Combat
 Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): dal 6 nov l'ordine è quello di Mobalytics Djexde (agg. 5 nov), con la stessa ripartizione 16/35/0 di Rogue’s Diary (agg. 4 nov): Remorseless Attacks subito, Endurance al 24–25, Blade Flurry al 32, Adrenaline Rush al 42. La variante con pugnale (Puncturing Wounds, wowforever.gg) è la build C.

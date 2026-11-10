@@ -80,6 +80,25 @@ DEFAULT_CHAT_FRAME = { AddMessage = function() end }
 hooksecurefunc = function() end
 GetNumQuestLogEntries = function() return 2 end
 GetQuestLogTitle = function(i) if i == 1 then return "The Defias Brotherhood", 18, nil, false, false, nil, nil, 1 end return "Red Silk Bandanas", 18, nil, false, false, true, nil, 2 end
+-- Questie finto per l'anteprima (1.8): la catena di sei passi di The Defias Brotherhood (due fatti, il terzo nel registro con
+-- l'ID 1 di GetQuestLogTitle), Collecting Memories già fatta
+local function QID(n) local h = 0; for i = 1, #n do h = (h * 31 + n:byte(i)) % 100000 end; return h + 1000 end
+local DBF = QID("The Defias Brotherhood")
+local PRE = { [DBF] = 905, [905] = 904, [904] = 1, [1] = 902, [902] = 901 }
+local GIVER = { [901] = { "Gryan Stoutmantle", "Westfall" }, [902] = { "Wiley the Black", "Redridge Mountains" }, [1] = { "Master Mathias Shaw", "Stormwind City" },
+  [904] = { "Gryan Stoutmantle", "Westfall" }, [905] = { "The Defias Traitor", "Westfall" }, [DBF] = { "Gryan Stoutmantle", "Westfall" } }
+LibQuestieDB = { Quest = { IdsByName = function(n) if n == "The Defias Brotherhood" then return { 1, 901, 902, 904, 905, DBF } end return { QID(n) } end } }
+Questie = { API = { isReady = true }, db = { char = { complete = { [901] = true, [902] = true, [QID("Collecting Memories")] = true } } } }
+QuestieLoader = { ImportModule = function(_, n)
+  if n == "QuestieDB" then return { IsDoable = function() return true end,
+    QueryQuestSingle = function(id, k)
+      if k == "preQuestSingle" then return PRE[id] and { PRE[id] } or nil end
+      if k == "startedBy" then return { { id } } end
+      if k == "name" then return GIVER[id] and "The Defias Brotherhood" or "Q" end
+    end,
+    QueryNPCSingle = function(id, k) if k == "name" then return GIVER[id] and GIVER[id][1] end; if k == "zoneID" then return id end end }
+  elseif n == "TrackerUtils" then return { GetZoneNameByID = function(_, id) return GIVER[id] and GIVER[id][2] end } end
+end }
 ForeverPathfinderDB = { lang = LOCALE == "itIT" and "it" or "en" } -- dalla 1.1 la lingua si sceglie nelle Opzioni (di base inglese)
 assert(loadfile(DIR .. "/Data.lua"))()
 assert(loadfile(DIR .. "/Core.lua"))("ForeverPathfinder")
@@ -171,7 +190,7 @@ if ONLY == "dgscheda" or ONLY == "dgscheda2" then
   snap(ONLY)
   if ONLY == "dgscheda2" then
     items = {}
-    for _, o in ipairs(all) do if o.kind == "Slider" then o:SetValue(420) end end
+    for _, o in ipairs(all) do if o.kind == "Slider" then o:SetValue(190) end end
     walk(f, 0, 0)
     scenes[#scenes] = '{"name":' .. jstr(ONLY) .. ',"W":' .. f.w .. ',"H":' .. f.h .. ',"items":[' .. table.concat(items, ",") .. ']}'
   end

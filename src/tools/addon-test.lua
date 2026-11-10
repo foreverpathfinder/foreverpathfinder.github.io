@@ -90,16 +90,22 @@ local readyCbs = {}
 Questie = { API = { isReady = false, RegisterOnReady = function(cb) if Questie.API.isReady then cb() else readyCbs[#readyCbs + 1] = cb end end }, db = { char = { complete = QDONE } } }
 function QUESTIE_READY() Questie.API.isReady = true; for _, cb in ipairs(readyCbs) do cb() end; readyCbs = {} end
 local QMOD = {
-  -- catena finta: The Defias Brotherhood richiede prima la quest 777 (The Defias Traitor), data da Gryan Stoutmantle in Westfall
+  -- catena finta di 3 passi: The Defias Brotherhood richiede la 777 (The Defias Traitor), che richiede la 776 (Messenger to Stormwind);
+  -- tutte date da Gryan Stoutmantle in Westfall. GetQuest: chi la dà e a chi si consegna, per il punto sulla mappa
   QuestieDB = { IsDoable = function() return true end,
+    GetQuest = function(id) return { Id = id, Starts = { NPC = { 4242 } }, Finisher = { NPC = { 4243 } } } end,
     QueryQuestSingle = function(id, k)
       if k == "startedBy" then return { { 4242 } } end
       if k == "preQuestSingle" and id == QID("The Defias Brotherhood") then return { 777 } end
-      if k == "name" then return id == 777 and "The Defias Traitor" or "Q" .. id end
+      if k == "preQuestSingle" and id == 777 then return { 776 } end
+      if k == "name" then return id == 777 and "The Defias Traitor" or id == 776 and "Messenger to Stormwind" or "Q" .. id end
     end,
     QueryNPCSingle = function(_, k) if k == "name" then return "Gryan Stoutmantle" elseif k == "zoneID" then return 40 end return { [12] = { { 40, 60 } } } end,
     QueryObjectSingle = function() end },
   ZoneDB = { GetUiMapIdByAreaId = function() return 1429 end },
+  -- il punto più vicino: chi dà la quest (41.8, 67.2) o, se è nel registro, l'obiettivo (30, 40)
+  DistanceUtils = { GetNearestFinisherOrStarter = function(st) QCALLS[#QCALLS + 1] = "start" .. tostring(st.NPC and st.NPC[1]); return { 41.8, 67.2 }, 40, "Gryan Stoutmantle" end,
+    GetNearestSpawnForQuest = function(q) QCALLS[#QCALLS + 1] = "obj" .. q.Id; return { 30, 40 }, 40, "Defias Pillager" end },
   QuestieMap = { ShowNPC = function(_, id) QCALLS[#QCALLS + 1] = "npc" .. id end, ShowObject = function() end },
   QuestieCompat = { OpenWorldMap = function(id) QCALLS[#QCALLS + 1] = "map" .. id; return true end },
   TrackerUtils = { ShowQuestOnMap = function(id) QCALLS[#QCALLS + 1] = "track" .. id; return true end, GetZoneNameByID = function() return "Westfall" end },
@@ -316,13 +322,29 @@ check(inZM and WAYPOINT[2] >= 0 and WAYPOINT[2] <= 1 and WAYPOINT[3] >= 0 and WA
 -- pulsanti della voce con quest: mappa con le icone di Questie (chi la dà: NPC 4242 nella sua zona) e scheda nel Journey
 LEVEL = qtask[1]; QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.shown = false; fp("")
 local function mini(name, tip2) return find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip == name and (not tip2 or o.tip2:find(tip2, 1, true)) end) end
-local qMapB, qInfoB = mini(qname, "Questie"), mini(qname, "Journey")
+local HOT = lang == "it" and "segnaposto evidenziato" or "highlighted waypoint"
+local qMapB, qInfoB = mini(qname, HOT), mini(qname, "Journey")
 check(qMapB and qInfoB, "pulsanti mappa e scheda di Questie nella voce di " .. qname)
-qMapB.scripts.OnClick(qMapB)
-check(table.concat(QCALLS, ","):find("npc4242,map1429", 1, true), "mappa: chi dà la quest con le icone di Questie (" .. table.concat(QCALLS, ",") .. ")")
-QUESTLOG = { { qname, QID(qname), false } }; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); QCALLS = {}
-qMapB = mini(qname, "Questie"); qMapB.scripts.OnClick(qMapB)
-check(QCALLS[1] == "track" .. QID(qname), "mappa: quest nel registro come nel tracker di Questie")
+-- 1.8: il pulsante mappa mette il nostro segnaposto sul punto esatto (chi dà la quest), con riga in chat e mappa sulla sua zona
+QCALLS = {}; WAYPOINT = nil; WorldMapFrame.shown = false; qMapB.scripts.OnClick(qMapB)
+check(QCALLS[1] == "start4242" and WAYPOINT and WAYPOINT[1] == 1429 and math.abs(WAYPOINT[2] - 0.418) < 0.001 and math.abs(WAYPOINT[3] - 0.672) < 0.001,
+  "mappa: segnaposto su chi dà la quest (" .. table.concat(QCALLS, ",") .. ")")
+check(WorldMapFrame.shown and not f.shown and said(qname .. ": Gryan Stoutmantle"), "mappa aperta e riga in chat con quest e NPC")
+local function hotPin() return find(function(o) return o.kind == "Button" and rawget(o, "p") and rawget(o, "hot") and o.shown end) end
+check(hotPin() and hotPin().p.sub == qname, "segnaposto scelto evidenziato sulla mappa del mondo")
+-- arrivo: a meno di 10 yard dal punto il segnaposto scelto si toglie da solo
+local oldPos = C_Map.GetPlayerMapPosition
+C_Map.GetPlayerMapPosition = function() return { GetXY = function() return 0.418, 0.672 end } end
+for _, o in ipairs(frames) do if o.kind == "Frame" and o ~= WorldMapFrame and o.scripts.OnUpdate then pcall(o.scripts.OnUpdate, o, 1) end end
+C_Map.GetPlayerMapPosition = oldPos
+check(not hotPin() and said(lang == "it" and "Sei arrivato" or "You have arrived"), "all'arrivo il segnaposto si toglie")
+qMapB.scripts.OnClick(qMapB); check(hotPin() ~= nil, "segnaposto rimesso")
+hotPin().scripts.OnClick(hotPin())
+check(not hotPin(), "un clic sul segnaposto evidenziato lo toglie")
+QUESTLOG = { { qname, QID(qname), false } }; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); QCALLS = {}; f.shown = false; fp("")
+qMapB = mini(qname, HOT); qMapB.scripts.OnClick(qMapB)
+check(QCALLS[1] == "obj" .. QID(qname) and math.abs(WAYPOINT[2] - 0.30) < 0.001 and said("Defias Pillager"), "mappa: quest nel registro → obiettivo più vicino")
+f.shown = false; fp(""); qInfoB = mini(qname, "Journey")
 QCALLS = {}; qInfoB.scripts.OnClick(qInfoB)
 check(table.concat(QCALLS, ",") == "journey,tab search,quest" .. QID(qname), "scheda della quest nel Journey (" .. table.concat(QCALLS, ",") .. ")")
 QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE")
@@ -349,13 +371,27 @@ end
 -- Dungeon (dalla 1.5): menu con i dungeon; un clic apre la scheda del dungeon. "Mappa" apre la mappa del mondo sull'ingresso
 -- con il segnaposto; "Boss e loot" apre il dungeon in OneForAll; le quest con la prima della catena (Questie)
 nav(tabName("dungeon")).scripts.OnClick()
+QDONE[776] = true
+check(has(lang == "it" and "Adatti al tuo livello adesso" or "Right for your level now"), "menu: riquadro dei dungeon adatti al livello")
 local dmMenu = nav("The Deadmines")
-check(dmMenu and nav("Hall of Thanes") and not nav(lang == "it" and "Mappa" or "Map"), "menu dei dungeon (senza pulsanti Mappa)")
+check(dmMenu and nav("Hall of Thanes ★") and not nav(lang == "it" and "Mappa" or "Map"), "menu dei dungeon (senza pulsanti Mappa)")
 dmMenu.scripts.OnClick(dmMenu)
-check(has("Rhahk'zor") and has(lang == "it" and "Dove si trova" or "Where it is") and nav(lang == "it" and "‹ Tutti i dungeon" or "‹ All dungeons"), "scheda dei Deadmines: dove, boss, ritorno al menu")
+check(nav(lang == "it" and "‹ Tutti i dungeon" or "‹ All dungeons") and has(lang == "it" and "da prendere" or "to pick up"), "scheda dei Deadmines: testata con le quest, ritorno al menu")
 if g.faction == "A" then
-  check(has("Red Silk Bandanas") and has("The Defias Traitor") and has("Gryan Stoutmantle, Westfall"), "quest dei Deadmines con la prima quest della catena da Questie")
+  -- 1.8.1: quest a gruppi; The Defias Brotherhood da sbloccare (776 fatta, 777 adesso, poi la quest del dungeon): riquadro Adesso
+  -- con da chi andare, e l'elenco completo dei passi solo con "Tutti i passi"
+  check(has("Red Silk Bandanas") and has(lang == "it" and "Da sbloccare" or "To unlock") and has(lang == "it" and "passo 2 di 3" or "step 2 of 3")
+    and has("Gryan Stoutmantle") and not has("Messenger to Stormwind"), "quest dei Deadmines: gruppi e riga Adesso della catena")
+  local stepsB = nav(lang == "it" and "Tutti i passi" or "All steps")
+  check(stepsB ~= nil, "pulsante Tutti i passi")
+  stepsB.scripts.OnClick(stepsB)
+  check(has("Messenger to Stormwind") and has("The Defias Traitor") and has("Gryan Stoutmantle, Westfall"), "elenco completo dei passi")
 end
+local function sec(prefix) return find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.shown and o.scripts.OnClick and o.fs.text:sub(1, #prefix) == prefix end) end
+local bossB, whereB = sec((lang == "it" and "Boss" or "Bosses") .. "  "), sec(lang == "it" and "Come arrivarci" or "How to get there")
+check(bossB and whereB, "sezioni Boss e Come arrivarci")
+bossB.scripts.OnClick(bossB); check(has("Rhahk'zor"), "sezione Boss")
+whereB.scripts.OnClick(whereB); check(has(lang == "it" and "Dove si trova" or "Where it is"), "sezione Come arrivarci")
 local dmB, lootB = nav(lang == "it" and "Mappa" or "Map"), nav(lang == "it" and "Boss e loot" or "Bosses and loot")
 check(dmB and lootB, "pulsanti Mappa e Boss e loot nella scheda Dungeon")
 WorldMapFrame.shown = false; dmB.scripts.OnClick(dmB)
@@ -367,6 +403,14 @@ WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.point and o.point[2] == canvas end) ~= nil, "segnaposti sulla mappa del mondo")
 -- dalla 1.6 anche tutti i trainer della classe (con il nome dell'NPC nel tooltip)
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who and o.shown end) ~= nil, "trainer della classe sulla mappa del mondo")
+-- icone di OneForAll sulla tela: quella sopra un nostro segnaposto si nasconde, quella lontana resta
+local ofaNear, ofaFar = obj("Button"), obj("Button")
+ofaNear.entry, ofaFar.entry = {}, {}
+ofaFar.GetCenter = function() return 900, 900 end
+canvas.GetChildren = function() return ofaNear, ofaFar end
+WorldMapFrame.scripts.OnShow()
+check(not ofaNear.shown and ofaFar.shown, "icona di OneForAll sopra il nostro segnaposto nascosta, quella lontana no")
+canvas.GetChildren = nil
 -- 1.7: Profession del gioco con la skill, passo attuale, materiali nelle borse, avviso al massimo del grado (una volta), trainer e
 -- reagent vendor (da Questie) sulla mappa quando accesi
 f.shown = true
@@ -395,6 +439,19 @@ f.scripts.OnEvent(f, "ADDON_LOADED", "Blizzard_TalentUI")
 SPENT = 0; TalentFrame.scripts.OnShow()
 local glowF = find(function(o) return o.kind == "Frame" and o.shown and o.point and o.point[2] == TalentFrameTalent1 end)
 check(TALENT == nil or glowF ~= nil, "talento evidenziato nella finestra dei talenti")
+-- 1.8: finestra dei talenti moderna (C_Traits, come in Forever): bordo sul pulsante del nodo con il talento da prendere
+if TALENT then
+  local tb = obj("Button")
+  tb.GetEntryID = function() return 5 end
+  PlayerSpellsFrame = obj("Frame"); PlayerSpellsFrame.shown = true
+  PlayerSpellsFrame.TalentsFrame = { EnumerateAllTalentButtons = function() local done; return function() if not done then done = true; return tb end end end }
+  C_ClassTalents = { GetActiveConfigID = function() return 1 end }
+  C_Traits = { GetConfigInfo = function() return { treeIDs = {} } end, GetNodeInfo = function() end, GetEntryInfo = function() return { definitionID = 9 } end,
+    GetDefinitionInfo = function() return { overrideName = TALENT } end }
+  f.scripts.OnEvent(f, "TRAIT_CONFIG_UPDATED")
+  check(find(function(o) return o.kind == "Frame" and o.shown and o.point and o.point[2] == tb end) ~= nil, "talento evidenziato nella finestra dei talenti moderna")
+  C_ClassTalents, C_Traits, PlayerSpellsFrame = nil, nil, nil
+end
 -- trainer: gli spell della guida disponibili vengono scritti in chat
 LEVEL = 1; TRAINER = { "Battle Shout", "Something Else" }
 f.scripts.OnEvent(f, "TRAINER_SHOW")
