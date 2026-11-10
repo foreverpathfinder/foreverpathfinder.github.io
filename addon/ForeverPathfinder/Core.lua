@@ -21,9 +21,9 @@ local TT = {
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
     help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp lang · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo", skip = "da saltare",
-    dgAll = "‹ Tutti i dungeon", dgPick = "Clic su un dungeon: quest, catena, boss e consigli.", dgYou = "adatto al tuo livello", dgLv = "Livelli %d–%d",
+    dgAll = "‹ Tutti i dungeon", dgPick = "Clic su un dungeon: quest, boss, come arrivarci. ★ = nuovo in Forever.", dgYou = "adatto al tuo livello", dgLv = "Livelli %d–%d",
     dgIdeal = "ideale %s", dgWhere = "Dove si trova", dgKey = "Chiave d'ingresso", dgQ = "Quest da prendere prima di entrare", dgQC = "Quest di classe",
-    dgNoQ = "Nessuna quest nei dati per la tua fazione.", dgFrom = "Da: %s", dgChain = "Catena: prima fai {%s}%s", dgChainBy = " (%s)", dgChainTip = "Mostra sulla mappa chi dà la prima quest della catena",
+    dgNoQ = "Nessuna quest nei dati per la tua fazione.", dgFrom = "Da: %s", dgChainTip = "Mostra sulla mappa il prossimo passo della catena",
     dgBoss = "Boss", dgTips = "Consigli", dgInfo = "Come conviene farli", dgNote = "Nota", qDoneTag = "fatta", dgNew = "nuovo in Forever", oTrainers = "Tutti i trainer della tua classe sulla mappa del mondo",
     talTitle = "Talent · %s", talLv = "Livello %d", talMine = "Il mio livello (%d)", talNow = "Al livello %d prendi: {%s} %d/%d", talNext = "Poi, al %d: %s",
     talFrom10 = "I talenti cominciano al livello 10: qui vedi cosa prenderai.", talDone = "Build completa: dopo il %d non ci sono altri punti.", talWhy = "Perché questa build", talHide = "Nascondi",
@@ -49,7 +49,7 @@ local TT = {
     inLog = "nel registro", toTurn = "da consegnare", pinSet = "Segnaposto: %s · %s %.1f, %.1f", pinHere = "Sei arrivato: %s",
     pinTip = "Mostra sulla mappa e sulla minimappa", trainerBuy = "Da comprare secondo la guida: %s", ticked = "Spuntata nella guida: %s",
     dbgLinks = "Continenti %s · segnaposto del gioco %s · finestra talenti %s · quest nel registro %d", yes = "sì", no = "no",
-    qMap = "Mostra la quest sulla mappa", qMapTip = "Con le icone di Questie: chi la dà o, se è nel registro, obiettivi e consegna",
+    qMap = "Mostra la quest sulla mappa", qMapTip = "Apre la mappa sul punto, con il segnaposto evidenziato: chi la dà o, se è nel registro, l'obiettivo o la consegna più vicina",
     qInfo = "Scheda della quest", qInfoTip = "Apre la quest nel Journey di Questie", qWait = "Questie si sta ancora caricando: riprova tra un momento.",
     qOff = "Questie non è attivo: spunte automatiche, mappa e schede delle quest passano da Questie.", qSync = "Spuntate %d voci già fatte (quest consegnate, spell già apprese o talenti spesi).",
     ofa = "Apri in OneForAll", ofaTip = "Carica questa build (fino al 60) nel calcolatore dei talenti di OneForAll",
@@ -59,6 +59,12 @@ local TT = {
     dbgSpell = "Spell nel libro: %d · voce Trainer %s, mancano: %s",
     dbgAddons = "Addon collegati: Questie %s · OneForAll %s · MapUtils %s",
     behind = "Rimaste indietro (%d)", behindMore = "e altre %d: le trovi tornando indietro con <",
+    qNoPoint = "Questie non ha un punto sulla mappa per %s (comincia da un oggetto o da un mostro).", pinSetQ = "%s: %s · %s %.1f, %.1f", pinOn = "Clic: segnaposto qui", pinOff = "Clic: togli il segnaposto",
+    dgNext = "prossima", dgThis = "quest del dungeon", dgStep = "passo %d di %d", dgNowDo = "Adesso:", dgGo = "vai da {%s}",
+    dgDo = "completa {%s}", dgTurn = "consegna {%s}",
+    dgSteps = "Tutti i passi", dgStepsHide = "Nascondi i passi", dgGLog = "Nel registro", dgGLock = "Da sbloccare", dgGTake = "Puoi prenderle subito", dgGDone = "Fatte",
+    dgQSum = "Quest:", dgQLog = "%d nel registro", dgQDone = "%d fatte", dgQDone1 = "1 fatta", dgQTake = "%d da prendere", dgQn = "quest %d/%d",
+    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
@@ -73,9 +79,9 @@ local TT = {
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
     help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp lang · /fp debug",
     dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional", skip = "skip",
-    dgAll = "‹ All dungeons", dgPick = "Click a dungeon: quests, chain, bosses and tips.", dgYou = "right for your level", dgLv = "Levels %d–%d",
+    dgAll = "‹ All dungeons", dgPick = "Click a dungeon: quests, bosses, how to get there. ★ = new in Forever.", dgYou = "right for your level", dgLv = "Levels %d–%d",
     dgIdeal = "best at %s", dgWhere = "Where it is", dgKey = "Entry key", dgQ = "Quests to pick up before going in", dgQC = "Class quests",
-    dgNoQ = "No quests in the data for your faction.", dgFrom = "From: %s", dgChain = "Chain: first do {%s}%s", dgChainBy = " (%s)", dgChainTip = "Shows on the map who gives the first quest of the chain",
+    dgNoQ = "No quests in the data for your faction.", dgFrom = "From: %s", dgChainTip = "Shows the next step of the chain on the map",
     dgBoss = "Bosses", dgTips = "Tips", dgInfo = "How to run them", dgNote = "Note", qDoneTag = "done", dgNew = "new in Forever", oTrainers = "All your class trainers on the world map",
     talTitle = "Talents · %s", talLv = "Level %d", talMine = "My level (%d)", talNow = "At level %d take: {%s} %d/%d", talNext = "Then, at %d: %s",
     talFrom10 = "Talents start at level 10: here you see what you will take.", talDone = "Build complete: no more points after %d.", talWhy = "Why this build", talHide = "Hide",
@@ -101,7 +107,7 @@ local TT = {
     inLog = "in your log", toTurn = "ready to turn in", pinSet = "Waypoint: %s · %s %.1f, %.1f", pinHere = "You have arrived: %s",
     pinTip = "Show on the map and the minimap", trainerBuy = "To buy according to the guide: %s", ticked = "Ticked in the guide: %s",
     dbgLinks = "Continents %s · game waypoint %s · talent window %s · quests in log %d", yes = "yes", no = "no",
-    qMap = "Show the quest on the map", qMapTip = "With Questie's icons: who gives it or, if it is in your log, objectives and turn-in",
+    qMap = "Show the quest on the map", qMapTip = "Opens the map on the spot, with the highlighted waypoint: who gives it or, if it is in your log, the nearest objective or turn-in",
     qInfo = "Quest details", qInfoTip = "Opens the quest in Questie's Journey", qWait = "Questie is still loading: try again in a moment.",
     qOff = "Questie is not active: automatic ticks, map and quest details go through Questie.", qSync = "Ticked %d items already done (quests turned in, spells already learned or talents spent).",
     ofa = "Open in OneForAll", ofaTip = "Loads this build (up to 60) into OneForAll's talent calculator",
@@ -111,6 +117,12 @@ local TT = {
     dbgSpell = "Spells in the spellbook: %d · Trainer item %s, missing: %s",
     dbgAddons = "Linked addons: Questie %s · OneForAll %s · MapUtils %s",
     behind = "Left behind (%d)", behindMore = "and %d more: go back with < to find them",
+    qNoPoint = "Questie has no map point for %s (it starts from an item or a monster).", pinSetQ = "%s: %s · %s %.1f, %.1f", pinOn = "Click: waypoint here", pinOff = "Click: remove the waypoint",
+    dgNext = "next", dgThis = "the dungeon quest", dgStep = "step %d of %d", dgNowDo = "Now:", dgGo = "go to {%s}",
+    dgDo = "complete {%s}", dgTurn = "turn in {%s}",
+    dgSteps = "All steps", dgStepsHide = "Hide the steps", dgGLog = "In your log", dgGLock = "To unlock", dgGTake = "You can pick these up now", dgGDone = "Done",
+    dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
+    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
@@ -128,9 +140,11 @@ local RACES = { Human = "human", Dwarf = "dwarf", Gnome = "gnome", NightElf = "n
 local C  -- ForeverPathfinderChar: { done = {}, key = "razza-classe" scelto a mano, opt = { b, dg, x }, loads }
 local DB -- ForeverPathfinderDB (tutti i personaggi): { angle, hide } dell'icona sulla minimappa
 local tab, viewCh = "livello" -- scheda aperta, tappa mostrata nel Percorso
-local dgSel -- scheda Dungeon: nome del dungeon aperto, nil = menu
-local talLv, tWhy -- scheda Talent: livello mostrato (nil = il tuo), testo della scelta aperto
-local clsSec, rotSel, spAll, noteSel -- scheda Classe: sezione, rotazione, tutte le spell, consiglio aperto
+-- stato delle schede (una tabella sola: Lua ammette 200 variabili locali per file). Dungeon: dgSel nome del dungeon aperto (nil = menu),
+-- V.dgSec sezione ("q" quest, "b" boss, "w" come arrivarci, "t" consigli); Talent: V.talLv livello mostrato (nil = il tuo), V.tWhy testo aperto;
+-- Classe: V.clsSec sezione, V.rotSel rotazione, V.spAll tutte le spell, V.noteSel consiglio; Profession: V.profSel aperta, V.profAll anche le altre,
+-- V.profMore novità aperte, V.profShop lista della spesa aperta
+local V = {}
 
 local function say(msg) DEFAULT_CHAT_FRAME:AddMessage("|cffe8b84aForever Pathfinder|r " .. msg) end
 
@@ -273,9 +287,10 @@ local function xy(p)
 end
 
 -- quest nel registro: titolo → "log" o "done" (completa, da consegnare); id → titolo per riconoscere la consegna
-local inLog, idTitle = {}, {}
+local inLog, idTitle, idLog = {}, {}, {} -- idLog: id → "log" o "done" delle quest ora nel registro
 local function scanLog()
   for k in pairs(inLog) do inLog[k] = nil end
+  for k in pairs(idLog) do idLog[k] = nil end
   local Q = C_QuestLog and C_QuestLog.GetInfo and C_QuestLog
   local num = Q and Q.GetNumQuestLogEntries or GetNumQuestLogEntries
   for i = 1, (num and num() or 0) do
@@ -288,7 +303,7 @@ local function scanLog()
     end
     if title and not isHeader then
       inLog[title] = (isComplete == 1 or isComplete == true) and "done" or "log"
-      if questID then idTitle[questID] = title end
+      if questID then idTitle[questID] = title; idLog[questID] = inLog[title] end
     end
   end
 end
@@ -330,27 +345,43 @@ local function qPick(name)
   for _, id in ipairs(ids) do if not (ok and DBQ.IsDoable) or DBQ.IsDoable(id) then return id end end
   return ids[1]
 end
--- mappa del mondo sulla quest: nel registro obiettivi e consegna (come il tracker di Questie), altrimenti chi la dà
-local function qMap(name)
-  local id = qPick(name)
-  if not id then return false end
-  local ok, done = pcall(function()
-    if inLog[name] and mod("TrackerUtils").ShowQuestOnMap(id) then return true end
-    local DBQ, Zone, QM, Compat = mod("QuestieDB"), mod("ZoneDB"), mod("QuestieMap"), mod("QuestieCompat")
-    local by = DBQ.QueryQuestSingle(id, "startedBy") or {}
-    for kind = 1, 2 do -- 1 NPC, 2 oggetti
-      for _, sid in ipairs(by[kind] or {}) do
-        local sp = kind == 1 and DBQ.QueryNPCSingle(sid, "spawns") or DBQ.QueryObjectSingle(sid, "spawns")
-        for area, coords in pairs(sp or {}) do
-          if coords[1] then
-            if kind == 1 then QM:ShowNPC(sid) else QM:ShowObject(sid) end
-            return Compat.OpenWorldMap(Zone:GetUiMapIdByAreaId(area))
-          end
-        end
-      end
-    end
+-- punto in una zona del gioco (uiMapID, posizione 0–1) → segnaposto come quelli del sito, con continente e posizione sul continente
+local function zonePin(zm, zx, zy, name, sub)
+  local p = { nil, 0, 0, name, nil, zm = zm, zx = zx, zy = zy, gx = 0, gy = 0, sub = sub }
+  for ck, cid in pairs(continents()) do
+    local ok, l, r, t, b = pcall(C_Map.GetMapRectOnMap, zm, cid)
+    if ok and l and r ~= l and l >= 0 and r <= 1 and t >= 0 and b <= 1 then p[1] = ck; p.gx, p.gy = l + zx * (r - l), t + zy * (b - t); break end
+  end
+  return p
+end
+local function qDoneId(id)
+  local done = Questie.db and Questie.db.char and Questie.db.char.complete or {}
+  return (done[id] or (C_QuestLog and C_QuestLog.IsQuestFlaggedCompleted and C_QuestLog.IsQuestFlaggedCompleted(id))) and true or false
+end
+-- dove andare per una quest (1.8), dal database di Questie: se è nel registro l'obiettivo o la consegna più vicina, altrimenti
+-- chi la dà (il più vicino a te). Restituisce un segnaposto nostro: così la mappa si apre sulla zona giusta e il punto si vede
+local function qPointId(id, name)
+  if not (id and QZ()) then return end
+  local ok, p = pcall(function()
+    local DBQ, DU, Zone = mod("QuestieDB"), mod("DistanceUtils"), mod("ZoneDB")
+    local quest = DBQ.GetQuest(id)
+    if not quest then return end
+    local sp, zone, who
+    if idLog[id] then sp, zone, who = DU.GetNearestSpawnForQuest(quest) end
+    if not sp then sp, zone, who = DU.GetNearestFinisherOrStarter(quest.Starts or {}) end
+    local zm = sp and zone and Zone:GetUiMapIdByAreaId(zone)
+    if not zm or zm == 0 then return end
+    local pin = zonePin(zm, sp[1] / 100, sp[2] / 100, who or name, name)
+    pin.q = { name }
+    return pin
   end)
-  return ok and done
+  return ok and p or nil
+end
+-- pulsante mappa di una quest: segnaposto evidenziato sul punto e mappa del mondo aperta lì; false se Questie non ha un punto
+local function qMap(name, id)
+  local p = qPointId(id or qPick(name), name)
+  if not p then return false end
+  return mapAt(p)
 end
 -- la scheda della quest nel Journey di Questie (scheda Cerca, per ID)
 local function qInfo(name)
@@ -362,34 +393,71 @@ local function qInfo(name)
     J.tabGroup:SelectTab("search"); mod("QuestieSearchResults"):SetSearch("quest", id)
   end)
 end
--- prima quest della catena che porta a questa (nome, chi la dà e zona), nil se la quest non ha quest richieste prima
-local CHAIN = {}
-local function qChain(name)
-  if CHAIN[name] ~= nil then return CHAIN[name] or nil end
-  local id = qPick(name)
-  if not id then return end
-  local ok, res = pcall(function()
-    local DBQ = mod("QuestieDB")
-    local cur, seen, n = id, { [id] = true }, 0
-    while n < 20 do
-      local pre = DBQ.QueryQuestSingle(cur, "preQuestSingle")
-      if not (pre and pre[1]) then pre = DBQ.QueryQuestSingle(cur, "preQuestGroup") end
-      local p = pre and pre[1]
+-- catene (1.8). qFinal(nome) = la quest "vera" di quel nome: più quest di una catena hanno spesso lo stesso nome (The Defias
+-- Brotherhood: sei passi), e quella del dungeon è l'ultima, cioè quella che nessun'altra con lo stesso nome richiede.
+-- qChain(nome) = tutti i passi dal primo, ognuno { id, nome, "NPC, zona", NPC, zona }; nil se non ha quest richieste prima.
+-- ponytail: di un gruppo di quest richieste insieme (preQuestGroup) segue solo la prima; tra le alternative (preQuestSingle)
+-- quella fatta o nel registro, altrimenti la prima che Questie dice fattibile
+local qFinal, qChain
+do
+  local function preOf(DBQ, q)
+    local pre = DBQ.QueryQuestSingle(q, "preQuestSingle")
+    if not (pre and pre[1]) then pre = DBQ.QueryQuestSingle(q, "preQuestGroup") end
+    return pre or {}
+  end
+  local function chainIds(DBQ, id)
+    local ids, seen, cur = { id }, { [id] = true }, id
+    while #ids < 25 do
+      local pre, p = preOf(DBQ, cur), nil
+      for _, x in ipairs(pre) do if not p and (qDoneId(x) or idLog[x]) then p = x end end
+      for _, x in ipairs(pre) do if not p and DBQ.IsDoable and DBQ.IsDoable(x) then p = x end end
+      p = p or pre[1]
       if not p or seen[p] or not DBQ.QueryQuestSingle(p, "name") then break end
-      seen[p], cur, n = true, p, n + 1
+      seen[p], cur = true, p
+      table.insert(ids, 1, p)
     end
-    if cur == id then return false end
-    local by = DBQ.QueryQuestSingle(cur, "startedBy") or {}
-    local npc = by[1] and by[1][1]
-    local who = npc and DBQ.QueryNPCSingle(npc, "name")
-    local zid = npc and DBQ.QueryNPCSingle(npc, "zoneID")
-    local zone = zid and select(2, pcall(function() return mod("TrackerUtils"):GetZoneNameByID(zid) end))
-    if type(zone) ~= "string" then zone = nil end
-    return { DBQ.QueryQuestSingle(cur, "name"), who and (zone and who .. ", " .. zone or who) or zone }
-  end)
-  if not ok then return end
-  CHAIN[name] = res or false
-  return res or nil
+    return ids
+  end
+  local FINAL = {} -- solo quando la scelta non dipende da cosa hai fatto (un'unica candidata)
+  function qFinal(name)
+    if FINAL[name] then return FINAL[name] end
+    local all = qIDs(name)
+    if not (all and all[1]) then return end
+    local ok, id, fixed = pcall(function()
+      local DBQ, isPre, cands = mod("QuestieDB"), {}, {}
+      for _, q in ipairs(all) do for _, x in ipairs(preOf(DBQ, q)) do isPre[x] = true end end
+      for _, q in ipairs(all) do if not isPre[q] then cands[#cands + 1] = q end end
+      if #cands <= 1 then return cands[1] or all[1], true end
+      -- stesso nome per catene diverse (es. una per fazione): quella in cui hai già fatto qualcosa, poi quella che puoi cominciare
+      for _, q in ipairs(cands) do for _, x in ipairs(chainIds(DBQ, q)) do if qDoneId(x) or idLog[x] then return q end end end
+      for _, q in ipairs(cands) do if DBQ.IsDoable and DBQ.IsDoable(chainIds(DBQ, q)[1]) then return q end end
+      return cands[1]
+    end)
+    if not ok then return all[1] end
+    if fixed then FINAL[name] = id end
+    return id
+  end
+  function qChain(name)
+    local id = qFinal(name)
+    if not id then return end
+    local ok, res = pcall(function()
+      local DBQ = mod("QuestieDB")
+      local ids = chainIds(DBQ, id)
+      if #ids < 2 then return end
+      local out = {}
+      for i, q in ipairs(ids) do
+        local by = DBQ.QueryQuestSingle(q, "startedBy") or {}
+        local npc = by[1] and by[1][1]
+        local who = npc and DBQ.QueryNPCSingle(npc, "name")
+        local zid = npc and DBQ.QueryNPCSingle(npc, "zoneID")
+        local zone = zid and select(2, pcall(function() return mod("TrackerUtils"):GetZoneNameByID(zid) end))
+        if type(zone) ~= "string" then zone = nil end
+        out[i] = { q, DBQ.QueryQuestSingle(q, "name"), who and (zone and who .. ", " .. zone or who) or zone, who, zone }
+      end
+      return out
+    end)
+    return ok and res or nil
+  end
 end
 
 -- aspetto del sito: colori di style.css (:root), Cinzel per i titoli, Inter per i testi, riquadri (card) e icone del gioco
@@ -650,7 +718,7 @@ local function itemRow(k, t, top, after)
   if q and on("map") then
     mini("inv_misc_map_01", BW - PAD - 20, y, q, T.qMapTip, function()
       -- la mappa del mondo sta sotto la guida: la guida si chiude (si riapre dall'icona)
-      if not QZ() then say(T.qWait) elseif qMap(q) then f:Hide() elseif p then mapAt(p) end
+      if not QZ() then say(T.qWait) elseif qMap(q) then return elseif p then mapAt(p) else say(T.qNoPoint:format(q)) end
     end)
     mini("inv_misc_book_09", BW - PAD - 46, y, q, T.qInfoTip, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end)
     right = 54
@@ -741,6 +809,7 @@ local function dgFind(title) -- il nome più lungo con cui comincia il titolo ("
   return best
 end
 local focus -- ingresso scelto: resta sulla mappa del mondo insieme ai segnaposti della tappa
+local target, clearTarget -- segnaposto scelto (evidenziato sulla mappa) e come toglierlo (più sotto, con la minimappa)
 local drawMapPins
 -- segnaposto e mappa del mondo aperta sulla sua zona (la guida si chiude: la mappa sta sotto); dg = ingresso di un dungeon
 mapAt = function(p, dg)
@@ -768,49 +837,150 @@ end
 
 -- scheda Dungeon (dalla 1.5): menu con tutti i dungeon della fazione; un clic apre la scheda del dungeon
 -- (giudizio, dove si trova, chiave, quest con Questie e la prima quest della catena, boss con i loro consigli)
+-- pulsanti che vanno a capo; sel = quello scelto (evidenziato)
+local function flow(labels, sel, fn)
+  local x = PAD
+  for i, l in ipairs(labels) do
+    local b = button(l, x, y, function() fn(i) end)
+    local w = b:GetWidth()
+    if x > PAD and x + w > BW - PAD then x = PAD; y = y - 28; b:ClearAllPoints(); b:SetPoint("TOPLEFT", x, y) end
+    if i ~= sel then b.set(false) end
+    x = x + w + 6
+  end
+  y = y - 30
+end
+local drawDungeons
+do
 local VCOL = { go = "ok", opt = "gold", skip = "mu" }
 local function low(x) return (x:gsub("’", "'"):lower()) end
-local function questRow(name, from)
+-- quest di un dungeon per il tuo personaggio: quelle della fazione più quelle della tua classe, { nome, da chi, di classe }
+local function dgQuests(d)
+  local out, cls = {}, low(select(2, UnitClass("player")) or "")
+  for _, q in ipairs(d[8]) do out[#out + 1] = { q[1], q[2] } end
+  for _, q in ipairs(d[9]) do if low(q[2]) == cls then out[#out + 1] = { q[1], q[3], true } end end
+  return out
+end
+-- quante ne hai: totale, nel registro, fatte (da Questie)
+local function dgCount(d)
+  local qs, lg, dn, ready = dgQuests(d), 0, 0, QZ()
+  for _, q in ipairs(qs) do
+    local fin = ready and qFinal(q[1])
+    if inLog[q[1]] then lg = lg + 1 elseif fin and qDoneId(fin) then dn = dn + 1 end
+  end
+  return #qs, lg, dn
+end
+-- "Quest: 2 nel registro · 1 fatta · 4 da prendere"
+local function dgQuestLine(d)
+  local n, lg, dn = dgCount(d)
+  if n == 0 then return end
+  local parts = {}
+  if lg > 0 then parts[#parts + 1] = "|cffa9e4ff" .. T.dgQLog:format(lg) .. "|r" end
+  if dn > 0 then parts[#parts + 1] = "|cff5fd68b" .. (dn == 1 and T.dgQDone1 or T.dgQDone:format(dn)) .. "|r" end
+  if n - lg - dn > 0 then parts[#parts + 1] = "|cffe8b84a" .. T.dgQTake:format(n - lg - dn) .. "|r" end
+  return T.dgQSum .. " " .. table.concat(parts, "  ·  ")
+end
+-- stato di una quest del dungeon per il tuo personaggio: quest finale, catena, prossimo passo, fatta, da sbloccare (ha passi prima)
+local function dgQState(name)
+  local fin = QZ() and qFinal(name)
+  local ch = fin and qChain(name)
+  local nextI
+  for i, s in ipairs(ch or {}) do if not nextI and not qDoneId(s[1]) then nextI = i end end
+  return { fin = fin, ch = ch, nextI = nextI, done = fin and qDoneId(fin) or false, locked = nextI ~= nil and nextI < #ch }
+end
+local function toMap(id, nm)
+  if not QZ() then say(T.qWait) elseif not qMap(nm, id) then say(T.qNoPoint:format(nm)) end
+end
+local function clsTag(q) return q[3] and "  |cff93a6be" .. T.dgClass .. "|r" or "" end
+-- quest senza passi da fare prima, in una riga: nome e stato, chi la dà; a destra mappa e scheda di Questie
+local function questRow(q, s)
+  local name = q[1]
   y = y - 8
-  local top, right = y, 0
+  local right = 0
   if on("map") then
-    mini("inv_misc_map_01", BW - PAD - 20, y, name, T.qMapTip, function() if not QZ() then say(T.qWait) elseif qMap(name) then f:Hide() end end)
+    mini("inv_misc_map_01", BW - PAD - 20, y, name, T.qMapTip, function() toMap(s.fin or nil, name) end)
     mini("inv_misc_book_09", BW - PAD - 46, y, name, T.qInfoTip, function() if not (QZ() and qInfo(name)) then say(T.qWait) end end)
     right = 54
   end
-  local w = BW - 2 * PAD - right
-  local st = inLog[name] == "done" and "  |cff5fd68b[" .. T.toTurn .. "]|r" or inLog[name] and "  |cffa9e4ff[" .. T.inLog .. "]|r"
-    or (QZ() and qDone(name) and "  |cff5fd68b[" .. T.qDoneTag .. "]|r") or ""
-  local o = str(F.h3, "gold", name .. st, PAD, w); y = y - o:GetStringHeight() - 2
-  if from and from ~= "" then o = str(F.p, "mu", T.dgFrom:format(from), PAD, w); y = y - o:GetStringHeight() end
-  local ch = QZ() and qChain(name)
-  if ch then
-    y = y - 3
-    o = str(F.p, "ice", T.dgChain:format(ch[1], ch[2] and T.dgChainBy:format(ch[2]) or ""), PAD + 10, w - 10); y = y - o:GetStringHeight()
-    if on("map") then mini("inv_misc_map_01", BW - PAD - 20, y + o:GetStringHeight(), ch[1], T.dgChainTip, function() if qMap(ch[1]) then f:Hide() end end) end
-  end
-  y = math.min(y, top - 22)
+  local st = inLog[name] == "done" and "  |cff5fd68b[" .. T.toTurn .. "]|r" or inLog[name] and "  |cffa9e4ff[" .. T.inLog .. "]|r" or ""
+  local from = q[2] and q[2] ~= "" and "   |cff93a6be" .. q[2] .. "|r" or ""
+  local top = y
+  local o = str(F.h3, "gold", name .. clsTag(q) .. st .. from, PAD, BW - 2 * PAD - right)
+  y = top - math.max(20, o:GetStringHeight() + 2)
 end
-local function drawDungeons(g)
+-- quest da sbloccare (1.8): titolo con "passo n di m", barra a segmenti con "Tutti i passi" a destra, una riga "Adesso" con la sola
+-- cosa da fare e il suo pulsante mappa; l'elenco completo dei passi solo a richiesta
+local function chainRow(q, s)
+  local name, ch, n = q[1], s.ch, s.nextI
+  local cur = ch[n]
+  y = y - 10
+  if on("map") then mini("inv_misc_book_09", BW - PAD - 20, y, name, T.qInfoTip, function() if not (QZ() and qInfo(name)) then say(T.qWait) end end) end
+  local o = str(F.h3, "gold", name .. clsTag(q) .. "   |cffa9e4ff" .. T.dgStep:format(n, #ch) .. "|r", PAD, BW - 2 * PAD - 28); y = y - o:GetStringHeight() - 6
+  V.dgOpen = V.dgOpen or {}
+  local open = V.dgOpen[name]
+  local top = y
+  local b = button(open and T.dgStepsHide or T.dgSteps, 0, y + 2, function() V.dgOpen[name] = not open; render() end); b.set(open and true or false)
+  b:ClearAllPoints(); b:SetPoint("TOPLEFT", BW - PAD - b:GetWidth(), y + 2)
+  local sw = math.min(34, math.floor((BW - 2 * PAD - b:GetWidth() - 12 - (#ch - 1) * 3) / #ch))
+  for i = 1, #ch do box(i < n and "ok" or i == n and "gold" or "bd", 1, PAD + (i - 1) * (sw + 3), y - 9, sw, 5, true) end
+  y = top - 28
+  -- Adesso: da chi andare (e dove), o completa / consegna se è già nel registro
+  local st = idLog[cur[1]]
+  local what = st == "done" and T.dgTurn:format(cur[2]) or st and T.dgDo:format(cur[2])
+    or T.dgGo:format(cur[4] or cur[2]) .. (cur[5] and "  |cff93a6be" .. cur[5] .. "|r" or "")
+  local bt = y
+  y = y - 7
+  o = str(F.p, "tx", "|cffe8b84a" .. T.dgNowDo .. "|r   " .. what, PAD + 10, BW - 2 * PAD - 50); y = y - o:GetStringHeight() - 7
+  box("goldbg", 1, PAD, bt, BW - 2 * PAD, bt - y, true)
+  box("gold", 1, PAD, bt, 2, bt - y, true)
+  if on("map") then mini("inv_misc_map_01", BW - PAD - 26, bt - math.floor((bt - y - 20) / 2), cur[2], T.dgChainTip, function() toMap(cur[1], cur[2]) end) end
+  y = y - 4
+  if not open then return end
+  y = y - 4
+  for i, x in ipairs(ch) do
+    local tag = i < n and "|cff5fd68b[" .. T.qDoneTag .. "]|r"
+      or i == n and (st == "done" and "|cff5fd68b[" .. T.toTurn .. "]|r" or st and "|cffa9e4ff[" .. T.inLog .. "]|r" or "|cffe8b84a[" .. T.dgNext .. "]|r")
+      or (i == #ch and "|cff93a6be[" .. T.dgThis .. "]|r") or ""
+    str(F.small, i == n and "gold" or "mu", tostring(i), PAD + 8, 24)
+    local so = str(F.p, i < n and "mu" or "tx", x[2] .. (x[3] and "  |cff93a6be" .. x[3] .. "|r" or "") .. (tag ~= "" and "  " .. tag or ""), PAD + 34, BW - 2 * PAD - 34)
+    y = y - math.max(so:GetStringHeight(), 14) - 5
+  end
+end
+-- riga del menu: pulsante del dungeon (★ = nuovo in Forever), livelli e giudizio; nel riquadro "adatti al tuo livello" anche
+-- quante quest hai e se serve una chiave, sulla stessa riga
+local function dgMenuRow(x, fit, full)
+  y = y - 6
+  local top = y
+  local b = button(x[1] .. (x[15] and " ★" or ""), PAD, y, function() V.dgSel, V.dgSec = x[1], nil; render(true) end)
+  local bx = PAD + b:GetWidth() + 10
+  local t = x[2] .. "–" .. x[3] .. (x[4] ~= "" and "  ·  " .. (T[x[4]] or x[4]) or "")
+  if full then
+    local n, lg, dn = dgCount(x)
+    if n > 0 then t = t .. "  ·  |cff93a6be" .. T.dgQn:format(lg + dn, n) .. "|r" end
+    if x[10] ~= "" then t = t .. "  ·  |cffe8b84a" .. T.dgNeedKey .. "|r" end
+  end
+  local o = str(F.p, VCOL[x[4]] or "tx", t, bx, BW - PAD - bx); o:SetPoint("TOPLEFT", bx, y - 5)
+  y = top - math.max(24, o:GetStringHeight() + 10)
+end
+function drawDungeons(g)
   local lv, list, fit, d = UnitLevel("player"), DG[g.faction] or {}, {}, nil
-  for _, x in ipairs(dungeonsAt(g, lv)) do fit[x[1]] = true end
-  for _, x in ipairs(list) do if x[1] == dgSel then d = x end end
+  local fits = dungeonsAt(g, lv)
+  for _, x in ipairs(fits) do fit[x[1]] = true end
+  for _, x in ipairs(list) do if x[1] == V.dgSel then d = x end end
   if not d then
-    dgSel = nil
+    V.dgSel = nil
     local sorted = {}
     for _, x in ipairs(list) do sorted[#sorted + 1] = x end
     table.sort(sorted, function(a, b) if a[2] ~= b[2] then return a[2] < b[2] end return a[1] < b[1] end)
+    -- in cima quelli adatti al tuo livello adesso, con le quest che hai e cosa manca
     cardOpen(); y = y - 12
-    line("1", "Dungeon"); line("0", T.dgPick); y = y - 4
-    for _, x in ipairs(sorted) do
-      y = y - 6
-      local top = y
-      local b = button(x[1], PAD, y, function() dgSel = x[1]; render(true) end)
-      local bx = PAD + b:GetWidth() + 10
-      local t = x[2] .. "–" .. x[3] .. (x[4] ~= "" and "  ·  " .. (T[x[4]] or x[4]) or "") .. (x[15] and "  ·  " .. T.dgNew or "") .. (fit[x[1]] and "  ·  |cff5fd68b" .. T.dgYou .. "|r" or "")
-      local o = str(F.p, VCOL[x[4]] or "tx", t, bx, BW - PAD - bx); o:SetPoint("TOPLEFT", bx, y - 5)
-      y = top - math.max(24, o:GetStringHeight() + 10)
-    end
+    line("2", T.dgNow:format(lv))
+    local any = false
+    for _, x in ipairs(sorted) do if fit[x[1]] then any = true; dgMenuRow(x, true, true) end end
+    if not any then line("0", T.dgNone:format(lv)) end
+    cardClose()
+    cardOpen(); y = y - 12
+    line("2", T.dgAllT); line("0", T.dgPick); y = y - 4
+    for _, x in ipairs(sorted) do dgMenuRow(x, fit[x[1]]) end
     cardClose()
     if DG.info and #DG.info > 0 then
       cardOpen(); y = y - 12
@@ -821,55 +991,90 @@ local function drawDungeons(g)
     end
     return
   end
-  button(T.dgAll, 0, y, function() dgSel = nil; render(true) end); y = y - 32
-  -- giudizio, dove si trova, mappa e boss e loot, chiave
+  button(T.dgAll, 0, y, function() V.dgSel = nil; render(true) end); y = y - 32
+  -- testata: nome, a destra Mappa e Boss e loot, livelli e giudizio, perché, le quest che hai
+  local p, od = dgFind(d[1]), ofaDungeon(d[1])
   cardOpen(); y = y - 12
+  local top, bxr = y, BW - PAD
   line("1", d[1])
+  local function rbtn(label, fn) local b = button(label, 0, top - 2, fn); bxr = bxr - b:GetWidth(); b:ClearAllPoints(); b:SetPoint("TOPLEFT", bxr, top - 2); bxr = bxr - 8 end
+  if od then rbtn(T.dgLoot, function() OneForAll:OpenPanel("dungeons"); if OneForAll.UI and OneForAll.UI.OpenDungeon then OneForAll.UI.OpenDungeon(od) end end) end
+  if p then rbtn(T.dgMap, function() dgMap(p) end) end
+  y = math.min(y, top - 26) - 4
   local vt = d[4] ~= "" and (T[d[4]] or d[4]) .. (d[5] ~= "" and " · " .. T.dgIdeal:format(d[5]) or "") or ""
-  y = y - 4
   local o = str(F.h3, VCOL[d[4]] or "tx", T.dgLv:format(d[2], d[3]) .. (vt ~= "" and "  ·  " .. vt or "") .. (d[15] and "  ·  " .. T.dgNew or "") .. (fit[d[1]] and "  ·  |cff5fd68b" .. T.dgYou .. "|r" or ""), PAD, BW - 2 * PAD)
   y = y - o:GetStringHeight()
   if d[6] ~= "" then line("0", d[6]) end
-  local p, od = dgFind(d[1]), ofaDungeon(d[1])
-  if p or od then
-    y = y - 8
-    local bx = PAD
-    if p then local b = button(T.dgMap, bx, y, function() dgMap(p) end); bx = bx + b:GetWidth() + 8 end
-    if od then button(T.dgLoot, bx, y, function() OneForAll:OpenPanel("dungeons"); if OneForAll.UI and OneForAll.UI.OpenDungeon then OneForAll.UI.OpenDungeon(od) end end) end
-    y = y - 26
+  local ql = dgQuestLine(d)
+  if ql then line("0", ql) end
+  -- sezioni a pulsanti, come nella scheda Classe: Quest, Boss, Come arrivarci, Consigli (solo quelle con contenuto)
+  local used, loose = {}, 0
+  for _, b in ipairs(d[11]) do
+    local bn = low(b:gsub("%s*%b()", ""))
+    for i, t in ipairs(d[12]) do
+      local bold = t:match("{([^}]*)}")
+      if not used[i] and bold and bold ~= "" and (low(bold):find(bn, 1, true) or bn:find(low(bold), 1, true)) then used[i] = b end
+    end
   end
-  line("2", T.dgWhere); line("0", d[7] ~= "" and d[7] or d[13])
-  if d[10] ~= "" then line("2", T.dgKey); line("0", d[10]) end
-  if d[7] == "" and d[14] ~= "" then line("2", T.dgNote); line("0", d[14]) end
+  for i in ipairs(d[12]) do if not used[i] then loose = loose + 1 end end
+  local qs = dgQuests(d)
+  local secs = { { "q", T.dgSecQ .. "  " .. #qs } }
+  if #d[11] > 0 then secs[#secs + 1] = { "b", T.dgBoss .. "  " .. #d[11] } end
+  secs[#secs + 1] = { "w", T.dgSecWhere }
+  if loose > 0 then secs[#secs + 1] = { "t", T.dgTips } end
+  local sel = 1
+  for i, s in ipairs(secs) do if s[1] == V.dgSec then sel = i end end
+  local labels = {}
+  for i, s in ipairs(secs) do labels[i] = s[2] end
+  y = y - 10
+  flow(labels, sel, function(i) V.dgSec = secs[i][1]; render() end)
+  y = y + 18
   cardClose()
-  -- quest: chi la dà, stato, Questie (mappa e scheda) e la prima quest della catena
+  local sec = secs[sel][1]
   cardOpen(); y = y - 12
-  line("2", T.dgQ)
-  if #d[8] == 0 then line("0", T.dgNoQ) end
-  for _, q in ipairs(d[8]) do questRow(q[1], q[2]) end
-  local cls, mine = low(select(2, UnitClass("player")) or ""), {}
-  for _, q in ipairs(d[9]) do if low(q[2]) == cls then mine[#mine + 1] = q end end
-  if #mine > 0 then line("2", T.dgQC); for _, q in ipairs(mine) do questRow(q[1], q[3]) end end
-  cardClose()
-  -- boss in ordine, ognuno con i consigli che lo nominano in grassetto; poi gli altri consigli
-  if #d[11] > 0 or #d[12] > 0 then
-    cardOpen(); y = y - 12
-    local used = {}
-    if #d[11] > 0 then line("2", T.dgBoss) end
-    for _, b in ipairs(d[11]) do
-      line("3", b)
-      local bn = low(b:gsub("%s*%b()", ""))
-      for i, t in ipairs(d[12]) do
-        local bold = t:match("{([^}]*)}")
-        if not used[i] and bold and bold ~= "" and (low(bold):find(bn, 1, true) or bn:find(low(bold), 1, true)) then line("0", "• " .. t); used[i] = true end
+  if sec == "q" then
+    -- quest a gruppi: nel registro, da sbloccare (con passi prima: riquadro "Adesso"), da prendere subito, fatte (una riga)
+    if #qs == 0 then line("0", T.dgNoQ) end
+    local G, first = { {}, {}, {}, {} }, true
+    for _, q in ipairs(qs) do
+      local st = dgQState(q[1])
+      local gi = st.done and 4 or st.locked and 2 or inLog[q[1]] and 1 or 3
+      G[gi][#G[gi] + 1] = { q, st }
+    end
+    for gi, title in ipairs({ T.dgGLog, T.dgGLock, T.dgGTake, T.dgGDone }) do
+      if #G[gi] > 0 then
+        if not first then y = y - 12 end
+        first = false
+        line("2", title .. "  " .. #G[gi])
+        if gi == 4 then
+          local names = {}
+          for i, e in ipairs(G[gi]) do names[i] = e[1][1] end
+          line("0", table.concat(names, "  ·  "))
+        else
+          for _, e in ipairs(G[gi]) do if gi == 2 then chainRow(e[1], e[2]) else questRow(e[1], e[2]) end end
+        end
       end
     end
-    local head = false
-    for i, t in ipairs(d[12]) do if not used[i] then if not head then line("2", T.dgTips); head = true end; line("0", "• " .. t) end end
-    cardClose()
+  elseif sec == "b" then
+    -- boss in ordine, ognuno con i consigli che lo nominano in grassetto
+    line("2", T.dgBoss)
+    for _, b in ipairs(d[11]) do
+      line("3", b)
+      for i, t in ipairs(d[12]) do if used[i] == b then line("0", "• " .. t) end end
+    end
+  elseif sec == "w" then
+    line("2", T.dgWhere); line("0", d[7] ~= "" and d[7] or d[13])
+    if d[10] ~= "" then line("2", T.dgKey); line("0", d[10]) end
+    if d[7] == "" and d[14] ~= "" then line("2", T.dgNote); line("0", d[14]) end
+    if p then y = y - 8; button(T.dgMap, PAD, y, function() dgMap(p) end); y = y - 26 end
+  else
+    line("2", T.dgTips)
+    for i, t in ipairs(d[12]) do if not used[i] then line("0", "• " .. t) end end
   end
+  cardClose()
 end
 
+end
 -- OneForAll: la build della guida (tutti i punti fino al 60) come codice del suo calcolatore (TalentCode, pubblico), poi il suo
 -- pulsante "Import build" con il codice già dentro; se non riesce, la sua finestra Export con il codice da copiare
 local function findButton(fr, text, depth)
@@ -936,18 +1141,6 @@ local function node(ic, x, yy, st, rank, max)
   o.rk:SetText(rank .. "/" .. max); o.rk:SetTextColor(unpack(COL[st == "off" and "mu" or c]))
   return put(o, x, yy)
 end
--- pulsanti che vanno a capo; sel = quello scelto (evidenziato)
-local function flow(labels, sel, fn)
-  local x = PAD
-  for i, l in ipairs(labels) do
-    local b = button(l, x, y, function() fn(i) end)
-    local w = b:GetWidth()
-    if x > PAD and x + w > BW - PAD then x = PAD; y = y - 28; b:ClearAllPoints(); b:SetPoint("TOPLEFT", x, y) end
-    if i ~= sel then b.set(false) end
-    x = x + w + 6
-  end
-  y = y - 30
-end
 
 -- Talent: livello scelto (‹ ›), talento di quel livello e perché, i tre alberi con i punti fino a lì, ordine dei talenti
 local function drawTalents(g, k, v)
@@ -955,7 +1148,7 @@ local function drawTalents(g, k, v)
   local CD, trees, list = clsData()[cls] or {}, ForeverPathfinderTrees and ForeverPathfinderTrees[cls] or {}, v._tal
   local me = UnitLevel("player")
   local first, last = list[1] and list[1][1] or 10, list[#list] and list[#list][1] or 10
-  local L = math.max(first, math.min(last, talLv or me))
+  local L = math.max(first, math.min(last, V.talLv or me))
   local rk, cur, nxt, maxOf = {}, nil, nil, {}
   for _, tr in ipairs(trees) do for _, nd in ipairs(tr[2]) do maxOf[nd[1]] = nd[5] end end
   for _, t in ipairs(list) do
@@ -966,17 +1159,17 @@ local function drawTalents(g, k, v)
   line("1", T.talTitle:format(v.build))
   y = y - 10
   local top = y
-  local b1 = button("‹", PAD, y, function() talLv = math.max(first, L - 1); render() end)
+  local b1 = button("‹", PAD, y, function() V.talLv = math.max(first, L - 1); render() end)
   local o = str(F.h2, "gold", T.talLv:format(L), PAD + b1:GetWidth() + 10, 90); o:SetPoint("TOPLEFT", PAD + b1:GetWidth() + 10, y - 4)
   local bx = PAD + b1:GetWidth() + 14 + math.max(70, o:GetStringWidth())
-  local b2 = button("›", bx, y, function() talLv = math.min(last, L + 1); render() end)
+  local b2 = button("›", bx, y, function() V.talLv = math.min(last, L + 1); render() end)
   bx = bx + b2:GetWidth() + 10
-  if L ~= math.max(first, math.min(last, me)) then button(T.talMine:format(me), bx, y, function() talLv = nil; render() end) end
+  if L ~= math.max(first, math.min(last, me)) then button(T.talMine:format(me), bx, y, function() V.talLv = nil; render() end) end
   if _G.OneForAll and OneForAll.TalentCode and OneForAll.OpenPanel then
     local ob = button(T.ofa .. " ↗", 0, y, function() ofaLoad(v) end); ob:ClearAllPoints(); ob:SetPoint("TOPRIGHT", body, "TOPLEFT", BW - PAD, y)
   end
   y = top - 32
-  if me < first and not talLv then line("0", T.talFrom10) end
+  if me < first and not V.talLv then line("0", T.talFrom10) end
   if cur then
     y = y - 2
     local nd
@@ -989,8 +1182,8 @@ local function drawTalents(g, k, v)
   if nxt then line("0", T.talNext:format(nxt[1], nxt[2])) end
   if CD.summary and CD.summary ~= "" then
     y = y - 8
-    button(tWhy and T.talHide or T.talWhy, PAD, y, function() tWhy = not tWhy; render() end); y = y - 28
-    if tWhy then line("0", CD.summary) end
+    button(V.tWhy and T.talHide or T.talWhy, PAD, y, function() V.tWhy = not V.tWhy; render() end); y = y - 28
+    if V.tWhy then line("0", CD.summary) end
   end
   cardClose()
   -- alberi uno accanto all'altro, come nel gioco (righe e colonne del client)
@@ -1011,7 +1204,7 @@ local function drawTalents(g, k, v)
         local r = math.min(rk[nd[1]] or 0, nd[5])
         local b = node(nd[2], gx + (nd[4] - 1) * step, top - 22 - (nd[3] - 1) * step, cur and cur[2] == nd[1] and "now" or r > 0 and "on" or "off", r, nd[5])
         b.t1, b.t2, b.t3 = nd[1] .. "  " .. r .. "/" .. nd[5], nd[7], CD.why and CD.why[nd[1]]
-        b:SetScript("OnClick", function() for _, t in ipairs(list) do if t[2] == nd[1] then talLv = t[1]; render(); return end end end)
+        b:SetScript("OnClick", function() for _, t in ipairs(list) do if t[2] == nd[1] then V.talLv = t[1]; render(); return end end end)
       end
     end
     y = top - 22 - rows * step
@@ -1030,7 +1223,7 @@ local function drawTalents(g, k, v)
     labels[i] = (gp.from == gp.to and gp.from or gp.from .. "–" .. gp.to) .. "  " .. gp.n .. " " .. cnt[gp.n] .. "/" .. (maxOf[gp.n] or "?")
     if L >= gp.from and L <= gp.to then sel = i end
   end
-  flow(labels, sel, function(i) talLv = groups[i].from; render() end)
+  flow(labels, sel, function(i) V.talLv = groups[i].from; render() end)
   cardClose()
 end
 
@@ -1045,24 +1238,24 @@ end
 local function drawClass(g, k, v)
   local cls, race = k:match("-(%a+)$"), k:match("^(.-)%-%a+$")
   local CD, me = clsData()[cls] or {}, UnitLevel("player")
-  clsSec = clsSec or 1
+  V.clsSec = V.clsSec or 1
   cardOpen(); y = y - 12
-  flow({ T.cRot, T.cSpells, T.cRace, T.cNotes }, clsSec, function(i) clsSec = i; render(true) end)
+  flow({ T.cRot, T.cSpells, T.cRace, T.cNotes }, V.clsSec, function(i) V.clsSec = i; render(true) end)
   y = y + 18
   cardClose()
-  if clsSec == 1 then
+  if V.clsSec == 1 then
     local bid = C.opt.b or (g.builds[1] and g.builds[1][1])
     local R = (CD.brot and CD.brot[bid]) or CD.rot or {}
-    if not (rotSel and R[rotSel]) then
-      rotSel = 1
-      for i, r in ipairs(R) do local a, b = rangeOf(r[1]); if a and me >= a and me <= b then rotSel = i end end
+    if not (V.rotSel and R[V.rotSel]) then
+      V.rotSel = 1
+      for i, r in ipairs(R) do local a, b = rangeOf(r[1]); if a and me >= a and me <= b then V.rotSel = i end end
     end
     cardOpen(); y = y - 12
     line("0", T.cRotPick); y = y - 6
     local labels = {}
     for i, r in ipairs(R) do labels[i] = r[1] end
-    flow(labels, rotSel, function(i) rotSel = i; render() end)
-    local r = R[rotSel]
+    flow(labels, V.rotSel, function(i) V.rotSel = i; render() end)
+    local r = R[V.rotSel]
     if r then
       -- sequenza: icone numerate con il nome sotto, 6 per riga
       local per = 6
@@ -1079,16 +1272,16 @@ local function drawClass(g, k, v)
       if r[3] ~= "" then line("0", r[3]) end
     end
     cardClose()
-  elseif clsSec == 2 then
+  elseif V.clsSec == 2 then
     cardOpen(); y = y - 12
-    flow({ T.cSpNow, T.cSpAll }, spAll and 2 or 1, function(i) spAll = i == 2; render() end)
+    flow({ T.cSpNow, T.cSpAll }, V.spAll and 2 or 1, function(i) V.spAll = i == 2; render() end)
     line("0", T.cSpTip); y = y - 4
     local bk, any = book(), false
     for _, sp in ipairs(CD.spells or {}) do
       local base = sp[2]:gsub("%s+%d+$", "")
       local have = base == sp[2] and known(base, bk)
       -- con il rank nel nome ("Heroic Strike 2") il libro non dice quale rank hai: solo se è del tuo livello o di poco sopra
-      if spAll or (sp[1] <= me + 4 and not have and (base == sp[2] or sp[1] >= me - 1)) then
+      if V.spAll or (sp[1] <= me + 4 and not have and (base == sp[2] or sp[1] >= me - 1)) then
         any = true
         y = y - 6
         local top = y
@@ -1102,7 +1295,7 @@ local function drawClass(g, k, v)
     end
     if not any then line("0", T.cSpNone) end
     cardClose()
-  elseif clsSec == 3 then
+  elseif V.clsSec == 3 then
     local RC = (clsData()._races or {})[race] or {}
     cardOpen(); y = y - 12
     line("1", RC[1] or race)
@@ -1123,12 +1316,12 @@ local function drawClass(g, k, v)
     for _, n in ipairs(CD.notes or {}) do list[#list + 1] = n end
     if CD.stats and CD.stats ~= "" then list[#list + 1] = { T.cStats, CD.stats } end
     if CD.forever and #CD.forever > 0 then list[#list + 1] = { T.cForever, "• " .. table.concat(CD.forever, "\n• ") } end
-    noteSel = math.max(1, math.min(noteSel or 1, #list))
+    V.noteSel = math.max(1, math.min(V.noteSel or 1, #list))
     cardOpen(); y = y - 12
     local labels = {}
     for i, n in ipairs(list) do labels[i] = n[1] end
-    flow(labels, noteSel, function(i) noteSel = i; render() end)
-    local n = list[noteSel]
+    flow(labels, V.noteSel, function(i) V.noteSel = i; render() end)
+    local n = list[V.noteSel]
     if n then for para in (n[2] .. "\n"):gmatch("([^\n]*)\n") do if para ~= "" then line("0", para) end end end
     cardClose()
   end
@@ -1146,7 +1339,6 @@ end
 -- Profession (1.7): le profession che il personaggio ha davvero (lette dal gioco, con la skill), il percorso 1–300 a passi con
 -- quello della tua skill evidenziato, i materiali con quanti ne hai, il trainer più vicino per ogni grado, la ricetta in OneForAll;
 -- in cima le opzioni della mappa (trainer e reagent vendor delle tue profession)
-local profSel, profAll, profMore, profShop
 local nearestTrainer -- trainer più vicino di una profession (più sotto, con la posizione del giocatore)
 local function profData() return ForeverPathfinderProfs and (ForeverPathfinderProfs[LANG] or ForeverPathfinderProfs.en) end
 local function pkey(n) return (n:lower():gsub(" ", "-")) end
@@ -1247,8 +1439,8 @@ local function drawProfs(g, k)
   if not PD then return end
   local mine, own, names, labels, sel = myProfs(), {}, {}, {}, nil
   for _, p in ipairs(mine) do own[p[1]] = p; names[#names + 1] = p[1] end
-  if not (profSel and PD.list[profSel]) then profSel = mine[1] and mine[1][1] end
-  if #mine == 0 or profAll then for _, n in ipairs(PD.order) do if not own[n] then names[#names + 1] = n end end end
+  if not (V.profSel and PD.list[V.profSel]) then V.profSel = mine[1] and mine[1][1] end
+  if #mine == 0 or V.profAll then for _, n in ipairs(PD.order) do if not own[n] then names[#names + 1] = n end end end
   cardOpen(); y = y - 12
   optRow(T.pMapT, C.opt.ptr == true, function(v) C.opt.ptr = v or nil; drawMapPins() end)
   optRow(T.pMapV, C.opt.pvd == true, function(v) C.opt.pvd = v or nil; drawMapPins() end)
@@ -1259,33 +1451,33 @@ local function drawProfs(g, k)
     if pick then line("0", pick) end
     y = y - 4; line("0", T.pBrowse); y = y - 6
   end
-  for i, n in ipairs(names) do labels[i] = own[n] and (n .. "  " .. own[n][2]) or n; if n == profSel then sel = i end end
-  if #mine > 0 and not profAll then labels[#labels + 1] = T.pOthers end
+  for i, n in ipairs(names) do labels[i] = own[n] and (n .. "  " .. own[n][2]) or n; if n == V.profSel then sel = i end end
+  if #mine > 0 and not V.profAll then labels[#labels + 1] = T.pOthers end
   y = y - 4
-  flow(labels, sel, function(i) if names[i] then profSel = names[i] else profAll = true end; render(true) end)
+  flow(labels, sel, function(i) if names[i] then V.profSel = names[i] else V.profAll = true end; render(true) end)
   y = y + 18
   cardClose()
-  if not profSel then return end
-  local P, o = PD.list[profSel], own[profSel]
+  if not V.profSel then return end
+  local P, o = PD.list[V.profSel], own[V.profSel]
   local sk = o and math.max(1, o[2]) or 1
   cardOpen(); y = y - 12
   local top = y
   icon(P.icon, PAD, y, 30)
-  str(F.h1, "ice", profSel, PAD + 40, BW - 2 * PAD - 40)
+  str(F.h1, "ice", V.profSel, PAD + 40, BW - 2 * PAD - 40)
   y = top - 18
   str(F.h2, o and "gold" or "mu", o and T.pSkill:format(o[2], o[3]) or T.pNotYours, PAD + 40, BW - 2 * PAD - 40)
   y = top - 38
   if o then line("0", T.pBag); y = y - 4 end
-  local here = profSteps(profSel, P, P.route, sk, PD.ranks)
-  if #P.alt > 0 then y = y - 10; line("2", P.altTitle); profSteps(profSel, P, P.alt, sk) end
+  local here = profSteps(V.profSel, P, P.route, sk, PD.ranks)
+  if #P.alt > 0 then y = y - 10; line("2", P.altTitle); profSteps(V.profSel, P, P.alt, sk) end
   y = y - 6; line("0", PD.src)
   cardClose()
   -- lista della spesa (dalla tua skill a 300) e novità, a scomparsa
   cardOpen(); y = y - 12
-  local b1 = button(T.pShop:format(sk), PAD, y, function() profShop = not profShop; render() end); b1.set(profShop and true or false)
-  local b2 = button(T.pMore, PAD + b1:GetWidth() + 8, y, function() profMore = not profMore; render() end); b2.set(profMore and true or false)
+  local b1 = button(T.pShop:format(sk), PAD, y, function() V.profShop = not V.profShop; render() end); b1.set(V.profShop and true or false)
+  local b2 = button(T.pMore, PAD + b1:GetWidth() + 8, y, function() V.profMore = not V.profMore; render() end); b2.set(V.profMore and true or false)
   y = y - 30
-  if profShop then
+  if V.profShop then
     local tot, keys = {}, {}
     for _, list in ipairs({ P.route, P.alt }) do for _, s in ipairs(list) do if s[2] > sk then for _, m in ipairs(s[7]) do
       if not tot[m[2]] then tot[m[2]] = { 0, m[3], m[5] }; keys[#keys + 1] = m[2] end
@@ -1297,13 +1489,13 @@ local function drawProfs(g, k)
       line("0", "• " .. t[1] .. "× " .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff5fd68b(" .. h .. ")|r" or ""))
     end
   end
-  if profMore then
+  if V.profMore then
     for _, x in ipairs(P.forever) do line("0", "• " .. x) end
     if P.camp ~= "" then line("3", T.pCamp); line("0", P.camp) end
     if P.gold ~= "" then line("3", T.pGold); line("0", P.gold) end
     for _, x in ipairs(P.tips) do line("0", "• " .. x) end
   end
-  if profShop or profMore then y = y - 4 else y = y + 18 end
+  if V.profShop or V.profMore then y = y - 4 else y = y + 18 end
   cardClose()
   return here
 end
@@ -1377,7 +1569,7 @@ local function navList()
 end
 for _, t in ipairs(navList()) do
   local b = pill(f, t[2])
-  b:SetScript("OnClick", function() if t[1] == "dungeon" then dgSel = nil end; tab = t[1]; render(true) end)
+  b:SetScript("OnClick", function() if t[1] == "dungeon" then V.dgSel = nil end; tab = t[1]; render(true) end)
   navB[t[1]] = b
 end
 -- nomi delle schede nella lingua scelta, una accanto all'altra
@@ -1495,6 +1687,7 @@ end
 -- misura dell'icona e del bordo: il bordo è 1/14 dell'icona (18 pixel → poco più di 1 pixel), così con lo zoom della mappa
 -- cresce insieme all'icona in unità della tela ma sullo schermo resta sottile
 local function sizePin(fr, z)
+  if fr.lab then fr.lab:SetScale(math.max(0.01, z / 18)) end
   fr:SetSize(z, z)
   local t = z / 14
   fr.bd:ClearAllPoints(); fr.bd:SetPoint("TOPLEFT", -t, t); fr.bd:SetPoint("BOTTOMRIGHT", t, -t)
@@ -1520,6 +1713,8 @@ if WorldMapFrame then
     if not canvas then return end
     local z = pinSize(canvas)
     if z ~= pinZoom then pinZoom = z; for _, p in ipairs(mapPins) do sizePin(p, z) end end
+    -- il bordo dorato del segnaposto scelto pulsa
+    for _, p in ipairs(mapPins) do if p.hot and GetTime then p.bd:SetAlpha(0.35 + 0.65 * math.abs(math.sin(GetTime() * 3))) end end
   end)
 end
 local TRP -- segnaposti dei trainer della tua classe, calcolati una volta
@@ -1534,6 +1729,8 @@ local function classTrainers()
   end
   return TRP
 end
+local profPins
+do
 -- reagent vendor delle tue profession (1.7): chi vende i materiali "vendor" dei loro percorsi, dal database di Questie
 -- (Item.vendors → NPC amici della tua fazione → spawns per zona); calcolati una volta per insieme di profession
 local PVP, PVK
@@ -1545,7 +1742,7 @@ local function vendorPins(mine)
   if not (QZ() and LibQuestieDB.Item and LibQuestieDB.Npc) then return {} end
   PVK, PVP = key, {}
   local fac = UnitFactionGroup("player") == "Horde" and "H" or "A"
-  local cont, Zone, byNpc = continents(), mod("ZoneDB"), {}
+  local Zone, byNpc = mod("ZoneDB"), {}
   for _, pr in ipairs(mine) do
     for _, s in ipairs(profData().list[pr[1]].route) do for _, m in ipairs(s[7]) do
       if m[5] == 1 and m[3] ~= 0 then
@@ -1568,11 +1765,8 @@ local function vendorPins(mine)
       local okz, zm = pcall(Zone.GetUiMapIdByAreaId, Zone, area)
       for _, c in ipairs(okz and zm and zm ~= 0 and list or {}) do
         if c[1] and c[1] >= 0 then
-          local p = { nil, 0, 0, T.pVendT, nil, who = tostring(name or "?") .. " (" .. table.concat(e.mats, ", ") .. ")", ic = "inv_misc_bag_10", zm = zm, zx = c[1] / 100, zy = c[2] / 100 }
-          for ck, cid in pairs(cont) do
-            local okr, l, r, t, b = pcall(C_Map.GetMapRectOnMap, zm, cid)
-            if okr and l and r ~= l and l >= 0 and r <= 1 and t >= 0 and b <= 1 then p[1] = ck; p.gx, p.gy = l + p.zx * (r - l), t + p.zy * (b - t); break end
-          end
+          local p = zonePin(zm, c[1] / 100, c[2] / 100, T.pVendT)
+          p.who, p.ic = tostring(name or "?") .. " (" .. table.concat(e.mats, ", ") .. ")", "inv_misc_bag_10"
           if p[1] then PVP[#PVP + 1] = p end
         end
       end
@@ -1581,7 +1775,7 @@ local function vendorPins(mine)
   return PVP
 end
 -- segnaposti delle profession sulla mappa del mondo: trainer (mappa del sito) e reagent vendor, se accesi nelle opzioni
-local function profPins()
+function profPins()
   local out, mine = {}, myProfs()
   local side = UnitFactionGroup("player") == "Horde" and 2 or 1
   if C.opt.ptr then
@@ -1593,6 +1787,34 @@ local function profPins()
   end
   if C.opt.pvd then for _, p in ipairs(vendorPins(mine)) do out[#out + 1] = p end end
   return out
+end
+end
+do
+local hideOfaOver -- icone di OneForAll sopra i nostri segnaposti (più sotto)
+-- due segnaposti sono lo stesso punto (le copie fatte a ogni disegno hanno le stesse posizioni)
+local function samePin(a, b)
+  return a == b or (a[1] == b[1] and a[2] == b[2] and a[3] == b[3] and a[4] == b[4] and a.zx == b.zx and a.zy == b.zy)
+end
+-- segnaposto scelto (1.8): della misura degli altri (come i "!" di Questie), bordo dorato sottile che pulsa, sotto il nome e la quest, così si vede subito tra gli altri
+local function dressPin(pin)
+  local p, hot = pin.p, pin.hot
+  if hot then pin.bd:SetColorTexture(0.91, 0.72, 0.29, 1) else pin.bd:SetColorTexture(0.64, 0.21, 0.93, 1) end
+  pin.bd:SetAlpha(1)
+  if not hot then
+    if pin.lab then pin.lab:Hide() end
+    return
+  end
+  if not pin.lab then
+    pin.lab = CreateFrame("Frame", nil, pin)
+    local bg = pin.lab:CreateTexture(nil, "BACKGROUND"); bg:SetAllPoints(); bg:SetColorTexture(0.04, 0.06, 0.1, 0.9)
+    pin.l1 = pin.lab:CreateFontString(nil, "OVERLAY"); pin.l1:SetFontObject(F.h3); pin.l1:SetTextColor(unpack(COL.gold)); pin.l1:SetPoint("TOP", 0, -4)
+    pin.l2 = pin.lab:CreateFontString(nil, "OVERLAY"); pin.l2:SetFontObject(F.p); pin.l2:SetTextColor(unpack(COL.tx)); pin.l2:SetPoint("TOP", 0, -20)
+  end
+  local l2 = (p.sub and p.sub ~= p[4] and p.sub) or (p.who and p[4]) or ""
+  pin.l1:SetText(p.who or p[4] or ""); pin.l2:SetText(l2)
+  pin.lab:SetSize(math.max(pin.l1:GetStringWidth() or 0, pin.l2:GetStringWidth() or 0, 40) + 14, l2 ~= "" and 38 or 22)
+  pin.lab:ClearAllPoints(); pin.lab:SetPoint("TOP", pin, "BOTTOM", 0, -6)
+  pin.lab:Show()
 end
 drawMapPins = function()
   for _, p in ipairs(mapPins) do p:Hide() end
@@ -1607,11 +1829,13 @@ drawMapPins = function()
   -- tutti i trainer della tua classe e fazione (ForeverPathfinderTrainers), con l'icona della classe
   if on("trainers") then for _, p in ipairs(classTrainers()) do list[#list + 1] = p end end
   if C.opt.ptr or C.opt.pvd then for _, p in ipairs(profPins()) do list[#list + 1] = p end end
-  for _, p in ipairs(list) do
+  if target then xy(target); list[#list + 1] = target end -- il segnaposto scelto: per ultimo, sopra gli altri
+  for i, p in ipairs(list) do
     local x, y
     local gx, gy = xy(p)
+    local hot = target ~= nil and i == #list
     if mapID == p.zm then x, y = p.zx, p.zy elseif cont[p[1]] then x, y = onMap(mapID, cont[p[1]], gx, gy) end
-    if x then
+    if x and (hot or not (target and samePin(p, target))) then
       n = n + 1
       local pin = mapPins[n]
       if not pin then
@@ -1620,19 +1844,53 @@ drawMapPins = function()
         pin.tx = pin:CreateTexture(nil, "OVERLAY"); pin.tx:SetAllPoints()
         pin:SetScript("OnEnter", function(self)
           GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.p.who and self.p[4] .. ": " .. self.p.who or self.p[4])
-          GameTooltip:AddLine("Forever Pathfinder" .. (self.p[5] and " · " .. T.level:format(self.p[5]) or ""), 1, 1, 1); GameTooltip:Show()
+          if self.p.sub and self.p.sub ~= self.p[4] then GameTooltip:AddLine(self.p.sub, 0.91, 0.72, 0.29) end
+          GameTooltip:AddLine("Forever Pathfinder" .. (self.p[5] and " · " .. T.level:format(self.p[5]) or ""), 1, 1, 1)
+          GameTooltip:AddLine(self.hot and T.pinOff or T.pinOn, 0.58, 0.65, 0.75); GameTooltip:Show()
         end)
         pin:SetScript("OnLeave", function() GameTooltip:Hide() end)
-        pin:SetScript("OnClick", function(self) setTarget(self.p) end)
+        pin:SetScript("OnClick", function(self) if self.hot then clearTarget() else setTarget(self.p) end end)
         mapPins[n] = pin
       end
-      pin.p = p
-      paintPin(pin.tx, p); pin:SetAlpha(p.done and 0.45 or 1) -- voce già spuntata: più chiara
-      pin:SetFrameLevel(canvas:GetFrameLevel() + 2000)
+      pin.p, pin.hot = p, hot
+      paintPin(pin.tx, p); pin:SetAlpha(p.done and not hot and 0.45 or 1) -- voce già spuntata: più chiara
+      pin:SetFrameLevel(canvas:GetFrameLevel() + (hot and 2100 or 2000))
+      dressPin(pin)
       sizePin(pin, pinSize(canvas))
       pin:ClearAllPoints(); pin:SetPoint("CENTER", canvas, "TOPLEFT", x * cw, -y * ch); pin:Show()
     end
   end
+  hideOfaOver()
+  if C_Timer and C_Timer.After then C_Timer.After(0, hideOfaOver) end -- dopo i ganci di OneForAll sulla stessa mappa
+end
+-- icone di OneForAll sulla mappa (ingressi, libri: MapLandmarks; il suo segnaposto OneForAllMapPin) stanno più in alto delle
+-- nostre e le coprono: nascoste dove si sovrappongono a un nostro segnaposto (scelta dell'utente del 10 nov), anche quando
+-- OneForAll le ridisegna (zoom, cambio mappa)
+function hideOfaOver()
+  local canvas = WorldMapFrame and WorldMapFrame.ScrollContainer and WorldMapFrame.ScrollContainer.Child
+  if not (canvas and _G.OneForAll and WorldMapFrame:IsShown()) then return end
+  local ours = {}
+  for _, p in ipairs(mapPins) do
+    local x, yy
+    if p:IsShown() then x, yy = p:GetCenter() end -- (niente "a and f()": taglierebbe i valori restituiti a uno solo)
+    if x and yy then local s = p:GetEffectiveScale(); ours[#ours + 1] = { x * s, yy * s, (p:GetWidth() or 0) * s / 2 } end
+  end
+  if #ours == 0 then return end
+  for _, c in ipairs({ canvas:GetChildren() }) do
+    if (rawget(c, "entry") or c == _G.OneForAllMapPin) and c:IsShown() then
+      local x, yy = c:GetCenter()
+      if x then
+        local s = c:GetEffectiveScale()
+        x, yy = x * s, yy * s
+        local r = (c:GetWidth() or 0) * s / 2 * 0.7
+        for _, o in ipairs(ours) do
+          if math.abs(o[1] - x) < o[3] + r and math.abs(o[2] - yy) < o[3] + r then c:Hide(); break end
+        end
+      end
+    end
+  end
+end
+if _G.OneForAll and type(OneForAll.MapLandmarks) == "table" and OneForAll.MapLandmarks.Refresh then hooksecurefunc(OneForAll.MapLandmarks, "Refresh", hideOfaOver) end
 end
 if WorldMapFrame then
   WorldMapFrame:HookScript("OnShow", drawMapPins)
@@ -1640,7 +1898,6 @@ if WorldMapFrame then
 end
 
 -- segnaposto scelto da una voce: quello del gioco (mappa e minimappa) se questa versione lo permette, altrimenti il nostro sulla minimappa
-local target
 local mm = CreateFrame("Frame", nil, Minimap); mm:SetSize(16, 16); mm:SetFrameLevel(Minimap:GetFrameLevel() + 10); mm:Hide()
 pinFrame(mm)
 local mmT = mm:CreateTexture(nil, "OVERLAY"); mmT:SetAllPoints(); mmT:SetTexture("Interface\\AddOns\\ForeverPathfinder\\icon")
@@ -1686,29 +1943,57 @@ local function capCheck()
     end
   end
 end
-local elapsed = 0
-mm:SetScript("OnUpdate", function(self, dt)
+do
+-- yard dal giocatore al segnaposto (x verso est, y verso sud): sulla mappa della sua zona se ci sei, altrimenti sul continente
+local function offset(t)
+  local W = C_Map and C_Map.GetMapWorldSize
+  if not W then return end
+  if t.zm and C_Map.GetPlayerMapPosition then
+    local pos = C_Map.GetPlayerMapPosition(t.zm, "player")
+    local w, h = W(t.zm)
+    if pos and w and w > 0 and h then local px, py = pos:GetXY(); if px then return (t.zx - px) * w, (t.zy - py) * h end end
+  end
+  local cont = continents()[t[1]]
+  if not cont then return end
+  local px, py = playerOn(cont)
+  local w, h = W(cont)
+  if not (px and w and w > 0 and h) then return end
+  local tx, ty = xy(t)
+  return (tx - px) * w, (ty - py) * h
+end
+-- toglie il segnaposto scelto (all'arrivo, o con un clic sul segnaposto evidenziato): anche quello del gioco, se l'abbiamo messo noi
+local ownWp = false
+clearTarget = function(arrived)
+  if not target then return end
+  if arrived then say(T.pinHere:format(target.who or target[4])) end
+  target = nil; mm:Hide()
+  if ownWp and C_Map.ClearUserWaypoint then pcall(C_Map.ClearUserWaypoint) end
+  ownWp = false
+  drawMapPins()
+end
+-- ogni 0,2 s: arrivato (meno di 10 yard) → il segnaposto si toglie; il nostro punto sulla minimappa segue la direzione
+local watch, elapsed = CreateFrame("Frame"), 0
+watch:SetScript("OnUpdate", function(_, dt)
   elapsed = elapsed + (dt or 0)
-  if elapsed < 0.1 then return end
+  if elapsed < 0.2 then return end
   elapsed = 0
-  local cont = target and continents()[target[1]]
-  local px, py, wy, hy -- (niente "a and f()": taglierebbe i valori restituiti a uno solo)
-  if cont then px, py = playerOn(cont) end
-  if cont and C_Map.GetMapWorldSize then wy, hy = C_Map.GetMapWorldSize(cont) end
-  if not (px and wy and wy > 0 and hy) then mmT:SetAlpha(0); return end
+  if not target then return end
+  local dx, dy = offset(target)
+  if not dx then mmT:SetAlpha(0); return end
   mmT:SetAlpha(1)
-  local tx, ty = xy(target)
-  local dx, dy = (tx - px) * wy, (ty - py) * hy -- yard, x verso est, y verso sud
   local dist = math.sqrt(dx * dx + dy * dy)
-  if dist < 8 then say(T.pinHere:format(target[4])); target = nil; self:Hide(); return end
+  if dist < 10 then clearTarget(true); return end
+  if not mm:IsShown() then return end
   -- ponytail: minimappa non ruotata (impostazione di base); con "Ruota minimappa" il punto va ruotato con GetPlayerFacing
   local r = Minimap:GetWidth() / 2
   local k = r / ((MMY[(Minimap:GetZoom() or 0) + 1] or 466.67) / 2)
   local ox, oy = dx * k, -dy * k
   local d = math.sqrt(ox * ox + oy * oy)
   if d > r - 6 then ox, oy = ox * (r - 6) / d, oy * (r - 6) / d end -- fuori portata: resta sul bordo, nella direzione giusta
-  self:ClearAllPoints(); self:SetPoint("CENTER", Minimap, "CENTER", ox, oy)
+  mm:ClearAllPoints(); mm:SetPoint("CENTER", Minimap, "CENTER", ox, oy)
 end)
+-- segnaposto scelto: riga in chat (quest, NPC, zona e coordinate), segnaposto del gioco con la freccia se questa versione lo
+-- permette (altrimenti il nostro punto sulla minimappa), ed evidenziato sulla mappa del mondo
 setTarget = function(p)
   target = p
   paintPin(mmT, p)
@@ -1723,14 +2008,19 @@ setTarget = function(p)
     zx, zy = gx, gy
     if zone then zx, zy = onMap(zone.mapID, cont, gx, gy) end
   end
-  say(T.pinSet:format(p[4], zone and zone.name or "", (zx or 0) * 100, (zy or 0) * 100))
+  local who, zn = p.who and (p[4] .. ": " .. p.who) or p[4], zone and zone.name or ""
+  if p.sub and p.sub ~= p[4] then say(T.pinSetQ:format(p.sub, who, zn, (zx or 0) * 100, (zy or 0) * 100))
+  else say(T.pinSet:format(who, zn, (zx or 0) * 100, (zy or 0) * 100)) end
   if zone and zx and C_Map.CanSetUserWaypointOnMap and C_Map.CanSetUserWaypointOnMap(zone.mapID) and UiMapPoint then
     C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(zone.mapID, zx, zy))
     if C_SuperTrack and C_SuperTrack.SetSuperTrackedUserWaypoint then C_SuperTrack.SetSuperTrackedUserWaypoint(true) end
+    ownWp = true
     mm:Hide()
   else
     mm:Show()
   end
+  drawMapPins()
+end
 end
 
 -- una voce si spunta quando tutte le sue quest sono consegnate (viste consegnare dall'addon o già fatte secondo Questie)
@@ -1817,35 +2107,85 @@ local function turnedIn(questID)
 end
 
 -- finestra dei talenti di Blizzard: bordo luminoso sul talento da prendere (o sulla sua scheda, se è in un altro albero)
+local talentUI, traitFrame, talentGlow, traitDebug
+do
 local glow = CreateFrame("Frame", nil, UIParent); glow:Hide()
 local glowT = glow:CreateTexture(nil, "OVERLAY"); glowT:SetAllPoints(); glowT:SetTexture("Interface\\Buttons\\UI-ActionButton-Border"); glowT:SetBlendMode("ADD")
-local function talentUI() return (_G.TalentFrame and "TalentFrame") or (_G.PlayerTalentFrame and "PlayerTalentFrame") end
-local function talentGlow()
+function talentUI() return (_G.TalentFrame and "TalentFrame") or (_G.PlayerTalentFrame and "PlayerTalentFrame") end
+-- finestra dei talenti moderna (1.8; Forever usa C_Traits): la parte con i pulsanti dei nodi, tra i nomi che ha nei client moderni
+function traitFrame()
+  for _, c in ipairs({ { "PlayerSpellsFrame", "TalentsFrame" }, { "ClassTalentFrame", "TalentsTab" }, { "PlayerTalentFrame", "TalentsFrame" },
+    { "ClassTalentFrame" }, { "PlayerTalentFrame" }, { "TalentFrame" } }) do
+    local top = _G[c[1]]
+    local fr = top
+    if fr and c[2] then fr = fr[c[2]] end
+    if type(fr) == "table" and fr.EnumerateAllTalentButtons then return fr, top, c[1] end
+  end
+end
+-- nome del talento di un pulsante: nodo → voce → definizione → spell
+local function traitName(b)
+  local ok, n = pcall(function()
+    local cfg = C_ClassTalents.GetActiveConfigID()
+    local ni = (b.GetNodeInfo and b:GetNodeInfo()) or b.nodeInfo or (b.GetNodeID and C_Traits.GetNodeInfo(cfg, b:GetNodeID()))
+    local entry = (b.GetEntryID and b:GetEntryID()) or (ni and ((ni.activeEntry and ni.activeEntry.entryID) or (ni.entryIDs and ni.entryIDs[1])))
+    local ei = entry and C_Traits.GetEntryInfo(cfg, entry)
+    local di = ei and ei.definitionID and C_Traits.GetDefinitionInfo(ei.definitionID)
+    if not di then return end
+    if di.overrideName and di.overrideName ~= "" then return di.overrideName end
+    local sid = di.spellID
+    return sid and ((C_Spell and C_Spell.GetSpellName and C_Spell.GetSpellName(sid)) or (GetSpellInfo and (GetSpellInfo(sid))))
+  end)
+  return ok and n or nil
+end
+local function plainName(s) return (tostring(s):gsub("’", "'"):lower()) end
+local function glowOn(b)
+  glow:SetParent(b); glow:SetFrameLevel(b:GetFrameLevel() + 5)
+  glow:ClearAllPoints(); glow:SetPoint("CENTER", b, "CENTER"); glow:SetSize(b:GetWidth() * 1.9, b:GetHeight() * 1.9); glow:Show()
+end
+function talentGlow()
   glow:Hide()
-  local pre = talentUI()
-  if not (C and pre and on("tal") and _G[pre]:IsShown()) then return end
+  if not (C and on("tal")) then return end
   local g, _, v = guide()
   if not g then return end
   local spent, _, src = talentPoints()
-  if src ~= "tabs" then return end -- ponytail: finestra dei talenti moderna (Forever) senza bordo luminoso; servirebbero i suoi pulsanti per nodo
   local want = v._tal[spent + 1]
   if not want then return end
+  if src == "traits" then
+    local tf, top = traitFrame()
+    if not (tf and top:IsShown()) then return end
+    local wn = plainName(want[2])
+    pcall(function()
+      for b in tf:EnumerateAllTalentButtons() do
+        local n = traitName(b)
+        if n and plainName(n) == wn then glowOn(b); return end
+      end
+    end)
+    return
+  end
+  local pre = talentUI()
+  if not (pre and src == "tabs" and _G[pre]:IsShown()) then return end
   local tf = _G[pre]
   local sel = (PanelTemplates_GetSelectedTab and PanelTemplates_GetSelectedTab(tf)) or tf.selectedTab or 1
   for tabI = 1, GetNumTalentTabs() do
     for i = 1, (GetNumTalents(tabI) or 0) do
       if GetTalentInfo(tabI, i) == want[2] then
         local b = tabI == sel and _G[pre .. "Talent" .. i] or _G[pre .. "Tab" .. tabI]
-        if b then
-          glow:SetParent(b); glow:SetFrameLevel(b:GetFrameLevel() + 5)
-          glow:ClearAllPoints(); glow:SetPoint("CENTER", b, "CENTER"); glow:SetSize(b:GetWidth() * 1.9, b:GetHeight() * 1.9); glow:Show()
-        end
+        if b then glowOn(b) end
         return
       end
     end
   end
 end
+-- /fp debug: quale finestra dei talenti moderna c'è, quanti pulsanti ha e di quanti si legge il nome
+function traitDebug()
+  local tf, _, name = traitFrame()
+  if not tf then return "-" end
+  local n, named = 0, 0
+  pcall(function() for b in tf:EnumerateAllTalentButtons() do n = n + 1; if traitName(b) then named = named + 1 end end end)
+  return name .. " " .. named .. "/" .. n
+end
 
+end
 -- trainer: spell della guida fino al tuo livello (voci "Trainer: A, B") che il trainer ha disponibili
 local function wanted()
   local g, _, v = guide()
@@ -1890,6 +2230,15 @@ local function hookBlizzard()
     hooked.tal = true
     _G[talentUI()]:HookScript("OnShow", talentGlow)
     for _, fn in ipairs({ "TalentFrame_Update", "PlayerTalentFrame_Update" }) do if _G[fn] then hooksecurefunc(fn, talentGlow) end end
+  end
+  if not hooked.trait then
+    local tf, top = traitFrame()
+    if tf and top and top.HookScript then
+      hooked.trait = true
+      local later = function() talentGlow(); if C_Timer and C_Timer.After then C_Timer.After(0.3, talentGlow) end end
+      top:HookScript("OnShow", later)
+      if tf ~= top and tf.HookScript then tf:HookScript("OnShow", later) end
+    end
   end
   if not hooked.tr and _G.ClassTrainerFrame_Update then hooked.tr = true; hooksecurefunc("ClassTrainerFrame_Update", trainerMarks) end
 end
@@ -2016,7 +2365,7 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     local cs, nq = continents(), 0
     for _ in pairs(inLog) do nq = nq + 1 end
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgLinks:format("k" .. tostring(cs.k) .. " e" .. tostring(cs.e) .. " z" .. tostring(cs.z),
-      (C_Map and C_Map.SetUserWaypoint) and T.yes or T.no, tostring(talentUI() or "-"), nq))
+      (C_Map and C_Map.SetUserWaypoint) and T.yes or T.no, tostring(talentUI() or "-") .. " · " .. traitDebug(), nq))
     local book, nb, miss, mt = spellBook(), 0, {}, nil
     for _ in pairs(book) do nb = nb + 1 end
     local g2, k2, v2 = guide()
