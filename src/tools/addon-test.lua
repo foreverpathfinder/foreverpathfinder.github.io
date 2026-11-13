@@ -95,12 +95,12 @@ local QMOD = {
   QuestieDB = { IsDoable = function() return true end,
     GetQuest = function(id) return { Id = id, Starts = { NPC = { 4242 } }, Finisher = { NPC = { 4243 } } } end,
     QueryQuestSingle = function(id, k)
-      if k == "startedBy" then return { { 4242 } } end
+      if k == "startedBy" then return { { id == QID("Simple Letter") and 4244 or 4242 } } end
       if k == "preQuestSingle" and id == QID("The Defias Brotherhood") then return { 777 } end
       if k == "preQuestSingle" and id == 777 then return { 776 } end
       if k == "name" then return id == 777 and "The Defias Traitor" or id == 776 and "Messenger to Stormwind" or "Q" .. id end
     end,
-    QueryNPCSingle = function(_, k) if k == "name" then return "Gryan Stoutmantle" elseif k == "zoneID" then return 40 end return { [12] = { { 40, 60 } } } end,
+    QueryNPCSingle = function(n, k) if k == "name" then return n == 4244 and "Marshal McBride" or "Gryan Stoutmantle" elseif k == "zoneID" then return 40 end return { [12] = { { 40, 60 } } } end,
     QueryObjectSingle = function() end },
   ZoneDB = { GetUiMapIdByAreaId = function() return 1429 end },
   -- il punto più vicino: chi dà la quest (41.8, 67.2) o, se è nel registro, l'obiettivo (30, 40)
@@ -401,6 +401,15 @@ check(OFA.panel == "dungeons" and OFA.dungeon == "Deadmines", "dungeon aperto in
 -- mappa del mondo aperta: segnaposti della tappa (e l'ingresso scelto) sulla tela
 WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.point and o.point[2] == canvas end) ~= nil, "segnaposti sulla mappa del mondo")
+-- 1.8.1: sotto l'NPC le quest che dà o ritira (da Questie), non quelle degli altri NPC della voce
+do
+  local function stPin(n) return find(function(o) return o.kind == "Button" and rawget(o, "p") and o.shown and o.p[4] == n end) end
+  check(stPin("Marshal McBride") and stPin("Marshal McBride").p.sub == "Simple Letter" and stPin("Sam Sarsaparilla") and stPin("Sam Sarsaparilla").p.sub == nil,
+    "segnaposto: nome della quest sotto l'NPC che la dà")
+  local mc = stPin("Marshal McBride"); mc.scripts.OnClick(mc)
+  check(said("Simple Letter: Marshal McBride"), "riga in chat con quest e NPC del segnaposto")
+  WorldMapFrame.scripts.OnShow(); hotPin().scripts.OnClick(hotPin())
+end
 -- dalla 1.6 anche tutti i trainer della classe (con il nome dell'NPC nel tooltip)
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who and o.shown end) ~= nil, "trainer della classe sulla mappa del mondo")
 -- icone di OneForAll sulla tela: quella sopra un nostro segnaposto si nasconde, quella lontana resta
