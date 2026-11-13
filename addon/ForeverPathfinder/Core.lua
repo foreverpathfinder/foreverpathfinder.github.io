@@ -1647,6 +1647,38 @@ end
 
 -- mappa del mondo: i segnaposti della tappa (quella mostrata nel Percorso, o quella del tuo livello) sopra la mappa aperta
 local mapPins = {}
+-- quest di una voce che quell'NPC dà o ritira (per nome, da startedBy/finishedBy di Questie), da scrivere sotto il suo nome
+-- sulla mappa (richiesta dell'utente del 13 nov); senza Questie pronto tutte quelle della voce, senza riscontro nessuna
+-- (il Flight Master di una voce con quest non ne dà)
+local pinQuests
+do
+  local PQ = {}
+  local function low(x) return (x:gsub("’", "'"):lower()) end
+  function pinQuests(npc, qs)
+    if not (npc and qs and qs[1]) then return {} end
+    if not QZ() then return qs end
+    local key = npc .. "|" .. table.concat(qs, "|")
+    if PQ[key] then return PQ[key] end
+    local who, out = low(npc), {}
+    local ok = pcall(function()
+      local DBQ = mod("QuestieDB")
+      for _, q in ipairs(qs) do
+        local hit
+        for _, id in ipairs(qIDs(q) or {}) do
+          for _, f in ipairs({ "startedBy", "finishedBy" }) do
+            for _, n in ipairs((DBQ.QueryQuestSingle(id, f) or {})[1] or {}) do
+              if not hit and low(tostring(DBQ.QueryNPCSingle(n, "name") or "")) == who then hit = true end
+            end
+          end
+        end
+        if hit then out[#out + 1] = q end
+      end
+    end)
+    if not ok then return qs end
+    PQ[key] = out
+    return out
+  end
+end
 local function stagePins()
   local g, k, v = guide()
   if not g then return {} end
@@ -1656,7 +1688,11 @@ local function stagePins()
     local L = t[2] == ch and LINKS[t[4]]
     if L then for _, p in ipairs(L.p) do
       local id = p[4] .. p[2]
-      if not seen[id] then seen[id] = true; out[#out + 1] = { p[1], p[2], p[3], p[4], t[1], z = p.z, q = L.q, done = C.done[k .. ":" .. t[5]] } end
+      if not seen[id] then
+        seen[id] = true
+        local pq = pinQuests(p[4], L.q)
+        out[#out + 1] = { p[1], p[2], p[3], p[4], t[1], z = p.z, q = L.q, done = C.done[k .. ":" .. t[5]], sub = pq[1] and table.concat(pq, ", ") or nil }
+      end
     end end
   end
   return out
