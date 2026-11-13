@@ -1,5 +1,5 @@
 # Carica ForeverPathfinder.zip (già costruito e committato) su CurseForge quando cambia la versione nel .toc, o a mano
-# (Actions → CurseForge → Run workflow). Serve il secret CF_API_TOKEN (https://authors.curseforge.com/#/settings/api-tokens).
+# (Actions → CurseForge → Run workflow). Serve il secret FOREVER_PATHFINDER (token API di CurseForge) (https://authors.curseforge.com/#/settings/api-tokens).
 # Changelog: addon/changelog.md (le note della versione nuova, in inglese). Un tag cf/v<versione> evita di caricare due volte.
 name: CurseForge
 on:
@@ -21,10 +21,10 @@ jobs:
           fetch-depth: 0
       - name: Carica su CurseForge
         env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.FOREVER_PATHFINDER }}
         run: |
           set -euo pipefail
-          [ -n "$CF_API_TOKEN" ] || { echo "::error::manca il secret CF_API_TOKEN"; exit 1; }
+          [ -n "$CF_API_TOKEN" ] || { echo "::error::manca il secret FOREVER_PATHFINDER"; exit 1; }
           VER=$(grep -m1 '^## Version:' addon/ForeverPathfinder/ForeverPathfinder.toc | sed 's/^## Version: *//' | tr -d '\r')
           ZIPVER=$(unzip -p ForeverPathfinder.zip ForeverPathfinder/ForeverPathfinder.toc | grep -m1 '^## Version:' | sed 's/^## Version: *//' | tr -d '\r')
           [ "$VER" = "$ZIPVER" ] || { echo "::error::lo zip è la $ZIPVER, il .toc la $VER: rifai node src/tools/addon.js"; exit 1; }
