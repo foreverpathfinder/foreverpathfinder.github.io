@@ -1,0 +1,44 @@
+# Carica ForeverPathfinder.zip (già costruito e committato) su CurseForge quando cambia la versione nel .toc, o a mano
+# (Actions → CurseForge → Run workflow). Serve il secret CF_API_TOKEN (https://authors.curseforge.com/#/settings/api-tokens).
+# Changelog: addon/changelog.md (le note della versione nuova, in inglese). Un tag cf/v<versione> evita di caricare due volte.
+name: CurseForge
+on:
+  push:
+    branches: [main]
+    paths: [addon/ForeverPathfinder/ForeverPathfinder.toc]
+  workflow_dispatch:
+permissions:
+  contents: write
+env:
+  PROJECT_ID: "1787542"
+  GAME_VERSION: "1.60.1" # versione di WoW Forever: da cambiare quando il gioco si aggiorna
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Carica su CurseForge
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          [ -n "$CF_API_TOKEN" ] || { echo "::error::manca il secret CF_API_TOKEN"; exit 1; }
+          VER=$(grep -m1 '^## Version:' addon/ForeverPathfinder/ForeverPathfinder.toc | sed 's/^## Version: *//' | tr -d '\r')
+          ZIPVER=$(unzip -p ForeverPathfinder.zip ForeverPathfinder/ForeverPathfinder.toc | grep -m1 '^## Version:' | sed 's/^## Version: *//' | tr -d '\r')
+          [ "$VER" = "$ZIPVER" ] || { echo "::error::lo zip è la $ZIPVER, il .toc la $VER: rifai node src/tools/addon.js"; exit 1; }
+          TAG="cf/v$VER"
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null; then echo "$TAG già caricata, niente da fare"; exit 0; fi
+          GV=$(curl -sf -H "X-Api-Token: $CF_API_TOKEN" https://wow.curseforge.com/api/game/versions | jq -c --arg n "$GAME_VERSION" '[.[] | select(.name == $n) | .id][:1]')
+          [ "$GV" != "[]" ] || { echo "::error::CurseForge non conosce la versione di gioco $GAME_VERSION"; exit 1; }
+          jq -n --arg v "$VER" --rawfile c addon/changelog.md --argjson gv "$GV" '{
+            displayName: ("Forever Pathfinder " + $v), changelog: $c, changelogType: "markdown", releaseType: "release", gameVersions: $gv,
+            relations: { projects: [
+              { slug: "questie", type: "requiredDependency" },
+              { slug: "maputils", type: "optionalDependency" },
+              { slug: "oneforall-forever", type: "optionalDependency" } ] } }' > meta.json
+          curl -sS --fail-with-body -H "X-Api-Token: $CF_API_TOKEN" -F "metadata=<meta.json" -F "file=@ForeverPathfinder.zip" \
+            "https://wow.curseforge.com/api/projects/$PROJECT_ID/upload-file"
+          echo
+          git tag "$TAG" && git push origin "$TAG"
