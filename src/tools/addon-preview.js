@@ -46,8 +46,9 @@ const colored=(s,base)=>esc(s).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<sp
    else if(o.k==='endclip')html+='</div>';
   }
   shots.push([scene.name,`<div style="position:relative;width:${scene.W}px;height:${scene.H}px">${html}</div>`,scene.W,scene.H])}
- const pg=await b.newPage({viewport:{width:1420,height:Math.ceil(shots.length/2)*(shots[0][3]+20)+20}});
- await pg.setContent(`<html><head><style>${FACES}body{margin:0;background:#2a2f36}</style></head><body><div style="display:grid;grid-template-columns:repeat(2,${shots[0][2]}px);gap:20px;padding:20px">${shots.map(s=>s[1]).join('')}</div></body></html>`,{waitUntil:'networkidle'});
+ // PVSCALE=2: immagini nitide (per la galleria di CurseForge); PVBG: colore dietro la finestra
+ const pg=await b.newPage({viewport:{width:1420,height:Math.ceil(shots.length/2)*(shots[0][3]+20)+20},deviceScaleFactor:+(process.env.PVSCALE||1)});
+ await pg.setContent(`<html><head><style>${FACES}body{margin:0;background:${process.env.PVBG||'#2a2f36'}}</style></head><body><div style="display:grid;grid-template-columns:repeat(2,${shots[0][2]}px);gap:20px;padding:20px">${shots.map(s=>s[1]).join('')}</div></body></html>`,{waitUntil:'networkidle'});
  await pg.evaluate(()=>document.fonts.ready);
  await pg.screenshot(ONLY?{path:`${O}/v4-${LANG}-${ONLY}.png`,clip:{x:20,y:20,width:shots[0][2],height:shots[0][3]}}:{path:`${O}/v4-${LANG}.png`,fullPage:true});
  console.log('ok',shots.map(s=>s[0]).join(' '),'misure',reqs.length);await b.close()})();
