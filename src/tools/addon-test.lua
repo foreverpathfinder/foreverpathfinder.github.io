@@ -144,7 +144,8 @@ local function has(s) for _, t in ipairs(shownTexts()) do if t:find(s, 1, true) 
 local function check(ok, what) if not ok then error("FALLITO: " .. what .. "\nultimi testi: " .. table.concat(shownTexts(), " | ", 1, math.min(8, #shownTexts()))) end end
 local function find(pred) for _, o in ipairs(frames) do if pred(o) then return o end end end
 local function boxes() local o = {} for _, x in ipairs(frames) do if x.kind == "CheckButton" and x.shown then o[#o + 1] = x end end return o end
-local function nav(label) return find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.fs.text == label and o.scripts.OnClick end) end
+-- dalla 1.10 le schede sono scritte in maiuscolo: il confronto non guarda maiuscole e minuscole
+local function nav(label) return find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.fs.text:upper() == label:upper() and o.scripts.OnClick end) end
 
 -- 0) messaggio di benvenuto e icona sulla minimappa
 check(said(lang == "it" and "minimappa" or "minimap"), "messaggio di caricamento")
@@ -154,11 +155,11 @@ check(ForeverPathfinder_OnCompartment ~= nil, "voce nel riquadro degli addon")
 -- 1) clic sull'icona: si apre il Percorso sulla tappa del livello, con build e voci da spuntare
 mb.o.OnClick(nil, "LeftButton")
 check(f.shown, "il clic sull'icona apre la finestra")
-check(has(g.name), "titolo con " .. g.name)
+check(has(g.name:upper()), "titolo con " .. g.name)
 -- il numero di tappe cambia con la razza; dall'8 nov il percorso arriva al 60 (almeno 17 tappe)
 local nStages = 0
-for _, t in ipairs(shownTexts()) do local n = tonumber(t:match("^/ (%d+)$")); if n then nStages = n end end
-check(has(lang == "it" and "TAPPA" or "STAGE") and nStages >= 17, "tappa 1 di N fino al 60 (trovate " .. nStages .. ")")
+for _, t in ipairs(shownTexts()) do local n = tonumber(t:match("^%d+ / (%d+)$")); if n then nStages = n end end
+check(nStages >= 17, "tappa 1 di N fino al 60 (trovate " .. nStages .. ")")
 check(#boxes() > 0, "voci da spuntare")
 -- 2) un punto talento libero: la riga gialla dice quale prendere
 FREE = 1; f.scripts.OnEvent(f, "CHARACTER_POINTS_CHANGED")
@@ -213,11 +214,11 @@ local again = false
 for _, x in ipairs(boxes()) do if x.id == id and x.checked then again = true end end
 check(again, "spunta ancora visibile")
 -- 3b) rimaste indietro: al livello 12 le voci non spuntate delle tappe prima stanno in cima; spuntandone una sparisce
-local function behind() for _, t in ipairs(shownTexts()) do local n = t:match("^Rimaste indietro %((%d+)%)") or t:match("^Left behind %((%d+)%)"); if n then return tonumber(n) end end end
+local function behind() for _, t in ipairs(shownTexts()) do local n = t:match("^RIMASTE INDIETRO %((%d+)%)") or t:match("^LEFT BEHIND %((%d+)%)"); if n then return tonumber(n) end end end
 LEVEL = 12; f.scripts.OnEvent(f, "PLAYER_LEVEL_UP")
 local nb = behind()
 check(nb and nb > 0, "card Rimaste indietro al livello 12")
-local bcb = find(function(o) return o.kind == "CheckButton" and o.shown and rawget(o, "onClick") end)
+local bcb = find(function(o) return o.kind == "CheckButton" and o.shown and rawget(o, "behind") end)
 check(bcb ~= nil, "casella di una voce rimasta indietro")
 local bid = bcb.id -- la casella si riusa al nuovo disegno
 bcb.checked = true; bcb.scripts.OnClick(bcb)
@@ -295,7 +296,7 @@ for n in ttask[3]:gsub("^%^[^%^]*%^", ""):match("^Trainer:%s*(.+)$"):gsub("%b()"
 for i = 1, #spells - 1 do KNOWN[spells[i]] = true end
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(not ForeverPathfinderChar.done["human-warrior:" .. ttask[5]], "voce Trainer non spuntata con una spell mancante: " .. spells[#spells])
-if #spells > 1 then LEVEL = ttask[1]; f.shown = false; fp(""); check(has("|cff5fd68b" .. spells[1] .. "|r"), "spell già appresa in verde nella voce Trainer: " .. spells[1]) end
+if #spells > 1 then LEVEL = ttask[1]; f.shown = false; fp(""); check(has("|cff7fd4b0" .. spells[1] .. "|r"), "spell già appresa in verde nella voce Trainer: " .. spells[1]) end
 KNOWN[spells[#spells]] = true
 f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(ForeverPathfinderChar.done["human-warrior:" .. ttask[5]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
@@ -359,8 +360,8 @@ check(OFA.panel == "talents" and OFA.imported and OFA.n == #hv._tal and not OFA.
 local function lvShown() for _, t in ipairs(shownTexts()) do local n = t:match("^" .. (lang == "it" and "Livello" or "Level") .. " (%d+)$"); if n then return tonumber(n) end end end
 local l0 = lvShown()
 check(l0 ~= nil, "livello nella scheda Talent")
-local nx = nav("›"); nx.scripts.OnClick(nx)
-check(lvShown() == l0 + 1, "› mostra il livello dopo (" .. tostring(l0) .. " → " .. tostring(lvShown()) .. ")")
+local nx = nav("+"); nx.scripts.OnClick(nx)
+check(lvShown() == l0 + 1, "+ mostra il livello dopo (" .. tostring(l0) .. " → " .. tostring(lvShown()) .. ")")
 check(find(function(o) return o.kind == "Button" and rawget(o, "rk") and o.shown and o.t2 and o.t2 ~= "" end) ~= nil, "nodi dell'albero con descrizione")
 -- Classe (dalla 1.6): le quattro sezioni, ognuna con contenuto
 nav(tabName("classe")).scripts.OnClick()
@@ -434,7 +435,7 @@ canvas.GetChildren = nil
 f.shown = true
 nav(tabName("prof")).scripts.OnClick()
 check(has("Silver Skeleton Key") and has(lang == "it" and "sei qui" or "you are here"), "Profession: passo della skill 85 di Blacksmithing")
-check(has("Silver Bar |cff5fd68b(20)"), "Profession: Silver Bar nelle borse (20 di 17)")
+check(has("Silver Bar |cff7fd4b0(20)"), "Profession: Silver Bar nelle borse (20 di 17)")
 local nc = #chat
 f.scripts.OnEvent(f, "SKILL_LINES_CHANGED")
 check(said("Mining 75/75") and said("Journeyman") and not said("Blacksmithing 85"), "avviso al massimo del grado")

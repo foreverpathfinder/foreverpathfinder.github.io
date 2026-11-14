@@ -9,7 +9,8 @@ local M = jdec(MEAS)
 local REQ, reqSeen = {}, {}
 local function jstr(s) return '"' .. tostring(s):gsub('\\', '\\\\'):gsub('"', '\\"'):gsub('\n', '\\n'):gsub('\r', '') .. '"' end
 local function key(fo, w, t) return fo.file .. "|" .. fo.size .. "|" .. (w or 0) .. "|" .. t end
-local function measure(fo, w, t)
+local function measure(fo, w, t, nw)
+  if nw then local m = measure(fo, nil, t); return { math.min(w or m[1], m[1]), m[2] } end -- una riga sola, tagliata
   local k = key(fo, w, t)
   if M[k] then return M[k] end
   if not reqSeen[k] then reqSeen[k] = true; REQ[#REQ + 1] = '{"key":' .. jstr(k) .. ',"file":' .. jstr(fo.file) .. ',"size":' .. fo.size .. ',"w":' .. (w or 0) .. ',"t":' .. jstr(t) .. '}' end
@@ -33,10 +34,11 @@ local methods = {
   CreateFontString = function(s, _, layer) return new("FontString", s, layer or "OVERLAY") end,
   SetColorTexture = function(s, r, g, b, a) s.color = { r, g, b }; s.alpha = a or 1; s.tex = nil end,
   SetTexture = function(s, p) s.tex = p; s.color = nil end, SetTexCoord = function() end, SetVertexColor = function() end,
-  SetFontObject = function(s, fo) s.fo = type(fo) == "table" and fo or { file = "Inter-Regular.ttf", size = 12 } end,
+  SetFontObject = function(s, fo) s.fo = type(fo) == "table" and fo or { file = "Barlow-Regular.ttf", size = 13 } end,
   SetTextColor = function(s, r, g, b) s.tc = { r, g, b } end,
   SetText = function(s, t) s.text = t end, GetText = function(s) return s.text end,
-  GetStringHeight = function(s) return measure(s.fo, s.w, s.text or "")[2] end,
+  GetStringHeight = function(s) return measure(s.fo, s.w, s.text or "", s.nowrap)[2] end,
+  SetWordWrap = function(s, v) s.nowrap = (v == false) or nil end,
   GetStringWidth = function(s) return measure(s.fo, nil, s.text or "")[1] end,
   SetScrollChild = function(s, c) s.child = c end, SetVerticalScroll = function(s, v) s.off = v end, GetVerticalScroll = function(s) return s.off or 0 end,
   SetMinMaxValues = function(s, a, b) s.min, s.max = a, b end, GetMinMaxValues = function(s) return s.min or 0, s.max or 0 end,
@@ -110,7 +112,7 @@ local fp = SlashCmdList.FOREVERPATHFINDER
 local function rectOf(o, pl, pt)
   if o.fill then return pl, pt, o.parent.w or 0, o.parent.h or 0 end
   local w, h = o.w, o.h
-  if o.kind == "FontString" then local m = measure(o.fo, o.w, o.text or ""); w = o.w or m[1]; h = m[2] end
+  if o.kind == "FontString" then local m = measure(o.fo, o.w, o.text or "", o.nowrap); w = o.w or m[1]; h = m[2] end
   local x, y = 0, 0
   if o.pt then x, y = o.pt.x, -o.pt.y end
   return pl + x, pt + y, w or 0, h or 0
@@ -132,7 +134,7 @@ local function walk(o, pl, pt, checkedParent)
       local rl, rt, rw, rh = rectOf(r, l, t)
       if r.kind == "FontString" and r.text and r.text ~= "" then
         local tc = r.tc or { 1, 1, 1 }
-        emit('{"k":"text","l":' .. num(rl) .. ',"t":' .. num(rt) .. ',"ww":' .. (r.w or 0) .. ',"file":' .. jstr(r.fo.file) .. ',"size":' .. r.fo.size .. ',"c":[' .. tc[1] .. ',' .. tc[2] .. ',' .. tc[3] .. '],"text":' .. jstr(r.text) .. '}')
+        emit('{"k":"text","l":' .. num(rl) .. ',"t":' .. num(rt) .. ',"ww":' .. (r.w or 0) .. ',"nw":' .. (r.nowrap and 1 or 0) .. ',"file":' .. jstr(r.fo.file) .. ',"size":' .. r.fo.size .. ',"c":[' .. tc[1] .. ',' .. tc[2] .. ',' .. tc[3] .. '],"text":' .. jstr(r.text) .. '}')
       elseif r.kind == "Texture" and r.color then
         emit('{"k":"rect","l":' .. num(rl) .. ',"t":' .. num(rt) .. ',"w":' .. num(rw) .. ',"h":' .. num(rh) .. ',"c":[' .. r.color[1] .. ',' .. r.color[2] .. ',' .. r.color[3] .. '],"a":' .. r.alpha .. '}')
       elseif r.kind == "Texture" and r.tex then
@@ -142,7 +144,7 @@ local function walk(o, pl, pt, checkedParent)
   end
   if o.kind == "Slider" and o.thumb and (o.max or 0) > 0 then -- cursore della barra
     local frac = (o.val or 0) / o.max
-    emit('{"k":"rect","l":' .. num(l) .. ',"t":' .. num(t + frac * (h - 48)) .. ',"w":6,"h":48,"c":[0.13,0.22,0.31],"a":1}')
+    emit('{"k":"rect","l":' .. num(l) .. ',"t":' .. num(t + frac * (h - 48)) .. ',"w":3,"h":48,"c":[0.23,0.22,0.21],"a":1}')
   end
   if o.kind == "ScrollFrame" then
     emit('{"k":"clip","l":' .. num(l) .. ',"t":' .. num(t) .. ',"w":' .. num(w) .. ',"h":' .. num(h) .. '}')
@@ -158,7 +160,7 @@ local function snap(name)
   walk(f, 0, 0)
   scenes[#scenes + 1] = '{"name":' .. jstr(name) .. ',"W":' .. f.w .. ',"H":' .. f.h .. ',"items":[' .. table.concat(items, ",") .. ']}'
 end
-local function findPill(label) for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text == label and o.parent == f then return o end end end
+local function findPill(label) for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text:upper() == label:upper() and o.parent == f then return o end end end
 f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); fp("")
 local n = 0
 for _, o in ipairs(all) do if o.kind == "CheckButton" and o.shown and n < 2 then n = n + 1; o.checked = true; o.scripts.OnClick(o) end end

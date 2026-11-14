@@ -14,8 +14,10 @@ function run(meas){
  if(lauxlib.luaL_loadstring(L,to_luastring(LUA))||lua.lua_pcall(L,0,0,0)){console.log(lua.lua_tojsstring(L,-1));process.exit(1)}
  lua.lua_getglobal(L,to_luastring('OUT'));return JSON.parse(lua.lua_tojsstring(L,-1))}
 const FONT=n=>'data:font/ttf;base64,'+fs.readFileSync(ADDON+'/Fonts/'+n).toString('base64');
-const FACES=`@font-face{font-family:Cinzel;font-weight:700;src:url('${FONT('Cinzel-Bold.ttf')}')}@font-face{font-family:InterR;src:url('${FONT('Inter-Regular.ttf')}')}@font-face{font-family:InterB;src:url('${FONT('Inter-Bold.ttf')}')}`;
-const fam=file=>/Cinzel/.test(file)?'Cinzel':/Bold/.test(file)?'InterB':'InterR';
+// caratteri dell'addon (1.10: Barlow e Barlow Condensed): una famiglia per file, col nome del file
+const FILES=fs.readdirSync(ADDON+'/Fonts').filter(n=>n.endsWith('.ttf'));
+const FACES=FILES.map(n=>`@font-face{font-family:'${n.slice(0,-4)}';src:url('${FONT(n)}')}`).join('');
+const fam=file=>"'"+String(file).replace(/.ttf$/,'')+"'";
 const plain=s=>s.replace(/\|c[0-9a-fA-F]{8}/g,'').replace(/\|r/g,'');
 const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
 const colored=(s,base)=>esc(s).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<span style="color:#$1">').replace(/\|r/g,'</span>').replace(/\n/g,'<br>');
@@ -24,9 +26,9 @@ const colored=(s,base)=>esc(s).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<sp
  // passata 1: quali testi vanno misurati
  const r1=run({});
  const reqs=r1.reqs;
- const meas=await p.evaluate(async({reqs,FACES})=>{await Promise.all(['700 12px Cinzel','12px InterR','12px InterB'].map(f=>document.fonts.load(f)));const out={};
+ const meas=await p.evaluate(async({reqs,FACES})=>{await Promise.all([...document.fonts].map(f=>f.load()));const out={};
   const d=document.createElement('div');d.style.cssText='position:absolute;left:0;top:0;line-height:1.2;white-space:pre-wrap;word-wrap:break-word';document.body.appendChild(d);
-  for(const q of reqs){d.style.fontFamily=q.fam;d.style.fontWeight=q.fam==='Cinzel'?'700':'400';d.style.fontSize=q.size+'px';
+  for(const q of reqs){d.style.fontFamily=q.fam;d.style.fontWeight='400';d.style.fontSize=q.size+'px';
    if(q.w>0){d.style.width=q.w+'px';d.style.whiteSpace='pre-wrap'}else{d.style.width='auto';d.style.whiteSpace='pre'}
    d.textContent=q.t;const r=d.getBoundingClientRect();out[q.key]=[r.width,r.height]}return out},{reqs:reqs.map(q=>({...q,fam:fam(q.file),t:plain(q.t)})),FACES});
  // passata 2: disegno con le misure vere
@@ -39,7 +41,7 @@ const colored=(s,base)=>esc(s).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<sp
    if(o.k==='rect')html+=`<div style="position:absolute;${st};background:rgba(${o.c.map(x=>Math.round(x*255)).join(',')},${o.a})"></div>`;
    else if(o.k==='icon')html+=o.path.startsWith('Interface\\Icons\\')?`<img src="https://wow.zamimg.com/images/wow/icons/large/${o.path.slice(16).toLowerCase()}.jpg" style="position:absolute;${st};object-fit:cover;object-position:center;transform:scale(1.16);clip-path:inset(7%)">`
     :/CheckBox-Check/.test(o.path)?`<div style="position:absolute;${st};color:#ffd100;font:700 ${Math.round(o.h*0.8)}px Arial;line-height:${o.h}px;text-align:center;text-shadow:0 0 2px #000">✔</div>`:'';
-   else if(o.k==='text')html+=`<div style="position:absolute;left:${o.l}px;top:${o.t}px;${o.ww>0?'width:'+o.ww+'px;white-space:pre-wrap;word-wrap:break-word':'white-space:pre'};font-family:${fam(o.file)};font-weight:${fam(o.file)==='Cinzel'?700:400};font-size:${o.size}px;line-height:1.2;color:rgb(${o.c.map(x=>Math.round(x*255)).join(',')});text-shadow:1px 1px 0 rgba(0,0,0,.7)">${colored(o.text)}</div>`;
+   else if(o.k==='text')html+=`<div style="position:absolute;left:${o.l}px;top:${o.t}px;${o.nw&&o.ww>0?'width:'+o.ww+'px;white-space:pre;overflow:hidden;text-overflow:ellipsis':o.ww>0?'width:'+o.ww+'px;white-space:pre-wrap;word-wrap:break-word':'white-space:pre'};font-family:${fam(o.file)};font-weight:400;font-size:${o.size}px;line-height:1.2;color:rgb(${o.c.map(x=>Math.round(x*255)).join(',')});text-shadow:none">${colored(o.text)}</div>`;
    else if(o.k==='clip')html+=`<div style="position:absolute;${st};overflow:hidden">`;
    else if(o.k==='endclip')html+='</div>';
   }
