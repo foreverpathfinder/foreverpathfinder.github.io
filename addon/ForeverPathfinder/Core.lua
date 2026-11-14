@@ -25,6 +25,7 @@ local TT = {
     dgIdeal = "ideale %s", dgWhere = "Dove si trova", dgKey = "Chiave d'ingresso", dgQ = "Quest da prendere prima di entrare", dgQC = "Quest di classe",
     dgNoQ = "Nessuna quest nei dati per la tua fazione.", dgFrom = "Da: %s", dgChainTip = "Mostra sulla mappa il prossimo passo della catena",
     dgBoss = "Boss", dgTips = "Consigli", dgInfo = "Come conviene farli", dgNote = "Nota", qDoneTag = "fatta", dgNew = "nuovo in Forever", oTrainers = "Tutti i trainer della tua classe sulla mappa del mondo",
+    zRec = "ZONE CONSIGLIATE AL LIVELLO %d", zRow = "livelli %s · %s quest adatte", oZones = "Zone consigliate per il tuo livello nella scheda Percorso",
     talTitle = "Talent · %s", talLv = "Livello %d", talMine = "Il mio livello (%d)", talNow = "Al livello %d prendi: {%s} %d/%d", talNext = "Poi, al %d: %s",
     talFrom10 = "I talenti cominciano al livello 10: qui vedi cosa prenderai.", talDone = "Build completa: dopo il %d non ci sono altri punti.", talWhy = "Perché questa build", talHide = "Nascondi",
     talTrees = "Passa sopra un talento per la descrizione; clic per andare al livello in cui si prende.", talOrder = "Ordine dei talenti (clic per andare a quel livello)",
@@ -83,6 +84,7 @@ local TT = {
     dgIdeal = "best at %s", dgWhere = "Where it is", dgKey = "Entry key", dgQ = "Quests to pick up before going in", dgQC = "Class quests",
     dgNoQ = "No quests in the data for your faction.", dgFrom = "From: %s", dgChainTip = "Shows the next step of the chain on the map",
     dgBoss = "Bosses", dgTips = "Tips", dgInfo = "How to run them", dgNote = "Note", qDoneTag = "done", dgNew = "new in Forever", oTrainers = "All your class trainers on the world map",
+    zRec = "RECOMMENDED ZONES AT LEVEL %d", zRow = "levels %s · %s suitable quests", oZones = "Recommended zones for your level in the Route tab",
     talTitle = "Talents · %s", talLv = "Level %d", talMine = "My level (%d)", talNow = "At level %d take: {%s} %d/%d", talNext = "Then, at %d: %s",
     talFrom10 = "Talents start at level 10: here you see what you will take.", talDone = "Build complete: no more points after %d.", talWhy = "Why this build", talHide = "Hide",
     talTrees = "Hover a talent for its description; click to go to the level where you take it.", talOrder = "Talent order (click to go to that level)",
@@ -773,6 +775,22 @@ local function drawPath(g, k, v)
   for _, d in ipairs(ds) do names[#names + 1] = dgLabel(d) end
   if #ds > 0 then y = y - 2; local o = str(F.p, "ice", T.dungeon:format(table.concat(names, ", ")), PAD, BW - 2 * PAD); y = y - o:GetStringHeight() end
   cardClose()
+  -- zone consigliate (1.9): le zone con più quest adatte alla tua razza e al tuo livello, dai dati del gioco (Data.lua,
+  -- ForeverPathfinderZones); il pulsante mappa mette il segnaposto sulla zona. Si spegne dalle Opzioni
+  local Z = ForeverPathfinderZones
+  local rl = on("zones") and Z and Z.rec[(k:gsub("%-[^%-]+$", ""))]
+  rl = rl and rl[lv]
+  if rl and rl ~= "" then
+    cardOpen(); y = y - 12
+    str(F.small, "mu", T.zRec:format(lv), PAD, nil); y = y - 18
+    for zi, nq in rl:gmatch("(%d+):(%d+)") do
+      local p, top = Z.z[tonumber(zi)], y
+      if on("map") then mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() mapAt(p) end) end
+      local o = str(F.h3, "gold", p[4] .. "   |cff93a6be" .. T.zRow:format(p.lv, nq) .. "|r", PAD, BW - 2 * PAD - 28)
+      y = top - math.max(22, o:GetStringHeight() + 4)
+    end
+    cardClose()
+  end
   -- voci: livello a sinistra (verde se è il tuo), casella, icona, testo; una riga sottile tra le voci
   cardOpen(); y = y - 6
   local cur, seen, here, first = nil, {}, nil, true
@@ -1540,6 +1558,7 @@ local function drawOptions(g, k)
   if g.x then opt(T.oX, o.x == 1, function(on) o.x = on and 1 or 0 end) else line("0", T.oNoX) end
   line("2", T.oShow)
   opt(T.oMinimap, not DB.hide, function(on) DB.hide = not on; minimapIcon() end)
+  opt(T.oZones, o.nozones ~= true, function(val) o.nozones = not val or nil end)
   line("2", T.oLinks)
   for _, l in ipairs({ { "map", T.oMap }, { "trainers", T.oTrainers }, { "quests", T.oQuests }, { "tal", T.oTal }, { "trainer", T.oTrainer } }) do
     opt(l[2], o["no" .. l[1]] ~= true, function(val) o["no" .. l[1]] = not val or nil end)

@@ -31,7 +31,7 @@ var P=(function(){var p=null;try{p=JSON.parse(store('wfcP'))}catch(e){}
   var t=p.list[i].s;t.r=j.r;t.c=j.c;t.L=j.L;t.o=j.o;p.cur=i;SHARED=j.d||[]}catch(e){}}
  return p})();
 function fix(s){if(!D.races[s.r])s.r='gnome';if(!ok(s.r,s.c))s.c=D.races[s.r].classes.filter(function(c){return D.classes[c]})[0]||'mage';
- s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;s.o.prof=s.o.prof||[];s.o.ps=s.o.ps||{};s.o.b=s.o.b||{};s.done=s.done||{};return s}
+ s.L=Math.max(1,Math.min(MAXL,+s.L||1));s.o=s.o||{};if(s.o.dg===undefined)s.o.dg=1;if(s.o.zn===undefined)s.o.zn=1;s.o.prof=s.o.prof||[];s.o.ps=s.o.ps||{};s.o.b=s.o.b||{};s.done=s.done||{};return s}
 var S=fix(P.list[P.cur].s);
 // P.in = è già entrato nella guida: riaprendo il link normale torna dritto al suo personaggio (👥 Personaggi riapre la pagina iniziale)
 if(P.in)HOME=false;
@@ -124,6 +124,7 @@ function drawPick(){
   row(6,'Professions (max 2)',PROFS.map(function(p){var on=S.o.prof.indexOf(p[0])>-1;return '<button data-p="'+p[0]+'"'+(on?' class="on"':'')+'><img loading="lazy" src="'+IC(p[1])+'" alt="">'+p[0]+(pick.indexOf(p[0])>-1?' ★':'')+'</button>'}).join(''),pick?'★ consigliate per il '+CL.name+': '+pick:'')+
   row(7,'Dungeon',b('dg',1,S.o.dg,'Sì, con le quest')+b('dg',0,!S.o.dg,'No, solo quest all’aperto'))+
   row(8,'Perk Legacy “Talented”',b('tal',0,!S.o.tal,'Non ce l’ho')+b('tal',1,!!S.o.tal,'Ce l’ho: talent 5 livelli prima'))+
+  row(9,'Zone consigliate',b('zn',1,!!S.o.zn,'Sì, nella scheda Percorso')+b('zn',0,!S.o.zn,'No, nascondile'))+
   (C.lateNote?'<p class="note" style="margin:.3em 0 0">'+C.lateNote+'</p>':'');
 }
 $('pg').addEventListener('click',function(e){if(e.target.closest('details.bwhy'))return;var b=e.target.closest('button');if(!b||b.disabled||b.closest('#pkO')&&!b.dataset.o&&!b.dataset.p)return;e.preventDefault();
@@ -162,6 +163,9 @@ function renderLevel(){dgNow();
  var L=S.L,z=segAt(L),s=rankAt(L),nx=tAt(L),si=stepAt(L),st=RT.steps[si];$('lvn').textContent=L;$('lvr').value=L;
  $('qgo').innerHTML=hubBtns(st)+(si?'<button class="go" data-lv="'+stepRange(si-1)[0]+'">‹ Tappa '+si+'</button>':'')+(si<RT.steps.length-1?'<button class="go" data-lv="'+stepRange(si+1)[0]+'">Tappa '+(si+2)+' ›</button>':'');
  var h='<div class="box"><b class="t">Zona · tappa '+(si+1)+' di '+RT.steps.length+'</b><div style="font:800 1.15rem Cinzel,serif;color:var(--ice)">'+z[2]+'</div><div class="note">'+z[3]+'</div><p style="margin:.4em 0 0">'+z[4]+'</p>'+npcLinks(z[4]+' '+st[6])+'</div>';
+ // zone consigliate: quelle con più quest adatte alla tua razza e al tuo livello (dati del gioco); si toglie dalle opzioni
+ var zr=S.o.zn&&D.zones?(D.zones.rec[S.r]||[])[L-1]||[]:[];
+ if(zr.length)h+='<div class="box"><b class="t">Zone consigliate al livello '+L+'</b>'+zr.map(function(x){var q=D.zones.z[x[0]];return '<div class="zrec">'+goBtn(q[0],q[3],q[4],4)+'<small>Livelli '+q[1]+' · '+CN[q[2]]+' · <b>'+x[1]+'</b> quest adatte a te'+(z[2].indexOf(q[0])>-1?' · <span class="pill p-ok">nella tua tappa</span>':'')+'</small></div>'}).join('')+'<p class="note" style="margin:.4em 0 0">Le zone con più quest che puoi prendere adesso (dal livello '+Math.max(1,L-3)+' al '+(L+2)+'), dai dati del gioco. Si tolgono dalle opzioni del personaggio.</p></div>';
  h+='<div class="box"><b class="t">Talent a questo livello</b>';
  if(nx){var t=TAL.n[nx];h+='<div class="it">'+img(t[1])+'<div><b>'+t[0]+'</b> '+s[nx]+'/'+t[2]+'<small>'+(CL.why[t[0]]||t[3])+'</small></div></div><button class="go" data-sec="build">Vedi nel calcolatore ›</button>'}
  else h+='<p class="note">I talent iniziano al livello 10 (al 5 con il perk Talented).</p>';

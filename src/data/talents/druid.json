@@ -1,7 +1,7 @@
 {
  "cls": "druid",
  "src": "https://foreverchanges.pro/talents/druid",
- "fetched": "2026-11-06",
+ "fetched": "2026-11-14",
  "wfSame": true,
  "trees": [
   {
@@ -699,8 +699,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "20% of base mana · 40 yd range · Instant · 15 sec cooldown",
-     "r1": "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect of the consumed spell.",
-     "rmax": "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect of the consumed spell."
+     "r1": "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect.",
+     "rmax": "Instantly heals a target with your active Rejuvenation or Regrowth effect for an amount equal to the full duration of the periodic effect."
     },
     "nature-s-swiftness": {
      "index": 11,

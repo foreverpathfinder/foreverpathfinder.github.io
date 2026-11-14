@@ -303,5 +303,14 @@
 [" a 300</summary>"," to 300</summary>"],
 ["Novità di Forever, camp e gold","New in Forever, camp and gold"],
 ["Tocca una profession per vederne il percorso; quelle del personaggio si scelgono nelle opzioni (👥 Personaggi).","Tap a profession to see its route; your character’s are picked in the options (👥 Characters)."],
-["Scegli le profession: consigli per la classe, coppie e gold","Pick your professions: class advice, pairs and gold"]
+["Scegli le profession: consigli per la classe, coppie e gold","Pick your professions: class advice, pairs and gold"],
+["Zone consigliate al livello ","Recommended zones at level "],
+["<small>Livelli '+q[1]","<small>Levels '+q[1]"],
+["</b> quest adatte a te","</b> quests that suit you"],
+["nella tua tappa</span>","in your stage</span>"],
+["Le zone con più quest che puoi prendere adesso (dal livello ","The zones with the most quests you can pick up now (from level "],
+["+' al '+(L+2)+'), dai dati del gioco. Si tolgono dalle opzioni del personaggio.","+' to '+(L+2)+'), from game data. Turn them off in the character options."],
+["row(9,'Zone consigliate'","row(9,'Recommended zones'"],
+["Sì, nella scheda Percorso","Yes, in the Route tab"],
+["No, nascondile","No, hide them"]
 ]

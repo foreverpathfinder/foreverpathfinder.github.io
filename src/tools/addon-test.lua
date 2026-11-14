@@ -401,6 +401,15 @@ check(OFA.panel == "dungeons" and OFA.dungeon == "Deadmines", "dungeon aperto in
 -- mappa del mondo aperta: segnaposti della tappa (e l'ingresso scelto) sulla tela
 WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.point and o.point[2] == canvas end) ~= nil, "segnaposti sulla mappa del mondo")
+-- 1.9: zone consigliate nella scheda Percorso, e via con l'opzione spenta
+do
+  local zl = lang == "it" and "ZONE CONSIGLIATE AL LIVELLO" or "RECOMMENDED ZONES AT LEVEL"
+  f.shown = true; nav(tabName("livello")).scripts.OnClick()
+  check(has(zl), "zone consigliate nella scheda Percorso")
+  ForeverPathfinderChar.opt.nozones = true; nav(tabName("livello")).scripts.OnClick()
+  check(not has(zl), "zone consigliate spente dalle Opzioni")
+  ForeverPathfinderChar.opt.nozones = nil
+end
 -- 1.8.1: sotto l'NPC le quest che dà o ritira (da Questie), non quelle degli altri NPC della voce
 do
   local function stPin(n) return find(function(o) return o.kind == "Button" and rawget(o, "p") and o.shown and o.p[4] == n end) end

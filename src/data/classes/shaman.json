@@ -66,7 +66,7 @@
   "Shamanistic Focus": "★ Shock e Lightning Shield costano il 45% in meno: risolve il collo di bottiglia del Mana.",
   "Elemental Weapons": "+20% all'AP di Rockbiter Weapon (la tua imbue fino al 30), poi +40% a Windfury Weapon.",
   "Ancestral Knowledge": "+2% Intellect (1 punto): riempitivo verso Stormstrike; l'Intellect conta con Mental Dexterity.",
-  "Stormstrike": "Il tuo colpo principale: attacco extra, 6 s di cooldown, +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock. Si prende al 25.",
+  "Stormstrike": "Il tuo colpo principale: attacco extra al 100% del danno dell'arma, 8 s di cooldown (hotfix del 12 nov), +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock. Si prende al 25.",
   "Flurry": "+5% attack speed per Rank (25% al 5/5) per 3 swing dopo un crit in melee: stacka con Thundering Strikes.",
   "Spirit Weapons": "Parry e meno threat: per il solo leveling è un punto di passaggio (Tiqqle lo prende al 52).",
   "Improved Stormstrike": "★ Stormstrike ti dà rigen del Mana (50% in cast per 15 s) e si resetta quando schivi o pari: sostenibilità del Mana.",
@@ -538,7 +538,7 @@
    "seq": [
     [
      "ability_shaman_stormstrike",
-     "Stormstrike (6 s)"
+     "Stormstrike (8 s)"
     ],
     [
      "spell_nature_earthshock",
@@ -904,7 +904,8 @@
   "★ Talent: 51 punti da livello 10, traguardi a 11/21/31 punti, uno nuovo a 16; respec dal Trainer di una capitale; Dual Spec al 40 (wowforever.be).",
   "Racial 26–27 ott (Blizzard via Warcraft Tavern): Dwarf Artisan's Precision, Orc senza Axe Spec/Savage, Troll Berserking 15 s, Orc Blood Fury 2 min.",
   "Tavern: le build sono pensate per la Beta cap 30; le build 60 arriveranno al lancio. Dati pre-lancio.",
-  "★ Al lancio (note Blizzard del 3 nov): Earth Shock, Flame Shock e Frost Shock tornano ai danni di Classic; Lightning Bolt fa più danno; Stormstrike 150% del danno dell'arma e 6 s di cooldown; Maelstrom Weapon si attiva il doppio; Mental Dexterity fino al 150% dell'Intellect in Attack Power; Riptide solo cura nel tempo, 12 s di cooldown."
+  "★ Al lancio (note Blizzard del 3 nov): Earth Shock, Flame Shock e Frost Shock tornano ai danni di Classic; Lightning Bolt fa più danno; Stormstrike 150% del danno dell'arma e 6 s di cooldown; Maelstrom Weapon si attiva il doppio; Mental Dexterity fino al 150% dell'Intellect in Attack Power; Riptide solo cura nel tempo, 12 s di cooldown.",
+  "★ Hotfix del 12 nov: Stormstrike al 100% del danno dell'arma e 8 s di cooldown; Mental Dexterity fino al 100% dell'Intellect in Attack Power; Maelstrom Weapon rifatto (−20% a stack su cast e Mana del Lightning Bolt, da circa 6 a circa 10 attivazioni al minuto secondo i rank); imbue e totem dell'arma ora funzionano insieme."
  ],
  "sources": [
   {
