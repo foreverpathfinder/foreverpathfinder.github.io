@@ -1,6 +1,7 @@
-### 1.10.0
+### 1.10.1
 
-- New look: black window, thin lines, one accent color, Barlow fonts, tabs in a column on the left.
-- Route tab: the next thing to do is now big at the top, with Show on the map, Questie and Done buttons. The other items take one line each: click a line to read its details. Map and Questie icons stay on every item.
-- Route tab: talent, dungeons (with a button to their quests) and recommended zones for your level, in one list at the bottom.
-- Talents tab: a bar with every level of the build, with − and + buttons; click a level to see the tree at that level.
+- Dungeons new in Forever are now marked with a small green dot instead of a star, which the new font could not draw (it showed as an empty box).
+- The OneForAll button arrow is drawn correctly too.
+- Route tab: fixed an error that stopped the list at the first long item; level numbers no longer overlap the check boxes; dungeon names with a colon (Excavation Site: Wetlands) stay whole.
+- The window background is now slightly transparent, so the game shows through a little.
+- Subtitles are now light verdigris, with their numbers in copper.

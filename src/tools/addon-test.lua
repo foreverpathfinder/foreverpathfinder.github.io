@@ -1,5 +1,11 @@
 -- WoW finto per provare l'addon fuori dal gioco (lo lancia addon-test.js con fengari).
 -- Globali in ingresso: DIR (cartella dell'addon), LOCALE, RACE, CLASS, FACTION, LEVEL, FREE, SPENT, EXPECT_KEY
+-- Lua 5.1 del gioco: ipairs e pairs su qualcosa che non è una tabella danno errore (fengari, Lua 5.3, li lascerebbe passare
+-- in silenzio: così si è rotta la scheda Percorso nella 1.10.1)
+do local ip, pp = ipairs, pairs
+  ipairs = function(t) if type(t) ~= "table" then error("bad argument #1 to 'ipairs' (table expected, got " .. type(t) .. ")", 2) end return ip(t) end
+  pairs = function(t) if type(t) ~= "table" then error("bad argument #1 to 'pairs' (table expected, got " .. type(t) .. ")", 2) end return pp(t) end
+end
 local texts, chat, fstrings, frames = {}, {}, {}, {}
 local function obj(kind, name, template)
   local o = { shown = true, text = "", scripts = {}, checked = false, kind = kind, name = name, template = template }
@@ -214,7 +220,7 @@ local again = false
 for _, x in ipairs(boxes()) do if x.id == id and x.checked then again = true end end
 check(again, "spunta ancora visibile")
 -- 3b) rimaste indietro: al livello 12 le voci non spuntate delle tappe prima stanno in cima; spuntandone una sparisce
-local function behind() for _, t in ipairs(shownTexts()) do local n = t:match("^RIMASTE INDIETRO %((%d+)%)") or t:match("^LEFT BEHIND %((%d+)%)"); if n then return tonumber(n) end end end
+local function behind() for _, t in ipairs(shownTexts()) do t = t:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", ""); local n = t:match("^RIMASTE INDIETRO %((%d+)%)") or t:match("^LEFT BEHIND %((%d+)%)"); if n then return tonumber(n) end end end
 LEVEL = 12; f.scripts.OnEvent(f, "PLAYER_LEVEL_UP")
 local nb = behind()
 check(nb and nb > 0, "card Rimaste indietro al livello 12")
@@ -352,7 +358,7 @@ QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE")
 -- Talent: "Apri in OneForAll" carica tutta la build (un punto per livello dal 10) con il suo Import
 local tabName = function(key) for _, t in ipairs(D._tabs) do if t[1] == key then return t[2] end end end
 nav(tabName("talent")).scripts.OnClick()
-local ofaB = nav((lang == "it" and "Apri in OneForAll" or "Open in OneForAll") .. " ↗")
+local ofaB = nav((lang == "it" and "Apri in OneForAll" or "Open in OneForAll") .. " ›")
 check(ofaB ~= nil, "pulsante Apri in OneForAll")
 ofaB.scripts.OnClick(ofaB)
 check(OFA.panel == "talents" and OFA.imported and OFA.n == #hv._tal and not OFA.export, "build importata in OneForAll (" .. tostring(OFA.n) .. "/" .. #hv._tal .. ")")
@@ -375,7 +381,7 @@ nav(tabName("dungeon")).scripts.OnClick()
 QDONE[776] = true
 check(has(lang == "it" and "Adatti al tuo livello adesso" or "Right for your level now"), "menu: riquadro dei dungeon adatti al livello")
 local dmMenu = nav("The Deadmines")
-check(dmMenu and nav("Hall of Thanes ★") and not nav(lang == "it" and "Mappa" or "Map"), "menu dei dungeon (senza pulsanti Mappa)")
+check(dmMenu and nav("Hall of Thanes |cff7fd4b0•|r") and not nav(lang == "it" and "Mappa" or "Map"), "menu dei dungeon (senza pulsanti Mappa)")
 dmMenu.scripts.OnClick(dmMenu)
 check(nav(lang == "it" and "‹ Tutti i dungeon" or "‹ All dungeons") and has(lang == "it" and "da prendere" or "to pick up"), "scheda dei Deadmines: testata con le quest, ritorno al menu")
 if g.faction == "A" then
@@ -442,7 +448,7 @@ check(said("Mining 75/75") and said("Journeyman") and not said("Blacksmithing 85
 f.scripts.OnEvent(f, "SKILL_LINES_CHANGED")
 check(#chat == nc + 1, "avviso una volta sola")
 nav("Mining  75").scripts.OnClick()
-check(has("Copper Vein") and has(lang == "it" and "Oppure fondendo (fino a 185)" or "Or by smelting (up to 185)"), "Profession: percorso di Mining con la fusione")
+check(has("Copper Vein") and has(lang == "it" and "Oppure fondendo (fino a |cffe0a074185|r)" or "Or by smelting (up to |cffe0a074185|r)"), "Profession: percorso di Mining con la fusione")
 LibQuestieDB.Item = { vendors = function(id) return id == 2880 and { 1 } or nil end }
 LibQuestieDB.Npc = { friendlyToFaction = function() return "AH" end, name = function() return "Tharynn Bouden" end, spawns = function() return { [12] = { { 41.8, 67.2 } } } end }
 QMOD.ZoneDB.GetUiMapIdByAreaId = function() return 1429 end
