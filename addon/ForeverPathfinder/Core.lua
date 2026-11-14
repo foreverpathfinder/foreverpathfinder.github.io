@@ -37,6 +37,10 @@ local TT = {
     loaded = "caricato: clic sull'icona della minimappa o /fp per aprire la guida.",
     dbgGuide = "Guida: %s (%s)", dbgAuto = "automatica", dbgHand = "scelta a mano",
     dbgTal = "Talenti: spesi %s, liberi %d", dbgSave = "Salvataggi: caricamenti %d, spunte %d",
+    -- 1.10: Percorso con la cosa da fare adesso in grande, righe compatte, barra dei livelli nella scheda Talent
+    nowMap = "Mostra sulla mappa", nowQuestie = "Questie", nowDone = "Fatto", nowAll = "Tappa finita", nowAllD = "Hai spuntato tutte le voci di questa tappa: passa alla prossima con la freccia in alto.",
+    atLevel = "A QUESTO LIVELLO (%d)", talWord = "Talento", dgWord = "Dungeon", dgQ = "Quest", talGo = "Albero", zRow2 = "%s quest adatte",
+    talPick = "%s, %d di %d", talNextT = "I PROSSIMI", talBar = "Livello %d", talBarTip = "Clic: guarda l'albero a questo livello", talTreesT = "L'ALBERO AL LIVELLO %d",
     options = "Opzioni", now = "sei qui", mbHint = "Clic: apri o chiudi la guida\nClic destro: opzioni\nTrascina: sposta l'icona",
     oBuild = "Build", oRoute = "Percorso", oDg = "Dungeon nel percorso (con le loro quest)", oX = "Cambia continente dopo la zona iniziale",
     oNoX = "Per questa razza il percorso resta nello stesso continente.", oShow = "Interfaccia", oMinimap = "Icona sulla minimappa",
@@ -59,7 +63,7 @@ local TT = {
     dgLoot = "Boss e loot", dgLootTip = "Apre il dungeon in OneForAll (boss, loot, quest)",
     dbgSpell = "Spell nel libro: %d · voce Trainer %s, mancano: %s",
     dbgAddons = "Addon collegati: Questie %s · OneForAll %s · MapUtils %s",
-    behind = "Rimaste indietro (%d)", behindMore = "e altre %d: le trovi tornando indietro con <",
+    behind = "RIMASTE INDIETRO (%d)", behindMore = "e altre %d: le trovi tornando indietro con <",
     qNoPoint = "Questie non ha un punto sulla mappa per %s (comincia da un oggetto o da un mostro).", pinSetQ = "%s: %s · %s %.1f, %.1f", pinOn = "Clic: segnaposto qui", pinOff = "Clic: togli il segnaposto",
     dgNext = "prossima", dgThis = "quest del dungeon", dgStep = "passo %d di %d", dgNowDo = "Adesso:", dgGo = "vai da {%s}",
     dgDo = "completa {%s}", dgTurn = "consegna {%s}",
@@ -96,6 +100,9 @@ local TT = {
     loaded = "loaded: click the minimap icon or type /fp to open the guide.",
     dbgGuide = "Guide: %s (%s)", dbgAuto = "automatic", dbgHand = "picked by hand",
     dbgTal = "Talents: spent %s, free %d", dbgSave = "Saved data: loads %d, checks %d",
+    nowMap = "Show on the map", nowQuestie = "Questie", nowDone = "Done", nowAll = "Stage complete", nowAllD = "You ticked every item in this stage: move to the next one with the arrow at the top.",
+    atLevel = "AT THIS LEVEL (%d)", talWord = "Talent", dgWord = "Dungeon", dgQ = "Quests", talGo = "Tree", zRow2 = "%s suitable quests",
+    talPick = "%s, %d of %d", talNextT = "NEXT", talBar = "Level %d", talBarTip = "Click: see the tree at this level", talTreesT = "THE TREE AT LEVEL %d",
     options = "Options", now = "you are here", mbHint = "Click: open or close the guide\nRight click: options\nDrag: move the icon",
     oBuild = "Build", oRoute = "Route", oDg = "Dungeons in the route (with their quests)", oX = "Switch continent after the starting zone",
     oNoX = "For this race the route stays on the same continent.", oShow = "Interface", oMinimap = "Minimap icon",
@@ -118,7 +125,7 @@ local TT = {
     dgLoot = "Bosses and loot", dgLootTip = "Opens the dungeon in OneForAll (bosses, loot, quests)",
     dbgSpell = "Spells in the spellbook: %d · Trainer item %s, missing: %s",
     dbgAddons = "Linked addons: Questie %s · OneForAll %s · MapUtils %s",
-    behind = "Left behind (%d)", behindMore = "and %d more: go back with < to find them",
+    behind = "LEFT BEHIND (%d)", behindMore = "and %d more: go back with < to find them",
     qNoPoint = "Questie has no map point for %s (it starts from an item or a monster).", pinSetQ = "%s: %s · %s %.1f, %.1f", pinOn = "Click: waypoint here", pinOff = "Click: remove the waypoint",
     dgNext = "next", dgThis = "the dungeon quest", dgStep = "step %d of %d", dgNowDo = "Now:", dgGo = "go to {%s}",
     dgDo = "complete {%s}", dgTurn = "turn in {%s}",
@@ -148,7 +155,7 @@ local tab, viewCh = "livello" -- scheda aperta, tappa mostrata nel Percorso
 -- V.profMore novità aperte, V.profShop lista della spesa aperta
 local V = {}
 
-local function say(msg) DEFAULT_CHAT_FRAME:AddMessage("|cffe8b84aForever Pathfinder|r " .. msg) end
+local function say(msg) DEFAULT_CHAT_FRAME:AddMessage("|cfff1eee8Forever Pathfinder|r " .. msg) end
 
 local function charKey()
   if C.key then return C.key end
@@ -315,7 +322,7 @@ local function questTag(n)
   if not (L and on("quests")) then return "" end
   local st
   for _, q in ipairs(L.q) do st = (inLog[q] == "done" and "done") or st or (inLog[q] and "log") end
-  if st == "done" then return "  |cff5fd68b[" .. T.toTurn .. "]|r" elseif st then return "  |cffa9e4ff[" .. T.inLog .. "]|r" end
+  if st == "done" then return "  |cff7fd4b0[" .. T.toTurn .. "]|r" elseif st then return "  |cff7fd4b0[" .. T.inLog .. "]|r" end
   return ""
 end
 local setTarget -- segnaposto scelto da una voce (più sotto, con la minimappa)
@@ -462,9 +469,11 @@ do
   end
 end
 
--- aspetto del sito: colori di style.css (:root), Cinzel per i titoli, Inter per i testi, riquadri (card) e icone del gioco
-local HEX = { bg = "08111d", card = "112236", deep = "0b1828", tx = "e7eef7", mu = "93a6be", ac = "6fc3ff", ice = "a9e4ff",
-  gold = "e8b84a", ok = "5fd68b", bd = "21384f", frame = "5a4a22", chip = "173a5c", goldbg = "2a2412" }
+-- aspetto (1.10, scelto dall'utente il 14 nov): fondo nero, linee sottili, testo color osso, un solo colore d'accento
+-- (verderame), Barlow e Barlow Condensed; niente riquadri, ombre o bordi colorati. ice/gold = testo chiaro in evidenza,
+-- tx = testo, mu = secondario, dim = etichette, ac/ok = accento, warn = facoltativo, bd/frame = linee
+local HEX = { bg = "000000", card = "000000", deep = "0d0d0c", tx = "d7d3cb", mu = "a5a199", dim = "7b7770", ac = "7fd4b0", ice = "f1eee8",
+  gold = "f1eee8", ok = "7fd4b0", bd = "262624", frame = "3a3936", chip = "1a1a18", goldbg = "0c1512", warn = "e2c15a" }
 local COL = {}
 for k, h in pairs(HEX) do COL[k] = { tonumber(h:sub(1, 2), 16) / 255, tonumber(h:sub(3, 4), 16) / 255, tonumber(h:sub(5, 6), 16) / 255 } end
 local FONTS = "Interface\\AddOns\\ForeverPathfinder\\Fonts\\"
@@ -472,21 +481,22 @@ local function font(file, size)
   local fo = CreateFont("ForeverPathfinderFont" .. file:gsub("%W", "") .. size)
   -- se il carattere dell'addon non si carica, quello standard del gioco
   if fo:SetFont(FONTS .. file, size, "") == false then fo:SetFont(STANDARD_TEXT_FONT or "Fonts\\FRIZQT__.TTF", size, "") end
-  fo:SetShadowOffset(1, -1); fo:SetShadowColor(0, 0, 0, 0.7)
+  fo:SetShadowOffset(0, 0)
   return fo
 end
 local F = {
-  title = font("Cinzel-Bold.ttf", 18), big = font("Cinzel-Bold.ttf", 26), h1 = font("Cinzel-Bold.ttf", 15), brand = font("Cinzel-Bold.ttf", 10),
-  h2 = font("Inter-Bold.ttf", 13), h3 = font("Inter-Bold.ttf", 12), p = font("Inter-Regular.ttf", 12), small = font("Inter-Bold.ttf", 10), nav = font("Inter-Bold.ttf", 11),
-  x = font("Inter-Regular.ttf", 22),
+  title = font("BarlowCondensed-SemiBold.ttf", 16), big = font("BarlowCondensed-SemiBold.ttf", 34), h1 = font("Barlow-SemiBold.ttf", 18), brand = font("BarlowCondensed-SemiBold.ttf", 11),
+  h2 = font("BarlowCondensed-SemiBold.ttf", 14), h3 = font("Barlow-SemiBold.ttf", 13), p = font("Barlow-Regular.ttf", 13), small = font("BarlowCondensed-Medium.ttf", 13), nav = font("BarlowCondensed-SemiBold.ttf", 14),
+  x = font("Barlow-Regular.ttf", 22), now = font("Barlow-SemiBold.ttf", 20), med = font("Barlow-Medium.ttf", 13), rail = font("BarlowCondensed-Medium.ttf", 15),
 }
 -- tipo di riga delle schede: carattere, colore, spazio prima
-local KIND = { ["1"] = { F.h1, "ice", 0 }, ["2"] = { F.h2, "gold", 10 }, ["3"] = { F.h3, "tx", 8 }, ["0"] = { F.p, "tx", 5 } }
+local KIND = { ["1"] = { F.h1, "ice", 0 }, ["2"] = { F.h2, "mu", 14 }, ["3"] = { F.h3, "ice", 8 }, ["0"] = { F.p, "tx", 5 } }
 local function paint(t, c, a) t:SetColorTexture(COL[c][1], COL[c][2], COL[c][3], a or 1) end
-local function colorize(s) return (s:gsub("{", "|cffe8b84a"):gsub("}", "|r")) end
+local function colorize(s) return (s:gsub("{", "|cfff1eee8"):gsub("}", "|r")) end
 local function iconPath(n) return "Interface\\Icons\\" .. n end
 
-local W, H, TOP = 680, 500, 112
+-- finestra: testata alta 44, schede in una colonna larga RW a sinistra, contenuto a destra
+local W, H, TOP, RW = 680, 500, 58, 128
 local f = CreateFrame("Frame", nil, UIParent)
 _G.ForeverPathfinderFrame = f
 tinsert(UISpecialFrames, "ForeverPathfinderFrame") -- Esc chiude
@@ -503,57 +513,72 @@ local function frame(parent, c, w, h)
   rect(parent, "BORDER", c, 1, 0, 0, 1, h); rect(parent, "BORDER", c, 1, w - 1, 0, 1, h)
 end
 rect(f, "BACKGROUND", "bg", 0.97, 0, 0, W, H)
-rect(f, "BACKGROUND", "chip", 0.35, 0, 0, W, 70) -- testata più chiara, come il bagliore in cima al sito
 frame(f, "frame", W, H)
-rect(f, "BORDER", "bd", 1, 1, -70, W - 2, 1)
+rect(f, "BORDER", "bd", 1, 1, -44, W - 2, 1) -- sotto la testata
+rect(f, "BORDER", "bd", 1, RW, -45, 1, H - 46) -- tra le schede e il contenuto
 
--- testata: icona della classe, "Forever Pathfinder", nome del personaggio, livello e build
-local crest = f:CreateTexture(nil, "ARTWORK"); crest:SetPoint("TOPLEFT", 16, -14); crest:SetSize(42, 42)
-local crestB = CreateFrame("Frame", nil, f); crestB:SetPoint("TOPLEFT", 15, -13); crestB:SetSize(44, 44); frame(crestB, "gold", 44, 44)
+-- testata: icona della classe, nome del personaggio, livello e build, chiudi
+local crest = f:CreateTexture(nil, "ARTWORK"); crest:SetPoint("TOPLEFT", 16, -13); crest:SetSize(18, 18); crest:SetTexCoord(0.07, 0.93, 0.07, 0.93)
 local function text(parent, fo, c, x, y, w)
   local s = parent:CreateFontString(nil, "OVERLAY"); s:SetFontObject(fo); s:SetTextColor(unpack(COL[c])); s:SetJustifyH("LEFT")
   s:SetPoint("TOPLEFT", x, y); if w then s:SetWidth(w) end; return s
 end
-text(f, F.brand, "ice", 70, -14):SetText("FOREVER PATHFINDER")
-local title = text(f, F.title, "gold", 70, -28, W - 140)
-local sub = text(f, F.nav, "mu", 70, -51, W - 140)
-local close = CreateFrame("Button", nil, f); close:SetPoint("TOPLEFT", W - 34, -10); close:SetSize(24, 24)
+local title = text(f, F.title, "ice", 42, -15)
+local sub = text(f, F.p, "mu", 42, -16) -- accanto al nome: la posizione si rifà a ogni disegno
+local close = CreateFrame("Button", nil, f); close:SetPoint("TOPLEFT", W - 36, -10); close:SetSize(24, 24)
 local closeT = text(close, F.x, "mu", 5, 1); closeT:SetText("×")
 close:SetScript("OnClick", function() f:Hide() end)
-close:SetScript("OnEnter", function() closeT:SetTextColor(unpack(COL.tx)) end)
+close:SetScript("OnEnter", function() closeT:SetTextColor(unpack(COL.ice)) end)
 close:SetScript("OnLeave", function() closeT:SetTextColor(unpack(COL.mu)) end)
 
--- pulsante a pillola come le schede del sito: acceso = fondo chip e testo ice
+-- pulsante (1.10): parola in Barlow Condensed dentro un bordo sottile; prim = pieno di verderame con il testo nero (uno per
+-- schermata, l'azione principale); ic = icona del gioco a sinistra (mappa, Questie). set(false) = spento, in una fila di scelte
 local function pill(parent, label)
   local b = CreateFrame("Button", nil, parent)
   b.bg = b:CreateTexture(nil, "BACKGROUND"); b.bg:SetAllPoints()
-  b.fs = text(b, F.nav, "mu", 11, -6); b.fs:SetText(label)
-  b:SetSize(math.floor((b.fs:GetStringWidth() or 40) + 22), 24)
-  local hl = b:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.06)
-  b.set = function(on) paint(b.bg, on and "chip" or "card", on and 1 or 0.6); b.fs:SetTextColor(unpack(COL[on and "ice" or "mu"])) end
+  b.ed = {}
+  for i = 1, 4 do b.ed[i] = b:CreateTexture(nil, "BORDER") end
+  -- bordo di 1 px rimesso alla misura del pulsante a ogni cambio di larghezza
+  b.fit = function(w, h)
+    b:SetSize(w, h)
+    b.ed[1]:ClearAllPoints(); b.ed[1]:SetPoint("TOPLEFT", 0, 0); b.ed[1]:SetSize(w, 1)
+    b.ed[2]:ClearAllPoints(); b.ed[2]:SetPoint("TOPLEFT", 0, -(h - 1)); b.ed[2]:SetSize(w, 1)
+    b.ed[3]:ClearAllPoints(); b.ed[3]:SetPoint("TOPLEFT", 0, 0); b.ed[3]:SetSize(1, h)
+    b.ed[4]:ClearAllPoints(); b.ed[4]:SetPoint("TOPLEFT", w - 1, 0); b.ed[4]:SetSize(1, h)
+  end
+  b.ic = b:CreateTexture(nil, "ARTWORK"); b.ic:SetPoint("TOPLEFT", 8, -5); b.ic:SetSize(16, 16); b.ic:SetTexCoord(0.07, 0.93, 0.07, 0.93); b.ic:Hide()
+  b.fs = text(b, F.nav, "ice", 12, -6); b.fs:SetText(label)
+  b.fit(math.floor((b.fs:GetStringWidth() or 40) + 24), 26)
+  local hl = b:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.07)
+  b.set = function(on)
+    local fill, edge, ink = "bg", on and "frame" or "bd", on and "ice" or "mu"
+    if b.prim then fill, edge, ink = "ac", "ac", "bg" end
+    paint(b.bg, fill, b.prim and 1 or 0); for _, e in ipairs(b.ed) do paint(e, edge) end
+    b.fs:SetTextColor(unpack(COL[ink]))
+  end
   b.set(false)
   return b
 end
 
 -- contenuto a scorrimento: rotella del mouse e barra sottile a destra
 local scroll = CreateFrame("ScrollFrame", nil, f)
-scroll:SetPoint("TOPLEFT", 12, -TOP); scroll:SetSize(W - 38, H - TOP - 12)
-local BW = W - 38
+scroll:SetPoint("TOPLEFT", RW + 8, -TOP); scroll:SetSize(W - RW - 26, H - TOP - 10)
+local BW = W - RW - 26
 local body = CreateFrame("Frame", nil, scroll)
 body:SetSize(BW, 10)
 scroll:SetScrollChild(body)
 local bar = CreateFrame("Slider", nil, f)
-bar:SetPoint("TOPLEFT", W - 18, -TOP); bar:SetSize(6, H - TOP - 12); bar:SetOrientation("VERTICAL")
-rect(bar, "BACKGROUND", "deep", 1, 0, 0, 6, H - TOP - 12)
-local thumb = bar:CreateTexture(nil, "OVERLAY"); paint(thumb, "bd"); thumb:SetSize(6, 48); bar:SetThumbTexture(thumb)
+bar:SetPoint("TOPLEFT", W - 12, -TOP); bar:SetSize(3, H - TOP - 10); bar:SetOrientation("VERTICAL")
+rect(bar, "BACKGROUND", "bd", 1, 0, 0, 3, H - TOP - 10)
+local thumb = bar:CreateTexture(nil, "OVERLAY"); paint(thumb, "frame"); thumb:SetSize(3, 48); bar:SetThumbTexture(thumb)
 bar:SetMinMaxValues(0, 0); bar:SetValueStep(1); bar:SetValue(0)
 bar:SetScript("OnValueChanged", function(_, v) scroll:SetVerticalScroll(v) end)
 scroll:EnableMouseWheel(true)
 scroll:SetScript("OnMouseWheel", function(_, d) local lo, hi = bar:GetMinMaxValues(); bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 48))) end)
 
 -- elementi riusati a ogni disegno: testi, icone, rettangoli (card e righe di separazione), caselle, pulsanti
-local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {}, hv = {}, nd = {} }
-local N = { fs = 0, ic = 0, rc = 0, ln = 0, cb = 0, bt = 0, pn = 0, hv = 0, nd = 0 }
+local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {}, hv = {}, nd = {}, rw = {}, lb = {} }
+local N = { fs = 0, ic = 0, rc = 0, ln = 0, cb = 0, bt = 0, pn = 0, hv = 0, nd = 0, rw = 0, lb = 0 }
 local y = 0
 local function take(kind, make)
   N[kind] = N[kind] + 1
@@ -564,7 +589,7 @@ end
 local function put(o, x, yy, w, h) o:ClearAllPoints(); o:SetPoint("TOPLEFT", x, yy); if w then o:SetWidth(w) end; if h then o:SetHeight(h) end; o:Show(); return o end
 local function str(fo, c, s, x, w)
   local o = take("fs", function() local t = body:CreateFontString(nil, "OVERLAY"); t:SetJustifyH("LEFT"); return t end)
-  o:SetFontObject(fo); o:SetTextColor(unpack(COL[c])); o:SetJustifyH("LEFT"); put(o, x, y, w); o:SetText(colorize(s))
+  o:SetFontObject(fo); o:SetTextColor(unpack(COL[c])); o:SetJustifyH("LEFT"); o:SetWordWrap(true); o:SetMaxLines(0); put(o, x, y, w); o:SetText(colorize(s))
   return o
 end
 local function icon(name, x, yy, size)
@@ -576,25 +601,22 @@ local function box(c, a, x, yy, w, h, line)
   local o = take(line and "ln" or "rc", function() return body:CreateTexture(nil, line and "BORDER" or "BACKGROUND") end)
   paint(o, c, a); return put(o, x, yy, w, h)
 end
--- card del sito: fondo card e bordo bd, disegnata quando si sa dove finisce
+-- sezione (era la card del sito): dalla 1.10 niente fondo né bordi, solo una riga sottile sotto e spazio
 local cardTop
 local function cardOpen() cardTop = y end
 local function cardClose()
   if not cardTop then return end
   y = y - 12
-  local h = cardTop - y
-  box("card", 1, 0, cardTop, BW, h)
-  box("bd", 1, 0, cardTop, BW, 1, true); box("bd", 1, 0, y + 1, BW, 1, true); box("bd", 1, 0, cardTop, 1, h, true); box("bd", 1, BW - 1, cardTop, 1, h, true)
+  box("bd", 1, 0, y, BW, 1, true)
   cardTop = nil
-  y = y - 10
+  y = y - 12
 end
 local function check(id, x, yy)
   local o = take("cb", function()
-    local c = CreateFrame("CheckButton", nil, body); c:SetSize(18, 18)
-    local bg = c:CreateTexture(nil, "BACKGROUND"); bg:SetAllPoints(); paint(bg, "deep")
-    frame(c, "bd", 18, 18)
-    local ck = c:CreateTexture(nil, "OVERLAY"); ck:SetTexture("Interface\\Buttons\\UI-CheckBox-Check"); ck:SetPoint("TOPLEFT", -3, 3); ck:SetSize(24, 24); c:SetCheckedTexture(ck)
-    local hl = c:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.1)
+    local c = CreateFrame("CheckButton", nil, body); c:SetSize(14, 14); c:SetHitRectInsets(-5, -5, -5, -5)
+    frame(c, "mu", 14, 14)
+    local ck = c:CreateTexture(nil, "OVERLAY"); paint(ck, "ac"); ck:SetPoint("TOPLEFT", 3, -3); ck:SetSize(8, 8); c:SetCheckedTexture(ck)
+    local hl = c:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.12)
     c:SetScript("OnClick", function(self) if self.onClick then self.onClick(self:GetChecked()) else C.done[self.id] = self:GetChecked() and true or nil end end)
     return c
   end)
@@ -602,9 +624,13 @@ local function check(id, x, yy)
   o:SetChecked(C.done[id] and true or false)
   return put(o, x, yy)
 end
-local function button(label, x, yy, fn)
+local function button(label, x, yy, fn, prim, ic)
   local o = take("bt", function() return pill(body, label) end)
-  o.fs:SetText(label); o:SetWidth(math.floor((o.fs:GetStringWidth() or 20) + 22)); o.set(true)
+  local lx = 12
+  o.prim = prim
+  if ic then o.ic:SetTexture(iconPath(ic)); o.ic:Show(); lx = 30 else o.ic:Hide() end
+  o.fs:SetText(label); o.fs:ClearAllPoints(); o.fs:SetPoint("TOPLEFT", lx, -6)
+  o.fit(math.floor((o.fs:GetStringWidth() or 20) + lx + 12), 26); o.set(true)
   o:SetScript("OnClick", fn); return put(o, x, yy)
 end
 -- pulsantino quadrato con un'icona del gioco (segnaposto, scheda della quest) e il suo tooltip
@@ -659,16 +685,17 @@ local function trainerText(t, s)
   local sp = trainerList(t[3])
   if not sp then return s end
   for _, n in ipairs(sp) do
-    if known(n, book()) then s = s:gsub(n:gsub("%p", "%%%0"), "|cff5fd68b" .. n:gsub("%%", "%%%%") .. "|r", 1) end
+    if known(n, book()) then s = s:gsub(n:gsub("%p", "%%%0"), "|cff7fd4b0" .. n:gsub("%%", "%%%%") .. "|r", 1) end
   end
   return s
 end
 local function mini(ic, x, yy, tip, tip2, fn)
   local o = take("pn", function()
+    -- icona del gioco (mappa, libro di Questie) in un bordo sottile: la stessa della vecchia interfaccia, senza cornice dorata
     local b = CreateFrame("Button", nil, body); b:SetSize(20, 20)
-    b.tx = b:CreateTexture(nil, "ARTWORK"); b.tx:SetAllPoints(); b.tx:SetTexCoord(0.07, 0.93, 0.07, 0.93)
-    frame(b, "gold", 20, 20)
-    local hl = b:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.2)
+    b.tx = b:CreateTexture(nil, "ARTWORK"); b.tx:SetPoint("TOPLEFT", 2, -2); b.tx:SetSize(16, 16); b.tx:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+    frame(b, "frame", 20, 20)
+    local hl = b:CreateTexture(nil, "HIGHLIGHT"); hl:SetAllPoints(); hl:SetColorTexture(1, 1, 1, 0.15)
     b:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_LEFT"); GameTooltip:AddLine(self.tip); GameTooltip:AddLine(self.tip2, 1, 1, 1, true); GameTooltip:Show() end)
     b:SetScript("OnLeave", function() GameTooltip:Hide() end)
     b:SetScript("OnClick", function(self) self.fn() end)
@@ -705,34 +732,83 @@ local function line(kind, s)
   return o
 end
 
-local render
--- una voce della checklist dalla casella in poi: casella, icona, testo, a destra i pulsanti; top = y della riga
-local function itemRow(k, t, top, after)
-  local cb = check(k .. ":" .. t[5], PAD + 52, y + 1)
-  if after then cb.onClick = function(v) C.done[cb.id] = v and true or nil; after() end end
-  local ic, s = t[3]:match("^%^([^%^,]*)[^%^]*%^(.*)$")
-  local x = PAD + 78
-  if ic then icon(ic, x, y + 1, 18); x = x + 24 end
-  -- a destra: voce con quest → mappa e scheda di Questie; altrimenti il segnaposto della voce (mappa e minimappa).
-  -- Accanto al testo lo stato della quest nel registro
-  local L, right = LINKS[t[4]], 0
+local render, drawPath
+do -- pezzi del Percorso in un blocco: Lua ammette 200 variabili locali per file
+-- Percorso (1.10): colonna stretta a sinistra per livelli ed etichette (LX, larga LCW), testo da CX
+local LCW, CX = 40, PAD + 52
+-- testo di una voce diviso in titolo (la cosa da fare) e dettaglio (dove, chi, perché): al primo ": ", ". ", " - ", " (" dopo
+-- il 13° carattere ed entro il 72°; le voci corte restano intere
+local function splitTask(s)
+  if #s <= 64 then return s, nil end
+  local best, sep
+  for _, p in ipairs({ ": ", ". ", " - ", " – ", " (", " -" }) do
+    local i = s:find(p, 13, true)
+    if i and i <= 72 and (not best or i < best) then best, sep = i, p end
+  end
+  if not best then return s, nil end
+  local tail = s:sub(best + #sep)
+  if sep == " (" then tail = "(" .. tail elseif sep == " -" then tail = "-" .. tail end
+  return s:sub(1, best - 1), tail
+end
+-- etichetta nella colonna di sinistra, allineata a destra
+local function label(s, c, fo, yy)
+  local o = str(fo or F.small, c or "dim", s, PAD, LCW); o:SetJustifyH("RIGHT")
+  if yy then o:SetPoint("TOPLEFT", PAD, yy) end
+  return o
+end
+-- pulsanti a destra di una voce: con quest → mappa e scheda di Questie; altrimenti il segnaposto della voce. Restituisce lo spazio
+local function rowButtons(t, yy)
+  local L = LINKS[t[4]]
   local q, p = L and not L.any and L.q[1], L and L.p[1] -- lettere di classe: niente pulsanti di Questie (la quest giusta dipende dalla classe)
   if q and on("map") then
-    mini("inv_misc_map_01", BW - PAD - 20, y, q, T.qMapTip, function()
+    mini("inv_misc_map_01", BW - PAD - 20, yy, q, T.qMapTip, function()
       -- la mappa del mondo sta sotto la guida: la guida si chiude (si riapre dall'icona)
       if not QZ() then say(T.qWait) elseif qMap(q) then return elseif p then mapAt(p) else say(T.qNoPoint:format(q)) end
     end)
-    mini("inv_misc_book_09", BW - PAD - 46, y, q, T.qInfoTip, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end)
-    right = 54
+    mini("inv_misc_book_09", BW - PAD - 46, yy, q, T.qInfoTip, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end)
+    return 54
   elseif p and on("map") then
-    mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() mapAt(p) end)
-    right = 28
+    mini("inv_misc_map_01", BW - PAD - 20, yy, p[4], T.pinTip, function() mapAt(p) end)
+    return 28
   end
-  local o = str(F.p, "tx", trainerText(t, s or t[3]) .. questTag(t[4]), x, BW - PAD - x - right)
-  y = top - math.max(o:GetStringHeight(), 20) - 6
+  return 0
 end
--- rimaste indietro: voci dei livelli già superati non spuntate delle tappe prima (quelle di questa tappa sono sotto), le prime 5;
--- spuntandone una sparisce
+-- una voce in una riga: livello (quando cambia), casella, titolo; sotto, il dettaglio in grigio su una riga (un clic sulla riga lo
+-- apre tutto); a destra le icone mappa e Questie. lv = testo della colonna, lvc = suo colore; behind = voce rimasta indietro
+local function itemRow(k, t, lv, lvc, behind)
+  y = y - 8
+  local top, id = y, k .. ":" .. t[5]
+  if lv then label(lv, lvc) end
+  local cb = check(id, CX - 22, y - 2)
+  cb.behind = behind or nil
+  cb.onClick = function(val) C.done[id] = val and true or nil; render() end
+  local ic = t[3]:match("^%^([^%^,]*)")
+  local x = CX
+  if ic then icon(ic, x, y, 16); x = x + 22 end
+  local right = rowButtons(t, y - 1)
+  local done = C.done[id]
+  local head, tail = splitTask(trainerText(t, (t[3]:gsub("^%^[^%^]*%^", ""))))
+  local w = BW - PAD - x - right - 6
+  local o = str(F.med, done and "dim" or "ice", head .. questTag(t[4]), x, w)
+  y = y - o:GetStringHeight() - 1
+  if tail then
+    local d = str(F.p, done and "dim" or "mu", tail, CX, BW - PAD - CX - right - 6)
+    V.open = V.open or {}
+    if not V.open[id] then d:SetWordWrap(false); d:SetMaxLines(1) end
+    y = y - d:GetStringHeight()
+    -- zona cliccabile sopra titolo e dettaglio: apre o chiude il dettaglio
+    local z = take("rw", function()
+      local b = CreateFrame("Button", nil, body)
+      b:SetScript("OnClick", function(self) V.open[self.id] = not V.open[self.id] or nil; render() end)
+      return b
+    end)
+    z.id = id
+    put(z, x, top, BW - PAD - x - right - 6, top - y)
+  end
+  y = y - 8
+  box("bd", 1, PAD, y, BW - 2 * PAD, 1, true)
+end
+-- rimaste indietro: voci dei livelli già superati non spuntate delle tappe prima, le prime 5; spuntandone una sparisce
 local BEHIND = 5
 local function drawBehind(k, v, lv, ch)
   local list, seen = {}, {}
@@ -740,78 +816,126 @@ local function drawBehind(k, v, lv, ch)
     if t[1] < lv and t[2] < ch and not seen[t[4]] and not C.done[k .. ":" .. t[5]] then seen[t[4]] = true; list[#list + 1] = t end
   end
   if #list == 0 then return end
-  cardOpen(); y = y - 12
-  str(F.h3, "gold", T.behind:format(#list), PAD, BW - 2 * PAD); y = y - 20
-  for i = 1, math.min(BEHIND, #list) do
-    local t = list[i]
-    if i > 1 then box("bd", 1, PAD, y, BW - 2 * PAD, 1, true) end
-    y = y - 8
-    local top = y
-    str(F.small, "mu", T.level:format(t[1]), PAD, 50)
-    itemRow(k, t, top, function() render() end)
-  end
-  if #list > BEHIND then y = y - 4; local o = str(F.small, "mu", T.behindMore:format(#list - BEHIND), PAD, BW - 2 * PAD); y = y - o:GetStringHeight() end
-  cardClose()
+  y = y - 22
+  str(F.h2, "mu", T.behind:format(#list), CX, BW - PAD - CX); y = y - 20
+  box("bd", 1, PAD, y, BW - 2 * PAD, 1, true)
+  for i = 1, math.min(BEHIND, #list) do itemRow(k, list[i], tostring(list[i][1]), "dim", true) end
+  if #list > BEHIND then y = y - 6; local o = str(F.p, "mu", T.behindMore:format(#list - BEHIND), CX, BW - PAD - CX); y = y - o:GetStringHeight() end
 end
--- Percorso: card della tappa (numero grande, nome, frecce), card "ora" (build, talento, dungeon), card delle voci per livello
-local function drawPath(g, k, v)
+-- riga "etichetta · testo" con un pulsante a destra (facoltativo)
+local function kvRow(lab, s, bl, fn, ic)
+  y = y - 8
+  local top = y
+  if lab then label(lab, "dim") end
+  local right = 0
+  if bl then local b = button(bl, 0, y + 4, fn, false, ic); b:ClearAllPoints(); b:SetPoint("TOPLEFT", BW - PAD - b:GetWidth(), y + 4); right = b:GetWidth() + 10 end
+  local o = str(F.p, "tx", s, CX, BW - PAD - CX - right)
+  y = top - math.max(18, o:GetStringHeight()) - 8
+  box("bd", 1, PAD, y, BW - 2 * PAD, 1, true)
+end
+-- Percorso: tappa (numero, nome, frecce, tacche), la cosa da fare adesso in grande con i suoi pulsanti, le altre voci della
+-- tappa in righe compatte, le rimaste indietro, poi talento, dungeon e zone consigliate del tuo livello
+drawPath = function(g, k, v)
   local lv = UnitLevel("player")
-  viewCh = viewCh or chapterOf(v, lv)
-  if viewCh == chapterOf(v, lv) then drawBehind(k, v, lv, viewCh) end
+  local mine = chapterOf(v, lv)
+  viewCh = viewCh or mine
   local n = #v._ch
-  cardOpen(); y = y - 12
-  str(F.small, "mu", T.stageWord, PAD, nil)
-  button("<", BW - PAD - 68, y + 2, function() viewCh = math.max(1, viewCh - 1); render(true) end)
-  button(">", BW - PAD - 32, y + 2, function() viewCh = math.min(n, viewCh + 1); render(true) end)
-  y = y - 14
-  str(F.big, "gold", viewCh .. "", PAD, nil)
-  str(F.nav, "mu", "/ " .. n, PAD + 38, nil):SetPoint("TOPLEFT", PAD + 38, y - 10)
-  local name = str(F.h1, "ice", ((v._ch[viewCh] or ""):gsub("^%d+%.%s*", "")), PAD + 76, BW - PAD * 2 - 76 - 76)
-  name:SetPoint("TOPLEFT", PAD + 76, y - 6)
-  y = y - 34
-  line("0", "{" .. T.oBuild .. ":} " .. v.build)
-  y = y - 4; str(F.h3, "gold", talentLine(v), PAD, BW - 2 * PAD); y = y - 16
-  local ds, names = dungeonsAt(g, lv), {}
-  for _, d in ipairs(ds) do names[#names + 1] = dgLabel(d) end
-  if #ds > 0 then y = y - 2; local o = str(F.p, "ice", T.dungeon:format(table.concat(names, ", ")), PAD, BW - 2 * PAD); y = y - o:GetStringHeight() end
-  cardClose()
+  -- testata della tappa
+  y = y - 2
+  local top = y
+  label(viewCh .. " / " .. n, "mu", nil, y - 4)
+  local b2 = button(">", 0, y + 2, function() viewCh = math.min(n, viewCh + 1); render(true) end)
+  b2:ClearAllPoints(); b2:SetPoint("TOPLEFT", BW - PAD - b2:GetWidth(), y + 2)
+  local b1 = button("<", 0, y + 2, function() viewCh = math.max(1, viewCh - 1); render(true) end)
+  b1:ClearAllPoints(); b1:SetPoint("TOPLEFT", BW - PAD - b2:GetWidth() - 6 - b1:GetWidth(), y + 2)
+  local name = str(F.h1, "ice", ((v._ch[viewCh] or ""):gsub("^%d+%.%s*", "")), CX, BW - PAD - CX - b1:GetWidth() - b2:GetWidth() - 16)
+  y = top - math.max(26, name:GetStringHeight() + 8)
+  -- tacche: tappe fatte, la tua (verderame), quella che guardi (chiara)
+  local sw = (BW - PAD - CX - (n - 1) * 3) / n
+  for i = 1, n do box(i == viewCh and "ice" or i == mine and "ac" or i < mine and "dim" or "frame", 1, CX + (i - 1) * (sw + 3), y, math.max(1, sw), 2, true) end
+  y = y - 22
+  -- la cosa da fare adesso: la prima voce non spuntata della tappa
+  local list, seen, cur = {}, {}, nil
+  for _, t in ipairs(v._tasks) do
+    if t[2] == viewCh and not seen[t[4]] then
+      seen[t[4]] = true -- un livello a cavallo di due tappe compare in entrambe: ogni voce una volta sola
+      list[#list + 1] = t
+      if not cur and not C.done[k .. ":" .. t[5]] then cur = t end
+    end
+  end
+  top = y
+  if cur then
+    label(tostring(cur[1]), "ac", F.big, y + 2)
+    local x = CX
+    local ic = cur[3]:match("^%^([^%^,]*)")
+    if ic then icon(ic, x, y - 2, 20); x = x + 28 end
+    local head, tail = splitTask(trainerText(cur, (cur[3]:gsub("^%^[^%^]*%^", ""))))
+    local o = str(F.now, "ice", head .. questTag(cur[4]), x, BW - PAD - x)
+    y = y - o:GetStringHeight() - 4
+    if tail then local d = str(F.p, "mu", tail, CX, BW - PAD - CX); y = y - d:GetStringHeight() end
+    y = math.min(y, top - 34) - 12
+    -- pulsanti: mappa (l'azione principale), scheda di Questie, fatto
+    local L = LINKS[cur[4]]
+    local q, p = L and not L.any and L.q[1], L and L.p[1]
+    local bx = CX
+    if on("map") and (q or p) then
+      local b = button(T.nowMap, bx, y, function()
+        if q then if not QZ() then say(T.qWait) elseif qMap(q) then return elseif p then mapAt(p) else say(T.qNoPoint:format(q)) end else mapAt(p) end
+      end, true, "inv_misc_map_01")
+      bx = bx + b:GetWidth() + 8
+    end
+    if q and on("map") then
+      local b = button(T.nowQuestie, bx, y, function() if not (QZ() and qInfo(q)) then say(T.qWait) end end, false, "inv_misc_book_09")
+      bx = bx + b:GetWidth() + 8
+    end
+    local id = k .. ":" .. cur[5]
+    button(T.nowDone, bx, y, function() C.done[id] = true; render() end, not (on("map") and (q or p)))
+    y = y - 40
+  else
+    local o = str(F.now, "ice", T.nowAll, CX, BW - PAD - CX); y = y - o:GetStringHeight() - 4
+    o = str(F.p, "mu", T.nowAllD, CX, BW - PAD - CX); y = y - o:GetStringHeight() - 18
+  end
+  -- le altre voci della tappa
+  box("bd", 1, PAD, y, BW - 2 * PAD, 1, true)
+  local last
+  for _, t in ipairs(list) do
+    if t ~= cur then
+      itemRow(k, t, t[1] ~= last and tostring(t[1]) or nil, t[1] == lv and "ac" or "dim")
+      last = t[1]
+    end
+  end
+  if viewCh == mine then drawBehind(k, v, lv, viewCh) end
+  -- a questo livello: talento, dungeon (con il pulsante per le loro quest)
+  y = y - 22
+  str(F.h2, "mu", T.atLevel:format(lv), CX, BW - PAD - CX); y = y - 20
+  box("bd", 1, PAD, y, BW - 2 * PAD, 1, true)
+  kvRow(T.talWord, talentLine(v), T.talGo, function() tab = "talent"; render(true) end)
+  for _, d in ipairs(dungeonsAt(g, lv)) do
+    local jc = d[4] == "go" and "|cff7fd4b0" or "|cffe2c15a"
+    kvRow(d[2] .. "–" .. d[3], "{" .. d[1] .. "}  " .. jc .. (T[d[4]] or "") .. (d[5] ~= "" and " " .. d[5] or "") .. "|r", T.dgQ, function() V.dgSel, V.dgSec = d[1], nil; tab = "dungeon"; render(true) end)
+  end
   -- zone consigliate (1.9): le zone con più quest adatte alla tua razza e al tuo livello, dai dati del gioco (Data.lua,
-  -- ForeverPathfinderZones); il pulsante mappa mette il segnaposto sulla zona. Si spegne dalle Opzioni
+  -- ForeverPathfinderZones); l'icona della mappa mette il segnaposto sulla zona. Si spegne dalle Opzioni
   local Z = ForeverPathfinderZones
   local rl = on("zones") and Z and Z.rec[(k:gsub("%-[^%-]+$", ""))]
   rl = rl and rl[lv]
   if rl and rl ~= "" then
-    cardOpen(); y = y - 12
-    str(F.small, "mu", T.zRec:format(lv), PAD, nil); y = y - 18
+    y = y - 22
+    str(F.h2, "mu", T.zRec:format(lv), CX, BW - PAD - CX); y = y - 20
+    box("bd", 1, PAD, y, BW - 2 * PAD, 1, true)
     for zi, nq in rl:gmatch("(%d+):(%d+)") do
-      local p, top = Z.z[tonumber(zi)], y
-      if on("map") then mini("inv_misc_map_01", BW - PAD - 20, y, p[4], T.pinTip, function() mapAt(p) end) end
-      local o = str(F.h3, "gold", p[4] .. "   |cff93a6be" .. T.zRow:format(p.lv, nq) .. "|r", PAD, BW - 2 * PAD - 28)
-      y = top - math.max(22, o:GetStringHeight() + 4)
-    end
-    cardClose()
-  end
-  -- voci: livello a sinistra (verde se è il tuo), casella, icona, testo; una riga sottile tra le voci
-  cardOpen(); y = y - 6
-  local cur, seen, here, first = nil, {}, nil, true
-  for _, t in ipairs(v._tasks) do
-    if t[2] == viewCh and not seen[t[4]] then
-      seen[t[4]] = true -- un livello a cavallo di due tappe compare in entrambe: ogni voce una volta sola
-      if not first then box("bd", 1, PAD, y, BW - 2 * PAD, 1, true) end
-      first = false
+      local p = Z.z[tonumber(zi)]
       y = y - 8
-      local top = y
-      if t[1] ~= cur then
-        cur = t[1]
-        if cur <= lv then here = -y end
-        str(F.small, cur == lv and "ok" or "ac", T.level:format(cur), PAD, 50)
-        if cur == lv then y = y - 13; str(F.small, "ok", T.now, PAD, 50); y = top end
-      end
-      itemRow(k, t, top)
+      local zt = y
+      label(p.lv or "", "dim")
+      if on("map") then mini("inv_misc_map_01", BW - PAD - 20, y + 2, p[4], T.pinTip, function() mapAt(p) end) end
+      local o = str(F.p, "tx", "{" .. p[4] .. "}  |cffa5a199" .. T.zRow2:format(nq) .. "|r", CX, BW - PAD - CX - 28)
+      y = zt - math.max(18, o:GetStringHeight()) - 8
+      box("bd", 1, PAD, y, BW - 2 * PAD, 1, true)
     end
   end
-  cardClose()
-  return here
+  y = y - 10
+end
 end
 
 local function loaded(name) local fn = (C_AddOns and C_AddOns.IsAddOnLoaded) or IsAddOnLoaded; return fn and fn(name) and true or false end
@@ -869,7 +993,7 @@ local function flow(labels, sel, fn)
 end
 local drawDungeons
 do
-local VCOL = { go = "ok", opt = "gold", skip = "mu" }
+local VCOL = { go = "ok", opt = "warn", skip = "dim" }
 local function low(x) return (x:gsub("’", "'"):lower()) end
 -- quest di un dungeon per il tuo personaggio: quelle della fazione più quelle della tua classe, { nome, da chi, di classe }
 local function dgQuests(d)
@@ -892,9 +1016,9 @@ local function dgQuestLine(d)
   local n, lg, dn = dgCount(d)
   if n == 0 then return end
   local parts = {}
-  if lg > 0 then parts[#parts + 1] = "|cffa9e4ff" .. T.dgQLog:format(lg) .. "|r" end
-  if dn > 0 then parts[#parts + 1] = "|cff5fd68b" .. (dn == 1 and T.dgQDone1 or T.dgQDone:format(dn)) .. "|r" end
-  if n - lg - dn > 0 then parts[#parts + 1] = "|cffe8b84a" .. T.dgQTake:format(n - lg - dn) .. "|r" end
+  if lg > 0 then parts[#parts + 1] = "|cff7fd4b0" .. T.dgQLog:format(lg) .. "|r" end
+  if dn > 0 then parts[#parts + 1] = "|cff7fd4b0" .. (dn == 1 and T.dgQDone1 or T.dgQDone:format(dn)) .. "|r" end
+  if n - lg - dn > 0 then parts[#parts + 1] = "|cfff1eee8" .. T.dgQTake:format(n - lg - dn) .. "|r" end
   return T.dgQSum .. " " .. table.concat(parts, "  ·  ")
 end
 -- stato di una quest del dungeon per il tuo personaggio: quest finale, catena, prossimo passo, fatta, da sbloccare (ha passi prima)
@@ -908,7 +1032,7 @@ end
 local function toMap(id, nm)
   if not QZ() then say(T.qWait) elseif not qMap(nm, id) then say(T.qNoPoint:format(nm)) end
 end
-local function clsTag(q) return q[3] and "  |cff93a6be" .. T.dgClass .. "|r" or "" end
+local function clsTag(q) return q[3] and "  |cffa5a199" .. T.dgClass .. "|r" or "" end
 -- quest senza passi da fare prima, in una riga: nome e stato, chi la dà; a destra mappa e scheda di Questie
 local function questRow(q, s)
   local name = q[1]
@@ -919,8 +1043,8 @@ local function questRow(q, s)
     mini("inv_misc_book_09", BW - PAD - 46, y, name, T.qInfoTip, function() if not (QZ() and qInfo(name)) then say(T.qWait) end end)
     right = 54
   end
-  local st = inLog[name] == "done" and "  |cff5fd68b[" .. T.toTurn .. "]|r" or inLog[name] and "  |cffa9e4ff[" .. T.inLog .. "]|r" or ""
-  local from = q[2] and q[2] ~= "" and "   |cff93a6be" .. q[2] .. "|r" or ""
+  local st = inLog[name] == "done" and "  |cff7fd4b0[" .. T.toTurn .. "]|r" or inLog[name] and "  |cff7fd4b0[" .. T.inLog .. "]|r" or ""
+  local from = q[2] and q[2] ~= "" and "   |cffa5a199" .. q[2] .. "|r" or ""
   local top = y
   local o = str(F.h3, "gold", name .. clsTag(q) .. st .. from, PAD, BW - 2 * PAD - right)
   y = top - math.max(20, o:GetStringHeight() + 2)
@@ -932,7 +1056,7 @@ local function chainRow(q, s)
   local cur = ch[n]
   y = y - 10
   if on("map") then mini("inv_misc_book_09", BW - PAD - 20, y, name, T.qInfoTip, function() if not (QZ() and qInfo(name)) then say(T.qWait) end end) end
-  local o = str(F.h3, "gold", name .. clsTag(q) .. "   |cffa9e4ff" .. T.dgStep:format(n, #ch) .. "|r", PAD, BW - 2 * PAD - 28); y = y - o:GetStringHeight() - 6
+  local o = str(F.h3, "gold", name .. clsTag(q) .. "   |cff7fd4b0" .. T.dgStep:format(n, #ch) .. "|r", PAD, BW - 2 * PAD - 28); y = y - o:GetStringHeight() - 6
   V.dgOpen = V.dgOpen or {}
   local open = V.dgOpen[name]
   local top = y
@@ -944,22 +1068,21 @@ local function chainRow(q, s)
   -- Adesso: da chi andare (e dove), o completa / consegna se è già nel registro
   local st = idLog[cur[1]]
   local what = st == "done" and T.dgTurn:format(cur[2]) or st and T.dgDo:format(cur[2])
-    or T.dgGo:format(cur[4] or cur[2]) .. (cur[5] and "  |cff93a6be" .. cur[5] .. "|r" or "")
+    or T.dgGo:format(cur[4] or cur[2]) .. (cur[5] and "  |cffa5a199" .. cur[5] .. "|r" or "")
   local bt = y
   y = y - 7
-  o = str(F.p, "tx", "|cffe8b84a" .. T.dgNowDo .. "|r   " .. what, PAD + 10, BW - 2 * PAD - 50); y = y - o:GetStringHeight() - 7
+  o = str(F.p, "tx", "|cfff1eee8" .. T.dgNowDo .. "|r   " .. what, PAD + 10, BW - 2 * PAD - 50); y = y - o:GetStringHeight() - 7
   box("goldbg", 1, PAD, bt, BW - 2 * PAD, bt - y, true)
-  box("gold", 1, PAD, bt, 2, bt - y, true)
   if on("map") then mini("inv_misc_map_01", BW - PAD - 26, bt - math.floor((bt - y - 20) / 2), cur[2], T.dgChainTip, function() toMap(cur[1], cur[2]) end) end
   y = y - 4
   if not open then return end
   y = y - 4
   for i, x in ipairs(ch) do
-    local tag = i < n and "|cff5fd68b[" .. T.qDoneTag .. "]|r"
-      or i == n and (st == "done" and "|cff5fd68b[" .. T.toTurn .. "]|r" or st and "|cffa9e4ff[" .. T.inLog .. "]|r" or "|cffe8b84a[" .. T.dgNext .. "]|r")
-      or (i == #ch and "|cff93a6be[" .. T.dgThis .. "]|r") or ""
+    local tag = i < n and "|cff7fd4b0[" .. T.qDoneTag .. "]|r"
+      or i == n and (st == "done" and "|cff7fd4b0[" .. T.toTurn .. "]|r" or st and "|cff7fd4b0[" .. T.inLog .. "]|r" or "|cfff1eee8[" .. T.dgNext .. "]|r")
+      or (i == #ch and "|cffa5a199[" .. T.dgThis .. "]|r") or ""
     str(F.small, i == n and "gold" or "mu", tostring(i), PAD + 8, 24)
-    local so = str(F.p, i < n and "mu" or "tx", x[2] .. (x[3] and "  |cff93a6be" .. x[3] .. "|r" or "") .. (tag ~= "" and "  " .. tag or ""), PAD + 34, BW - 2 * PAD - 34)
+    local so = str(F.p, i < n and "mu" or "tx", x[2] .. (x[3] and "  |cffa5a199" .. x[3] .. "|r" or "") .. (tag ~= "" and "  " .. tag or ""), PAD + 34, BW - 2 * PAD - 34)
     y = y - math.max(so:GetStringHeight(), 14) - 5
   end
 end
@@ -973,8 +1096,8 @@ local function dgMenuRow(x, fit, full)
   local t = x[2] .. "–" .. x[3] .. (x[4] ~= "" and "  ·  " .. (T[x[4]] or x[4]) or "")
   if full then
     local n, lg, dn = dgCount(x)
-    if n > 0 then t = t .. "  ·  |cff93a6be" .. T.dgQn:format(lg + dn, n) .. "|r" end
-    if x[10] ~= "" then t = t .. "  ·  |cffe8b84a" .. T.dgNeedKey .. "|r" end
+    if n > 0 then t = t .. "  ·  |cffa5a199" .. T.dgQn:format(lg + dn, n) .. "|r" end
+    if x[10] ~= "" then t = t .. "  ·  |cfff1eee8" .. T.dgNeedKey .. "|r" end
   end
   local o = str(F.p, VCOL[x[4]] or "tx", t, bx, BW - PAD - bx); o:SetPoint("TOPLEFT", bx, y - 5)
   y = top - math.max(24, o:GetStringHeight() + 10)
@@ -1020,7 +1143,7 @@ function drawDungeons(g)
   if p then rbtn(T.dgMap, function() dgMap(p) end) end
   y = math.min(y, top - 26) - 4
   local vt = d[4] ~= "" and (T[d[4]] or d[4]) .. (d[5] ~= "" and " · " .. T.dgIdeal:format(d[5]) or "") or ""
-  local o = str(F.h3, VCOL[d[4]] or "tx", T.dgLv:format(d[2], d[3]) .. (vt ~= "" and "  ·  " .. vt or "") .. (d[15] and "  ·  " .. T.dgNew or "") .. (fit[d[1]] and "  ·  |cff5fd68b" .. T.dgYou .. "|r" or ""), PAD, BW - 2 * PAD)
+  local o = str(F.h3, VCOL[d[4]] or "tx", T.dgLv:format(d[2], d[3]) .. (vt ~= "" and "  ·  " .. vt or "") .. (d[15] and "  ·  " .. T.dgNew or "") .. (fit[d[1]] and "  ·  |cff7fd4b0" .. T.dgYou .. "|r" or ""), PAD, BW - 2 * PAD)
   y = y - o:GetStringHeight()
   if d[6] ~= "" then line("0", d[6]) end
   local ql = dgQuestLine(d)
@@ -1136,7 +1259,7 @@ local function hover(x, yy, w, h, t1, t2, item)
   o.t1, o.t2, o.item = t1, t2, item
   return put(o, x, yy, w, h)
 end
--- nodo dell'albero: icona, bordo (oro = talento del livello, verde = con punti, spento = vuoto), rank, tooltip
+-- nodo dell'albero: icona, bordo (verderame = talento del livello, chiaro = con punti, spento = vuoto), rank, tooltip
 local function node(ic, x, yy, st, rank, max)
   local o = take("nd", function()
     local b = CreateFrame("Button", nil, body); b:SetSize(30, 30)
@@ -1154,70 +1277,97 @@ local function node(ic, x, yy, st, rank, max)
     return b
   end)
   o.tx:SetTexture(iconPath(ic)); o.tx:SetDesaturated(st == "off"); o.tx:SetAlpha(st == "off" and 0.4 or 1)
-  local c = st == "now" and "gold" or st == "on" and "ok" or "bd"
+  local c = st == "now" and "ac" or st == "on" and "mu" or "bd"
   for _, t in ipairs(o.bd) do paint(t, c) end
-  o.rk:SetText(rank .. "/" .. max); o.rk:SetTextColor(unpack(COL[st == "off" and "mu" or c]))
+  o.rk:SetText(rank .. "/" .. max); o.rk:SetTextColor(unpack(COL[st == "off" and "dim" or st == "now" and "ac" or "ice"]))
   return put(o, x, yy)
 end
 
--- Talent: livello scelto (‹ ›), talento di quel livello e perché, i tre alberi con i punti fino a lì, ordine dei talenti
+-- Talent (1.10): livello scelto (di base il tuo) in grande con il suo talento e il perché; una barra con tutti i livelli della
+-- build, − e + ai lati (clic su un livello per guardarlo); gli alberi con i punti fino a quel livello; i prossimi talenti
 local function drawTalents(g, k, v)
   local cls = k:match("-(%a+)$")
   local CD, trees, list = clsData()[cls] or {}, ForeverPathfinderTrees and ForeverPathfinderTrees[cls] or {}, v._tal
   local me = UnitLevel("player")
   local first, last = list[1] and list[1][1] or 10, list[#list] and list[#list][1] or 10
   local L = math.max(first, math.min(last, V.talLv or me))
-  local rk, cur, nxt, maxOf = {}, nil, nil, {}
+  local rk, cur, maxOf, at = {}, nil, {}, {}
+  local CX = PAD + 52
   for _, tr in ipairs(trees) do for _, nd in ipairs(tr[2]) do maxOf[nd[1]] = nd[5] end end
   for _, t in ipairs(list) do
     if t[1] <= L then rk[t[2]] = (rk[t[2]] or 0) + 1 end
-    if t[1] == L then cur = t elseif t[1] > L and not nxt then nxt = t end
+    if t[1] == L then cur = t end
+    at[t[1]] = t
   end
-  cardOpen(); y = y - 12
-  line("1", T.talTitle:format(v.build))
-  y = y - 10
+  y = y - 2
+  str(F.h1, "ice", T.talTitle:format(v.build), CX, BW - PAD - CX); y = y - 34
+  -- il livello e il suo talento
   local top = y
-  local b1 = button("‹", PAD, y, function() V.talLv = math.max(first, L - 1); render() end)
-  local o = str(F.h2, "gold", T.talLv:format(L), PAD + b1:GetWidth() + 10, 90); o:SetPoint("TOPLEFT", PAD + b1:GetWidth() + 10, y - 4)
-  local bx = PAD + b1:GetWidth() + 14 + math.max(70, o:GetStringWidth())
-  local b2 = button("›", bx, y, function() V.talLv = math.min(last, L + 1); render() end)
-  bx = bx + b2:GetWidth() + 10
-  if L ~= math.max(first, math.min(last, me)) then button(T.talMine:format(me), bx, y, function() V.talLv = nil; render() end) end
-  if _G.OneForAll and OneForAll.TalentCode and OneForAll.OpenPanel then
-    local ob = button(T.ofa .. " ↗", 0, y, function() ofaLoad(v) end); ob:ClearAllPoints(); ob:SetPoint("TOPRIGHT", body, "TOPLEFT", BW - PAD, y)
-  end
-  y = top - 32
-  if me < first and not V.talLv then line("0", T.talFrom10) end
+  local o = str(F.big, "ac", tostring(L), PAD, 40); o:SetJustifyH("RIGHT"); o:SetPoint("TOPLEFT", PAD, y + 2)
   if cur then
-    y = y - 2
     local nd
     for _, tr in ipairs(trees) do for _, x in ipairs(tr[2]) do if x[1] == cur[2] then nd = x end end end
-    if nd then icon(nd[2], PAD, y - 1, 22) end
-    o = str(F.h2, "tx", T.talNow:format(L, cur[2], rk[cur[2]] or 1, maxOf[cur[2]] or 1) .. (cur[3] ~= "" and "  |cff93a6be(" .. cur[3] .. ")|r" or ""), PAD + 28, BW - 2 * PAD - 28)
-    y = y - math.max(22, o:GetStringHeight() + 4)
-    if CD.why and CD.why[cur[2]] then line("0", CD.why[cur[2]]) end
-  elseif L >= last then line("0", T.talDone:format(last)) end
-  if nxt then line("0", T.talNext:format(nxt[1], nxt[2])) end
-  if CD.summary and CD.summary ~= "" then
-    y = y - 8
-    button(V.tWhy and T.talHide or T.talWhy, PAD, y, function() V.tWhy = not V.tWhy; render() end); y = y - 28
-    if V.tWhy then line("0", CD.summary) end
+    local x = CX
+    if nd then icon(nd[2], x, y - 1, 22); x = x + 30 end
+    o = str(F.now, "ice", T.talPick:format(cur[2], rk[cur[2]] or 1, maxOf[cur[2]] or 1) .. (cur[3] ~= "" and "  |cffa5a199" .. cur[3] .. "|r" or ""), x, BW - PAD - x)
+    y = y - math.max(24, o:GetStringHeight() + 4)
+    if CD.why and CD.why[cur[2]] then o = str(F.p, "mu", CD.why[cur[2]], CX, BW - PAD - CX); y = y - o:GetStringHeight() end
+  elseif L >= last then
+    o = str(F.p, "mu", T.talDone:format(last), CX, BW - PAD - CX); y = y - o:GetStringHeight()
   end
-  cardClose()
+  if me < first and not V.talLv then y = y - 4; o = str(F.p, "mu", T.talFrom10, CX, BW - PAD - CX); y = y - o:GetStringHeight() end
+  y = math.min(y, top - 36) - 12
+  -- pulsanti: OneForAll (l'azione principale), perché questa build, torna al tuo livello
+  local bx = CX
+  if _G.OneForAll and OneForAll.TalentCode and OneForAll.OpenPanel then
+    local b = button(T.ofa .. " ↗", bx, y, function() ofaLoad(v) end, true); bx = bx + b:GetWidth() + 8
+  end
+  if CD.summary and CD.summary ~= "" then
+    local b = button(V.tWhy and T.talHide or T.talWhy, bx, y, function() V.tWhy = not V.tWhy; render() end); bx = bx + b:GetWidth() + 8
+  end
+  if L ~= math.max(first, math.min(last, me)) then button(T.talMine:format(me), bx, y, function() V.talLv = nil; render() end) end
+  y = y - 36
+  if V.tWhy and CD.summary then o = str(F.p, "tx", CD.summary, CX, BW - PAD - CX); y = y - o:GetStringHeight() - 12 end
+  -- barra dei livelli: − [una tacca per livello] +; prese fino al livello scelto, quello scelto in verderame, il tuo segnato sotto
+  o = str(F.small, "mu", T.talBar:format(L), CX, BW - PAD - CX); y = y - 20
+  local bm = button("−", CX, y, function() V.talLv = math.max(first, L - 1); render() end)
+  local bp = button("+", 0, y, function() V.talLv = math.min(last, L + 1); render() end)
+  bp:ClearAllPoints(); bp:SetPoint("TOPLEFT", BW - PAD - bp:GetWidth(), y)
+  local x0, x1 = CX + bm:GetWidth() + 8, BW - PAD - bp:GetWidth() - 8
+  local n = last - first + 1
+  local cw = (x1 - x0) / n
+  for i = 0, n - 1 do
+    local lvl, x = first + i, x0 + i * cw
+    local c = lvl == L and "ac" or lvl < L and "mu" or "frame"
+    box(c, 1, x, y - 7, math.max(1, cw - 2), lvl == L and 12 or 8, true)
+    if lvl == me then box("ice", 1, x, y - 22, math.max(1, cw - 2), 2, true) end
+    local z = take("lb", function()
+      local b = CreateFrame("Button", nil, body)
+      b:SetScript("OnClick", function(self) V.talLv = self.lvl; render() end)
+      b:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_TOP"); GameTooltip:AddLine(self.t1); if self.t2 then GameTooltip:AddLine(self.t2, 1, 1, 1, true) end; GameTooltip:AddLine(T.talBarTip, 0.65, 0.63, 0.6); GameTooltip:Show() end)
+      b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+      return b
+    end)
+    z.lvl, z.t1, z.t2 = lvl, T.level:format(lvl), at[lvl] and at[lvl][2] or nil
+    put(z, x, y + 2, math.max(2, cw), 26)
+    if lvl % 10 == 0 then local lo = str(F.small, lvl == L and "ac" or "dim", tostring(lvl), x - 4, 24); lo:SetPoint("TOPLEFT", x - 4, y - 26) end
+  end
+  y = y - 52
   -- alberi uno accanto all'altro, come nel gioco (righe e colonne del client)
   if #trees > 0 then
-    cardOpen(); y = y - 12
-    line("0", T.talTrees); y = y - 8
-    local gap, n, step = 10, #trees, 38
-    local tw = math.floor((BW - 2 * PAD - gap * (n - 1)) / n)
+    box("bd", 1, PAD, y, BW - 2 * PAD, 1, true); y = y - 14
+    str(F.h2, "mu", T.talTreesT:format(L), CX, BW - PAD - CX); y = y - 18
+    o = str(F.p, "dim", T.talTrees, CX, BW - PAD - CX); y = y - o:GetStringHeight() - 12
+    local gap, nt, step = 10, #trees, 38
+    local tw = math.floor((BW - 2 * PAD - gap * (nt - 1)) / nt)
     top = y
     local rows = 0
     for i, tr in ipairs(trees) do
-      local x0, pts = PAD + (i - 1) * (tw + gap), 0
+      local tx0, pts = PAD + (i - 1) * (tw + gap), 0
       for _, nd in ipairs(tr[2]) do pts = pts + math.min(rk[nd[1]] or 0, nd[5]); rows = math.max(rows, nd[3]) end
       y = top
-      str(F.h3, pts > 0 and "gold" or "mu", tr[1] .. "  " .. pts, x0, tw)
-      local gx = x0 + math.floor((tw - (4 * step - 8)) / 2)
+      str(F.h3, pts > 0 and "ice" or "dim", tr[1] .. "  " .. pts, tx0, tw)
+      local gx = tx0 + math.floor((tw - (4 * step - 8)) / 2)
       for _, nd in ipairs(tr[2]) do
         local r = math.min(rk[nd[1]] or 0, nd[5])
         local b = node(nd[2], gx + (nd[4] - 1) * step, top - 22 - (nd[3] - 1) * step, cur and cur[2] == nd[1] and "now" or r > 0 and "on" or "off", r, nd[5])
@@ -1225,24 +1375,26 @@ local function drawTalents(g, k, v)
         b:SetScript("OnClick", function() for _, t in ipairs(list) do if t[2] == nd[1] then V.talLv = t[1]; render(); return end end end)
       end
     end
-    y = top - 22 - rows * step
-    cardClose()
+    y = top - 22 - rows * step - 14
   end
-  -- ordine: gruppi di livelli consecutivi con lo stesso talento
-  cardOpen(); y = y - 12
-  line("2", T.talOrder); y = y - 6
-  local groups, cnt, sel, labels = {}, {}, nil, {}
-  for _, t in ipairs(list) do
-    local gp = groups[#groups]
-    if gp and gp.n == t[2] then gp.to = t[1]; gp.c = gp.c + 1 else groups[#groups + 1] = { n = t[2], from = t[1], to = t[1], c = 1 } end
+  -- i prossimi talenti dopo il livello scelto
+  local nx = {}
+  for _, t in ipairs(list) do if t[1] > L and #nx < 5 then nx[#nx + 1] = t end end
+  if #nx > 0 then
+    box("bd", 1, PAD, y, BW - 2 * PAD, 1, true); y = y - 14
+    str(F.h2, "mu", T.talNextT, CX, BW - PAD - CX); y = y - 20
+    local cnt = {}
+    for _, t in ipairs(list) do if t[1] <= L then cnt[t[2]] = (cnt[t[2]] or 0) + 1 end end
+    for _, t in ipairs(nx) do
+      cnt[t[2]] = (cnt[t[2]] or 0) + 1
+      y = y - 6
+      local rt = y
+      o = str(F.small, "dim", tostring(t[1]), PAD, 40); o:SetJustifyH("RIGHT")
+      o = str(F.p, "tx", "{" .. t[2] .. "}  |cffa5a199" .. cnt[t[2]] .. "/" .. (maxOf[t[2]] or "?") .. (t[3] ~= "" and " · " .. t[3] or "") .. "|r", CX, BW - PAD - CX)
+      y = rt - math.max(16, o:GetStringHeight()) - 6
+    end
   end
-  for i, gp in ipairs(groups) do
-    cnt[gp.n] = (cnt[gp.n] or 0) + gp.c
-    labels[i] = (gp.from == gp.to and gp.from or gp.from .. "–" .. gp.to) .. "  " .. gp.n .. " " .. cnt[gp.n] .. "/" .. (maxOf[gp.n] or "?")
-    if L >= gp.from and L <= gp.to then sel = i end
-  end
-  flow(labels, sel, function(i) V.talLv = groups[i].from; render() end)
-  cardClose()
+  y = y - 10
 end
 
 -- Classe: sezioni a pulsanti (Rotazione, Spell, Razza, Consigli)
@@ -1428,14 +1580,14 @@ local function profSteps(name, P, rt, sk, ranks)
     str(F.small, past and "mu" or cur and "gold" or "tx", s[1] .. "–" .. s[2], PAD + 4, 56)
     icon(s[5] ~= "" and s[5] or "inv_misc_questionmark", PAD + 62, y, 20)
     local times = s[6] > 0 and "  ×" .. s[6] or ""
-    local o = str(F.h3, past and "mu" or "tx", past and s[3] .. times or "{" .. s[3] .. "}" .. times .. (cur and "   |cffe8b84a" .. T.pHere .. "|r" or ""), PAD + 88, w)
+    local o = str(F.h3, past and "mu" or "tx", past and s[3] .. times or "{" .. s[3] .. "}" .. times .. (cur and "   |cfff1eee8" .. T.pHere .. "|r" or ""), PAD + 88, w)
     if s[4] ~= 0 then hover(PAD + 88, top, math.min(w, o:GetStringWidth() + 4), 16, nil, nil, s[4]) end
     y = y - o:GetStringHeight() - 3
     if #s[7] > 0 then
       local parts = {}
       for _, m in ipairs(s[7]) do
         local h = not past and itemCount(m[3])
-        parts[#parts + 1] = m[1] .. "× " .. m[2] .. (m[5] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and ((h >= m[1] and " |cff5fd68b(" or " |cffe7eef7(") .. h .. ")|r") or "")
+        parts[#parts + 1] = m[1] .. "× " .. m[2] .. (m[5] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and ((h >= m[1] and " |cff7fd4b0(" or " |cffd7d3cb(") .. h .. ")|r") or "")
       end
       local mo = str(F.p, "mu", table.concat(parts, ", "), PAD + 88, w); y = y - mo:GetStringHeight() - 2
     end
@@ -1446,7 +1598,6 @@ local function profSteps(name, P, rt, sk, ranks)
     if cur then
       here = -top
       box("goldbg", 1, PAD - 4, top + 4, BW - 2 * PAD + 8, top - y, true)
-      box("gold", 1, PAD - 4, top + 4, 2, top - y, true)
     end
     sep()
   end
@@ -1504,7 +1655,7 @@ local function drawProfs(g, k)
     table.sort(keys)
     for _, n in ipairs(keys) do
       local t, h = tot[n], itemCount(tot[n][2])
-      line("0", "• " .. t[1] .. "× " .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff5fd68b(" .. h .. ")|r" or ""))
+      line("0", "• " .. t[1] .. "× " .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff7fd4b0(" .. h .. ")|r" or ""))
     end
   end
   if V.profMore then
@@ -1578,26 +1729,41 @@ local function drawOptions(g, k)
   cardClose()
 end
 
--- schede in alto, come sul sito
-local navB, nx = {}, 12
+-- schede (1.10): una colonna di parole a sinistra; in alto quelle di ogni giorno, sotto le altre, Opzioni in fondo.
+-- La scheda aperta è chiara con un quadratino verderame
+local navB = {}
+local NAVORD = { "livello", "talent", "dungeon", "prof", false, "classe", "alt", "altro", "info" }
 local function navList()
-  local l = {}
-  for _, t in ipairs(D._tabs) do l[#l + 1] = t end
+  local l, by = {}, {}
+  for _, t in ipairs(D._tabs) do by[t[1]] = t end
+  for _, id in ipairs(NAVORD) do if id == false then l[#l + 1] = false elseif by[id] then l[#l + 1] = by[id]; by[id] = nil end end
+  for _, t in ipairs(D._tabs) do if by[t[1]] then l[#l + 1] = t end end
   l[#l + 1] = { "opzioni", T.options }
   return l
 end
 for _, t in ipairs(navList()) do
-  local b = pill(f, t[2])
-  b:SetScript("OnClick", function() if t[1] == "dungeon" then V.dgSel = nil end; tab = t[1]; render(true) end)
-  navB[t[1]] = b
+  if t then
+    local b = CreateFrame("Button", nil, f); b:SetSize(RW - 1, 24)
+    b.fs = text(b, F.rail, "dim", 26, -5)
+    b.dot = rect(b, "ARTWORK", "ac", 1, 14, -10, 5, 5)
+    b.set = function(on) b.on = on; b.fs:SetTextColor(unpack(COL[on and "ice" or "dim"])); if on then b.dot:Show() else b.dot:Hide() end end
+    b:SetScript("OnEnter", function(self) if not self.on then self.fs:SetTextColor(unpack(COL.mu)) end end)
+    b:SetScript("OnLeave", function(self) self.set(self.on) end)
+    b:SetScript("OnClick", function() if t[1] == "dungeon" then V.dgSel = nil end; tab = t[1]; render(true) end)
+    navB[t[1]] = b
+  end
 end
--- nomi delle schede nella lingua scelta, una accanto all'altra
+-- nomi delle schede nella lingua scelta, in maiuscolo, uno sotto l'altro
 local function layoutNav()
-  nx = 12
+  local ny = -56
   for _, t in ipairs(navList()) do
-    local b = navB[t[1]]
-    b.fs:SetText(t[2]); b:SetWidth(math.floor((b.fs:GetStringWidth() or 40) + 22))
-    b:ClearAllPoints(); b:SetPoint("TOPLEFT", nx, -80); nx = nx + b:GetWidth() + 4
+    if not t then ny = ny - 14
+    else
+      local b = navB[t[1]]
+      b.fs:SetText(t[2]:upper())
+      b:ClearAllPoints()
+      if t[1] == "opzioni" then b:SetPoint("TOPLEFT", 0, -(H - 36)) else b:SetPoint("TOPLEFT", 0, ny); ny = ny - 26 end
+    end
   end
 end
 layoutNav()
@@ -1614,13 +1780,14 @@ render = function(top)
   local g, k, v = guide()
   for id, b in pairs(navB) do b.set(id == tab) end
   if not g then
-    title:SetText("Forever Pathfinder"); sub:SetText(""); crest:SetTexture(iconPath("inv_misc_map_01"))
+    title:SetText("FOREVER PATHFINDER"); sub:SetText(""); crest:SetTexture(iconPath("inv_misc_map_01"))
     cardOpen(); y = y - 12; line("0", T.unknown); cardClose()
   else
     local cls = k:match("-(%a+)$")
     crest:SetTexture(iconPath("classicon_" .. cls))
-    title:SetText(g.name)
-    sub:SetText(T.level:format(UnitLevel("player")) .. "  ·  " .. v.build)
+    title:SetText(g.name:upper())
+    sub:SetText(T.level:format(UnitLevel("player")) .. " · " .. v.build)
+    sub:ClearAllPoints(); sub:SetPoint("TOPLEFT", 42 + math.floor(title:GetStringWidth() or 0) + 10, -16)
     local here
     if tab == "livello" then here = drawPath(g, k, v)
     elseif tab == "opzioni" then drawOptions(g, k)
@@ -1631,7 +1798,7 @@ render = function(top)
     else drawPage(v, tab) end
     body:SetHeight(-y + 10)
     if scroll.UpdateScrollChildRect then scroll:UpdateScrollChildRect() end
-    local range = math.max(0, -y - (H - TOP - 12))
+    local range = math.max(0, -y - (H - TOP - 10))
     bar:SetMinMaxValues(0, range)
     if range > 0 then bar:Show() else bar:Hide() end
     if top then bar:SetValue(here and math.min(range, math.max(0, here - 60)) or 0) end
@@ -2382,7 +2549,7 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     if #ds == 0 then say(T.dgNone:format(lv)); return end
     local cls = k:match("-(%a+)$")
     for _, d in ipairs(ds) do
-      say("|cffa9e4ff" .. dgLabel(d) .. "|r " .. d[6])
+      say("|cff7fd4b0" .. dgLabel(d) .. "|r " .. d[6])
       if d[7] ~= "" then DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dgEntry:format(d[7])) end
       DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dgQuests)
       for _, q in ipairs(d[8]) do DEFAULT_CHAT_FRAME:AddMessage("   - |cffffd100" .. q[1] .. "|r: " .. q[2]) end
