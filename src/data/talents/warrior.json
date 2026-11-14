@@ -1,7 +1,7 @@
 {
  "cls": "warrior",
  "src": "https://foreverchanges.pro/talents/warrior",
- "fetched": "2026-11-06",
+ "fetched": "2026-11-14",
  "wfSame": true,
  "trees": [
   {
@@ -445,8 +445,8 @@
      "req": "blood-craze",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, and Bloodthirst abilities cause your next 3 melee attacks to restore 0.5% of your maximum Health.",
-     "rmax": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, and Bloodthirst abilities cause your next 3 melee attacks to restore 1.0% of your maximum Health."
+     "r1": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, Reckless Swings, and Bloodthirst abilities cause your next 3 melee attacks to restore 0.5% of your maximum Health.",
+     "rmax": "Your Enrage, Berserker Rage, Bloodrage, Death Wish, Reckless Swings, and Bloodthirst abilities cause your next 3 melee attacks to restore 1.0% of your maximum Health."
     },
     "improved-intercept": {
      "index": 14,

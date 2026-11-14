@@ -1,7 +1,7 @@
 {
  "cls": "hunter",
  "src": "https://foreverchanges.pro/talents/hunter",
- "fetched": "2026-11-06",
+ "fetched": "2026-11-14",
  "wfSame": false,
  "trees": [
   {
@@ -158,7 +158,7 @@
      "needs": 15,
      "req": "",
      "flag": "New in Forever",
-     "cost": "80 Mana · 35 yd range · 6 sec cooldown",
+     "cost": "11% of base mana · 35 yd range · 6 sec cooldown",
      "r1": "Command a hawk to dive-bomb your targeted enemy, dealing 34 Physical damage and continuing its assault for 18 sec. Only 2 hawks can be active at once. Summon Hawk shares its cooldown with Arcane Shot.",
      "rmax": "Command a hawk to dive-bomb your targeted enemy, dealing 34 Physical damage and continuing its assault for 18 sec. Only 2 hawks can be active at once. Summon Hawk shares its cooldown with Arcane Shot."
     },

@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v15)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v16)
 
-> Aggiornato: **10 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **14 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -198,25 +198,28 @@ Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui conve
 - 57–60: Concussion 4/5
 
 ### Warlock – Affliction
-Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 337 ♥, agg. 5 nov, la guida Warlock più salvata): Pandemic al 33–34 e al 40, Siphon Life e Wrack solo come punti liberi; è in linea con Warcraft Tavern, Maxroll, wowforeverbuilds e Kargoz (drain tank dal 22–30). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives. Finale 41/10/0, vicino al 40/11/0 di Icy Veins/Skidrow.
+Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 Wrack (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 659 ♥, agg. 12 nov, la guida Warlock più salvata): drain dal 19, Siphon Life al 30, Wrack al 40, poi Pandemic e gli ultimi 11 punti in Destruction fino a Shadowburn (40/0/11). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.
 
 - 10–14: Improved Corruption 5/5
-- 15–19: Suppression 5/5
-- 20–21: Grim Reach 2/2
-- 22–24: Improved Drains 3/3
-- 25–26: Nightfall 2/2
-- 27–29: Fel Concentration 3/3
-- 30–32: Soul Siphon 3/3
-- 33–34: Pandemic 2/3
+- 15–18: Suppression 4/5
+- 19–21: Improved Drains 3/3
+- 22–24: Fel Concentration 3/3
+- 25–26: Soul Harvest 2/2
+- 27–28: Nightfall 2/2
+- 29: Grim Reach 1/2
+- 30: Siphon Life 1/1
+- 31–33: Soul Siphon 3/3
+- 34: Grim Reach 2/2
 - 35–39: Shadow Mastery 5/5
-- 40: Pandemic 3/3
-- 41–45: Unholy Power 5/5
-- 46–47: Demonic Energies 2/2
-- 48–52: Malevolence 5/5
-- 53–55: Fel Vitality 3/3
-- 56–57: Improved Bane of Agony 2/2
-- 58–59: Soul Harvest 2/2
-- 60: Siphon Life 1/1
+- 40: Wrack 1/1
+- 41–42: Improved Bane of Agony 2/2
+- 43–45: Pandemic 3/3
+- 46: Amplify Curse 1/1
+- 47: Curse of Exhaustion 1/1
+- 48–49: Malevolence 2/5
+- 50–54: Improved Shadow Bolt 5/5
+- 55–59: Bane 5/5
+- 60: Shadowburn 1/1
 
 ### Warrior – Protection
 Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 138 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (165 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 165 ♥, agg. 6 nov); Fury non decolla prima del 36–40.

@@ -294,3 +294,6 @@ footer{padding-bottom:76px}
 .proute li.cur{background:var(--goldbg);border:1px solid var(--gold);border-radius:10px}
 .proute li.rk{background:var(--deep);color:var(--ice);font-size:.9rem}.proute li.rk.due{border-left:3px solid var(--gold)}
 .pill.p-here{color:var(--gold);border-color:var(--gold)}
+.zrec{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;margin:4px 0}
+.zrec small{color:var(--mu);font-size:.8rem;line-height:1.3}
+.zrec .go{margin:2px 0}

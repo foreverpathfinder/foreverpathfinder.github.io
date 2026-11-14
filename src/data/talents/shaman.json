@@ -1,7 +1,7 @@
 {
  "cls": "shaman",
  "src": "https://foreverchanges.pro/talents/shaman",
- "fetched": "2026-11-06",
+ "fetched": "2026-11-14",
  "wfSame": true,
  "trees": [
   {
@@ -325,8 +325,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Increases your Attack Power by an amount equal to 50% of your Intellect.",
-     "rmax": "Increases your Attack Power by an amount equal to 150% of your Intellect."
+     "r1": "Increases your Attack Power by an amount equal to 33% of your Intellect.",
+     "rmax": "Increases your Attack Power by an amount equal to 100% of your Intellect."
     },
     "improved-lightning-shield": {
      "index": 5,
@@ -422,9 +422,9 @@
      "needs": 15,
      "req": "",
      "flag": "Changed from Classic",
-     "cost": "8% of base mana · Melee range · Instant · 6 sec cooldown",
-     "r1": "Instantly strike for 150% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec.",
-     "rmax": "Instantly strike for 150% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
+     "cost": "8% of base mana · Melee range · Instant · 8 sec cooldown",
+     "r1": "Instantly strike for 100% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec.",
+     "rmax": "Instantly strike for 100% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
     },
     "improved-ghost-wolf": {
      "index": 12,
@@ -493,8 +493,8 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 4%. Stacks up to 5 times. Lasts 30 sec.",
-     "rmax": "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec."
+     "r1": "When you deal damage with a melee attack, you have a chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec. Activates about 6 times per minute.",
+     "rmax": "When you deal damage with a melee attack, you have a chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec. Activates about 10 times per minute."
     },
     "rage-of-the-farseer": {
      "index": 17,

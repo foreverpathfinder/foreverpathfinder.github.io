@@ -206,7 +206,9 @@ if (fs.existsSync(QF)) {
 
 /* ---- scrittura: pagina italiana (sorgente) e inglese ---- */
 // src/i18n/en.json = { "testo italiano dei dati": "inglese" } · en-ui.json = [["italiano", "inglese"]] sostituiti in template.html ed engine.js
-const ALL = { common, classes, talents, races, routes, factions, transfers, profs, alts, dungeons, map };
+// zone consigliate per razza e livello (data/zones.json, da src/tools/zones.js): nome, livelli, continente, posizione sulla mappa
+const ZR = opt('zones.json'), zones = ZR && { z: ZR.zones.map(z => { const w = WM[z[2]].zones.find(x => x[0] === z[0]); return [z[0], z[1], z[2], w[2], w[3]]; }), rec: ZR.rec };
+const ALL = { common, classes, talents, races, routes, factions, transfers, profs, alts, dungeons, zones, map };
 const I18N = path.join(SRC, 'i18n'), EN = J(path.join(I18N, 'en.json')), ENUI = J(path.join(I18N, 'en-ui.json')).sort((a, b) => b[0].length - a[0].length);
 const page = (data, tpl, eng) => tpl.replace('/*STYLE*/', () => fs.readFileSync(path.join(SRC, 'style.css'), 'utf8'))
   .replace('/*DATA*/', () => JSON.stringify(data).replace(/<\/script/gi, '<\\/script'))

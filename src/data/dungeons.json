@@ -3,10 +3,10 @@
  "general": [
   "Entra <b>una sola volta</b>, con <b>tutte le quest</b> del dungeon già nel log: è quel giro a dare quasi tutta l’XP. Rifarlo senza quest rende poco.",
   "Ogni giocatore deve prendere le quest per conto suo: molte non si possono condividere nel gruppo.",
-  "I mostri dentro danno solo il 30–40% circa dell’XP del Classic originale: il guadagno vero sono le quest.",
+  "I mostri dentro danno circa la metà dell’XP del Classic originale (prima il 30–40%: dall’hotfix dell’8 nov danno il 50% in più). Il guadagno principale restano le quest.",
   "Puoi entrare in al massimo 5 dungeon all’ora (anche resettando).",
   "Il Group finder non ti teletrasporta: cerca il gruppo, poi raggiungete l’ingresso a piedi. Spunta <b>Show All Level Ranges</b> per vedere anche i gruppi poco sopra o sotto il tuo livello.",
-  "Boss, quest e consigli vengono dalle guide sulla beta (Warcraft Tavern, Conquest Capped): li aggiorno con i dati del gioco dopo il lancio."
+  "Boss e consigli vengono dalle guide sulla beta (Warcraft Tavern, Conquest Capped); le quest sono controllate sui dati del gioco uscito (Wowhead Forever e il database di Questie, 14 nov)."
  ],
  "dungeons": {
   "ragefire chasm": {
@@ -854,7 +854,7 @@
     "A": [
      "skip",
      "",
-     "Debole per l'Alleanza: lontano e con poche quest."
+     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
     ]
    },
    "q": {
@@ -866,6 +866,32 @@
      [
       "Hearts of Zeal",
       "Master Apothecary Faranell, Undercity"
+     ],
+     [
+      "Into The Scarlet Monastery",
+      "Varimathras, Undercity"
+     ],
+     [
+      "Compendium of the Fallen",
+      "Sage Truthseeker, Thunder Bluff (non per gli Undead)"
+     ],
+     [
+      "Test of Lore",
+      "Parqual Fintallas, Undercity"
+     ]
+    ],
+    "A": [
+     [
+      "Mythology of the Titans",
+      "Librarian Mae Paledust, Ironforge (Hall of Explorers)"
+     ],
+     [
+      "In the Name of the Light",
+      "Raleigh the Devout, Southshore (Hillsbrad Foothills), dopo Down the Scarlet Path"
+     ],
+     [
+      "Past Due",
+      "Magus Olvek, Dalaran (Alterac Mountains)"
      ]
     ]
    },
@@ -879,6 +905,762 @@
     "Le ali oltre il livello 35 non sono state provate in beta.",
     "<b>Interrogator Vishas</b>, primo boss: uccidete prima i mostri intorno."
    ]
+  },
+  "drowned city": {
+   "q": {
+    "A": [
+     [
+      "Take Two With Water",
+      "Loremaster Dibbs, Hillsbrad Foothills"
+     ],
+     [
+      "Magics of the Drowned City",
+      "Loremaster Dibbs, Hillsbrad Foothills"
+     ],
+     [
+      "Ancient Gurubashi Secrets",
+      "Archmage Timear, Alterac Mountains"
+     ]
+    ],
+    "H": [
+     [
+      "The Only Good Brinescale...",
+      "Commander Aggro'gosh, Stranglethorn Vale"
+     ],
+     [
+      "The Drowned City",
+      "Kin'weelay, Stranglethorn Vale"
+     ],
+     [
+      "Ancient Gurubashi Idol",
+      "Mazu'kon, Mulgore"
+     ]
+    ],
+    "N": [
+     [
+      "Shady Saltseers",
+      "Krazek, Stranglethorn Vale"
+     ],
+     [
+      "The Saltseer Captain",
+      "Krazek, Stranglethorn Vale"
+     ]
+    ]
+   }
+  },
+  "uldaman": {
+   "q": {
+    "A": [
+     [
+      "Agmond's Fate",
+      "Prospector Ironband, Loch Modan, dopo Murdaloc"
+     ],
+     [
+      "Amulet of Secrets",
+      "Hammertoe Grez, Loch Modan, dopo A Sign of Hope"
+     ],
+     [
+      "The Hidden Chamber",
+      "Baelog, dentro il dungeon, dopo The Lost Dwarves"
+     ],
+     [
+      "Uldaman Reagent Run",
+      "Ghak Healtouch, Loch Modan, dopo Badlands Reagent Run"
+     ],
+     [
+      "Reclaimed Treasures",
+      "Krom Stoutarm, Ironforge"
+     ],
+     [
+      "Find the Gems",
+      "Remains of a Paladin, dentro il dungeon, dopo Back to Uldaman"
+     ],
+     [
+      "Restoring the Necklace",
+      "Talvash del Kissel, Ironforge"
+     ],
+     [
+      "The Lost Tablets of Will",
+      "Advisor Belgrum, Ironforge, dopo An Ambassador of Evil"
+     ]
+    ],
+    "H": [
+     [
+      "Uldaman Reagent Run",
+      "Jarkal Mossmeld, Badlands, dopo Badlands Reagent Run"
+     ],
+     [
+      "Reclaimed Treasures",
+      "Patrick Garrett, Undercity"
+     ],
+     [
+      "Necklace Recovery, Take 3",
+      "Dran Droffers, Orgrimmar, dopo Deliver the Gems"
+     ]
+    ],
+    "N": [
+     [
+      "Power Stones",
+      "Rigglefuzz, Badlands"
+     ],
+     [
+      "Solution to Doom",
+      "Theldurin the Lost, Badlands"
+     ]
+    ]
+   }
+  },
+  "razorfen downs": {
+   "q": {
+    "A": [
+     [
+      "The Coldbringer's Eye",
+      "Archmage Lan'dalock, Alterac Mountains"
+     ],
+     [
+      "Bring the Light",
+      "Archbishop Benedictus, Stormwind City"
+     ]
+    ],
+    "H": [
+     [
+      "An Unholy Alliance",
+      "Varimathras, Undercity"
+     ],
+     [
+      "The Coldbringer's Eye",
+      "Sutara Plainstalker, Mulgore"
+     ],
+     [
+      "Bring the End",
+      "Andrew Brownell, Undercity"
+     ]
+    ],
+    "N": [
+     [
+      "A Host of Evil",
+      "Myriam Moonsinger, The Barrens"
+     ],
+     [
+      "Extinguishing the Idol",
+      "Belnistrasz, dentro il dungeon, dopo Scourge of the Downs"
+     ],
+     [
+      "Agamaggan's Blood",
+      "Kog'thug the Brave"
+     ]
+    ]
+   }
+  },
+  "krol'dok stronghold": {
+   "q": {
+    "A": [
+     [
+      "Key Ingredients",
+      "Alphonse Dumas, Riverglades"
+     ],
+     [
+      "Twilight Mementos",
+      "Sergeant Riftan, Riverglades"
+     ],
+     [
+      "Lingering Essence",
+      "Sergeant Riftan, Riverglades"
+     ],
+     [
+      "Curios of Curiosity",
+      "Ashe Amberhall, Riverglades"
+     ],
+     [
+      "Tome of Twilight",
+      "Ashe Amberhall, Riverglades"
+     ],
+     [
+      "Eye of Mugg",
+      "Demar Brant, Riverglades"
+     ],
+     [
+      "Vengeance of the Highborne",
+      "Ranath Nightstride, Alterac Mountains"
+     ]
+    ],
+    "H": [
+     [
+      "Key Ingredients",
+      "Kreza Darkthorn, Riverglades"
+     ],
+     [
+      "A Token of Vengeance",
+      "Da'grosh"
+     ],
+     [
+      "Tome of Twilight",
+      "Tran'gul, Riverglades"
+     ],
+     [
+      "Eye of Mugg",
+      "Krom'rosh, Riverglades"
+     ]
+    ]
+   }
+  },
+  "zul'farrak": {
+   "q": {
+    "A": [
+     [
+      "The Witch Doctor's Head",
+      "Archmage Lan'dalock, Alterac Mountains"
+     ],
+     [
+      "Nekrum's Medallion",
+      "Thadius Grimshade, Blasted Lands, dopo Thadius Grimshade"
+     ]
+    ],
+    "H": [
+     [
+      "The Spider God",
+      "Master Gadrin, Durotar, dopo Consult Master Gadrin"
+     ],
+     [
+      "Zum'rah's Head",
+      "Mazu'kon, Mulgore"
+     ]
+    ],
+    "N": [
+     [
+      "Scarab Shells",
+      "Tran'rek, Tanaris, dopo Tran'rek"
+     ],
+     [
+      "Troll Temper",
+      "Trenton Lighthammer, Tanaris"
+     ],
+     [
+      "Tiara of the Deep",
+      "Tabetha, Dustwallow Marsh"
+     ],
+     [
+      "Tabetha's Task",
+      "Ursyn Ghull, Thunder Bluff"
+     ],
+     [
+      "Divino-matic Rod",
+      "Chief Engineer Bilgewhizzle, Tanaris"
+     ],
+     [
+      "The Prophecy of Mosh'aru",
+      "Yeh'kinya, Tanaris, dopo Screecher Spirits"
+     ],
+     [
+      "Gahz'rilla",
+      "Wizzle Brassbolts, Thousand Needles"
+     ]
+    ]
+   }
+  },
+  "maraudon": {
+   "q": {
+    "A": [
+     [
+      "Shadowshard Fragments",
+      "Archmage Tervosh, Dustwallow Marsh"
+     ],
+     [
+      "Vyletongue Corruption",
+      "Talendria, Desolace"
+     ],
+     [
+      "Corruption of Earth and Seed",
+      "Keeper Marandis, Desolace"
+     ]
+    ],
+    "H": [
+     [
+      "Shadowshard Fragments",
+      "Uthel'nay, Orgrimmar"
+     ],
+     [
+      "Vyletongue Corruption",
+      "Vark Battlescar, Desolace"
+     ],
+     [
+      "Corruption of Earth and Seed",
+      "Selendra, Desolace"
+     ],
+     [
+      "An'she's Radiance",
+      "Olana Brighthoof, Mulgore"
+     ]
+    ],
+    "N": [
+     [
+      "Twisted Evils",
+      "Willow, Desolace"
+     ],
+     [
+      "The Pariah's Instructions",
+      "Centaur Pariah, Desolace"
+     ],
+     [
+      "The Scepter of Celebras",
+      "Celebras the Redeemed, dopo Legends of Maraudon"
+     ],
+     [
+      "Rot and Regret",
+      "Woodwyrd"
+     ],
+     [
+      "Seed of Life",
+      "Zaetar's Spirit"
+     ]
+    ]
+   }
+  },
+  "alcaz prison": {
+   "q": {
+    "A": [
+     [
+      "The Secret Prison",
+      "Sully McCleary"
+     ],
+     [
+      "A Bit of Wet Work",
+      "Sully McCleary"
+     ],
+     [
+      "The Dragon's Journal",
+      "Archmage Lan'dalock, Alterac Mountains"
+     ]
+    ],
+    "H": [
+     [
+      "No Orc Left Behind",
+      "Sergeant Ulka"
+     ],
+     [
+      "A Little Payback",
+      "Sergeant Ulka"
+     ],
+     [
+      "Blood Red Bandanas",
+      "Sergeant Ulka"
+     ],
+     [
+      "State Secrets",
+      "Nazgrel, Orgrimmar"
+     ]
+    ],
+    "N": [
+     [
+      "State Secrets",
+      "Rix Xizzix, Stranglethorn Vale"
+     ]
+    ]
+   }
+  },
+  "temple of atal'hakkar": {
+   "q": {
+    "A": [
+     [
+      "Into The Temple of Atal'Hakkar",
+      "Brohann Caskbelly, Stormwind City, dopo Rhapsody's Tale"
+     ]
+    ],
+    "H": [
+     [
+      "The Temple of Atal'Hakkar",
+      "Fel'zerul, Swamp of Sorrows, dopo Return to Fel'Zerul"
+     ],
+     [
+      "The Sunken Temple",
+      "Witch Doctor Uzer'i, Feralas"
+     ]
+    ],
+    "N": [
+     [
+      "Into the Depths",
+      "Marvon Rivetseeker, Tanaris, dopo The Stone Circle"
+     ],
+     [
+      "Secret of the Circle",
+      "Marvon Rivetseeker, Tanaris, dopo The Stone Circle"
+     ],
+     [
+      "Jammal'an the Prophet",
+      "Atal'ai Exile, The Hinterlands"
+     ],
+     [
+      "The God Hakkar",
+      "Yeh'kinya, Tanaris, dopo The Ancient Egg"
+     ]
+    ]
+   }
+  },
+  "blackrock depths": {
+   "q": {
+    "A": [
+     [
+      "Abandoned Hope",
+      "Marshal Windsor, dentro il dungeon, dopo Marshal Windsor"
+     ],
+     [
+      "Hurley Blackbreath",
+      "Ragnar Thunderbrew, Dun Morogh, dopo Ragnar Thunderbrew"
+     ],
+     [
+      "Incendius!",
+      "Jalinda Sprig, Burning Steppes, dopo Overmaster Pyron"
+     ],
+     [
+      "The Good Stuff",
+      "Oralius, Burning Steppes"
+     ],
+     [
+      "Jail Break!",
+      "Marshal Windsor, dentro il dungeon, dopo A Shred of Hope"
+     ],
+     [
+      "Kharan's Tale",
+      "Kharan Mighthammer, dentro il dungeon"
+     ],
+     [
+      "The Princess's Surprise",
+      "Princess Moira Bronzebeard, dentro il dungeon, dopo The Fate of the Kingdom"
+     ]
+    ],
+    "H": [
+     [
+      "Commander Gor'shak",
+      "Galamav the Marksman, Badlands, dopo Disharmony of Flame"
+     ],
+     [
+      "The Last Element",
+      "Shadowmage Vivian Lagrave, Badlands"
+     ],
+     [
+      "Lost Thunderbrew Recipe",
+      "Shadowmage Vivian Lagrave, Badlands, dopo Vivian Lagrave"
+     ],
+     [
+      "Fragment of the Firelands",
+      "Alaana Stormwalker, Mulgore"
+     ],
+     [
+      "Disharmony of Fire",
+      "Thunderheart, Badlands, dopo Disharmony of Flame"
+     ],
+     [
+      "The Rise of the Machines",
+      "Lotwil Veriatus, Badlands"
+     ],
+     [
+      "Operation: Death to Angerforge",
+      "Warlord Goretooth, Badlands, dopo Precarious Predicament"
+     ],
+     [
+      "The Princess Saved?",
+      "Princess Moira Bronzebeard, dentro il dungeon, dopo The Royal Rescue"
+     ]
+    ],
+    "N": [
+     [
+      "Dark Iron Legacy",
+      "Franclorn Forgewright"
+     ],
+     [
+      "Ribbly Screwspigot",
+      "Yuka Screwspigot, Burning Steppes, dopo Yuka Screwspigot"
+     ],
+     [
+      "The Love Potion",
+      "Mistress Nagmara, dentro il dungeon"
+     ],
+     [
+      "The Heart of the Mountain",
+      "Maxwort Uberglint, Burning Steppes"
+     ],
+     [
+      "A Taste of Flame",
+      "Cyrus Therepentous, Burning Steppes"
+     ]
+    ]
+   }
+  },
+  "blackrock spire": {
+   "q": {
+    "A": [
+     [
+      "Put Her Down",
+      "Helendis Riverhorn, Burning Steppes"
+     ],
+     [
+      "Delivery to Ridgewell",
+      "Mayara Brightwing, Burning Steppes, dopo Doomrigger's Clasp"
+     ],
+     [
+      "Maxwell's Mission",
+      "Marshal Maxwell, Burning Steppes, dopo Message to Maxwell"
+     ],
+     [
+      "General Drakkisath's Demise",
+      "Marshal Maxwell, Burning Steppes, dopo General Drakkisath's Command"
+     ],
+     [
+      "Drakefire Amulet",
+      "Haleh, Winterspring, dopo The Dragon's Eye"
+     ]
+    ],
+    "H": [
+     [
+      "The Pack Mistress",
+      "Galamav the Marksman, Badlands"
+     ],
+     [
+      "Bijou's Reconnaissance Report",
+      "Bijou, dentro il dungeon, dopo Bijou's Belongings"
+     ],
+     [
+      "The Darkstone Tablet",
+      "Shadowmage Vivian Lagrave, Badlands, dopo Vivian Lagrave and the Darkstone Tablet"
+     ],
+     [
+      "Warlord's Command",
+      "Warlord Goretooth, Badlands"
+     ],
+     [
+      "For The Horde!",
+      "Thrall, Orgrimmar, dopo Eitrigg's Wisdom"
+     ],
+     [
+      "Oculus Illusions",
+      "Myranda the Hag, Western Plaguelands, dopo The Testament of Rexxar"
+     ],
+     [
+      "Blood of the Black Dragon Champion",
+      "Rexxar, Feralas, dopo Ascension..."
+     ],
+     [
+      "Blood and Thunder",
+      "Warlord Goretooth, Badlands"
+     ]
+    ],
+    "N": [
+     [
+      "The Final Tablets",
+      "Prospector Ironboot, Tanaris, dopo The Lost Tablets of Mosh'aru"
+     ],
+     [
+      "Kibler's Exotic Pets",
+      "Kibler, Burning Steppes"
+     ],
+     [
+      "En-Ay-Es-Tee-Why",
+      "Kibler, Burning Steppes"
+     ],
+     [
+      "Egg Collection",
+      "Tinkee Steamboil, Burning Steppes, dopo Egg Freezing"
+     ],
+     [
+      "Seal of Ascension",
+      "Vaelan"
+     ],
+     [
+      "Mother's Milk",
+      "Ragged John, Burning Steppes"
+     ],
+     [
+      "Urok Doomhowl",
+      "Warosh, dentro il dungeon"
+     ],
+     [
+      "Tinkee Steamboil",
+      "Felnok Steelspring, Winterspring, dopo Return to Tinkee"
+     ],
+     [
+      "Finkle Einhorn, At Your Service!",
+      "Finkle Einhorn"
+     ],
+     [
+      "The Demon Forge",
+      "Lorax, Winterspring, dopo Lorax's Tale"
+     ],
+     [
+      "The Matron Protectorate",
+      "Awbee, dentro il dungeon"
+     ]
+    ]
+   }
+  },
+  "blackmaw hold": {
+   "q": {
+    "A": [
+     [
+      "Get to the Roots of It",
+      "Mathrengyl Bearwalker, Darnassus"
+     ],
+     [
+      "Blackmaw Magic",
+      "Archmage Timear, Alterac Mountains"
+     ]
+    ],
+    "H": [
+     [
+      "Get to the Roots of It",
+      "Nara Wildmane, Thunder Bluff"
+     ],
+     [
+      "Blackmaw Magic",
+      "Muln Earthfury, Mulgore"
+     ]
+    ],
+    "N": [
+     [
+      "Claws That Rend, Tusks that Gore",
+      "Ogtinc, Azshara"
+     ],
+     [
+      "Blackmaw Pouches",
+      "Ekkal"
+     ]
+    ]
+   }
+  },
+  "dire maul": {
+   "q": {
+    "A": [
+     [
+      "Lethtendris's Web",
+      "Latronicus Moonspear, Feralas, dopo Feathermoon Stronghold"
+     ],
+     [
+      "Elven Legends",
+      "Scholar Runethorn, Feralas"
+     ]
+    ],
+    "H": [
+     [
+      "Lethtendris's Web",
+      "Talo Thornhoof, Feralas, dopo Camp Mojache"
+     ],
+     [
+      "Elven Legends",
+      "Sage Korolusk, Feralas"
+     ]
+    ],
+    "N": [
+     [
+      "The Gordok Ogre Suit",
+      "Knot Thimblejack, dentro il dungeon"
+     ],
+     [
+      "Free Knot!",
+      "Knot Thimblejack, dentro il dungeon"
+     ],
+     [
+      "The Gordok Taste Test",
+      "Stomper Kreeg, dentro il dungeon"
+     ],
+     [
+      "Unfinished Gordok Business",
+      "Captain Kromcrush, dentro il dungeon"
+     ],
+     [
+      "The Instigator's Enchantment",
+      "Falrin Treeshaper, dentro il dungeon, dopo Falrin's Vendetta"
+     ],
+     [
+      "The Treasure of the Shen'dralar",
+      "Shen'dralar Ancient, dentro il dungeon, dopo The Madness Within"
+     ]
+    ]
+   }
+  },
+  "scholomance": {
+   "q": {
+    "A": [
+     [
+      "Barov Family Fortune",
+      "Weldon Barov, Western Plaguelands"
+     ]
+    ],
+    "H": [
+     [
+      "Barov Family Fortune",
+      "Alexi Barov, Tirisfal Glades"
+     ]
+    ],
+    "N": [
+     [
+      "Plagued Hatchlings",
+      "Betina Bigglezink, Eastern Plaguelands"
+     ],
+     [
+      "Dawn's Gambit",
+      "Betina Bigglezink, Eastern Plaguelands, dopo Betina Bigglezink"
+     ],
+     [
+      "Kirtonos the Herald",
+      "Eva Sarkhoff, Western Plaguelands, dopo Krastinov's Bag of Horrors"
+     ],
+     [
+      "The Lich, Ras Frostwhisper",
+      "Magistrate Marduke, Western Plaguelands, dopo Soulbound Keepsake"
+     ]
+    ]
+   }
+  },
+  "stratholme": {
+   "q": {
+    "H": [
+     [
+      "Ramstein",
+      "Nathanos Blightcaller, Eastern Plaguelands, dopo Duskwing, Oh How I Hate Thee..."
+     ]
+    ],
+    "N": [
+     [
+      "Aurius' Reckoning",
+      "Aurius, dentro il dungeon, dopo The Medallion of Faith"
+     ],
+     [
+      "The Active Agent",
+      "Betina Bigglezink, Eastern Plaguelands, dopo The Flesh Does Not Lie"
+     ],
+     [
+      "The Great Fras Siabi",
+      "Smokey LaRue, Eastern Plaguelands"
+     ],
+     [
+      "Houses of the Holy",
+      "Leonid Barthalomew the Revered, Eastern Plaguelands"
+     ],
+     [
+      "The Archivist",
+      "Duke Nicholas Zverenhoff, Eastern Plaguelands"
+     ],
+     [
+      "Above and Beyond",
+      "Duke Nicholas Zverenhoff, Eastern Plaguelands, dopo The Truth Comes Crashing Down"
+     ],
+     [
+      "The Restless Souls",
+      "Egan, Eastern Plaguelands"
+     ],
+     [
+      "Menethil's Gift",
+      "Leonid Barthalomew the Revered, Eastern Plaguelands, dopo The Dying, Ras Frostwhisper"
+     ],
+     [
+      "Of Love and Family",
+      "Artist Renfray, Western Plaguelands"
+     ],
+     [
+      "Proof of Life",
+      "Ysida Harmon, dopo Dead Man's Plea"
+     ]
+    ]
+   }
   }
  },
  "sources": [

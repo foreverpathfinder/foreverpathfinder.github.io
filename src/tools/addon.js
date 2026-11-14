@@ -167,6 +167,10 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  // trainer delle profession (mappa del sito): { NPC, continente, x, y, fazione 0/1/2, ap = insegna solo Apprentice }
  const AP=new Set(all.it._prof.list.flatMap(p=>p.ap)),PTR={};for(const [k,c] of Object.entries(WM))for(const [pk,a] of Object.entries(c.prof||{}))for(const t of a)(PTR[pk]=PTR[pk]||[]).push('{ '+lua(clean(t[0]))+', '+lua(CONT[k])+', '+(t[2]/c.w).toFixed(4)+', '+(t[3]/c.h).toFixed(4)+', '+(t[1]||0)+zf(zoneAt(k,t[2],t[3]))+(AP.has(t[0])?', ap = true':'')+' }');
  s+='}\nForeverPathfinderProfTrainers = {\n'+Object.entries(PTR).map(([pk,a])=>'  ['+lua(pk)+'] = { '+a.join(', ')+' },').join('\n')+'\n';
+ // zone consigliate (1.9, data/zones.json): z = segnaposto della zona { continente, x, y, nome, lv = livelli, z = mappa del gioco };
+ // rec = per razza, per livello, "indice:quest adatte,…" (indici da 1, come in Lua)
+ {const ZR=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/zones.json'),'utf8'));
+  s+='}\nForeverPathfinderZones = {\n z = {\n'+ZR.zones.map(z=>{const c=WM[z[2]];return '  { '+lua(CONT[z[2]])+', '+(z[3]/c.w).toFixed(4)+', '+(z[4]/c.h).toFixed(4)+', '+lua(z[0])+', lv = '+lua(z[1])+zf(zoneAt(z[2],z[3],z[4]))+' },'}).join('\n')+'\n },\n rec = {\n'+Object.entries(ZR.rec).map(([r,a])=>'  '+r+' = { '+a.map(l=>lua(l.map(x=>(x[0]+1)+':'+x[1]).join(','))).join(', ')+' },').join('\n')+'\n },\n';}
  // ingressi dei dungeon (icone della mappa del sito): { nome, continente, x, y } per il pulsante Mappa della scheda Dungeon
  s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+' },'}).filter(Boolean).join('\n')+'\n';
  // zone del gioco (uiMapID e rettangolo 0–1 sul continente del sito, da uimaps.json): l'addon ci converte i segnaposti, perché
