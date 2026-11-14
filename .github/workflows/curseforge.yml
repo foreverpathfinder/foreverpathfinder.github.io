@@ -1,6 +1,7 @@
 # Carica ForeverPathfinder.zip (già costruito e committato) su CurseForge quando cambia la versione nel .toc, o a mano
 # (Actions → CurseForge → Run workflow). Serve il secret FOREVER_PATHFINDER (token API di CurseForge) (https://authors.curseforge.com/#/settings/api-tokens).
 # Changelog: addon/changelog.md (le note della versione nuova, in inglese). Un tag cf/v<versione> evita di caricare due volte.
+# Tipo di file: beta (richiesta dell'utente del 14 nov: su CurseForge si carica in beta, non in release).
 name: CurseForge
 on:
   push:
@@ -33,7 +34,7 @@ jobs:
           GV=$(curl -sf -H "X-Api-Token: $CF_API_TOKEN" https://wow.curseforge.com/api/game/versions | jq -c --arg n "$GAME_VERSION" '[.[] | select(.name == $n) | .id][:1]')
           [ "$GV" != "[]" ] || { echo "::error::CurseForge non conosce la versione di gioco $GAME_VERSION"; exit 1; }
           jq -n --arg v "$VER" --rawfile c addon/changelog.md --argjson gv "$GV" '{
-            displayName: ("Forever Pathfinder " + $v), changelog: $c, changelogType: "markdown", releaseType: "release", gameVersions: $gv,
+            displayName: ("Forever Pathfinder " + $v), changelog: $c, changelogType: "markdown", releaseType: "beta", gameVersions: $gv,
             relations: { projects: [
               { slug: "questie", type: "requiredDependency" },
               { slug: "maputils", type: "optionalDependency" },
