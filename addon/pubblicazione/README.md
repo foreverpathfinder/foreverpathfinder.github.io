@@ -35,7 +35,7 @@ Immagini dell'addon vero, fatte con `PVSCALE=2 PVBG=#14181d node src/tools/addon
 | `gioco-mappa.webp` | World map: the stage waypoints (from the game, Nov 5) |
 | `gioco-minimappa.webp` | Minimap icon (from the game, Nov 5) |
 
-Le vecchie `gioco-percorso`, `gioco-talenti`, `gioco-dungeon`, `gioco-opzioni` (grafica di prima della 1.10) sono state tolte dalla galleria il 14 nov. Ordine rimasto: mappa e minimappa per prime (il riordino della pagina dell'autore non risponde al trascinamento automatico: va fatto a mano).
+Le vecchie `gioco-percorso`, `gioco-talenti`, `gioco-dungeon`, `gioco-opzioni` (grafica di prima della 1.10) sono state tolte dalla galleria il 14 nov. Ordine sistemato il 14 nov: le 7 nuove, poi minimappa e mappa. Il riordino (Media → Reorder gallery, griglia di 3 colonne) non risponde al trascinamento automatico ma alla tastiera: fuoco sull'immagine (li draggable), Spazio, frecce (sinistra/destra dentro la riga, giù/su tra le righe), Spazio, poi Done.
 
 ## Descrizione (Markdown)
 
