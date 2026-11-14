@@ -106,6 +106,8 @@ Chiavi razza: `human dwarf gnome nightelf skyborne_a orc undead troll tauren sky
 - In JS di pagina non chiamare variabili globali `top`, `name`, `status` (proprietà di `window`).
 - Le regole CSS con `#id` vincono su quelle con classe: lo schermo intero della mappa nella scheda Percorso ha richiesto `#miniHost .lwrap.full #lmap`.
 - GitHub ogni tanto risponde 500 al push: riprova.
+- **Lua 5.1 del gioco contro Lua 5.3 delle prove (fengari)**: nel gioco ipairs/pairs su un testo danno errore, in fengari passano in silenzio. Il 14 nov la 1.10.1 nel gioco fermava il disegno del Percorso alla prima voce lunga (pairs su tutto ForeverPathfinderDungeons, dove glossary è un testo). Da allora addon-test.lua rende ipairs e pairs severi come nel gioco; con dati misti controlla sempre type(x) == "table".
+- **Caratteri dell'addon**: Barlow non ha ★ ✔ ↗ ■ e simili (nel gioco escono quadrati vuoti). Controlla i simboli con uno script sulla tabella cmap prima di usarli; per il nuovo in Forever si usa il pallino • verderame.
 - In Bash non mettere `cat > /dev/null` prima di un heredoc: resta in attesa per sempre.
 - Riscrivere un JSON con `JSON.stringify(o,null,1)` va bene per classi, fazioni, talenti ed en.json, **non** per `common.json` (ha un formato suo): lì modifiche a mano.
 

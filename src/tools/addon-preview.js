@@ -10,7 +10,7 @@ const LANG=process.argv[2]||'itIT',ONLY=process.argv[3]&&process.argv[3]!=='tutt
 const LUA=fs.readFileSync(__dirname+'/addon-preview.lua','utf8');
 function run(meas){
  const L=lauxlib.luaL_newstate();lualib.luaL_openlibs(L);
- for(const [k,v] of Object.entries({DIR:ADDON,LOCALE:LANG,MEAS:JSON.stringify(meas),ONLY:ONLY||''})){lua.lua_pushstring(L,to_luastring(v));lua.lua_setglobal(L,to_luastring(k))}
+ for(const [k,v] of Object.entries({DIR:ADDON,LOCALE:LANG,MEAS:JSON.stringify(meas),ONLY:ONLY||'',PV:process.env.PV||''})){lua.lua_pushstring(L,to_luastring(v));lua.lua_setglobal(L,to_luastring(k))}
  if(lauxlib.luaL_loadstring(L,to_luastring(LUA))||lua.lua_pcall(L,0,0,0)){console.log(lua.lua_tojsstring(L,-1));process.exit(1)}
  lua.lua_getglobal(L,to_luastring('OUT'));return JSON.parse(lua.lua_tojsstring(L,-1))}
 const FONT=n=>'data:font/ttf;base64,'+fs.readFileSync(ADDON+'/Fonts/'+n).toString('base64');

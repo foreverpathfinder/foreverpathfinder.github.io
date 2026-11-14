@@ -67,10 +67,12 @@ GameTooltip, BackdropTemplateMixin, SlashCmdList, UISpecialFrames = new("Frame")
 tinsert, unpack = table.insert, unpack or table.unpack
 GetCursorPosition = function() return 0, 0 end
 GetLocale = function() return LOCALE end
-UnitRace = function() return "Human", "Human" end
-UnitClass = function() return "Warrior", "WARRIOR" end
+-- personaggio dell'anteprima: Human Warrior al 18, o PV="Gnome,MAGE,35" (razza del gioco, classe, livello)
+local PVR, PVC, PVL = (PV or ""):match("^(%a+),(%a+),(%d+)$")
+UnitRace = function() return PVR or "Human", PVR or "Human" end
+UnitClass = function() return PVC or "Warrior", PVC or "WARRIOR" end
 UnitFactionGroup = function() return "Alliance" end
-UnitLevel = function() return 18 end
+UnitLevel = function() return tonumber(PVL) or 18 end
 -- profession del personaggio (1.7): Blacksmithing 85/150, Mining 120/150; materiali nelle borse
 GetProfessions = function() return 1, 2 end
 GetProfessionInfo = function(i) if i == 1 then return "Blacksmithing", "", 85, 150 elseif i == 2 then return "Mining", "", 120, 150 end end
