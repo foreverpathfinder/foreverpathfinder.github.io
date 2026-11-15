@@ -557,7 +557,7 @@
    "text": "Dal 20 puoi usare il Succubus (più danno ma non tiene threat: prendi tu i colpi). Con Grim Reach, Improved Drains e Fel Concentration (19–29) usa Drain Life quando serve vita; altrimenti Wand. Regola di Warcraft Tavern: più Health che Mana → Life Tap; più Mana che Health → Drain Life. Shadow Bolt solo col proc Nightfall."
   },
   {
-   "title": "30+ · Drain tanking",
+   "title": "30–39 · Drain tanking",
    "seq": [
     [
      "spell_shadow_summonsuccubus",
@@ -580,7 +580,41 @@
      "Drain Life"
     ]
    ],
-   "text": "Dal 30 Drain Life Rank 3 + Soul Siphon (+12% per DoT sul bersaglio) rendono il Drain il filler: DoT, poi Drain Life fino alla morte; Wand solo a vita piena o mob quasi morto. Siphon Life dal 30; dal 40 Wrack dopo i DoT è il filler (Crix)."
+   "text": "Dal 30 Drain Life Rank 3 + Soul Siphon (+12% per DoT sul bersaglio) rendono il Drain il filler: DoT, poi Drain Life fino alla morte; Wand solo a vita piena o mob quasi morto. Siphon Life dal 30. Il Drain diventa davvero forte con il Rank 4 al 38: prima la Wand fa ancora buon danno (Crix)."
+  },
+  {
+   "title": "40+ · Wrack come filler",
+   "seq": [
+    [
+     "spell_shadow_summonsuccubus",
+     "Pet attack"
+    ],
+    [
+     "spell_shadow_curseofsargeras",
+     "Bane of Agony"
+    ],
+    [
+     "spell_shadow_abominationexplosion",
+     "Corruption"
+    ],
+    [
+     "spell_shadow_requiem",
+     "Siphon Life"
+    ],
+    [
+     "warlock_curse_shadow",
+     "Curse of the Elements"
+    ],
+    [
+     "ability_deathknight_hemorrhagicfever",
+     "Wrack"
+    ],
+    [
+     "spell_shadow_lifedrain02",
+     "Drain Life (vita)"
+    ]
+   ],
+   "text": "Manda il demone e lascialo colpire per primo (la Succubus fa più danno). Amplify Curse se l'hai preso, poi Bane of Agony, Corruption, Siphon Life e Curse of the Elements se il mob non muore subito (fino a +10% di danni magici). <b>Wrack</b> è il filler: fa molto danno e intanto i tuoi DoT fanno danno il doppio più in fretta. Drain Life quando ti serve vita in fretta. Nightfall si attiva spesso (Corruption, Wrack, Drain Life): spendi subito lo Shadow Bolt istantaneo. Al 60 Shadowburn a cooldown (costa una Soul Shard); Drain Soul per finire se ti servono Soul Shard. Mentre i DoT finiscono un mob, inizia già il prossimo (Mobalytics – Crix, 14 nov)."
   },
   {
    "title": "Pull multipli",

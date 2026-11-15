@@ -367,6 +367,12 @@
    "★ 🟡 (KamiLabs 26 set, non in Tavern/Method): +15% a tutto il danno per 6 s, DoT inclusi; livello da verificare."
   ],
   [
+   24,
+   "Ferocious Bite",
+   "ability_druid_ferociousbite",
+   "Finisher da Cat; con Predatory Discipline fa danno extra sull'Energy in eccesso."
+  ],
+  [
    26,
    "Dash",
    "ability_druid_dash",
@@ -401,12 +407,6 @@
    "Tranquility",
    "spell_nature_tranquility",
    "Heal di gruppo in channel."
-  ],
-  [
-   32,
-   "Ferocious Bite",
-   "ability_druid_ferociousbite",
-   "Finisher da Cat; con Predatory Discipline fa danno extra sull'Energy in eccesso."
   ],
   [
    32,
@@ -561,7 +561,7 @@
    "text": "Prima del pull curati (Rejuvenation, Regrowth, Healing Touch), poi Wrath x2 + Moonfire da lontano e Bear Form quando il mob arriva (Method). Enrage per Rage subito, Demoralizing Roar solo su mob fisici, Maul su singolo, Swipe (16) su 2+ mob. Feral Charge arriva solo al 20 sulla build client (games.gg la anticipava: obsoleto). Non pullare più di 2 mob."
   },
   {
-   "title": "20–30 · Cat Form",
+   "title": "20–29 · Cat Form",
    "seq": [
     [
      "ability_ambush",
@@ -580,14 +580,14 @@
      "Claw"
     ],
     [
-     "ability_ghoulfrenzy",
-     "Rip (4–5 CP)"
+     "ability_druid_ferociousbite",
+     "Ferocious Bite (24, 5 CP)"
     ]
    ],
-   "text": "Rejuvenation prima del pull, aspetta qualche secondo in Cat Form per riempire l'Energy. Prowl, poi Feral Charge dietro al mob o Shred da dietro; Faerie Fire per tirare da lontano; Rake se il mob vive più di ~6 s; Shred (Claw se non sei dietro) per i Combo Point; Rip solo se il mob vive ancora 10 s, altrimenti continua con Claw/Shred. Dal 24 Tiger's Fury 🟡. Dash per spostarti. Non servono finisher sui mob che muoiono in 3 colpi. Fonti: Tavern, Method, games.gg."
+   "text": "Rejuvenation prima del pull, aspetta qualche secondo in Cat Form per riempire l'Energy. Prowl, poi Feral Charge dietro al mob o Shred da dietro; Faerie Fire per tirare da lontano; Rake se il mob vive più di ~6 s; Shred (Claw se non sei dietro) per i Combo Point; Dal 24 Ferocious Bite a 5 Combo Point con l'Energy piena (Mobalytics); Rip solo se il mob vive ancora 10 s. Dal 24 Tiger's Fury 🟡. Dash per spostarti. Non servono finisher sui mob che muoiono in 3 colpi. Fonti: Tavern, Method, games.gg."
   },
   {
-   "title": "30–60 · Cat evoluto",
+   "title": "30–39 · Cat evoluto",
    "seq": [
     [
      "ability_ambush",
@@ -610,7 +610,41 @@
      "Ferocious Bite (5 CP)"
     ]
    ],
-   "text": "Ravage (32) o Pounce (36) da Prowl, Faerie Fire, Rake, Shred/Claw fino a 5 Combo Point, Ferocious Bite (con Predatory Discipline). Al 41 Shifting Power appena sotto 50 Energy. Dal 40 Dire Bear Form per i dungeon e per più mob (Method)."
+   "text": "Ravage (32) o Pounce (36) da Prowl, Faerie Fire, Rake, Shred/Claw fino a 5 Combo Point, Ferocious Bite (con Predatory Discipline)."
+  },
+  {
+   "title": "40–60 · Rotazione completa",
+   "seq": [
+    [
+     "ability_ambush",
+     "Prowl"
+    ],
+    [
+     "ability_druid_ravage",
+     "Ravage"
+    ],
+    [
+     "spell_nature_faeriefire",
+     "Faerie Fire"
+    ],
+    [
+     "ability_druid_disembowel",
+     "Rake"
+    ],
+    [
+     "spell_druid_displacement",
+     "Shifting Power"
+    ],
+    [
+     "ability_druid_rake",
+     "Claw"
+    ],
+    [
+     "ability_druid_ferociousbite",
+     "Ferocious Bite (5 CP)"
+    ]
+   ],
+   "text": "Prowl dietro al mob, Ravage, Faerie Fire, Rake, Shifting Power (40: trasforma il Mana in 40 Energy), Claw fino a 5 Combo Point; a 5 punti aspetta l'Energy piena e usa Ferocious Bite, anche prima se finisce il mob. Shifting Power una volta per mob, così a fine combattimento il Mana si rigenera. Thorns e Mark of the Wild sempre attivi (Mobalytics – yumytv, 14 nov). Dal 40 Dire Bear Form per i dungeon e per più mob (Method)."
   },
   {
    "title": "AoE / pull multipli",

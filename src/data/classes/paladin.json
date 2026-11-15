@@ -525,7 +525,7 @@
    "text": "Con Benediction il mana dura di più. Ordine: Seal → Judgement → Holy Strike a cooldown, auto-attack nel mezzo. Retribution Aura dal 16. Lay on Hands (10) e Divine Protection (6) sono le emergenze; Redemption (12) per i compagni. Da soli lascia spento Righteous Fury: è solo threat."
   },
   {
-   "title": "22–30 · Seal of Command e Consecration",
+   "title": "22–39 · Seal of Command e Consecration",
    "seq": [
     [
      "spell_holy_holysmite",
@@ -549,6 +549,32 @@
     ]
    ],
    "text": "Con una Two-Handed lenta (3,3 s o più per Mobalytics e Maxroll): sui mob duri apri con Seal of the Crusader → Judgement → Seal of Command; sui mob facili solo Seal of Command. Judgement e Holy Strike a cooldown, anche in un macro. Con Sacred Arbiter (26) Holy Strike rinfresca anche i Judgement. Exorcism solo su Undead e Demon. Con una Two-Handed veloce, una 1H o molta spell power resta su Seal of Righteousness (Warcraft Tavern, Maxroll)."
+  },
+  {
+   "title": "40+ · Unsealed Wrath",
+   "seq": [
+    [
+     "spell_holy_holysmite",
+     "Seal of the Crusader (mob duri)"
+    ],
+    [
+     "spell_holy_righteousfury",
+     "Judgement"
+    ],
+    [
+     "ability_warrior_innerrage",
+     "Seal of Command"
+    ],
+    [
+     "spell_holy_blessedresillience",
+     "Unsealed Wrath ×3"
+    ],
+    [
+     "ability_thunderbolt",
+     "Seal of Righteousness + colpo"
+    ]
+   ],
+   "text": "Retribution Aura e Blessing of Wisdom sempre attivi. Sui mob che vivono 20 s o più: Seal of the Crusader → Judgement, poi Seal of Command. Judgement e Holy Strike a cooldown, Exorcism su Undead e Demon, Consecration con 3 o più mob. ★ Unsealed Wrath (40) conserva una copia del Seal a ogni colpo, fino a 3: a 3 cariche passa a Seal of Righteousness e colpisci, così ognuna delle 3 copie di Seal of Command ha la sua probabilità di attivarsi; poi torna a Seal of Command. Se il mob è quasi morto resta su Righteousness e finiscilo con l'auto-attack: così parte la rigenerazione del Mana (Mobalytics – yumytv, 12 nov)."
   },
   {
    "title": "AoE / pull multipli",

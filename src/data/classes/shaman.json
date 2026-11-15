@@ -429,7 +429,7 @@
    25,
    "Stormstrike",
    "ability_shaman_stormstrike",
-   "Instant, melee, 6 s di cooldown, costo 8% del Mana base: +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock per 12 s."
+   "Instant, melee, 8 s di cooldown, costo 8% del Mana base: +20% al prossimo Lightning Bolt/Chain Lightning/Earth Shock per 12 s."
   ],
   [
    27,
@@ -534,7 +534,7 @@
    "text": "Shamanistic Focus (20) taglia del 45% il costo di Shock e Lightning Shield: ora puoi usare gli shock a ripetizione. Frost Shock per rallentare mob che scappano; Earth Shock per interrompere i cast. Ghost Wolf istantaneo per spostarti. Rockbiter Weapon Rank 4 al 24 (+194 AP, +20% con Elemental Weapons 3/3)."
   },
   {
-   "title": "25–30 · Stormstrike",
+   "title": "25–39 · Stormstrike",
    "seq": [
     [
      "ability_shaman_stormstrike",
@@ -554,6 +554,36 @@
     ]
    ],
    "text": "Stormstrike a ogni cooldown, poi Earth Shock (o Lightning Bolt) con il +20%. Mantieni Flame Shock e Searing Totem. Flurry (28–29) accelera i colpi dopo un crit. Al 30 passi a Windfury Weapon e a un 2H (Method); Improved Stormstrike dal 31 per il Mana."
+  },
+  {
+   "title": "40+ · Maelstrom Weapon e Rage of the Farseer",
+   "seq": [
+    [
+     "spell_shaman_dropall_01",
+     "Call of the Elements"
+    ],
+    [
+     "spell_fire_flameshock",
+     "Flame Shock"
+    ],
+    [
+     "spell_nature_bloodlust",
+     "Rage of the Farseer (51)"
+    ],
+    [
+     "ability_shaman_stormstrike",
+     "Stormstrike"
+    ],
+    [
+     "spell_nature_earthshock",
+     "Earth Shock"
+    ],
+    [
+     "spell_nature_lightning",
+     "Lightning Bolt (5 Maelstrom)"
+    ]
+   ],
+   "text": "Prima del pull: Windfury Weapon, Water Shield (dal 42, prima Lightning Shield) e i 4 totem con Call of the Elements (Searing, Strength of Earth, Mana Spring, Windfury). Flame Shock da lontano se il mob vive 12 s; Rage of the Farseer (51, +30% velocità d'attacco per 25 s) sui mob duri; Stormstrike, poi Earth Shock (Frost Shock se hai troppa threat); Lightning Bolt quando Maelstrom Weapon (46) arriva a 5 cariche: è istantaneo e gratis. Con il Mana basso o il mob sotto il 20% smetti di lanciare: dopo 5 s parte la rigenerazione piena. Più mob: Magma Totem (spostalo con Totemic Projection), Fire Nova a cooldown con 3 o più mob, Stormstrike sul mob con più vita, Flame Shock su più bersagli (Mobalytics – Tiqqle, 13 nov)."
   },
   {
    "title": "Pull multipli / AoE",

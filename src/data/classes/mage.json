@@ -339,6 +339,28 @@
    "text": "Con 1 talent point hai 1 charge: spendila con Ice Lance. Se Ice Lance è in cooldown, Frostbolt + Ice Lance appena torna. Con 2 talent point (31): Frostbolt sulla prima charge, Frostbolt + Ice Lance sulla seconda (Icy Veins)."
   },
   {
+   "title": "40+ · Ice Barrier e Missile Barrage",
+   "seq": [
+    [
+     "spell_ice_lament",
+     "Ice Barrier"
+    ],
+    [
+     "spell_frost_frostbolt02",
+     "Frostbolt"
+    ],
+    [
+     "spell_frost_frostblast",
+     "Ice Lance (proc)"
+    ],
+    [
+     "ability_mage_missilebarrage",
+     "Arcane Missiles (54)"
+    ]
+   ],
+   "text": "Tieni sempre <b>Ice Barrier</b> (40): finché regge lo scudo i tuoi danni Frost salgono del 15% più un altro 5%, e non perdi tempo di cast quando ti colpiscono (tooltip del gioco). Frostbolt a ripetizione. Se scatta Fingers of Frost interrompi il cast e spendilo con Ice Lance (il Frostbolt lo consumerebbe); con Frostbite, Ice Lance subito dopo il Frostbolt successivo, così arrivano insieme e sfruttano Shatter. Dal 54, quando si attiva Missile Barrage usa Arcane Missiles (gratis e più veloce). In movimento Fire Blast; senza Mana mana gem, potion o Evocation, poi Wand (Mobalytics – Asuna_qt)."
+  },
+  {
    "title": "AoE · 3+ mob",
    "seq": [
     [

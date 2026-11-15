@@ -493,6 +493,28 @@
    "text": "Con 2–4 mob: Sap per isolare, poi Blade Flurry + Evasion (con Endurance hanno entrambi 2 minuti di cooldown), concentra Sinister Strike sul mob più forte per salire a 5 Combo Point: l'Eviscerate colpisce anche il secondo bersaglio. Dal 40, Adrenaline Rush permette pull da 3–5 mob (Rogue's Diary). Sprint e Evasion si sincronizzano col Blade Flurry (Rogue's Diary)."
   },
   {
+   "title": "42+ · Slice and Dice Rank 2",
+   "seq": [
+    [
+     "ability_warrior_challange",
+     "Riposte"
+    ],
+    [
+     "ability_rogue_slicedice",
+     "Slice and Dice (2+ CP)"
+    ],
+    [
+     "ability_theblackarrow",
+     "Shank (<60 Energy)"
+    ],
+    [
+     "spell_shadow_ritualofsacrifice",
+     "Sinister Strike"
+    ]
+   ],
+   "text": "Al 42 Slice and Dice Rank 2 porta la velocità d'attacco dal 20% al 30% e diventa il finisher migliore: Riposte quando si attiva, Slice and Dice con 2 o più Combo Point per tenerlo sempre attivo, Shank sotto 60 di Energy, Sinister Strike come builder. Prima del 42 Eviscerate solo quando non c'è più spazio per un altro Sinister Strike. Kick sui cast, soprattutto cure e colpi forti (Mobalytics – Djexde, 12 nov)."
+  },
+  {
    "title": "Energy, Combo Point e downtime",
    "seq": [
     [

@@ -502,7 +502,7 @@
    "text": "Aimed Shot (cast 2 s) sul bersaglio singolo; Multi-Shot se i mob sono 2–3. Aimed Shot e Multi-Shot condividono 6 s: uno per ciclo; Arcane Shot ha il suo timer. Freezing Trap sul mob extra (10 s). Aspect of the Cheetah (20) per spostarti, ma torna su Hawk prima del pull."
   },
   {
-   "title": "25–30 · Summon Hawk, 2 hawk sempre su",
+   "title": "25–39 · Summon Hawk, 2 hawk sempre su",
    "seq": [
     [
      "ability_hunter_animalhandler",
@@ -526,6 +526,36 @@
     ]
    ],
    "text": "Dal 25 tieni 2 hawk e il Pet su ogni mob che vive più di pochi secondi (durano 18 s: non ricastare prima dell’ultimo secondo). Summon Hawk condivide 6 s con Arcane Shot: usa Arcane Shot ogni tre cast o a mob quasi morto (Method). Rapid Fire (26) sui pull difficili, Intimidation (30) se il mob gira verso di te, Feign Death (30) per resettare."
+  },
+  {
+   "title": "40+ · Bestial Wrath",
+   "seq": [
+    [
+     "ability_hunter_snipershot",
+     "Hunter's Mark"
+    ],
+    [
+     "ability_hunter_quickshot",
+     "Serpent Sting"
+    ],
+    [
+     "ability_hunter_animalhandler",
+     "Summon Hawk ×2"
+    ],
+    [
+     "inv_spear_07",
+     "Aimed Shot"
+    ],
+    [
+     "ability_druid_ferociousbite",
+     "Bestial Wrath (elite)"
+    ],
+    [
+     "ability_whirlwind",
+     "Auto Shot"
+    ]
+   ],
+   "text": "Hunter's Mark prima del pull e il Pet attacca per primo; poi Serpent Sting, 2 hawk con Summon Hawk, Aimed Shot a cooldown e Auto Shot. Bestial Wrath (40, +50% danni del Pet per 18 s) e Rapid Fire sugli elite e sui mob grossi; Intimidation se il mob gira verso di te, Disengage se prendi l'aggro. Con tanto Mana e 2 hawk attivi per altri 6 s: Arcane Shot (Icy Veins). Per salire più in fretta tieni 2 mob: Auto Shot su quello lontano, il Pet e Raptor Strike o Wing Clip su quello vicino, Multi-Shot quando sono attaccati (Mobalytics – Feor, 14 nov)."
   },
   {
    "title": "AoE · pull multipli",

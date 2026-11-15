@@ -447,7 +447,7 @@
    "text": "Dopo la class quest (10) passa a arma 1H + scudo. Apri con Charge in Battle Stance (stance dance, Tactical Mastery al 14 tiene fino a 10 Rage) oppure senza Charge in Defensive finché non hai Vanguard. Shield Block (16) → Revenge appena si attiva → Sunder Armor o Thunder Clap → Heroic Strike con Rage in eccesso. Con Shield Specialization ogni Block dà 5 Rage."
   },
   {
-   "title": "20–30 · Revenge + Victory Rush + Concussion Blow",
+   "title": "20–39 · Revenge + Victory Rush + Concussion Blow",
    "seq": [
     [
      "ability_warrior_charge",
@@ -474,7 +474,37 @@
      "Concussion Blow (30)"
     ]
    ],
-   "text": "Dal 25 (Vanguard) apri con Charge senza uscire da Defensive. Ciclo: Shield Block → Revenge → Sunder Armor/Thunder Clap → Heroic Strike. Appena un mob muore usa Victory Rush sul successivo (cura 10%). Execute (24) richiede Battle/Berserker Stance: in Protection di solito non vale il cambio di Stance (🟡 mia valutazione, nessuna fonte lo dice). Concussion Blow (30) come stun d'emergenza. Da 40: Shield Slam a ogni cooldown."
+   "text": "Dal 25 (Vanguard) apri con Charge senza uscire da Defensive. Ciclo: Shield Block → Revenge → Sunder Armor/Thunder Clap → Heroic Strike. Appena un mob muore usa Victory Rush sul successivo (cura 10%). Execute (24) richiede Battle/Berserker Stance: in Protection di solito non vale il cambio di Stance (🟡 mia valutazione, nessuna fonte lo dice). Concussion Blow (30) come stun d'emergenza."
+  },
+  {
+   "title": "40+ · Shield Slam",
+   "seq": [
+    [
+     "ability_defend",
+     "Shield Block"
+    ],
+    [
+     "ability_warrior_devastate",
+     "Victory Rush (<90%)"
+    ],
+    [
+     "ability_warrior_revenge",
+     "Revenge"
+    ],
+    [
+     "inv_shield_05",
+     "Shield Slam"
+    ],
+    [
+     "ability_warrior_warcry",
+     "Demoralizing Shout"
+    ],
+    [
+     "ability_rogue_ambush",
+     "Heroic Strike (60+ Rage)"
+    ]
+   ],
+   "text": "Resta in Defensive Stance (entrare in Defensive porta la Rage a 10: spendila prima) con Battle Shout attivo. Shield Block appena puoi: con Shield Specialization è quasi gratis e fa scattare Revenge. Victory Rush quando sei sotto il 90% di vita, Revenge appena c'è, Shield Slam a cooldown, Demoralizing Shout sempre sul mob, poi Rend e Thunder Clap. Heroic Strike solo sopra 60 di Rage. Berserker Rage prima del pull o contro un Fear (Mobalytics – Ahlaundoh, 13 nov)."
   },
   {
    "title": "AoE / pull multipli",
