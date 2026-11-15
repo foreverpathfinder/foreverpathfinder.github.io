@@ -77,6 +77,7 @@ local TT = {
     pMapT = "Trainer delle tue profession sulla mappa del mondo", pMapV = "Reagent vendor dei materiali delle tue profession sulla mappa del mondo (da Questie)",
     pCap = "%s %d/%d: impara %s prima di andare avanti (%s).", pCapT = "trainer: %s", pOfaTip = "Apre la ricetta in OneForAll (fonti, chi la conosce, skill-up)",
     pVendT = "Reagent vendor", pCamp = "Camping", pGold = "Gold",
+    pSells = "Vende: %s",
   },
   en = {
     level = "Lvl %d", stageWord = "STAGE", build = "Build: %s",
@@ -139,6 +140,7 @@ local TT = {
     pMapT = "Your profession trainers on the world map", pMapV = "Reagent vendors for your professions' materials on the world map (from Questie)",
     pCap = "%s %d/%d: learn %s before going on (%s).", pCapT = "trainer: %s", pOfaTip = "Opens the recipe in OneForAll (sources, who knows it, skill-ups)",
     pVendT = "Reagent vendor", pCamp = "Camping", pGold = "Gold",
+    pSells = "Sells: %s",
   },
 }
 local T = TT.en
@@ -1916,6 +1918,7 @@ end
 -- cresce insieme all'icona in unità della tela ma sullo schermo resta sottile
 local function sizePin(fr, z)
   if fr.lab then fr.lab:SetScale(math.max(0.01, z / 18)) end
+  if fr.p and fr.p.small and not fr.hot then z = z * 0.65 end -- reagent vendor: 12 pixel invece di 18
   fr:SetSize(z, z)
   local t = z / 14
   fr.bd:ClearAllPoints(); fr.bd:SetPoint("TOPLEFT", -t, t); fr.bd:SetPoint("BOTTOMRIGHT", t, -t)
@@ -1994,7 +1997,9 @@ local function vendorPins(mine)
       for _, c in ipairs(okz and zm and zm ~= 0 and list or {}) do
         if c[1] and c[1] >= 0 then
           local p = zonePin(zm, c[1] / 100, c[2] / 100, T.pVendT)
-          p.who, p.ic = tostring(name or "?") .. " (" .. table.concat(e.mats, ", ") .. ")", "inv_misc_bag_10"
+          -- nel titolo solo il nome; le merci vanno sotto (p.sells), e l'icona è piccola e senza cornice (p.small)
+          p.who, p.ic, p.small = tostring(name or "?"), "inv_misc_bag_10", true
+          p.sells = table.concat(e.mats, ", ")
           if p[1] then PVP[#PVP + 1] = p end
         end
       end
@@ -2026,7 +2031,9 @@ end
 -- segnaposto scelto (1.8): della misura degli altri (come i "!" di Questie), bordo dorato sottile che pulsa, sotto il nome e la quest, così si vede subito tra gli altri
 local function dressPin(pin)
   local p, hot = pin.p, pin.hot
-  if hot then pin.bd:SetColorTexture(0.91, 0.72, 0.29, 1) else pin.bd:SetColorTexture(0.64, 0.21, 0.93, 1) end
+  if hot then pin.bd:SetColorTexture(0.91, 0.72, 0.29, 1)
+  elseif p.small then pin.bd:SetColorTexture(0, 0, 0, 0.7) -- reagent vendor: bordo scuro, non viola
+  else pin.bd:SetColorTexture(0.64, 0.21, 0.93, 1) end
   pin.bd:SetAlpha(1)
   if not hot then
     if pin.lab then pin.lab:Hide() end
@@ -2073,6 +2080,7 @@ drawMapPins = function()
         pin:SetScript("OnEnter", function(self)
           GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.p.who and self.p[4] .. ": " .. self.p.who or self.p[4])
           if self.p.sub and self.p.sub ~= self.p[4] then GameTooltip:AddLine(self.p.sub, 0.91, 0.72, 0.29) end
+          if self.p.sells then GameTooltip:AddLine(T.pSells:format(self.p.sells), 0.85, 0.85, 0.85, true) end
           GameTooltip:AddLine("Forever Pathfinder" .. (self.p[5] and " · " .. T.level:format(self.p[5]) or ""), 1, 1, 1)
           GameTooltip:AddLine(self.hot and T.pinOff or T.pinOn, 0.58, 0.65, 0.75); GameTooltip:Show()
         end)
@@ -2081,7 +2089,7 @@ drawMapPins = function()
         mapPins[n] = pin
       end
       pin.p, pin.hot = p, hot
-      paintPin(pin.tx, p); pin:SetAlpha(p.done and not hot and 0.45 or 1) -- voce già spuntata: più chiara
+      paintPin(pin.tx, p); pin:SetAlpha(p.done and not hot and 0.45 or p.small and not hot and 0.8 or 1) -- voce già spuntata: più chiara; reagent vendor un po' trasparenti
       pin:SetFrameLevel(canvas:GetFrameLevel() + (hot and 2100 or 2000))
       dressPin(pin)
       sizePin(pin, pinSize(canvas))
