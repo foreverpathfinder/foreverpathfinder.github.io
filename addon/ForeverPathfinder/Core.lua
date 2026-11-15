@@ -1918,7 +1918,7 @@ end
 -- cresce insieme all'icona in unità della tela ma sullo schermo resta sottile
 local function sizePin(fr, z)
   if fr.lab then fr.lab:SetScale(math.max(0.01, z / 18)) end
-  if fr.p and fr.p.small and not fr.hot then z = z * 0.65 end -- reagent vendor: 12 pixel invece di 18
+  if fr.p and fr.p.small and not fr.hot then z = z * 0.75 end -- reagent vendor: 13-14 pixel invece di 18
   fr:SetSize(z, z)
   local t = z / 14
   fr.bd:ClearAllPoints(); fr.bd:SetPoint("TOPLEFT", -t, t); fr.bd:SetPoint("BOTTOMRIGHT", t, -t)
@@ -1997,7 +1997,7 @@ local function vendorPins(mine)
       for _, c in ipairs(okz and zm and zm ~= 0 and list or {}) do
         if c[1] and c[1] >= 0 then
           local p = zonePin(zm, c[1] / 100, c[2] / 100, T.pVendT)
-          -- nel titolo solo il nome; le merci vanno sotto (p.sells), e l'icona è piccola e senza cornice (p.small)
+          -- nel titolo solo il nome; le merci vanno sotto (p.sells), e l'icona è un po' più piccola (p.small)
           p.who, p.ic, p.small = tostring(name or "?"), "inv_misc_bag_10", true
           p.sells = table.concat(e.mats, ", ")
           if p[1] then PVP[#PVP + 1] = p end
@@ -2032,7 +2032,6 @@ end
 local function dressPin(pin)
   local p, hot = pin.p, pin.hot
   if hot then pin.bd:SetColorTexture(0.91, 0.72, 0.29, 1)
-  elseif p.small then pin.bd:SetColorTexture(0, 0, 0, 0.7) -- reagent vendor: bordo scuro, non viola
   else pin.bd:SetColorTexture(0.64, 0.21, 0.93, 1) end
   pin.bd:SetAlpha(1)
   if not hot then
