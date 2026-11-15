@@ -9,5 +9,6 @@
   - Rogue: Slice and Dice Rank 2 at 42 becomes the main finisher.
   - Hunter: Bestial Wrath and two mobs at a time.
   - Druid: full Cat rotation with Shifting Power.
+- Dungeons: Scarlet Monastery is now split into its 4 wings (Graveyard, Library, Armory, Cathedral), each with its levels, bosses and quests; the Armory and Cathedral show how to get The Scarlet Key.
 - Druid: Ferocious Bite is learned at 24 in Forever (was shown at 32).
 - Shaman: Stormstrike has an 8 sec cooldown (was shown as 6).

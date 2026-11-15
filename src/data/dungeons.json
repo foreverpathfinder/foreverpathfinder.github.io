@@ -843,12 +843,12 @@
     "<b>Overlord Ramtusk</b> ha 2 guardie: tiratele lontano dai caster. Quando gira su se stesso, allontanatevi."
    ]
   },
-  "scarlet monastery": {
+  "scarlet monastery: graveyard": {
    "e": "Tirisfal Glades nord-est (85.1 31.4). Graveyard: il portale più a sinistra.",
    "v": {
     "H": [
      "go",
-     "30+",
+     "",
      "Un'ala alla volta, a partire dal Graveyard."
     ],
     "A": [
@@ -866,11 +866,36 @@
      [
       "Hearts of Zeal",
       "Master Apothecary Faranell, Undercity"
-     ],
-     [
-      "Into The Scarlet Monastery",
-      "Varimathras, Undercity"
-     ],
+     ]
+    ],
+    "A": []
+   },
+   "b": [
+    "Interrogator Vishas",
+    "Bloodmage Thalnos"
+   ],
+   "t": [
+    "Il Graveyard è l’ala più bassa: entrate dal portale più a sinistra. Ironspine, Fallen Champion e Azshir the Sleepless non ci sono sempre.",
+    "<b>Interrogator Vishas</b>, primo boss: uccidete prima i mostri intorno.",
+    "<b>Bloodmage Thalnos</b> lancia fuoco a terra che non si può interrompere: chi attacca da lontano e il healer stiano lontani."
+   ]
+  },
+  "scarlet monastery: library": {
+   "e": "Tirisfal Glades nord-est (85.1 31.4), stesso ingresso del Graveyard.",
+   "v": {
+    "H": [
+     "go",
+     "",
+     "Seconda ala: qui si completano le quest dei libri."
+    ],
+    "A": [
+     "skip",
+     "",
+     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
+    ]
+   },
+   "q": {
+    "H": [
      [
       "Compendium of the Fallen",
       "Sage Truthseeker, Thunder Bluff (non per gli Undead)"
@@ -878,6 +903,10 @@
      [
       "Test of Lore",
       "Parqual Fintallas, Undercity"
+     ],
+     [
+      "Into The Scarlet Monastery",
+      "Varimathras, Undercity"
      ]
     ],
     "A": [
@@ -886,25 +915,113 @@
       "Librarian Mae Paledust, Ironforge (Hall of Explorers)"
      ],
      [
-      "In the Name of the Light",
-      "Raleigh the Devout, Southshore (Hillsbrad Foothills), dopo Down the Scarlet Path"
-     ],
-     [
       "Past Due",
       "Magus Olvek, Dalaran (Alterac Mountains)"
+     ],
+     [
+      "In the Name of the Light",
+      "Raleigh the Devout, Southshore (Hillsbrad Foothills), dopo Down the Scarlet Path"
+     ]
+    ],
+    "N": [
+     [
+      "Rituals of Power",
+      "Magus Tirth, Thousand Needles (The Shimmering Flats), dopo Get the Scoop"
      ]
     ]
    },
    "b": [
-    "Interrogator Vishas",
-    "Bloodmage Thalnos"
+    "Houndmaster Loksey",
+    "Arcanist Doan"
    ],
    "t": [
-    "Il Graveyard è l’ala più bassa: entrate dal portale più a sinistra. Ironspine, Fallen Champion e Azshir the Sleepless non ci sono sempre.",
-    "<b>Bloodmage Thalnos</b> lancia fuoco a terra che non si può interrompere: chi attacca da lontano e il healer stiano lontani.",
-    "Le ali oltre il livello 35 non sono state provate in beta.",
-    "<b>Interrogator Vishas</b>, primo boss: uccidete prima i mostri intorno."
+    "Boss: <b>Houndmaster Loksey</b> (livello 34) e <b>Arcanist Doan</b> (37) (foreverchanges.pro, 15 nov).",
+    "Dietro Arcanist Doan c'è Doan's Strongbox con <b>The Scarlet Key</b>: apre le porte di Armory e Cathedral e resta nel portachiavi; basta che ce l'abbia uno del gruppo.",
+    "Houndmaster Loksey conta per In the Name of the Light (Alleanza) e Into The Scarlet Monastery (Orda): gli altri boss sono in Armory e Cathedral."
    ]
+  },
+  "scarlet monastery: armory": {
+   "e": "Tirisfal Glades nord-est (85.1 31.4), stesso ingresso; serve The Scarlet Key.",
+   "k": {
+    "A": "The Scarlet Key: uccidi Arcanist Doan in fondo alla Library e apri Doan's Strongbox dietro di lui.",
+    "H": "The Scarlet Key: uccidi Arcanist Doan in fondo alla Library e apri Doan's Strongbox dietro di lui."
+   },
+   "v": {
+    "H": [
+     "go",
+     "",
+     "Terza ala: un solo boss, Herod, che serve per Into The Scarlet Monastery."
+    ],
+    "A": [
+     "skip",
+     "",
+     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
+    ]
+   },
+   "q": {
+    "H": [
+     [
+      "Into The Scarlet Monastery",
+      "Varimathras, Undercity"
+     ]
+    ],
+    "A": [
+     [
+      "In the Name of the Light",
+      "Raleigh the Devout, Southshore (Hillsbrad Foothills), dopo Down the Scarlet Path"
+     ]
+    ]
+   },
+   "b": [
+    "Herod"
+   ],
+   "t": [
+    "Boss: <b>Herod</b> (livello 40) (foreverchanges.pro, 15 nov). Conta per In the Name of the Light e Into The Scarlet Monastery.",
+    "La porta si apre solo con The Scarlet Key, che si prende nella Library."
+   ]
+  },
+  "scarlet monastery: cathedral": {
+   "e": "Tirisfal Glades nord-est (85.1 31.4), stesso ingresso; serve The Scarlet Key.",
+   "v": {
+    "H": [
+     "go",
+     "",
+     "Ultima ala: qui finiscono Into The Scarlet Monastery e In the Name of the Light."
+    ],
+    "A": [
+     "skip",
+     "",
+     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
+    ]
+   },
+   "q": {
+    "H": [
+     [
+      "Into The Scarlet Monastery",
+      "Varimathras, Undercity"
+     ]
+    ],
+    "A": [
+     [
+      "In the Name of the Light",
+      "Raleigh the Devout, Southshore (Hillsbrad Foothills), dopo Down the Scarlet Path"
+     ]
+    ]
+   },
+   "b": [
+    "High Inquisitor Fairbanks",
+    "Scarlet Commander Mograine",
+    "High Inquisitor Whitemane"
+   ],
+   "t": [
+    "Boss: <b>High Inquisitor Fairbanks</b> (livello 40), <b>Scarlet Commander Mograine</b> (42) e <b>High Inquisitor Whitemane</b> (42) (foreverchanges.pro, 15 nov).",
+    "Mograine e Whitemane chiudono Into The Scarlet Monastery (Orda) e In the Name of the Light (Alleanza).",
+    "La porta si apre solo con The Scarlet Key, che si prende nella Library."
+   ],
+   "k": {
+    "A": "The Scarlet Key: uccidi Arcanist Doan in fondo alla Library e apri Doan's Strongbox dietro di lui.",
+    "H": "The Scarlet Key: uccidi Arcanist Doan in fondo alla Library e apri Doan's Strongbox dietro di lui."
+   }
   },
   "drowned city": {
    "q": {
@@ -1681,6 +1798,12 @@
    "https://timesaver.gg/blog/wow-forever-leveling-explained-beta",
    "letto il 2 nov",
    "modifiche all'XP dei dungeon"
+  ],
+  [
+   "foreverchanges.pro – Dungeons by level",
+   "https://foreverchanges.pro/dungeons",
+   "letto il 15 nov",
+   "livelli e boss delle 4 ali di Scarlet Monastery"
   ]
  ],
  "glossary": "<b>Parole che trovi nei consigli:</b> <b>tank</b> = chi tiene i mostri addosso; <b>healer</b> = chi cura; <b>ranged</b> = chi attacca da lontano (caster, Hunter); <b>add</b> = mostri che accompagnano il boss; <b>interrompere</b> = bloccare un incantesimo mentre lo sta lanciando (Kick, Pummel, Counterspell, Earth Shock); <b>rimuovere</b> = togliere un veleno, una maledizione o una magia con l’abilità adatta (Cure Poison, Remove Curse, Dispel Magic, Purge); <b>CC</b> = mettere fuori gioco un mostro per un po’ (Polymorph, Sap, Fear, Trap)."

@@ -1496,11 +1496,32 @@
    "Dal 30 con gruppo. Quest su WT: gnomeregan-quests."
   ],
   [
-   "The Scarlet Monastery",
-   26,
-   45,
+   "Scarlet Monastery: Graveyard",
+   30,
+   38,
    "Tirisfal Glades",
-   "Oltre il 30 per l'Alleanza (WT: Graveyard 30-38)."
+   "Prima ala, portale più a sinistra: Interrogator Vishas, Bloodmage Thalnos e 3 rari. Livelli delle 4 ali da foreverchanges.pro. ✔"
+  ],
+  [
+   "Scarlet Monastery: Library",
+   33,
+   41,
+   "Tirisfal Glades",
+   "Houndmaster Loksey e Arcanist Doan; dietro Doan c'è The Scarlet Key per Armory e Cathedral. ✔"
+  ],
+  [
+   "Scarlet Monastery: Armory",
+   36,
+   44,
+   "Tirisfal Glades",
+   "Un solo boss, Herod; serve The Scarlet Key (Library). ✔"
+  ],
+  [
+   "Scarlet Monastery: Cathedral",
+   38,
+   46,
+   "Tirisfal Glades",
+   "Fairbanks, Mograine e Whitemane; serve The Scarlet Key (Library). ✔"
   ],
   [
    "Razorfen Kraul",

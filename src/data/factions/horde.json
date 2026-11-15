@@ -1419,11 +1419,32 @@
    "Nuovo, nel territorio Alleanza: situazionale per Horde (ExpCarry). 🟡"
   ],
   [
-   "Scarlet Monastery",
-   26,
-   45,
+   "Scarlet Monastery: Graveyard",
+   30,
+   38,
    "Tirisfal Glades (85.1 31.4)",
-   "Graveyard per primo; livello di ogni ala non trovato per Forever. ✔ (wmd)"
+   "Prima ala, portale più a sinistra: Interrogator Vishas, Bloodmage Thalnos e 3 rari. Livelli delle 4 ali da foreverchanges.pro. ✔"
+  ],
+  [
+   "Scarlet Monastery: Library",
+   33,
+   41,
+   "Tirisfal Glades (85.1 31.4)",
+   "Houndmaster Loksey e Arcanist Doan; dietro Doan c'è The Scarlet Key per Armory e Cathedral. ✔"
+  ],
+  [
+   "Scarlet Monastery: Armory",
+   36,
+   44,
+   "Tirisfal Glades (85.1 31.4)",
+   "Un solo boss, Herod; serve The Scarlet Key (Library). ✔"
+  ],
+  [
+   "Scarlet Monastery: Cathedral",
+   38,
+   46,
+   "Tirisfal Glades (85.1 31.4)",
+   "Fairbanks, Mograine e Whitemane; serve The Scarlet Key (Library). ✔"
   ],
   [
    "City of Dalaran ★",
