@@ -1,6 +1,6 @@
 // node src/tools/addon-test.js → prova l'addon fuori dal gioco: carica Data.lua e Core.lua in un WoW finto (addon-test.lua)
 // con fengari (Lua in JavaScript). Serve fengari: npm i --prefix <cartella> fengari, poi FENGARI=<cartella>/node_modules/fengari
-const path=require('path'),{lua,lauxlib,lualib,to_luastring}=require(process.env.FENGARI||'fengari');
+const path=require('path'),{lua,lauxlib,lualib,to_luastring}=require(process.env.FENGARI||process.env.LOCALAPPDATA+'/fp-lua/node_modules/fengari');
 const DIR=path.join(__dirname,'../../addon/ForeverPathfinder').replace(/\\/g,'/');
 const CASES=[
  {LOCALE:'enUS',RACE:'Human',CLASS:'WARRIOR',FACTION:'Alliance',EXPECT_KEY:'human-warrior',ADDON_LANG:'it'},
