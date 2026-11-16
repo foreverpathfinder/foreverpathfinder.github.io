@@ -23,8 +23,12 @@ A Bad Egg | 60 | Curgle Cranklehop | - | Gadgetzan
 A Baying of Gnolls | 20 | Verner Osgood | A | Lakeshire
 A Better Ingredient | 52 | Torwa Pathfinder | - | The Marshlands
 A Bijou for Zanza (Zul'Gurub) | 60 | Vinchaxa | - | Zuuldaia Ruins
+A Blast Ye Scurvy Dogs! | 44 | Wharfmaster Whizzbuzz | - | Powderfuse Port
 A Blue Light Bargain | 60 | Derotain Mudsipper | H | Gadgetzan
+A Boar's Delight | 41 | Gobam | - | Bolder'ok
 A Boar's Vitality | 50 | Bloodmage Drazial | - | Dreadmaul Hold
+A Brief History Lesson | 43 | Mordent Evenshade | - | Evenshade's Overlook
+A Brother In Need | 40 | Katherine the Pure | A | Stormwind City
 A Bump in the Road | 33 | Trackmaster Zherin | - | The Shimmering Flats
 A Bundle of Hides | 10 | Jahan Hawkwing | H | The Crossroads
 A Bundle of Trouble | 9 | Supervisor Raelen | A | Eastvale Logging Camp
@@ -34,6 +38,7 @@ A Call to Arms: The Plaguelands! | 50 | Crier Goodman | A | Valley of Heroes
 A Call to Arms: The Plaguelands! | 50 | Harbinger Balthazad | H | Ruins of Lordaeron
 A Call to Arms: The Plaguelands! | 50 | Herald Moonstalker | A | Darnassus
 A Call to Arms: The Plaguelands! | 50 | Warcaller Gorlach | H | Orgrimmar
+A Cleansing Cry | 38 | Uthek the Wise | - | Gelkis Village
 A Collection of Heads (Zul'Gurub) | 60 | Exzhal | - | Zuuldaia Ruins
 A Conqueror's Crown | 40 | Warug | - | Magram Village
 A Crew Under Fire | 57 | Captain Vanessa Beltis | - | Lake Mennar
@@ -58,9 +63,11 @@ A Donation of Runecloth | 60 | Ralston Farnsley | H | Ruins of Lordaeron
 A Donation of Runecloth | 60 | Rashona Straglash | H | Orgrimmar
 A Donation of Runecloth | 60 | Rumstag Proudstrider | H | Thunder Bluff
 A Donation of Runecloth | 60 | Vehena | H | Rocktusk Farm
+A Donation of Silk | 60 | Belanaa Windveil | A | Dalaran
 A Donation of Silk | 60 | Bubulo Acerbus | A | Ironforge
 A Donation of Silk | 60 | Clavicus Knavingham | A | Thunder Falls
 A Donation of Silk | 60 | Mistina Steelshield | A | Ironforge
+A Donation of Silk | 60 | Oura Stormspinner | - | Spirit Rise
 A Donation of Silk | 60 | Raedon Duskstriker | A | Craftsmen's Terrace
 A Donation of Silk | 60 | Ralston Farnsley | H | Ruins of Lordaeron
 A Donation of Silk | 60 | Rashona Straglash | H | Orgrimmar
@@ -80,6 +87,8 @@ A Dwarf and His Tools | 35 | Prospector Ryedol | A | Badlands
 A Dynamite Plan | 16 | Sprite Jumpsprocket | A | Stormwind City
 A Fair Trade | 60 | Bounty Hunter Kolark | H | Orgrimmar
 A Favor for Evershine | 8 | Rejold Barleybrew | A | Brewnall Village
+A Feast for Buzzards | 38 | Picked Carcass | - | Terral's Watch
+A Few Furs for Friz | 39 | Watcher Cornelius | - | Terral's Watch
 A Final Blow | 58 | Greta Mosshoof | - | Emerald Sanctuary
 A Fine Egg | 60 | Curgle Cranklehop | - | Gadgetzan
 A Firm Response | 9 | Ayessa Dawnsinger | H | Zephras Isle
@@ -89,8 +98,10 @@ A Friend in Need | 4 | Iverron | A | Shadowglen
 A Friend of the Family | 25 | Captain Stoutfist | A | Menethil Harbor
 A Friend of the Family | 25 | Highlord Bolvar Fordragon | A | Valley of Heroes
 A Frightened Request (Ruins of Lordaeron) | 22 | Tabitha Heartweaver | H | The Sepulcher
+A Fur Trade | 39 | Watcher Cornelius | - | Terral's Watch
 A Future Task | 50 | Historian Karnik | A | Ironforge
 A Future Task | 50 | Nara Wildmane | H | Elder Rise
+A Gift From Our Enemies | 36 | Krom'rosh | - | Rog'mar
 A Gnome's Assistance | 52 | Linken | - | Lakkari Tar Pits
 A Gnome's Respite | 21 | Gaxim Rustfizzle | A | Webwinder Path
 A Good Friend | 4 | Dirania Silvershine | A | Aldrassil
@@ -102,6 +113,8 @@ A Green Sample (City of Dalaran) | 33 | Shylamiir | A | Stormwind City
 A Grim Discovery | 45 | Krueg Skullsplitter | H | Camp Mojache
 A Grim Fate | 22 | Deathguard Baldren | H | The Sepulcher
 A Grim Task | 34 | Longbraid the Grim | A | Dun Modr
+A Heart of Crystal | 43 | Historian Biraxas | - | Outcast Hideaway
+A Heavy Responsibility | 54 | Lieutenant Connar | - | Nethergarde Keep
 A Hero's Reward | 60 | Duke Hydraxis | - | Ravencrest Monument
 A Hero's Welcome | 46 | Ginro Hearthkindle | A | Feathermoon Stronghold
 A Host of Evil (Razorfen Downs) | 35 | Myriam Moonsinger | - | Razorfen Downs
@@ -110,6 +123,7 @@ A Humble Task | 2 | Chief Hawkwind | H | Camp Narache
 A Humble Task | 3 | Greatmother Hawkwind | H | Red Cloud Mesa
 A Hunter's Boast | 16 | Daryl the Youngling | A | The Farstrider Lodge
 A Hunter's Challenge | 17 | Daryl the Youngling | A | The Farstrider Lodge
+A Hunter's Quiver | 40 | Neza Bloodsnout | - | Rog'mar
 A Husband's Last Battle | 51 | Dreka'Sur | H | Bloodvenom River
 A Husband's Revenge | 20 | Raleigh Andrean | H | Ruins of Lordaeron
 A King's Tribute | 30 | King Magni Bronzebeard | A | Ironforge
@@ -134,17 +148,22 @@ A Little Beauty | 7 | Taleen Shimmerthread | - | Zephras Isle
 A Little Help From My Friends | 55 | Ringo | - | Un'Goro Crater
 A Little Slime Goes a Long Way | 52 | Laris Geardawdle | A | Ironforge
 A Little Slime Goes a Long Way | 54 | Laris Geardawdle | A | Ironforge
+A Lost Brother | 40 | Katherine the Pure | A | Stormwind City
 A Lost Master | 20 | Terenthis | A | Auberdine
 A Magical Affront | 6 | Rathiril Sunlance | A | Zephras Isle
 A Man About a Murloc | 7 | Jason Mathers | A | Crystal Lake
 A Matter of Time | 56 | Chromie | - | Ruins of Andorhal
 A Meal Served Cold | 40 | Angus Stern | A | Thunder Falls
+A Message in Blood | 36 | Krom'rosh | - | Rog'mar
 A Mind of Metal | 45 | Garion Wendell | A | Thunder Falls
-A Missing Hand | 11 | Orgnil Soulscar | H | Razor Hill
+A Miner Problem | 43 | Sergeant Riftan | - | Twilight's Shroud
+A Missing Hand | 9 | Orgnil Soulscar | H | Razor Hill
+A Monumental Task | 55 | Saria Fairmoon | - | The Shattered Strand
 A Moon-Kissed Blade | 25 | Lumina Windsinger | H | The Sepulcher
 A More Fitting Reward | 60 | Sagorne Creststrider | H | Orgrimmar
 A Net Disaster | 7 | Jason Mathers | A | Crystal Lake
 A New Cloak's Sheen | 45 | Krueg Skullsplitter | H | Camp Mojache
+A New Need for Shadow Protection | 35 | Mirda | - | Magram Village
 A New Ore Sample | 29 | Tatternack Steelforge | H | Camp Taurajo
 A New Plague | 11 | Apothecary Johaan | H | Brill
 A New Plague | 6 | Apothecary Johaan | H | Brill
@@ -152,12 +171,14 @@ A New Plague | 9 | Apothecary Johaan | H | Brill
 A New Threat | 2 | Balir Frosthammer | A | Anvilmar
 A Noble Brew | 30 | Zardeth of the Black Claw | A | Stormwind City
 A Pain in the Neck | 8 | Pa'zula | H | Sen'jin Village
+A Paladin's Steed | 40 | Danitha Morr | H | Bandarion Keep
 A Peon's Burden | 5 | Ukor | H | Sen'jin Village
 A Plague Upon Thee | 55 | Mickey Levine | H | The Bulwark
 A Plague Upon Thee | 55 | Nathaniel Dumah | A | Sorrow Hill
 A Portable Power Source | 60 | Mux Manascrambler | - | Gadgetzan
 A Proper String | 60 | Stoma the Ancient | - | Irontree Woods
 A Putrid Task | 6 | Deathguard Dillinger | H | Brill
+A Quick Grocery Run | 40 | Skonk | - | Boulderfist Hall
 A Recipe For Death | 12 | Apothecary Renferrel | H | The Sepulcher
 A Recipe For Death | 15 | Master Apothecary Faranell | H | Undercity
 A Recipe For Death | 18 | Apothecary Renferrel | H | The Sepulcher
@@ -173,6 +194,7 @@ A Scroll from Mauren | 21 | Gaxim Rustfizzle | A | Webwinder Path
 A Sealed Crate | 60 | Marcy Baker | - | Three Corners
 A Second Home | 11 | Shari Stilwell | H | Brill
 A Second Opinion | 30 | Katherine the Pure | A | Stormwind City
+A Serving of Strength | 38 | Gorg | H | Rog'mar
 A Shifty Merchant | 60 | Mux Manascrambler | - | Gadgetzan
 A Short Incubation | 47 | Quentin | A | The Shimmering Flats
 A Sign of Hope (Uldaman) | 35 | Prospector Ryedol | A | Badlands
@@ -181,28 +203,33 @@ A Simple Request | 52 | Miles Dexter | H | Ruins of Lordaeron
 A Simple Request | 52 | Ormok | H | Orgrimmar
 A Simple Request | 52 | Osborne the Night Man | A | Valley of Heroes
 A Simple Request | 52 | Syurna | A | Cenarion Enclave
+A Small Favor | 44 | Ashe Amberhall | - | Farholde Keep
 A Smokywood Pastures' Thank You! | 60 | Kaymard Copperpinch | H | Orgrimmar
 A Smokywood Pastures' Thank You! | 60 | Wulmort Jinglepocket | A | Ironforge
 A Solvent Spirit | 7 | Master Vornal | H | Sen'jin Village
+A Steed in Death as They Were in Life | 40 | Zachariah Post | H | Brill
 A Sticky Situation | 48 | Gilveradin Sunchaser | - | Shindigger's Camp
 A Strange Historian | 56 | Marlene Redpath | - | Sorrow Hill
-A Strange One | 54 | Harlo Wigglesworth | - | Everlook
+A Strange One | 54 | Harlo Wigglesworth | H | Everlook
 A Strange Request | 45 | Witch Doctor Uzer'i | H | Camp Mojache
 A Student of Nature | 2 | Rorian the Dayseeker | - | Zephras Isle
 A Student of the Arcane | 2 | Rorian the Dayseeker | - | Zephras Isle
 A Study of the Light | 60 | Jennea Cannon | A | Thunder Falls
 A Supernatural Device | 60 | Deliana | A | Ironforge
-A Supernatural Device | 60 | Mokvar | - | Orgrimmar
 A Supernatural Device | 60 | Mokvar | H | Orgrimmar
 A Swift Message | 10 | Quartermaster Lewis | A | Sentinel Hill
+A Tale Spun Around the Fire | 40 | Kin'weelay | H | Grom'gol Base Camp
 A Tale of Sorrow | 57 | Fallen Hero of the Horde | - | Garrison Armory
 A Task Unfinished | 5 | Antur Fallow | H | Camp Narache
 A Taste of Flame (Blackrock Depths) | 58 | Cyrus Therepentous | - | Twilight's Shroud
 A Taste of Flame | 54 | Cyrus Therepentous | - | Twilight's Shroud
+A Taste of the Sea | 40 | Fimbo Greasemitz | - | Powderfuse Port
 A Terrible Purpose | 60 | Hermit Ortell | - | Hive'Regal
 A Threat Within | 1 | Deputy Willem | A | Northshire Abbey
 A Threat in Feralas | 43 | Belgrom Rockmaul | H | Orgrimmar
 A Token of Good Faith | 12 | Danitha Morr | H | Bandarion Keep
+A Token of Vengeance (Krol'dok Stronghold) | 42 | Da'grosh | - | Twilight's Shroud
+A Treat for a Friend | 41 | Gobam | - | Bolder'ok
 A Troubled Spirit | 52 | Christoph Walker | H | Undercity
 A Troubled Spirit | 52 | Darnath Bladesinger | A | Warrior's Terrace
 A Troubled Spirit | 52 | Kelv Sternhammer | A | Ironforge
@@ -212,20 +239,23 @@ A Troubling Breeze | 6 | Athridas Bearmantle | A | Dolanaar
 A Vengeful Fate (Razorfen Kraul) | 34 | Auld Stonespire | H | Thunder Bluff
 A Visit to Gregan | 52 | Muigin | A | Lakkari Tar Pits
 A Visitor to Dun Morogh | 13 | Beldin Steelgrill | A | Dun Morogh
-A Void Path | 22 | Va'xug Firefure | H | The Ruins of Stardust
+A Void Path (Nightmare Grove) | 23 | Va'xug Firefure | H | The Ruins of Stardust
 A Warning | 60 | Eris Havenfire | - | Stratholme
 A Warrior's Training | 10 | Ilsa Corbin | A | Valley of Heroes
 A Warrior's Training | 10 | Lyria Du Lac | A | Goldshire
 A Watchful Eye | 21 | Theocritus | A | Tower of Azora
-A Way In | 34 | Myrokos Silentform | - | Ravenholdt Manor
+A Way In | 36 | Myrokos Silentform | - | Ravenholdt Manor
 A Web of Lies: Debunking Myths and Legends | 35 | Garion Wendell | A | Thunder Falls
 A Yeti of Your Own | 60 | Umi Rumplesnicker | H | Everlook
+Abominable Magics | 40 | Apprentice Claire | - | Sunnyglade
 Above and Beyond (Stratholme) | 60 | Duke Nicholas Zverenhoff | - | Light's Hope Chapel
+Abridged Notes on Draenethyst | 40 | Azore Aldamort | - | Ethel Rethor
 Abyssal Contacts | 60 | Bor Wildmane | - | Cenarion Hold
 Abyssal Crests | 60 | Bor Wildmane | - | Cenarion Hold
 Abyssal Scepters | 60 | Bor Wildmane | - | Cenarion Hold
 Abyssal Signets | 60 | Bor Wildmane | - | Cenarion Hold
 Accessories of the Lost | 33 | Essene Villard | A | Thandol Span
+Active Ingredient | 44 | Gizzix Grimegurgle | - | The Dragonmurk
 Additional Runecloth | 60 | Bubulo Acerbus | A | Ironforge
 Additional Runecloth | 60 | Clavicus Knavingham | A | Thunder Falls
 Additional Runecloth | 60 | Mistina Steelshield | A | Ironforge
@@ -234,6 +264,7 @@ Additional Runecloth | 60 | Ralston Farnsley | H | Ruins of Lordaeron
 Additional Runecloth | 60 | Rashona Straglash | H | Orgrimmar
 Additional Runecloth | 60 | Rumstag Proudstrider | H | Thunder Bluff
 Additional Runecloth | 60 | Vehena | H | Rocktusk Farm
+Admiral Lamora | 45 | Wharfmaster Whizzbuzz | - | Powderfuse Port
 Advice From Stormwind | 30 | Delgren the Purifier | A | Maestra's Post
 Aetheen of the Gales | 4 | Rorian the Dayseeker | - | Zephras Isle
 After the Ambush | 15 | Huldar | A | Grizzlepaw Ridge
@@ -251,7 +282,7 @@ Aggressive Encroachment | 4 | Valreaa Valewind | - | Zephras Isle
 Agitators | 3 | Yala Windwatcher | - | Zephras Isle
 Agmond's Fate (Uldaman) | 38 | Prospector Ironband | A | Ironband's Excavation Site
 Aid For The Refugees | 11 | Ealaane Nimbuswalker | - | Zephras Isle
-Ain't No Telling | 34 | Anastasia Miller | - | Stromgarde Keep
+Ain't No Telling | 36 | Anastasia Miller | - | Stromgarde Keep
 Ak'Zeloth | 13 | Neeru Fireblade | H | Orgrimmar
 Akiris by the Bundle | 43 | Privateer Bloads | - | Booty Bay
 Al'Aketh Assassins | 11 | Fendaal Windstone | - | Zephras Isle
@@ -263,6 +294,8 @@ Alien Ecology | 52 | Hol'anyee Marshal | - | Lakkari Tar Pits
 Alien Egg | 26 | Hagar Lightninghoof | H | Freewind Post
 All Along the Watchtowers | 56 | Commander Ashlam Valorfist | A | Sorrow Hill
 All Along the Watchtowers | 56 | High Executor Derrington | H | The Bulwark
+All That's Left | 40 | Farmer Elbrim | - | Elbrim's Farm
+All's Well That Ends Well | 40 | Caravaneer Ruzzgot | - | Booty Bay
 Allegiance to Cenarion Circle | 60 | Windcaller Kaldon | - | Cenarion Hold
 Allegiance to the Old Gods (Blackfathom Deeps) | 26 | Je'neu Sancrea | H | Lake Falathim
 Alliance Relations | 30 | Craven Drok | H | Orgrimmar
@@ -278,6 +311,8 @@ Ambermill Investigations | 16 | Shadow Priest Allister | H | The Sepulcher
 Ammo for Rumbleshot | 6 | Loslor Rudge | A | Dun Morogh
 Among the Faithful | 8 | Missionary Jasaan | - | Zephras Isle
 Amongst the Ruins (Blackfathom Deeps) | 27 | Je'neu Sancrea | H | Lake Falathim
+Amulet of Secrets (Uldaman) | 40 | Hammertoe Grez | A | Stonesplinter Valley
+An Acquaintance in Southshore | 40 | Brother Nimetz | A | Rebel Camp
 An Aggressive Defense | 24 | Raene Wolfrunner | A | Astranaar
 An Alarming Request | 33 | Emissary Jacques | - | Southshore
 An Ambassador of Evil | 44 | Historian Karnik | A | Ironforge
@@ -296,16 +331,20 @@ An Imp's Request | 52 | Kaal Soulreaper | H | Ruins of Lordaeron
 An Imp's Request | 52 | Zevrost | H | Orgrimmar
 An Introduction | 60 | Vartrus the Ancient | - | Irontree Woods
 An OOX of Your Own | 50 | Oglethorpe Obnoticus | - | Booty Bay
+An Ogre's Captive | 44 | Dunston Willis | - | Bolder'ok
 An Old Colleague | 21 | Gaxim Rustfizzle | A | Webwinder Path
 An Ordinary Egg | 60 | Curgle Cranklehop | - | Gadgetzan
 An Orphan Looking For a Home | 47 | Kindal Moonweaver | A | Grimtotem Compound
 An Underrated Talent | 25 | Trevan Rol | H | The Sepulcher
 An Unfortunate End | 60 | Night Watch Guard | - | Raven Hill
 An Unholy Alliance (Razorfen Downs) | 36 | Varimathras | H | The Shining Strand
+An Unsettling Discovery | 41 | Apprentice Claire | - | Sunnyglade
 An Unwelcome Guest | 24 | Martie Jainrose | A | Lakeshire
+An'she's Radiance (Maraudon) | 51 | Olana Brighthoof | H | Spirit Rise
 Anachronos | 60 | Baristolth of the Shifting Sands | - | Cenarion Hold
 Ancient Equine Spirit | 60 | Lord Grayson Shadowbreaker | A | Stormwind City
-Ancient Gurubashi Idol | 40 | Mazu'kon | - | Spirit Rise
+Ancient Gurubashi Idol (The Drowned City) | 40 | Mazu'kon | - | Spirit Rise
+Ancient Gurubashi Secrets (The Drowned City) | 40 | Archmage Timear | A | Dalaran
 Ancient Sinew Wrapped Lamina | 60 | Hastat the Ancient | - | Irontree Woods
 Ancient Spirit | 56 | Arei | A | Jadefire Run
 Andron's Payment to Jediga | 52 | Andron Gant | H | Undercity
@@ -314,15 +353,16 @@ Another Power Source? | 46 | Chief Engineer Bilgewhizzle | - | Gadgetzan
 Ansirem's Key | 37 | Archmage Ansirem Runeweaver | A | Dalaran
 Answered Questions | 30 | Jonathan Carevin | A | Darkshire
 Apothecary Zamah | 15 | Apothecary Helbrim | H | The Crossroads
+Apple of My Eye | 38 | Tessa Dawnbright | - | Farholde Keep
 Apprentice Angler | 60 | Jang | - | Booty Bay
 Apprentice's Duties | 26 | James Halloran | A | Menethil Harbor
 Aquatic Form | 16 | Dendrite Starblaze | - | Moonglade
 Aquementas | 54 | Eridan Bluewind | - | Emerald Sanctuary
 Araj's Scarab | 60 | Alchemist Arbington | A | Sorrow Hill
 Araj's Scarab | 60 | Apothecary Dithers | H | The Bulwark
-Arathor Advanced Care Package | 60 | Samuel Hawke | A | Refuge Pointe
-Arathor Basic Care Package | 34 | Samuel Hawke | A | Refuge Pointe
-Arathor Standard Care Package | 44 | Samuel Hawke | A | Refuge Pointe
+Arathor Advanced Care Package | 60 | Samuel Hawke | - | Refuge Pointe
+Arathor Basic Care Package | 34 | Samuel Hawke | - | Refuge Pointe
+Arathor Standard Care Package | 44 | Samuel Hawke | - | Refuge Pointe
 Arcane Feedback | 20 | High Priest Rohan | A | Ironforge
 Arcane Feedback | 20 | High Priestess Laurena | A | Stormwind City
 Arcane Feedback | 20 | Priestess Alathea | A | The Temple Gardens
@@ -350,6 +390,7 @@ Armaments of War | 60 | Geologist Larksbane | - | Cenarion Hold
 Armed and Ready | 29 | Grimand Elmore | A | Stormwind City
 Armor Kits | 60 | Chronos | - | Goldshire
 Armor Kits | 60 | Chronos | - | Hunter Rise
+Armory of Sunnyglade | 40 | Mirelle Tremayne | H | Ruins of Lordaeron
 Army of the Black Dragon | 43 | Tharg | H | Southern Barrens
 Arrows Are For Sissies | 60 | Artilleryman Sheldonore | A | Ironforge
 Arugal Must Die (Shadowfang Keep) | 27 | Dalar Dawnweaver | H | The Sepulcher
@@ -404,7 +445,7 @@ Baited for Success | 7 | Remy "Two Times" | A | Goldshire
 Band of Unending Life (Ahn'Qiraj Temple) | 60 | Windcaller Yessendra | - | Cenarion Hold
 Band of Vaulted Secrets (Ahn'Qiraj Temple) | 60 | Windcaller Yessendra | - | Cenarion Hold
 Band of Veiled Shadows (Ahn'Qiraj Temple) | 60 | Windcaller Yessendra | - | Cenarion Hold
-Bandarion Keep | 12 | Hadric Harlson | H | Brill
+Bandarion Keep | 12 | Hadric Harlson | - | Brill
 Banner of the Fallen | 17 | Mountaineer Ylva | A | Stonesplinter Valley
 Barbaric Battlements | 32 | Orokk Omosh | H | Orgrimmar
 Barbecued Buzzard Wings | 40 | Rigglefuzz | - | Valley of Fangs
@@ -419,6 +460,8 @@ Bashal'Aran | 12 | Thundris Windweaver | A | Auberdine
 Bashal'Aran | 13 | Asterion | A | Bashal'Aran
 Basilisks: Should Petrification be Feared? | 35 | Garion Wendell | A | Thunder Falls
 Bathran's Hair | 20 | Orendil Broadleaf | A | Maestra's Post
+Bats in the Belfry | 38 | Sister Rowland | - | Farholde Keep
+Battle at the Mannoroc Coven | 40 | Katherine the Pure | A | Stormwind City
 Battle of Hillsbrad | 24 | High Executor Darthalia | H | Tarren Mill
 Battle of Hillsbrad | 25 | High Executor Darthalia | H | Tarren Mill
 Battle of Hillsbrad | 26 | High Executor Darthalia | H | Tarren Mill
@@ -473,6 +516,7 @@ Beginnings | 4 | Alamar Grimm | A | Anvilmar
 Bell of Dethmoora | 60 | Mor'zul Bloodbringer | - | Altar of Storms
 Bellowrage the Elder | 60 | Elder Bellowrage | - | The Dark Portal
 Belt of Faith (Naxxramas) | 60 | Father Inigo Montoy | - | Light's Hope Chapel
+Beneath Nordrassil | 55 | Commander Truesong | - | Shadowsong Shrine
 Beren's Peril | 21 | Shadow Priest Allister | H | The Sepulcher
 Betina Bigglezink (Scholomance) | 60 | Leonid Barthalomew the Revered | - | Light's Hope Chapel
 Betrayal from Within | 25 | Mangletooth | H | Camp Taurajo
@@ -489,6 +533,7 @@ Big, No, MASSIVE Iron Axes | 35 | Grolkar | - | Magram Village
 Binding the Dreadnaught | 60 | Korfax, Champion of the Light | - | Light's Hope Chapel
 Bindings of Faith (Naxxramas) | 60 | Father Inigo Montoy | - | Light's Hope Chapel
 Bingles' Missing Supplies | 15 | Bingles Blastenheimer | A | Ironband's Excavation Site
+Biting the Hand | 40 | Fuzzle | - | Sunnyglade
 Bitter Rivals | 6 | Marleth Barleybrew | A | Brewnall Village
 Blackmoore's Legacy | 36 | Gol'dir | H | Strahnbrad
 Blackrock Blockade | 21 | Marshal Marris | A | Lake Everstill
@@ -525,21 +570,26 @@ Blood of the Black Dragon Champion (Blackrock Spire) | 60 | Rexxar | H | Tethris
 Bloodfury Bloodline | 26 | Maggran Earthbinder | H | Sun Rock Retreat
 Bloodfury Trinkets | 26 | Maggran Earthbinder | H | Sun Rock Retreat
 Bloodhoof the Elder | 60 | Elder Bloodhoof | - | Stonebull Lake
+Bloodmaster's Ring | 41 | Clugfist | - | Bolder'ok
+Bloodmaster's Ring | 41 | Jezap Jinglesprocket | - | Bolder'ok
+Bloodmaster's Ring | 42 | Jezap Jinglesprocket | - | Bolder'ok
+Bloodmaster's Ring | 43 | Jezap Jinglesprocket | - | Bolder'ok
+Bloodmaster's Ring | 44 | Jezap Jinglesprocket | - | Bolder'ok
+Bloodmaster's Ring | 45 | Jezap Jinglesprocket | - | Bolder'ok
 Bloodpetal Poison | 52 | Torwa Pathfinder | - | The Marshlands
 Bloodpetal Sprouts | 53 | Muigin | A | Lakkari Tar Pits
 Bloodpetal Zapper | 53 | Larion | H | Lakkari Tar Pits
 Bloodscalp Clan Heads | 41 | Nimboya | H | Grom'gol Base Camp
 Bloodscalp Ears | 35 | Kebok | - | Booty Bay
-Bloodtalon Matriarch | 8 | Xar'Ti | H | Sen'jin Village
+Bloodtalon Matriarch | 9 | Xar'Ti | H | Sen'jin Village
 Bloody Bone Necklaces | 37 | Kin'weelay | H | Grom'gol Base Camp
 Bloom of the Heavens | 29 | Sylessa Duskwhisper | A | Menethil Harbor
 Blueleaf Tubers (Razorfen Kraul) | 26 | Mebok Mizzyrix | - | Ratchet
 Bodley's Unfortunate Fate | 60 | Deliana | A | Ironforge
-Bodley's Unfortunate Fate | 60 | Mokvar | - | Orgrimmar
 Bodley's Unfortunate Fate | 60 | Mokvar | H | Orgrimmar
 Body and Heart | 10 | Mathrengyl Bearwalker | A | Cenarion Enclave
 Body and Heart | 10 | Turak Runetotem | H | Elder Rise
-Bodyguard for Hire | 35 | Cork Gizelton | - | Kormek's Hut
+Bodyguard for Hire | 35 | Cork Gizelton | - | Kolkar Village
 Bolstering Our Defenses | 60 | Emmisary Gormok | - | Light's Hope Chapel
 Bone Collector | 39 | Bibbly F'utzbuckle | - | Kormek's Hut
 Bone Fragments | 60 | Rohan the Assassin | - | Light's Hope Chapel
@@ -561,6 +611,7 @@ Booty Bay or Bust! | 40 | Ox | H | Orgrimmar
 Bor Wildmane | 60 | Aurel Goldleaf | - | Cenarion Hold
 Bor Wishes to Speak | 60 | Aurel Goldleaf | - | Cenarion Hold
 Border Crossings | 14 | Shadow Priest Allister | H | The Sepulcher
+Borrowed Blades | 38 | Kreza Darkthorn | H | Rog'mar
 Bottles and Baubles | 7 | Lee Brown | A | Crystal Lake
 Boughs in the Wind | 10 | Belann Windwood | - | Zephras Isle
 Boulderslide Ravine | 18 | Mor'rogal | H | Sun Rock Retreat
@@ -569,6 +620,7 @@ Bounty on Murlocs | 10 | Guard Thomas | A | Brackwell Pumpkin Patch
 Bounty: Gnarlpine Furbolg | 8 | Sentinel Shayla Nightbreeze | A | Ban'ethil Hollow
 Bracers of Binding | 33 | Keeper Bel'varil | H | Tarren Mill
 Break Sharptusk! | 5 | Brave Windfeather | H | Camp Narache
+Break Their Chains | 44 | Da'grosh | - | Twilight's Shroud
 Break a Few Eggs | 8 | Cook Torka | H | Razor Hill
 Breaking the Breaker | 11 | Yorana Windyreed | - | Zephras Isle
 Breaking the Code | 60 | Frankal Stonebridge | - | The Scarab Wall
@@ -578,9 +630,11 @@ Bride of the Embalmer | 30 | Lord Ello Ebonlocke | A | Darkshire
 Brightspear the Elder | 60 | Elder Brightspear | - | Lake Kel'Theril
 Bring Back a Bang | 31 | Ashlan Stonesmirk | A | Dun Modr
 Bring Back the Mug | 5 | Durnan Furcutter | A | Anvilmar
+Bring Me His Head | 46 | Da'grosh | - | Twilight's Shroud
+Bring Me His Head | 46 | Sergeant Riftan | - | Twilight's Shroud
 Bring the End (Razorfen Downs) | 42 | Andrew Brownell | H | Ruins of Lordaeron
 Bring the Light (Razorfen Downs) | 42 | Archbishop Benedictus | A | Stormwind City
-Bristleback Retreat | 43 | Orgrul | - | Magram Village
+Bristle Hills Bandits | 38 | Kreza Darkthorn | H | Rog'mar
 Broken Alliances | 43 | Gorn | H | Kargath
 Broken Alliances | 50 | Gorn | H | Kargath
 Broken Tears | 33 | Warug | - | Magram Village
@@ -591,6 +645,7 @@ Brother Carlin | 56 | Chromie | - | Ruins of Andorhal
 Brother Paxton | 24 | Milton Sheaf | A | Stormwind City
 Brotherhood of Thieves | 4 | Deputy Willem | A | Northshire Abbey
 Brotherhood's End | 31 | Master Mathias Shaw | A | Valley of Heroes
+Brought to Heel | 54 | Bloodmage Lynnore | - | Dreadmaul Hold
 Bruised Pride and Lion Hides | 18 | Vrang Wildgore | H | The Dry Hills
 Brumeran of the Chillwind | 58 | Storm Shadowhoof | H | Everlook
 Brutal Armor | 30 | Thun'grim Firegaze | H | Thorn Hill
@@ -606,15 +661,17 @@ Burning Blood | 28 | Grimand Elmore | A | Stormwind City
 Business in Auberdine | 17 | Borgus Steelhand | A | Stormwind City
 Buying Friendship: Gelkis | 45 | Captain Pentigast | A | Nijel's Point
 Buying Friendship: Gelkis | 45 | Gurda Wildmane | H | Kodo Graveyard
+Buying Friendship: Magram | 45 | Captain Pentigast | A | Nijel's Point
 Buying Friendship: Magram | 45 | Gurda Wildmane | H | Kodo Graveyard
 Buzzbox 827 | 10 | Wizbang Cranktoggle | A | Auberdine
 Cache of Mau'ari | 60 | Witch Doctor Mau'ari | - | Everlook
 Call of Air | 30 | Eldrun Stormbreaker | A | Ironforge
 Call of Air | 30 | Searn Firewarder | H | Orgrimmar
 Call of Air | 30 | Xanis Flameweaver | H | Spirit Rise
-Call of Earth | 10 | Eldrun Stormbreaker | A | Ironforge
-Call of Earth | 10 | Ingrid Dunwald | A | Kharanos
+Call of Air | 35 | Alaana Stormwalker | H | Spirit Rise
 Call of Earth | 4 | Canaga Earthcaller | H | The Den
+Call of Earth | 4 | Eldrun Stormbreaker | A | Ironforge
+Call of Earth | 4 | Ingrid Dunwald | A | Kharanos
 Call of Earth | 4 | Minor Manifestation of Earth | - | Frostmane Hold
 Call of Earth | 4 | Minor Manifestation of Earth | - | Kodo Rock
 Call of Earth | 4 | Minor Manifestation of Earth | - | Spirit Rock
@@ -692,6 +749,7 @@ Camping 101: Enchanting | 6 | Thonys Pillarstone | A | Ironforge
 Camping 101: Engineering | 6 | Brakk | H | Durotar
 Camping 101: Engineering | 6 | Eleanor Shackleton | H | Brill
 Camping 101: Engineering | 6 | Eric Brighthammer | A | Kharanos
+Camping 101: Engineering | 6 | Kaga Wildhoof | H | Bloodhoof Village
 Camping 101: Engineering | 6 | Lyreena Duskblade | A | Dolanaar
 Camping 101: Engineering | 6 | Sam Sarsaparilla | A | Goldshire
 Camping 101: Engineering | 6 | Strange Hermit | - | Zephras Isle
@@ -759,12 +817,14 @@ Carrion Grubbage | 56 | Tirion Fordring | - | Thondroril River
 Carry Your Weight | 7 | Furl Scornbrow | H | Razor Hill
 Carved Centaur Totems | 40 | Captain Pentigast | A | Nijel's Point
 Carved Centaur Totems | 40 | Gurda Wildmane | H | Kodo Graveyard
+Carving a Path | 44 | Da'grosh | - | Twilight's Shroud
+Carving a Path | 44 | Sergeant Riftan | - | Twilight's Shroud
 Castpipe's Task (Gnomeregan) | 28 | Gaxim Rustfizzle | A | Webwinder Path
 Catalogue of the Wayward | 60 | Jeziba | - | Ruins of Andorhal
 Catch of the Day | 37 | Nataka Longhorn | H | Desolace
 Catching Wind | 11 | Elaadrin Evengale | A | Zephras Isle
 Cave Mushrooms | 17 | Barithras Moonshade | A | Auberdine
-Ceasing Operations | 12 | Morin Cloudstalker | H | Winterhoof Water Well
+Ceasing Operations | 12 | Morin Cloudstalker | H | Bloodhoof Village
 Celebrating Good Times | 60 | Highlord Bolvar Fordragon | A | Valley of Heroes
 Celestial Power | 40 | Tabetha | - | The Quagmire
 Cenarion Aid | 52 | Brother Joshua | A | Stormwind City
@@ -775,8 +835,10 @@ Cenarius' Legacy | 25 | Braelyn Firehand | H | Sun Rock Retreat
 Centaur Bounty | 31 | Corporal Melkins | A | Nijel's Point
 Centaur Bounty | 31 | Felgur Twocuts | H | Kodo Graveyard
 Centaur Bracers | 14 | Regthar Deathgate | H | Shrine of the Fallen Warrior
+Chains That Bind | 54 | Bloodmage Lynnore | - | Dreadmaul Hold
 Chakuyak | 5 | Yaw Sharpmane | H | Bloodhoof Village
 Challenge Overlord Mok'Morokk | 45 | Overlord Mok'Morokk | H | Southern Barrens
+Challenge of the Desert Wolf | 45 | Odd Totem | - | Abyssal Sands
 Champion's Battlegear | 60 | Vargus | - | Cenarion Hold
 Changing Tastes (Excavation Site: Wetlands) | 31 | Borstan | H | Orgrimmar
 Chapter I | 40 | Barnil Stonepot | - | Nesingwary's Expedition
@@ -788,6 +850,7 @@ Chasing A-Me 01 | 53 | Karna Remtravel | - | Lakkari Tar Pits
 Chastise | 20 | High Priest Rohan | A | Ironforge
 Chastise | 20 | High Priestess Laurena | A | Stormwind City
 Chastise | 20 | Priestess Alathea | A | The Temple Gardens
+Checking Things Out | 43 | Nerlokh | - | Evenshade's Overlook
 Chen's Empty Keg | 15 | Brewmaster Drohn | H | Ratchet
 Chen's Empty Keg | 24 | Brewmaster Drohn | H | Ratchet
 Cherry for Your Thoughts? | 40 | Tokal | - | Booty Bay
@@ -798,7 +861,7 @@ Child of Nature | 10 | Alfina Nightgaze | A | Dalaran
 Child of Nature | 10 | Archmage Ansirem Runeweaver | A | Dalaran
 Child of Nature | 10 | Muln Earthfury | - | Spirit Rise
 Children's Week | 60 | Orphan Matron Battlewail | H | Orgrimmar
-Children's Week | 60 | Orphan Matron Nightingale | A | Stormwind City
+Children's Week | 60 | Orphan Matron Nightingale | A | Valley of Heroes
 Chillwind E'ko | 60 | Witch Doctor Mau'ari | - | Everlook
 Chillwind Horns | 54 | Felnok Steelspring | - | Everlook
 Chillwind Point | 52 | Brandur Ironhammer | A | Ironforge
@@ -849,12 +912,15 @@ Cleansing Felwood | 55 | Maybess Riverbreeze | - | Emerald Sanctuary
 Cleansing of the Infected | 16 | Tharnariun Treetender | A | Auberdine
 Cleansing of the Orb of Orahil | 40 | Tabetha | - | The Quagmire
 Cleansing the Eye | 30 | Glorin Steelbrow | A | Menethil Harbor
+Clear 'em Out | 42 | Gelinda Coppergleam | - | Bristle Hills
 Clear the Way | 52 | Commander Ashlam Valorfist | A | Sorrow Hill
+Clerical Quarantine | 40 | Brother Lowley | - | Farholde Keep
 Cloak of Unending Life (Ahn'Qiraj Temple) | 60 | Keyl Swiftclaw | - | Cenarion Hold
 Cloak of Veiled Shadows (Ahn'Qiraj Temple) | 60 | Keyl Swiftclaw | - | Cenarion Hold
 Cloak of the Gathering Storm (Ahn'Qiraj Temple) | 60 | Keyl Swiftclaw | - | Cenarion Hold
 Cloak of the Unseen Path (Ahn'Qiraj Temple) | 60 | Keyl Swiftclaw | - | Cenarion Hold
 Cloth and Leather Armor | 10 | Marshal Dughan | A | Goldshire
+Clugfist's Decree | 41 | Clugfist | - | Bolder'ok
 Cluster Launcher | 60 | Fariel Starsong | - | Moonglade
 Cluster Rockets | 60 | Fariel Starsong | - | Moonglade
 Coarse Weightstone | 60 | Kerri Hicks | - | Goldshire
@@ -867,6 +933,7 @@ Collection of Goods | 60 | Grimand Elmore | A | Stormwind City
 Collection of the Corrupt Water | 52 | Greta Mosshoof | - | Emerald Sanctuary
 Colonel Kurzen | 40 | Lieutenant Doren | A | Rebel Camp
 Coming of Age | 1 | Ailee Farheart | - | Zephras Isle
+Coming to Collect | 40 | Tazzik | - | Noonshade Ruins
 Coming to Terms | 4 | Aramis Hammerhand | H | Deathknell
 Commander Gor'shak (Blackrock Depths) | 52 | Galamav the Marksman | H | Kargath
 Compendium of the Fallen (Scarlet Monastery) | 38 | Sage Truthseeker | H | Thunder Bluff
@@ -888,6 +955,7 @@ Conflict at Darkspear Islands | 39 | Horde Warbringer | H | The Mor'shan Rampart
 Conflict at Darkspear Islands | 39 | Horde Warbringer | H | The Shining Strand
 Confounding Flash | 10 | High Priestess Laurena | A | Stormwind City
 Confounding Flash | 10 | High Priestess Mims | A | Ironforge
+Confounding Flash | 10 | Laurna Morninglight | A | Dolanaar
 Confounding Flash | 10 | Maxan Anvol | A | Kharanos
 Confounding Flash | 10 | Priestess Josetta | A | Goldshire
 Confront Lorthuna | 12 | Valennia Stormfist | - | Zephras Isle
@@ -932,6 +1000,7 @@ Consecrated Sharpening Stones | 60 | Argent Quartermaster | - | Darnassus
 Consecrated Sharpening Stones | 60 | Argent Quartermaster | - | Ironforge
 Consecrated Sharpening Stones | 60 | Argent Quartermaster | - | Light's Hope Chapel
 Consecrated Sharpening Stones | 60 | Argent Quartermaster | - | Valley of Heroes
+Consolation Prize | 40 | Tazzik | - | Noonshade Ruins
 Consult Master Gadrin | 45 | Apothecary Lydon | H | Tarren Mill
 Consumed by Hatred | 20 | Mankrik | H | The Crossroads
 Contingency Plan | 20 | High Priestess Laurena | A | Stormwind City
@@ -959,8 +1028,10 @@ Could I get a Fishing Flier? | 60 | Grinkle | H | Orgrimmar
 Counterattack! | 20 | Regthar Deathgate | H | Shrine of the Fallen Warrior
 Counting Out Time | 56 | Chromie | - | Ruins of Andorhal
 Courser Antlers | 52 | Ogtinc | - | The Shattered Strand
+Covert Extraction | 36 | Myrokos Silentform | - | Ravenholdt Manor
 Covert Ops - Alpha | 22 | Gaxim Rustfizzle | A | Webwinder Path
 Covert Ops - Beta | 22 | Gaxim Rustfizzle | A | Webwinder Path
+Coyote Huntin' | 38 | Benjy Wheeler | - | Wheeler's Grange
 Coyote Thieves | 40 | Neeka Bloodscar | H | Kargath
 Crab Season | 9 | Nyalah Brightfire | - | Zephras Isle
 Cracked Necrotic Crystal | 60 | Faint Necrotic Crystal | - | Ruins of Lordaeron
@@ -1001,7 +1072,10 @@ Crystals of Power | 53 | J.D. Collie | - | The Shaper's Terrace
 Culling the Threat | 25 | Raene Wolfrunner | A | Astranaar
 Curing the Sick | 14 | Alanndarian Nightsong | A | Auberdine
 Curing the Sick | 14 | Tonga Runetotem | H | The Crossroads
+Curios of Curiosity (Krol'dok Stronghold) | 42 | Ashe Amberhall | - | Farholde Keep
+Curious Trinkets | 38 | Ashe Amberhall | - | Farholde Keep
 Curse These Fat Fingers | 49 | Hansel Heavyhands | - | Firewatch Ridge
+Cut Off the Heads | 41 | Apprentice Claire | - | Sunnyglade
 Cutting Teeth | 2 | Gornek | H | The Den
 Cycle of Rebirth | 23 | Tammra Windfield | H | Sun Rock Retreat
 Cyclonian | 40 | Bath'rah the Windwatcher | - | Ravenholdt Manor
@@ -1055,6 +1129,7 @@ Dearest Elenia, | 60 | Temma of the Wells | H | Thunder Bluff
 Dearest Natalia | 60 | Commander Mar'alith | - | Cenarion Hold
 Death From Below | 44 | Shakes O'Breen | - | Faldir's Cove
 Death to the Dragonmaw | 30 | Howin Kindfeather | - | Angerfang Encampment
+Death to the Executioner | 46 | Crag'rog | - | Twilight's Shroud
 Deaths in the Family | 11 | Coleman Farthing | H | Brill
 Deathstalkers in Shadowfang (Shadowfang Keep) | 25 | High Executor Hadrec | H | The Sepulcher
 Decoy! | 60 | Narain Soothfancy | - | Noonshade Ruins
@@ -1073,10 +1148,12 @@ Deliver Thomas' Report | 10 | Guard Thomas | A | Brackwell Pumpkin Patch
 Deliver the First Shipment | 42 | Watcher Biggs | A | Splinterspear Junction
 Deliver the Gems (Uldaman) | 44 | Jarkal Mossmeld | H | Kargath
 Deliver the News | 9 | Aamelia Windfield | - | Zephras Isle
+Deliver the Second Shipment | 38 | Watcher Biggs | A | Splinterspear Junction
 Deliver the Signet | 9 | Constable Aonda | - | Zephras Isle
 Deliver the Thread | 24 | Madame Eva | A | Darkshire
 Deliver to MacKinley | 45 | Stoley | - | Noonshade Ruins
 Deliveries to Sven | 23 | Elaine Carevin | A | Darkshire
+Delivering Closure | 47 | Demar Brant | - | Farholde Keep
 Delivering Daffodils | 15 | Martie Jainrose | A | Lakeshire
 Delivering the Relic | 45 | Latronicus Moonspear | A | Feathermoon Stronghold
 Delivery for Marin | 49 | Sprinkle | - | Gadgetzan
@@ -1093,6 +1170,7 @@ Demons and You | 35 | Garion Wendell | A | Thunder Falls
 Denalan's Earth | 5 | Syral Bladeleaf | A | Dolanaar
 Desert Recipe | 57 | Calandrath | - | Cenarion Hold
 Desperate Prayer | 10 | High Priest Rohan | A | Ironforge
+Desperate Prayer | 10 | High Priestess Laurena | A | Stormwind City
 Desperate Prayer | 10 | Laurna Morninglight | A | Dolanaar
 Desperate Prayer | 10 | Maxan Anvol | A | Kharanos
 Desperate Prayer | 10 | Nara Meideros | A | Stormwind City
@@ -1112,6 +1190,7 @@ Devourer of Souls | 20 | Gan'rul Bloodeye | H | Orgrimmar
 Did You Lose This? | 50 | Trenton Lighthammer | - | Gadgetzan
 Dig Rat Stew | 23 | Grub | H | The Crossroads
 Digging Through the Ooze | 24 | Sida | A | Menethil Harbor
+Digging for Answers | 40 | Tran'gul | - | Rog'mar
 Diplomatic Incident | 22 | Danitha Morr | H | Bandarion Keep
 Dirge's Kickin' Chimaerok Chops | 60 | Dirge Quikcleave | - | Gadgetzan
 Discipline | 6 | Executor Zygand | H | Brill
@@ -1121,11 +1200,16 @@ Dispelling Evil | 52 | Commander Ashlam Valorfist | A | Sorrow Hill
 Disrupt the Attacks | 12 | Thork | H | The Crossroads
 Disrupting Logistics | 11 | Yorana Windyreed | - | Zephras Isle
 Distracting Jarven | 7 | Jarven Thunderbrew | A | Kharanos
+Divine Grace | 10 | High Priest Rohan | A | Ironforge
 Divine Grace | 10 | High Priestess Laurena | A | Stormwind City
+Divine Grace | 10 | Laurna Morninglight | A | Dolanaar
+Divine Grace | 10 | Maxan Anvol | A | Kharanos
+Divine Grace | 10 | Nara Meideros | A | Stormwind City
 Divine Grace | 10 | Priestess Josetta | A | Goldshire
 Divine Retribution | 48 | Velarok Windblade | - | Searing Gorge
 Divino-matic Rod (Zul'Farrak) | 47 | Chief Engineer Bilgewhizzle | - | Gadgetzan
 Doctor Theolen Krastinov, the Butcher (Scholomance) | 60 | Eva Sarkhoff | - | Caer Darrow
+Doctor's Orderly | 40 | Brother Lowley | - | Farholde Keep
 Dogran's Captivity | 20 | Grunt Logmar | H | Camp Taurajo
 Dolanaar Delivery | 5 | Porthannius | A | Aldrassil
 Doling Justice | 47 | Jer'kai Moonweaver | A | Grimtotem Compound
@@ -1140,6 +1224,7 @@ Down the Scarlet Path | 40 | Brother Anton | A | Nijel's Point
 Downstream | 10 | Ormin Pelford | A | Brackwell Pumpkin Patch
 Draconic for Dummies | 60 | Narain Soothfancy | - | Noonshade Ruins
 Draenethyst Crystals | 35 | Magtoor | - | The Harborage
+Dragon Scales, Post Burnt Tails | 44 | Drazzit Dripvalve | - | The Dragonmurk
 Dragonkin Menace | 54 | Helendis Riverhorn | A | Morgan's Vigil
 Dragonmaw Rumors (Excavation Site: Wetlands) | 31 | Zaruk | H | Hammerfall
 Dragonmaw Shinbones | 30 | Velora Nitely | H | Ruins of Lordaeron
@@ -1172,13 +1257,17 @@ Dreamwalker Spaulders (Naxxramas) | 60 | Rayne | - | Light's Hope Chapel
 Dreamwalker Tunic (Naxxramas) | 60 | Rayne | - | Light's Hope Chapel
 Dreamwalker Wristguards (Naxxramas) | 60 | Rayne | - | Light's Hope Chapel
 Driftwood | 42 | Watcher Biggs | A | Splinterspear Junction
-Drive Them Out | 9 | Baine Bloodhoof | H | Bloodhoof Village
+Drink Up! | 38 | Innkeeper Zizplink | - | Powderfuse Port
+Drive Them Back | 40 | Na'zok | - | Windstead
+Drive Them Out | 11 | Baine Bloodhoof | H | Bloodhoof Village
 Drowned Sorrows | 40 | Captain Steelgut | - | Faldir's Cove
 Druid of the Claw | 10 | Oben Rageclaw | A | Ban'ethil Hollow
 Dry Times | 15 | Barkeep Daniels | A | Lakeshire
 Duke Nicholas Zverenhoff | 52 | Gregor Greystone | - | Everlook
 Dukes of the Council | 60 | Aurel Goldleaf | - | Cenarion Hold
+Dunemaul Dues | 47 | Security Chief Bilgewhizzle | H | Noonshade Ruins
 Dungar Longdrink | 10 | Osric Strang | A | Valley of Heroes
+Dunston Checks Out | 44 | Dunston Willis | - | Bolder'ok
 Duskwing, Oh How I Hate Thee... | 60 | Nathanos Blightcaller | H | The Marris Stead
 Duskwood Mission I: Defeat Worgen | 27 | Field Captain Palandar | - | Duskwood
 Duskwood Mission II: Defeat Ogres | 27 | Field Captain Palandar | - | Duskwood
@@ -1199,9 +1288,11 @@ Duskwood Mission XVI: Rescue Kroll Mountainshade | 27 | Field Captain Palandar |
 Duskwood Mission XVII: Rescue Alara Grovemender | 27 | Field Captain Palandar | - | Duskwood
 Duskwood Mission XVIII: Rescue Elenora Marshwalker | 27 | Field Captain Palandar | - | Duskwood
 Dusky Crab Cakes | 20 | Chef Grual | A | Darkshire
+Dutiful Steps | 38 | Caretaker Alaric | A | Circle of Inner Binding
 Dwarven Digging | 8 | Baine Bloodhoof | H | Bloodhoof Village
 Dwarven Justice | 55 | Curator Thorius | A | Ironforge
 Dwarven Outfitters | 1 | Sten Stoutarm | A | Anvilmar
+Dying Wish | 47 | Marshal Ryan | - | Twilight's Shroud
 Eagan Peltskinner | 2 | Deputy Willem | A | Northshire Abbey
 Earned Reverence | 60 | Lieutenant Haggerdin | A | The Headland
 Earned Reverence | 60 | Warmaster Laggrond | H | Sofera's Naze
@@ -1223,7 +1314,6 @@ Easing Suffering | 10 | Byancie | A | Dolanaar
 Easy Strider Living | 12 | Alanndarian Nightsong | A | Auberdine
 Echeyakee | 16 | Sergra Darkthorn | H | The Crossroads
 Echoes of War (Naxxramas) | 60 | Commander Eligor Dawnbringer | - | Light's Hope Chapel
-Economic Warfare | 60 | Gorhak | - | Magram Village
 Economic Warfare | 60 | Molkar | - | Gelkis Village
 Egg Collection (Blackrock Spire) | 60 | Tinkee Steamboil | - | Ruins of Thaurissan
 Egg Freezing (Blackrock Spire) | 60 | Tinkee Steamboil | - | Ruins of Thaurissan
@@ -1251,6 +1341,7 @@ Elixir of Suffering | 22 | Apothecary Lydon | H | Tarren Mill
 Elixirs for the Bladeleafs | 8 | Syral Bladeleaf | A | Dolanaar
 Elmore's Task | 15 | Smith Argus | A | Goldshire
 Elmore's Task | 15 | Verner Osgood | A | Lakeshire
+Elrick, Paladin of the Silver Hand | 50 | Elrick | A | Theramore Isle
 Elune's Blessing | 60 | Valadar Starsong | - | Moonglade
 Elune's Candle | 60 | Valadar Starsong | - | Moonglade
 Elune's Grace | 20 | High Priest Rohan | A | Ironforge
@@ -1258,6 +1349,7 @@ Elune's Grace | 20 | High Priestess Laurena | A | Stormwind City
 Elune's Grace | 20 | Nara Meideros | A | Stormwind City
 Elune's Grace | 20 | Priestess Alathea | A | The Temple Gardens
 Elune's Tear | 22 | Pelturas Whitemoon | A | Astranaar
+Eluvi'ana | 60 | Ealaane Nimbuswalker | - | Zephras Isle
 Elven Legends (Dire Maul) | 60 | Sage Korolusk | H | Camp Mojache
 Elven Legends (Dire Maul) | 60 | Scholar Runethorn | A | Feathermoon Stronghold
 Emberstrife | 60 | Myranda the Hag | - | Sorrow Hill
@@ -1268,6 +1360,7 @@ Enchanted Azsharite Fel Weaponry | 58 | Galvan the Ancient | - | Mosh'Ogg Ogre M
 Enchanted South Seas Kelp (Zul'Gurub) | 60 | Maywiki of Zuldazar | - | Zuuldaia Ruins
 Encoded Fragments | 52 | Archmage Xylem | - | Bear's Head
 Encroaching Gnolls | 16 | Guard Parker | A | Three Corners
+Encroaching Twilight | 41 | Tran'gul | - | Rog'mar
 Encroaching Wildlife | 37 | Watcher Biggs | A | Splinterspear Junction
 Encroachment | 10 | Gar'Thok | H | Razor Hill
 Encrusted Tail Fins | 35 | Wizzle Brassbolts | - | The Shimmering Flats
@@ -1279,9 +1372,10 @@ Encrypted Scroll | 1 | Shadow Priest Sarvis | H | Deathknell
 Encrypted Sigil | 1 | Conservator Ilthalaine | A | Aldrassil
 Encrypted Tablet | 1 | Gornek | H | The Den
 Encrypted Twilight Texts | 60 | Bor Wildmane | - | Cenarion Hold
+Enemies in the Water | 37 | Commander Aggro'gosh | H | Grom'gol Base Camp
 Enraged Spirits | 26 | Kaela Shadowspear | A | Webwinder Path
 Enraged Thunder Lizards | 18 | Jorn Skyseer | H | Camp Taurajo
-Enraged Wildkin | 59 | Harlo Wigglesworth | - | Everlook
+Enraged Wildkin | 59 | Harlo Wigglesworth | H | Everlook
 Enraged Wildkin | 59 | Jaron Stoneshaper | A | Starfall Village
 Epic Armaments of Battle - Exalted Amongst the Dawn | 60 | Quartermaster Miranda Breechlock | A | Light's Hope Chapel
 Epic Armaments of Battle - Friend of the Dawn | 60 | Quartermaster Miranda Breechlock | A | Light's Hope Chapel
@@ -1293,7 +1387,7 @@ Errand for Apothecary Zinge | 45 | Alessandro Luca | H | Undercity
 Errand for Apothecary Zinge | 45 | Apothecary Zinge | H | Undercity
 Escape Through Force | 22 | Volcor | A | Grove of the Ancients
 Escape Through Stealth | 20 | Volcor | A | Grove of the Ancients
-Escaping Ban'ethil | 9 | Sentinel Lynessa Duskblossom | A | Ban'ethil Hollow
+Escaping Ban'ethil | 10 | Sentinel Lynessa Duskblossom | A | Ban'ethil Hollow
 Escorting Erland | 11 | Deathstalker Erland | H | Malden's Orchard
 Essence Mangoes (Zul'Gurub) | 60 | Rin'wosho the Trader | - | Zuuldaia Ruins
 Essence Mangoes | 60 | Rin'wosho the Trader | - | Zuuldaia Ruins
@@ -1320,7 +1414,10 @@ Exploring the Horde | 13 | Thrall | H | Orgrimmar
 Explosive Consultation | 16 | Alba Fairmoon | A | Westfall
 Explosive Consultation | 16 | Sprite Jumpsprocket | A | Stormwind City
 Extinguish the Firegut | 52 | Oralius | A | Morgan's Vigil
+Eye of Mugg (Krol'dok Stronghold) | 45 | Demar Brant | - | Farholde Keep
+Eye of Mugg (Krol'dok Stronghold) | 45 | Krom'rosh | - | Rog'mar
 Eye of the Emberseer | 60 | Duke Hydraxis | - | Ravencrest Monument
+Eyes for the Watchman | 36 | Eleanor Holmsby | - | Meadowsbrook
 Eyes of the Sentinels | 11 | Sentinel Dalia Sunblade | A | The Temple Gardens
 Eyes on the Sky | 33 | Bath'rah the Windwatcher | - | Ravenholdt Manor
 Eyes on the Sky | 33 | Rau Cliffrunner | H | Freewind Post
@@ -1348,6 +1445,7 @@ Feathermoon Stronghold (Dire Maul) | 57 | Courier Hammerfall | A | Ironforge
 Feathermoon Stronghold (Dire Maul) | 57 | Crier Goodman | A | Valley of Heroes
 Feathermoon Stronghold (Dire Maul) | 57 | Herald Moonstalker | A | Darnassus
 Feathers for Binding | 11 | Elegael Thornpaw | - | Zephras Isle
+Feathers for Fletching | 40 | Neza Bloodsnout | - | Rog'mar
 Feathers for Grazle | 55 | Grazle | - | Emerald Sanctuary
 Feathers for Nafien | 55 | Nafien | - | Felpaw Village
 Felbound Ancients | 54 | Eridan Bluewind | - | Emerald Sanctuary
@@ -1359,6 +1457,7 @@ Festival Dumplings | 60 | Valadar Starsong | - | Moonglade
 Festive Lunar Dresses | 60 | Valadar Starsong | - | Moonglade
 Festive Lunar Pant Suits | 60 | Valadar Starsong | - | Moonglade
 Festive Recipes | 60 | Fariel Starsong | - | Moonglade
+Fetch 'n' Fletch | 38 | Tan'jani | - | Rog'mar
 Field Duty Papers | 60 | Captain Blackanvil | A | Hive'Zora
 Field Duty Papers | 60 | Krug Skullsplit | H | Hive'Regal
 Field Duty | 60 | Windcaller Kaldon | - | Cenarion Hold
@@ -1416,10 +1515,12 @@ Find Ranshalla | 57 | Erelas Ambersky | A | Lake Al'Ameth
 Find the Gems and Power Source (Uldaman) | 44 | Jarkal Mossmeld | H | Kargath
 Find the Lost Guards | 10 | Guard Thomas | A | Brackwell Pumpkin Patch
 Find the Shattered Hand | 16 | Mennet Carkad | H | Ruins of Lordaeron
+Finding Tan'jani | 38 | Tor'gan | H | Hammerfall
 Finding Warmth | 8 | Father Gavin | - | Misty Pine Refuge
 Finding the Antidote | 9 | Kor'ghan | H | Orgrimmar
 Finding the Shadowy Figure | 25 | Tavernkeep Smitts | A | Darkshire
 Finding the Source | 55 | Krakle | - | Golakka Hot Springs
+Findings for the Explorer's League | 40 | Loremaster Dibbs | A | Southshore
 Fine Gold Thread | 37 | Xizk Goodstitch | - | Booty Bay
 Fiora Longears | 30 | Red Jack Flint | A | Menethil Harbor
 Fire Hardened Mail | 28 | Furen Longbeard | A | Stormwind City
@@ -1430,10 +1531,12 @@ Fire Taboo | 23 | Rethiel the Greenwarden | A | The Green Belt
 Firework Launcher | 60 | Fariel Starsong | - | Moonglade
 Fish in a Bucket | 25 | Jinar'Zillen | H | Shadowprey Village
 Fishin' Time | 12 | Gilbert Gray | A | Stormwind City
+Fit for a Princess | 38 | Tessa Dawnbright | - | Farholde Keep
 Five Signets for War Supplies | 19 | Field Marshal Snowfall | A | Ironforge
 Five Signets for War Supplies | 19 | Warlord Gorchuk | H | Orgrimmar
 Flash Bomb Recipe | 37 | Rigglefuzz | - | Valley of Fangs
 Flawless Fel Essence | 55 | Impsy | - | Bloodvenom River
+Fledgling Rescue | 51 | Gryphon Master Talonaxe | A | Aerie Peak
 Flexing for Nougat | 60 | Innkeeper Allison | A | Valley of Heroes
 Flexing for Nougat | 60 | Innkeeper Gryshka | H | Orgrimmar
 Flickering Flames in Kalimdor | 25 | Festival Loremaster | A | Ironforge
@@ -1452,8 +1555,11 @@ Flight to Auberdine | 10 | Vesprystus | A | Lake Al'Ameth
 Flint Shadowmore | 60 | Master Mathias Shaw | A | Valley of Heroes
 Flintfire's Shipment | 7 | Tognus Flintfire | A | Kharanos
 Flutterfly Dust | 9 | Aamelia Windfield | - | Zephras Isle
+Foal Play | 38 | Benjy Wheeler | - | Wheeler's Grange
 Follow That Kobold! | 4 | Marshal McBride | A | Northshire Abbey
 Food for Baby | 47 | Agnar Beastamer | A | Aerie Peak
+Food for the Taking | 36 | Krom'rosh | - | Rog'mar
+Fool Me Twice | 50 | Fahrad | - | Ravenholdt Manor
 For All To See | 60 | Thrall | H | Orgrimmar
 For Further Study | 32 | Prospector Whelgar | A | Excavation Site: Wetlands
 For Great Honor | 60 | Horde Warbringer | H | Hammerfall
@@ -1462,34 +1568,42 @@ For Great Honor | 60 | Horde Warbringer | H | Orgrimmar
 For Great Honor | 60 | Horde Warbringer | H | Sofera's Naze
 For Great Honor | 60 | Horde Warbringer | H | The Mor'shan Rampart
 For Great Honor | 60 | Horde Warbringer | H | The Shining Strand
-For Honor | 6 | Turroc | H | Razor Hill
+For Honor | 7 | Turroc | H | Razor Hill
 For Love Eternal | 16 | Cerellean Whiteclaw | A | Auberdine
 For The Horde! (Blackrock Spire) | 60 | Thrall | H | Orgrimmar
 Forbidden Knowledge | 40 | Gerrig Bonegrip | A | Ironforge
 Forbidden Knowledge | 40 | Keeper Bel'dugur | H | Undercity
 Forces of Jaedenar | 51 | Greta Mosshoof | - | Emerald Sanctuary
+Foreman's Plight | 38 | Bertrand Ironbrow | A | Farholde Keep
 Forged Steel | 10 | Thun'grim Firegaze | H | Thorn Hill
 Forging the Mightstone | 52 | Commander Ashlam Valorfist | A | Sorrow Hill
 Forging the Shaft | 48 | Velarok Windblade | - | Searing Gorge
 Forgotten Loa Idols | 9 | Master Vornal | H | Sen'jin Village
+Forlorn Gardens | 43 | Mithera | - | Outcast Hideaway
 Forsaken Aid | 18 | Magatha Grimtotem | H | Elder Rise
 Forsaken Diseases | 29 | Kayneth Stillwind | A | Satyrnaar
 Forsaken Duties | 9 | Magistrate Sevren | H | Brill
 Foul Magics | 33 | Tor'gan | H | Hammerfall
 Foul Magics | 40 | Tor'gan | H | Hammerfall
 Foul Matriarch | 5 | Aetheen of the Gales | - | Zephras Isle
+Fragment of the Firelands (Blackrock Depths) | 55 | Alaana Stormwalker | H | Spirit Rise
 Fragmented Magic | 60 | Archmage Xylem | - | Bear's Head
 Fragments of the Orb of Orahil | 40 | Menara Voidrender | - | Ratchet
 Fragments of the Past | 56 | Aurora Skycaller | - | Quel'Lithien Lodge
 Fragments of the Past | 57 | Aurora Skycaller | - | Quel'Lithien Lodge
+Fragments of the Pylons | 41 | Mordent Evenshade | - | Evenshade's Overlook
+Frazzlespark's Crate | 36 | Friz Frazzlespark | - | Powderfuse Port
 Free From the Hold | 20 | Gilthares Firebough | H | Northwatch Hold
 Free at Last | 29 | Lakota Windsong | H | The Great Lift
 Free the Hollows | 13 | Strange Hermit | - | Zephras Isle
 Freedom for All Creatures | 47 | Kindal Moonweaver | A | Grimtotem Compound
 Freedom to Ruul | 24 | Ruul Snowhoof | H | Thistlefur Village
 Fresh Meat | 44 | Dar | H | Stonard
+Freshwater Fiends | 38 | Benjy Wheeler | - | Wheeler's Grange
 Friend of the Kirin Tor | 33 | Image of Archmage Modera | - | Dalaran
 Friend of the Library | 20 | Garion Wendell | A | Thunder Falls
+From Port to Port | 41 | Friz Frazzlespark | - | Powderfuse Port
+From Seed to Sprout | 38 | Halligan Turner | - | Turner's Logging Camp
 From The Wreckage.... | 8 | Gar'Thok | H | Razor Hill
 From the Ashes | 28 | Captain Stoutfist | A | Menethil Harbor
 Frostfire Belt (Naxxramas) | 60 | Archmage Angela Dosantos | - | Light's Hope Chapel
@@ -1534,6 +1648,7 @@ Garments of Spirituality | 4 | Tai'jin | H | Razor Hill
 Garments of the Light | 4 | Maxan Anvol | A | Kharanos
 Garments of the Light | 4 | Priestess Josetta | A | Goldshire
 Garments of the Moon | 4 | Laurna Morninglight | A | Dolanaar
+Gaseous Gold | 38 | Sleebo Fizzlespout | - | Rog'mar
 Gatehouse Goods | 15 | Elaine Trias | A | Valley of Heroes
 Gather Rot Blossoms | 24 | Tavernkeep Smitts | A | Darkshire
 Gathering Idols | 18 | Magmar Fellhew | A | Ironband's Excavation Site
@@ -1552,7 +1667,9 @@ Gerenzo's Orders | 22 | Piznik | - | Blackwolf River
 Get Me Out of Here! | 39 | Melizza Brimbuzzle | - | Valley of Spears
 Get the Gnomes Drunk | 44 | Kravel Koalbeard | - | The Shimmering Flats
 Get the Goblins Drunk | 44 | Kravel Koalbeard | - | The Shimmering Flats
+Get the Goods | 40 | Caravaneer Ruzzgot | - | Booty Bay
 Get the Scoop | 30 | Magus Tirth | - | The Shimmering Flats
+Gettin' Buzzed | 48 | Berdun Cliffbrew | A | Shadowsong Shrine
 Ghost Hair Thread | 24 | Madame Eva | A | Darkshire
 Ghost-o-plasm Round Up | 39 | Hornizz Brimbuzzle | - | Kodo Graveyard
 Ghoulish Effigy | 27 | Abercrombie | A | Raven Hill Cemetery
@@ -1582,12 +1699,15 @@ Glyphic Scroll | 1 | Shadow Priest Sarvis | H | Deathknell
 Glyphic Tablet | 1 | Gornek | H | The Den
 Gnarlpine Corruption | 6 | Gaerolas Talvethren | A | Starbreeze Village
 Gnogaine (Gnomeregan) | 27 | Ozzie Togglevolt | A | Kharanos
+Gnoll Infestation | 38 | Cedric Dalton | - | Southern Watch
+Gnoll Infestation | 38 | Neza Bloodsnout | - | Rog'mar
 Gnome Engineering | 47 | Graham Van Talen | H | Ruins of Lordaeron
 Gnome Engineering | 47 | Lilliam Sparkspindle | A | Stormwind City
 Gnome Engineering | 47 | Springspindle Fizzlegear | A | Ironforge
 Gnome Engineering | 47 | Tinkerwiz | - | Ratchet
 Gnome Improvement | 35 | Talvash del Kissel | A | Ironforge
 Gnomer-gooooone! (Gnomeregan) | 35 | Scooty | - | Booty Bay
+Gnomish Garbage | 45 | Jhordy Lapforge | - | Gadgetzan
 Goaz Scrolls | 20 | Garion Wendell | A | Thunder Falls
 Goblin Engineering | 47 | Graham Van Talen | H | Ruins of Lordaeron
 Goblin Engineering | 47 | Lilliam Sparkspindle | A | Stormwind City
@@ -1598,6 +1718,7 @@ Goblin Sponsorship | 37 | Baron Revilgaz | - | Booty Bay
 Goblin Sponsorship | 37 | Gazlowe | - | Ratchet
 Goblin Sponsorship | 37 | Pozzik | - | The Shimmering Flats
 Goblin Sponsorship | 37 | Wharfmaster Lozgil | - | Booty Bay
+Goes Down Smooth | 38 | Innkeeper Zizplink | - | Powderfuse Port
 Going, Going, Guano! (Razorfen Kraul) | 33 | Master Apothecary Faranell | H | Undercity
 Gol'dir | 36 | Krusk | H | Tarren Mill
 Gold Dust Exchange | 7 | Remy "Two Times" | A | Goldshire
@@ -1609,7 +1730,7 @@ Good Luck Charm | 52 | Ol' Emma | A | Stormwind City
 Good Natured Emma | 52 | Royal Factor Bathrilor | A | Stormwind City
 Good Steel | 7 | Hagar Lowe | A | Eastvale Logging Camp
 Gor'tesh the Brute Lord | 53 | Oralius | A | Morgan's Vigil
-Gordo's Task | 5 | Gordo | H | Cold Hearth Manor
+Gordo's Task | 5 | Gordo | H | Nightmare Vale
 Gordunni Cobalt | 43 | Orwin Gizzmick | H | Camp Mojache
 Goretusk Liver Pie | 12 | Salma Saldean | A | Saldean's Farm
 Grace of An'she and Mu'sha | 4 | Seer Graytongue | H | Red Cloud Mesa
@@ -1638,6 +1759,8 @@ Grimand's Armor | 30 | Grimand Elmore | A | Stormwind City
 Grimand's Finest Work | 60 | Grimand Elmore | A | Stormwind City
 Grimtotem Spying | 28 | Cliffwatcher Longhorn | H | Freewind Post
 Grimtotem the Elder | 60 | Elder Grimtotem | - | Lariss Pavilion
+Gritty Business | 45 | Quinn | - | Gadgetzan
+Ground to Keep | 39 | Groundskeeper Lomar | - | Stromgarde Keep
 Grove of the Ancients | 17 | Arch Druid Fandral Staghelm | A | Cenarion Enclave
 Grund and Gozwin | 6 | Grund Drokda | A | Anvilmar
 Gryphon Master Talonaxe | 43 | Falstad Wildhammer | A | Aerie Peak
@@ -1677,6 +1800,7 @@ Harpy Raiders | 15 | Darsok Swiftdagger | H | The Crossroads
 Harvesting Windstones | 4 | Dalia the Collector | - | Zephras Isle
 Harvesting the Harvesters | 15 | Ozwin Ironsprocket | A | Saldean's Farm
 Hate the Hatefury | 33 | Aka'rai | H | Shadowprey Village
+Hats Off | 38 | Robbie Holmsby | - | Meadowsbrook
 Havoc in the Highlands | 8 | Constable Aonda | - | Zephras Isle
 Haze of Evil | 52 | Gregan Brewspewer | - | The Twin Colossals
 Headhunting | 37 | Nimboya | H | Grom'gol Base Camp
@@ -1699,8 +1823,10 @@ Heeding the Call | 10 | Kal | A | Dolanaar
 Heeding the Call | 10 | Theridran | A | Stormwind City
 Heirloom Weapon | 11 | Coleman Farthing | H | Brill
 Helcular's Revenge | 33 | Novice Thaivand | H | Tarren Mill
+Helping Hands | 39 | Hurley | - | Turner's Logging Camp
 Hemet Nesingwary | 31 | Kravel Koalbeard | - | The Shimmering Flats
 Her Name Is Olgra | 20 | Mankrik | H | The Crossroads
+Her World | 41 | Gray Dawnbright | - | Powderfuse Port
 Hero of the Frostwolf | 60 | Voggah Deathgrip | H | Sofera's Naze
 Hero of the Stormpike | 60 | Prospector Stonehewer | A | The Headland
 Heroes of Darrowshire | 56 | Carlin Redpath | - | Light's Hope Chapel
@@ -1722,6 +1848,8 @@ High Chief Winterfall | 59 | Donova Snowden | - | Frostfire Hot Springs
 High Mountain the Elder | 60 | Elder High Mountain | - | Camp Taurajo
 High Sorcerer Andromath | 26 | Bink | A | Ironforge
 High Sorcerer Andromath | 26 | Jennea Cannon | A | Thunder Falls
+High Stakes | 38 | Bertrand Ironbrow | A | Farholde Keep
+Highborne Tablets | 52 | Saria Fairmoon | - | The Shattered Strand
 Highland Hides (Excavation Site: Wetlands) | 28 | James Halloran | A | Menethil Harbor
 Highpeak the Elder | 60 | Elder Highpeak | - | The Hinterlands
 Highperch Venom | 30 | Fiora Longears | A | Theramore Isle
@@ -1737,6 +1865,7 @@ Hippogryph Harassment | 7 | Teeri Wellwind | - | Zephras Isle
 Hippogryph Muisek | 47 | Witch Doctor Uzer'i | H | Camp Mojache
 Hive in the Tower | 57 | Layo Starstrike | - | Golakka Hot Springs
 Holy Diver | 20 | Gwennyth Bly'Leggonde | A | Auberdine
+Home on the Range | 48 | Berdun Cliffbrew | A | Shadowsong Shrine
 Homeward Bound | 29 | Pao'ka Swiftmountain | H | Highperch
 Honor Students | 10 | Brock Stoneseeker | A | Thelsamar
 Honor the Dead | 60 | Master Mathias Shaw | A | Valley of Heroes
@@ -1760,10 +1889,13 @@ Hunt for Yenniku | 34 | Nimboya | H | Grom'gol Base Camp
 Hunt the Savages | 48 | Huntsman Markhor | H | Revantusk Village
 Hunting for Ectoplasm | 60 | Mux Manascrambler | - | Gadgetzan
 Hunting in Stranglethorn | 31 | Roon Wildmane | H | Shadowprey Village
+Hunting the Hunters | 39 | Watcher Cornelius | - | Terral's Watch
 Hurley Blackbreath (Blackrock Depths) | 55 | Ragnar Thunderbrew | A | Kharanos
 Hypercapacitor Gizmo | 30 | Wizlo Bearingshiner | H | Camp E'thok
 I Got Nothin' Left! | 45 | Grimnur Stonebrand | A | Ironforge
 I Know A Guy... | 45 | Daryl Riknussun | A | Ironforge
+I Know a Guy | 40 | Friz Frazzlespark | - | Powderfuse Port
+I Need a Tailor | 35 | Molkar | - | Gelkis Village
 Ice Thistle E'ko | 60 | Witch Doctor Mau'ari | - | Everlook
 Icebane Bracers (Naxxramas) | 60 | Craftsman Wilhelm | - | Light's Hope Chapel
 Icebane Breastplate (Naxxramas) | 60 | Craftsman Wilhelm | - | Light's Hope Chapel
@@ -1772,6 +1904,7 @@ Icy Scale Bracers (Naxxramas) | 60 | Craftsman Wilhelm | - | Light's Hope Chapel
 Icy Scale Breastplate (Naxxramas) | 60 | Craftsman Wilhelm | - | Light's Hope Chapel
 Icy Scale Gauntlets (Naxxramas) | 60 | Craftsman Wilhelm | - | Light's Hope Chapel
 Identifying the Brood | 43 | Draz'Zilb | H | The Quagmire
+If a Tree Falls, and No One Hears... | 39 | Curly | - | Meadowsbrook
 Ignition | 18 | Wizzlecrank's Shredder | - | The Sludge Fen
 Imp Delivery | 60 | Gorzeeki Wildeyes | - | Altar of Storms
 Imperial Plate Belt | 60 | Derotain Mudsipper | H | Gadgetzan
@@ -1797,9 +1930,10 @@ In Favor of Spirituality | 4 | Ken'jai | H | The Den
 In Favor of the Light | 4 | Branstock Khalder | A | Anvilmar
 In Favor of the Light | 4 | Priestess Anetta | A | Northshire Abbey
 In Good Taste | 49 | Marin Noggenfogger | - | Gadgetzan
+In Memoriam | 38 | Sister Rowland | - | Farholde Keep
+In Need of Relief | 43 | Watcher Cornelius | - | Terral's Watch
 In Nightmares | 25 | Falla Sagewind | - | Shrine of the Fallen Warrior
 In Search of Anthion | 60 | Deliana | A | Ironforge
-In Search of Anthion | 60 | Mokvar | - | Orgrimmar
 In Search of Anthion | 60 | Mokvar | H | Orgrimmar
 In Search of Galvan | 40 | Hank the Hammer | A | Stormwind City
 In Search of Knowledge | 47 | Troyas Moonbreeze | A | Feathermoon Stronghold
@@ -1818,6 +1952,7 @@ Incendius! (Blackrock Depths) | 56 | Jalinda Sprig | A | Morgan's Vigil
 Incendosaurs? Whateverosaur is More Like It | 49 | Hansel Heavyhands | - | Firewatch Ridge
 Incoming Gumdrop | 60 | Kali Remik | H | Sen'jin Village
 Incoming Gumdrop | 60 | Talvash del Kissel | A | Ironforge
+Indiscriminate Purge | 40 | Apprentice Claire | - | Sunnyglade
 Indurium Ore | 42 | Pozzik | - | The Shimmering Flats
 Indurium | 39 | Martek the Exiled | - | Valley of Fangs
 Ineptitude + Chemicals = Fun | 21 | Lomac Gearstrip | A | Ironforge
@@ -1836,6 +1971,7 @@ Insect Part Analysis | 48 | Senior Surveyor Fizzledowser | - | Gadgetzan
 Into The Maw of Madness | 60 | Commander Mar'alith | - | Cenarion Hold
 Into The Scarlet Monastery (Scarlet Monastery) | 42 | Varimathras | H | The Shining Strand
 Into The Temple of Atal'Hakkar (Sunken Temple) | 50 | Brohann Caskbelly | A | Stormwind City
+Into the Darkness | 54 | Lieutenant Connar | - | Nethergarde Keep
 Into the Depths (Sunken Temple) | 51 | Marvon Rivetseeker | - | Broken Pillar
 Into the Field | 46 | Apothecary Zinge | H | Undercity
 Invader's Scourgestones | 55 | Argent Officer Garush | - | The Bulwark
@@ -1865,7 +2001,9 @@ Ironband's Compound | 11 | Tormus Deepforge | A | Ironforge
 Ironband's Excavation | 18 | Jern Hornhelm | A | Thelsamar
 Isha Awak | 27 | Mahren Skyseer | - | Spirit Rock
 Ishamuhale | 19 | Jorn Skyseer | H | Camp Taurajo
+It Is Time, Brother... | 45 | Da'grosh | - | Twilight's Shroud
 It Must Be Destroyed | 30 | Ursula Deline | A | Stormwind City
+It Takes Guts | 42 | Argo Brinewhistle | - | Powderfuse Port
 It's Dangerous to Go Alone | 56 | Linken | - | Lakkari Tar Pits
 It's a Secret to Everybody | 52 | Linken | - | Lakkari Tar Pits
 Items of Power | 40 | Tabetha | - | The Quagmire
@@ -1881,6 +2019,7 @@ Je'neu of the Earthen Ring | 27 | Mastok Wrilehiss | H | Splintertree Post
 Jes'rimon's Payment to Jediga | 52 | Jes'rimon | H | Orgrimmar
 Jin'Zil's Forest Magic | 26 | Witch Doctor Jin'Zil | H | Malaka'jin
 Jitters' Growling Gut | 20 | Jitters | A | Raven Hill
+Jom-jom's Escape | 42 | Jom-jom | - | Windstead
 Jonespyre's Request | 50 | Innkeeper Shyria | A | Feathermoon Stronghold
 Jonespyre's Request | 50 | Tannysa | A | Thunder Falls
 Jorn Skyseer | 18 | Sergra Darkthorn | H | The Crossroads
@@ -1912,7 +2051,10 @@ Kayneth Stillwind | 29 | Shindrell Swiftfire | A | Astranaar
 Keep An Eye Out | 42 | Dizzy One-Eye | - | Booty Bay
 Keeper of the Flame | 16 | Captain Grayson | - | Demont's Place
 Keeping Pace | 41 | Pozzik | - | The Shimmering Flats
+Keeping the Light On | 38 | Sister Rowland | - | Farholde Keep
 Ken'zigla's Draught | 20 | Ken'zigla | H | Malaka'jin
+Key Ingredients (Krol'dok Stronghold) | 41 | Alphonse Dumas | - | Farholde Keep
+Key Ingredients (Krol'dok Stronghold) | 41 | Kreza Darkthorn | H | Rog'mar
 Key to the City | 33 | Magus Wordeen Voidglare | H | Tarren Mill
 Kezan's Taint (Zul'Gurub) | 60 | Al'tabim the All-Seeing | - | Zuuldaia Ruins
 Kezan's Unstoppable Taint (Zul'Gurub) | 60 | Al'tabim the All-Seeing | - | Zuuldaia Ruins
@@ -1930,6 +2072,8 @@ Kill Grundig Darkcloud | 18 | Makaba Flathoof | H | Greatwood Vale
 Kim'jael Indeed! | 53 | Kim'jael | - | Thalassian Base Camp
 Kim'jael's "Missing" Equipment | 53 | Kim'jael | - | Thalassian Base Camp
 King of the Foulweald | 26 | Karang Amakkar | H | Lake Falathim
+King of the Wild Plains | 41 | Neza Bloodsnout | - | Rog'mar
+King of the Wild Plains | 41 | Watcher Cornelius | - | Terral's Watch
 Kingly Shakedown | 16 | Hulfdan Blackbeard | A | Ironforge
 Kirith | 58 | Fallen Hero of the Horde | - | Garrison Armory
 Kirtonos the Herald (Scholomance) | 60 | Eva Sarkhoff | - | Caer Darrow
@@ -1959,6 +2103,7 @@ Kyle's Gone Missing! | 7 | Ahab Wheathoof | H | Bloodhoof Village
 Lack of Surplus | 40 | Dar | H | Stonard
 Lack of Surplus | 42 | Tok'Kar | H | Stagalbog
 Land Ho! | 35 | Lolo the Lookout | - | Faldir's Cove
+Land of Giants | 40 | Tran'gul | - | Rog'mar
 Lard Lost His Lunch | 49 | Lard | H | Revantusk Village
 Large Cluster Rockets | 60 | Fariel Starsong | - | Moonglade
 Large Rockets | 60 | Fariel Starsong | - | Moonglade
@@ -1966,6 +2111,16 @@ Larion and Muigin | 52 | Larion | H | Lakkari Tar Pits
 Laughing Sisters | 26 | Deino | H | Rocktusk Farm
 Lazy Peons | 4 | Foreman Thazz'ril | H | The Den
 Leaders of the Fang (Wailing Caverns) | 22 | Nara Wildmane | H | Elder Rise
+Learning to Ride | 40 | Binjy Featherwhistle | A | Dun Morogh
+Learning to Ride | 40 | Genn Fairweather | - | Zephras Isle
+Learning to Ride | 40 | Jartsam | A | Cenarion Enclave
+Learning to Ride | 40 | Kar Stormsinger | H | Bloodhoof Village
+Learning to Ride | 40 | Kildar | H | Orgrimmar
+Learning to Ride | 40 | Randal Hunter | A | Eastvale Logging Camp
+Learning to Ride | 40 | Ultham Ironhorn | A | Amberstill Ranch
+Learning to Ride | 40 | Velma Warnam | H | Brill
+Learning to Ride | 40 | Xar'Ti | H | Sen'jin Village
+Leather Technique | 35 | Talra | - | Gelkis Village
 Legacy Reward: Replica Ironforge Air Rifle | 60 | Innkeeper Wiley | - | Ratchet
 Legacy Reward: Spectral Bear Cub | 60 | Innkeeper Wiley | - | Ratchet
 Legendary Heroes | 60 | Lieutenant Haggerdin | A | The Headland
@@ -2000,11 +2155,13 @@ Light's Justice (Ruins of Lordaeron) | 22 | Morbin Lightbane | H | Undercity
 Lightforge Ingots | 29 | Glorin Steelbrow | A | Menethil Harbor
 Lightforge Iron | 29 | Glorin Steelbrow | A | Menethil Harbor
 Lines of Communication | 47 | Oran Snakewrithe | H | Ruins of Lordaeron
+Lingering Essence (Krol'dok Stronghold) | 42 | Sergeant Riftan | - | Twilight's Shroud
 Linken's Adventure | 54 | J.D. Collie | - | The Shaper's Terrace
 Linken's Memory | 54 | J.D. Collie | - | The Shaper's Terrace
 Liquid Stone | 37 | Lucien Tosselwrench | - | The Dustbowl
 Little Pamela | 55 | Marlene Redpath | - | Sorrow Hill
 Load Lightening | 30 | Pozzik | - | The Shimmering Flats
+Locating the Lost City | 40 | Kin'weelay | H | Grom'gol Base Camp
 Long Forgotten Memories | 60 | Anachronos | H | Caverns of Time
 Longwalker Malah | 9 | Brave Wildrunner | H | Bloodhoof Village
 Look to an Old Friend | 31 | Master Mathias Shaw | A | Valley of Heroes
@@ -2024,6 +2181,7 @@ Lost But Not Forgotten | 11 | Misha Tor'kren | H | Thunder Ridge
 Lost Deathstalkers | 12 | High Executor Hadrec | H | The Sepulcher
 Lost Necklace | 6 | "Auntie" Bernice Stonefield | A | The Stonefield Farm
 Lost Thunderbrew Recipe (Blackrock Depths) | 55 | Shadowmage Vivian Lagrave | H | Kargath
+Lost for Words | 43 | Blaise Montgomery | H | Camp Mojache
 Lost in Battle | 20 | Mankrik | H | The Crossroads
 Lost in Transit | 35 | Dar | H | Stonard
 Lost in the Shadows | 8 | Pal'juh | H | Spirit Rock
@@ -2031,6 +2189,7 @@ Lost in the Thicket Things (Excavation Site: Wetlands) | 31 | Caitlin Grassman |
 Lost! | 55 | Spraggle Frock | - | Lakkari Tar Pits
 Love Hurts | 20 | Cazul | H | Orgrimmar
 Love Song for Narain | 60 | Meridith the Mermaiden | - | The Gaping Chasm
+Love Thy Neighbor | 37 | Cassandra Wheeler | - | Farholde Keep
 Love's Gift | 20 | Grunt Dogran | H | Agama'gor
 Luck Be With You | 60 | Witch Doctor Mau'ari | - | Everlook
 Lumina Windsinger | 22 | Lumina Windsinger | H | Fenris Isle
@@ -2054,6 +2213,7 @@ Magecraft | 52 | Pierce Shackleton | H | Ruins of Lordaeron
 Magecraft | 52 | Uthel'nay | H | Rocktusk Farm
 Magic Dust | 52 | Archmage Xylem | - | Bear's Head
 Magical Analysis | 37 | Baron Revilgaz | - | Booty Bay
+Magics of the Drowned City (The Drowned City) | 40 | Loremaster Dibbs | A | Southshore
 Magma or Lava? | 60 | Jennea Cannon | A | Thunder Falls
 Magram Alliance | 33 | Gurda Wildmane | H | Kodo Graveyard
 Mahren Skyseer | 27 | Jorn Skyseer | H | Camp Taurajo
@@ -2078,6 +2238,7 @@ Making Repairs | 11 | Jorin Croge | H | Bandarion Keep
 Making Sense of It | 53 | J.D. Collie | - | The Shaper's Terrace
 Malin's Request | 32 | Archmage Malin | A | Thunder Falls
 Malin's Request | 39 | Skuerto | A | Refuge Pointe
+Mana Mania | 43 | Historian Biraxas | - | Outcast Hideaway
 Mana Surges | 40 | Tabetha | - | The Quagmire
 Manaweave Robe | 15 | Wynne Larson | A | Thunder Falls
 Manhunt | 10 | Marshal Dughan | A | Goldshire
@@ -2116,6 +2277,7 @@ Mechanical Repair Kits | 60 | Rinling | - | Hunter Rise
 Medallion of Station | 60 | Aurel Goldleaf | - | Cenarion Hold
 Meddlesome Mages | 6 | Illaya Amberwind | H | Zephras Isle
 Meet at the Grave | 52 | Donova Snowden | - | Frostfire Hot Springs
+Meeting the Magister | 43 | Mordent Evenshade | - | Evenshade's Overlook
 Meeting with the Master | 55 | Sanath Lim-yo | - | Bear's Head
 Melding of Influences | 55 | Chemist Fuely | H | The Shining Strand
 Melor Sends Word | 30 | Jorn Skyseer | H | Camp Taurajo
@@ -2139,6 +2301,7 @@ Messenger to Westfall | 14 | Magistrate Solomon | A | Lakeshire
 Metzen the Reindeer | 60 | Kaymard Copperpinch | H | Orgrimmar
 Metzen the Reindeer | 60 | Wulmort Jinglepocket | A | Ironforge
 Michael Garrett | 10 | Gordon Wendham | H | Ruins of Lordaeron
+Might Makes Right | 41 | Clugfist | - | Bolder'ok
 Milly Osworth | 4 | Deputy Willem | A | Northshire Abbey
 Milly's Harvest | 4 | Milly Osworth | A | Northshire Abbey
 Miner's Fortune | 18 | Wharfmaster Dizzywig | - | Ratchet
@@ -2206,8 +2369,11 @@ Mura Runetotem | 15 | Tonga Runetotem | H | The Crossroads
 Muren Stormpike | 10 | Granis Swiftaxe | A | Kharanos
 Murloc Gills | 12 | Alba Fairmoon | A | Westfall
 Murloc Poachers | 20 | Dockmaster Baren | A | Lakeshire
+Murloc Thieves | 52 | Saria Fairmoon | - | The Shattered Strand
 Murlocs at the Gates | 11 | Breton Samuels | H | Bandarion Keep
+My Kingdom for a Horse | 38 | Demar Brant | - | Farholde Keep
 My Little Friends | 35 | Amaryllis Webb | - | Splinterspear Junction
+Mysterious Mysticism | 35 | Halea | - | Gelkis Village
 Mythology of the Titans (Scarlet Monastery) | 38 | Librarian Mae Paledust | A | Ironforge
 Naga at the Zoram Strand | 19 | Marukai | H | Lake Falathim
 Nar'thalas Almanac | 20 | Garion Wendell | A | Thunder Falls
@@ -2228,7 +2394,7 @@ Nekrum's Medallion (Zul'Farrak) | 47 | Thadius Grimshade | A | Nethergarde Keep
 Nessa Shadowsong | 10 | Mydrannul | A | Warrior's Terrace
 Nether-lace Garment | 26 | Kil'hala | H | The Crossroads
 Never Ask Me About My Business | 60 | Narain Soothfancy | - | Noonshade Ruins
-Never Coming Back | 22 | Va'xug Firefure | H | The Ruins of Stardust
+Never Coming Back | 23 | Va'xug Firefure | H | The Ruins of Stardust
 Never Saddle on Quality | 10 | Rudra Amberstill | A | Amberstill Ranch
 New Life | 25 | Tammra Windfield | H | Sun Rock Retreat
 New Year Celebrations! | 60 | Wonderform Operator | - | Booty Bay
@@ -2246,6 +2412,7 @@ Nightwind the Elder | 60 | Elder Nightwind | - | Bloodvenom River
 Nip 'Em in the Bud | 13 | Earthseer Farsen | A | Gol'Bolar Quarry
 No Honor Among Thieves | 40 | Tokal | - | Booty Bay
 No Mercy for the Weak | 42 | Orgrul | - | Magram Village
+No Soldier Left Behind | 44 | Sergeant Riftan | - | Twilight's Shroud
 Noble Deaths | 36 | Magistrate Henry Maleb | A | Southshore
 Nogg's Ring Redo | 35 | Nogg | H | Orgrimmar
 Noggenfogger Elixir | 49 | Marin Noggenfogger | - | Gadgetzan
@@ -2254,6 +2421,7 @@ Noggle's Lost Satchel | 58 | Noggle Ficklespragg | - | Cenarion Hold
 Northern Kalimdor - A Comprehensive Guide | 60 | Jennea Cannon | A | Thunder Falls
 Northfold Manor | 31 | Captain Nials | A | Refuge Pointe
 Not Dead Yet | 9 | Sentinel Eralya Leafshadow | A | The Oracle Glade
+Not My Circus | 38 | Jasper Geartoggle | - | Powderfuse Port
 Note to William | 6 | Gramma Stonefield | A | The Stonefield Farm
 Note to the Mayor | 30 | Abercrombie | A | Raven Hill Cemetery
 Notes on Draenethyst | 40 | Azore Aldamort | - | Ethel Rethor
@@ -2273,12 +2441,14 @@ Of Mice and Milk | 15 | Mouse | - | Westfall
 Ogre Head On A Stick = Party | 53 | Oralius | A | Morgan's Vigil
 Ogre Thieves | 30 | Abercrombie | A | Raven Hill Cemetery
 Oh Brother... (Deadmines) | 20 | Wilder Thistlenettle | A | Stormwind City
+Oi! | 57 | Orthas | - | Corin's Crossing
 Old Fire-Eye | 26 | Lumina Windsinger | H | The Sepulcher
 Old Ironforge Incursion (The Hall of Thanes) | 16 | Earthseer Farsen | A | Gol'Bolar Quarry
 On Guard in Stonetalon | 21 | Kaela Shadowspear | A | Webwinder Path
 On Guard in Stonetalon | 21 | Sentinel Thenysil | A | Astranaar
 On Iron Pauldrons | 32 | Orokk Omosh | H | Orgrimmar
 On the Lam | 40 | Bibbly F'utzbuckle | - | Kormek's Hut
+On the Other Side | 41 | Tan'jani | - | Rog'mar
 One Commendation Signet | 60 | Darkspear Commendation Officer | H | Southfury River
 One Commendation Signet | 60 | Darnassus Commendation Officer | A | Ironforge
 One Commendation Signet | 60 | Gnomeregan Commendation Officer | A | Ironforge
@@ -2318,6 +2488,8 @@ Ornery Ornery Galestriders | 9 | Aamelia Windfield | - | Zephras Isle
 Other Fish to Fry | 36 | Drulzegar Skraghook | H | Shadowprey Village
 Ott's Masterwork | 25 | Ott | H | Tarren Mill
 Our Ancient Enemy | 9 | Brave Wildrunner | H | Bloodhoof Village
+Our Ogre Friend | 41 | Jezap Jinglesprocket | - | Bolder'ok
+Out in the Field | 38 | Demar Brant | - | Farholde Keep
 Outcast Necromancers | 40 | Orgrul | - | Magram Village
 Outing Outcasts | 40 | Nerlokh | - | Evenshade's Overlook
 Outrider Advanced Care Package | 60 | Kelm Hargunth | H | The Mor'shan Rampart
@@ -2325,9 +2497,11 @@ Outrider Basic Care Package | 34 | Kelm Hargunth | H | The Mor'shan Rampart
 Outrider Standard Care Package | 44 | Kelm Hargunth | H | The Mor'shan Rampart
 Overlord Mok'Morokk's Concern | 43 | Overlord Mok'Morokk | H | Southern Barrens
 Overmaster Pyron | 52 | Jalinda Sprig | A | Morgan's Vigil
+Overseas Delivery | 38 | Innkeeper Fizzgrimble | A | Gadgetzan
 Pacify the Centaur | 25 | Cliffwatcher Longhorn | H | Freewind Post
 Package for Thurman | 2 | Rema Schneider | A | Stormwind City
-Packaged Pristine Pelts | 31 | Kristy Grant | A | Thalanaar
+Packaged Pristine Pelts | 29 | Kristy Grant | A | Thalanaar
+Paletusk Harvesting | 41 | Na'zok | - | Windstead
 Pamela's Doll | 55 | Pamela Redpath | - | Darrowshire
 Panther Mastery | 31 | Sir S. J. Erlgadin | - | Nesingwary's Expedition
 Panther Mastery | 33 | Sir S. J. Erlgadin | - | Nesingwary's Expedition
@@ -2360,7 +2534,7 @@ Paragons of Power: The Predator's Mantle (Zul'Gurub) | 60 | Falthir the Sightles
 Paragons of Power: The Vindicator's Armguards (Zul'Gurub) | 60 | Jin'rokh the Breaker | - | Zuuldaia Ruins
 Paragons of Power: The Vindicator's Belt (Zul'Gurub) | 60 | Jin'rokh the Breaker | - | Zuuldaia Ruins
 Paragons of Power: The Vindicator's Breastplate (Zul'Gurub) | 60 | Jin'rokh the Breaker | - | Zuuldaia Ruins
-Parts and Pieces | 14 | Wrenix the Wretched | - | Ratchet
+Parts and Pieces | 15 | Wrenix the Wretched | - | Ratchet
 Parts for Kravel | 36 | Wharfmaster Dizzywig | - | Ratchet
 Parts of the Swarm | 35 | Korran | H | The Crossroads
 Passage to Booty Bay | 30 | Wharfmaster Dizzywig | - | Ratchet
@@ -2373,8 +2547,10 @@ Patience | 6 | Executor Zygand | H | Brill
 Patrol Schedules | 37 | Lieutenant Doren | A | Rebel Camp
 Patrolling Westfall | 14 | Captain Danuvin | A | Sentinel Hill
 Pawn Captures Queen | 54 | Alchemist Pestlezugg | - | Gadgetzan
+Pay to Play | 41 | Jezap Jinglesprocket | - | Bolder'ok
 Pearl Diving | 37 | Rigglefuzz | - | Valley of Fangs
 Petty Squabbles | 57 | Ambassador Ardalan | A | Nethergarde Keep
+Phantasmal Problems | 42 | Vindael | - | Outcast Hideaway
 Philmor's Favor | 15 | Manifest Clerk Philmor | A | Stormwind City
 Pie for Billy | 6 | Billy Maclure | A | The Maclure Vineyards
 Piercing the Veil | 3 | Venya Marthand | H | Deathknell
@@ -2395,6 +2571,7 @@ Plainstrider Menace | 12 | Sergra Darkthorn | H | The Crossroads
 Planting the Heart | 12 | Denalan | A | Lake Al'Ameth
 Plea to the Alliance | 31 | Rhag Garmason | A | Dun Modr
 Plundering the Plunderers | 18 | Wrenix the Wretched | - | Ratchet
+Poison Tips | 40 | Neza Bloodsnout | - | Rog'mar
 Poison Water | 5 | Mull Thunderhorn | H | Bloodhoof Village
 Poisoned Water | 56 | Duke Hydraxis | - | Ravencrest Monument
 Polar Bracers (Naxxramas) | 60 | Craftsman Wilhelm | - | Light's Hope Chapel
@@ -2410,6 +2587,7 @@ Power Overwhelming (City of Dalaran) | 33 | High Sorcerer Andromath | A | Thunde
 Power Stones (Uldaman) | 36 | Rigglefuzz | - | Valley of Fangs
 Power in Uldaman | 40 | Tabetha | - | The Quagmire
 Power over Poison | 14 | Dendrite Starblaze | - | Moonglade
+Powering the Pylons | 43 | Mordent Evenshade | - | Evenshade's Overlook
 Practical Prey | 8 | Vel'rin Fang | H | Sen'jin Village
 Prayer to Elune | 50 | Zamael Lunthistle | A | Firewatch Ridge
 Precarious Predicament (Blackrock Depths) | 58 | Grark Lorkrub | H | Blackrock Stronghold
@@ -2417,6 +2595,7 @@ Prehistoric Prism (Excavation Site: Wetlands) | 31 | Prospector Whelgar | A | Ex
 Preparation for Ceremony | 11 | Eyahn Eagletalon | H | Thunder Bluff
 Prepare for Battle | 12 | Valennia Stormfist | - | Zephras Isle
 Preserving Knowledge | 38 | Loremaster Dibbs | A | Southshore
+Preventative Measures | 39 | Watcher Cornelius | - | Terral's Watch
 Pridewings of Stonetalon | 21 | Shindrell Swiftfire | A | Astranaar
 Primestone the Elder | 60 | Elder Primestone | - | The Crystal Vale
 Princess Must Die! | 9 | Ma Stonefield | A | The Stonefield Farm
@@ -2427,6 +2606,8 @@ Pristine Spider Silk | 26 | High Sorcerer Andromath | A | Thunder Falls
 Prompt Potion Runner | 16 | Alessandro Luca | H | Undercity
 Proof of Deed | 48 | Mountaineer Pebblebitty | A | Valley of Kings
 Proof of Demise | 7 | Deathguard Burgess | H | Brill
+Proof of Profit | 42 | Gelinda Coppergleam | - | Bristle Hills
+Prospect of Faith | 40 | Hammertoe Grez | A | Stonesplinter Valley
 Prospect of Faith | 40 | Prospector Ryedol | A | Badlands
 Protect Kanati Greycloud | 28 | Kanati Greycloud | H | Camp E'thok
 Protect Kaya | 18 | Kaya Flathoof | - | Grimtotem Post
@@ -2434,7 +2615,7 @@ Protect the Frontier | 10 | Guard Thomas | A | Brackwell Pumpkin Patch
 Protecting the Herd | 12 | Rudra Amberstill | A | Amberstill Ranch
 Protecting the Shipment | 15 | Miran | A | Grizzlepaw Ridge
 Proudhorn the Elder | 60 | Elder Proudhorn | - | Elder Rise
-Prove Your Worth | 10 | Dalar Dawnweaver | H | The Sepulcher
+Prove Your Worth | 11 | Dalar Dawnweaver | H | The Sepulcher
 Proving Allegiance | 12 | Gunther Arcanus | H | Gunther's Retreat
 Proving Grounds | 60 | Lieutenant Haggerdin | A | The Headland
 Proving Grounds | 60 | Warmaster Laggrond | H | Sofera's Naze
@@ -2530,15 +2711,17 @@ Remember Alterac Valley! | 60 | Alliance Brigadier General | A | Refuge Pointe
 Remember Alterac Valley! | 60 | Alliance Brigadier General | A | The Headland
 Remember Alterac Valley! | 60 | Alliance Brigadier General | A | Valley of Heroes
 Remember Alterac Valley! | 60 | Alliance Brigadier General | A | Warrior's Terrace
-Remember That I Love You | 22 | Orphan Matron Nightingale | A | Stormwind City
-Remnants of War | 12 | Hadric Harlson | H | Brill
+Remember That I Love You | 22 | Orphan Matron Nightingale | A | Valley of Heroes
+Remnants of War | 12 | Hadric Harlson | - | Brill
 Remorseful Highborne | 58 | Remorseful Highborne | A | Lake Kel'Theril
+Remote Contact | 52 | Jes'rimon | H | Orgrimmar
 Replacement Phial (Uldaman) | 42 | Talvash del Kissel | A | Ironforge
 Report Back to Fizzlebub | 44 | Kravel Koalbeard | - | The Shimmering Flats
 Report to Anastasia | 15 | Cain Firesong | H | Brill
 Report to Anastasia | 15 | Thurston Xane | H | Spirit Rise
 Report to Anastasia | 15 | Uthel'nay | H | Rocktusk Farm
 Report to Captain Stoutfist | 28 | Valstag Ironjaw | A | Menethil Harbor
+Report to Danitha | 40 | Garen Largo | H | Undercity
 Report to Doren | 37 | Corporal Sethman | A | Rebel Camp
 Report to General Kirika | 60 | Scout Bloodfist | - | Cenarion Hold
 Report to Goldshire | 5 | Marshal McBride | A | Northshire Abbey
@@ -2558,12 +2741,15 @@ Report to Kadrak | 19 | Thork | H | The Crossroads
 Report to Marshal Bluewall | 60 | Rifleman Torrig | - | Cenarion Hold
 Report to Mountaineer Rockgar | 21 | Mountaineer Kadrell | A | Thelsamar
 Report to Orgnil | 7 | Master Gadrin | H | Sen'jin Village
+Report to Rog'mar | 38 | Commander Aggro'gosh | H | Grom'gol Base Camp
 Report to Sen'jin Village | 5 | Zureetha Fargaze | H | The Den
 Report to Zor | 40 | Nazeer Bloodpike | H | Southern Barrens
+Repurposed Totems | 48 | Farseer Maret Firetend | - | Aerie Peak
 Rescue From Jaedenar | 55 | Captured Arko'narin | - | Jaedenar
 Rescue OOX-09/HL! | 48 | Homing Robot OOX-09/HL | - | Agol'watha
 Rescue OOX-17/TN! | 48 | Homing Robot OOX-17/TN | - | The Gaping Chasm
 Rescue OOX-22/FE! | 45 | Homing Robot OOX-22/FE | - | Feral Scar Vale
+Rescue Roundup | 38 | Lost Horse | - | Terral's Watch
 Research Access | 20 | Garion Wendell | A | Thunder Falls
 Researching the Corruption (Blackfathom Deeps) | 24 | Gershala Nightwhisper | A | Auberdine
 Rest and Relaxation | 5 | Falkhaan Isenstrider | A | Elwynn Forest
@@ -2628,6 +2814,7 @@ Returning Home | 10 | Maxan Anvol | A | Kharanos
 Returning Home | 10 | Nara Meideros | A | Stormwind City
 Returning Home | 10 | Priestess Josetta | A | Goldshire
 Returning the Cleansed Orb | 40 | Tabetha | - | The Quagmire
+Returning to Port | 38 | Wendel Mathers | - | Kurzen's Compound
 Revenge of Gann | 26 | Gann Stonespire | H | Field of Giants
 Rhapsody Shindigger | 43 | Gryphon Master Talonaxe | A | Aerie Peak
 Rhapsody's Kalimdor Kocktail | 43 | Rhapsody Shindigger | - | Shindigger's Camp
@@ -2648,6 +2835,7 @@ Ring of the Gathering Storm (Ahn'Qiraj Temple) | 60 | Windcaller Yessendra | - |
 Ripple Delivery | 48 | Gilveradin Sunchaser | - | Shindigger's Camp
 Ripple Recovery | 48 | Dran Droffers | H | Orgrimmar
 Ripple Recovery | 48 | Malton Droffers | H | Orgrimmar
+Rise Up! | 43 | Crag'rog | - | Twilight's Shroud
 Rise and Be Recognized | 60 | Lieutenant Haggerdin | A | The Headland
 Rise and Be Recognized | 60 | Warmaster Laggrond | H | Sofera's Naze
 Rise of the Silithid | 46 | Shandris Feathermoon | A | Feathermoon Stronghold
@@ -2669,8 +2857,10 @@ Riverpaw Gnoll Bounty | 10 | Deputy Rainer | A | Mirror Lake Orchard
 Riversong the Elder | 60 | Elder Riversong | - | Astranaar
 Road to Salvation | 10 | Hogral Bakkan | A | Kharanos
 Robe of Faith (Naxxramas) | 60 | Father Inigo Montoy | - | Light's Hope Chapel
+Rock 'em and Sock 'em | 40 | Sleebo Fizzlespout | - | Rog'mar
 Rocket Car Parts | 31 | Kravel Koalbeard | - | The Shimmering Flats
 Rocks to Rests | 15 | Thra | H | Orgrimmar
+Rog'mar Supplies | 39 | Watcher Cornelius | - | Terral's Watch
 Roll the Bones | 51 | Spark Nilminer | - | Lakkari Tar Pits
 Root Samples | 16 | Mebok Mizzyrix | - | Ratchet
 Rot Hide Ichor | 17 | High Executor Hadrec | H | The Sepulcher
@@ -2679,6 +2869,7 @@ Rotten Eggs | 60 | Darkcaller Yanka | H | Undercity
 Rough Wolf Pelts | 8 | Helene Peltskinner | A | Goldshire
 Rude Awakening | 1 | Undertaker Mordo | H | Deathknell
 Rumblerock the Elder | 60 | Elder Rumblerock | - | Dreadmaul Rock
+Rumblings of Discontent | 41 | Da'grosh | - | Twilight's Shroud
 Rumi of Gnomeregan: The Collected Works | 20 | Garion Wendell | A | Thunder Falls
 Rumors for Kravel | 36 | Krazek | - | Booty Bay
 Rune-Inscribed Note | 1 | Grull Hawkwind | H | Camp Narache
@@ -2692,10 +2883,12 @@ RwlRwlRwlRwl! | 35 | Garion Wendell | A | Thunder Falls
 SI:7 | 16 | Keryn Sylvius | A | Goldshire
 Sacred Cloth | 55 | Meilosh | - | Felpaw Village
 Sacred Fire | 27 | Motega Firemane | H | Camp E'thok
+Safety Checks | 40 | Dorgaron | - | The Maker's Terrace
 Safety First | 41 | Razzeric | - | The Shimmering Flats
 Safety First | 41 | Shreev | - | Gadgetzan
 Salt Flat Venom | 30 | Fizzle Brassbolts | - | The Shimmering Flats
 Salt of the Scorpok | 50 | Bloodmage Drazial | - | Dreadmaul Hold
+Saltwater Savages | 41 | Wharfmaster Whizzbuzz | - | Powderfuse Port
 Salve via Disenchanting | 55 | Arathandris Silversky | - | Morlos'Aran
 Salve via Disenchanting | 55 | Maybess Riverbreeze | - | Emerald Sanctuary
 Salve via Gathering | 55 | Arathandris Silversky | - | Morlos'Aran
@@ -2722,7 +2915,10 @@ Satyr Slaying! | 32 | Illiyana | A | The Shrine of Aessina
 Savage Flora | 60 | Rayne | - | Light's Hope Chapel
 Savage Fronds | 60 | Rayne | - | Light's Hope Chapel
 Save Techbot's Brain! (Gnomeregan) | 26 | Tinkmaster Overspark | A | Ironforge
+Saving Marshal Ryan | 47 | Demar Brant | - | Farholde Keep
+Saving Our Own | 42 | Nerlokh | - | Evenshade's Overlook
 Saving Sharpbeak | 51 | Gryphon Master Talonaxe | A | Aerie Peak
+Saving Sunnyglade | 40 | Demar Brant | - | Farholde Keep
 Saving Yenniku | 46 | Kin'weelay | H | Grom'gol Base Camp
 Saving the Best for Last | 60 | Deliana | A | Ironforge
 Saving the Best for Last | 60 | Mokvar | H | Orgrimmar
@@ -2740,6 +2936,7 @@ Scourge: Undead Menace or Misunderstood? | 60 | Jennea Cannon | A | Thunder Fall
 Scouring the Desert | 60 | General Kirika | H | Hive'Regal
 Scouring the Desert | 60 | Marshal Bluewall | A | Hive'Zora
 Scout Support | 25 | High Executor Darthalia | H | Tarren Mill
+Scraps of Knowledge | 40 | Ashe Amberhall | - | Farholde Keep
 Screecher Spirits | 44 | Yeh'kinya | H | Noonshade Ruins
 Scrounging | 40 | Sigrun Ironhew | A | Badlands
 Scythe of the Unseen Path (Ahn'Qiraj Temple) | 60 | Warden Haro | - | Cenarion Hold
@@ -2758,6 +2955,7 @@ Secure the Mountain | 8 | Mountaineer Gretchen | A | The Grizzled Den
 Secure the Mountain | 8 | Senir Whitebeard | A | Kharanos
 Securing the Lines | 11 | Rezlak | - | Jaggedswine Farm
 Securing the Supply Lines | 55 | Windcaller Proudhorn | - | Cenarion Hold
+See Ya, Scallywags! | 44 | Wharfmaster Whizzbuzz | - | Powderfuse Port
 Seeing What Happens | 50 | Historian Karnik | A | Ironforge
 Seeing What Happens | 50 | Nara Wildmane | H | Elder Rise
 Seek Redemption! | 7 | Moon Priestess Amara | A | Dolanaar
@@ -2797,6 +2995,7 @@ Shadowguard | 20 | Ur'kyo | H | Rocktusk Farm
 Shadows of Doom | 60 | Commander Thomas Helleran | - | Light's Hope Chapel
 Shadowshard Fragments (Maraudon) | 42 | Archmage Tervosh | A | Theramore Isle
 Shadowshard Fragments (Maraudon) | 42 | Uthel'nay | H | Rocktusk Farm
+Shady Saltseers (The Drowned City) | 40 | Krazek | - | Booty Bay
 Shard of a Felhound | 40 | Acolyte Wytula | - | Ratchet
 Shard of an Infernal | 40 | Acolyte Magaz | - | Ratchet
 Shards of the Felvine | 60 | Rabine Saturna | - | Moonglade
@@ -2807,8 +3006,12 @@ Shelf Picked | 18 | Donyal Tovald | A | Stormwind City
 Shhh! We're Hunting Kobolds | 4 | Tordrin Sternblade | A | Northshire Abbey
 Shimmer Stout | 10 | Rejold Barleybrew | A | Brewnall Village
 Shipment to Stormwind | 7 | William Pestle | A | Goldshire
+Shipping and Handling | 40 | Friz Frazzlespark | - | Powderfuse Port
+Shipping and Handling | 40 | Wharfmaster Steamfizzle | - | Noonshade Ruins
 Shizzle's Flyer | 51 | Shizzle | - | Lakkari Tar Pits
 Shoulderpads of Faith (Naxxramas) | 60 | Father Inigo Montoy | - | Light's Hope Chapel
+Show Me the Money! | 60 | Pix Xizzix | - | Booty Bay
+Show Them How It's Done | 39 | Krom'rosh | - | Rog'mar
 Show Your Work | 47 | Nixx Sprocketspring | - | Gadgetzan
 Show Your Work | 47 | Oglethorpe Obnoticus | - | Booty Bay
 Show Your Work | 47 | Tinkmaster Overspark | A | Ironforge
@@ -2818,6 +3021,7 @@ Shrewd Negotiations | 33 | Magus Wordeen Voidglare | H | Tarren Mill
 Shroud of Infinite Wisdom (Ahn'Qiraj Temple) | 60 | Keyl Swiftclaw | - | Cenarion Hold
 Shroud of Unspoken Names (Ahn'Qiraj Temple) | 60 | Keyl Swiftclaw | - | Cenarion Hold
 Shy-Rotam | 60 | Storm Shadowhoof | H | Everlook
+Sickening Lights | 40 | Clubtoe | - | Riverglades
 Sickle of Unyielding Strength (Ahn'Qiraj Temple) | 60 | Warden Haro | - | Cenarion Hold
 Sigil of Arathor | 41 | Zengu | H | Hammerfall
 Sigil of Strom | 37 | Zengu | H | Hammerfall
@@ -2832,7 +3036,7 @@ Signets of the Zandalar | 60 | Rin'wosho the Trader | - | Zuuldaia Ruins
 Silky Sutures | 36 | Doctor Gregory Victor | H | Hammerfall
 Silver Heart | 54 | Eridan Bluewind | - | Emerald Sanctuary
 Silvervein the Elder | 60 | Elder Silvervein | - | Thelsamar
-Silvia's Sword | 26 | Bath'rah the Windwatcher | - | Ravenholdt Manor
+Silvia's Sword | 27 | Bath'rah the Windwatcher | - | Ravenholdt Manor
 Simple Letter | 1 | Marshal McBride | A | Northshire Abbey
 Simple Memorandum | 1 | Sten Stoutarm | A | Anvilmar
 Simple Note | 1 | Grull Hawkwind | H | Camp Narache
@@ -2846,6 +3050,7 @@ Singing Blue Shards | 35 | Crank Fizzlebub | - | Booty Bay
 Sister Pamela | 55 | Jessica Redpath | - | Everlook
 Skeletal Fragments | 57 | Alchemist Arbington | A | Sorrow Hill
 Skeletal Fragments | 57 | Apothecary Dithers | H | The Bulwark
+Skin Careful, Skin Sharp | 43 | Krak | H | Southern Barrens
 Skirmish at Echo Ridge | 5 | Marshal McBride | A | Northshire Abbey
 Skulk Rock Clean-up | 48 | Fraggar Thundermantle | A | Aerie Peak
 Skull Rock | 12 | Margoz | H | Drygulch Ravine
@@ -2854,17 +3059,24 @@ Skychaser the Elder | 60 | Elder Skychaser | - | Sentinel Hill
 Skygleam the Elder | 60 | Elder Skygleam | - | Ravencrest Monument
 Skyseer the Elder | 60 | Elder Skyseer | - | Freewind Post
 Slake That Thirst | 46 | Chief Engineer Bilgewhizzle | - | Gadgetzan
+Slay the Spitelash | 48 | Commander Truesong | - | Shadowsong Shrine
 Slaying the Beast (Ragefire Chasm) | 16 | Neeru Fireblade | H | Orgrimmar
 Slimy Menace | 7 | Jason Mathers | A | Crystal Lake
-Slowing the Orc Advance | 32 | Shandrina | A | Mystral Lake
+Slithering Looters | 52 | Saria Fairmoon | - | The Shattered Strand
+Slowing the Orc Advance | 30 | Shandrina | A | Mystral Lake
 Small Furry Paws | 60 | Yebb Neblegear | - | Goldshire
 Small Furry Paws | 60 | Yebb Neblegear | - | Hunter Rise
 Small Rockets | 60 | Fariel Starsong | - | Moonglade
 Smart Drinks (Wailing Caverns) | 18 | Mebok Mizzyrix | - | Ratchet
 Smelt On, Smelt Off | 45 | Galvan the Ancient | - | Mosh'Ogg Ogre Mound
 Smith Mathiel | 10 | Elanaria | A | Warrior's Terrace
+Smuggler's Bargain | 42 | Captain Haynes | - | Windstead
+Smuggler's Paradise | 43 | Friz Frazzlespark | - | Powderfuse Port
+Smuggler's Special | 42 | Friz Frazzlespark | - | Powderfuse Port
 Snakestone of the Shadow Huntress | 60 | Kilram | - | Everlook
 Snapjaws, Mon! | 50 | Katoom the Angler | H | Revantusk Village
+Snargl's Snout | 40 | Cedric Dalton | - | Southern Watch
+Snargl's Snout | 40 | Neza Bloodsnout | - | Rog'mar
 Snatch and Grab | 10 | Master Mathias Shaw | A | Valley of Heroes
 Snickerfang Jowls | 50 | Bloodmage Drazial | - | Dreadmaul Hold
 Snowbound | 10 | Grenhild Darktalon | A | Thelsamar
@@ -2875,12 +3087,17 @@ Soft Saber Pelts | 7 | Aldia | A | Dolanaar
 Solomon's Law | 23 | Bailiff Conacher | A | Lakeshire
 Solution to Doom (Uldaman) | 40 | Theldurin the Lost | - | Agmond's End
 Some Assembly Required | 36 | Drizzlik | - | Booty Bay
+Some Good News | 50 | Aeonas the Vindicated | A | Stormwind City
+Something's in the Water | 40 | Sister Rowland | - | Farholde Keep
+Song of the Strider | 39 | Neza Bloodsnout | - | Rog'mar
+Song of the Strider | 39 | Watcher Cornelius | - | Terral's Watch
 Songblade Search (Excavation Site: Wetlands) | 31 | Dorin Songblade | A | Lakeshire
 Soothing Spices | 35 | "Swamp Eye" Jarl | - | Witch Hill
 Soothing Turtle Bisque | 31 | Chef Jessen | A | Southshore
 Soothing Turtle Bisque | 31 | Christoph Jeffcoat | H | Tarren Mill
 Soulbound Keepsake | 60 | Leonid Barthalomew the Revered | - | Light's Hope Chapel
 Source of Power (City of Dalaran) | 33 | Doctor Martin Felben | H | The Shining Strand
+Southern Watch Gnoll Report | 37 | Cedric Dalton | - | Southern Watch
 Southsea Freebooters | 14 | Gazlowe | - | Ratchet
 Southsea Shakedown | 45 | Security Chief Bilgewhizzle | H | Noonshade Ruins
 Southshore | 38 | Milton Sheaf | A | Stormwind City
@@ -2898,6 +3115,7 @@ Speak with Bink | 10 | Magis Sparkmantle | A | Kharanos
 Speak with Coleman | 10 | Deathguard Dillinger | H | Brill
 Speak with Deino | 26 | Anastasia Hartwell | H | Ruins of Lordaeron
 Speak with Dillinger | 10 | Austil de Mon | H | Brill
+Speak with Dillinger | 10 | Baltus Fowler | H | Undercity
 Speak with Gramma | 6 | Tommy Joe Stonefield | A | The Stonefield Farm
 Speak with Jennea | 10 | Zaldimar Wefhellt | A | Goldshire
 Speak with Renferrel | 12 | High Executor Hadrec | H | The Sepulcher
@@ -2920,6 +3138,7 @@ Spiritual Domination | 50 | Bloodmage Lynnore | - | Dreadmaul Hold
 Spiritual Unrest | 47 | Loh'atu | - | Shadowsong Shrine
 Split Bone Necklace | 42 | Kin'weelay | H | Grom'gol Base Camp
 Spoils of War | 22 | Valstag Ironjaw | A | Menethil Harbor
+Spread the Word | 40 | Clubtoe | - | Riverglades
 Sprinkle's Secret Ingredient | 49 | Sprinkle | - | Gadgetzan
 Squire Maltrake | 50 | Velarok Windblade | - | Searing Gorge
 Stalk With The Earthmother | 10 | Boarton Shadetotem | H | Thunder Bluff
@@ -2936,8 +3155,12 @@ Stave of the Ancients | 60 | Vartrus the Ancient | - | Irontree Woods
 Stealing Knowledge | 52 | Jediga | H | Valormok
 Stealing Supplies | 35 | Uthek the Wise | - | Gelkis Village
 Steelsnap | 30 | Melor Stonehoof | H | Hunter Rise
+Step One: Rock | 41 | Hamur | - | Bolder'ok
+Step Two: More Rock | 41 | Hamur | - | Bolder'ok
+Stepped Out | 38 | Tessa Dawnbright | - | Farholde Keep
 Stepping Up Security | 57 | Windcaller Proudhorn | - | Cenarion Hold
 Stewvul, Ex-B.F.F. | 60 | Narain Soothfancy | - | Noonshade Ruins
+Stick 'Em | 39 | Tan'jani | - | Rog'mar
 Sticks and Bones | 7 | Deathguard Bartholomew | H | Brill
 Still Believing | 59 | Hermit Ortell | - | Hive'Regal
 Sting of the Scorpid | 3 | Gornek | H | The Den
@@ -2949,6 +3172,7 @@ Stolen Blasting Powder | 10 | Quarrymaster Thesten | A | Gol'Bolar Quarry
 Stolen Booty | 16 | Gazlowe | - | Ratchet
 Stolen Enchanting Supplies | 10 | Blixie Fitzwink | A | Tower of Azora
 Stolen Freewind Supplies | 30 | Jandia | H | Freewind Post
+Stolen Saws | 38 | Halligan Turner | - | Turner's Logging Camp
 Stolen Silver | 18 | Gazrog | H | The Crossroads
 Stolen Supplies | 8 | Danarii Bellowveil | - | Zephras Isle
 Stolen Winter Veil Treats | 60 | Kaymard Copperpinch | H | Orgrimmar
@@ -2966,9 +3190,9 @@ Stonewrought Design | 45 | Garion Wendell | A | Thunder Falls
 Stop the Screeching | 30 | Jandia | H | Freewind Post
 Stop the Spread | 20 | Dalar Dawnweaver | H | The Sepulcher
 Stopping the Cycle | 34 | Howin Kindfeather | - | Angerfang Encampment
-Storm, Earth, and Fire | 40 | Veyric Thunderhame | A | Circle of East Binding
 Storm, Earth, and Fire | 43 | Bath'rah the Windwatcher | - | Ravenholdt Manor
 Storm, Earth, and Fire | 43 | Prate Cloudseer | H | Windbreak Canyon
+Storm, Earth, and Fire | 43 | Veyric Thunderhame | A | Circle of East Binding
 Stormbrow the Elder | 60 | Elder Stormbrow | - | Goldshire
 Stormers and Rumblers | 57 | Duke Hydraxis | - | Ravencrest Monument
 Stormpike's Deciphering | 40 | Loremaster Dibbs | A | Southshore
@@ -2977,7 +3201,7 @@ Stormpike's Order | 14 | Mountaineer Stormpike | A | North Gate Pass
 Stormwind Ho! | 32 | Lieutenant Farren Orinelle | A | Southshore
 Stormwind Library | 1 | Donyal Tovald | A | Stormwind City
 Stormwind Rendezvous | 60 | Marshal Maxwell | A | Morgan's Vigil
-Stormy Potential | 11 | Rezlak | - | Jaggedswine Farm
+Stormy Potential | 10 | Rezlak | - | Jaggedswine Farm
 Stout to Kadrell | 10 | Mountaineer Barleybrew | A | South Gate Outpost
 Strange Alliance | 35 | Captain Pentigast | A | Nijel's Point
 Strange Sources | 56 | Donova Snowden | - | Frostfire Hot Springs
@@ -2989,6 +3213,7 @@ Stronger than Steel | 29 | Yorn Grimtotem | - | Spirit Rise
 Study of the Elements: Rock | 37 | Lotwil Veriatus | - | The Dustbowl
 Study of the Elements: Rock | 39 | Lotwil Veriatus | - | The Dustbowl
 Study of the Elements: Rock | 42 | Lotwil Veriatus | - | The Dustbowl
+Stuff 'Em and Stick 'Em | 37 | Ember Bladewhisper | - | Farholde Keep
 Summon Felsteed | 40 | Briarthorn | A | Ironforge
 Summon Felsteed | 40 | Demisette Cloyce | A | Stormwind City
 Summon Felsteed | 40 | Kaal Soulreaper | H | Ruins of Lordaeron
@@ -3008,7 +3233,8 @@ Superior Armaments of Battle - Exalted Amongst the Dawn | 60 | Quartermaster Mir
 Superior Armaments of Battle - Friend of the Dawn | 60 | Quartermaster Miranda Breechlock | A | Light's Hope Chapel
 Superior Armaments of Battle - Honored Amongst the Dawn | 60 | Quartermaster Miranda Breechlock | A | Light's Hope Chapel
 Superior Armaments of Battle - Revered Amongst the Dawn | 60 | Quartermaster Miranda Breechlock | A | Light's Hope Chapel
-Supervisor Fizsprocket | 12 | Morin Cloudstalker | H | Winterhoof Water Well
+Supervisor Fizsprocket | 12 | Morin Cloudstalker | H | Bloodhoof Village
+Supplies and Studies | 40 | Mus'hale | - | Kargath
 Supplies for Nethergarde | 45 | Watchmaster Sorigal | A | Darkshire
 Supplies for the Crossroads | 14 | Thork | H | The Crossroads
 Supplies from Darkshire | 24 | Abercrombie | A | Raven Hill Cemetery
@@ -3026,6 +3252,7 @@ Sweet Amber | 44 | Grimbooze Thunderbrew | A | The Dagger Hills
 Sweet Serenity | 60 | Lilith the Lithe | - | Everlook
 Swelling Forces | 20 | Arbal | A | Grove of the Ancients
 Swoop Hunting | 6 | Harken Windtotem | H | Bloodhoof Village
+Sword in the Slime | 42 | Guard Jameson | - | Theramore Isle
 Syndicate Assassins | 33 | Magistrate Henry Maleb | A | Southshore
 Syndicate Emblems | 60 | Ravenholdt Guard | - | Ravenholdt Manor
 Syndicate Sabotage | 24 | Myrokos Silentform | - | Ravenholdt Manor
@@ -3047,11 +3274,13 @@ Tainted Scroll | 1 | Shadow Priest Sarvis | H | Deathknell
 Tainted Tablet | 1 | Gornek | H | The Den
 Take Five Bases | 60 | Deathmaster Dwire | H | Hammerfall
 Take Four Bases | 60 | Deathmaster Dwire | H | Hammerfall
+Take Two With Water (The Drowned City) | 40 | Loremaster Dibbs | A | Southshore
 Taking Back Silithus | 55 | Cenarion Emissary Blackhoof | H | Orgrimmar
 Taking Back Silithus | 55 | Cenarion Emissary Jademoon | - | Ironforge
+Taking the Bait Back | 35 | Pelluk | - | The Harborage
 Tal the Wind Rider Master | 10 | Ahanu | H | Thunder Bluff
 Talk of the Town | 33 | Barkeep Kelly | A | Southshore
-Talkin' bout Toxins, Mon | 30 | Mazu'kon | - | Spirit Rise
+Talkin' bout Toxins, Mon | 29 | Mazu'kon | - | Spirit Rise
 Taming the Beast | 10 | Dazalar | A | Dolanaar
 Taming the Beast | 10 | Elayaa Easewind | - | Zephras Isle
 Taming the Beast | 10 | Grif Wildheart | A | Kharanos
@@ -3068,6 +3297,8 @@ Target: Gahrron's Withering | 58 | High Priestess MacDonnell | A | Sorrow Hill
 Target: Gahrron's Withering | 58 | Shadow Priestess Vandis | H | The Bulwark
 Target: Writhing Haunt | 55 | High Priestess MacDonnell | A | Sorrow Hill
 Target: Writhing Haunt | 55 | Shadow Priestess Vandis | H | The Bulwark
+Taste Testing | 40 | Skonk | - | Boulderfist Hall
+Tazzik's Dues | 40 | Fizbuz Mithril | - | Gadgetzan
 Tears of the Lady | 12 | Elegael Thornpaw | - | Zephras Isle
 Tears of the Moon | 12 | Priestess A'moora | A | The Temple Gardens
 Teldrassil | 11 | Sentinel Arynia Cloudsbreak | A | The Oracle Glade
@@ -3091,6 +3322,7 @@ Ten Signets for War Supplies | 29 | Field Marshal Snowfall | A | Ironforge
 Ten Signets for War Supplies | 29 | Warlord Gorchuk | H | Orgrimmar
 Tenaron's Summons | 5 | Gilshalan Windwalker | A | Aldrassil
 Terror of the Desert Skies | 40 | Hemet Nesingwary | - | Nesingwary's Expedition
+Test Your Theory | 38 | Uthek the Wise | - | Gelkis Village
 Test of Endurance | 30 | Dorn Plainstalker | H | Windbreak Canyon
 Test of Faith | 26 | Dorn Plainstalker | H | Windbreak Canyon
 Test of Lore (Scarlet Monastery) | 36 | Parqual Fintallas | H | Undercity
@@ -3146,7 +3378,7 @@ The Ancient Statuette | 20 | Talen | A | Lake Falathim
 The Angry Scytheclaws | 17 | Sergra Darkthorn | H | The Crossroads
 The Annals of Darrowshire | 56 | Chromie | - | Ruins of Andorhal
 The Apes of Un'Goro | 55 | Torwa Pathfinder | - | The Marshlands
-The Apothecary's Metaphysical Primer | 20 | Owen Thadd | H | Ruins of Lordaeron
+The Apothecary's Metaphysical Primer | 20 | Garion Wendell | A | Thunder Falls
 The Apple Falls | 10 | Jannok Breezesong | A | Dolanaar
 The Archivist (Stratholme) | 60 | Duke Nicholas Zverenhoff | - | Light's Hope Chapel
 The Argent Emissary | 12 | Deathguard Terrence | H | Brill
@@ -3234,6 +3466,8 @@ The Cirrusfly Queen | 3 | Elatrell Featherlight | - | Zephras Isle
 The Cliffspring River | 15 | Thundris Windweaver | A | Auberdine
 The Coast Isn't Clear | 19 | Captain Grayson | - | Demont's Place
 The Coastal Menace | 20 | Captain Grayson | - | Demont's Place
+The Coldbringer's Eye (Razorfen Downs) | 41 | Archmage Lan'dalock | A | Dalaran
+The Coldbringer's Eye (Razorfen Downs) | 41 | Sutara Plainstalker | - | Spirit Rise
 The Color of Blood (Stormwind Stockade) | 26 | Nikova Raskol | A | Valley of Heroes
 The Completed Orb of Dar'Orahil | 40 | Menara Voidrender | - | Ratchet
 The Completed Orb of Noh'Orahil | 40 | Menara Voidrender | - | Ratchet
@@ -3254,7 +3488,7 @@ The Crown of Will | 39 | Sharlindra | H | The Shining Strand
 The Crown of Will | 41 | Melisara | H | Tarren Mill
 The Crown of Will | 43 | Melisara | H | Tarren Mill
 The Crystal of Zin-Malor | 58 | Wynd Nightchaser | A | Starfall Village
-The Cult of the Damned | 12 | Hadric Harlson | H | Brill
+The Cult of the Damned | 12 | Hadric Harlson | - | Brill
 The Cult's True Plans | 11 | Talaanis Shadowsong | - | Zephras Isle
 The Curious Visitor | 29 | Warden Thelwater | A | Stormwind City
 The Curse of the Tides | 40 | Catelyn the Blade | - | Booty Bay
@@ -3295,7 +3529,9 @@ The Divination Scryer | 60 | Lord Grayson Shadowbreaker | A | Stormwind City
 The Divination | 47 | Thadius Grimshade | A | Nethergarde Keep
 The Doomed Fleet | 29 | Bishop Farthing | A | Stormwind City
 The Dragon's Eye | 60 | Highlord Bolvar Fordragon | A | Valley of Heroes
+The Dragon's Journal (Alcaz Prison) | 53 | Archmage Lan'dalock | A | Dalaran
 The Dread Citadel - Naxxramas | 60 | Archmage Angela Dosantos | - | Light's Hope Chapel
+The Drowned City (The Drowned City) | 40 | Kin'weelay | H | Grom'gol Base Camp
 The Dunemaul Compound | 49 | Andi Lynn | - | Gadgetzan
 The Dying, Ras Frostwhisper | 60 | Magistrate Marduke | - | Caer Darrow
 The Earthen Ring | 13 | Ayessa Dawnsinger | H | Zephras Isle
@@ -3351,6 +3587,7 @@ The Formation of Felbane | 58 | Loramus Thalipedes | - | Azshara
 The Fury Runs Deep (Stormwind Stockade) | 27 | Motley Garmason | A | Dun Modr
 The Giant Guardian | 49 | Rockbiter | A | The Twin Colossals
 The Gift of Skysight | 4 | Ventaari Brightwish | H | Zephras Isle
+The Goblin Trader | 36 | Kreza Darkthorn | H | Rog'mar
 The God Hakkar (Sunken Temple) | 53 | Yeh'kinya | H | Noonshade Ruins
 The Goddess Provides | 1 | Shanda | A | Aldrassil
 The Good News and The Bad News | 60 | Narain Soothfancy | - | Noonshade Ruins
@@ -3399,7 +3636,7 @@ The Hermit | 25 | Elaine Carevin | A | Darkshire
 The Hero of the Day | 60 | Kaymard Copperpinch | H | Orgrimmar
 The Hero of the Day | 60 | Wulmort Jinglepocket | A | Ironforge
 The Hero's Brand (Zul'Gurub) | 60 | Jin'rokh the Breaker | - | Zuuldaia Ruins
-The High Chieftain | 9 | Baine Bloodhoof | H | Bloodhoof Village
+The High Chieftain | 11 | Baine Bloodhoof | H | Bloodhoof Village
 The High Elder's Request | 11 | Valennia Stormfist | - | Zephras Isle
 The High Order | 6 | Rathiril Sunlance | A | Zephras Isle
 The High Wilderness | 44 | Angelas Moonbreeze | A | Feathermoon Stronghold
@@ -3452,6 +3689,7 @@ The Hunter's Path | 10 | Kali Remik | H | Sen'jin Village
 The Hunter's Path | 10 | Kary Thunderhorn | H | Hunter Rise
 The Hunter's Path | 10 | Olmin Burningbeard | A | Ironforge
 The Hunter's Path | 10 | Sian'dur | H | Orgrimmar
+The Hunter's Path | 10 | Terenthis | A | Auberdine
 The Hunter's Path | 10 | Thotar | H | Razor Hill
 The Hunter's Path | 10 | Tristane Shadowstone | A | Brewnall Village
 The Hunter's Way | 10 | Skorn Whitecloud | H | Bloodhoof Village
@@ -3480,6 +3718,7 @@ The Kolkar of Desolace | 32 | Regthar Deathgate | H | Shrine of the Fallen Warri
 The Last Barov | 60 | Alexi Barov | H | The Bulwark
 The Last Barov | 60 | Weldon Barov | A | Sorrow Hill
 The Last Element (Blackrock Depths) | 54 | Shadowmage Vivian Lagrave | H | Kargath
+The Legashi Threat | 53 | Ekkal | - | Blackmaw Hold
 The Legend of Stalvan | 28 | Caretaker Folsom | A | Stormwind City
 The Legend of Stalvan | 28 | Clerk Daltry | A | Darkshire
 The Legend of Stalvan | 28 | Commander Althea Ebonlocke | A | Darkshire
@@ -3500,6 +3739,7 @@ The Lost Fragments | 41 | Theldurin the Lost | - | Agmond's End
 The Lost Pages | 30 | Gurda Ragescar | H | Splintertree Post
 The Lost Pilot | 10 | Pilot Hammerfoot | A | North Gate Outpost
 The Lost Runner | 9 | Sentinel Kyra Starsong | A | Dolanaar
+The Lost Scout | 37 | Scout Bolain | - | Bristle Hills
 The Lost Tablets of Mosh'aru | 58 | Prospector Ironboot | H | Noonshade Ruins
 The Lost Tablets of Will (Uldaman) | 45 | Advisor Belgrum | A | Ironforge
 The Lost Tools | 16 | Foreman Oslow | A | Lakeshire
@@ -3543,7 +3783,9 @@ The Missing Shipment | 14 | Wharfmaster Dizzywig | - | Ratchet
 The Mithril Kid | 45 | Trenton Lighthammer | - | Gadgetzan
 The Mithril Order | 40 | McGavan | - | Booty Bay
 The Molten Core | 60 | Duke Hydraxis | - | Ravencrest Monument
+The Monster Surfaces | 42 | Argo Brinewhistle | - | Powderfuse Port
 The Moonsilver Blade | 25 | Ott | H | Tarren Mill
+The Mysterious Merchant | 50 | Katherine the Pure | A | Stormwind City
 The Mystery of Morrowgrain | 50 | Quintis Jonespyre | A | Feathermoon Stronghold
 The Name of the Beast | 58 | Loramus Thalipedes | - | Azshara
 The Name of the Beast | 58 | Lord Arkkoroc | - | Thalassian Vanguard Camp
@@ -3564,16 +3806,19 @@ The Night Watch | 30 | Commander Althea Ebonlocke | A | Darkshire
 The Nightmare Manifests | 60 | Keeper Remulos | - | Moonglade
 The Nightmare's Corruption | 60 | Keeper Remulos | - | Moonglade
 The Northern Pylon | 53 | J.D. Collie | - | The Shaper's Terrace
+The Offense of Grom'gol | 44 | Commander Aggro'gosh | H | Grom'gol Base Camp
 The Ogres of Feralas | 43 | Rok Orhan | H | Camp Mojache
 The Ogres of Feralas | 44 | Rok Orhan | H | Camp Mojache
 The Old Ways | 40 | Aturk the Anvil | H | Orgrimmar
 The One That Got Away | 12 | Ephram Barbaro | H | Bandarion Keep
 The Only Cure is More Green Glow (Gnomeregan) | 30 | Ozzie Togglevolt | A | Kharanos
+The Only Good Brinescale... (The Drowned City) | 38 | Commander Aggro'gosh | H | Grom'gol Base Camp
 The Only Prescription | 60 | Narain Soothfancy | - | Noonshade Ruins
 The Only Song I Know... (Naxxramas) | 60 | Craftsman Wilhelm | - | Light's Hope Chapel
 The Oracle Tree | 12 | Sentinel Arynia Cloudsbreak | A | The Oracle Glade
 The Orb of Soran'ruk | 25 | Doan Karhan | - | Bramblescar
 The Origins of Smithing | 40 | Hank the Hammer | A | Stormwind City
+The Orphan | 54 | Orphan Matron Aria | A | Dalaran
 The Pack Mistress (Blackrock Spire) | 59 | Galamav the Marksman | H | Kargath
 The Pariah's Instructions (Maraudon) | 48 | Centaur Pariah | - | Mannoroc Coven
 The Path of the Conqueror | 60 | Anachronos | H | Caverns of Time
@@ -3604,11 +3849,13 @@ The Prodigal Lich | 8 | Magistrate Sevren | H | Brill
 The Prophecy of Mosh'aru (Zul'Farrak) | 47 | Yeh'kinya | H | Noonshade Ruins
 The Protector of Kalimdor | 60 | Anachronos | H | Caverns of Time
 The Public Servant | 11 | Senator Mehr Stonehallow | A | Gol'Bolar Quarry
+The Purple Ones | 40 | Clubtoe | - | Riverglades
+The Purple Ones | 40 | Twilight Brute | - | Sunnyglade
 The Qiraji Conqueror | 60 | Anachronos | H | Caverns of Time
 The Quarry's Smith | 10 | Frast Dokner | A | Gol'Bolar Quarry
 The Rage of Mugamba (Zul'Gurub) | 60 | Jin'rokh the Breaker | - | Zuuldaia Ruins
 The Ranger Lord's Behest | 60 | Nathanos Blightcaller | H | The Marris Stead
-The Ravaged Caravan | 8 | Morin Cloudstalker | H | Winterhoof Water Well
+The Ravaged Caravan | 8 | Morin Cloudstalker | H | Bloodhoof Village
 The Real Threat | 40 | Korin Fel | H | Hammerfall
 The Reason for the Season | 60 | Furmund | H | Orgrimmar
 The Reason for the Season | 60 | Goli Krumn | A | Ironforge
@@ -3624,7 +3871,9 @@ The Restless Souls | 60 | Caretaker Alen | - | Light's Hope Chapel
 The Rethban Gauntlet | 22 | Yorus Barleybrew | A | Lakeshire
 The Rise of the Machines (Blackrock Depths) | 58 | Lotwil Veriatus | - | The Dustbowl
 The Rise of the Machines | 54 | Hierophant Theodora Mulvadania | H | Kargath
+The Riverglades Report | 38 | Captain Nials | A | Refuge Pointe
 The Road to Darnassus | 8 | Moon Priestess Amara | A | Dolanaar
+The Rog'mar Situation | 39 | Watcher Cornelius | - | Terral's Watch
 The Root of All Evil | 60 | Gorn One Eye | - | Felpaw Village
 The Royal Rescue (Blackrock Depths) | 59 | Thrall | H | Orgrimmar
 The Ruins of Kel'Theril | 56 | Wynd Nightchaser | A | Starfall Village
@@ -3634,6 +3883,7 @@ The Rumormonger | 36 | Kravel Koalbeard | - | The Shimmering Flats
 The Sacred Flame | 25 | Zangen Stonehoof | H | Thunder Bluff
 The Sacred Flame | 29 | Rau Cliffrunner | H | Freewind Post
 The Sacred Flame | 29 | Zangen Stonehoof | H | Thunder Bluff
+The Saltseer Captain (The Drowned City) | 40 | Krazek | - | Booty Bay
 The Savior of Kalimdor (Ahn'Qiraj Temple) | 60 | Caelestrasz | - | The Scarab Dais
 The Scarlet Crusade | 4 | Executor Arren | H | Deathknell
 The Scarlet Oracle, Demetria | 60 | Nathanos Blightcaller | H | The Marris Stead
@@ -3648,6 +3898,7 @@ The Shadow Guard | 60 | Mataus the Wrathcaster | - | Light's Hope Chapel
 The Shadowy Figure | 25 | Sven Yorgen | A | The Hushed Bank
 The Shadowy Search Continues | 25 | Madame Eva | A | Darkshire
 The Shamed Lieutenant | 30 | Lord Grayson Shadowbreaker | A | Stormwind City
+The Sharpest of Blades | 38 | Ember Bladewhisper | - | Farholde Keep
 The Shattered Hand | 13 | Therzok | H | Orgrimmar
 The Shattered Salute | 20 | Shenthul | H | Orgrimmar
 The Shieldsmith | 22 | Yorus Barleybrew | A | Lakeshire
@@ -3690,7 +3941,8 @@ The Swarm Grows | 33 | Korran | H | The Crossroads
 The Swarm Grows | 35 | Moktar Krin | H | The Shimmering Flats
 The Symbol of Life | 12 | Duthorian Rall | A | Stormwind City
 The Symbol of Life | 12 | Tiza Battleforge | A | Ironforge
-The Syndicate Sting | 34 | Anastasia Miller | - | Stromgarde Keep
+The Syndicate Sting | 36 | Anastasia Miller | - | Stromgarde Keep
+The Talisman of Kazdor | 50 | Fahrad | - | Ravenholdt Manor
 The Tarnished | 12 | Danitha Morr | H | Bandarion Keep
 The Tear of the Moons | 30 | Feegly the Exiled | H | Bael Modan
 The Tempest's Weapons | 40 | Rau Cliffrunner | H | Freewind Post
@@ -3747,19 +3999,24 @@ The True Masters | 54 | Marshal Maxwell | A | Morgan's Vigil
 The Turncoat | 11 | Talaanis Shadowsong | - | Zephras Isle
 The Twilight Lexicon | 60 | Hermit Ortell | - | Hive'Regal
 The Twilight Mystery | 58 | Geologist Larksbane | - | Cenarion Hold
+The Twilight Threat | 45 | Demar Brant | - | Farholde Keep
 The Undermarket | 50 | Nilith Lokrav | - | Blackrock Mountain
 The Unmarred Vision of Voodress (Zul'Gurub) | 60 | Maywiki of Zuldazar | - | Zuuldaia Ruins
 The Valor Family | 23 | Sirra Von'Indi | A | Darkshire
-The Venture Co. | 10 | Morin Cloudstalker | H | Winterhoof Water Well
+The Venture Co. | 10 | Morin Cloudstalker | H | Bloodhoof Village
 The Videre Elixir | 52 | Donova Snowden | - | Frostfire Hot Springs
 The Videre Elixir | 52 | Gregan Brewspewer | - | The Twin Colossals
 The Vile Reef | 37 | Kin'weelay | H | Grom'gol Base Camp
+The Visiting Mage | 38 | Magtoor | - | The Harborage
 The Warrior's Path | 2 | Rorian the Dayseeker | - | Zephras Isle
 The Warsong Reports | 19 | Kadrak | H | The Mor'shan Rampart
 The Way of the Hunter | 2 | Rorian the Dayseeker | - | Zephras Isle
 The Way of the Weaponsmith | 40 | Borgosh Corebender | H | Orgrimmar
 The Way of the Weaponsmith | 40 | Ironus Coldsteel | A | Ironforge
+The Wayward Warrior | 43 | Krom'rosh | - | Rog'mar
 The Weaver | 22 | Shadow Priest Allister | H | The Sepulcher
+The Web of Magic | 40 | Loremaster Dibbs | A | Southshore
+The Western Front | 44 | Demar Brant | - | Farholde Keep
 The Western Pylon | 53 | J.D. Collie | - | The Shaper's Terrace
 The Western Watch | 8 | Constable Aonda | - | Zephras Isle
 The Wildlife Suffers Too | 54 | Mulgris Deepriver | - | The Writhing Haunt
@@ -3767,6 +4024,7 @@ The Wildlife Suffers Too | 56 | Mulgris Deepriver | - | The Writhing Haunt
 The Windshaper's Wrath | 22 | Lumina Windsinger | H | Fenris Isle
 The Windshapers | 6 | Illaya Amberwind | H | Zephras Isle
 The Windwatcher | 30 | Klannoc Macleod | - | Kolkar Crag
+The Witch Doctor's Head (Zul'Farrak) | 46 | Archmage Lan'dalock | A | Dalaran
 The Woodland Protector | 1 | Melithar Staghelm | A | Aldrassil
 The Woodland Protector | 3 | Tarindrella | A | Aldrassil
 The Woodpaw Gnolls | 44 | Ginro Hearthkindle | A | Feathermoon Stronghold
@@ -3788,6 +4046,7 @@ Therylune's Escape | 18 | Therylune | A | The Master's Glaive
 Therzok | 10 | Kaplak | H | Razor Hill
 They Call Him Smiling Jim | 35 | Guard Byron | A | Theramore Isle
 They Call Me "The Rooster" | 60 | Dispatch Commander Metz | - | Light's Hope Chapel
+Thicker Than Water (City of Dalaran) | 54 | Sergeant Danneth | - | Nethergarde Keep
 Thirty Signets for War Supplies | 60 | Field Marshal Snowfall | A | Ironforge
 Thirty Signets for War Supplies | 60 | Warlord Gorchuk | H | Orgrimmar
 This Fruit Could Bite Back | 6 | Cook Torka | H | Razor Hill
@@ -3803,9 +4062,8 @@ Thorium Widget | 60 | Rinling | - | Hunter Rise
 Those Blasted Troggs! | 9 | Foreman Stonebrow | A | Gol'Bolar Quarry
 Threat From the Sea | 43 | Katar | H | Stagalbog
 Threat From the Sea | 45 | Tok'Kar | H | Stagalbog
-Threat from Below | 11 | Heglan Shadeeye | H | Razor Hill
 Threat from Below | 11 | Orgnil Soulscar | H | Razor Hill
-Threat from Below | 12 | Orgnil Soulscar | H | Razor Hill
+Threat from Below | 9 | Heglan Shadeeye | H | Razor Hill
 Threat of the Winterfall | 56 | Donova Snowden | - | Frostfire Hot Springs
 Thule Ravenclaw | 16 | Bethor Iceshard | H | Ruins of Lordaeron
 Thun'grim Firegaze | 10 | Uzzek | H | Far Watch Post
@@ -3815,7 +4073,7 @@ Thunderhorn Cleansing | 8 | Mull Thunderhorn | H | Bloodhoof Village
 Thunderhorn Totem | 7 | Mull Thunderhorn | H | Bloodhoof Village
 Thunderhorn the Elder | 60 | Elder Thunderhorn | - | The Slithering Scar
 Thunderhorn's Report | 10 | Mull Thunderhorn | H | Bloodhoof Village
-Thundering Hearts | 33 | Calder Gray | - | Undercity
+Thundering Hearts | 33 | Calder Gray | H | Undercity
 Thundris Windweaver | 15 | Terenthis | A | Auberdine
 Thwarting Kolkar Aggression | 8 | Lar Prowltusk | H | Sen'jin Village
 Tiara of the Deep (Zul'Farrak) | 46 | Tabetha | - | The Quagmire
@@ -3850,6 +4108,8 @@ Tome of Divinity | 12 | Azar Stronghammer | A | Kharanos
 Tome of Divinity | 12 | Brandur Ironhammer | A | Ironforge
 Tome of Divinity | 12 | Brother Wilhelm | A | Goldshire
 Tome of Divinity | 12 | Lord Grayson Shadowbreaker | A | Stormwind City
+Tome of Twilight (Krol'dok Stronghold) | 44 | Ashe Amberhall | - | Farholde Keep
+Tome of Twilight (Krol'dok Stronghold) | 44 | Tran'gul | - | Rog'mar
 Tome of the Cabal | 30 | Jorah Annison | H | Ruins of Lordaeron
 Tome of the Cabal | 30 | Krom Stoutarm | A | Ironforge
 Tome of the Cabal | 30 | Strahad Farsan | - | Ratchet
@@ -3901,6 +4161,7 @@ Treant Muisek | 50 | Witch Doctor Uzer'i | H | Camp Mojache
 Treasure of the Timeless One | 60 | Jonathan the Revelator | - | The Scarab Dais
 Treats for Great-father Winter | 60 | Great-father Winter | H | Orgrimmar
 Treats for Greatfather Winter | 60 | Greatfather Winter | A | Ironforge
+Treaty Obligations | 51 | Tove Redstone | - | Aerie Peak
 Trek to Ashenvale | 19 | Sentinel Selarin | A | Auberdine
 Trelane's Defenses | 39 | Skuerto | A | Refuge Pointe
 Tremors of the Earth | 43 | Garek | - | Camp Boff
@@ -3921,7 +4182,7 @@ Troll Witchery | 40 | Brother Nimetz | A | Rebel Camp
 Trollbane | 37 | Nimboya | H | Grom'gol Base Camp
 Trolls of a Feather | 52 | Impsy | - | Bloodvenom River
 Trouble In Darkshore? | 14 | Chief Archaeologist Greywhisker | A | The Temple Gardens
-Trouble at the Docks (Wailing Caverns) | 18 | Crane Operator Bigglefuzz | - | Ratchet
+Trouble at the Docks (Wailing Caverns) | 18 | Crane Operator Bigglefuzz | H | Ratchet
 Trouble in Winterspring! | 56 | Meggi Peppinrocker | H | Everlook
 Trouble in the Deeps (Blackfathom Deeps) | 22 | Tsunaman | H | Sun Rock Retreat
 Trouble in the Valley | 18 | Walton | H | The Dry Hills
@@ -3932,8 +4193,12 @@ Tumors | 9 | Rellian Greenspyre | A | Cenarion Enclave
 Tundra MacGrann's Stolen Stash | 12 | Tundra MacGrann | A | Chill Breeze Valley
 Twenty Signets for War Supplies | 49 | Field Marshal Snowfall | A | Ironforge
 Twenty Signets for War Supplies | 49 | Warlord Gorchuk | H | Orgrimmar
+Twice Misplaced Trust | 41 | Wharfmaster Lozgil | - | Booty Bay
 Twilight Falls (Blackfathom Deeps) | 25 | Argent Guard Manados | A | Warrior's Terrace
 Twilight Geolords | 60 | Huum Wildmane | - | Cenarion Hold
+Twilight Mementos (Krol'dok Stronghold) | 42 | Sergeant Riftan | - | Twilight's Shroud
+Twilight Missives | 41 | Tran'gul | - | Rog'mar
+Twilight No More! | 41 | Clubtoe | - | Riverglades
 Twilight Ring of Lordship | 60 | Aurel Goldleaf | - | Cenarion Hold
 Twisted Evils (Maraudon) | 47 | Willow | - | Kormek's Hut
 Twisted Hatred | 12 | Tallonkai Swiftroot | A | Dolanaar
@@ -3950,6 +4215,8 @@ Umber, Archivist | 57 | Layo Starstrike | - | Golakka Hot Springs
 Un'Goro Soil | 50 | Arch Druid Fandral Staghelm | A | Cenarion Enclave
 Un'Goro Soil | 50 | Arch Druid Hamuul Runetotem | H | Elder Rise
 Un-Life's Little Annoyances | 58 | Nathanos Blightcaller | H | The Marris Stead
+Uncanny Crystal | 55 | Torwa Pathfinder | - | The Marshlands
+Unchecked Expansion | 44 | Wharfmaster Whizzbuzz | - | Powderfuse Port
 Uncle Carlin | 56 | Pamela Redpath | - | Darrowshire
 Uncovering Past Secrets | 57 | Umber | - | Moonglade
 Uncovering the Past | 27 | Prospector Whelgar | A | Excavation Site: Wetlands
@@ -3966,17 +4233,21 @@ Unfinished Business | 56 | Kirsta Deepshadow | - | Northridge Lumber Camp
 Unfinished Business | 57 | Kirsta Deepshadow | - | Northridge Lumber Camp
 Unfinished Business | 58 | Kirsta Deepshadow | - | Northridge Lumber Camp
 Unfortunate News | 11 | Dead Cultist | - | Zephras Isle
+Unfriendly Competition | 43 | Wharfmaster Whizzbuzz | - | Powderfuse Port
 Uniting the Shattered Amulet | 60 | Fallen Hero of the Horde | - | Garrison Armory
 Unnerving Silence | 11 | Lotheluum Starbreeze | - | Zephras Isle
 Unraveling the Mystery | 60 | Rutgar Glyphshaper | - | The Scarab Wall
 Unrequited Love | 21 | Archaeologist Hollee | A | Auberdine
+Unsavory Plant Food | 38 | Halligan Turner | - | Turner's Logging Camp
 Until Death Do Us Part | 15 | Clarice Foster | H | Spirit Rise
 Unwanted and Unworthy | 11 | Elegael Thornpaw | - | Zephras Isle
 Unwelcome Guests | 18 | Walton | H | The Dry Hills
 Unwelcome Spirits | 9 | Endaria Mistgaze | H | Zephras Isle
 Unwelcome Visitors | 13 | Iaadaria Bitterwind | A | Zephras Isle
+Unworthy Champion | 42 | Clugfist | - | Bolder'ok
 Up to Snuff | 41 | Deeg | - | Booty Bay
 Update for Sentinel Thenysil | 22 | Kaela Shadowspear | A | Webwinder Path
+Upstream Contamination | 42 | Sister Rowland | - | Farholde Keep
 Ur's Treatise on Shadow Magic | 28 | High Sorcerer Andromath | A | Thunder Falls
 Ursal the Mauler | 12 | Athridas Bearmantle | A | Dolanaar
 Ursius of the Shardtooth | 56 | Storm Shadowhoof | H | Everlook
@@ -3997,8 +4268,9 @@ Vejrek | 11 | Muren Stormpike | A | Ironforge
 Velinde Starsong | 30 | Sentinel Melyria Frostshadow | A | The Shrine of Aessina
 Velinde's Effects | 30 | Thyn'tel Bladeweaver | A | Warrior's Terrace
 Velora Nitely and the Brutal Legguards | 30 | Thun'grim Firegaze | H | Thorn Hill
+Vengeance of the Highborne (Krol'dok Stronghold) | 45 | Ranath Nightstride | A | Dalaran
 Vengeance on the Northspring | 50 | Talo Thornhoof | H | Camp Mojache
-Vengeful Trail | 30 | Maseara Autumnmoon | - | Satyrnaar
+Vengeful Trail | 28 | Maseara Autumnmoon | - | Satyrnaar
 Venom to the Undercity | 55 | Apothecary Lydon | H | Tarren Mill
 Venomous Journeys | 45 | Garion Wendell | A | Thunder Falls
 Venture Company Mining | 41 | Crank Fizzlebub | - | Booty Bay
@@ -4066,11 +4338,13 @@ Water Sapta | 20 | Norric Lochthane | A | Silver Stream Mine
 Waters of Xavian | 26 | Deino | H | Rocktusk Farm
 Wavethrashing | 52 | Ogtinc | - | The Shattered Strand
 Wayward Weapons | 2 | Gornek | H | The Den
+We've Been Robbed! | 40 | Caravaneer Ruzzgot | - | Booty Bay
 Weapons of Choice | 24 | Tatternack Steelforge | H | Camp Taurajo
 Weapons of Elunite | 10 | Mathiel | A | Warrior's Terrace
 Weapons of Spirit | 50 | Witch Doctor Uzer'i | H | Camp Mojache
 Webwood Egg | 5 | Gilshalan Windwalker | A | Aldrassil
 Webwood Venom | 4 | Gilshalan Windwalker | A | Aldrassil
+Weed Whacked | 38 | Gemmil | - | Grom'gol Base Camp
 Welcome to Azeroth | 13 | Alaana Stormwalker | H | Spirit Rise
 Welcome to Azeroth | 13 | Denaaris Stargale | A | Dalaran
 Welcome to Shen'dar Village | 6 | Constable Aonda | - | Zephras Isle
@@ -4088,11 +4362,15 @@ What Is Love? | 20 | Takar the Seer | A | Bramblescar
 What Is My Purpose? | 9 | Malfunctioning Cyclone Construct | - | Zephras Isle
 What Niby Commands | 50 | Niby the Almighty | - | Bloodvenom River
 What Tomorrow Brings | 60 | Baristolth of the Shifting Sands | - | Cenarion Hold
+What We Lost | 40 | Farmer Elbrim | - | Elbrim's Farm
 What the Flux? | 50 | Master Smith Burninate | - | Firewatch Ridge
 What the Wind Carries | 60 | Thrall | H | Orgrimmar
 What's the Big Idea? | 36 | Myrokos Silentform | - | Ravenholdt Manor
 Wheel of the Black March | 60 | Mor'zul Bloodbringer | - | Altar of Storms
+Wheeler's Fleeing Steeds | 38 | Benjy Wheeler | - | Wheeler's Grange
+Whelps are the Worst! | 44 | Drazzit Dripvalve | - | The Dragonmurk
 When Smokey Sings, I Get Violent | 58 | Smokey LaRue | - | Light's Hope Chapel
+Where's the Key? | 35 | Zimmix Sputterspark | - | Ruins of Zul'Kunda
 Whirlwind Weapon | 40 | Bath'rah the Windwatcher | - | Ravenholdt Manor
 Whirring Bronze Gizmo | 60 | Rinling | - | Goldshire
 Whirring Bronze Gizmo | 60 | Rinling | - | Hunter Rise
@@ -4151,7 +4429,9 @@ Winterfall Runners | 57 | Donova Snowden | - | Frostfire Hot Springs
 Winterhoof Cleansing | 6 | Mull Thunderhorn | H | Bloodhoof Village
 Winterhoof the Elder | 60 | Elder Winterhoof | - | Booty Bay
 Wisdom of Agamaggan | 20 | Mangletooth | H | Camp Taurajo
+Wisdom of the Guardians | 50 | Tyrisius | - | Ruins of Isildien
 Wish You Were Here | 27 | Magar | H | Orgrimmar
+Witch Doctor Ti'ik | 49 | Qujo | - | Revantusk Village
 With Wind Beneath Your Wings | 40 | Bath'rah the Windwatcher | - | Ravenholdt Manor
 Witherbark Cages | 45 | Gryphon Master Talonaxe | A | Aerie Peak
 Wolves Across the Border | 2 | Eagan Peltskinner | A | Northshire Abbey
@@ -4163,6 +4443,7 @@ Worgen in the Woods | 28 | Calor | A | Darkshire
 Worgen in the Woods | 29 | Calor | A | Darkshire
 Worgen in the Woods | 31 | Calor | A | Darkshire
 Worth Its Weight in Gold | 36 | Apprentice Kryten | A | Refuge Pointe
+Wound Dressings | 40 | Brother Lowley | - | Farholde Keep
 Wounded Ancients | 28 | Kaela Shadowspear | A | Webwinder Path
 Wrath of the Blue Flight | 60 | Haleh | - | Mazthoril
 Wrenix of Ratchet | 16 | Zando'zan | H | Orgrimmar
@@ -4179,6 +4460,14 @@ You Too Good. | 45 | Lumak | H | Orgrimmar
 You're a Mean One... | 60 | Strange Snowman | - | Growless Cave
 Young Crocolisk Skins | 22 | James Halloran | A | Menethil Harbor
 Young Lovers | 6 | Maybell Maclure | A | The Maclure Vineyards
+Your Final Reward | 55 | Saria Fairmoon | - | The Shattered Strand
+Your First Feline Friend | 40 | Lelanai | A | Cenarion Enclave
+Your First Horse | 40 | Katie Hunter | A | Eastvale Logging Camp
+Your First Mechanostrider | 40 | Milli Featherwhistle | A | Dun Morogh
+Your First Riding Galestrider | 40 | Genn Fairweather | - | Zephras Isle
+Your First Riding Kodo | 40 | Harb Clawhoof | H | Bloodhoof Village
+Your First Riding Ram | 40 | Veron Amberstill | A | Amberstill Ranch
+Your First Riding Wolf | 40 | Ogunaro Wolfrunner | H | Orgrimmar
 Your Place in the World | 1 | Kaltunk | H | The Den
 Yuka Screwspigot (Blackrock Depths) | 53 | Yorba Screwspigot | - | Noonshade Ruins
 Zaeldarr the Outcast | 55 | Caretaker Alen | - | Light's Hope Chapel
@@ -4194,6 +4483,7 @@ Zanzil's Secret | 44 | Crank Fizzlebub | - | Booty Bay
 Zapped Giants | 48 | Zorbin Fandazzle | - | Feralas
 Zapper Fuel | 52 | Liv Rizzlefix | - | Ratchet
 Zenn's Bidding | 5 | Zenn Foulhoof | A | Dolanaar
+Zimmix's Great Escape | 35 | Zimmix Sputterspark | - | Ruins of Zul'Kunda
 Zinge's Assessment | 60 | Apothecary Zinge | H | Undercity
 Zinge's Delivery | 15 | Apothecary Renferrel | H | The Sepulcher
 Ziz Fizziks | 21 | Sputtervalve | - | Ratchet
@@ -4202,3 +4492,4 @@ Zukk'ash Infestation | 45 | Hadoken Swiftstrider | H | Camp Mojache
 Zukk'ash Report | 48 | Hadoken Swiftstrider | H | Camp Mojache
 Zulian, Razzashi, and Hakkari Coins (Zul'Gurub) | 60 | Vinchaxa | - | Zuuldaia Ruins
 Zulian, Razzashi, and Hakkari Coins | 60 | Vinchaxa | - | Zuuldaia Ruins
+Zum'rah's Head (Zul'Farrak) | 46 | Mazu'kon | - | Spirit Rise

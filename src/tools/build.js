@@ -194,7 +194,8 @@ if (fs.existsSync(QF)) {
   const check = (t, l, ctx) => (String(t).match(/<(b|i)>([^<]{4,60})<\/\1>/g) || []).forEach(m => {
     const n = m.replace(/<[^>]+>/g, '').replace(/[:.]$/, '').trim(), k = n.toLowerCase();
     if (known.has(k)) return; // spell, talent, zona, NPC o dungeon con lo stesso nome di una quest
-    if (Q[k]) { ok++; if (l && Math.min(...Q[k].map(q => Math.abs(q - l))) > 6) report.push(`${ctx} liv. ${l}: "${n}" in Forever è di livello ${Q[k].join('/')}`); return; }
+    const QK = Q[k] || Q[k + '.']; // nomi che finiscono col punto ("Reagents for Reclaimers Inc.")
+    if (QK) { ok++; if (l && Math.min(...QK.map(q => Math.abs(q - l))) > 6) report.push(`${ctx} liv. ${l}: "${n}" in Forever è di livello ${QK.join('/')}`); return; }
     if (/🟡/.test(t) || /Flight Path|Lettera|Escort|Skycutter|Ammo/.test(n) || !/^[A-Z][\w'’!-]*( [\w'’!:-]+){0,6}$/.test(n) || /\d|Bag|Wand|Totem$|Form$|slot|Trainer/.test(n)) return;
     report.push(`${ctx} liv. ${l || '-'}: "${n}" non è una quest di Forever (o è un item/spell): controlla`);
   });

@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v17)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v18)
 
-> Aggiornato: **15 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **16 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -258,9 +258,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 18–23 | Westfall / Redridge Mountains | Lakeshire | Deadmines con le quest (17-26), poi Lakeshire e Three Corners. |
 | 22–27 | Duskwood | Darkshire | Night Watch, Stalvan, Embalmer, worgen. |
 | 27–30 | Wetlands | Menethil Harbor | Excavation Site: Wetlands (24-29); a 30 verso Hillsbrad / Arathi. |
-| 30–33 | Arathi Highlands | Refuge Pointe | Wowhead 30–40. |
-| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
-| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Hillsbrad Foothills | Southshore | Quest di Southshore di livello 30–34 (Questie). |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Nesingwary's Expedition | Nord della giungla: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
+| 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
+| 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
@@ -281,9 +283,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 18–23 | Redridge Mountains | Lakeshire | Deadmines (17-26), Three Corners per le crates. |
 | 22–27 | Duskwood | Darkshire | Night Watch, Stalvan. |
 | 27–30 | Wetlands | Menethil Harbor | Excavation Site: Wetlands; Gnomeregan (29-38) dal 29-30 in gruppo. |
-| 30–33 | Arathi Highlands | Refuge Pointe | Wowhead 30–40. |
-| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
-| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Hillsbrad Foothills | Southshore | Quest di Southshore di livello 30–34 (Questie). |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Nesingwary's Expedition | Nord della giungla: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
+| 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
+| 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
@@ -303,9 +307,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 19–24 | Ashenvale | Astranaar | Maestra's Post, Zoram Strand, Silverwind Refuge; Blackfathom Deeps (24-32) dal 24. |
 | 24–27 | Stonetalon Mountains | Stonetalon Peak | Pridewings of Stonetalon, On Guard in Stonetalon (breadcrumb di Astranaar). |
 | 27–30 | Ashenvale | Astranaar | Raene's Cleansing, Forest Song, Geltharis; poi Duskwood via boat Auberdine → Stormwind, o Hillsbrad. |
-| 30–33 | Desolace | Nijel's Point | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
-| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
-| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Desolace | Nijel's Point | Quest di Nijel's Point di livello 31–35 (Questie). |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Nesingwary's Expedition | Nord della giungla: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
+| 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
+| 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
@@ -326,9 +332,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 12–14 | Skycutter → Dalaran → Stormwind | Valanaar | Lasci l'isola a ~12-14. |
 | 13–18 | Westfall | Sentinel Hill | Entri nella rotta comune da Stormwind. |
 | 18–30 | Redridge / Duskwood / Wetlands | Lakeshire | Rotta comune (come Elwynn). |
-| 30–33 | Arathi Highlands | Refuge Pointe | Wowhead 30–40. |
-| 33–36 | Stranglethorn Vale | Rebel Camp / Booty Bay | Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44). |
-| 36–44 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Hillsbrad Foothills | Southshore | Quest di Southshore di livello 30–34 (Questie). |
+| 33–36 | Stranglethorn Vale | Rebel Camp / Nesingwary's Expedition | Nord della giungla: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
+| 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
+| 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
@@ -349,9 +357,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 20–23 | Stonetalon Mountains | Sun Rock Retreat | Prima visita 18–22; Stonetalon 15–25 sulla mappa. |
 | 22–27 | Ashenvale | Splintertree Post | Splintertree Post e Zoram'gar; Blackfathom Deeps dal 24. Ashenvale 19–30 sulla mappa. |
 | 27–30 | Thousand Needles / Barrens | Freewind Post | Oppure avanzi dei Barrens e seconda visita a Stonetalon (24–27). |
-| 30–33 | Desolace | Shadowprey Village | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
-| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
-| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Desolace | Shadowprey Village | Quest di Shadowprey Village e Kodo Graveyard di livello 31–36 (Questie). |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Grom'gol e Nesingwary's Expedition: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
+| 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
+| 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
@@ -372,9 +382,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 20–23 | Stonetalon Mountains | Sun Rock Retreat | Dal flight path di Thunder Bluff arrivi a Sun Rock Retreat. |
 | 22–27 | Ashenvale | Splintertree Post | Come Orc e Troll. |
 | 27–30 | Thousand Needles / Barrens | Freewind Post | Con Thunder Bluff → Freewind Post (flight). |
-| 30–33 | Desolace | Shadowprey Village | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
-| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
-| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Desolace | Shadowprey Village | Quest di Shadowprey Village e Kodo Graveyard di livello 31–36 (Questie). |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Grom'gol e Nesingwary's Expedition: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
+| 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
+| 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
@@ -393,9 +405,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 19–25 | Hillsbrad Foothills | Tarren Mill | Arrivo a 19–20. Battle of Hillsbrad, Elixir chains. Hillsbrad 20–31 sulla mappa. |
 | 21–27 | Silverpine Forest | The Sepulcher | Ritorno per elite lasciate (The Weaver, Beren's Peril) e Shadowfang Keep (22–30). |
 | 26–30 | Tirisfal / Alterac | Tarren Mill | Scarlet Monastery Graveyard (SM 26–45) o City of Dalaran (28–33, Alterac Mountains 16.7 68.8). Arathi Highlands dal 30. |
-| 30–33 | Arathi Highlands | Hammerfall | Wowhead 30–40. |
-| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
-| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Hillsbrad Foothills / Arathi Highlands | Tarren Mill / Hammerfall | Quest di Tarren Mill e Hammerfall di livello 30–34 (Questie). |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Grom'gol e Nesingwary's Expedition: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
+| 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
+| 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
@@ -416,9 +430,11 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 18–23 | The Barrens / Stonetalon | Camp Taurajo | Come Orc, Troll e Tauren. |
 | 22–27 | Ashenvale | Splintertree Post | Come le altre razze Kalimdor. |
 | 27–30 | Thousand Needles / Barrens | Freewind Post | Fine rotta. |
-| 30–33 | Desolace | Shadowprey Village | Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35. |
-| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Wowhead 30–44. |
-| 36–44 | Riverglades ★ | Rog'mar | Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold. |
+| 30–33 | Desolace | Shadowprey Village | Quest di Shadowprey Village e Kodo Graveyard di livello 31–36 (Questie). |
+| 33–36 | Stranglethorn Vale | Grom'gol Base Camp | Grom'gol e Nesingwary's Expedition: quest di livello 30–36 (Questie). |
+| 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
+| 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
+| 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
 | 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
 | 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
 | 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |

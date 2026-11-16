@@ -1720,6 +1720,27 @@
    "date": "ott",
    "signal": "+ Mobalytics Ruse_Cruize",
    "used": "Consegna crates Orda (Dokimi)"
+  },
+  {
+   "name": "QuestieDB per Forever (Questie)",
+   "url": "https://github.com/Questie/QuestieDB",
+   "date": "16 nov 2026",
+   "signal": "dati del client e XP delle quest viste in più di un milione di sessioni di gioco",
+   "used": "Quest, livelli, NPC e catene del 30–44"
+  },
+  {
+   "name": "wowforever.be - Riverglades guide",
+   "url": "https://wowforever.be/guides/riverglades/",
+   "date": "dopo il 13 nov 2026",
+   "signal": "sito già usato per il calcolatore e le profession",
+   "used": "Come arrivare a Riverglades, livelli, Flight Path, Bloodmaster's Ring"
+  },
+  {
+   "name": "Polestar - Riverglades (Horde) 39-44 (gulliby)",
+   "url": "https://polestar.guide/community/gulliby-routes",
+   "date": "14–16 nov 2026",
+   "signal": "guida della comunità, 1 voto, non dichiarata provata",
+   "used": "Ordine delle quest di Rog'mar 🟡"
   }
  ],
  "doubts": [
@@ -1759,25 +1780,43 @@
     "segment": {
      "from": 30,
      "to": 33,
-     "zone": "Arathi Highlands",
-     "hub": "Hammerfall",
-     "note": "Wowhead 30–40."
+     "zone": "Hillsbrad Foothills / Arathi Highlands",
+     "hub": "Tarren Mill / Hammerfall",
+     "note": "Quest di Tarren Mill e Hammerfall di livello 30–34 (Questie)."
     },
     "step": {
-     "title": "Arathi Highlands",
+     "title": "Tarren Mill e Hammerfall",
      "levels": "30–33",
      "town": "Hammerfall",
      "zoneIcon": "achievement_zone_arathihighlands_01",
-     "text": "Da Tarren Mill vai a est in Arathi Highlands: Hammerfall (liv. 30–40). Flight Path e quest di Gor’mul, Tor’gan e Drum Fel. 🟡",
+     "text": "A Tarren Mill (Hillsbrad Foothills) finisci Battle of Hillsbrad (High Executor Darthalia), Elixir of Agony (Apothecary Lydon) e Humbert's Sword (Deathguard Humbert); a 33 Helcular's Revenge (Novice Thaivand) e Stone Tokens (Keeper Bel'varil). Prendi The Hammer May Fall da Tallow e vai a est in Arathi Highlands: Hammerfall, Flight Path da Urda e Hearthstone da Innkeeper Adegwa. Qui Call to Arms (Drum Fel), Foul Magics (Tor'gan) e Hammerfall (Gor'mul), che apre Raising Spirits. 🟡",
      "fp": "Hammerfall"
     },
     "milestones": [
      {
       "l": 30,
-      "t": "<b>Hammerfall</b> e <b>Raising Spirits</b> da Gor'mul; <b>Call to Arms</b> da Drum Fel (Hammerfall).",
+      "t": "<b>Battle of Hillsbrad</b> da High Executor Darthalia, <b>Elixir of Agony</b> da Apothecary Lydon e <b>Humbert's Sword</b> da Deathguard Humbert (Tarren Mill).",
       "npc": [
-       "Gor'mul",
+       "High Executor Darthalia",
+       "Apothecary Lydon",
+       "Deathguard Humbert"
+      ]
+     },
+     {
+      "l": 32,
+      "t": "<b>The Hammer May Fall</b> da Tallow (Tarren Mill), poi <b>Call to Arms</b> da Drum Fel (Hammerfall).",
+      "npc": [
+       "Tallow",
        "Drum Fel"
+      ]
+     },
+     {
+      "l": 33,
+      "t": "<b>Foul Magics</b> da Tor'gan e <b>Hammerfall</b> da Gor'mul (Hammerfall); <b>Helcular's Revenge</b> da Novice Thaivand (Tarren Mill).",
+      "npc": [
+       "Tor'gan",
+       "Gor'mul",
+       "Novice Thaivand"
       ]
      }
     ]
@@ -1793,14 +1832,14 @@
      "to": 33,
      "zone": "Desolace",
      "hub": "Shadowprey Village",
-     "note": "Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35."
+     "note": "Quest di Shadowprey Village e Kodo Graveyard di livello 31–36 (Questie)."
     },
     "step": {
      "title": "Desolace",
      "levels": "30–33",
      "town": "Shadowprey Village",
      "zoneIcon": "achievement_zone_desolace",
-     "text": "Da Thousand Needles o Stonetalon Mountains scendi a Desolace: Shadowprey Village (liv. 30–39). Flight Path e quest di Aka’rai e Roon Wildmane (quelle di Taiga Wisemane sono di livello 38). Le quest dei centauri Gelkis e Magram partono dal 35. 🟡",
+     "text": "Da Thousand Needles o Stonetalon Mountains scendi a Desolace: Shadowprey Village, Flight Path da Thalon e Hearthstone da Innkeeper Sikewa. In ordine: Hunting in Stranglethorn (Roon Wildmane) e Hate the Hatefury (Aka'rai); al Kodo Graveyard Magram Alliance e Gelkis Alliance (Gurda Wildmane) e Khan Dez'hepah (Felgur Twocuts); a 35 Clam Bait (Mai'Lahii) e a 36 Other Fish to Fry (Drulzegar Skraghook). 🟡",
      "fp": "Shadowprey Village"
     },
     "milestones": [
@@ -1810,6 +1849,21 @@
       "npc": [
        "Aka'rai",
        "Roon Wildmane"
+      ]
+     },
+     {
+      "l": 33,
+      "t": "<b>Magram Alliance</b> e <b>Gelkis Alliance</b> da Gurda Wildmane (Kodo Graveyard).",
+      "npc": [
+       "Gurda Wildmane"
+      ]
+     },
+     {
+      "l": 35,
+      "t": "<b>Khan Dez'hepah</b> da Felgur Twocuts (Kodo Graveyard) e <b>Clam Bait</b> da Mai'Lahii (Shadowprey Village).",
+      "npc": [
+       "Felgur Twocuts",
+       "Mai'Lahii"
       ]
      }
     ]
@@ -1821,14 +1875,28 @@
     "to": 36,
     "zone": "Stranglethorn Vale",
     "hub": "Grom'gol Base Camp",
-    "note": "Wowhead 30–44."
+    "note": "Grom'gol e Nesingwary's Expedition: quest di livello 30–36 (Questie)."
    },
    {
     "from": 36,
-    "to": 44,
+    "to": 38,
+    "zone": "Stranglethorn Vale",
+    "hub": "Grom'gol Base Camp",
+    "note": "Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar."
+   },
+   {
+    "from": 38,
+    "to": 41,
     "zone": "Riverglades ★",
     "hub": "Rog'mar",
-    "note": "Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold."
+    "note": "Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40."
+   },
+   {
+    "from": 41,
+    "to": 44,
+    "zone": "Riverglades ★",
+    "hub": "Bolder'ok / Powderfuse Port",
+    "note": "Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45."
    },
    {
     "from": 44,
@@ -1886,16 +1954,30 @@
     "levels": "33–36",
     "town": "Grom'gol Base Camp",
     "zoneIcon": "achievement_zone_stranglethorn_01",
-    "text": "Zeppelin da Orgrimmar o Undercity a Grom’gol Base Camp (liv. 30–44): Flight Path, Nimboya, Kin’weelay e Commander Aggro’gosh. A nord Nesingwary’s Expedition (Tiger, Panther e Raptor Mastery); a sud Booty Bay per le quest dei goblin. 🟡",
+    "text": "Zeppelin da Orgrimmar o Undercity a Grom’gol Base Camp: Flight Path da Thysta e Hearthstone da Innkeeper Thulbek. Hunt for Yenniku da Nimboya e The Defense of Grom'gol da Commander Aggro'gosh. A nord, a Nesingwary's Expedition, Welcome to the Jungle da Barnil Stonepot apre Tiger Mastery (Ajeck Rouack), Panther Mastery (Sir S. J. Erlgadin) e Raptor Mastery (Hemet Nesingwary). A sud Booty Bay: Supply and Demand (Drizzlik), Bloodscalp Ears (Kebok) e Singing Blue Shards (Crank Fizzlebub). 🟡",
     "fp": "Grom'gol"
    },
    {
+    "title": "Grom'gol Base Camp",
+    "levels": "36–38",
+    "town": "Grom'gol Base Camp",
+    "zoneIcon": "achievement_zone_stranglethorn_01",
+    "text": "Headhunting e Trollbane (Nimboya), Bloody Bone Necklaces e The Vile Reef (Kin'weelay), Enemies in the Water (Commander Aggro'gosh) e Mok'thardin's Enchantment (Far Seer Mok'thardin). A 38 Commander Aggro'gosh ti dà Report to Rog'mar: da Badlands prendi la strada a sud verso Riverglades, oppure la nave da Steamwheedle Port (Tanaris) a Powderfuse Port. 🟡"
+   },
+   {
     "title": "Riverglades ★",
-    "levels": "36–44",
+    "levels": "38–41",
     "town": "Rog'mar",
     "zoneIcon": "inv_misc_map_01",
-    "text": "★ Riverglades, la zona nuova di Forever a est di Badlands e Burning Steppes (liv. 36–44, più di 150 quest): l’Orda lavora a Rog’mar con un clan di ogre. Ci arrivi dalla strada nuova che parte da Redridge Mountains; la nave di Steamwheedle Port la collega a Tanaris. Flight Path di Rog’mar. Dentro c’è il dungeon Krol’dok Stronghold (40–45). Le singole quest non sono ancora nelle banche dati: segui quelle di Rog’mar. 🟡",
+    "text": "★ Rog'mar, il villaggio degli ogre del Bolder'ok Clan: Flight Path da Grakna e Hearthstone da Innkeeper Toka. Per primi A Message in Blood e Food for the Taking (Krom'rosh), Borrowed Blades (Kreza Darkthorn), Fetch 'n' Fletch (Tan'jani) e Feathers for Fletching (Neza Bloodsnout); Gaseous Gold e Rock 'em and Sock 'em da Sleebo Fizzlespout, nelle pianure a est. Al ritorno A Gift From Our Enemies e Show Them How It's Done (Krom'rosh), A Serving of Strength (Gorg), Song of the Strider e Poison Tips (Neza Bloodsnout), Stick 'Em (Tan'jani). Ordine dalla guida Polestar. 🟡",
     "fp": "Rog'mar"
+   },
+   {
+    "title": "Riverglades ★",
+    "levels": "41–44",
+    "town": "Bolder'ok",
+    "zoneIcon": "inv_misc_map_01",
+    "text": "★ Da Tran'gul (Rog'mar): Encroaching Twilight e Twilight Missives, poi Digging for Answers ti porta a Sunnyglade da Clubtoe (The Purple Ones, Sickening Lights, Twilight No More!). Gnoll Infestation, Snargl's Snout e Bristle Hills Bandits verso le Bristle Hills. A nord Bolder'ok: Might Makes Right e Unworthy Champion (Clugfist), Step One: Rock (Gorgegut) e il Bloodmaster's Ring di Jezap Jinglesprocket (sei combattimenti, anello a scelta al 45). A est Powderfuse Port: Saltwater Savages (Wharfmaster Whizzbuzz), It Takes Guts (Argo Brinewhistle), Smuggler's Special (Friz Frazzlespark). A ovest Twilight's Shroud: Carving a Path e Break Their Chains (Da'grosh). Krol'dok Stronghold (40–45) chiude la storia della zona. 🟡"
    },
    {
     "title": "Tanaris",
@@ -1962,6 +2044,47 @@
      "Nimboya",
      "Commander Aggro'gosh",
      "Ajeck Rouack"
+    ]
+   },
+   {
+    "l": 35,
+    "t": "<b>Bloodscalp Ears</b> da Kebok e <b>Singing Blue Shards</b> da Crank Fizzlebub (Booty Bay).",
+    "npc": [
+     "Kebok",
+     "Crank Fizzlebub"
+    ]
+   },
+   {
+    "l": 37,
+    "t": "<b>Headhunting</b> da Nimboya, <b>Bloody Bone Necklaces</b> e <b>The Vile Reef</b> da Kin'weelay (Grom'gol Base Camp).",
+    "npc": [
+     "Nimboya",
+     "Kin'weelay"
+    ]
+   },
+   {
+    "l": 38,
+    "t": "<b>Report to Rog'mar</b> da Commander Aggro'gosh (Grom'gol Base Camp), poi <b>A Message in Blood</b> e <b>Food for the Taking</b> da Krom'rosh e <b>Borrowed Blades</b> da Kreza Darkthorn (Rog'mar).",
+    "npc": [
+     "Commander Aggro'gosh",
+     "Krom'rosh",
+     "Kreza Darkthorn"
+    ]
+   },
+   {
+    "l": 40,
+    "t": "<b>Digging for Answers</b> da Tran'gul e <b>Snargl's Snout</b> da Neza Bloodsnout (Rog'mar).",
+    "npc": [
+     "Tran'gul",
+     "Neza Bloodsnout"
+    ]
+   },
+   {
+    "l": 41,
+    "t": "<b>Bloodmaster's Ring</b> da Jezap Jinglesprocket e <b>Might Makes Right</b> da Clugfist (Bolder'ok).",
+    "npc": [
+     "Jezap Jinglesprocket",
+     "Clugfist"
     ]
    },
    {

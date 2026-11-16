@@ -1736,6 +1736,20 @@
    "date": "non letto (403), solo snippet di WebSearch",
    "signal": "-",
    "used": "Dun Morogh 1-10 → Loch Modan 10-20; Teldrassil 1-10, Darkshore 10-20"
+  },
+  {
+   "name": "QuestieDB per Forever (Questie)",
+   "url": "https://github.com/Questie/QuestieDB",
+   "date": "16 nov 2026",
+   "signal": "dati del client e XP delle quest viste in più di un milione di sessioni di gioco",
+   "used": "Quest, livelli, NPC e catene del 30–44"
+  },
+  {
+   "name": "wowforever.be - Riverglades guide",
+   "url": "https://wowforever.be/guides/riverglades/",
+   "date": "dopo il 13 nov 2026",
+   "signal": "sito già usato per il calcolatore e le profession",
+   "used": "Come arrivare a Riverglades, livelli, Flight Path, Bloodmaster's Ring"
   }
  ],
  "doubts": [
@@ -1780,24 +1794,46 @@
     "segment": {
      "from": 30,
      "to": 33,
-     "zone": "Arathi Highlands",
-     "hub": "Refuge Pointe",
-     "note": "Wowhead 30–40."
+     "zone": "Hillsbrad Foothills",
+     "hub": "Southshore",
+     "note": "Quest di Southshore di livello 30–34 (Questie)."
     },
     "step": {
-     "title": "Arathi Highlands",
+     "title": "Hillsbrad Foothills",
      "levels": "30–33",
-     "town": "Refuge Pointe",
-     "zoneIcon": "achievement_zone_arathihighlands_01",
-     "text": "Da Menethil Harbor vai a nord-est oltre il Thandol Span fino a Refuge Pointe (Arathi Highlands, liv. 30–40). Hearthstone e Flight Path di Refuge Pointe; quest di Captain Nials (quelle di Skuerto sono di livello 39). 🟡",
-     "fp": "Refuge Pointe"
+     "town": "Southshore",
+     "zoneIcon": "achievement_zone_hillsbradfoothills",
+     "text": "Da Menethil Harbor passa il Thandol Span ed entra in Arathi Highlands: a Refuge Pointe prendi il Flight Path (Cedrik Prose) e Northfold Manor da Captain Nials, poi vai a ovest fino a Southshore. Hearthstone da Innkeeper Anderson e Flight Path da Darla Harris. In ordine: Down the Coast, poi Farren's Proof, Stormwind Ho! e Reassignment da Lieutenant Farren Orinelle; Soothing Turtle Bisque da Chef Jessen; Syndicate Assassins da Magistrate Henry Maleb; Costly Menace da Darren Malvew e Bartolo's Yeti Fur Cloak da Bartolo Ginsetti. 🟡",
+     "fp": "Southshore"
     },
     "milestones": [
      {
       "l": 30,
-      "t": "<b>Northfold Manor</b> da Captain Nials (Refuge Pointe).",
+      "t": "<b>Down the Coast</b> da Lieutenant Farren Orinelle (Southshore), poi <b>Farren's Proof</b>.",
       "npc": [
-       "Captain Nials"
+       "Lieutenant Farren Orinelle"
+      ]
+     },
+     {
+      "l": 31,
+      "t": "<b>Soothing Turtle Bisque</b> da Chef Jessen (Southshore).",
+      "npc": [
+       "Chef Jessen"
+      ]
+     },
+     {
+      "l": 32,
+      "t": "<b>Stormwind Ho!</b> e <b>Reassignment</b> da Lieutenant Farren Orinelle (Southshore).",
+      "npc": [
+       "Lieutenant Farren Orinelle"
+      ]
+     },
+     {
+      "l": 33,
+      "t": "<b>Syndicate Assassins</b> da Magistrate Henry Maleb e <b>Costly Menace</b> da Darren Malvew (Southshore).",
+      "npc": [
+       "Magistrate Henry Maleb",
+       "Darren Malvew"
       ]
      }
     ]
@@ -1811,14 +1847,14 @@
      "to": 33,
      "zone": "Desolace",
      "hub": "Nijel's Point",
-     "note": "Wowhead 30–39; quest dei centauri Gelkis e Magram dal 35."
+     "note": "Quest di Nijel's Point di livello 31–35 (Questie)."
     },
     "step": {
      "title": "Desolace",
      "levels": "30–33",
      "town": "Nijel's Point",
      "zoneIcon": "achievement_zone_desolace",
-     "text": "Da Astranaar passa per Stonetalon Mountains e scendi a Desolace: Nijel’s Point (liv. 30–39). Flight Path e quest di Captain Pentigast, Kreldig Ungor e Vahlarriel Demonslayer. Le quest dei centauri Gelkis e Magram partono dal 35. Poi boat Ratchet → Booty Bay. 🟡",
+     "text": "Da Astranaar passa per Stonetalon Mountains e scendi a Desolace: Nijel’s Point, Hearthstone da Innkeeper Lyshaerya e Flight Path da Baritanas Skyriver. In ordine: Centaur Bounty da Corporal Melkins; Vahlarriel's Search e Vahlarriel's Vengeance da Vahlarriel Demonslayer; Reclaimers' Business in Desolace e Reagents for Reclaimers Inc. da Kreldig Ungor; a 35 Strange Alliance e Brutal Politics da Captain Pentigast. Poi boat Ratchet → Booty Bay. 🟡",
      "fp": "Nijel's Point"
     },
     "milestones": [
@@ -1827,6 +1863,14 @@
       "t": "<b>Centaur Bounty</b> da Corporal Melkins e <b>Vahlarriel's Search</b> da Vahlarriel Demonslayer (Nijel's Point).",
       "npc": [
        "Corporal Melkins",
+       "Vahlarriel Demonslayer"
+      ]
+     },
+     {
+      "l": 33,
+      "t": "<b>Reagents for Reclaimers Inc.</b> da Kreldig Ungor e <b>Vahlarriel's Vengeance</b> da Vahlarriel Demonslayer (Nijel's Point).",
+      "npc": [
+       "Kreldig Ungor",
        "Vahlarriel Demonslayer"
       ]
      }
@@ -1838,15 +1882,29 @@
     "from": 33,
     "to": 36,
     "zone": "Stranglethorn Vale",
-    "hub": "Rebel Camp / Booty Bay",
-    "note": "Nord della giungla: Rebel Camp e Nesingwary’s Expedition (Wowhead 30–44)."
+    "hub": "Rebel Camp / Nesingwary's Expedition",
+    "note": "Nord della giungla: quest di livello 30–36 (Questie)."
    },
    {
     "from": 36,
-    "to": 44,
+    "to": 38,
+    "zone": "Stranglethorn Vale",
+    "hub": "Booty Bay",
+    "note": "Booty Bay e Rebel Camp: quest di livello 36–38 (Questie)."
+   },
+   {
+    "from": 38,
+    "to": 41,
     "zone": "Riverglades ★",
     "hub": "Farholde Keep",
-    "note": "Zona nuova di Forever (Wowhead 36–44), più di 150 quest; dentro c’è Krol’dok Stronghold."
+    "note": "Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40."
+   },
+   {
+    "from": 41,
+    "to": 44,
+    "zone": "Riverglades ★",
+    "hub": "Sunnyglade / Powderfuse Port",
+    "note": "Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45."
    },
    {
     "from": 44,
@@ -1902,18 +1960,32 @@
    {
     "title": "Stranglethorn Vale",
     "levels": "33–36",
+    "town": "Rebel Camp",
+    "zoneIcon": "achievement_zone_stranglethorn_01",
+    "text": "Da Duskwood scendi a sud nella giungla. A Rebel Camp: The Second Rebellion e Bad Medicine da Sergeant Yohwa, Jungle Secrets da Private Thorsen e poi Bookie Herod da Lieutenant Doren. Più a sud, a Nesingwary's Expedition, Welcome to the Jungle da Barnil Stonepot apre Tiger Mastery (Ajeck Rouack), Panther Mastery (Sir S. J. Erlgadin) e Raptor Mastery (Hemet Nesingwary). Da Kalimdor: boat Ratchet → Booty Bay. 🟡"
+   },
+   {
+    "title": "Booty Bay",
+    "levels": "36–38",
     "town": "Booty Bay",
     "zoneIcon": "achievement_zone_stranglethorn_01",
-    "text": "Nord di Stranglethorn Vale (liv. 30–44): Rebel Camp (Lieutenant Doren, Sergeant Yohwa) e Nesingwary’s Expedition (Tiger, Panther e Raptor Mastery). Flight Path a Booty Bay, dove prendi anche le quest dei goblin. Da Kalimdor: boat Ratchet → Booty Bay. 🟡",
+    "text": "Flight Path a Booty Bay (Gyll) e Hearthstone da Innkeeper Skindle. Supply and Demand e Some Assembly Required da Drizzlik, Bloodscalp Ears e Hostile Takeover da Kebok, Singing Blue Shards da Crank Fizzlebub; The Haunted Isle da Krazek, poi The Stone of the Tides e Water Elementals da Baron Revilgaz. Torna a Rebel Camp per Krazek's Cookery (Corporal Kaleb), Kurzen's Mystery (Brother Nimetz) e Special Forces (Sergeant Yohwa). 🟡",
     "fp": "Booty Bay"
    },
    {
     "title": "Riverglades ★",
-    "levels": "36–44",
+    "levels": "38–41",
     "town": "Farholde Keep",
     "zoneIcon": "inv_misc_map_01",
-    "text": "★ Riverglades, la zona nuova di Forever a est di Badlands e Burning Steppes (liv. 36–44, più di 150 quest): l’Alleanza lavora a Farholde Keep con la Brotherhood of the Horse. Ci arrivi dalla strada nuova che parte da Redridge Mountains; la nave di Steamwheedle Port la collega a Tanaris. Flight Path di Farholde Keep. Dentro c’è il dungeon Krol’dok Stronghold (40–45). Le singole quest non sono ancora nelle banche dati: segui quelle di Farholde Keep. 🟡",
+    "text": "★ Da Lakeshire (Redridge Mountains) prendi la strada a nord verso Burning Steppes e, all’incrocio, il sentiero a destra per le Bristle Hills; segui la strada a sud fino a Farholde Keep (Brotherhood of the Horse). Se passi da Refuge Pointe, The Riverglades Report di Captain Nials ti manda qui. Flight Path da Gretchen Mayberry. A Farholde: Stuff 'Em and Stick 'Em e The Sharpest of Blades (Ember Bladewhisper), Love Thy Neighbor (Cassandra Wheeler), My Kingdom for a Horse e Out in the Field (Demar Brant), Curious Trinkets (Ashe Amberhall), Bats in the Belfry, Keeping the Light On e In Memoriam (Sister Rowland), Apple of My Eye e Fit for a Princess (Tessa Dawnbright), Foreman's Plight e High Stakes (Bertrand Ironbrow). Intorno: Wheeler's Grange (Benjy Wheeler), Turner's Logging Camp (Halligan Turner), Terral's Watch (Watcher Cornelius) e Southern Watch (Cedric Dalton). 🟡",
     "fp": "Farholde Keep"
+   },
+   {
+    "title": "Riverglades ★",
+    "levels": "41–44",
+    "town": "Sunnyglade",
+    "zoneIcon": "inv_misc_map_01",
+    "text": "★ Saving Sunnyglade di Demar Brant ti porta a Sunnyglade: Abominable Magics, Indiscriminate Purge e Cut Off the Heads (Apprentice Claire). A Farholde poi Wound Dressings e Doctor's Orderly (Brother Lowley), Something's in the Water e Upstream Contamination (Sister Rowland) e What We Lost (Farmer Elbrim). A est Powderfuse Port, porto goblin neutrale con la nave per Tanaris: Saltwater Savages e Unfriendly Competition (Wharfmaster Whizzbuzz), It Takes Guts (Argo Brinewhistle), Smuggler's Special (Friz Frazzlespark). A ovest Twilight's Shroud: A Miner Problem e No Soldier Left Behind (Sergeant Riftan). Krol'dok Stronghold (40–45) chiude la storia della zona. 🟡"
    },
    {
     "title": "Tanaris",
@@ -1980,6 +2052,80 @@
      "Ajeck Rouack",
      "Sir S. J. Erlgadin",
      "Sergeant Yohwa"
+    ]
+   },
+   {
+    "l": 34,
+    "t": "<b>Bad Medicine</b> da Sergeant Yohwa (Rebel Camp) e <b>Raptor Mastery</b> da Hemet Nesingwary.",
+    "npc": [
+     "Sergeant Yohwa",
+     "Hemet Nesingwary"
+    ]
+   },
+   {
+    "l": 35,
+    "t": "<b>Bloodscalp Ears</b> da Kebok e <b>Singing Blue Shards</b> da Crank Fizzlebub (Booty Bay).",
+    "npc": [
+     "Kebok",
+     "Crank Fizzlebub"
+    ]
+   },
+   {
+    "l": 36,
+    "t": "<b>Hostile Takeover</b> da Kebok e <b>Some Assembly Required</b> da Drizzlik (Booty Bay).",
+    "npc": [
+     "Kebok",
+     "Drizzlik"
+    ]
+   },
+   {
+    "l": 37,
+    "t": "<b>The Haunted Isle</b> da Krazek e <b>The Stone of the Tides</b> da Baron Revilgaz (Booty Bay); <b>Krazek's Cookery</b> da Corporal Kaleb (Rebel Camp).",
+    "npc": [
+     "Krazek",
+     "Baron Revilgaz",
+     "Corporal Kaleb"
+    ]
+   },
+   {
+    "l": 38,
+    "t": "<b>Kurzen's Mystery</b> da Brother Nimetz e <b>Special Forces</b> da Sergeant Yohwa (Rebel Camp); poi verso Riverglades, con <b>The Riverglades Report</b> da Captain Nials (Refuge Pointe) o dalla strada di Redridge Mountains.",
+    "npc": [
+     "Brother Nimetz",
+     "Sergeant Yohwa",
+     "Captain Nials"
+    ]
+   },
+   {
+    "l": 39,
+    "t": "<b>Love Thy Neighbor</b> da Cassandra Wheeler e <b>My Kingdom for a Horse</b> da Demar Brant (Farholde Keep); <b>Hunting the Hunters</b> e <b>Song of the Strider</b> da Watcher Cornelius (Terral's Watch).",
+    "npc": [
+     "Cassandra Wheeler",
+     "Demar Brant",
+     "Watcher Cornelius"
+    ]
+   },
+   {
+    "l": 40,
+    "t": "<b>Saving Sunnyglade</b> da Demar Brant (Farholde Keep) e <b>Snargl's Snout</b> da Cedric Dalton (Southern Watch).",
+    "npc": [
+     "Demar Brant",
+     "Cedric Dalton"
+    ]
+   },
+   {
+    "l": 42,
+    "t": "<b>Upstream Contamination</b> da Sister Rowland (Farholde Keep) e <b>It Takes Guts</b> da Argo Brinewhistle (Powderfuse Port).",
+    "npc": [
+     "Sister Rowland",
+     "Argo Brinewhistle"
+    ]
+   },
+   {
+    "l": 43,
+    "t": "<b>A Miner Problem</b> da Sergeant Riftan (Twilight's Shroud).",
+    "npc": [
+     "Sergeant Riftan"
     ]
    },
    {

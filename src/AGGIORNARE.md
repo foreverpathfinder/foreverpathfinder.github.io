@@ -1,13 +1,13 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 15 nov 2026 · **sito v17** · **addon 1.10.2** (beta approvata su CurseForge e provata dall'utente nel gioco).
+Aggiornato il 16 nov 2026 · **sito v18** · **addon 1.10.4** (in locale, non ancora pubblicata).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
 - un **sito** statico per il telefono, da tenere accanto al PC;
 - un **addon** per il gioco, che porta la guida in una finestra e la collega a mappa, quest, talenti e trainer.
 
-Il livello 1–30 è dettagliato quest per quest. Dal 30 al 60 la guida va a tappe per zona, segnate 🟡, perché non ci sono ancora guide provate.
+Il livello 1–30 è dettagliato quest per quest. Dal 30 al 44 ogni tappa nomina le quest vere (QuestieDB del 16 nov), ma l’ordine delle zone resta 🟡. Dal 44 al 60 la guida va a tappe per zona, segnate 🟡, perché non ci sono ancora guide provate.
 
 ---
 
@@ -103,6 +103,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 - **Milestone**: `{"l":10,"t":"<b>Quest</b>: …","r":["dwarf"],"f":"A","npc":["Nome esatto"]}`.
   - `r` e `f` filtrano per razza e fazione;
   - `npc` crea il pulsante 📍 (il nome deve essere identico a quello in `worldmap.json`).
+  - in `en.json` il testo serve due volte: con i `<b>` e senza tag (primi 140 caratteri, per l’addon). Se manca, `build.js` lo mette in `missing-en.json`.
 - **Build**: `builds:[{id, name, spec, icon, when, pros, cons, ratings:{speed|ease|versatility|survival|aoe|gear:[1–5, motivo, fonte]}, build, rotation?, sources}]`.
   - A = la guida più votata (vedi §8);
   - un voto c'è solo se una fonte lo giustifica.
@@ -215,6 +216,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 - **Lua del gioco (5.1) e delle prove (fengari, 5.3)**: nel gioco `ipairs`/`pairs` su un testo danno errore. `addon-test.lua` li rende severi, ma con dati misti controlla sempre `type(x) == "table"`.
 - **Caratteri dell'addon**: Barlow non ha ★ ✔ ↗ ■ e simili, che nel gioco escono come quadrati vuoti. Per «nuovo in Forever» si usa il pallino • verderame; controlla ogni simbolo nuovo sulla tabella cmap del font.
 - **Season of Discovery**: i dati del client contengono le quest con ID 77000–91999, che in Forever non ci sono. Vanno scartate sempre.
+- **QuestieDB**: nelle correzioni la zona è scritta come nome (`zoneIDs.RIVERGLADES`), non come numero: cercala in tutti e due i modi. Riverglades (2548) è nei dati dal 16 nov.
 - **Siti che bloccano**:
   - Mobalytics e Icy Veins danno 403 a WebFetch: usa il browser integrato;
   - le pagine delle singole quest e spell di Wowhead chiedono la verifica umana: non usarle;
@@ -232,7 +234,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 ## 11. Aperto e da fare
 
-1. **30–60**: quando usciranno guide provate, passare quest per quest come nell'1–30 e dare giudizi, boss e consigli ai dungeon 35–60 (oggi questi dungeon hanno solo le quest).
+1. **44–60**: passare quest per quest come nel 30–44 (script di esempio: quest per hub da `qall.json` di `qdb.js` + XP di `support/Forever/QuestXP/xpDB-traces.lua` + luogo da `quests.txt`); dare giudizi, boss e consigli ai dungeon 35–60 (oggi hanno solo le quest). Il 30–44 va ricontrollato quando ci saranno guide provate.
 2. **Build B e C**: alcune (Mage, Paladin, Priest, Shaman C, Warlock C) finiscono prima del 60.
 3. **Da ricontrollare nel gioco uscito**: classifica degli alt (le tier list erano sulla beta 1–30), costi del Legacy, giudizio Alleanza di Scarlet Monastery (oggi «skip»: ingresso in zona Orda).
 4. **Gold farming**: solo quando ci saranno testimonianze dal gioco.
