@@ -674,7 +674,7 @@
     "Arcane Anomaly",
     "Fel Ancient",
     "Arcanic Enigma",
-    "Unstable Sentry",
+    "Unstable Sentinel",
     "Shade of the Archmage"
    ],
    "t": [
@@ -688,7 +688,7 @@
     "<b>Mana Devourer</b> toglie mana a tutto il gruppo: pulite la Violet Hold prima e curate attraverso il danno.",
     "<b>Arcane Anomaly</b>: state vicini al boss, il suo raggio colpisce chi è lontano.",
     "<b>Arcanic Enigma</b>: uccidete prima i Mana Phantom; zittisce chi è vicino, ranged lontani.",
-    "<b>Unstable Sentry</b> esplode intorno a sé (Malfunction): chi non fa il tank si allontana.",
+    "<b>Unstable Sentinel</b> esplode intorno a sé (Malfunction): chi non fa il tank si allontana.",
     "<b>Shade of the Archmage</b>: arena stretta, evitate Bounding Mana. Quando resta senza mana usa Mass Polymorph e poi Evocation: rompete la trasformazione per liberarvi."
    ]
   },
@@ -1263,6 +1263,7 @@
     "Tuten'kash",
     "Plaguemaw the Rotting (quest)",
     "Mordresh Fire Eye",
+    "Ragglesnout (raro)",
     "Glutton",
     "Amnennar the Coldbringer"
    ],
@@ -1270,7 +1271,8 @@
     "<b>Tuten'kash</b> arriva al terzo colpo di gong (i primi due chiamano ragni): il tank lo gira lontano dal gruppo per Web Spray; togliete Curse of Tuten'kash.",
     "<b>Plaguemaw the Rotting</b> chiude la scorta di Belnistrasz: proteggete l’NPC dalle ondate, il boss è semplice.",
     "<b>Mordresh Fire Eye</b> è circondato da scheletri non elite: AoE su di loro, poi tutti sul boss; interrompete Fireball.",
-    "<b>Amnennar the Coldbringer</b>: il tank lo gira lontano, il gruppo dietro di lui. Quando escono i Frost Spectre, chi attacca da lontano li elimina e poi torna sul boss."
+    "<b>Amnennar the Coldbringer</b>: il tank lo gira lontano, il gruppo dietro di lui. Quando escono i Frost Spectre, chi attacca da lontano li elimina e poi torna sul boss.",
+    "<b>Ragglesnout</b> non c’è sempre: cura, lancia Shadow Bolt e fa Dominate Mind. Interrompete a turno e controllate chi viene dominato."
    ]
   },
   "krol'dok stronghold": {
@@ -1343,7 +1345,7 @@
     "War Handler Ashka",
     "Nar'gurk",
     "Bossman Toof",
-    "Overlord Mugg"
+    "Overseer Mugg"
    ],
    "t": [
     "<b>Slavecrusher Grox</b> pattuglia la cava: pulite prima una zona dove combatterlo. Chiama Redridge Prisoner e ogni tanto stordisce il tank.",
@@ -1351,7 +1353,7 @@
     "<b>War Handler Ashka</b> manda i suoi lupi Snarlfang e Terrorhowl su giocatori a caso: uccidete prima i lupi.",
     "<b>Nar'gurk</b> ha Twilight Warlock e Shadowhide Curseweaver: controllateli o uccideteli prima, molti DoT magici.",
     "<b>Bossman Toof</b> è una corsa sui due ponti: manda Krol'dok Brute a coppie mentre avanzate verso di lui.",
-    "<b>Overlord Mugg</b> ha due Krol'dok Centurion: prima loro. Poi state sparpagliati, perché salta su giocatori a caso."
+    "<b>Overseer Mugg</b> ha due Krol'dok Centurion: prima loro. Poi state sparpagliati, perché salta su giocatori a caso."
    ]
   },
   "zul'farrak": {
@@ -1655,7 +1657,8 @@
    "b": [
     "Atal'alarion",
     "Spawn of Hakkar",
-    "Jammal'an the Prophet",
+    "Atal'ai Defenders (i 6 troll)",
+    "Jammal'an the Prophet e Ogom the Wretched",
     "Weaver e Dreamscythe",
     "Hazzas e Morphaz",
     "Avatar of Hakkar (evocato)",
@@ -1663,7 +1666,7 @@
    ],
    "t": [
     "<b>Atal'alarion</b> si evoca toccando le 6 statue del Pit of Refuse nell’ordine giusto (sud, nord, sud-ovest, sud-est, nord-ovest, nord-est); Sweeping Slam colpisce davanti.",
-    "<b>Jammal'an the Prophet</b> si apre dopo i 6 troll minori; ha Ogom con sé: uno che sa reggere i colpi tiene Ogom, gli altri non si ammucchiano.",
+    "<b>Jammal'an the Prophet e Ogom the Wretched</b> si aprono dopo gli Atal'ai Defenders, i 6 troll minori: uno che sa reggere i colpi tiene Ogom, gli altri non si ammucchiano.",
     "<b>Weaver e Dreamscythe</b> pattugliano insieme, come poi Hazzas e Morphaz: tirateli uno alla volta nel corridoio, col tank contro il muro.",
     "<b>Avatar of Hakkar</b> serve la catena dell’Ancient Egg (parte a Tanaris); controllate chi prende Cause Insanity.",
     "<b>Shade of Eranikus</b>: pulite prima tutti i draghetti del dungeon. Combattimento lungo; Deep Slumber colpisce chi ha più attenzione (Grounding Totem lo ferma)."
@@ -1781,14 +1784,17 @@
     "Houndmaster Grebmar",
     "Ring of Law",
     "Pyromancer Loregrain",
+    "Warder Stilgiss",
+    "Fineous Darkvire",
     "Lord Incendius",
     "Bael'Gar",
     "General Angerforge",
     "Golem Lord Argelmach",
     "Hurley Blackbreath",
+    "Phalanx",
     "Plugger Spazzring",
     "Ambassador Flamelash",
-    "The Seven",
+    "The Seven (Doom'rel)",
     "Magmus",
     "Emperor Dagran Thaurissan"
    ],
@@ -2080,24 +2086,27 @@
     "Pusillin (East)",
     "Lethtendris (East)",
     "Hydrospawn (East)",
-    "Zevrin Thornhoof (East)",
+    "Zevrim Thornhoof (East)",
     "Alzzin the Wildshaper (East)",
     "Tendris Warpwood (West)",
     "Illyanna Ravenoak (West)",
     "Magister Kalendris (West)",
     "Immol'thar (West)",
     "Prince Tortheldrin (West)",
+    "Tsu'zee (West, raro)",
     "Guard Mol'dar (North)",
     "Stomper Kreeg (North)",
     "Guard Fengus (North)",
     "Guard Slip'kik (North)",
     "Captain Kromcrush (North)",
+    "Cho'Rush the Observer (North)",
     "King Gordok (North)"
    ],
    "t": [
     "Tre ali: East (54–60), West e North (56–60).",
     "<b>Pusillin</b> scappa per l’ala: inseguitelo fino in fondo, lì combatte e lascia la Crescent Key.",
-    "<b>King Gordok</b>: se arrivate da lui senza uccidere le guardie di North, il premio («tribute») è più ricco."
+    "<b>King Gordok</b>: se arrivate da lui senza uccidere le guardie di North, il premio («tribute») è più ricco.",
+    "<b>Cho'Rush the Observer</b> combatte accanto a King Gordok: è un caster, interrompetelo o controllatelo."
    ]
   },
   "scholomance": {
@@ -2239,13 +2248,15 @@
     ]
    },
    "b": [
-    "Skul (Living)",
+    "Skul (Living, raro)",
+    "Hearthsinger Forresten (Living, raro)",
     "The Unforgiven (Living)",
     "Timmy the Cruel (Living)",
     "Cannon Master Willey (Living)",
     "Archivist Galford (Living)",
     "Balnazzar (Living)",
     "Magistrate Barthilas (Undead)",
+    "Stonespine (Undead, raro)",
     "Nerub'enkan (Undead)",
     "Baroness Anastari (Undead)",
     "Maleki the Pallid (Undead)",
@@ -2280,19 +2291,20 @@
     "Cinder",
     "Titanosaur",
     "Snowtalon",
-    "Tor'Rel e Izha'Rel",
+    "Ravasaur Hunters (Tor'Rel e Izha'Rel)",
     "Vitrix",
     "Direhorn Matriarch",
     "Thunderhoof",
     "Venomridge",
     "Bolt",
-    "Nanaya"
+    "Nanaya",
+    "King Op"
    ],
    "t": [
     "<b>Cinder</b> (15 cristalli rossi) è un elementale di fuoco: pulite prima gli elementali intorno; la resistenza al fuoco aiuta.",
     "<b>Titanosaur</b> pattuglia la strada e fa Fear: liberate l’area dagli add prima; Tremor Totem lo rende facile.",
     "<b>Snowtalon</b> (15 cristalli blu) lancia Frost Nova e Cone of Cold: il tank lo gira lontano dal gruppo.",
-    "<b>Tor'Rel e Izha'Rel</b>: prima Tor'Rel (fuoco), poi Izha'Rel (ghiaccio, con Frost Armor che rallenta chi la colpisce).",
+    "<b>Ravasaur Hunters</b>: prima Tor'Rel (fuoco), poi Izha'Rel (ghiaccio, con Frost Armor che rallenta chi la colpisce).",
     "<b>Vitrix</b> (15 cristalli verdi) nei primi giorni uccideva il gruppo in un colpo: mettete i cristalli e saltatelo, basta per andare avanti.",
     "<b>Venomridge</b> avvelena tutto il gruppo: Poison Cleansing Totem o togliete il veleno.",
     "<b>Bolt</b> (15 cristalli gialli) lancia Chain Lightning: chi attacca da lontano e chi cura stanno sparpagliati.",
