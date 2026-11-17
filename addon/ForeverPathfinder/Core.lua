@@ -70,7 +70,7 @@ local TT = {
     dgDo = "completa {%s}", dgTurn = "consegna {%s}",
     dgSteps = "Tutti i passi", dgStepsHide = "Nascondi i passi", dgGLog = "Nel registro", dgGLock = "Da sbloccare", dgGTake = "Puoi prenderle subito", dgGDone = "Fatte",
     dgQSum = "Quest:", dgQLog = "%d nel registro", dgQDone = "%d fatte", dgQDone1 = "1 fatta", dgQTake = "%d da prendere", dgQn = "quest %d/%d",
-    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, verde = ingresso. Rotella o + e − per ingrandire, trascina per spostarti. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
+    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, portale = ingresso. Rotella o + e − per ingrandire, trascina per spostarti. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
@@ -134,7 +134,7 @@ local TT = {
     dgDo = "complete {%s}", dgTurn = "turn in {%s}",
     dgSteps = "All steps", dgStepsHide = "Hide the steps", dgGLog = "In your log", dgGLock = "To unlock", dgGTake = "You can pick these up now", dgGDone = "Done",
     dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
-    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, green = entrance. Mouse wheel or + and − to zoom, drag to move. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
+    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, portal = entrance. Mouse wheel or + and − to zoom, drag to move. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
@@ -1119,17 +1119,17 @@ end
 -- e fuori dall'immagine il bordo è trasparente (CLAMPTOBLACKADDITIVE). Nei dungeon all'aperto il terreno passa da una maschera
 -- (Masks/*.tga, fatta da dgmaps.js: la sagoma attorno a boss e ingresso), così si vede solo il dungeon, sullo stesso fondo di tutti.
 -- Visore: una finestra a ritaglio (ScrollFrame) con dentro una tela che si ingrandisce (rotella, + e −) e si trascina col mouse.
--- I boss (ritratto del modello dal displayID, o un'icona) stanno sopra la tela e non cambiano misura con lo zoom.
+-- I boss (ritratto del modello dal displayID, o un'icona) stanno sopra la tela e non cambiano misura con lo zoom. Fondo trasparente:
+-- si vede quello della finestra, come nel resto delle schede.
 local PLAN, PAK = ForeverPathfinderPlan or {}, { ["deathless guardians"] = "deathless marrow", ["doom'rel"] = "the seven" }
 local function planOf(name) return PLAN[(low(name):gsub("[^%w%s:'%-]", ""):gsub("^%s+", ""):gsub("%s+$", ""):gsub("^the ", ""))] end
-local MASKDIR, ROUND, SKULL = "Interface\\AddOns\\" .. ADDON .. "\\Masks\\", "Interface\\CharacterFrame\\TempPortraitAlphaMask", "Interface\\Icons\\INV_Misc_Bone_Skull_02"
+local MASKDIR, SKULL = "Interface\\AddOns\\" .. ADDON .. "\\Masks\\", "Interface\\Icons\\INV_Misc_Bone_HumanSkull_01"
 local VH = 380
 local function planViewer()
   if PV then return PV end
   local v = CreateFrame("ScrollFrame", nil, body)
   local hold = CreateFrame("Frame", nil, v); v:SetScrollChild(hold)
   local cv = CreateFrame("Frame", nil, hold); cv:SetSize(1, 1)
-  local bg = hold:CreateTexture(nil, "BACKGROUND"); bg:SetAllPoints(); paint(bg, "deep")
   local mask = cv:CreateMaskTexture(); mask:SetPoint("TOPLEFT", cv, "TOPLEFT", 0, 0)
   PV = { v = v, hold = hold, cv = cv, mask = mask, tex = {}, nt = 0, pins = {}, np = 0, z = 1, px = 0, py = 0 }
   -- tela e boss nella posizione di zoom e spostamento attuali; il dungeon resta dentro la finestra
@@ -1169,31 +1169,39 @@ local function pvTex()
   if t.masked then t:RemoveMaskTexture(PV.mask); t.masked = nil end
   t:ClearAllPoints(); t:Show(); return t
 end
--- boss sulla mappa: ritratto rotondo (modello del gioco dal displayID, o icona) con il numero; senza numero = ingresso
+-- boss sulla pianta: come i segnaposti dell'addon sulla mappa del mondo, quadrati con il bordino viola e il fondo scuro; dentro
+-- il ritratto (modello del gioco dal displayID, o un'icona) e il numero in un riquadro. Senza numero = ingresso: il portale del gioco
+local VIOLA, SCURO = { 0.64, 0.21, 0.93, 1 }, { 0.04, 0.06, 0.1, 0.9 }
 local function pvPin(n, x, yy, tip, pic)
   PV.np = PV.np + 1
   local o = PV.pins[PV.np]
   if not o then
-    o = CreateFrame("Button", nil, PV.hold); o:SetSize(30, 30)
-    o.ring = o:CreateTexture(nil, "BORDER"); o.ring:SetPoint("CENTER"); o.ring:SetSize(32, 32); o.ring:SetTexture(ROUND)
-    o.pic = o:CreateTexture(nil, "ARTWORK"); o.pic:SetPoint("CENTER"); o.pic:SetSize(28, 28)
-    local m = o:CreateMaskTexture(); m:SetAllPoints(o.pic); m:SetTexture(ROUND, "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE"); o.pic:AddMaskTexture(m)
-    o.nb = o:CreateTexture(nil, "OVERLAY"); o.nb:SetPoint("BOTTOMRIGHT", 5, -3); o.nb:SetSize(15, 15); paint(o.nb, "num")
-    o.fs = o:CreateFontString(nil, "OVERLAY"); o.fs:SetFontObject(F.small); o.fs:SetPoint("CENTER", o.nb, "CENTER", 0, 0); o.fs:SetTextColor(0, 0, 0)
+    o = CreateFrame("Button", nil, PV.hold)
+    o.bd = o:CreateTexture(nil, "BACKGROUND", nil, -1); o.bd:SetPoint("TOPLEFT", -2, 2); o.bd:SetPoint("BOTTOMRIGHT", 2, -2); o.bd:SetColorTexture(unpack(VIOLA))
+    o.bg = o:CreateTexture(nil, "BACKGROUND", nil, 0); o.bg:SetAllPoints(); o.bg:SetColorTexture(unpack(SCURO))
+    o.pic = o:CreateTexture(nil, "ARTWORK"); o.pic:SetAllPoints()
+    o.nf = o:CreateTexture(nil, "OVERLAY", nil, 0); o.nf:SetPoint("BOTTOMRIGHT", 7, -7); o.nf:SetSize(15, 15); o.nf:SetColorTexture(unpack(VIOLA))
+    o.nb = o:CreateTexture(nil, "OVERLAY", nil, 1); o.nb:SetPoint("TOPLEFT", o.nf, "TOPLEFT", 1, -1); o.nb:SetPoint("BOTTOMRIGHT", o.nf, "BOTTOMRIGHT", -1, 1); o.nb:SetColorTexture(0.04, 0.06, 0.1, 1)
+    o.fs = o:CreateFontString(nil, "OVERLAY"); o.fs:SetFontObject(F.brand); o.fs:SetPoint("CENTER", o.nf, "CENTER", 0, 0); o.fs:SetTextColor(unpack(COL.ice))
     o:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.tip); GameTooltip:Show() end)
     o:SetScript("OnLeave", function() GameTooltip:Hide() end)
     PV.pins[PV.np] = o
   end
   o:SetFrameLevel(PV.v:GetFrameLevel() + 10)
-  o.ring:SetVertexColor(unpack(COL[n == "" and "ac" or "num"]))
   o.pic:SetTexture(nil); o.pic:SetTexCoord(0, 1, 0, 1)
-  local ok = false
-  if type(pic) == "number" and pic > 0 and SetPortraitTextureFromCreatureDisplayID then
+  local door, ok = n == "", false
+  if door then
+    -- il portale dei dungeon della mappa del gioco; se il client non ha quell'atlas, il teschio dei dungeon dell'addon
+    ok = o.pic.SetAtlas and pcall(o.pic.SetAtlas, o.pic, "Dungeon") and o.pic:GetTexture() ~= nil
+    if not ok then o.pic:SetTexture(SKULL); o.pic:SetTexCoord(0.08, 0.92, 0.08, 0.92) end
+  elseif type(pic) == "number" and pic > 0 and SetPortraitTextureFromCreatureDisplayID then
     ok = pcall(SetPortraitTextureFromCreatureDisplayID, o.pic, pic) and o.pic:GetTexture() ~= nil
   end
-  if n == "" then o.pic:SetColorTexture(COL.ac[1], COL.ac[2], COL.ac[3], 1)
-  elseif not ok then o.pic:SetTexture(type(pic) == "string" and ("Interface\\Icons\\" .. pic) or SKULL); o.pic:SetTexCoord(0.08, 0.92, 0.08, 0.92) end
-  o.nb:SetShown(n ~= ""); o.fs:SetText(tostring(n)); o.tip, o.x, o.y = tip, x, yy
+  if not door and not ok then o.pic:SetTexture(type(pic) == "string" and ("Interface\\Icons\\" .. pic) or SKULL); o.pic:SetTexCoord(0.08, 0.92, 0.08, 0.92) end
+  o:SetSize(door and 26 or 24, door and 26 or 24)
+  o.bd:SetShown(not door or not ok); o.bg:SetShown(not door or not ok)
+  for _, t in ipairs({ o.nf, o.nb }) do t:SetShown(not door) end
+  o.fs:SetText(door and "" or tostring(n)); o.tip, o.x, o.y = tip, x, yy
   o:Show(); return o
 end
 local function dgPlan(d, wings)
