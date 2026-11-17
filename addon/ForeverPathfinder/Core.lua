@@ -19,7 +19,8 @@ local TT = {
     level = "Liv. %d", stageWord = "TAPPA", build = "Build: %s",
     talentNow = "Talento da prendere ora: %s (%s)", talentNext = "Prossimo talento al liv. %d: %s (%s)", talentDone = "Talenti della guida completati.",
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
-    help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp lang · /fp debug",
+    help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp lang · /fp debug · /fp bug",
+    bug = "Segnala un errore", bugTxt = "Copia il link con Ctrl+C e aprilo nel browser. Incolla anche le righe di /fp debug: aiutano a trovare il problema.",
     dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo", skip = "da saltare",
     dgAll = "‹ Tutti i dungeon", dgPick = "Clic su un dungeon: quest, boss, come arrivarci. |cff7fd4b0•|r = nuovo in Forever.", dgYou = "adatto al tuo livello", dgLv = "Livelli %d–%d",
     dgIdeal = "ideale %s", dgWhere = "Dove si trova", dgKey = "Chiave d'ingresso", dgQ = "Quest da prendere prima di entrare", dgQC = "Quest di classe",
@@ -46,7 +47,7 @@ local TT = {
     oNoX = "Per questa razza il percorso resta nello stesso continente.", oShow = "Interfaccia", oMinimap = "Icona sulla minimappa",
     oChar = "Personaggio", oAuto = "Riconosciuto dal gioco: %s. Se sbaglia, scrivi /fp set razza-classe; /fp auto per tornare automatico.",
     oSite = "La guida completa, con mappa e calcolatori: foreverpathfinder.github.io",
-    oLate = "Dal 30 al 60", oLateTxt = "Il percorso dal 30 al 60 è fatto di tappe per zona, prese da guide non ancora provate in gioco: lo aggiorneremo quando ci saranno informazioni più attendibili.",
+    oLate = "Dal 30 al 60", oLateTxt = "Dal 30 al 44 ogni tappa ha le quest vere di Forever; l'ordine delle zone viene da guide non ancora provate in gioco. Dal 44 al 60 il percorso è fatto di tappe per zona: lo aggiorneremo quando ci saranno informazioni più attendibili.",
     oLinks = "Collegamenti col gioco", oMap = "Segnaposti della tappa sulla mappa del mondo; dal segnaposto di una voce, anche sulla minimappa",
     oQuests = "Spunta da sola le voci quando consegni la quest e mostra le quest che hai nel registro",
     oTal = "Evidenzia il talento da prendere nella finestra dei talenti", oTrainer = "Al trainer scrive e segna gli spell della guida da comprare",
@@ -83,7 +84,8 @@ local TT = {
     level = "Lvl %d", stageWord = "STAGE", build = "Build: %s",
     talentNow = "Talent to take now: %s (%s)", talentNext = "Next talent at lvl %d: %s (%s)", talentDone = "Guide talents done.",
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
-    help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp lang · /fp debug",
+    help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp lang · /fp debug · /fp bug",
+    bug = "Report an error", bugTxt = "Copy the link with Ctrl+C and open it in your browser. Also paste the lines of /fp debug: they help find the problem.",
     dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional", skip = "skip",
     dgAll = "‹ All dungeons", dgPick = "Click a dungeon: quests, bosses, how to get there. |cff7fd4b0•|r = new in Forever.", dgYou = "right for your level", dgLv = "Levels %d–%d",
     dgIdeal = "best at %s", dgWhere = "Where it is", dgKey = "Entry key", dgQ = "Quests to pick up before going in", dgQC = "Class quests",
@@ -109,7 +111,7 @@ local TT = {
     oNoX = "For this race the route stays on the same continent.", oShow = "Interface", oMinimap = "Minimap icon",
     oChar = "Character", oAuto = "Detected by the game: %s. If it is wrong, type /fp set race-class; /fp auto to go back to automatic.",
     oSite = "The full guide, with map and calculators: foreverpathfinder.github.io",
-    oLate = "From 30 to 60", oLateTxt = "The route from 30 to 60 is made of zone stages, taken from guides not yet tested in game: we will update it when more reliable information is available.",
+    oLate = "From 30 to 60", oLateTxt = "From 30 to 44 every stage has Forever's real quests; the zone order comes from guides not yet tested in game. From 44 to 60 the route is made of zone stages: we will update it when more reliable information is available.",
     oLinks = "Game links", oMap = "Stage waypoints on the world map; from an item's waypoint, on the minimap too",
     oQuests = "Ticks items by itself when you turn in the quest and shows the quests in your log",
     oTal = "Highlights the talent to take in the talent window", oTrainer = "At the trainer, prints and marks the guide spells to buy",
@@ -1703,6 +1705,18 @@ local function drawPage(v, name)
   cardClose()
 end
 
+-- segnala un errore: il gioco non apre i link, quindi un riquadro col link già selezionato da copiare (Ctrl+C);
+-- nel titolo della issue versione e guida, come il pulsante del sito
+local function bugLink()
+  local meta = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
+  local url = "https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues/new?title=Addon+v" .. tostring(meta and meta(ADDON, "Version")) .. "+" .. (charKey() or "")
+  if not (StaticPopupDialogs and StaticPopup_Show) then say(url); return end
+  StaticPopupDialogs.FP_BUG = { text = T.bugTxt, button1 = OKAY or "OK", hasEditBox = true, editBoxWidth = 350, timeout = 0, whileDead = true, hideOnEscape = true,
+    OnShow = function(s) local e = s.editBox or s.EditBox; e:SetText(url); e:HighlightText(); e:SetFocus() end,
+    EditBoxOnEnterPressed = function(e) e:GetParent():Hide() end, EditBoxOnEscapePressed = function(e) e:GetParent():Hide() end }
+  StaticPopup_Show("FP_BUG")
+end
+
 local minimapIcon -- icona sulla minimappa (più sotto)
 local setLang -- lingua dell addon (più sotto, con le schede)
 local function drawOptions(g, k)
@@ -1732,6 +1746,7 @@ local function drawOptions(g, k)
   line("2", T.oChar)
   line("0", T.oAuto:format(g.name .. " (" .. k .. ")"))
   line("0", T.oSite)
+  y = y - 4; button(T.bug, PAD, y, bugLink); y = y - 30
   line("2", T.oLate)
   line("0", T.oLateTxt)
   cardClose()
@@ -2614,6 +2629,8 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgSpell:format(nb, mt and T.level:format(mt) or "-", #miss > 0 and table.concat(miss, ", ") or "-"))
     DEFAULT_CHAT_FRAME:AddMessage("  " .. T.dbgAddons:format(QZ() and T.yes or (loaded("Questie") and "…" or T.no), loaded("OneForAll") and T.yes or T.no, loaded("MapUtils") and T.yes or T.no))
     return
+  elseif cmd == "bug" or cmd == "errore" then
+    bugLink(); return
   elseif cmd == "lang" or cmd == "lingua" or cmd == "language" then
     setLang(arg == "it" and "it" or arg == "en" and "en" or (LANG == "it" and "en" or "it")); return
   elseif cmd == "help" or cmd == "?" then
