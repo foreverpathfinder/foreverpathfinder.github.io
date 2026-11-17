@@ -1,0 +1,1559 @@
+{
+ "_": "Mappe dei dungeon da Twinmap (src/tools/dgmaps.js): k = chiave in dungeons.json, img, w/h in pixel, e = ingresso, b = boss [nome, x, y] in pixel dell'immagine.",
+ "maps": [
+  {
+   "k": "shadowfang keep",
+   "n": "Shadowfang Keep",
+   "img": "dgmap/33-shadowfang-keep.webp",
+   "w": 816,
+   "h": 792,
+   "e": [
+    511,
+    462
+   ],
+   "b": [
+    [
+     "Rethilgore",
+     487,
+     510
+    ],
+    [
+     "Razorclaw the Butcher",
+     217,
+     411
+    ],
+    [
+     "Baron Silverlaine",
+     139,
+     556
+    ],
+    [
+     "Commander Springvale",
+     214,
+     451
+    ],
+    [
+     "Odo the Blindwatcher",
+     441,
+     479
+    ],
+    [
+     "Fenrus the Devourer",
+     396,
+     277
+    ],
+    [
+     "Wolf Master Nandos",
+     409,
+     247
+    ],
+    [
+     "Archmage Arugal",
+     429,
+     159
+    ]
+   ]
+  },
+  {
+   "k": "stockade",
+   "n": "The Stockade",
+   "img": "dgmap/34-stockade.webp",
+   "w": 700,
+   "h": 507,
+   "e": [
+    351,
+    345
+   ],
+   "b": [
+    [
+     "Targorr the Dread",
+     349,
+     123
+    ],
+    [
+     "Kam Deepfury",
+     495,
+     157
+    ],
+    [
+     "Hamhock",
+     563,
+     231
+    ],
+    [
+     "Dextren Ward",
+     82,
+     109
+    ],
+    [
+     "Bazil Thredd",
+     621,
+     259
+    ]
+   ]
+  },
+  {
+   "k": "deadmines",
+   "n": "The Deadmines",
+   "img": "dgmap/36-deadmines.webp",
+   "w": 1560,
+   "h": 1104,
+   "e": [
+    136,
+    450
+   ],
+   "b": [
+    [
+     "Rhahk'Zor",
+     271,
+     805
+    ],
+    [
+     "Sneed",
+     383,
+     1040
+    ],
+    [
+     "Sneed's Shredder",
+     401,
+     1040
+    ],
+    [
+     "Miner Johnson",
+     429,
+     727
+    ],
+    [
+     "Gilnid",
+     518,
+     777
+    ],
+    [
+     "Captain Greenskin",
+     1031,
+     550
+    ],
+    [
+     "Mr. Smite",
+     960,
+     467
+    ],
+    [
+     "Cookie",
+     1065,
+     560
+    ],
+    [
+     "Edwin VanCleef",
+     1005,
+     596
+    ]
+   ]
+  },
+  {
+   "k": "wailing caverns",
+   "n": "Wailing Caverns",
+   "img": "dgmap/43-wailing-caverns.webp",
+   "w": 1913,
+   "h": 1249,
+   "e": [
+    862,
+    740
+   ],
+   "b": [
+    [
+     "Lady Anacondra",
+     575,
+     533
+    ],
+    [
+     "Lord Cobrahn",
+     296,
+     725
+    ],
+    [
+     "Kresh",
+     487,
+     552
+    ],
+    [
+     "Lord Pythas",
+     1607,
+     349
+    ],
+    [
+     "Skum",
+     1746,
+     990
+    ],
+    [
+     "Lord Serpentis",
+     1175,
+     661
+    ],
+    [
+     "Verdan the Everliving",
+     1060,
+     587
+    ],
+    [
+     "Mutanus the Devourer",
+     645,
+     192
+    ]
+   ]
+  },
+  {
+   "k": "razorfen kraul",
+   "n": "Razorfen Kraul",
+   "img": "dgmap/47-razorfen-kraul.webp",
+   "w": 1887,
+   "h": 1179,
+   "e": [
+    1265,
+    879
+   ],
+   "b": [
+    [
+     "Roogug",
+     1190,
+     477
+    ],
+    [
+     "Aggem Thorncurse",
+     1426,
+     599
+    ],
+    [
+     "Death Speaker Jargba",
+     1531,
+     470
+    ],
+    [
+     "Overlord Ramtusk",
+     1073,
+     357
+    ],
+    [
+     "Agathelos the Raging",
+     401,
+     774
+    ],
+    [
+     "Charlga Razorflank",
+     625,
+     382
+    ]
+   ]
+  },
+  {
+   "k": "blackfathom deeps",
+   "n": "Blackfathom Deeps",
+   "img": "dgmap/48-blackfathom-deeps.webp",
+   "w": 1949,
+   "h": 1718,
+   "e": [
+    683,
+    195
+   ],
+   "b": [
+    [
+     "Ghamoo-ra",
+     472,
+     779
+    ],
+    [
+     "Lady Sarevess",
+     69,
+     494
+    ],
+    [
+     "Lorgus Jett",
+     977,
+     806
+    ],
+    [
+     "Old Serra'kis",
+     1235,
+     1388
+    ],
+    [
+     "Twilight Lord Kelris",
+     1207,
+     1532
+    ],
+    [
+     "Aku'mai",
+     1804,
+     1591
+    ],
+    [
+     "Baron Aquanis",
+     1023,
+     1458
+    ],
+    [
+     "Gelihast",
+     814,
+     720
+    ]
+   ]
+  },
+  {
+   "k": "uldaman",
+   "n": "Uldaman",
+   "img": "dgmap/70-uldaman.webp",
+   "w": 1168,
+   "h": 1207,
+   "e": [
+    889,
+    874
+   ],
+   "b": [
+    [
+     "Revelosh",
+     658,
+     868
+    ],
+    [
+     "Baelog",
+     746,
+     1123
+    ],
+    [
+     "Eric \"The Swift\"",
+     764,
+     1123
+    ],
+    [
+     "Olaf",
+     782,
+     1123
+    ],
+    [
+     "Ironaya",
+     361,
+     888
+    ],
+    [
+     "Obsidian Sentinel",
+     205,
+     744
+    ],
+    [
+     "Ancient Stone Keeper",
+     538,
+     493
+    ],
+    [
+     "Galgann Firehammer",
+     151,
+     437
+    ],
+    [
+     "Grimlok",
+     70,
+     303
+    ],
+    [
+     "Archaedas",
+     436,
+     208
+    ]
+   ]
+  },
+  {
+   "k": "gnomeregan",
+   "n": "Gnomeregan",
+   "img": "dgmap/90-gnomeregan.webp",
+   "w": 1893,
+   "h": 1522,
+   "e": [
+    1567,
+    304
+   ],
+   "b": [
+    [
+     "Grubbis",
+     1837,
+     676
+    ],
+    [
+     "Viscous Fallout",
+     1463,
+     589
+    ],
+    [
+     "Electrocutioner 6000",
+     559,
+     745
+    ],
+    [
+     "Crowd Pummeler 9-60",
+     839,
+     1424
+    ],
+    [
+     "Mekgineer Thermaplugg",
+     220,
+     709
+    ]
+   ]
+  },
+  {
+   "k": "temple of atal'hakkar",
+   "n": "The Temple of Atal'Hakkar",
+   "img": "dgmap/109-temple-of-atal-hakkar.webp",
+   "w": 1011,
+   "h": 1023,
+   "e": [
+    496,
+    190
+   ],
+   "b": [
+    [
+     "Avatar of Hakkar",
+     144,
+     492
+    ],
+    [
+     "Atal'alarion",
+     506,
+     484
+    ],
+    [
+     "Jammal'an the Prophet",
+     868,
+     411
+    ],
+    [
+     "Atal'ai Defenders",
+     438,
+     610
+    ],
+    [
+     "Shade of Eranikus",
+     764,
+     878
+    ],
+    [
+     "Hazzas",
+     433,
+     857
+    ],
+    [
+     "Morphaz",
+     452,
+     851
+    ],
+    [
+     "Ogom the Wretched",
+     868,
+     411
+    ]
+   ]
+  },
+  {
+   "k": "razorfen downs",
+   "n": "Razorfen Downs",
+   "img": "dgmap/129-razorfen-downs.webp",
+   "w": 1293,
+   "h": 997,
+   "e": [
+    165,
+    203
+   ],
+   "b": [
+    [
+     "Tuten'kash",
+     674,
+     285
+    ],
+    [
+     "Mordresh Fire Eye",
+     1045,
+     457
+    ],
+    [
+     "Ragglesnout",
+     579,
+     661
+    ],
+    [
+     "Glutton",
+     374,
+     453
+    ],
+    [
+     "Amnennar the Coldbringer",
+     466,
+     584
+    ]
+   ]
+  },
+  {
+   "k": "scarlet monastery: armory",
+   "n": "Scarlet Monastery: Armory",
+   "img": "dgmap/189-scarlet-monastery-armory.webp",
+   "w": 506,
+   "h": 1045,
+   "e": [
+    178,
+    816
+   ],
+   "b": [
+    [
+     "Herod",
+     404,
+     102
+    ]
+   ]
+  },
+  {
+   "k": "scarlet monastery: cathedral",
+   "n": "Scarlet Monastery: Cathedral",
+   "img": "dgmap/189-scarlet-monastery-cathedral.webp",
+   "w": 625,
+   "h": 1009,
+   "e": [
+    445,
+    780
+   ],
+   "b": [
+    [
+     "High Inquisitor Fairbanks",
+     375,
+     169
+    ],
+    [
+     "High Inquisitor Whitemane",
+     285,
+     82
+    ]
+   ]
+  },
+  {
+   "k": "scarlet monastery: graveyard",
+   "n": "Scarlet Monastery: Graveyard",
+   "img": "dgmap/189-scarlet-monastery-graveyard.webp",
+   "w": 1219,
+   "h": 922,
+   "e": [
+    1025,
+    734
+   ],
+   "b": [
+    [
+     "Interrogator Vishas",
+     876,
+     535
+    ],
+    [
+     "Bloodmage Thalnos",
+     292,
+     468
+    ]
+   ]
+  },
+  {
+   "k": "scarlet monastery: library",
+   "n": "Scarlet Monastery: Library",
+   "img": "dgmap/189-scarlet-monastery-library.webp",
+   "w": 735,
+   "h": 453,
+   "e": [
+    197,
+    120
+   ],
+   "b": [
+    [
+     "Houndmaster Loksey",
+     305,
+     388
+    ],
+    [
+     "Arcanist Doan",
+     641,
+     331
+    ]
+   ]
+  },
+  {
+   "k": "zul'farrak",
+   "n": "Zul'Farrak",
+   "img": "dgmap/209-zul-farrak.webp",
+   "w": 1858,
+   "h": 2000,
+   "e": [
+    1371,
+    1807
+   ],
+   "b": [
+    [
+     "Hydromancer Velratha",
+     617,
+     886
+    ],
+    [
+     "Gahz'rilla",
+     685,
+     912
+    ],
+    [
+     "Antu'sul",
+     1709,
+     620
+    ],
+    [
+     "Theka the Martyr",
+     1338,
+     693
+    ],
+    [
+     "Witch Doctor Zum'rah",
+     1029,
+     430
+    ],
+    [
+     "Nekrum Gutchewer",
+     664,
+     489
+    ],
+    [
+     "Shadowpriest Sezz'ziz",
+     663,
+     486
+    ],
+    [
+     "Chief Ukorz Sandscalp",
+     1024,
+     795
+    ]
+   ]
+  },
+  {
+   "k": "blackrock spire",
+   "n": "Lower Blackrock Spire",
+   "img": "dgmap/229-lower-blackrock-spire.webp",
+   "w": 866,
+   "h": 704,
+   "e": null,
+   "b": [
+    [
+     "Highlord Omokk",
+     168,
+     194
+    ],
+    [
+     "Shadow Hunter Vosh'gajin",
+     531,
+     390
+    ],
+    [
+     "War Master Voone",
+     484,
+     168
+    ],
+    [
+     "Mother Smolderweb",
+     698,
+     419
+    ],
+    [
+     "Urok Doomhowl",
+     351,
+     196
+    ],
+    [
+     "Quartermaster Zigris",
+     518,
+     530
+    ],
+    [
+     "Halycon",
+     243,
+     536
+    ],
+    [
+     "Gizrul the Slavener",
+     243,
+     536
+    ],
+    [
+     "Overlord Wyrmthalak",
+     539,
+     193
+    ]
+   ]
+  },
+  {
+   "k": "blackrock spire",
+   "n": "Upper Blackrock Spire",
+   "img": "dgmap/229-upper-blackrock-spire.webp",
+   "w": 928,
+   "h": 597,
+   "e": null,
+   "b": [
+    [
+     "Pyroguard Emberseer",
+     168,
+     213
+    ],
+    [
+     "Warchief Rend Blackhand",
+     494,
+     168
+    ],
+    [
+     "The Beast",
+     760,
+     327
+    ],
+    [
+     "General Drakkisath",
+     224,
+     429
+    ]
+   ]
+  },
+  {
+   "k": "blackrock depths",
+   "n": "Blackrock Depths",
+   "img": "dgmap/230-blackrock-depths.webp",
+   "w": 1820,
+   "h": 2000,
+   "e": [
+    400,
+    1652
+   ],
+   "b": [
+    [
+     "High Interrogator Gerstahn",
+     683,
+     1881
+    ],
+    [
+     "Lord Roccor",
+     724,
+     1342
+    ],
+    [
+     "Houndmaster Grebmar",
+     727,
+     1415
+    ],
+    [
+     "Pyromancer Loregrain",
+     836,
+     1537
+    ],
+    [
+     "Lord Incendius",
+     872,
+     967
+    ],
+    [
+     "Warder Stilgiss",
+     990,
+     1077
+    ],
+    [
+     "Fineous Darkvire",
+     988,
+     863
+    ],
+    [
+     "Bael'Gar",
+     164,
+     1267
+    ],
+    [
+     "General Angerforge",
+     420,
+     1345
+    ],
+    [
+     "Golem Lord Argelmach",
+     428,
+     1041
+    ],
+    [
+     "Hurley Blackbreath",
+     739,
+     1006
+    ],
+    [
+     "Phalanx",
+     814,
+     1039
+    ],
+    [
+     "Plugger Spazzring",
+     732,
+     975
+    ],
+    [
+     "Ambassador Flamelash",
+     828,
+     785
+    ],
+    [
+     "Doom'rel",
+     896,
+     360
+    ],
+    [
+     "Magmus",
+     1487,
+     204
+    ],
+    [
+     "Princess Moira Bronzebeard",
+     1757,
+     198
+    ],
+    [
+     "Emperor Dagran Thaurissan",
+     1757,
+     205
+    ]
+   ]
+  },
+  {
+   "k": "scholomance",
+   "n": "Scholomance",
+   "img": "dgmap/289-scholomance.webp",
+   "w": 1965,
+   "h": 1612,
+   "e": [
+    1461,
+    1064
+   ],
+   "b": [
+    [
+     "Jandice Barov",
+     1567,
+     909
+    ],
+    [
+     "Rattlegore",
+     1371,
+     1171
+    ],
+    [
+     "Marduk Blackpool",
+     1482,
+     1145
+    ],
+    [
+     "Vectus",
+     1516,
+     1159
+    ],
+    [
+     "Instructor Malicia",
+     1718,
+     1272
+    ],
+    [
+     "Doctor Theolen Krastinov",
+     1905,
+     1081
+    ],
+    [
+     "Lorekeeper Polkelt",
+     1711,
+     896
+    ],
+    [
+     "The Ravenian",
+     1717,
+     1239
+    ],
+    [
+     "Lord Alexei Barov",
+     1896,
+     1088
+    ],
+    [
+     "Lady Illucia Barov",
+     1712,
+     914
+    ]
+   ]
+  },
+  {
+   "k": "stratholme",
+   "n": "Stratholme",
+   "img": "dgmap/329-stratholme.webp",
+   "w": 1898,
+   "h": 2000,
+   "e": [
+    1543,
+    1242
+   ],
+   "b": [
+    [
+     "Hearthsinger Forresten",
+     1282,
+     1232
+    ],
+    [
+     "Cannon Master Willey",
+     164,
+     1276
+    ],
+    [
+     "Archivist Galford",
+     488,
+     1505
+    ],
+    [
+     "Balnazzar",
+     373,
+     1584
+    ],
+    [
+     "The Unforgiven",
+     1120,
+     993
+    ],
+    [
+     "Baroness Anastari",
+     1684,
+     725
+    ],
+    [
+     "Nerub'enkan",
+     1319,
+     726
+    ],
+    [
+     "Maleki the Pallid",
+     1552,
+     373
+    ],
+    [
+     "Magistrate Barthilas",
+     1496,
+     1100
+    ],
+    [
+     "Ramstein the Gorger",
+     966,
+     379
+    ],
+    [
+     "Baron Rivendare",
+     943,
+     373
+    ],
+    [
+     "Skul",
+     1237,
+     1217
+    ],
+    [
+     "Stonespine",
+     1487,
+     752
+    ]
+   ]
+  },
+  {
+   "k": "maraudon",
+   "n": "Maraudon",
+   "img": "dgmap/349-maraudon.webp",
+   "w": 1672,
+   "h": 2000,
+   "e": [
+    1126,
+    255
+   ],
+   "b": [
+    [
+     "Noxxion",
+     738,
+     91
+    ],
+    [
+     "Razorlash",
+     475,
+     310
+    ],
+    [
+     "Tinkerer Gizlock",
+     916,
+     1535
+    ],
+    [
+     "Lord Vyletongue",
+     779,
+     644
+    ],
+    [
+     "Celebras the Cursed",
+     347,
+     677
+    ],
+    [
+     "Landslide",
+     729,
+     1213
+    ],
+    [
+     "Rotgrip",
+     556,
+     1670
+    ],
+    [
+     "Princess Theradras",
+     340,
+     1690
+    ]
+   ]
+  },
+  {
+   "k": "ragefire chasm",
+   "n": "Ragefire Chasm",
+   "img": "dgmap/389-ragefire-chasm.webp",
+   "w": 863,
+   "h": 957,
+   "e": [
+    615,
+    75
+   ],
+   "b": [
+    [
+     "Oggleflint",
+     521,
+     371
+    ],
+    [
+     "Taragaman the Hungerer",
+     299,
+     566
+    ],
+    [
+     "Jergosh the Invoker",
+     180,
+     830
+    ],
+    [
+     "Bazzalan",
+     307,
+     846
+    ]
+   ]
+  },
+  {
+   "k": "dire maul",
+   "n": "Dire Maul: East",
+   "img": "dgmap/429-dire-maul-east.webp",
+   "w": 836,
+   "h": 956,
+   "e": null,
+   "b": [
+    [
+     "Zevrim Thornhoof",
+     668,
+     788
+    ],
+    [
+     "Hydrospawn",
+     649,
+     709
+    ],
+    [
+     "Lethtendris",
+     654,
+     729
+    ],
+    [
+     "Pusillin",
+     168,
+     545
+    ],
+    [
+     "Alzzin the Wildshaper",
+     627,
+     168
+    ]
+   ]
+  },
+  {
+   "k": "dire maul",
+   "n": "Dire Maul: North",
+   "img": "dgmap/429-dire-maul-north.webp",
+   "w": 1410,
+   "h": 1290,
+   "e": null,
+   "b": [
+    [
+     "Guard Mol'dar",
+     1242,
+     1015
+    ],
+    [
+     "Stomper Kreeg",
+     1041,
+     853
+    ],
+    [
+     "Guard Fengus",
+     719,
+     1122
+    ],
+    [
+     "Guard Slip'kik",
+     168,
+     735
+    ],
+    [
+     "Captain Kromcrush",
+     272,
+     581
+    ],
+    [
+     "Cho'Rush the Observer",
+     256,
+     168
+    ],
+    [
+     "King Gordok",
+     273,
+     177
+    ]
+   ]
+  },
+  {
+   "k": "dire maul",
+   "n": "Dire Maul: West",
+   "img": "dgmap/429-dire-maul-west.webp",
+   "w": 1009,
+   "h": 770,
+   "e": null,
+   "b": [
+    [
+     "Tendris Warpwood",
+     841,
+     405
+    ],
+    [
+     "Illyanna Ravenoak",
+     705,
+     602
+    ],
+    [
+     "Magister Kalendris",
+     642,
+     367
+    ],
+    [
+     "Immol'thar",
+     168,
+     509
+    ],
+    [
+     "Prince Tortheldrin",
+     541,
+     168
+    ],
+    [
+     "Tsu'zee",
+     669,
+     176
+    ]
+   ]
+  },
+  {
+   "k": "city of dalaran",
+   "n": "City of Dalaran",
+   "img": "dgmap/2959-city-of-dalaran.webp",
+   "w": 1592,
+   "h": 1656,
+   "e": null,
+   "b": [
+    [
+     "Arcane Anomaly",
+     917,
+     1165
+    ],
+    [
+     "Arcanic Enigma",
+     1018,
+     555
+    ],
+    [
+     "Unstable Sentinel",
+     843,
+     507
+    ],
+    [
+     "Fel Ancient",
+     808,
+     760
+    ],
+    [
+     "Shade of the Archmage",
+     726,
+     325
+    ],
+    [
+     "Mana Devourer",
+     702,
+     1099
+    ]
+   ]
+  },
+  {
+   "k": "excavation site: wetlands",
+   "n": "Excavation Site: Wetlands",
+   "img": "dgmap/2998-excavation-site-wetlands.webp",
+   "w": 2000,
+   "h": 1375,
+   "e": [
+    1757,
+    430
+   ],
+   "b": [
+    [
+     "Saltspine",
+     1102,
+     577
+    ],
+    [
+     "Shadetooth",
+     933,
+     675
+    ],
+    [
+     "Highland Horror",
+     415,
+     570
+    ],
+    [
+     "Relic Guardian",
+     824,
+     903
+    ]
+   ]
+  },
+  {
+   "k": "ruins of lordaeron",
+   "n": "Ruins of Lordaeron",
+   "img": "dgmap/2999-ruins-of-lordaeron.webp",
+   "w": 1112,
+   "h": 1256,
+   "e": [
+    711,
+    216
+   ],
+   "b": [
+    [
+     "The Baron",
+     665,
+     853
+    ],
+    [
+     "Witherfang",
+     826,
+     450
+    ],
+    [
+     "The Abandoned",
+     311,
+     633
+    ],
+    [
+     "Bjork",
+     275,
+     490
+    ],
+    [
+     "Rath'mael",
+     406,
+     758
+    ],
+    [
+     "Viktor the Vile",
+     244,
+     785
+    ],
+    [
+     "Lordaeron Captain",
+     261,
+     258
+    ]
+   ]
+  },
+  {
+   "k": "hall of thanes",
+   "n": "Hall of Thanes",
+   "img": "dgmap/3065-hall-of-thanes.webp",
+   "w": 1130,
+   "h": 1555,
+   "e": [
+    545,
+    1495
+   ],
+   "b": [
+    [
+     "Faldrim Anvilmar",
+     549,
+     1121
+    ],
+    [
+     "Magmatus",
+     761,
+     957
+    ],
+    [
+     "Plunder",
+     553,
+     963
+    ],
+    [
+     "Durgen Dirgehammer",
+     556,
+     630
+    ]
+   ]
+  },
+  {
+   "k": "drowned city",
+   "n": "The Drowned City",
+   "img": "dgmap/2970-drowned-city.webp",
+   "w": 2000,
+   "h": 1055,
+   "e": [
+    1618,
+    387
+   ],
+   "b": [
+    [
+     "Zul'Alai",
+     1305,
+     493
+    ],
+    [
+     "Var'Taka",
+     810,
+     789
+    ],
+    [
+     "Primeval Elemental",
+     1081,
+     671
+    ],
+    [
+     "Captain Dreadrise",
+     918,
+     164
+    ],
+    [
+     "Deathless Guardians",
+     434,
+     482
+    ],
+    [
+     "Min'loth the Serpent",
+     89,
+     489
+    ]
+   ]
+  },
+  {
+   "k": "blackmaw hold",
+   "n": "Blackmaw Hold",
+   "img": "dgmap/2974-blackmaw-hold.webp",
+   "w": 2000,
+   "h": 1000,
+   "e": [
+    378,
+    714
+   ],
+   "b": [
+    [
+     "Impaan the Imprisoner",
+     670,
+     783
+    ],
+    [
+     "Bonesnout the Unbroken",
+     951,
+     665
+    ],
+    [
+     "Withermaw",
+     619,
+     291
+    ],
+    [
+     "Unbound Spirit",
+     1656,
+     886
+    ],
+    [
+     "Elder Shaman Bloodmane",
+     1690,
+     258
+    ],
+    [
+     "Blackmaw Behemoth",
+     1598,
+     571
+    ],
+    [
+     "Varrox Bleakhoof",
+     1536,
+     563
+    ]
+   ]
+  },
+  {
+   "k": "alcaz prison",
+   "n": "Alcaz Prison",
+   "img": "dgmap/2994-alcaz-prison.webp",
+   "w": 780,
+   "h": 860,
+   "e": [
+    479,
+    299
+   ],
+   "b": [
+    [
+     "Tidemistress Ca'zass",
+     254,
+     295
+    ],
+    [
+     "Overseer Wrex",
+     407,
+     480
+    ],
+    [
+     "The Questioner",
+     487,
+     229
+    ],
+    [
+     "Katerina the Cleaner",
+     320,
+     318
+    ],
+    [
+     "Blazeroar",
+     247,
+     491
+    ]
+   ]
+  },
+  {
+   "k": "shaper's terrace",
+   "n": "The Shaper's Terrace",
+   "img": "dgmap/3001-shaper-s-terrace.webp",
+   "w": 2000,
+   "h": 1618,
+   "e": [
+    346,
+    521
+   ],
+   "b": [
+    [
+     "Titanosaur",
+     579,
+     577
+    ],
+    [
+     "Cinder",
+     550,
+     804
+    ],
+    [
+     "Ravasaur Hunters",
+     1238,
+     543
+    ],
+    [
+     "Direhorn Matriarch",
+     1531,
+     759
+    ],
+    [
+     "Thunderhoof",
+     1241,
+     874
+    ],
+    [
+     "Venomridge",
+     932,
+     813
+    ],
+    [
+     "Bolt",
+     959,
+     793
+    ],
+    [
+     "Snowtalon",
+     497,
+     333
+    ],
+    [
+     "Vitrix",
+     1074,
+     469
+    ],
+    [
+     "Nanaya",
+     1380,
+     734
+    ],
+    [
+     "King Op",
+     1679,
+     1049
+    ]
+   ]
+  },
+  {
+   "k": "krol'dok stronghold",
+   "n": "Krol'dok Stronghold",
+   "img": "dgmap/3039-krol-dok-stronghold.webp",
+   "w": 2000,
+   "h": 1656,
+   "e": [
+    583,
+    994
+   ],
+   "b": [
+    [
+     "Slavecrusher Grox",
+     691,
+     830
+    ],
+    [
+     "Twilight Commander Zarmok",
+     915,
+     908
+    ],
+    [
+     "Handler Ashka",
+     1255,
+     736
+    ],
+    [
+     "Nar'gurk",
+     856,
+     754
+    ],
+    [
+     "Overseer Mugg",
+     1345,
+     307
+    ]
+   ]
+  }
+ ]
+}

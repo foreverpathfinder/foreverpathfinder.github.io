@@ -306,5 +306,10 @@
 ["+' al '+(L+2)+'), dai dati del gioco. Si tolgono dalle opzioni del personaggio.","+' to '+(L+2)+'), from game data. Turn them off in the character options."],
 ["row(9,'Zone consigliate'","row(9,'Recommended zones'"],
 ["Sì, nella scheda Percorso","Yes, in the Route tab"],
-["No, nascondile","No, hide them"]
+["No, nascondile","No, hide them"],
+["<h3 id=\"dgmh\">Mappe dei dungeon</h3>","<h3 id=\"dgmh\">Dungeon maps</h3>"],
+["La pianta di ogni dungeon con i boss numerati nell’ordine della scheda Dungeon e l’ingresso (➜). Ricostruite dai file del gioco da Twinmap. Tocca un boss nell’elenco per trovarlo.","The layout of every dungeon, with the bosses numbered in the order of the Dungeons tab and the entrance (➜). Rebuilt from the game files by Twinmap. Tap a boss in the list to find it."],
+["aria-label=\"Mappa del dungeon\"","aria-label=\"Dungeon map\""],
+["bindTooltip('Ingresso')","bindTooltip('Entrance')"],
+["🗺 Mappa del dungeon</a>","🗺 Dungeon map</a>"]
 ]

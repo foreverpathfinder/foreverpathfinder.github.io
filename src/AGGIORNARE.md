@@ -68,6 +68,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 | `src/data/talents/<classe>.json` | alberi del client da foreverchanges.pro: `node src/tools/fc.js <classe>`. Il campo `wfSame` dice se wowforever.be ha lo stesso albero: se sì, il sito incorpora il suo calcolatore |
 | `src/data/factions/alliance.json`, `horde.json` | razze, rotte 1–30 (`segments` e `steps`), `late` (tappe 30–60), `milestones` di fazione, `dungeons` `[nome, min, max, dove, nota]`, `crates` |
 | `src/data/dungeons.json` | scheda Dungeon (schema sotto); `general` e `glossary` = «Come conviene farli» |
+| `src/data/dgmaps.json`, `dgmap/*.webp` | mappe dei dungeon (scheda Mappa): immagine, boss e ingresso in pixel; li crea `dgmaps.js` |
 | `src/data/zones.json` | zone consigliate per razza e livello: `node src/tools/zones.js <cartella QuestieDB>` |
 | `src/data/profs.json` | percorsi 1–300 delle professioni (fonte: wowforever.be «Leveling 1-300») |
 | `src/data/alts.json`, `transfers.json` | scheda Alt (classifica, piano dell'alt, Legacy); cambi di continente |
@@ -84,6 +85,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 **Strumenti** in `src/tools/` (quelli non citati altrove):
 - `mobalytics.js`: lettori delle guide e confronto delle build (vedi §8);
 - `qdb.js`, `dg35.js`: dati di QuestieDB e quest dei dungeon (vedi §8);
+- `dgmaps.js`: mappe dei dungeon da Twinmap installato sul PC (terreno dai blocchi, stanze da `interiors.json`, boss da `DUNGEON_PINS`/`NEW_DUNGEON_PINS`). Rilancialo quando Twinmap si aggiorna; le immagini sono ricavate dai file del gioco e l'utente ha deciso di pubblicarle (17 nov). Nel sito i boss si numerano con l'ordine di `dungeons.json`; i nomi d'incontro diversi da quelli del mostro vanno in `AK` (`dgmBoss` in `engine.js`);
 - `addon-preview.(js|lua)`: anteprime dell'addon;
 - `addon-test.(js|lua)`: prove dell'addon;
 - `quests-check.lua` con `runlua.js`: controllo dei collegamenti delle quest;

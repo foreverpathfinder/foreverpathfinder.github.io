@@ -86,6 +86,7 @@ function dgBtn(name){var n=name.replace(/[★✔🟡]/g,'').trim().toLowerCase()
 document.addEventListener('click',function(e){var b=e.target.closest('.go');if(!b)return;e.preventDefault();
  if(b.dataset.lv){S.L=+b.dataset.lv;renderLevel();return}
  if(b.dataset.sec){showTab('talent');$(b.dataset.sec).scrollIntoView({behavior:SM});return}
+ if(b.dataset.dgm){DM.want=+b.dataset.dgm;S.dgm=D.dgmaps[DM.want].n;save();showTab('mappa');$('dgmh').scrollIntoView({behavior:SM});return}
  if(!MAPI.fly)return;if(S.tab!=='livello')showTab('mappa');$('lwrap').scrollIntoView({behavior:SM,block:'center'});MAPI.fly(+b.dataset.x,+b.dataset.y,+b.dataset.z,b.dataset.t)});
 
 /* ---- attività per livello: usate da percorso e planner ---- */
@@ -263,11 +264,11 @@ function renderClass(){
   bl=function(x){var used={},li=(x.b||[]).map(function(b){var n=b.replace(/\s*\(.*$/,''),t=(x.t||[]).filter(function(t){return !used[t]&&(t.indexOf('<b>'+n)>-1||t.indexOf('<b>'+n.replace(/'/g,'’'))>-1||n.indexOf('Sneed')===0&&t.indexOf('<b>Sneed</b>')>-1)})[0];if(t)used[t]=1;return '<li>'+(t||'<b>'+b+'</b>')+(t&&b!==n?' <span class="note">'+b.slice(n.length).trim()+'</span>':'')+'</li>'}).join(''),
    rest=(x.t||[]).filter(function(t){return !used[t]});return (li?'<h4>Boss, in ordine: cosa fare</h4><ol>'+li+'</ol>':'')+(rest.length?'<h4>In generale</h4><ul>'+rest.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>':'')};
  $('dgen').innerHTML='<b class="t">Come conviene farli</b><ul>'+DG.general.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>'+(DG.glossary?'<p class="note">'+DG.glossary+'</p>':'');
- var dx=function(d){return DG.dungeons[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{}},sk=function(d){var v=(dx(d).v||{})[fk];return v&&v[0]==='skip'?1:0};
+ var dk=function(d){return d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()},dx=function(d){return DG.dungeons[dk(d)]||{}},sk=function(d){var v=(dx(d).v||{})[fk];return v&&v[0]==='skip'?1:0};
  $('dlist').innerHTML=FA.dungeons.filter(function(d){return d[1]<=MAXL+2}).sort(function(a,b){return sk(a)-sk(b)||a[1]-b[1]}).map(function(d){var x=dx(d),v=(x.v||{})[fk],q=x.q||{},
    mq=(q[fk]||[]).concat(q.N||[]),cq=(q.C||[]).filter(function(c){return c[1]===S.c}),V={go:['p-ok','✔ Vai'],opt:['p-wa','🟡 Facoltativo'],skip:['p-bad','✖ Salta']}[v&&v[0]];
   return '<details class="dg'+(v&&v[0]==='skip'?' skip':'')+'" data-a="'+d[1]+'" data-b="'+d[2]+'"><summary><span><b>'+d[0]+'</b><small>Livelli '+d[1]+'–'+d[2]+' · '+d[3]+'</small></span>'+(V?'<span class="pill '+V[0]+'">'+V[1]+(v[1]?' '+v[1]:'')+'</span>':'')+'</summary>'+
-   (v&&v[2]?'<p><b>'+v[2]+'</b></p>':'')+(x.e?'<p>📍 '+x.e+' '+dgBtn(d[0])+'</p>':'<p>'+dgBtn(d[0])+'</p>')+(x.k&&x.k[fk]?'<p>🔑 <b>Chiave:</b> '+x.k[fk]+'</p>':'')+
+   (v&&v[2]?'<p><b>'+v[2]+'</b></p>':'')+(x.e?'<p>📍 '+x.e+' '+dgBtn(d[0])+' '+dgmBtn(dk(d))+'</p>':'<p>'+dgBtn(d[0])+' '+dgmBtn(dk(d))+'</p>')+(x.k&&x.k[fk]?'<p>🔑 <b>Chiave:</b> '+x.k[fk]+'</p>':'')+
    (mq.length||cq.length?'<h4>Prima di entrare, prendi le quest</h4><ul>'+ql(mq,x,d)+ql(cq,x,d)+'</ul>':'')+bl(x)+
    '</details>'}).join('');
  dgNow();
@@ -470,6 +471,30 @@ function drawMap(){
  go(stepAt(S.L),false);
 }
 
+/* ---- mappe dei dungeon (immagini e boss da Twinmap, src/tools/dgmaps.js): una seconda mappa Leaflet in pixel dell'immagine ---- */
+var DM={map:null,img:null,g:null,cur:-1};
+function dgmList(){var L=D.dgmaps||[],lv=function(m){var d=FA.dungeons.filter(function(x){return x[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()===m.k})[0];return d?[d[1],d[2]]:[99,99]};
+ return L.map(function(m,i){return {i:i,m:m,lv:lv(m)}}).sort(function(a,b){return a.lv[0]-b.lv[0]||a.m.n.localeCompare(b.m.n)})}
+// numero di ogni boss: la posizione nella lista «in ordine» della scheda Dungeon, se c'è; gli altri dopo
+function dgmBoss(m){var o=((((D.dungeons||{}).dungeons||{})[m.k]||{}).b||[]).map(function(b){return b.replace(/\s*\(.*$/,'').toLowerCase()}),AK={'deathless guardians':'deathless marrow',"doom'rel":'the seven'},at=function(n){n=n.toLowerCase();n=AK[n]||n;for(var i=0;i<o.length;i++)if(o[i]===n||o[i].indexOf(n)>-1||n.indexOf(o[i])>-1)return i;return 99};
+ return m.b.map(function(b,i){return {n:b[0],x:b[1],y:b[2],o:at(b[0]),t:i}}).sort(function(a,b){return a.o-b.o||a.t-b.t})}
+function dgmShow(i){var L=D.dgmaps||[],m=L[i];if(!m||!LF)return;DM.cur=i;$('dgsel').value=i;
+ if(!DM.map){DM.map=LF.map($('dmap'),{crs:LF.CRS.Simple,minZoom:-3,maxZoom:2,zoomSnap:.25,zoomDelta:.5,attributionControl:false});DM.g=LF.layerGroup().addTo(DM.map)}
+ var map=DM.map,P=function(x,y){return LF.latLng(-y,x)},bounds=LF.latLngBounds(P(0,m.h),P(m.w,0));
+ if(DM.img)map.removeLayer(DM.img);DM.img=LF.imageOverlay(m.img,bounds,{alt:m.n}).addTo(map);DM.g.clearLayers();
+ map.setMaxBounds(bounds.pad(.25));map.invalidateSize();map.fitBounds(bounds);
+ var bs=dgmBoss(m);
+ if(m.e)LF.marker(P(m.e[0],m.e[1]),{icon:LF.divIcon({className:'dpin in',html:'<b>➜</b>',iconSize:[26,26],iconAnchor:[13,13]})}).bindTooltip('Ingresso').addTo(DM.g);
+ bs.forEach(function(b,k){b.mk=LF.marker(P(b.x,b.y),{icon:LF.divIcon({className:'dpin',html:'<b>'+(k+1)+'</b>',iconSize:[26,26],iconAnchor:[13,13]})}).bindTooltip(b.n).addTo(DM.g)});
+ $('dbos').innerHTML=bs.map(function(b,k){return '<li><button type="button" data-k="'+k+'"><b>'+(k+1)+'</b> '+b.n+'</button></li>'}).join('');
+ $('dbos').onclick=function(e){var t=e.target.closest('button');if(!t)return;var b=bs[+t.dataset.k];map.setView(b.mk.getLatLng(),Math.max(map.getZoom(),0),{animate:!RM});b.mk.openTooltip()}}
+function dgmInit(){var sel=$('dgsel');if(!sel||!(D.dgmaps||[]).length)return;var L=dgmList();
+ sel.innerHTML=L.map(function(x){return '<option value="'+x.i+'">'+x.m.n+' · '+x.lv[0]+'–'+x.lv[1]+'</option>'}).join('');
+ sel.onchange=function(){S.dgm=L.filter(function(x){return x.i===+sel.value})[0].m.n;save();dgmShow(+sel.value)};
+ var pick=L.filter(function(x){return x.m.n===S.dgm})[0]||L.filter(function(x){return x.lv[0]<=S.L&&S.L<=x.lv[1]})[0]||L[0];sel.value=pick.i;DM.cur=-1;DM.want=pick.i}
+// dalla scheda Dungeon: «🗺 Mappa del dungeon» apre la scheda Mappa su quel dungeon
+function dgmBtn(k){var L=D.dgmaps||[],i=-1;for(var j=0;j<L.length;j++)if(L[j].k===k){i=j;break}return i<0?'':'<a class="go" href="#t-mappa" data-dgm="'+i+'">🗺 Mappa del dungeon</a>'}
+
 
 /* ---- build: schede con barre rosso → verde (voti 1–5 dalle fonti, col perché) ---- */
 var CRIT=[['speed','Velocità'],['ease','Facilità'],['versatility','Versatilità'],['survival','Sopravvivenza'],['aoe','AoE / pull multipli'],['gear','Indipendenza dall’equip']];
@@ -486,7 +511,8 @@ $('nav').addEventListener('keydown',function(e){var d={ArrowRight:1,ArrowLeft:-1
 function showTab(t){S.tab=t;save();[].forEach.call(document.querySelectorAll('nav button'),function(b){var on=b.dataset.tab===t;b.classList.toggle('on',on);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;if(on){var n=b.parentNode;n.scrollLeft=b.offsetLeft-n.clientWidth/2+b.offsetWidth/2}});
  [].forEach.call(document.querySelectorAll('.tab'),function(d){d.classList.toggle('on',d.id==='t-'+t)});
  var w=$('lwrap');if(t==='livello')$('miniHost').appendChild(w);else if(w.parentNode.id==='miniHost')$('mappa').insertBefore(w,$('lchips'));
- if(MAP)setTimeout(function(){MAP.invalidateSize()},30);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}
+ if(MAP)setTimeout(function(){MAP.invalidateSize()},30);
+ if(t==='mappa'&&DM.want!==undefined&&DM.want!==DM.cur)setTimeout(function(){dgmShow(DM.want)},40);if(t==='talent'){wfFit();wfLoad()}bugLink();var n=$('nav');if(window.scrollY>n.offsetTop)window.scrollTo(0,n.offsetTop)}
 $('nav').addEventListener('click',function(e){var b=e.target.closest('button');if(b)showTab(b.dataset.tab)});
 /* ---- ricerca: nella guida (testi della pagina del personaggio attuale) e sulla mappa (dati di gioco) ---- */
 // l'indice si rifà a ogni apertura: segue personaggio, lingua e filtri; si cercano tutte le parole, senza accenti né maiuscole
@@ -581,5 +607,5 @@ function pickInfo(){var A=D.alts||{},ar=(A.altRaces||[]).filter(function(x){retu
   box('classicon_'+S.c,CL.name+(ac?' <small>'+ac.role+'</small>':''),'<ul>'+pro(B.pros||[])+con(B.cons||[])+'</ul>'+(CL.chips.length?'<p class="note">'+CL.chips.map(function(c){return img(c[0])+' '+c[1]}).join(' · ')+'</p>':''))+
   box('classicon_'+S.c,RA.name+' '+CL.name,'<ul>'+(cr?pro([cr]):'')+(best.indexOf(S.r)>-1?pro(['Tra le razze più consigliate per '+CL.name]):best.length?con(['Per '+CL.name+' sono più consigliate: '+best.map(function(k){return D.races[k].name}).join(', ')]):'')+'</ul>')}
 
-function renderAll(){bind();drawPick();renderClass();$('bSel').innerHTML=bCards();renderPath();drawMap();renderLevel();bugLink();unsure()}
+function renderAll(){bind();drawPick();renderClass();$('bSel').innerHTML=bCards();renderPath();drawMap();renderLevel();bugLink();unsure();dgmInit();if(S.tab==='mappa')setTimeout(function(){dgmShow(DM.want)},40)}
 initMap();renderAll();$('bSure').checked=!!P.sure;document.body.classList.toggle('sure',!!P.sure);goHome(HOME);
