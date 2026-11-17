@@ -699,6 +699,11 @@
      "go",
      "30+",
      "Dopo il 30, quando le quest si chiudono bene."
+    ],
+    "H": [
+     "skip",
+     "",
+     "Poche quest per l’Orda ed è in territorio Alleanza: non vale il viaggio."
     ]
    },
    "q": {
@@ -841,7 +846,19 @@
     "<b>Roogug</b> evoca un elementale di pietra: uccidete prima il Death’s Head Seer vicino.",
     "<b>Aggem Thorncurse</b> evoca spiriti di cinghiale con poca vita: uccideteli subito, il tank tiene il boss.",
     "<b>Overlord Ramtusk</b> ha 2 guardie: tiratele lontano dai caster. Quando gira su se stesso, allontanatevi."
-   ]
+   ],
+   "v": {
+    "A": [
+     "skip",
+     "",
+     "Solo 2 quest per l’Alleanza."
+    ],
+    "H": [
+     "opt",
+     "29+",
+     "Facoltativo dal 29: 7 quest, quasi tutte per l’Orda."
+    ]
+   }
   },
   "scarlet monastery: graveyard": {
    "e": "Tirisfal Glades nord-est (85.1 31.4). Graveyard: il portale più a sinistra.",
@@ -1063,7 +1080,37 @@
       "Krazek, Stranglethorn Vale"
      ]
     ]
-   }
+   },
+   "e": "Sott’acqua al largo di Stranglethorn Vale (21.4 27.9): nuota oltre The Vile Reef fino a Sunken Hollow, la grotta con una grande tavola di pietra accanto.",
+   "v": {
+    "A": [
+     "go",
+     "37–40",
+     "Una volta, con le quest di Stranglethorn Vale: 5 per fazione, circa 48.000 XP. Uccidete tutti i bersagli delle quest di uccisione: uno dimenticato costa circa 10.000 XP."
+    ],
+    "H": [
+     "go",
+     "37–40",
+     "Una volta, con le quest di Stranglethorn Vale: 5 per fazione, circa 48.000 XP. Uccidete tutti i bersagli delle quest di uccisione: uno dimenticato costa circa 10.000 XP."
+    ]
+   },
+   "b": [
+    "Zul'Alai",
+    "Var'Taka",
+    "Captain Dreadrise",
+    "Deathless Marrow",
+    "Primeval Elemental",
+    "Min'loth the Serpent"
+   ],
+   "t": [
+    "<b>Zul'Alai</b>: uscite dall’area di Monstrous Slam (stordisce 3 secondi) e togliete Rotted Strike. Al 30% si cura e attacca più in fretta: tenete i cooldown per finirlo.",
+    "<b>Var'Taka</b> ha due Brinescale Priestess che curano: interrompetele o controllatele. Solo il tank davanti al boss (cleave); se Harpoon vi tira da lui, uscite subito.",
+    "<b>Captain Dreadrise</b> chiude un giocatore in una bolla che lo annega: cambiate bersaglio e rompetela. Interrompete Waterbolt Volley.",
+    "<b>Deathless Marrow</b> evoca naga a ondate: ogni naga ucciso aumenta del 20% i vostri danni sul boss. Prima i Deathless Guardian (stordiscono), poi bruciate il boss con molti stack.",
+    "<b>Primeval Elemental</b> è sott’acqua nella vasca a sud: portate qualcosa per respirare. Uccidete tutti gli Undying Offering per farlo apparire; interrompete Waterbolt.",
+    "<b>Min'loth the Serpent</b> a 0% diventa un serpente: Poison Bolt Volley su tutti (togliete il veleno o curate ad area) e Fear.",
+    "Una barriera chiude la città: si abbassa toccando le Glowing Pearl vicino a Var'Taka e Captain Dreadrise."
+   ]
   },
   "uldaman": {
    "q": {
@@ -1125,7 +1172,38 @@
       "Theldurin the Lost, Badlands"
      ]
     ]
-   }
+   },
+   "e": "Nord di Badlands (44 12), vicino al passaggio per Loch Modan; c’è un’entrata sul retro a Dustwind Gulch (66 43).",
+   "v": {
+    "A": [
+     "go",
+     "40–45",
+     "Ha molte quest per tutte e due le fazioni (circa 14): vale la pena verso il 40–45."
+    ],
+    "H": [
+     "go",
+     "40–45",
+     "Ha molte quest per tutte e due le fazioni (circa 14): vale la pena verso il 40–45."
+    ]
+   },
+   "b": [
+    "Revelosh",
+    "Baelog, Eric \"The Swift\" e Olaf (Orda)",
+    "Ironaya",
+    "Obsidian Sentinel",
+    "Ancient Stone Keeper",
+    "Galgann Firehammer",
+    "Grimlok",
+    "Archaedas"
+   ],
+   "t": [
+    "<b>Revelosh</b> lascia The Shaft of Tsol, che serve per Ironaya: interrompete Chain Lightning e state sparpagliati.",
+    "<b>Baelog, Eric \"The Swift\" e Olaf</b> combattono solo contro l’Orda (per l’Alleanza sono amici): prima Eric, il tank tiene Olaf.",
+    "<b>Ironaya</b>: unite The Shaft of Tsol e il Gni'kiv Medallion per aprirle la porta. È immune ai DoT e ha molta armatura; Arcing Smash colpisce davanti, quindi state dietro.",
+    "<b>Ancient Stone Keeper</b> lancia Sand Storms, che rallentano e silenziano: chi cura e chi lancia incantesimi resta alla massima distanza.",
+    "<b>Galgann Firehammer</b> ha due Shadowforge Geologist: tenete il boss lontano, uccidete prima gli add.",
+    "<b>Archaedas</b> sveglia i guardiani di pietra della stanza: il tank lo tira in quella prima, chi fa danni ferma gli add. Combattimento lungo: tenete pozioni e cooldown."
+   ]
   },
   "razorfen downs": {
    "q": {
@@ -1167,7 +1245,33 @@
       "Kog'thug the Brave"
      ]
     ]
-   }
+   },
+   "e": "Angolo sud-est di The Barrens (43 95): un labirinto di rovi pieno di quilboar elite porta al portale.",
+   "v": {
+    "A": [
+     "skip",
+     "",
+     "Poche quest per l’Alleanza: è lontano e vale solo l’XP dei mostri."
+    ],
+    "H": [
+     "go",
+     "",
+     "Una volta, con le quest: sono quasi tutte per l’Orda."
+    ]
+   },
+   "b": [
+    "Tuten'kash",
+    "Plaguemaw the Rotting (quest)",
+    "Mordresh Fire Eye",
+    "Glutton",
+    "Amnennar the Coldbringer"
+   ],
+   "t": [
+    "<b>Tuten'kash</b> arriva al terzo colpo di gong (i primi due chiamano ragni): il tank lo gira lontano dal gruppo per Web Spray; togliete Curse of Tuten'kash.",
+    "<b>Plaguemaw the Rotting</b> chiude la scorta di Belnistrasz: proteggete l’NPC dalle ondate, il boss è semplice.",
+    "<b>Mordresh Fire Eye</b> è circondato da scheletri non elite: AoE su di loro, poi tutti sul boss; interrompete Fireball.",
+    "<b>Amnennar the Coldbringer</b>: il tank lo gira lontano, il gruppo dietro di lui. Quando escono i Frost Spectre, chi attacca da lontano li elimina e poi torna sul boss."
+   ]
   },
   "krol'dok stronghold": {
    "q": {
@@ -1219,7 +1323,36 @@
       "Krom'rosh, Riverglades"
      ]
     ]
-   }
+   },
+   "e": "Riverglades nord, sulla collina sopra Sunnyglade: si entra da una grotta a ovest del grande portone della fortezza (37.5 37.5).",
+   "v": {
+    "A": [
+     "go",
+     "40–45",
+     "Mentre quest a Riverglades: 9 quest Alleanza, circa 61.500 XP."
+    ],
+    "H": [
+     "go",
+     "40–45",
+     "Mentre quest a Riverglades: 5 quest Orda, circa 37.000 XP."
+    ]
+   },
+   "b": [
+    "Slavecrusher Grox",
+    "Twilight Commander Zarmok",
+    "War Handler Ashka",
+    "Nar'gurk",
+    "Bossman Toof",
+    "Overlord Mugg"
+   ],
+   "t": [
+    "<b>Slavecrusher Grox</b> pattuglia la cava: pulite prima una zona dove combatterlo. Chiama Redridge Prisoner e ogni tanto stordisce il tank.",
+    "<b>Twilight Commander Zarmok</b>: anche lui pattuglia, quindi preparate lo spazio prima; occhio a Rending Whirl.",
+    "<b>War Handler Ashka</b> manda i suoi lupi Snarlfang e Terrorhowl su giocatori a caso: uccidete prima i lupi.",
+    "<b>Nar'gurk</b> ha Twilight Warlock e Shadowhide Curseweaver: controllateli o uccideteli prima, molti DoT magici.",
+    "<b>Bossman Toof</b> è una corsa sui due ponti: manda Krol'dok Brute a coppie mentre avanzate verso di lui.",
+    "<b>Overlord Mugg</b> ha due Krol'dok Centurion: prima loro. Poi state sparpagliati, perché salta su giocatori a caso."
+   ]
   },
   "zul'farrak": {
    "q": {
@@ -1273,7 +1406,39 @@
       "Wizzle Brassbolts, Thousand Needles"
      ]
     ]
-   }
+   },
+   "e": "Angolo nord-ovest di Tanaris (39 20).",
+   "v": {
+    "A": [
+     "go",
+     "",
+     "Una volta, con le quest (circa 8)."
+    ],
+    "H": [
+     "go",
+     "",
+     "Una volta, con le quest (circa 8)."
+    ]
+   },
+   "b": [
+    "Antu'sul",
+    "Theka the Martyr",
+    "Witch Doctor Zum'rah",
+    "Hydromancer Velratha",
+    "Gahz'rilla (evocato)",
+    "Nekrum Gutchewer e Shadowpriest Sezz'ziz",
+    "Sergeant Bly",
+    "Chief Ukorz Sandscalp"
+   ],
+   "t": [
+    "<b>Antu'sul</b> è in una grotta con basilischi: pulite tutto intorno e tiratelo fuori; quando è basso evoca altri basilischi.",
+    "<b>Theka the Martyr</b> al 25% diventa immune ai danni fisici e ombra per 30 secondi: se potete, stordite verso il 30%.",
+    "<b>Witch Doctor Zum'rah</b> diventa ostile quando entrate nella sua stanza e alza zombie dalle tombe: chi cura resta in alto sulle scale.",
+    "<b>Gahz'rilla</b> si evoca col Mallet of Zul'Farrak sul gong (catena da Qiaga the Keeper, The Hinterlands); il suo attacco lancia in aria, curate i danni da caduta.",
+    "<b>Nekrum Gutchewer e Shadowpriest Sezz'ziz</b> chiudono l’evento delle scale, che parte liberando Sergeant Bly dalle gabbie: prima Nekrum, poi Sezz'ziz.",
+    "<b>Sergeant Bly</b>: prima di parlargli fate mettere le cariche a Weegli Blastfuse, che vi apre la porta per Ukorz.",
+    "<b>Chief Ukorz Sandscalp</b> è con Ruuzlu: tank contro il muro (Cleave), il gruppo dietro."
+   ]
   },
   "maraudon": {
    "q": {
@@ -1331,7 +1496,38 @@
       "Zaetar's Spirit"
      ]
     ]
-   }
+   },
+   "e": "Valley of Spears, Desolace: la Stone Door a ovest (38 58) porta nelle grotte esterne; tre portali (viola, arancione e, con lo Scepter of Celebras, quello interno).",
+   "v": {
+    "A": [
+     "go",
+     "",
+     "Una volta, con le quest (circa 11)."
+    ],
+    "H": [
+     "go",
+     "",
+     "Una volta, con le quest (circa 11)."
+    ]
+   },
+   "b": [
+    "Noxxion",
+    "Razorlash",
+    "Lord Vyletongue",
+    "Celebras the Cursed",
+    "Landslide",
+    "Tinkerer Gizlock",
+    "Rotgrip",
+    "Princess Theradras"
+   ],
+   "t": [
+    "<b>Noxxion</b> (lato arancione) si divide in più copie: tiratelo fuori dall’acqua, così l’AoE li prende tutti.",
+    "<b>Lord Vyletongue</b> (lato viola) ha due add elite e Smoke Bomb: state tutti addosso al tank, anche quando fa Blink.",
+    "<b>Celebras the Cursed</b> chiude la parte esterna: dopo, la sua quest dà lo Scepter of Celebras, che porta dritti a Earth Song Falls nelle volte dopo.",
+    "<b>Landslide</b> respinge e chiama Theradrim Shardling: tank col muro dietro, chi cura alla massima distanza.",
+    "<b>Rotgrip</b> morde forte con un sanguinamento (Fatal Bite): pulite le hydra intorno e usate i cooldown difensivi.",
+    "<b>Princess Theradras</b>: tank in fondo alla piattaforma, gli altri sparpagliati; Repulsive Gaze fa scappare (Fear Ward o Tremor Totem aiutano)."
+   ]
   },
   "alcaz prison": {
    "q": {
@@ -1373,7 +1569,38 @@
       "Rix Xizzix, Stranglethorn Vale"
      ]
     ]
-   }
+   },
+   "e": "Alcaz Island, al largo di Dustwallow Marsh: il portale è nel sotterraneo del grande edificio (75 15), sul sentiero a sinistra dal molo.",
+   "k": {
+    "A": "Overseer Wrex, dentro, lascia la chiave per l’ala destra.",
+    "H": "Overseer Wrex, dentro, lascia la chiave per l’ala destra."
+   },
+   "v": {
+    "A": [
+     "go",
+     "50–53",
+     "Una volta, con le zone di quest di Dustwallow Marsh: 5 quest, circa 47.000 XP."
+    ],
+    "H": [
+     "go",
+     "50–53",
+     "Una volta, con le zone di quest di Dustwallow Marsh: 5 quest, circa 36.000 XP."
+    ]
+   },
+   "b": [
+    "Tidemistress Ca'zass",
+    "Overseer Wrex",
+    "Katerina the Cleaner",
+    "Zarla Ober / Blazeroar",
+    "The Questioner"
+   ],
+   "t": [
+    "<b>Tidemistress Ca'zass</b> e le due Strashaz Enchantress lanciano Frostbolt Volley e Polymorph: interrompete e uccidete prima le add.",
+    "<b>Overseer Wrex</b> chiama tutti i mostri vicini: aspettate che si allontani, pulite le stanze intorno e tiratelo via.",
+    "<b>Katerina the Cleaner</b> ha due Alcaz Chaplain: prima loro. Lei si teletrasporta alle spalle e pugnala, ma fa pochi danni.",
+    "<b>Zarla Ober / Blazeroar</b>: Zarla combatte da mage (Fireball, Flamestrike); quando è bassa diventa il drago Blazeroar: il tank lo gira lontano dal gruppo.",
+    "<b>The Questioner</b> è dietro la porta chiusa a destra dell’ingresso: fatelo uscendo, serve per la quest presa vicino a Zarla. Interrompete Drain Life."
+   ]
   },
   "temple of atal'hakkar": {
    "q": {
@@ -1411,7 +1638,36 @@
       "Yeh'kinya, Tanaris, dopo The Ancient Egg"
      ]
     ]
-   }
+   },
+   "e": "In mezzo al lago di Swamp of Sorrows: nuotate fino al tempio e scendete fino al portale. Per l’Orda è vicino a Stonard; l’Alleanza arriva da Deadwind Pass o Blasted Lands.",
+   "v": {
+    "A": [
+     "opt",
+     "",
+     "Una volta, se hai le quest (circa 9)."
+    ],
+    "H": [
+     "opt",
+     "",
+     "Una volta, se hai le quest (circa 9)."
+    ]
+   },
+   "b": [
+    "Atal'alarion",
+    "Spawn of Hakkar",
+    "Jammal'an the Prophet",
+    "Weaver e Dreamscythe",
+    "Hazzas e Morphaz",
+    "Avatar of Hakkar (evocato)",
+    "Shade of Eranikus"
+   ],
+   "t": [
+    "<b>Atal'alarion</b> si evoca toccando le 6 statue del Pit of Refuse nell’ordine giusto (sud, nord, sud-ovest, sud-est, nord-ovest, nord-est); Sweeping Slam colpisce davanti.",
+    "<b>Jammal'an the Prophet</b> si apre dopo i 6 troll minori; ha Ogom con sé: uno che sa reggere i colpi tiene Ogom, gli altri non si ammucchiano.",
+    "<b>Weaver e Dreamscythe</b> pattugliano insieme, come poi Hazzas e Morphaz: tirateli uno alla volta nel corridoio, col tank contro il muro.",
+    "<b>Avatar of Hakkar</b> serve la catena dell’Ancient Egg (parte a Tanaris); controllate chi prende Cause Insanity.",
+    "<b>Shade of Eranikus</b>: pulite prima tutti i draghetti del dungeon. Combattimento lungo; Deep Slumber colpisce chi ha più attenzione (Grounding Totem lo ferma)."
+   ]
   },
   "blackrock depths": {
    "q": {
@@ -1501,7 +1757,48 @@
       "Cyrus Therepentous, Burning Steppes"
      ]
     ]
-   }
+   },
+   "e": "Blackrock Mountain, tra Searing Gorge e Burning Steppes: scendete la grande catena fino alla struttura centrale, poi giù per Forgewright's Tomb.",
+   "k": {
+    "A": "Prison Cell Key da High Interrogator Gerstahn (apre le celle del Detention Block); la Shadowforge Key, da una quest al Monument of Franclorn Forgewright, apre le porte più avanti.",
+    "H": "Prison Cell Key da High Interrogator Gerstahn (apre le celle del Detention Block); la Shadowforge Key, da una quest al Monument of Franclorn Forgewright, apre le porte più avanti."
+   },
+   "v": {
+    "A": [
+     "go",
+     "52–60",
+     "Il dungeon con più quest (24 fra le due fazioni): vale anche più di una volta."
+    ],
+    "H": [
+     "go",
+     "52–60",
+     "Il dungeon con più quest (24 fra le due fazioni): vale anche più di una volta."
+    ]
+   },
+   "b": [
+    "High Interrogator Gerstahn",
+    "Lord Roccor",
+    "Houndmaster Grebmar",
+    "Ring of Law",
+    "Pyromancer Loregrain",
+    "Lord Incendius",
+    "Bael'Gar",
+    "General Angerforge",
+    "Golem Lord Argelmach",
+    "Hurley Blackbreath",
+    "Plugger Spazzring",
+    "Ambassador Flamelash",
+    "The Seven",
+    "Magmus",
+    "Emperor Dagran Thaurissan"
+   ],
+   "t": [
+    "Grande e intricato: decidete prima quali quest fare e seguite quelle, invece di pulirlo tutto.",
+    "<b>High Interrogator Gerstahn</b> è nella stanza più a sud del Detention Block e lascia la Prison Cell Key.",
+    "<b>Ring of Law</b>: l’arena sceglie a caso un boss fra sei; restate nel cerchio finché non finisce.",
+    "<b>General Angerforge</b> chiama rinforzi quando è basso: tenete un cooldown per finirlo in fretta.",
+    "<b>Emperor Dagran Thaurissan</b> è con Princess Moira Bronzebeard, che lo cura: interrompetela o controllatela, non uccidetela se avete la sua quest."
+   ]
   },
   "blackrock spire": {
    "q": {
@@ -1607,7 +1904,46 @@
       "Awbee, dentro il dungeon"
      ]
     ]
-   }
+   },
+   "e": "Blackrock Mountain: dalla porta accanto alla meeting stone di Blackrock Spire salite il sentiero fino al portale. Lower e Upper hanno lo stesso ingresso.",
+   "k": {
+    "A": "Upper Blackrock Spire si apre con la Seal of Ascension: la quest parte dentro Lower Blackrock Spire.",
+    "H": "Upper Blackrock Spire si apre con la Seal of Ascension: la quest parte dentro Lower Blackrock Spire."
+   },
+   "v": {
+    "A": [
+     "opt",
+     "58–60",
+     "Quasi tutto contenuto da 60; Upper Blackrock Spire ha 12 quest."
+    ],
+    "H": [
+     "opt",
+     "58–60",
+     "Quasi tutto contenuto da 60; Upper Blackrock Spire ha 12 quest."
+    ]
+   },
+   "b": [
+    "Highlord Omokk",
+    "Shadow Hunter Vosh'gajin",
+    "War Master Voone",
+    "Mother Smolderweb",
+    "Urok Doomhowl",
+    "Quartermaster Zigris",
+    "Halycon",
+    "Gizrul the Slavener",
+    "Overlord Wyrmthalak",
+    "Pyroguard Emberseer (Upper)",
+    "Solakar Flamewreath (Upper)",
+    "Goraluk Anvilcrack (Upper)",
+    "Warchief Rend Blackhand (Upper)",
+    "The Beast (Upper)",
+    "General Drakkisath (Upper)"
+   ],
+   "t": [
+    "Lower Blackrock Spire (55–60) è da 5; Upper Blackrock Spire (59–60) è un dungeon da 10 giocatori.",
+    "<b>Overlord Wyrmthalak</b> chiude Lower: quando è basso chiama due Spirestone Warlord, tenete pronti controllo e cooldown.",
+    "<b>General Drakkisath</b> ha due guardie: chi indossa la Seal of Ascension può evocare Vaelastrasz per curarsi."
+   ]
   },
   "blackmaw hold": {
    "q": {
@@ -1641,7 +1977,38 @@
       "Ekkal"
      ]
     ]
-   }
+   },
+   "e": "Azshara: un tunnel dei furbolg si apre a 38.7 33.4; il portale è così in fondo che sta già sulla mappa di Winterspring (66.6 84.4).",
+   "v": {
+    "A": [
+     "go",
+     "57–60",
+     "Una volta: 6 quest, circa 62.000 XP. È grande, con più strade, e prepara anche ai raid."
+    ],
+    "H": [
+     "go",
+     "57–60",
+     "Una volta: 6 quest, circa 65.000 XP. È grande, con più strade, e prepara anche ai raid."
+    ]
+   },
+   "b": [
+    "Withermaw",
+    "Bonesnout the Unbroken",
+    "Impaan the Imprisoner",
+    "Unbound Spirit",
+    "Elder Shaman Bloodmane",
+    "Blackmaw Behemoth e Clawbert",
+    "Varrox Bleakhoof"
+   ],
+   "t": [
+    "<b>Withermaw</b> evoca Flesh Maggot di continuo (il tank li prende), fa Fear e malattie.",
+    "<b>Bonesnout the Unbroken</b> è immune finché vivono i 4 Legashi Ritualist sparsi nel boschetto: uccideteli prima.",
+    "<b>Impaan the Imprisoner</b> grida «Imps!!» ed evoca imp: fermateli subito.",
+    "<b>Unbound Spirit</b> è invulnerabile con tre Profane Totem: parlate con Elder Bramblesnap, che li purifica, per iniziare.",
+    "<b>Elder Shaman Bloodmane</b>: prima i Blackmaw Devotee intorno, poi lui; evoca due Feral Spirit.",
+    "<b>Blackmaw Behemoth e Clawbert</b>: il Behemoth mangia Clawbert quando è basso e torna a vita piena: allora interrompete Thunder Roar, che stordisce tutti.",
+    "<b>Varrox Bleakhoof</b> custodisce l’ingresso del raid The Barrow Deeps; Crimson Wrest tira un giocatore verso di lui e lo ferisce molto."
+   ]
   },
   "dire maul": {
    "q": {
@@ -1691,7 +2058,47 @@
       "Shen'dralar Ancient, dentro il dungeon, dopo The Madness Within"
      ]
     ]
-   }
+   },
+   "e": "Feralas, a nord-est di Camp Mojache: East si apre dal cortile centrale o da Eldreth Row; West e North dal cortile, con la Crescent Key.",
+   "k": {
+    "A": "Crescent Key: la lascia Pusillin in Dire Maul East; apre West e North.",
+    "H": "Crescent Key: la lascia Pusillin in Dire Maul East; apre West e North."
+   },
+   "v": {
+    "A": [
+     "opt",
+     "60",
+     "Dungeon da 60 più che tappa del leveling."
+    ],
+    "H": [
+     "opt",
+     "60",
+     "Dungeon da 60 più che tappa del leveling."
+    ]
+   },
+   "b": [
+    "Pusillin (East)",
+    "Lethtendris (East)",
+    "Hydrospawn (East)",
+    "Zevrin Thornhoof (East)",
+    "Alzzin the Wildshaper (East)",
+    "Tendris Warpwood (West)",
+    "Illyanna Ravenoak (West)",
+    "Magister Kalendris (West)",
+    "Immol'thar (West)",
+    "Prince Tortheldrin (West)",
+    "Guard Mol'dar (North)",
+    "Stomper Kreeg (North)",
+    "Guard Fengus (North)",
+    "Guard Slip'kik (North)",
+    "Captain Kromcrush (North)",
+    "King Gordok (North)"
+   ],
+   "t": [
+    "Tre ali: East (54–60), West e North (56–60).",
+    "<b>Pusillin</b> scappa per l’ala: inseguitelo fino in fondo, lì combatte e lascia la Crescent Key.",
+    "<b>King Gordok</b>: se arrivate da lui senza uccidere le guardie di North, il premio («tribute») è più ricco."
+   ]
   },
   "scholomance": {
    "q": {
@@ -1725,7 +2132,43 @@
       "Magistrate Marduke, Western Plaguelands, dopo Soulbound Keepsake"
      ]
     ]
-   }
+   },
+   "e": "Caer Darrow, isola nel sud-est di Western Plaguelands: l’Alleanza arriva da Chillwind Camp, l’Orda da The Bulwark.",
+   "k": {
+    "A": "Skeleton Key: una lunga catena di quest a Western Plaguelands apre la porta del portale.",
+    "H": "Skeleton Key: una lunga catena di quest a Western Plaguelands apre la porta del portale."
+   },
+   "v": {
+    "A": [
+     "opt",
+     "60",
+     "Dungeon da 60 più che tappa del leveling."
+    ],
+    "H": [
+     "opt",
+     "60",
+     "Dungeon da 60 più che tappa del leveling."
+    ]
+   },
+   "b": [
+    "Kirtonos the Herald (evocato)",
+    "Jandice Barov",
+    "Rattlegore",
+    "Marduk Blackpool",
+    "Vectus",
+    "Ras Frostwhisper",
+    "Instructor Malicia",
+    "Doctor Theolen Krastinov",
+    "Lorekeeper Polkelt",
+    "The Ravenian",
+    "Lord Alexei Barov",
+    "Lady Illucia Barov",
+    "Darkmaster Gandling"
+   ],
+   "t": [
+    "<b>Jandice Barov</b> si divide in tante immagini: AoE su di loro, poi tutti su quella vera.",
+    "<b>Darkmaster Gandling</b> appare dopo i sei boss delle stanze laterali; teletrasporta giocatori nelle stanze, che devono tornare combattendo."
+   ]
   },
   "stratholme": {
    "q": {
@@ -1777,15 +2220,92 @@
       "Ysida Harmon, dopo Dead Man's Plea"
      ]
     ]
-   }
+   },
+   "e": "Angolo nord-ovest di Eastern Plaguelands: la Main Gate porta all’ala Living; la Service Gate, a est, all’ala Undead.",
+   "k": {
+    "A": "Key to the City: la lascia Magistrate Barthilas; apre la Service Gate e il Gauntlet Gate dell’ala Undead.",
+    "H": "Key to the City: la lascia Magistrate Barthilas; apre la Service Gate e il Gauntlet Gate dell’ala Undead."
+   },
+   "v": {
+    "A": [
+     "opt",
+     "60",
+     "Dungeon da 60 più che tappa del leveling."
+    ],
+    "H": [
+     "opt",
+     "60",
+     "Dungeon da 60 più che tappa del leveling."
+    ]
+   },
+   "b": [
+    "Skul (Living)",
+    "The Unforgiven (Living)",
+    "Timmy the Cruel (Living)",
+    "Cannon Master Willey (Living)",
+    "Archivist Galford (Living)",
+    "Balnazzar (Living)",
+    "Magistrate Barthilas (Undead)",
+    "Nerub'enkan (Undead)",
+    "Baroness Anastari (Undead)",
+    "Maleki the Pallid (Undead)",
+    "Ramstein the Gorger (Undead)",
+    "Baron Rivendare (Undead)"
+   ],
+   "t": [
+    "Due ali da 58–60: Living (Main Gate) e Undead (Service Gate).",
+    "<b>Balnazzar</b> si rivela dopo Grand Crusader Dathrohan: Mind Control e Psychic Scream, tenete pronti interrupt e controllo.",
+    "<b>Baron Rivendare</b> chiude l’ala Undead: evoca scheletri e cambia spesso bersaglio, il gruppo resta unito per le cure."
+   ]
+  },
+  "shaper's terrace": {
+   "e": "Un'Goro Crater, sulla collina sopra Marshal's Refuge (48.1 6.1).",
+   "k": {
+    "A": "Servono 15 Power Crystal di ogni colore (rossi, blu, verdi, gialli) per i quattro Archival Panel: raccoglieteli mentre quest a Un'Goro.",
+    "H": "Servono 15 Power Crystal di ogni colore (rossi, blu, verdi, gialli) per i quattro Archival Panel: raccoglieteli mentre quest a Un'Goro."
+   },
+   "v": {
+    "A": [
+     "go",
+     "58–60",
+     "Con i cristalli raccolti a Un'Goro: 2 quest, circa 35.000 XP."
+    ],
+    "H": [
+     "go",
+     "58–60",
+     "Con i cristalli raccolti a Un'Goro: 3 quest, circa 42.000 XP."
+    ]
+   },
+   "b": [
+    "Cinder",
+    "Titanosaur",
+    "Snowtalon",
+    "Tor'Rel e Izha'Rel",
+    "Vitrix",
+    "Direhorn Matriarch",
+    "Thunderhoof",
+    "Venomridge",
+    "Bolt",
+    "Nanaya"
+   ],
+   "t": [
+    "<b>Cinder</b> (15 cristalli rossi) è un elementale di fuoco: pulite prima gli elementali intorno; la resistenza al fuoco aiuta.",
+    "<b>Titanosaur</b> pattuglia la strada e fa Fear: liberate l’area dagli add prima; Tremor Totem lo rende facile.",
+    "<b>Snowtalon</b> (15 cristalli blu) lancia Frost Nova e Cone of Cold: il tank lo gira lontano dal gruppo.",
+    "<b>Tor'Rel e Izha'Rel</b>: prima Tor'Rel (fuoco), poi Izha'Rel (ghiaccio, con Frost Armor che rallenta chi la colpisce).",
+    "<b>Vitrix</b> (15 cristalli verdi) nei primi giorni uccideva il gruppo in un colpo: mettete i cristalli e saltatelo, basta per andare avanti.",
+    "<b>Venomridge</b> avvelena tutto il gruppo: Poison Cleansing Totem o togliete il veleno.",
+    "<b>Bolt</b> (15 cristalli gialli) lancia Chain Lightning: chi attacca da lontano e chi cura stanno sparpagliati.",
+    "<b>Nanaya</b> appare quando i quattro Archival Panel sono pieni e attivate il Titan Panel al centro; cambia tipo di danno caricandosi dai cristalli e stordisce chi le sta vicino."
+   ]
   }
  },
  "sources": [
   [
    "Conquest Capped – WoW Forever Leveling (dungeon)",
    "https://conquestcapped.com/guides/wow-forever/wow-forever-leveling/",
-   "letto il 2 nov",
-   "giudizi vai/salta, livelli ideali, XP"
+   "letto il 2 e il 17 nov",
+   "giudizi vai/salta, livelli ideali, XP (dal 35 aggiornati dopo il lancio)"
   ],
   [
    "Warcraft Tavern – Forever Dungeons",
@@ -1804,6 +2324,12 @@
    "https://foreverchanges.pro/dungeons",
    "letto il 15 nov",
    "livelli e boss delle 4 ali di Scarlet Monastery"
+  ],
+  [
+   "Twinmap (addon e app per il secondo schermo)",
+   "https://twinmap.app",
+   "app 0.9.0, 17 nov",
+   "boss di ogni dungeon e loro ordine"
   ]
  ],
  "glossary": "<b>Parole che trovi nei consigli:</b> <b>tank</b> = chi tiene i mostri addosso; <b>healer</b> = chi cura; <b>ranged</b> = chi attacca da lontano (caster, Hunter); <b>add</b> = mostri che accompagnano il boss; <b>interrompere</b> = bloccare un incantesimo mentre lo sta lanciando (Kick, Pummel, Counterspell, Earth Shock); <b>rimuovere</b> = togliere un veleno, una maledizione o una magia con l’abilità adatta (Cure Poison, Remove Curse, Dispel Magic, Purge); <b>CC</b> = mettere fuori gioco un mostro per un po’ (Polymorph, Sap, Fear, Trap)."

@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 17 nov 2026 · **sito v18** · **addon 1.10.6** (beta su CurseForge).
+Aggiornato il 17 nov 2026 · **sito v19** · **addon 1.10.7** (in locale, non ancora pubblicata).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -195,6 +195,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
   - QuestieDB per Forever (repo `Questie/QuestieDB`): `data/Forever/foreverQuestDB.lua` e `foreverNpcDB.lua`, `src/corrections/Forever/generated|traces`, `foreverQuestFixes.lua`, `support/Forever/Zones/areaIdToUiMapId.lua`;
   - scaricali con `gh api repos/Questie/QuestieDB/contents/<percorso> -H "Accept: application/vnd.github.raw"` in una cartella, insieme a `whdq.json` (quest per dungeon dalle pagine zona di Wowhead, via `fetch` dal browser integrato);
   - copia lì `qdb.js` e `dg35.js` ed eseguili da lì.
+- **Boss dei dungeon**: Twinmap (twinmap.app, di un amico dell'utente; app installata in `%LOCALAPPDATA%/Programs/twinmap`). In `resources/app.asar` il renderer ha `DUNGEON_PINS`: per ogni dungeon nome, mappa, ingresso e boss con coordinate. L'asar si legge con un piccolo script node (intestazione JSON dopo 16 byte), senza installare niente.
 - **Altre**: Icy Veins (guide del 4–10 nov, più vecchie di Mobalytics), Wowhead Forever (mappa, zone), wowforever.be (calcolatore, professioni), Warcraft Tavern e Conquest Capped (dungeon, giudizi).
 
 ## 9. Regole dell'utente
@@ -234,7 +235,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 ## 11. Aperto e da fare
 
-1. **44–60**: passare quest per quest come nel 30–44 (script di esempio: quest per hub da `qall.json` di `qdb.js` + XP di `support/Forever/QuestXP/xpDB-traces.lua` + luogo da `quests.txt`); dare giudizi, boss e consigli ai dungeon 35–60 (oggi hanno solo le quest). Il 30–44 va ricontrollato quando ci saranno guide provate.
+1. **44–60**: passare quest per quest come nel 30–44 (script di esempio: quest per hub da `qall.json` di `qdb.js` + XP di `support/Forever/QuestXP/xpDB-traces.lua` + luogo da `quests.txt`). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
 2. **Build B e C**: alcune (Mage, Paladin, Priest, Shaman C, Warlock C) finiscono prima del 60.
 3. **Da ricontrollare nel gioco uscito**: classifica degli alt (le tier list erano sulla beta 1–30), costi del Legacy, giudizio Alleanza di Scarlet Monastery (oggi «skip»: ingresso in zona Orda).
 4. **Gold farming**: solo quando ci saranno testimonianze dal gioco.
