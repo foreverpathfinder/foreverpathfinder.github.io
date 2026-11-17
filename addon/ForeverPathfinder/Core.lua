@@ -1168,17 +1168,14 @@ local function planViewer()
     local bt = pill(v, k[1]); bt.fit(k[1] == "1:1" and 34 or 26, 26); bt.fs:ClearAllPoints(); bt.fs:SetPoint("CENTER", 0, 0); bt.set(true)
     bt:SetPoint("TOPRIGHT", v, "TOPRIGHT", x, -8); bt:SetFrameLevel(v:GetFrameLevel() + 20); bt:SetScript("OnClick", k[2]); x = x - bt:GetWidth() - 4
   end
-  -- comandi sotto la pianta, in tasti pieni perché si notino; il merito a Twinmap sta nel suggerimento al passaggio del mouse.
-  -- Sono figli della pagina (fuori dalla finestra a ritaglio verrebbero tagliati), quindi clear() li nasconde a parte
-  local keys = CreateFrame("Frame", nil, body); keys:SetSize(1, 26); PV.keys = keys
-  local kx = 0
-  for _, k in ipairs({ { T.dgKeyDrag, T.dgDrag }, { T.dgKeyZoom, T.dgZoom } }) do
-    local bt = pill(keys, k[1]); bt.prim = true; bt.set(); bt:SetPoint("TOPLEFT", kx, 0)
-    bt:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(T.dgCredit); GameTooltip:Show() end)
-    bt:SetScript("OnLeave", function() GameTooltip:Hide() end)
-    local fs = keys:CreateFontString(nil, "OVERLAY"); fs:SetFontObject(F.nav); fs:SetTextColor(unpack(COL.ice)); fs:SetText(k[2])
-    fs:SetPoint("TOPLEFT", kx + bt:GetWidth() + 8, -6); kx = kx + bt:GetWidth() + 8 + fs:GetStringWidth() + 22
-  end
+  -- comandi sotto la pianta, una riga nel colore d'accento; il merito a Twinmap sta nel suggerimento al passaggio del mouse.
+  -- È figlia della pagina (fuori dalla finestra a ritaglio verrebbe tagliata), quindi clear() la nasconde a parte
+  local keys = CreateFrame("Frame", nil, body); PV.keys = keys
+  local fs = keys:CreateFontString(nil, "OVERLAY"); fs:SetFontObject(F.nav); fs:SetTextColor(unpack(COL.ac)); fs:SetPoint("TOPLEFT", 0, 0)
+  fs:SetText(T.dgKeyDrag .. ": " .. T.dgDrag .. "   ·   " .. T.dgKeyZoom .. ": " .. T.dgZoom)
+  keys:SetSize(math.max(1, fs:GetStringWidth()), 16); keys:EnableMouse(true)
+  keys:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(T.dgCredit); GameTooltip:Show() end)
+  keys:SetScript("OnLeave", function() GameTooltip:Hide() end)
   return PV
 end
 local function pvTex()
@@ -1242,7 +1239,7 @@ local function dgPlan(d, wings)
   for _, o in ipairs(pv.pins) do o:Hide() end
   pv.v:ClearAllPoints(); pv.v:SetPoint("TOPLEFT", body, "TOPLEFT", PAD, y - 8); pv.v:SetSize(vw, VH); pv.hold:SetSize(vw, VH)
   pv.v:SetFrameLevel(body:GetFrameLevel() + 2); pv.v:Show()
-  pv.keys:ClearAllPoints(); pv.keys:SetPoint("TOPLEFT", body, "TOPLEFT", PAD, y - 8 - VH - 8); pv.keys:Show()
+  pv.keys:ClearAllPoints(); pv.keys:SetPoint("TOPLEFT", body, "TOPLEFT", PAD, y - 8 - VH - 10); pv.keys:Show()
   -- terreno: blocchi della minimappa (533,33 yard per lato), tagliati ai bordi della pianta, dentro la maschera della sagoma
   local BYD = 1600 / 3
   if m.mk then pv.mask:SetTexture(MASKDIR .. m.mk .. ".tga", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE"); pv.mask:SetSize(m.w * s, m.h * s) end
@@ -1272,7 +1269,7 @@ local function dgPlan(d, wings)
   if m.e then pvPin("", m.e[1], m.e[2], T.dgEntr) end
   for k, b in ipairs(bs) do pvPin(k, b[2], b[3], k .. ". " .. b[1], b[6]) end
   pv.fit()
-  y = y - 8 - VH - 8 - 26 - 8
+  y = y - 8 - VH - 10 - 16 - 8
 end
 
 function drawDungeons(g)
