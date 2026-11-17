@@ -652,40 +652,35 @@
   },
   {
    "id": "b",
-   "name": "Partenza Arcane (mana)",
-   "spec": "Frost",
-   "icon": "spell_nature_starfall",
-   "when": "Se resti spesso senza mana e usi molto la Wand: Arcane fino al 30, poi respec Frost al 31. Bevi meno, ma Ice Lance arriva al 27 invece che al 20.",
+   "name": "Arcane (Missile Barrage)",
+   "spec": "Arcane",
+   "icon": "spell_arcane_blast",
+   "when": "Se vuoi giocare Arcane fino al 60: Arcane Blast finché scatta Missile Barrage, poi Arcane Missiles gratis, e Arcane Wrath per il burst. Dal 43 qualche punto in Fire.",
    "pros": [
-    "Wand Specialization: +25% di danno con la Wand per finire i mob senza spendere mana",
-    "Missile Barrage ★: Frostbolt può rendere gratis Arcane Missiles",
-    "Meno pause per bere nei primi livelli"
+    "Missile Barrage ★ e Arcane Blast ★: Arcane Missiles gratis quando scatta il proc (Icy Veins)",
+    "Arcane Wrath ★ al 27: tanto danno in un colpo per uccidere in fretta (Icy Veins)",
+    "Arcane Meditation e Mage Armor: in combattimento il mana si rigenera col 100% dello Spirit (Icy Veins)"
    ],
    "cons": [
-    "Ice Lance solo al 27: più debole nell'1–30",
-    "Meno Freeze e crit sui target Frozen fino al 30",
-    "Respec al 31: costa oro dal trainer. Icy Veins (10 nov) ora dice che Frost rende di più senza la partenza Arcane"
+    "Poco controllo e poca sopravvivenza: niente Freeze come in Frost (Icy Veins)",
+    "Dipende molto dall'equipaggiamento (Icy Veins)",
+    "Se i proc non arrivano, ci sono più pause per bere (Icy Veins)"
    ],
    "ratings": {
-    "speed": [
-     3,
-     "Più parsimoniosa ma più lenta nell'1–30: Ice Lance arriva 7 livelli dopo.",
-     "Icy Veins (Teloril, 30 ott)"
-    ],
-    "survival": [
-     4,
-     "Meno pause per bere grazie a Wand Specialization e Missile Barrage.",
-     "Icy Veins (Teloril, 30 ott)"
-    ],
     "ease": [
      4,
-     "Frostbolt e Wand, con Arcane Missiles gratis quando scatta Missile Barrage.",
-     "Icy Veins (Teloril, 30 ott) 🟡"
+     "Icy Veins: rotazione single target semplice, Arcane Blast fino al proc e poi Arcane Missiles.",
+     "Icy Veins – Arcane Mage Leveling (4 nov)"
     ],
-    "versatility": [
-     3,
-     "🟡 Method (mage in generale): profilo di danno vario e buona mobilita, utility e crowd control; non specifico per Arcane",
-     "Method – WoW Forever Mage Leveling Guide (snippet)"
+    "survival": [
+     2,
+     "Icy Veins: «Lacks control & survivability».",
+     "Icy Veins – Arcane Mage Leveling (4 nov)"
+    ],
+    "aoe": [
+     4,
+     "Icy Veins: Arcane Explosion rende più che nelle altre spec ai livelli alti, grazie ai talenti in fondo all'albero.",
+     "Icy Veins – Arcane Mage Leveling (4 nov)"
     ]
    },
    "build": [
@@ -696,91 +691,106 @@
     "Improved Channeling",
     "Missile Barrage",
     "Missile Barrage",
+    "Arcane Concentration",
+    "Arcane Concentration",
+    "Arcane Concentration",
+    "Arcane Blast",
     "Precision",
     "Precision",
-    "Precision",
-    "Improved Frostbolt",
-    "Improved Frostbolt",
-    "Improved Frostbolt",
-    "Improved Frostbolt",
-    "Improved Frostbolt",
-    "Frostbite",
-    "Frostbite",
-    "Ice Lance",
-    "Ice Shards",
-    "Ice Shards",
-    "Ice Shards"
+    "Improved Channeling",
+    "Improved Channeling",
+    "Arcane Concentration",
+    "Arcane Concentration",
+    "Arcane Wrath",
+    "Arcane Meditation",
+    "Arcane Meditation",
+    "Arcane Meditation",
+    "Arcane Subtlety",
+    "Presence of Mind",
+    "Arcane Mind",
+    "Arcane Mind",
+    "Arcane Mind",
+    "Arcane Mind",
+    "Arcane Mind",
+    "Arcane Instability",
+    "Arcane Instability",
+    "Arcane Instability",
+    "Arcane Subtlety",
+    "Arcane Power",
+    "Incineration",
+    "Incineration",
+    "Incineration",
+    "Incineration",
+    "Incineration",
+    "Accelerant",
+    "Accelerant",
+    "Accelerant",
+    "Accelerant",
+    "Accelerant",
+    "Improved Fire Blast",
+    "Improved Fire Blast",
+    "Ignite",
+    "Ignite",
+    "Pyroblast",
+    "Heating Up",
+    "Ignite",
+    "Precision"
+   ],
+   "rotation": [
+    {
+     "title": "Single target",
+     "seq": [
+      [
+       "spell_frost_frostbolt02",
+       "Frostbolt"
+      ],
+      [
+       "ability_mage_netherwindpresence",
+       "Arcane Wrath"
+      ],
+      [
+       "spell_arcane_blast",
+       "Arcane Blast ×1–3"
+      ],
+      [
+       "ability_mage_missilebarrage",
+       "Arcane Missiles (proc)"
+      ]
+     ],
+     "text": "Dalla distanza massima: Frostbolt per rallentare, Arcane Wrath, poi Arcane Blast 1–3 volte finché scatta Missile Barrage, e Arcane Missiles. Ogni Arcane Blast costa il doppio del precedente: lascia scadere il buff o resti senza mana. Se il mob arriva: Frost Nova, Arcane Wrath, Fire Blast; i mob quasi morti finiscili con la Wand (Icy Veins)."
+    },
+    {
+     "title": "AoE · 3+ mob",
+     "seq": [
+      [
+       "spell_frost_frostnova",
+       "Frost Nova"
+      ],
+      [
+       "spell_frost_glacier",
+       "Cone of Cold"
+      ],
+      [
+       "spell_nature_wispsplode",
+       "Arcane Explosion"
+      ]
+     ],
+     "text": "Raduna i mob, Frost Nova per tenerli fermi, Cone of Cold se ce l'hai, poi Arcane Explosion. Con 3 mob o meno di solito non conviene: costa troppo mana (Icy Veins)."
+    }
    ],
    "sources": [
     {
-     "name": "Icy Veins – Frost Mage Leveling (Teloril)",
-     "url": "https://www.icy-veins.com/wow-forever/frost-mage-leveling",
-     "date": "10 nov",
-     "signal": "riquadro «You Can Start As Arcane»: respec Frost verso il 31; ordine Frost 10–60 dal link del calcolatore",
-     "used": "partenza Arcane fino al 30 (versione del 30 ott 🟡), respec e ordine Frost dal 31"
+     "name": "Icy Veins – Arcane Mage Leveling",
+     "url": "https://www.icy-veins.com/wow-forever/arcane-mage-leveling",
+     "date": "4 nov 2026",
+     "signal": "ordine 10–60 dal link del calcolatore; rotazione, punti forti e deboli",
+     "used": "build B, rotazione, pro e contro"
     }
-   ],
-   "respec": {
-    "at": 31,
-    "text": "azzera i talenti dal trainer e passa a Frost: rimetti i punti come nell'ordine qui sotto (Icy Veins).",
-    "build": [
-     "Precision",
-     "Precision",
-     "Improved Frostbolt",
-     "Improved Frostbolt",
-     "Improved Frostbolt",
-     "Frostbite",
-     "Frostbite",
-     "Frostbite",
-     "Improved Frostbolt",
-     "Improved Frostbolt",
-     "Ice Lance",
-     "Ice Shards",
-     "Ice Shards",
-     "Ice Shards",
-     "Ice Shards",
-     "Shatter",
-     "Shatter",
-     "Shatter",
-     "Ice Shards",
-     "Ice Block",
-     "Fingers of Frost",
-     "Fingers of Frost",
-     "Cold Snap",
-     "Improved Cone of Cold",
-     "Improved Cone of Cold",
-     "Improved Cone of Cold",
-     "Frost Channeling",
-     "Frost Channeling",
-     "Frost Channeling",
-     "Improved Blizzard",
-     "Ice Barrier",
-     "Precision",
-     "Winter's Chill",
-     "Winter's Chill",
-     "Winter's Chill",
-     "Winter's Chill",
-     "Winter's Chill",
-     "Arctic Reach",
-     "Arctic Reach",
-     "Permafrost",
-     "Permafrost",
-     "Improved Blizzard",
-     "Improved Blizzard",
-     "Frost Warding",
-     "Arcane Resilience",
-     "Arcane Resilience",
-     "Arcane Resilience",
-     "Wand Specialization",
-     "Wand Specialization",
-     "Arcane Subtlety",
-     "Arcane Subtlety"
-    ]
-   }
+   ]
   }
  ],
  "buildDoubts": [
-  "Arcane (B): fino al 30 l'ordine della versione del 30 ott di Icy Veins (Wand Specialization, Improved Channeling, Missile Barrage, Precision); dal 9 nov la guida toglie Missile Barrage ma tiene il consiglio di partire Arcane e passare a Frost verso il 31. Dal 31 l'ordine Frost di Icy Veins (10 nov).",
+  "Arcane (B): dal 17 nov ordine 10–60 di Icy Veins (Arcane Mage Leveling, 4 nov), dal link del calcolatore. Prima era una partenza Arcane con respec Frost al 31, che dal 31 era quasi uguale alla A.",
   "Fire (Tavern) non inserita: la guida Warcraft Tavern mostra i talent solo come immagine, senza dati leggibili.",
   "Build A: ordine verificato contro i dati client wowforever.be (nomi, max, needs e req)."
  ]

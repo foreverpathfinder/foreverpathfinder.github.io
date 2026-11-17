@@ -831,7 +831,10 @@
   },
   {
    "l": 35,
-   "t": "Maelstrom Weapon (build)"
+   "t": "Maelstrom Weapon (build)",
+   "b": [
+    "a"
+   ]
   },
   {
    "l": 40,

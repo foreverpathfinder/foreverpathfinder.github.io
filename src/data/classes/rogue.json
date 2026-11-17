@@ -587,7 +587,15 @@
   },
   {
    "l": 32,
-   "t": "Blade Flurry (talent). Wound Poison."
+   "t": "Blade Flurry (talent).",
+   "b": [
+    "a",
+    "c"
+   ]
+  },
+  {
+   "l": 32,
+   "t": "Wound Poison."
   },
   {
    "l": 34,
@@ -595,7 +603,10 @@
   },
   {
    "l": 35,
-   "t": "Hack and Slash (talent)."
+   "t": "Hack and Slash (talent).",
+   "b": [
+    "a"
+   ]
   },
   {
    "l": 40,
@@ -603,7 +614,10 @@
   },
   {
    "l": 44,
-   "t": "Adrenaline Rush (talent, nella build proposta)."
+   "t": "Adrenaline Rush (talent, nella build proposta).",
+   "b": [
+    "a"
+   ]
   }
  ],
  "camp": [

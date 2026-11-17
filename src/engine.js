@@ -41,7 +41,7 @@ function setHash(){history.replaceState(null,'',HOME?location.pathname+location.
 var RA,CL,TAL,RT,FA,PT,CK;
 // build scelta (A/B/C): sovrascrive ordine dei talent, albero, spec e rotation della classe
 function buildView(base){var bs=base.builds||[],B=bs.filter(function(b){return b.id===S.o.b[S.c]})[0]||bs[0];if(!B)return base;
- var o=Object.create(base);o.B=B;if(B.build&&B.build.length){o.build=B.build;o.treeIndex=B.treeIndex}o.respec=B.respec||null;if(B.spec)o.spec=B.spec;if(B.icon)o.specIcon=B.icon;if(B.rotation&&B.rotation.length)o.rotation=B.rotation;return o}
+ var o=Object.create(base);o.B=B;if(B.build&&B.build.length){o.build=B.build;o.treeIndex=B.treeIndex}o.respec=B.respec||null;if(B!==bs[0]&&B.when)o.summary=B.when;if(B.talentSpells)o.talentSpells=B.talentSpells;if(B.spec)o.spec=B.spec;if(B.icon)o.specIcon=B.icon;if(B.rotation&&B.rotation.length)o.rotation=B.rotation;return o}
 function bind(){RA=D.races[S.r];CL=buildView(D.classes[S.c]);TAL=D.talents[S.c];FA=D.factions[RA.faction];RT=compose();CK=S.r+'-'+S.c+(PT?'-x':'');S.done[CK]=S.done[CK]||{};
  if(SHARED){SHARED.forEach(function(id){S.done[CK][id]=1});SHARED=null;setHash()}save()}
 
@@ -82,7 +82,7 @@ function hubBtns(s){var x=s[2],y=s[3],h=goBtn(s[0],x,y,s[4],'<b>'+s[0]+'</b>');
  S.o.prof.forEach(function(p){h+=npcBtn(near(D.map.prof[pkey(p)],x,y),p+' Trainer')});return h}
 function npcLinks(html,skip){var t=txt(html),h='',seen=skip||{};RT.quests.forEach(function(q){if(!seen[q[0]]&&t.indexOf(q[0])>-1){seen[q[0]]=1;h+=goBtn(q[0],q[2],q[3],6.25,'<b>'+q[0]+'</b><br>'+q[1])}});return h}
 // milestone: {t, r?:[razze], f?:'A'|'H', n?:[[npc,x,y]]} → solo quelle della tua razza/fazione, con 📍 sugli NPC
-function msFor(l){return [].concat(RT.milestones[l]||[],CL.milestones[l]||[],(FA.milestones&&FA.milestones[l])||[]).filter(function(m){return (!m.r||m.r.indexOf(S.r)>-1)&&(!m.f||m.f===RA.faction)})}
+function msFor(l){return [].concat(RT.milestones[l]||[],CL.milestones[l]||[],(FA.milestones&&FA.milestones[l])||[]).filter(function(m){return (!m.r||m.r.indexOf(S.r)>-1)&&(!m.f||m.f===RA.faction)&&(!m.b||m.b.indexOf(CL.B?CL.B.id:'a')>-1)})}
 function msBtns(m){var seen={},h=(m.n||[]).map(function(n){seen[n[0]]=1;return goBtn(n[0],n[1],n[2],6.25,'<b>'+n[0]+'</b>')}).join('');return h+npcLinks(m.t,seen)}
 function dgBtn(name){var n=name.replace(/[★✔🟡]/g,'').trim().toLowerCase(),d=D.map.dg.filter(function(x){return x[0].toLowerCase()===n||n.indexOf(x[0].toLowerCase())>-1||x[0].toLowerCase().indexOf(n)>-1})[0];return d?goBtn(name,d[2],d[3],5.5,'<b>⚔ '+d[0]+'</b><br>Livelli '+d[1]):''}
 document.addEventListener('click',function(e){var b=e.target.closest('.go');if(!b)return;e.preventDefault();

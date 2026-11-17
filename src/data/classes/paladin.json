@@ -1223,6 +1223,56 @@
      "signal": "Divine Strength, Improved Seals, Holy Conduit, Pursuit of Justice",
      "used": "contesto"
     }
+   ],
+   "rotation": [
+    {
+     "title": "Healing · dungeon",
+     "seq": [
+      [
+       "spell_holy_flashheal",
+       "Flash of Light"
+      ],
+      [
+       "spell_holy_holybolt",
+       "Holy Light"
+      ],
+      [
+       "spell_holy_searinglight",
+       "Holy Shock"
+      ],
+      [
+       "ability_paladin_judgementofthepure",
+       "Light's Vigil"
+      ]
+     ],
+     "text": "Flash of Light è la cura più efficiente; Holy Light quando arriva tanto danno e il mana basta; Holy Shock istantaneo nelle emergenze. Light's Vigil su un compagno, poi Holy Shock su di lui: cura tutto il gruppo, ma costa molto (Icy Veins)."
+    },
+    {
+     "title": "Danno · da solo",
+     "seq": [
+      [
+       "spell_holy_innerfire",
+       "Consecration"
+      ],
+      [
+       "ability_thunderbolt",
+       "Seal of Righteousness"
+      ],
+      [
+       "spell_holy_righteousfury",
+       "Judgement"
+      ],
+      [
+       "classicon_paladin",
+       "Holy Strike"
+      ],
+      [
+       "spell_holy_excorcism_02",
+       "Exorcism"
+      ]
+     ],
+     "text": "Consecration sui mob finché il mana lo permette; Seal of Righteousness e Judgement più spesso che puoi; Holy Strike a ogni cooldown; Exorcism su Undead e Demon. Tieni sempre il mana per curarti (Icy Veins)."
+    }
    ]
   }
  ],

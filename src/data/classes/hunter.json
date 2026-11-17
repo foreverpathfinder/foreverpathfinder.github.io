@@ -676,7 +676,10 @@
   },
   {
    "l": 32,
-   "t": "Ferocity ×3 (31–33)."
+   "t": "Ferocity ×3 (31–33).",
+   "b": [
+    "a"
+   ]
   },
   {
    "l": 34,
@@ -684,7 +687,14 @@
   },
   {
    "l": 35,
-   "t": "Frenzy ×5 (35–39). Artisan Professions."
+   "t": "Frenzy ×5 (35–39).",
+   "b": [
+    "a"
+   ]
+  },
+  {
+   "l": 35,
+   "t": "Artisan Professions."
   },
   {
    "l": 36,
@@ -700,7 +710,10 @@
   },
   {
    "l": 40,
-   "t": "Da qui i punti vanno in Marksmanship: Lethal Attacks, Careful Aim, Hawk Eye, Rapid Killing, Trueshot Aura, Mortal Shots."
+   "t": "Da qui i punti vanno in Marksmanship: Lethal Attacks, Careful Aim, Hawk Eye, Rapid Killing, Trueshot Aura, Mortal Shots.",
+   "b": [
+    "a"
+   ]
   },
   {
    "l": 46,
@@ -716,7 +729,14 @@
   },
   {
    "l": 56,
-   "t": "Trueshot Aura (talent). Bite/Claw 8 (Elder Shardtooth · Winterspring; Bloodaxe Worg · Blackrock Spire), Furious Howl 4."
+   "t": "Trueshot Aura (talent).",
+   "b": [
+    "a"
+   ]
+  },
+  {
+   "l": 56,
+   "t": "Bite/Claw 8 (Elder Shardtooth · Winterspring; Bloodaxe Worg · Blackrock Spire), Furious Howl 4."
   },
   {
    "l": 60,

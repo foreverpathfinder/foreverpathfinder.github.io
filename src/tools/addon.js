@@ -60,9 +60,11 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
    // schede Talent e Classe dell'addon (1.6): dati per classe e per razza, già nella lingua della pagina
    const cls={},rcs={};
    for(const c of Object.keys(D.classes)){const K=D.classes[c];
-    cls[c]={why:K.why||{},summary:K.summary||'',rot:K.rotation||[],brot:Object.fromEntries((K.builds||[]).filter(b=>b.rotation&&b.rotation.length).map(b=>[b.id,b.rotation])),
+    // spell del trainer + spell dei talenti (1 = talento); B e C hanno i loro (bsp)
+    const sl=ts=>K.spells.filter(x=>x[0]<=MAXL).map(x=>[x[0],x[1],x[2],x[3],0]).concat(ts.filter(x=>x[0]<=MAXL&&!/non in build|not in build/i.test(x[1])).map(x=>[x[0],x[1],x[2],x[3],1])).sort((a,b)=>a[0]-b[0]);
+    cls[c]={why:K.why||{},summary:K.summary||'',bsum:Object.fromEntries((K.builds||[]).slice(1).filter(b=>b.when).map(b=>[b.id,b.when])),rot:K.rotation||[],brot:Object.fromEntries((K.builds||[]).filter(b=>b.rotation&&b.rotation.length).map(b=>[b.id,b.rotation])),
      notes:(K.rotNotes||[]).map(a=>[a.title,a.html]),stats:K.stats||'',forever:K.forever||[],races:K.races||{},
-     spells:K.spells.filter(x=>x[0]<=MAXL).map(x=>[x[0],x[1],x[2],x[3],0]).concat(K.talentSpells.filter(x=>x[0]<=MAXL&&!/non in build|not in build/i.test(x[1])).map(x=>[x[0],x[1],x[2],x[3],1])).sort((a,b)=>a[0]-b[0])}}
+     spells:sl(K.talentSpells),bsp:Object.fromEntries((K.builds||[]).filter(b=>b.talentSpells).map(b=>[b.id,sl(b.talentSpells)]))}}
    for(const r of Object.keys(D.races)){const R=D.races[r];rcs[r]={name:R.name,racials:R.racials||[],tips:R.tips||''}}
    out._cls=cls;out._rcs=rcs;
    // dungeon per fazione, come nella scheda Dungeon: livelli, giudizio, ingresso, quest (anche di classe)
@@ -155,8 +157,10 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  // { livello, nome, icona, testo, talent }; _races: { nome, { { racial, icona, testo } }, consigli }
  const rot=r=>'{ '+r.map(x=>'{ '+tx(x.title)+', { '+x.seq.map(q=>'{ '+lua(q[0])+', '+tx(q[1])+' }').join(', ')+' }, '+htm(x.text)+' }').join(', ')+' }';
  s+='}\nForeverPathfinderClass = {\n';
+ // spell della scheda Classe: { livello, nome, icona, descrizione, talento }
+ const spl=L=>'{ '+L.map(x=>'{ '+x[0]+', '+tx(x[1])+', '+lua(x[2])+', '+htm(x[3])+', '+(x[4]?'true':'false')+' }').join(', ')+' }';
  for(const l of ['it','en']){s+=' '+l+' = {\n';
-  for(const [c,K] of Object.entries(all[l]._cls))s+='  '+c+' = { why = { '+Object.entries(K.why).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   summary = '+htm(K.summary)+', rot = '+rot(K.rot)+',\n   brot = { '+Object.entries(K.brot).map(([b,r])=>b+' = '+rot(r)).join(', ')+' },\n   notes = { '+K.notes.map(n=>'{ '+tx(n[0])+', '+htm(n[1])+' }').join(', ')+' }, stats = '+htm(K.stats)+', forever = { '+K.forever.map(htm).join(', ')+' },\n   races = { '+Object.entries(K.races).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   spells = { '+K.spells.map(x=>'{ '+x[0]+', '+tx(x[1])+', '+lua(x[2])+', '+htm(x[3])+', '+(x[4]?'true':'false')+' }').join(', ')+' } },\n';
+  for(const [c,K] of Object.entries(all[l]._cls))s+='  '+c+' = { why = { '+Object.entries(K.why).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   summary = '+htm(K.summary)+', bsum = { '+Object.entries(K.bsum||{}).map(([b,t])=>b+' = '+htm(t)).join(', ')+' }, rot = '+rot(K.rot)+',\n   brot = { '+Object.entries(K.brot).map(([b,r])=>b+' = '+rot(r)).join(', ')+' },\n   notes = { '+K.notes.map(n=>'{ '+tx(n[0])+', '+htm(n[1])+' }').join(', ')+' }, stats = '+htm(K.stats)+', forever = { '+K.forever.map(htm).join(', ')+' },\n   races = { '+Object.entries(K.races).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   spells = '+spl(K.spells)+',\n   bsp = { '+Object.entries(K.bsp||{}).map(([b,l])=>b+' = '+spl(l)).join(', ')+' } },\n';
   s+='  _races = { '+Object.entries(all[l]._rcs).map(([k,R])=>'['+lua(k)+'] = { '+tx(R.name)+', { '+R.racials.map(x=>'{ '+tx(x[0])+', '+lua(x[1])+', '+htm(x[2])+' }').join(', ')+' }, '+htm(R.tips)+' }').join(', ')+' },\n';
   s+=' },\n'}
  // trainer di classe (mappa del sito, coordinate del continente): per classe { NPC, continente, x, y, fazione 0/1/2 }

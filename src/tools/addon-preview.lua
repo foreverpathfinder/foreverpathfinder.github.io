@@ -187,7 +187,15 @@ if sub and sub:find("~%d+$") then sub, off = sub:match("^(.-)~(%d+)$") end
 if tb or tb2 then
   for _, t in ipairs(list) do if t[1] == (tb or tb2) then findPill(t[2]).scripts.OnClick() end end
   -- "dungeon.Uldaman>Pianta": più clic in fila
-  if sub then for lab in sub:gmatch("[^>]+") do for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text == lab and o.shown and o.parent ~= f then o.scripts.OnClick(o); break end end end end
+  -- un'etichetta che non è un pulsante: la casella accanto (Opzioni), o una scheda in alto ("Talent")
+  local function clickLabel(lab)
+    for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text == lab and o.shown and o.parent ~= f then o.scripts.OnClick(o); return end end
+    for _, o in ipairs(all) do if o.kind == "FontString" and o.text == lab and o.shown and o.pt then
+      for _, c in ipairs(all) do if c.kind == "CheckButton" and c.shown and c.pt and c.parent == o.parent and math.abs(c.pt.y - o.pt.y) <= 4 then c.checked = not c.checked; c.scripts.OnClick(c); return end end
+    end end
+    local p = findPill(lab); if p then p.scripts.OnClick() end
+  end
+  if sub then for lab in sub:gmatch("[^>]+") do clickLabel(lab) end end
   snap(ONLY)
   if off then
     items = {}

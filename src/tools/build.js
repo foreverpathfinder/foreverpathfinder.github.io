@@ -29,6 +29,7 @@ function normMs(ms, side0, ctx) {
     const o = typeof x === 'string' ? { t: x } : { t: x.t };
     if (x.r && x.r.length) o.r = x.r.map(RN);
     if (x.f) o.f = x.f;
+    if (x.b) o.b = x.b; // solo con queste build (milestone di classe che parlano dei talenti della A)
     const side = x.f ? (x.f === 'A' ? 1 : 2) : o.r ? RFAC[o.r[0]] : side0;
     if (x.npc && x.npc.length) o.n = x.npc.map(n => { const p = npcPos(n, side); if (!p) { W(ctx + ': NPC "' + n + '" (liv. ' + l + ') non trovato sulla mappa'); return null; } return [n, p[2], p[3]]; }).filter(Boolean);
     if (!o.t) return; (out[l] = out[l] || []).push(o);
@@ -73,6 +74,20 @@ for (const [k, cl] of dir('classes')) {
     // respec: dal livello at vale un secondo ordine completo (stessi nomi di build), contato dal primo punto
     if (b.respec) o.respec = { at: b.respec.at, text: b.respec.text, build: resolve(b.respec.build, k + ' respec ' + o.id).build };
     const fin = o.respec ? o.respec.build : o.build;
+    // spell dei talenti della build (B e C): livello dal suo ordine; descrizione da talentSpells della classe se c'è,
+    // altrimenti ogni talento attivo (con costo o cooldown nei dati del client) senza descrizione
+    if (i && fin.length) {
+      const first = {}, cat = {};
+      o.build.forEach((key, j) => { if (!o.respec || 10 + j < o.respec.at) first[key] = first[key] || 10 + j; });
+      if (o.respec) o.respec.build.forEach((key, j) => { if (!(key in first)) first[key] = Math.max(o.respec.at, 10 + j); });
+      (cl.talentSpells || []).forEach(x => { cat[String(x[1]).replace(/ \(.*$/, "").toLowerCase()] = x; });
+      o.talentSpells = Object.entries(first).map(([key, lv]) => {
+        const [tk, nk] = key.split('/'), n = wf.trees.find(t => t.key === tk).nodes[nk], c = cat[n.name.toLowerCase()];
+        if (!c && !n.cost) return null;
+        const label = c && !/non in build/i.test(c[1]) ? c[1] : n.name + ' (talent)';
+        return c ? [lv, label, c[2], c[3]] : [lv, label, n.icon, ''];
+      }).filter(Boolean).sort((a, b) => a[0] - b[0]);
+    }
     if (i && fin.length && fin.length < MAXL - 9) W(`${k} build ${o.id}: ordine corto (${fin.length} punti)`);
     return o;
   });

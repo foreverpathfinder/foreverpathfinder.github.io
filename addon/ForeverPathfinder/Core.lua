@@ -1473,6 +1473,8 @@ local function drawTalents(g, k, v)
   local cls = k:match("-(%a+)$")
   local CD, trees = clsData()[cls] or {}, ForeverPathfinderTrees and ForeverPathfinderTrees[cls] or {}
   local me, fin = UnitLevel("player"), v._rtal or v._tal
+  -- «Perché questa build»: per B e C il loro «quando sceglierla», non il riepilogo della A
+  local SUM = (CD.bsum and C.opt.b and CD.bsum[C.opt.b]) or CD.summary
   local first, last = v._tal[1] and v._tal[1][1] or 10, fin[#fin] and fin[#fin][1] or 10
   local L = math.max(first, math.min(last, V.talLv or me))
   local list = talOf(v, L)
@@ -1509,12 +1511,12 @@ local function drawTalents(g, k, v)
   if _G.OneForAll and OneForAll.TalentCode and OneForAll.OpenPanel then
     local b = button(T.ofa .. " ›", bx, y, function() ofaLoad(v) end, true); bx = bx + b:GetWidth() + 8
   end
-  if CD.summary and CD.summary ~= "" then
+  if SUM and SUM ~= "" then
     local b = button(V.tWhy and T.talHide or T.talWhy, bx, y, function() V.tWhy = not V.tWhy; render() end); bx = bx + b:GetWidth() + 8
   end
   if L ~= math.max(first, math.min(last, me)) then button(T.talMine:format(me), bx, y, function() V.talLv = nil; render() end) end
   y = y - 36
-  if V.tWhy and CD.summary then o = str(F.p, "tx", CD.summary, CX, BW - PAD - CX); y = y - o:GetStringHeight() - 12 end
+  if V.tWhy and SUM then o = str(F.p, "tx", SUM, CX, BW - PAD - CX); y = y - o:GetStringHeight() - 12 end
   -- barra dei livelli: − [una tacca per livello] +; prese fino al livello scelto, quello scelto in verderame, il tuo segnato sotto
   o = str(F.small, "mu", T.talBar:format(L), CX, BW - PAD - CX); y = y - 20
   local bm = button("−", CX, y, function() V.talLv = math.max(first, L - 1); render() end)
@@ -1634,7 +1636,8 @@ local function drawClass(g, k, v)
     flow({ T.cSpNow, T.cSpAll }, V.spAll and 2 or 1, function(i) V.spAll = i == 2; render() end)
     line("0", T.cSpTip); y = y - 4
     local bk, any = book(), false
-    for _, sp in ipairs(CD.spells or {}) do
+    local sb = C.opt.b or (g.builds[1] and g.builds[1][1])
+    for _, sp in ipairs((CD.bsp and CD.bsp[sb]) or CD.spells or {}) do
       local base = sp[2]:gsub("%s+%d+$", "")
       local have = base == sp[2] and known(base, bk)
       -- con il rank nel nome ("Heroic Strike 2") il libro non dice quale rank hai: solo se è del tuo livello o di poco sopra

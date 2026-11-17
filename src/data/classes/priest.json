@@ -769,7 +769,10 @@
   },
   {
    "l": 33,
-   "t": "Devouring Contagion 2/2 (33–34): DP salta tra i mob. Wand/arma: tienila aggiornata (DoubleZug)."
+   "t": "Devouring Contagion 2/2 (33–34): DP salta tra i mob. Wand/arma: tienila aggiornata (DoubleZug).",
+   "b": [
+    "a"
+   ]
   },
   {
    "l": 36,
@@ -781,15 +784,28 @@
   },
   {
    "l": 42,
-   "t": "Shadowform (talento): grande salto di danno, Mind Blast/Flay competitivi con la wand. PW:S Rank 7, SW:P Rank 6."
+   "t": "Shadowform (talento): grande salto di danno, Mind Blast/Flay competitivi con la wand.",
+   "b": [
+    "a"
+   ]
+  },
+  {
+   "l": 42,
+   "t": "PW:S Rank 7, SW:P Rank 6."
   },
   {
    "l": 50,
-   "t": "Meditation arriva ai 51–53 (Disc: Twin 5/5 + Mental Strength 3/3 prima). Mind Blast/SW:P nuovi rank 46–58."
+   "t": "Meditation arriva ai 51–53 (Disc: Twin 5/5 + Mental Strength 3/3 prima). Mind Blast/SW:P nuovi rank 46–58.",
+   "b": [
+    "a"
+   ]
   },
   {
    "l": 60,
-   "t": "Mental Agility 3/3 (58–60): ultimi punti, dopo Inner Focus al 57; poi respec a piacere (DoubleZug)."
+   "t": "Mental Agility 3/3 (58–60): ultimi punti, dopo Inner Focus al 57; poi respec a piacere (DoubleZug).",
+   "b": [
+    "a"
+   ]
   }
  ],
  "camp": [
