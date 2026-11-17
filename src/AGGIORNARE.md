@@ -148,6 +148,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 ## 7. Addon (`Core.lua`)
 
 - **Finestra**: 680×500 (`W, H, TOP, RW`). Si apre dall'icona della minimappa (LibDBIcon di Questie) o con `/fp`, e si chiude con Esc.
+  - Grandezza (1.10.9): le maniglie negli angoli in basso (texture del gioco `UI-ChatIM-SizeGrabber`, solo il percorso) cambiano la **scala** di tutta la finestra (0.6–1.6), salvata in `ForeverPathfinderDB.scale`. Il contenuto non si ridispone: resta largo `BW`.
   - Aspetto della 1.10: sfondo nero all'85%, accento **verderame #7fd4b0**, rame `e0a074` per i numeri nei sottotitoli, caratteri Barlow. La palette sta in `HEX`.
   - Schede in colonna a sinistra (`NAVORD`): Percorso, Talent, Dungeon, Profession | Classe, Alt, Altro, Info; Opzioni in fondo.
 - **Schede**:

@@ -40,6 +40,8 @@ const colored=(s,base)=>esc(s).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<sp
    const st=`left:${o.l}px;top:${o.t}px;width:${o.w}px;height:${o.h}px`;
    if(o.k==='rect')html+=`<div style="position:absolute;${st};background:rgba(${o.c.map(x=>Math.round(x*255)).join(',')},${o.a})"></div>`;
    else if(o.k==='icon')html+=o.path.startsWith('Interface\\Icons\\')?`<img src="https://wow.zamimg.com/images/wow/icons/large/${o.path.slice(16).toLowerCase()}.jpg" style="position:absolute;${st};object-fit:cover;object-position:center;transform:scale(1.16);clip-path:inset(7%)">`
+    // maniglia per ridimensionare (angoli in basso): tre righe bianche in diagonale, specchiata a sinistra
+    :/SizeGrabber-Up/.test(o.path)?`<svg style="position:absolute;${st}${o.l<100?';transform:scaleX(-1)':''}" viewBox="0 0 16 16"><g stroke="#e8e8e8" stroke-width="1.3" stroke-linecap="round"><path d="M14 4 4 14M14 8 8 14M14 12 12 14"/></g></svg>`
     :/CheckBox-Check/.test(o.path)?`<div style="position:absolute;${st};color:#ffd100;font:700 ${Math.round(o.h*0.8)}px Arial;line-height:${o.h}px;text-align:center;text-shadow:0 0 2px #000">✔</div>`:'';
    else if(o.k==='text')html+=`<div style="position:absolute;left:${o.l}px;top:${o.t}px;${o.nw&&o.ww>0?'width:'+o.ww+'px;white-space:pre;overflow:hidden;text-overflow:ellipsis':o.ww>0?'width:'+o.ww+'px;white-space:pre-wrap;word-wrap:break-word':'white-space:pre'};font-family:${fam(o.file)};font-weight:400;font-size:${o.size}px;line-height:1.2;color:rgb(${o.c.map(x=>Math.round(x*255)).join(',')});text-shadow:none">${colored(o.text)}</div>`;
    else if(o.k==='clip')html+=`<div style="position:absolute;${st};overflow:hidden">`;

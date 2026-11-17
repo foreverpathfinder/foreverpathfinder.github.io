@@ -28,7 +28,7 @@ local TT = {
     dgBoss = "Boss", dgTips = "Consigli", dgInfo = "Come conviene farli", dgNote = "Nota", qDoneTag = "fatta", dgNew = "nuovo in Forever", oTrainers = "Tutti i trainer della tua classe sulla mappa del mondo",
     zRec = "ZONE CONSIGLIATE AL LIVELLO %d", zRow = "livelli %s · %s quest adatte", oZones = "Zone consigliate per il tuo livello nella scheda Percorso",
     talTitle = "Talent · %s", talLv = "Livello %d", talMine = "Il mio livello (%d)", talNow = "Al livello %d prendi: {%s} %d/%d", talNext = "Poi, al %d: %s",
-    talFrom10 = "I talenti cominciano al livello 10: qui vedi cosa prenderai.", talDone = "Build completa: dopo il %d non ci sono altri punti.", talRespec = "Respec al %d: %s", talWhy = "Perché questa build", talHide = "Nascondi",
+    talFrom10 = "I talenti cominciano al livello 10: qui vedi cosa prenderai.", talDone = "Build completa: dopo il %d non ci sono altri punti.", talRespec = "Respec al %d: %s", resize = "Trascina per ingrandire o rimpicciolire la finestra", talWhy = "Perché questa build", talHide = "Nascondi",
     talTrees = "Passa sopra un talento per la descrizione; clic per andare al livello in cui si prende.", talOrder = "Ordine dei talenti (clic per andare a quel livello)",
     cRot = "Rotazione", cSpells = "Spell", cRace = "Razza", cNotes = "Consigli", cRotPick = "Scegli la situazione (all'apertura quella del tuo livello):",
     cSpNow = "Da comprare e prossime", cSpAll = "Tutte", cSpNone = "Niente da comprare adesso: torna dal trainer tra qualche livello.", cBuy = "da comprare", cHave = "appresa",
@@ -93,7 +93,7 @@ local TT = {
     dgBoss = "Bosses", dgTips = "Tips", dgInfo = "How to run them", dgNote = "Note", qDoneTag = "done", dgNew = "new in Forever", oTrainers = "All your class trainers on the world map",
     zRec = "RECOMMENDED ZONES AT LEVEL %d", zRow = "levels %s · %s suitable quests", oZones = "Recommended zones for your level in the Route tab",
     talTitle = "Talents · %s", talLv = "Level %d", talMine = "My level (%d)", talNow = "At level %d take: {%s} %d/%d", talNext = "Then, at %d: %s",
-    talFrom10 = "Talents start at level 10: here you see what you will take.", talDone = "Build complete: no more points after %d.", talRespec = "Respec at %d: %s", talWhy = "Why this build", talHide = "Hide",
+    talFrom10 = "Talents start at level 10: here you see what you will take.", talDone = "Build complete: no more points after %d.", talRespec = "Respec at %d: %s", resize = "Drag to make the window bigger or smaller", talWhy = "Why this build", talHide = "Hide",
     talTrees = "Hover a talent for its description; click to go to the level where you take it.", talOrder = "Talent order (click to go to that level)",
     cRot = "Rotation", cSpells = "Spells", cRace = "Race", cNotes = "Tips", cRotPick = "Pick the situation (it opens on your level):",
     cSpNow = "To buy and next", cSpAll = "All", cSpNone = "Nothing to buy now: go back to the trainer in a few levels.", cBuy = "to buy", cHave = "learned",
@@ -595,6 +595,42 @@ bar:SetScript("OnValueChanged", function(_, v) scroll:SetVerticalScroll(v) end)
 local function pageWheel(d) local lo, hi = bar:GetMinMaxValues(); bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 120))) end
 scroll:EnableMouseWheel(true)
 scroll:SetScript("OnMouseWheel", function(_, d) pageWheel(d) end)
+
+-- angoli in basso (1.10.9): trascinali per ingrandire o rimpicciolire tutta la finestra (scala, salvata per tutti i personaggi).
+-- L'angolo in alto opposto resta fermo. Segni bianchi = la maniglia classica del gioco (a sinistra specchiata).
+-- ponytail: si scala tutto (testi compresi) invece di ridisporre il contenuto su una larghezza nuova
+local SMIN, SMAX = 0.6, 1.6
+local function grip(right)
+  local g = CreateFrame("Frame", nil, f); g:SetSize(16, 16); g:SetPoint("TOPLEFT", right and W - 18 or 2, -(H - 18))
+  g:SetFrameLevel(f:GetFrameLevel() + 20); g:EnableMouse(true)
+  local function tex(layer, file)
+    local t = g:CreateTexture(nil, layer); t:SetAllPoints(); t:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-" .. file)
+    if not right then t:SetTexCoord(1, 0, 0, 1) end
+    return t
+  end
+  local up, down = tex("ARTWORK", "Up"), tex("OVERLAY", "Down"); down:Hide(); tex("HIGHLIGHT", "Highlight")
+  g:SetScript("OnMouseDown", function(_, btn)
+    if btn ~= "LeftButton" then return end
+    local es = f:GetEffectiveScale()
+    -- angolo fermo in coordinate dello schermo: in alto a sinistra (maniglia destra) o in alto a destra (maniglia sinistra)
+    local ax, ay = (right and f:GetLeft() or f:GetRight()) * es, f:GetTop() * es
+    local base = es / f:GetScale() -- scala del genitore
+    up:Hide(); down:Show()
+    g:SetScript("OnUpdate", function()
+      local cx = GetCursorPosition()
+      local s = math.max(SMIN, math.min(SMAX, (right and cx - ax or ax - cx) / (W * base)))
+      f:SetScale(s); f:ClearAllPoints()
+      f:SetPoint(right and "TOPLEFT" or "TOPRIGHT", UIParent, "BOTTOMLEFT", ax / (s * base), ay / (s * base))
+    end)
+  end)
+  g:SetScript("OnMouseUp", function()
+    g:SetScript("OnUpdate", nil); down:Hide(); up:Show()
+    if DB then DB.scale = f:GetScale() end
+  end)
+  g:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, right and "ANCHOR_RIGHT" or "ANCHOR_LEFT"); GameTooltip:AddLine(T.resize); GameTooltip:Show() end)
+  g:SetScript("OnLeave", function() GameTooltip:Hide() end)
+end
+grip(true); grip(false)
 
 -- elementi riusati a ogni disegno: testi, icone, rettangoli (card e righe di separazione), caselle, pulsanti
 local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {}, hv = {}, nd = {}, rw = {}, lb = {}, mp = {}, mk = {} }
@@ -2693,6 +2729,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     ForeverPathfinderChar = ForeverPathfinderChar or {}
     ForeverPathfinderDB = ForeverPathfinderDB or {}
     C, DB = ForeverPathfinderChar, ForeverPathfinderDB
+    if DB.scale then f:SetScale(math.max(SMIN, math.min(SMAX, DB.scale))) end
     C.done = C.done or {}
     C.opt = C.opt or {}
     C.loads = (C.loads or 0) + 1 -- /fp debug: se dopo un /reload resta 1, il gioco non rilegge i salvataggi
