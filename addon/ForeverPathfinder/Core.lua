@@ -1746,7 +1746,6 @@ local function drawOptions(g, k)
   line("2", T.oChar)
   line("0", T.oAuto:format(g.name .. " (" .. k .. ")"))
   line("0", T.oSite)
-  y = y - 4; button(T.bug, PAD, y, bugLink); y = y - 30
   line("2", T.oLate)
   line("0", T.oLateTxt)
   cardClose()
@@ -1776,6 +1775,12 @@ for _, t in ipairs(navList()) do
     navB[t[1]] = b
   end
 end
+-- «Segnala un errore» piccolo, subito sopra Opzioni
+local bugB = CreateFrame("Button", nil, f); bugB:SetSize(RW - 1, 18)
+bugB.fs = text(bugB, F.small, "dim", 26, -2)
+bugB:SetScript("OnEnter", function(self) self.fs:SetTextColor(unpack(COL.mu)) end)
+bugB:SetScript("OnLeave", function(self) self.fs:SetTextColor(unpack(COL.dim)) end)
+bugB:SetScript("OnClick", bugLink)
 -- nomi delle schede nella lingua scelta, in maiuscolo, uno sotto l'altro
 local function layoutNav()
   local ny = -56
@@ -1788,6 +1793,7 @@ local function layoutNav()
       if t[1] == "opzioni" then b:SetPoint("TOPLEFT", 0, -(H - 36)) else b:SetPoint("TOPLEFT", 0, ny); ny = ny - 26 end
     end
   end
+  bugB.fs:SetText(T.bug); bugB:ClearAllPoints(); bugB:SetPoint("TOPLEFT", 0, -(H - 36) + 22)
 end
 layoutNav()
 -- lingua dell'addon: si sceglie nelle Opzioni (o con /fp lang)
