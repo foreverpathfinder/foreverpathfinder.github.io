@@ -94,7 +94,8 @@ var lg='it';try{lg=localStorage.getItem('wfcLang')||(/^it/i.test(navigator.langu
 setLang(lg);
 $('lang').onclick=function(){var l=document.documentElement.lang==='it'?'en':'it';setLang(l);try{localStorage.setItem('wfcLang',l)}catch(e){}};
 // dal sito e dall'addon arrivano ?c=contesto (personaggio, livello, versione) e ?d=Addon
-var q=new URLSearchParams(location.search);$('ctx').value=q.get('c')||'';if(q.get('d'))$('where').value=q.get('d');
+// (?a=versione-guida è il link corto dell'addon)
+var q=new URLSearchParams(location.search),a=q.get('a');$('ctx').value=a?'Addon v'+a:q.get('c')||'';if(a||q.get('d'))$('where').value=a?'Addon':q.get('d');
 $('f').onsubmit=function(ev){ev.preventDefault();
  if(!$('msg').value.trim()){$('need').style.display='block';$('msg').focus();return}
  $('need').style.display='none';$('err').style.display='none';

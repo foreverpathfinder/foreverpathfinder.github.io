@@ -20,7 +20,7 @@ local TT = {
     talentNow = "Talento da prendere ora: %s (%s)", talentNext = "Prossimo talento al liv. %d: %s (%s)", talentDone = "Talenti della guida completati.",
     unknown = "Razza o classe non riconosciute. Scrivi /fp set razza-classe (es. /fp set human-warrior); /fp list per l'elenco.",
     help = "/fp apre o chiude · /fp opzioni · /fp dungeon · /fp cerca parola · /fp set razza-classe · /fp auto · /fp list · /fp lang · /fp debug · /fp bug",
-    bug = "Segnala un errore", bugTxt = "Copia il link con Ctrl+C e aprilo nel browser. Incolla anche le righe di /fp debug: aiutano a trovare il problema.",
+    bug = "Segnala un errore", bugTxt = "Copia il link (Copia o Ctrl+C) e aprilo nel browser: la pagina non chiede di registrarti.", copy = "Copia", copied = "Link copiato:",
     dungeon = "Dungeon: %s · /fp dungeon per le quest", go = "vai", opt = "facoltativo", skip = "da saltare",
     dgAll = "‹ Tutti i dungeon", dgPick = "Clic su un dungeon: quest, boss, come arrivarci. |cff7fd4b0•|r = nuovo in Forever.", dgYou = "adatto al tuo livello", dgLv = "Livelli %d–%d",
     dgIdeal = "ideale %s", dgWhere = "Dove si trova", dgKey = "Chiave d'ingresso", dgQ = "Quest da prendere prima di entrare", dgQC = "Quest di classe",
@@ -85,7 +85,7 @@ local TT = {
     talentNow = "Talent to take now: %s (%s)", talentNext = "Next talent at lvl %d: %s (%s)", talentDone = "Guide talents done.",
     unknown = "Race or class not recognized. Type /fp set race-class (e.g. /fp set human-warrior); /fp list for the list.",
     help = "/fp opens or closes · /fp options · /fp dungeon · /fp find word · /fp set race-class · /fp auto · /fp list · /fp lang · /fp debug · /fp bug",
-    bug = "Report an error", bugTxt = "Copy the link with Ctrl+C and open it in your browser. Also paste the lines of /fp debug: they help find the problem.",
+    bug = "Report an error", bugTxt = "Copy the link (Copy or Ctrl+C) and open it in your browser: the page doesn't ask you to sign up.", copy = "Copy", copied = "Link copied:",
     dungeon = "Dungeon: %s · /fp dungeon for the quests", go = "go", opt = "optional", skip = "skip",
     dgAll = "‹ All dungeons", dgPick = "Click a dungeon: quests, bosses, how to get there. |cff7fd4b0•|r = new in Forever.", dgYou = "right for your level", dgLv = "Levels %d–%d",
     dgIdeal = "best at %s", dgWhere = "Where it is", dgKey = "Entry key", dgQ = "Quests to pick up before going in", dgQC = "Class quests",
@@ -1705,14 +1705,17 @@ local function drawPage(v, name)
   cardClose()
 end
 
--- segnala un errore: il gioco non apre i link, quindi un riquadro col link già selezionato da copiare (Ctrl+C);
--- la pagina segnala.html (senza login) riceve versione e guida già scritte, come dal pulsante del sito
+-- segnala un errore: il gioco non apre i link, quindi un riquadro col link già selezionato.
+-- «Copia» usa CopyToClipboard, che il gioco permette solo dal clic di un pulsante; se manca o non va, resta Ctrl+C.
+-- Link corto: segnala?a=versione-guida (la pagina mette «Addon» e il contesto da sola)
 local function bugLink()
   local meta = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
-  local url = "https://foreverpathfinder.github.io/segnala.html?d=Addon&c=v" .. tostring(meta and meta(ADDON, "Version")) .. "+" .. (charKey() or "")
+  local url = "foreverpathfinder.github.io/segnala?a=" .. tostring(meta and meta(ADDON, "Version")) .. "-" .. (charKey() or "")
   if not (StaticPopupDialogs and StaticPopup_Show) then say(url); return end
-  StaticPopupDialogs.FP_BUG = { text = T.bugTxt, button1 = OKAY or "OK", hasEditBox = true, editBoxWidth = 350, timeout = 0, whileDead = true, hideOnEscape = true,
+  StaticPopupDialogs.FP_BUG = { text = T.bugTxt, button1 = CopyToClipboard and T.copy or (OKAY or "OK"), button2 = CopyToClipboard and (CLOSE or "X") or nil,
+    hasEditBox = true, editBoxWidth = 350, timeout = 0, whileDead = true, hideOnEscape = true,
     OnShow = function(s) local e = s.editBox or s.EditBox; e:SetText(url); e:HighlightText(); e:SetFocus() end,
+    OnAccept = function() if CopyToClipboard and pcall(CopyToClipboard, url) then say(T.copied .. " " .. url) end end,
     EditBoxOnEnterPressed = function(e) e:GetParent():Hide() end, EditBoxOnEscapePressed = function(e) e:GetParent():Hide() end }
   StaticPopup_Show("FP_BUG")
 end
