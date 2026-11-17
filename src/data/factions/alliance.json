@@ -1740,9 +1740,9 @@
   {
    "name": "QuestieDB per Forever (Questie)",
    "url": "https://github.com/Questie/QuestieDB",
-   "date": "16 nov 2026",
+   "date": "16–17 nov 2026",
    "signal": "dati del client e XP delle quest viste in più di un milione di sessioni di gioco",
-   "used": "Quest, livelli, NPC e catene del 30–44"
+   "used": "Quest, livelli, NPC e catene del 30–60"
   },
   {
    "name": "wowforever.be - Riverglades guide",
@@ -1911,49 +1911,49 @@
     "to": 47,
     "zone": "Tanaris",
     "hub": "Gadgetzan",
-    "note": "Wowhead 40–50; Zul’Farrak 44–54."
+    "note": "Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54."
    },
    {
     "from": 47,
     "to": 50,
     "zone": "Feralas",
     "hub": "Feathermoon Stronghold",
-    "note": "Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49)."
+    "note": "Quest di Feathermoon Stronghold di livello 43–50 (Questie). Alternativa: The Hinterlands da Aerie Peak (41–49)."
    },
    {
     "from": 50,
     "to": 53,
     "zone": "Un'Goro Crater",
     "hub": "Marshal's Refuge",
-    "note": "Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro."
+    "note": "Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro."
    },
    {
     "from": 53,
     "to": 55,
     "zone": "Felwood",
-    "hub": "Talonbranch Glade",
-    "note": "Wowhead 47–54."
+    "hub": "Emerald Sanctuary",
+    "note": "Quest di Emerald Sanctuary di livello 51–58 (Questie)."
    },
    {
     "from": 55,
     "to": 57,
     "zone": "Winterspring",
     "hub": "Everlook",
-    "note": "Wowhead 55–60."
+    "note": "Quest di Everlook, Frostfire Hot Springs e Starfall Village di livello 52–60 (Questie)."
    },
    {
     "from": 57,
     "to": 60,
     "zone": "Western / Eastern Plaguelands",
     "hub": "Chillwind Camp / Light's Hope Chapel",
-    "note": "Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59)."
+    "note": "Quest di Chillwind Camp e Light's Hope Chapel di livello 52–58 (Questie). Alternativa: Burning Steppes da Morgan's Vigil (50–59)."
    },
    {
     "from": 60,
     "to": 60,
     "zone": "Mount Hyjal ★",
-    "hub": "Tainted Foothills",
-    "note": "Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta."
+    "hub": "Elderwild",
+    "note": "Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto."
    }
   ],
   "steps": [
@@ -1992,7 +1992,7 @@
     "levels": "44–47",
     "town": "Gadgetzan",
     "zoneIcon": "achievement_zone_tanaris_01",
-    "text": "Nave da Riverglades a Steamwheedle Port, oppure boat Menethil Harbor → Theramore e volo. Gadgetzan (liv. 40–50): Chief Engineer Bilgewhizzle, Trenton Lighthammer e Senior Surveyor Fizzledowser. Zul’Farrak (44–54) è a nord-ovest. 🟡",
+    "text": "Nave da Riverglades a Steamwheedle Port, oppure nave Menethil Harbor → Theramore e volo per Gadgetzan. A Gadgetzan Hearthstone e Flight Path. In città: Wastewander Justice e poi More Wastewander Justice da Chief Engineer Bilgewhizzle, Water Pouch Bounty da Spigot Operator Luglunket, Gadgetzan Water Survey da Senior Surveyor Fizzledowser (poi Noxious Lair Investigation), The Dunemaul Compound da Andi Lynn, Handle With Care da Curgle Cranklehop. A Steamwheedle Port, a nord-est: Screecher Spirits da Yeh'kinya, Southsea Shakedown da Security Chief Bilgewhizzle, Pirate Hats Ahoy! dalla Haughty Modiste e Stoley's Shipment da Stoley. Nel deserto Find OOX-17/TN! e il WANTED: Caliph Scorpidsting. Zul'Farrak (44–54) è a nord-ovest. 🟡",
     "fp": "Gadgetzan"
    },
    {
@@ -2000,7 +2000,7 @@
     "levels": "47–50",
     "town": "Feathermoon Stronghold",
     "zoneIcon": "achievement_zone_feralas",
-    "text": "Feathermoon Stronghold, sull’isola al largo di Feralas (liv. 40–50): Shandris Feathermoon, Latronicus Moonspear e Ginro Hearthkindle. In alternativa The Hinterlands da Aerie Peak (41–49): Gryphon Master Talonaxe e Fraggar Thundermantle. 🟡",
+    "text": "Volo per Thalanaar e barca per Feathermoon Stronghold, sull'isola: Hearthstone e Flight Path. In ordine: The Ruins of Solarsal da Shandris Feathermoon, poi Against the Hatecrest, Against Lord Shalzaru e Delivering the Relic da Latronicus Moonspear; The Missing Courier da Latronicus, poi Boat Wreckage, The Knife Revealed (Ginro Hearthkindle), Psychometric Reading (Quintis Jonespyre), The Woodpaw Gnolls, The Writhing Deep, Freed from the Hive e A Hero's Welcome, che apre Rise of the Silithid. Sull'isola anche In Search of Knowledge (Troyas Moonbreeze), The Mark of Quality (Pratt McGrubben) e The High Wilderness (Angelas Moonbreeze). Sulla terraferma: Freedom for All Creatures da Kindal Moonweaver (Grimtotem Compound), The Giant Guardian da Rockbiter (The Twin Colossals), Zapped Giants e Fuel for the Zapping da Zorbin Fandazzle sulla costa e Find OOX-22/FE!. 🟡",
     "fp": "Feathermoon"
    },
    {
@@ -2008,40 +2008,38 @@
     "levels": "50–53",
     "town": "Marshal's Refuge",
     "zoneIcon": "achievement_zone_ungorocrater_01",
-    "text": "Marshal’s Refuge (liv. 48–55): Linken, J.D. Collie, Williden Marshal e Muigin. I Power Crystal di Un’Goro servono anche per il dungeon nuovo The Shaper’s Terrace (58–60). 🟡",
+    "text": "Si scende dalla rampa a ovest di Tanaris. Passando da Gadgetzan consegna The Scrimshank Redemption e prendi Insect Part Analysis e Rise of the Silithid (Senior Surveyor Fizzledowser e Alchemist Pestlezugg) e The Thirsty Goblin (Marin Noggenfogger). A Marshal's Refuge, Flight Path: Expedition Salvation da Williden Marshal, Crystals of Power da J.D. Collie (poi The Northern, Eastern e Western Pylon e Making Sense of It), Alien Ecology da Hol'anyee Marshal, Roll the Bones da Spark Nilminer, Shizzle's Flyer da Shizzle, Chasing A-Me 01 da Karna Remtravel, Lost! da Spraggle Frock e Muigin and Larion da Muigin. A est The Fare of Lar'korwi e The Apes of Un'Goro da Torwa Pathfinder; Finding the Source da Krakle (Golakka Hot Springs). I Power Crystal servono anche per The Shaper's Terrace (58–60). 🟡",
     "fp": "Marshal's Refuge"
    },
    {
     "title": "Felwood",
     "levels": "53–55",
-    "town": "Talonbranch Glade",
+    "town": "Emerald Sanctuary",
     "zoneIcon": "achievement_zone_felwood",
-    "text": "Talonbranch Glade, a nord di Felwood (liv. 47–54): Flight Path e quest contro la corruzione della foresta. A nord-est Timbermaw Hold porta a Winterspring. 🟡",
-    "fp": "Talonbranch Glade"
+    "text": "Volo per Talonbranch Glade (Flight Path, nord di Felwood) oppure a piedi da Ashenvale. Il centro delle quest è Emerald Sanctuary, a sud: Forces of Jaedenar da Greta Mosshoof (poi Collection of the Corrupt Water e Seeking Spiritual Aid), The Corruption of the Jadefire da Eridan Bluewind (poi Further Corruption) e, dal Flute of Xavaric, Felbound Ancients e Purified!; Verifying the Corruption da Taronn Redfeather e Cleansing Felwood da Arathandris Silversky. A Strange Red Key, da un mostro di Jaedenar, apre Rescue From Jaedenar e Retribution of the Light (Jessir Moonbow). Timbermaw Ally da Grazle avvia la reputazione Timbermaw: poi Speak to Nafien a Timbermaw Hold, la strada per Winterspring (To Winterspring! da Ivy Leafrunner). 🟡"
    },
    {
     "title": "Winterspring",
     "levels": "55–57",
     "town": "Everlook",
     "zoneIcon": "achievement_zone_winterspring",
-    "text": "Everlook (liv. 55–60): Gregor Greystone, Felnok Steelspring e Harlo Wigglesworth. 🟡",
+    "text": "La prima volta passa dal tunnel di Timbermaw Hold, a nord-est di Felwood; a Everlook Hearthstone e Flight Path. In città: The Everlook Report e Duke Nicholas Zverenhoff da Gregor Greystone, Are We There, Yeti? da Umi Rumplesnicker, Chillwind Horns da Felnok Steelspring, Trouble in Winterspring! da Meggi Peppinrocker, Luck Be With You da Witch Doctor Mau'ari, Enraged Wildkin da Harlo Wigglesworth. A ovest, a Frostfire Hot Springs, Donova Snowden: Threat of the Winterfall, poi Winterfall Firewater, Falling to Corruption, Mystery Goo, Toxic Horrors e Winterfall Runners fino a High Chief Winterfall. A Starfall Village, a sud: The Ruins of Kel'Theril da Wynd Nightchaser e Troubled Spirits of Kel'Theril da Jaron Stoneshaper. 🟡",
     "fp": "Everlook"
    },
    {
     "title": "Western / Eastern Plaguelands",
-    "levels": "57–59",
+    "levels": "57–60",
     "town": "Chillwind Camp",
     "zoneIcon": "achievement_zone_westernplaguelands_01",
-    "text": "Chillwind Camp, Western Plaguelands (liv. 46–57): Commander Ashlam Valorfist e High Priestess MacDonnell. Poi Light’s Hope Chapel, Eastern Plaguelands (54–59), per l’Argent Dawn. In alternativa Burning Steppes da Morgan’s Vigil (50–59). 🟡",
+    "text": "Volo per Chillwind Camp (Western Plaguelands, a nord di Alterac Mountains). Da Commander Ashlam Valorfist: Clear the Way, poi The Scourge Cauldrons e All Along the Watchtowers; da High Priestess MacDonnell le torri Target: Felstone Field, Dalson's Tears, Writhing Haunt e Gahrron's Withering (ogni volta Return to Chillwind Camp); A Plague Upon Thee da Nathaniel Dumah; Skeletal Fragments e Mold Rhymes With... da Alchemist Arbington dopo Scholomance. Nella zona: Better Late Than Never da Janice Felstone (Felstone Field), The Wildlife Suffers Too da Mulgris Deepriver (The Writhing Haunt), A Matter of Time da Chromie (Andorhal), Unfinished Business da Kirsta Deepshadow. Poi Eastern Plaguelands: Flight Path a Light's Hope Chapel, Tirion Fordring nella capanna sul Thondroril River (Demon Dogs, Blood Tinged Skies e Carrion Grubbage, poi Redemption) e la storia di Darrowshire (Marlene, Pamela e Carlin Redpath). 🟡",
     "fp": "Chillwind Camp"
    },
    {
     "title": "Mount Hyjal ★",
     "levels": "60",
-    "town": "Tainted Foothills",
+    "town": "Elderwild",
     "zoneIcon": "inv_misc_map_01",
-    "text": "★ Mount Hyjal, la zona nuova di fine leveling (mostri 54–60): base a Tainted Foothills, con il Flight Path. Le sue quest non erano nella beta. Dal 9 dicembre i raid Hyjal Summit e Barrow Deeps. 🟡",
-    "fp": "Tainted Foothills"
+    "text": "★ Mount Hyjal, la zona nuova di fine leveling (mostri 54–60), a est di Felwood: 33 quest di livello 56–60 viste nel gioco, da fare dopo le Plaguelands o al loro posto. Si entra da Elderwild: Lifted by Legacy e Wake Memories dai Veteran of the Third War; Blight No More, Final Death e To the Summit of Eternity da Sefira Everbright, Feathers in Flight da Hnaz Blunderflame, More of the Same e Belle's Ring da Daythor Brellan. Più a est, a Cradle of Tranquility, Johun \"Punchy\" Dillas: Area Denial Skunks, Fox Hole, Resupply, Avalanche of Corruption, Gathering Storm e A Shaw Deal. A Malorne's Retreat Tree Free, Branch Out e Supply Drop da Fenwick Togglespring; The Western Post dal Curious Crow (Felblood Scar). Flight Path a Tainted Foothills e vicino a Dae'gun. Dal 9 dicembre i raid Hyjal Summit e Barrow Deeps. 🟡"
    }
   ],
   "milestones": [
@@ -2130,39 +2128,131 @@
    },
    {
     "l": 44,
-    "t": "<b>Wastewander Justice</b> da Chief Engineer Bilgewhizzle (Gadgetzan).",
+    "t": "<b>Wastewander Justice</b> da Chief Engineer Bilgewhizzle e <b>Water Pouch Bounty</b> da Spigot Operator Luglunket (Gadgetzan).",
     "npc": [
-     "Chief Engineer Bilgewhizzle"
+     "Chief Engineer Bilgewhizzle",
+     "Spigot Operator Luglunket"
+    ]
+   },
+   {
+    "l": 45,
+    "t": "<b>Screecher Spirits</b> da Yeh'kinya e <b>Southsea Shakedown</b> da Security Chief Bilgewhizzle (Steamwheedle Port).",
+    "npc": [
+     "Yeh'kinya",
+     "Security Chief Bilgewhizzle"
+    ]
+   },
+   {
+    "l": 46,
+    "t": "<b>Gadgetzan Water Survey</b> da Senior Surveyor Fizzledowser, poi <b>Noxious Lair Investigation</b> (Gadgetzan).",
+    "npc": [
+     "Senior Surveyor Fizzledowser"
     ]
    },
    {
     "l": 47,
-    "t": "<b>Against the Hatecrest</b> e <b>The Ruins of Solarsal</b> da Shandris Feathermoon (Feathermoon Stronghold).",
+    "t": "<b>The Ruins of Solarsal</b> da Shandris Feathermoon e <b>The Missing Courier</b> da Latronicus Moonspear (Feathermoon Stronghold).",
     "npc": [
-     "Shandris Feathermoon"
+     "Shandris Feathermoon",
+     "Latronicus Moonspear"
+    ]
+   },
+   {
+    "l": 48,
+    "t": "<b>In Search of Knowledge</b> da Troyas Moonbreeze e <b>The Mark of Quality</b> da Pratt McGrubben (Feathermoon Stronghold).",
+    "npc": [
+     "Troyas Moonbreeze",
+     "Pratt McGrubben"
+    ]
+   },
+   {
+    "l": 49,
+    "t": "<b>Freedom for All Creatures</b> da Kindal Moonweaver (Grimtotem Compound) e <b>The Giant Guardian</b> da Rockbiter (The Twin Colossals).",
+    "npc": [
+     "Kindal Moonweaver",
+     "Rockbiter"
     ]
    },
    {
     "l": 50,
-    "t": "<b>Crystals of Power</b> da J.D. Collie e <b>Expedition Salvation</b> da Williden Marshal (Marshal's Refuge).",
+    "t": "<b>Expedition Salvation</b> da Williden Marshal e <b>Crystals of Power</b> da J.D. Collie (Marshal's Refuge).",
     "npc": [
-     "J.D. Collie",
-     "Williden Marshal"
+     "Williden Marshal",
+     "J.D. Collie"
+    ]
+   },
+   {
+    "l": 51,
+    "t": "<b>Roll the Bones</b> da Spark Nilminer, <b>Alien Ecology</b> da Hol'anyee Marshal e <b>Chasing A-Me 01</b> da Karna Remtravel (Marshal's Refuge).",
+    "npc": [
+     "Spark Nilminer",
+     "Hol'anyee Marshal",
+     "Karna Remtravel"
+    ]
+   },
+   {
+    "l": 52,
+    "t": "<b>The Fare of Lar'korwi</b> e <b>The Apes of Un'Goro</b> da Torwa Pathfinder (est di Un'Goro); <b>Finding the Source</b> da Krakle (Golakka Hot Springs).",
+    "npc": [
+     "Torwa Pathfinder",
+     "Krakle"
+    ]
+   },
+   {
+    "l": 53,
+    "t": "<b>Forces of Jaedenar</b> da Greta Mosshoof e <b>The Corruption of the Jadefire</b> da Eridan Bluewind (Emerald Sanctuary).",
+    "npc": [
+     "Greta Mosshoof",
+     "Eridan Bluewind"
+    ]
+   },
+   {
+    "l": 54,
+    "t": "<b>Timbermaw Ally</b> da Grazle e <b>Verifying the Corruption</b> da Taronn Redfeather (Emerald Sanctuary).",
+    "npc": [
+     "Grazle",
+     "Taronn Redfeather"
     ]
    },
    {
     "l": 55,
-    "t": "<b>The Everlook Report</b> da Gregor Greystone (Everlook).",
+    "t": "<b>The Everlook Report</b> da Gregor Greystone e <b>Are We There, Yeti?</b> da Umi Rumplesnicker (Everlook).",
     "npc": [
-     "Gregor Greystone"
+     "Gregor Greystone",
+     "Umi Rumplesnicker"
+    ]
+   },
+   {
+    "l": 56,
+    "t": "<b>Threat of the Winterfall</b> da Donova Snowden (Frostfire Hot Springs) e <b>The Ruins of Kel'Theril</b> da Wynd Nightchaser (Starfall Village).",
+    "npc": [
+     "Donova Snowden",
+     "Wynd Nightchaser"
     ]
    },
    {
     "l": 57,
-    "t": "<b>Clear the Way</b> e <b>Dispelling Evil</b> da Commander Ashlam Valorfist; <b>Target: Felstone Field</b> da High Priestess MacDonnell (Chillwind Camp).",
+    "t": "<b>Clear the Way</b> e <b>All Along the Watchtowers</b> da Commander Ashlam Valorfist; <b>Target: Felstone Field</b> da High Priestess MacDonnell (Chillwind Camp).",
     "npc": [
      "Commander Ashlam Valorfist",
      "High Priestess MacDonnell"
+    ]
+   },
+   {
+    "l": 58,
+    "t": "<b>Better Late Than Never</b> da Janice Felstone (Felstone Field) e <b>The Wildlife Suffers Too</b> da Mulgris Deepriver (The Writhing Haunt). ★ In alternativa, Mount Hyjal: <b>Blight No More</b> da Sefira Everbright (Elderwild).",
+    "npc": [
+     "Janice Felstone",
+     "Mulgris Deepriver",
+     "Sefira Everbright"
+    ]
+   },
+   {
+    "l": 59,
+    "t": "<b>Demon Dogs</b>, <b>Blood Tinged Skies</b> e <b>Carrion Grubbage</b> da Tirion Fordring (Eastern Plaguelands). ★ In alternativa, Mount Hyjal: <b>Avalanche of Corruption</b> e <b>Gathering Storm</b> da Johun \"Punchy\" Dillas (Cradle of Tranquility).",
+    "npc": [
+     "Tirion Fordring",
+     "Johun \"Punchy\" Dillas"
     ]
    }
   ]

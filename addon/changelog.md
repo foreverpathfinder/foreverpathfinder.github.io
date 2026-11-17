@@ -1,4 +1,5 @@
-### 1.10.7
+### 1.10.8
 
-- Dungeons tab, levels 35–60: every dungeon now has its verdict (go, optional or skip, per faction), entrance, bosses in order and tips, from the Forever guides of Warcraft Tavern and Conquest Capped and the boss lists of Twinmap. New entries for The Drowned City, Krol'dok Stronghold, Alcaz Prison, Blackmaw Hold and Shaper's Terrace.
-- Dungeons tab: new "Layout" section for every dungeon, with its layout drawn from the game's own textures (ground and rooms) the entrance portal and the bosses (portrait, numbered as in the Bosses section). Drag with the left mouse button, Ctrl + mouse wheel to zoom; the mouse wheel alone keeps scrolling the page. Rebuilt from the game files by Twinmap.
+- Route, levels 44–60: every stage now lists the real quests in order, hub by hub (Tanaris, Feralas, Un'Goro Crater, Felwood, Winterspring, Western and Eastern Plaguelands), for Alliance and Horde, with a milestone and its quest-giver waypoint almost every level. Quests, levels, NPCs and chains from QuestieDB for Forever; quest-giver positions from the Wowhead Forever world map.
+- Mount Hyjal ★: the stage now has its real quests (33 quests of level 56–60 seen in the game), from Elderwild for both factions, Cradle of Tranquility and Malorne's Retreat for the Alliance; at 58–59 the milestones show Hyjal as an alternative to the Plaguelands.
+- Felwood: the Alliance stage now points to Emerald Sanctuary, where the quests are.

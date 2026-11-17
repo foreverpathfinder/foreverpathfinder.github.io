@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 17 nov 2026 · **sito v19** · **addon 1.10.7** (in locale, non ancora pubblicata).
+Aggiornato il 17 nov 2026 · **sito v20** · **addon 1.10.8** (in locale, non ancora pubblicata).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -238,7 +238,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 ## 11. Aperto e da fare
 
-1. **44–60**: passare quest per quest come nel 30–44 (script di esempio: quest per hub da `qall.json` di `qdb.js` + XP di `support/Forever/QuestXP/xpDB-traces.lua` + luogo da `quests.txt`). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
+1. **30–60 quest per quest**: fatto il 17 nov (44–60 con QuestieDB del 16 nov: quest con XP osservata, per hub; posizioni dei quest giver da `worldmap.json`, rinfrescato con `map.js`; `quests.txt` rinfrescato con `quests.js` per le quest di Mount Hyjal). Mount Hyjal ★ ha 33 quest 56–60: è la tappa del 60 e compare come alternativa nelle milestone 58–59. Da ricontrollare quando ci saranno guide provate (ordine delle quest 🟡). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
 2. **Build B e C**: alcune (Mage, Paladin, Priest, Shaman C, Warlock C) finiscono prima del 60.
 3. **Da ricontrollare nel gioco uscito**: classifica degli alt (le tier list erano sulla beta 1–30), costi del Legacy, giudizio Alleanza di Scarlet Monastery (oggi «skip»: ingresso in zona Orda).
 4. **Gold farming**: solo quando ci saranno testimonianze dal gioco.

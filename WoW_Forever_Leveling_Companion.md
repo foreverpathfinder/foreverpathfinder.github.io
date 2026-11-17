@@ -1,4 +1,4 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v19)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v20)
 
 > Aggiornato: **17 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
@@ -263,13 +263,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
 | 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
 | 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Quest di Feathermoon Stronghold di livello 43–50 (Questie). Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Emerald Sanctuary | Quest di Emerald Sanctuary di livello 51–58 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook, Frostfire Hot Springs e Starfall Village di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Quest di Chillwind Camp e Light's Hope Chapel di livello 52–58 (Questie). Alternativa: Burning Steppes da Morgan's Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ### Dun Morogh
 | Livelli | Zona | Hub | Note |
@@ -288,13 +288,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
 | 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
 | 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Quest di Feathermoon Stronghold di livello 43–50 (Questie). Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Emerald Sanctuary | Quest di Emerald Sanctuary di livello 51–58 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook, Frostfire Hot Springs e Starfall Village di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Quest di Chillwind Camp e Light's Hope Chapel di livello 52–58 (Questie). Alternativa: Burning Steppes da Morgan's Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ### Teldrassil
 | Livelli | Zona | Hub | Note |
@@ -312,13 +312,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
 | 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
 | 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Quest di Feathermoon Stronghold di livello 43–50 (Questie). Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Emerald Sanctuary | Quest di Emerald Sanctuary di livello 51–58 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook, Frostfire Hot Springs e Starfall Village di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Quest di Chillwind Camp e Light's Hope Chapel di livello 52–58 (Questie). Alternativa: Burning Steppes da Morgan's Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ### Zephras Isle (Skyborne High Order)
 | Livelli | Zona | Hub | Note |
@@ -337,13 +337,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Booty Bay | Booty Bay e Rebel Camp: quest di livello 36–38 (Questie). |
 | 38–41 | Riverglades ★ | Farholde Keep | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Farholde Keep di livello 37–40. |
 | 41–44 | Riverglades ★ | Sunnyglade / Powderfuse Port | Sunnyglade, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Feathermoon Stronghold | Wowhead 40–50. Alternativa: The Hinterlands da Aerie Peak (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Talonbranch Glade | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Morgan’s Vigil (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Feathermoon Stronghold | Quest di Feathermoon Stronghold di livello 43–50 (Questie). Alternativa: The Hinterlands da Aerie Peak (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Emerald Sanctuary | Quest di Emerald Sanctuary di livello 51–58 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook, Frostfire Hot Springs e Starfall Village di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | Chillwind Camp / Light's Hope Chapel | Quest di Chillwind Camp e Light's Hope Chapel di livello 52–58 (Questie). Alternativa: Burning Steppes da Morgan's Vigil (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ### Durotar (Orc e Troll)
 | Livelli | Zona | Hub | Note |
@@ -362,13 +362,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
 | 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
 | 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Quest di Camp Mojache di livello 42–52 (Questie). Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Bloodvenom Post / Emerald Sanctuary | Quest di Bloodvenom Post ed Emerald Sanctuary di livello 51–59 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook e Frostfire Hot Springs di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Quest di The Bulwark e Light's Hope Chapel di livello 50–58 (Questie). Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ### Mulgore (Tauren)
 | Livelli | Zona | Hub | Note |
@@ -387,13 +387,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
 | 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
 | 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Quest di Camp Mojache di livello 42–52 (Questie). Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Bloodvenom Post / Emerald Sanctuary | Quest di Bloodvenom Post ed Emerald Sanctuary di livello 51–59 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook e Frostfire Hot Springs di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Quest di The Bulwark e Light's Hope Chapel di livello 50–58 (Questie). Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ### Tirisfal Glades (Undead)
 | Livelli | Zona | Hub | Note |
@@ -410,13 +410,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
 | 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
 | 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Quest di Camp Mojache di livello 42–52 (Questie). Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Bloodvenom Post / Emerald Sanctuary | Quest di Bloodvenom Post ed Emerald Sanctuary di livello 51–59 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook e Frostfire Hot Springs di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Quest di The Bulwark e Light's Hope Chapel di livello 50–58 (Questie). Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ### Zephras Isle (Skyborne Windshaper)
 | Livelli | Zona | Hub | Note |
@@ -435,13 +435,13 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 | 36–38 | Stranglethorn Vale | Grom'gol Base Camp | Quest di Grom'gol di livello 36–38; a 38 Report to Rog'mar. |
 | 38–41 | Riverglades ★ | Rog'mar | Zona nuova di Forever (36–44, meglio dal 40 secondo wowforever.be): quest di Rog'mar di livello 36–40. |
 | 41–44 | Riverglades ★ | Bolder'ok / Powderfuse Port | Sunnyglade, Bolder'ok, Powderfuse Port e Twilight's Shroud (quest 40–46); Krol'dok Stronghold 40–45. |
-| 44–47 | Tanaris | Gadgetzan | Wowhead 40–50; Zul’Farrak 44–54. |
-| 47–50 | Feralas | Camp Mojache | Wowhead 40–50. Alternativa: The Hinterlands da Revantusk Village (41–49). |
-| 50–53 | Un'Goro Crater | Marshal's Refuge | Wowhead 48–55; The Shaper’s Terrace usa i cristalli di Un’Goro. |
-| 53–55 | Felwood | Bloodvenom Post | Wowhead 47–54. |
-| 55–57 | Winterspring | Everlook | Wowhead 55–60. |
-| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Wowhead 46–57 e 54–59. Alternativa: Burning Steppes da Flame Crest (50–59). |
-| 60–60 | Mount Hyjal ★ | Tainted Foothills | Zona nuova di fine leveling (mostri 54–60); quest non provate nella beta. |
+| 44–47 | Tanaris | Gadgetzan | Quest di Gadgetzan e Steamwheedle Port di livello 43–47 (Questie); Zul'Farrak 44–54. |
+| 47–50 | Feralas | Camp Mojache | Quest di Camp Mojache di livello 42–52 (Questie). Alternativa: The Hinterlands da Revantusk Village (41–49). |
+| 50–53 | Un'Goro Crater | Marshal's Refuge | Quest di Marshal's Refuge di livello 50–56 (Questie); The Shaper's Terrace usa i cristalli di Un'Goro. |
+| 53–55 | Felwood | Bloodvenom Post / Emerald Sanctuary | Quest di Bloodvenom Post ed Emerald Sanctuary di livello 51–59 (Questie). |
+| 55–57 | Winterspring | Everlook | Quest di Everlook e Frostfire Hot Springs di livello 52–60 (Questie). |
+| 57–60 | Western / Eastern Plaguelands | The Bulwark / Light's Hope Chapel | Quest di The Bulwark e Light's Hope Chapel di livello 50–58 (Questie). Alternativa: Burning Steppes da Flame Crest (50–59). |
+| 60–60 | Mount Hyjal ★ | Elderwild | Zona nuova (mostri 54–60): 33 quest di livello 56–60 viste nel gioco (Questie), dopo le Plaguelands o al loro posto. |
 
 ## Fonti principali
 - [wowforever.be – Druid leveling build (client 1.60.1.70707)](https://wowforever.be/leveling/druid/) · letto 1 nov · dati client (albero post-hotfix)
