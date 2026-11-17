@@ -1107,14 +1107,14 @@
    "name": "Discipline prima, poi Shadow (respec al 40)",
    "spec": "Discipline",
    "icon": "spell_holy_powerwordshield",
-   "when": "Scegli B invece di A solo se vuoi l'ordine del client wowforever.be fino al 39: Discipline con Meditation e Mental Strength, respec Shadow al 40. Non c'e una fonte affidabile che dica che livella piu veloce di A.",
+   "when": "Scegli B invece di A solo se vuoi l'ordine di wowforever.be: Discipline con Meditation e Mental Strength fino al 39, respec Shadow al 40. Non c'è una fonte affidabile che dica che livella più veloce di A.",
    "pros": [
-    "Ordine per livello dal client 70707 fino al 39, nessun dato stimato",
+    "Ordine per livello di wowforever.be dal 10 al 60, respec al 40 compreso",
     "Wand e Spirit Tap restano nella sequenza anche con Discipline"
    ],
    "cons": [
     "Solo 7 punti Shadow fino al 39 e respec Shadow al 40 (client): il punto debole 🟡",
-    "Dopo il 39 il client non dà una sequenza per livello leggibile"
+    "Respec al 40: costa oro dal trainer"
    ],
    "ratings": {
     "speed": [
@@ -1164,9 +1164,9 @@
     {
      "name": "wowforever.be – Build di leveling Priest",
      "url": "https://wowforever.be/leveling/priest/",
-     "date": "1 nov 2026",
-     "signal": "dati client, ordine 10–39",
-     "used": "build B"
+     "date": "17 nov 2026",
+     "signal": "dati client, ordine 10–39 e respec Shadow al 40 fino al 60",
+     "used": "build B e respec"
     },
     {
      "name": "Method – WoW Forever Priest Leveling Guide & Talents",
@@ -1182,12 +1182,69 @@
      "signal": "ibrido Disc con Meditation",
      "used": "pros"
     }
-   ]
+   ],
+   "respec": {
+    "at": 40,
+    "text": "azzera i talenti dal trainer e passa a Shadow: rimetti i punti come nell'ordine qui sotto (wowforever.be).",
+    "build": [
+     "Shadow Focus",
+     "Shadow Focus",
+     "Shadow Focus",
+     "Shadow Focus",
+     "Shadow Focus",
+     "Improved Shadow Word: Pain",
+     "Improved Shadow Word: Pain",
+     "Improved Mind Blast",
+     "Improved Mind Blast",
+     "Improved Mind Blast",
+     "Improved Mind Blast",
+     "Mind Flay",
+     "Improved Mind Flay",
+     "Improved Mind Flay",
+     "Spirit Tap",
+     "Shadow Weaving",
+     "Shadow Weaving",
+     "Shadow Weaving",
+     "Vampiric Embrace",
+     "Spirit Tap",
+     "Devouring Contagion",
+     "Devouring Contagion",
+     "Spirit Tap",
+     "Spirit Tap",
+     "Spirit Tap",
+     "Darkness",
+     "Darkness",
+     "Darkness",
+     "Darkness",
+     "Darkness",
+     "Shadowform",
+     "Twin Disciplines",
+     "Twin Disciplines",
+     "Twin Disciplines",
+     "Twin Disciplines",
+     "Twin Disciplines",
+     "Early Demise",
+     "Early Demise",
+     "Martyrdom",
+     "Martyrdom",
+     "Mental Strength",
+     "Mental Strength",
+     "Mental Strength",
+     "Inner Focus",
+     "Meditation",
+     "Meditation",
+     "Meditation",
+     "Mental Strength",
+     "Mental Strength",
+     "Shadow Reach",
+     "Shadow Reach"
+    ]
+   }
   }
  ],
  "buildDoubts": [
   "Ordine di Method e Warcraft Tavern non leggibile per livello (talent solo come immagini): la build B usa il client wowforever.be, l'unica sequenza per livello.",
-  "Nel client wowforever.be il blocco al 40 è un respec (oltre 40 voci per un livello): B si ferma al 39 perché oltre non è una sequenza per livello.",
+  "Nel client wowforever.be il blocco al 40 è un respec (31 punti tutti insieme): B lo mostra come respec al 40, poi un punto per livello fino al 60.",
   "Discipline pura (Warcraft Tavern, Maxroll, Mobalytics) non proposta come C: nessun ordine per livello leggibile.",
   "Rotazione non fornita per B: nessuna fonte testuale descrive la rotazione dell'ibrido.",
   "Shadowform al 40 o al 42 (A) non risolto: Warcraft Tavern indica il respec al 40, classes/priest.json riporta 42. Confermare in gioco.",

@@ -51,7 +51,9 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
        const pins=[...t.querySelectorAll('button.go[data-x]')].map(e=>[+e.dataset.x,+e.dataset.y,e.textContent.replace(/^\W+/,'').trim()]);
        const bold=[...t.querySelectorAll('.tx b')].map(e=>e.textContent.replace(/[:\s]+$/,'').trim());
        tasks.push([parseInt(t.querySelector('.lv').textContent.replace(/\D/g,''))||1,i+1,ic+y.textContent.replace(/;\s*$/,'').trim(),pins,bold,t.querySelector('input[data-id]').dataset.id])})});
-     const tal=CL.build.map((k,i)=>{const t=TAL.trees.filter(z=>z[0]===k.split('/')[0])[0];return [i+10,TAL.n[k][0],t?t[1]:'']});
+     const tl=b=>b.map((k,i)=>{const t=TAL.trees.filter(z=>z[0]===k.split('/')[0])[0];return [i+10,TAL.n[k][0],t?t[1]:'']});
+     // respec: segno "@livello:testo", poi il secondo ordine dal primo punto
+     const tal=CL.respec?tl(CL.build).concat([[0,'@'+CL.respec.at,CL.respec.text.replace(/;/g,',')]],tl(CL.respec.build)):tl(CL.build);
      const tabs={};for(const t of TABS){const e=document.getElementById('t-'+t);tabs[t]=e?lines(e):[]}
      v[bb+dg+x]={build:CL.B?CL.B.name:CL.spec,ch,tasks,tal,tabs}}
     out[r+'-'+c]={name:RA.name+' '+CL.name,faction:RA.faction,builds,xs,v}}

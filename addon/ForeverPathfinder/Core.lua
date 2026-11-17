@@ -28,7 +28,7 @@ local TT = {
     dgBoss = "Boss", dgTips = "Consigli", dgInfo = "Come conviene farli", dgNote = "Nota", qDoneTag = "fatta", dgNew = "nuovo in Forever", oTrainers = "Tutti i trainer della tua classe sulla mappa del mondo",
     zRec = "ZONE CONSIGLIATE AL LIVELLO %d", zRow = "livelli %s · %s quest adatte", oZones = "Zone consigliate per il tuo livello nella scheda Percorso",
     talTitle = "Talent · %s", talLv = "Livello %d", talMine = "Il mio livello (%d)", talNow = "Al livello %d prendi: {%s} %d/%d", talNext = "Poi, al %d: %s",
-    talFrom10 = "I talenti cominciano al livello 10: qui vedi cosa prenderai.", talDone = "Build completa: dopo il %d non ci sono altri punti.", talWhy = "Perché questa build", talHide = "Nascondi",
+    talFrom10 = "I talenti cominciano al livello 10: qui vedi cosa prenderai.", talDone = "Build completa: dopo il %d non ci sono altri punti.", talRespec = "Respec al %d: %s", talWhy = "Perché questa build", talHide = "Nascondi",
     talTrees = "Passa sopra un talento per la descrizione; clic per andare al livello in cui si prende.", talOrder = "Ordine dei talenti (clic per andare a quel livello)",
     cRot = "Rotazione", cSpells = "Spell", cRace = "Razza", cNotes = "Consigli", cRotPick = "Scegli la situazione (all'apertura quella del tuo livello):",
     cSpNow = "Da comprare e prossime", cSpAll = "Tutte", cSpNone = "Niente da comprare adesso: torna dal trainer tra qualche livello.", cBuy = "da comprare", cHave = "appresa",
@@ -93,7 +93,7 @@ local TT = {
     dgBoss = "Bosses", dgTips = "Tips", dgInfo = "How to run them", dgNote = "Note", qDoneTag = "done", dgNew = "new in Forever", oTrainers = "All your class trainers on the world map",
     zRec = "RECOMMENDED ZONES AT LEVEL %d", zRow = "levels %s · %s suitable quests", oZones = "Recommended zones for your level in the Route tab",
     talTitle = "Talents · %s", talLv = "Level %d", talMine = "My level (%d)", talNow = "At level %d take: {%s} %d/%d", talNext = "Then, at %d: %s",
-    talFrom10 = "Talents start at level 10: here you see what you will take.", talDone = "Build complete: no more points after %d.", talWhy = "Why this build", talHide = "Hide",
+    talFrom10 = "Talents start at level 10: here you see what you will take.", talDone = "Build complete: no more points after %d.", talRespec = "Respec at %d: %s", talWhy = "Why this build", talHide = "Hide",
     talTrees = "Hover a talent for its description; click to go to the level where you take it.", talOrder = "Talent order (click to go to that level)",
     cRot = "Rotation", cSpells = "Spells", cRace = "Race", cNotes = "Tips", cRotPick = "Pick the situation (it opens on your level):",
     cSpNow = "To buy and next", cSpAll = "All", cSpNone = "Nothing to buy now: go back to the trainer in a few levels.", cBuy = "to buy", cHave = "learned",
@@ -183,7 +183,14 @@ local function guide()
     -- uguale in tutte le lingue e dopo ogni aggiornamento dei dati (il numero del testo invece cambia)
     for lv, ch, n, id in PAGES[v.tasks]:gmatch("(%d+),(%d+),(%d+),(%w+)") do v._tasks[#v._tasks + 1] = { tonumber(lv), tonumber(ch), POOL[tonumber(n)], tonumber(n), id } end
     for n in PAGES[v.ch]:gmatch("%d+") do v._ch[#v._ch + 1] = POOL[tonumber(n)] end
-    for name, tree in POOL[v.tal]:gmatch("([^:;]+):([^;]*)") do v._tal[#v._tal + 1] = { 9 + #v._tal + 1, name, tree } end
+    -- "@40:testo" = respec: da lì il secondo ordine (v._rtal), contato dal primo punto
+    local list = v._tal
+    -- voce "nome:albero": l'albero è dopo l'ultimo ":" (alcuni nomi ne hanno uno, es. Improved Shadow Word: Pain)
+    for item in POOL[v.tal]:gmatch("[^;]+") do
+      local rat, txt = item:match("^@(%d+):(.*)$")
+      if rat then v._rat, v._rtxt, v._rtal = tonumber(rat), txt, {}; list = v._rtal
+      else local name, tree = item:match("^(.*):([^:]*)$"); list[#list + 1] = { 9 + #list + 1, name, tree } end
+    end
   end
   return g, k, v
 end
@@ -230,10 +237,13 @@ local function talentPoints()
   for i = 1, tabs do spent = spent + (select(3, GetTalentTabInfo(i)) or 0) end
   return spent, free, tabs > 0 and "tabs" or nil
 end
+-- l'ordine che vale al livello lv (dopo il respec, il secondo)
+-- ponytail: dopo il livello del respec si conta sul secondo ordine anche se non hai ancora fatto il respec
+local function talOf(v, lv) if v._rat and lv >= v._rat then return v._rtal end return v._tal end
 -- prossimo talento: i punti già spesi dicono a che punto dell'ordine della guida sei
 local function talentLine(v)
   local spent, free = talentPoints()
-  local t = v._tal[spent + 1]
+  local t = talOf(v, UnitLevel("player"))[spent + 1]
   if not t then return T.talentDone end
   if free > 0 then return T.talentNow:format(t[2], t[3]) end
   return T.talentNext:format(t[1], t[2], t[3])
@@ -1403,7 +1413,7 @@ local function ofaLoad(v)
   local O = _G.OneForAll
   local TC = O and O.TalentCode
   local ranks = {}
-  for _, t in ipairs(v._tal) do local key = t[2]:gsub("’", "'"):lower(); ranks[key] = (ranks[key] or 0) + 1 end
+  for _, t in ipairs(v._rtal or v._tal) do local key = t[2]:gsub("’", "'"):lower(); ranks[key] = (ranks[key] or 0) + 1 end
   local okc, code = pcall(TC.Encode, select(3, UnitClass("player")), ranks)
   if not (okc and code) then say(T.ofaFail); return end
   O:OpenPanel("talents")
@@ -1461,18 +1471,20 @@ end
 -- build, − e + ai lati (clic su un livello per guardarlo); gli alberi con i punti fino a quel livello; i prossimi talenti
 local function drawTalents(g, k, v)
   local cls = k:match("-(%a+)$")
-  local CD, trees, list = clsData()[cls] or {}, ForeverPathfinderTrees and ForeverPathfinderTrees[cls] or {}, v._tal
-  local me = UnitLevel("player")
-  local first, last = list[1] and list[1][1] or 10, list[#list] and list[#list][1] or 10
+  local CD, trees = clsData()[cls] or {}, ForeverPathfinderTrees and ForeverPathfinderTrees[cls] or {}
+  local me, fin = UnitLevel("player"), v._rtal or v._tal
+  local first, last = v._tal[1] and v._tal[1][1] or 10, fin[#fin] and fin[#fin][1] or 10
   local L = math.max(first, math.min(last, V.talLv or me))
+  local list = talOf(v, L)
   local rk, cur, maxOf, at = {}, nil, {}, {}
   local CX = PAD + 52
   for _, tr in ipairs(trees) do for _, nd in ipairs(tr[2]) do maxOf[nd[1]] = nd[5] end end
   for _, t in ipairs(list) do
     if t[1] <= L then rk[t[2]] = (rk[t[2]] or 0) + 1 end
     if t[1] == L then cur = t end
-    at[t[1]] = t
   end
+  for _, t in ipairs(v._tal) do if not v._rat or t[1] < v._rat then at[t[1]] = t end end
+  if v._rat then for _, t in ipairs(v._rtal) do if t[1] >= v._rat then at[t[1]] = t end end end
   y = y - 2
   str(F.h1, "ice", T.talTitle:format(v.build), CX, BW - PAD - CX); y = y - 34
   -- il livello e il suo talento
@@ -1489,6 +1501,7 @@ local function drawTalents(g, k, v)
   elseif L >= last then
     o = str(F.p, "mu", T.talDone:format(last), CX, BW - PAD - CX); y = y - o:GetStringHeight()
   end
+  if v._rat and L == v._rat then y = y - 4; o = str(F.p, "ac", T.talRespec:format(L, v._rtxt), CX, BW - PAD - CX); y = y - o:GetStringHeight() end
   if me < first and not V.talLv then y = y - 4; o = str(F.p, "mu", T.talFrom10, CX, BW - PAD - CX); y = y - o:GetStringHeight() end
   y = math.min(y, top - 36) - 12
   -- pulsanti: OneForAll (l'azione principale), perché questa build, torna al tuo livello
@@ -2510,7 +2523,7 @@ local function tick(quiet)
       elseif on("tal") and t[3]:gsub("^%^[^%^]*%^", ""):find("^Talent:") then
         -- voce Talent del livello L = punto numero L-9 dell'ordine della guida: spuntata quando ne hai spesi almeno tanti
         tp = tp or { talentPoints() }
-        if tp[3] then for i, x in ipairs(v._tal) do if x[1] == t[1] then all = tp[1] >= i end end end
+        if tp[3] then for i, x in ipairs(talOf(v, t[1])) do if x[1] == t[1] then all = tp[1] >= i end end end
       end
       if all then
         C.done[k .. ":" .. t[5]] = true; n = n + 1
@@ -2570,7 +2583,7 @@ function talentGlow()
   local g, _, v = guide()
   if not g then return end
   local spent, _, src = talentPoints()
-  local want = v._tal[spent + 1]
+  local want = talOf(v, UnitLevel("player"))[spent + 1]
   if not want then return end
   if src == "traits" then
     local tf, top = traitFrame()

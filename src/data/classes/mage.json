@@ -655,15 +655,16 @@
    "name": "Partenza Arcane (mana)",
    "spec": "Frost",
    "icon": "spell_nature_starfall",
-   "when": "Se resti spesso senza mana e usi molto la Wand: bevi meno, ma Ice Lance arriva al 27 invece che al 20.",
+   "when": "Se resti spesso senza mana e usi molto la Wand: Arcane fino al 30, poi respec Frost al 31. Bevi meno, ma Ice Lance arriva al 27 invece che al 20.",
    "pros": [
     "Wand Specialization: +25% di danno con la Wand per finire i mob senza spendere mana",
     "Missile Barrage ★: Frostbolt può rendere gratis Arcane Missiles",
     "Meno pause per bere nei primi livelli"
    ],
    "cons": [
-    "Ice Lance solo al 27 e Fingers of Frost al 37: più debole nell'1–30",
-    "Meno Freeze e crit sui target Frozen fino al 30"
+    "Ice Lance solo al 27: più debole nell'1–30",
+    "Meno Freeze e crit sui target Frozen fino al 30",
+    "Respec al 31: costa oro dal trainer. Icy Veins (10 nov) ora dice che Frost rende di più senza la partenza Arcane"
    ],
    "ratings": {
     "speed": [
@@ -714,15 +715,72 @@
     {
      "name": "Icy Veins – Frost Mage Leveling (Teloril)",
      "url": "https://www.icy-veins.com/wow-forever/frost-mage-leveling",
-     "date": "30 ott",
-     "signal": "letta nella sessione del 1 nov",
-     "used": "Partenza Arcane, Ice Lance al 27; ordine 20–30 ricostruito sul riepilogo 🟡"
+     "date": "10 nov",
+     "signal": "riquadro «You Can Start As Arcane»: respec Frost verso il 31; ordine Frost 10–60 dal link del calcolatore",
+     "used": "partenza Arcane fino al 30 (versione del 30 ott 🟡), respec e ordine Frost dal 31"
     }
-   ]
+   ],
+   "respec": {
+    "at": 31,
+    "text": "azzera i talenti dal trainer e passa a Frost: rimetti i punti come nell'ordine qui sotto (Icy Veins).",
+    "build": [
+     "Precision",
+     "Precision",
+     "Improved Frostbolt",
+     "Improved Frostbolt",
+     "Improved Frostbolt",
+     "Frostbite",
+     "Frostbite",
+     "Frostbite",
+     "Improved Frostbolt",
+     "Improved Frostbolt",
+     "Ice Lance",
+     "Ice Shards",
+     "Ice Shards",
+     "Ice Shards",
+     "Ice Shards",
+     "Shatter",
+     "Shatter",
+     "Shatter",
+     "Ice Shards",
+     "Ice Block",
+     "Fingers of Frost",
+     "Fingers of Frost",
+     "Cold Snap",
+     "Improved Cone of Cold",
+     "Improved Cone of Cold",
+     "Improved Cone of Cold",
+     "Frost Channeling",
+     "Frost Channeling",
+     "Frost Channeling",
+     "Improved Blizzard",
+     "Ice Barrier",
+     "Precision",
+     "Winter's Chill",
+     "Winter's Chill",
+     "Winter's Chill",
+     "Winter's Chill",
+     "Winter's Chill",
+     "Arctic Reach",
+     "Arctic Reach",
+     "Permafrost",
+     "Permafrost",
+     "Improved Blizzard",
+     "Improved Blizzard",
+     "Frost Warding",
+     "Arcane Resilience",
+     "Arcane Resilience",
+     "Arcane Resilience",
+     "Wand Specialization",
+     "Wand Specialization",
+     "Arcane Subtlety",
+     "Arcane Subtlety"
+    ]
+   }
   }
  ],
  "buildDoubts": [
-  "Arcane (Icy Veins) non inserita: la pagina Icy Veins è bloccata dalla verifica Cloudflare, quindi nessun ordine di talent verificabile. Dallo snippet: Wand Specialization 2, Improved Channeling 3, Missile Barrage 2, Precision 3 nei livelli 10–19; Ice Lance al 27.",
+  "Arcane (B): fino al 30 l'ordine della versione del 30 ott di Icy Veins (Wand Specialization, Improved Channeling, Missile Barrage, Precision); dal 9 nov la guida toglie Missile Barrage ma tiene il consiglio di partire Arcane e passare a Frost verso il 31. Dal 31 l'ordine Frost di Icy Veins (10 nov).",
   "Fire (Tavern) non inserita: la guida Warcraft Tavern mostra i talent solo come immagine, senza dati leggibili.",
   "Build A: ordine verificato contro i dati client wowforever.be (nomi, max, needs e req)."
  ]

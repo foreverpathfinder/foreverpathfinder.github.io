@@ -107,6 +107,8 @@ QuestieLoader = { ImportModule = function(_, n)
     QueryNPCSingle = function(id, k) if k == "name" then return GIVER[id] and GIVER[id][1] end; if k == "zoneID" then return id end end }
   elseif n == "TrackerUtils" then return { GetZoneNameByID = function(_, id) return GIVER[id] and GIVER[id][2] end } end
 end }
+-- build scelta: PVB="b" (di base la prima)
+if PVB ~= "" then ForeverPathfinderChar = { opt = { b = PVB } } end
 ForeverPathfinderDB = { lang = LOCALE == "itIT" and "it" or "en" } -- dalla 1.1 la lingua si sceglie nelle Opzioni (di base inglese)
 assert(loadfile(DIR .. "/Data.lua"))()
 assert(loadfile(DIR .. "/Core.lua"))("ForeverPathfinder")

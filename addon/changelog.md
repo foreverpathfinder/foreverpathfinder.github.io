@@ -1,5 +1,5 @@
-### 1.10.8
+### 1.10.9
 
-- Route, levels 44–60: every stage now lists the real quests in order, hub by hub (Tanaris, Feralas, Un'Goro Crater, Felwood, Winterspring, Western and Eastern Plaguelands), for Alliance and Horde, with a milestone and its quest-giver waypoint almost every level. Quests, levels, NPCs and chains from QuestieDB for Forever; quest-giver positions from the Wowhead Forever world map.
-- Mount Hyjal ★: the stage now has its real quests (33 quests of level 56–60 seen in the game), from Elderwild for both factions, Cradle of Tranquility and Malorne's Retreat for the Alliance; at 58–59 the milestones show Hyjal as an alternative to the Plaguelands.
-- Felwood: the Alliance stage now points to Emerald Sanctuary, where the quests are.
+- Talents: builds B and C now go to level 60. Mage B (Arcane start) and Priest B (Discipline start) show their respec, at 31 to Frost and at 40 to Shadow, then the new order up to 60; Paladin B (Holy) and Shaman C (Restoration) follow Icy Veins 10–60; Warlock C follows wowforever.be 10–60.
+- Talents: the respec level shows what to do ("Respec at 40: reset your talents at the trainer…"), and the next talent and the highlight in the talent window follow the new order from that level.
+- Fix: talents with a colon in their name (Improved Shadow Word: Pain, Improved Power Word: Shield) were cut short, so they were missing from the trees and from the highlight.

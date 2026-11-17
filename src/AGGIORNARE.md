@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 17 nov 2026 · **sito v20** · **addon 1.10.8** (in locale, non ancora pubblicata).
+Aggiornato il 17 nov 2026 · **sito v21** · **addon 1.10.9** (in locale, non ancora pubblicata).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -107,7 +107,8 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
   - `r` e `f` filtrano per razza e fazione;
   - `npc` crea il pulsante 📍 (il nome deve essere identico a quello in `worldmap.json`).
   - in `en.json` il testo serve due volte: con i `<b>` e senza tag (primi 140 caratteri, per l’addon). Se manca, `build.js` lo mette in `missing-en.json`.
-- **Build**: `builds:[{id, name, spec, icon, when, pros, cons, ratings:{speed|ease|versatility|survival|aoe|gear:[1–5, motivo, fonte]}, build, rotation?, sources}]`.
+- **Build**: `builds:[{id, name, spec, icon, when, pros, cons, ratings:{speed|ease|versatility|survival|aoe|gear:[1–5, motivo, fonte]}, build, rotation?, respec?, sources}]`.
+  - `respec: {at, text, build}` (solo B e C): dal livello `at` vale `build`, un secondo ordine completo contato dal primo punto (i punti fino ad `at` si rimettono tutti insieme). Sito e addon lo mostrano come «Respec al N». `text` comincia in minuscolo (segue «Respec al N:»).
   - A = la guida più votata (vedi §8);
   - un voto c'è solo se una fonte lo giustifica.
 - **Rotazione**: `[{title, seq:[[icona, etichetta]], text}]`.
@@ -199,6 +200,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
   - scaricali con `gh api repos/Questie/QuestieDB/contents/<percorso> -H "Accept: application/vnd.github.raw"` in una cartella, insieme a `whdq.json` (quest per dungeon dalle pagine zona di Wowhead, via `fetch` dal browser integrato);
   - copia lì `qdb.js` e `dg35.js` ed eseguili da lì.
 - **Boss dei dungeon**: Twinmap (twinmap.app, di un amico dell'utente; app installata in `%LOCALAPPDATA%/Programs/twinmap`). In `resources/app.asar` il renderer ha `DUNGEON_PINS` (dungeon classici) e `NEW_DUNGEON_PINS` (i 9 nuovi di Forever), ricostruiti dai file del gioco: per ogni dungeon nome, mappa, ingresso e boss con coordinate. L'ordine è quello degli incontri nei file, non il percorso; i nomi sono quelli degli incontri (es. «Deathless Guardians», «Ravasaur Hunters»): per il nome del mostro guarda gli NPC di Questie. L'asar si legge con un piccolo script node (intestazione JSON dopo 16 byte), senza installare niente.
+- **Icy Veins, ordine dei talent**: il link «Open in Calculator» della guida ha l'ordine dei punti dopo `#tc-` (prima di `~`): ogni carattere è il `data-talenturlid` di un talento nel calcolatore. Apri il link nel browser integrato e leggi i nomi dagli `input[data-talenturlid]` (controlla che i conteggi coincidano con i ranghi mostrati).
 - **Altre**: Icy Veins (guide del 4–10 nov, più vecchie di Mobalytics), Wowhead Forever (mappa, zone), wowforever.be (calcolatore, professioni), Warcraft Tavern e Conquest Capped (dungeon, giudizi).
 
 ## 9. Regole dell'utente
@@ -239,7 +241,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 ## 11. Aperto e da fare
 
 1. **30–60 quest per quest**: fatto il 17 nov (44–60 con QuestieDB del 16 nov: quest con XP osservata, per hub; posizioni dei quest giver da `worldmap.json`, rinfrescato con `map.js`; `quests.txt` rinfrescato con `quests.js` per le quest di Mount Hyjal). Mount Hyjal ★ ha 33 quest 56–60: è la tappa del 60 e compare come alternativa nelle milestone 58–59. Da ricontrollare quando ci saranno guide provate (ordine delle quest 🟡). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
-2. **Build B e C**: alcune (Mage, Paladin, Priest, Shaman C, Warlock C) finiscono prima del 60.
+2. **Build B e C fino al 60**: fatto il 17 nov. Mage B (Arcane, respec Frost al 31) e Priest B (Discipline, respec Shadow al 40) hanno il `respec`; Paladin B (Holy) e Shaman C (Restoration) seguono Icy Veins 10–60; Warlock C l'ordine 10–60 di wowforever.be.
 3. **Da ricontrollare nel gioco uscito**: classifica degli alt (le tier list erano sulla beta 1–30), costi del Legacy, giudizio Alleanza di Scarlet Monastery (oggi «skip»: ingresso in zona Orda).
 4. **Gold farming**: solo quando ci saranno testimonianze dal gioco.
 5. **Wago**: l'addon non c'è ancora.

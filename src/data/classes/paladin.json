@@ -1129,65 +1129,92 @@
   },
   {
    "id": "b",
-   "name": "Holy prima, poi Retribution",
+   "name": "Holy (parte in Retribution)",
    "spec": "Holy",
    "icon": "spell_holy_holybolt",
-   "when": "Scegli B invece di A se vuoi partire con Holy (Divine Strength, Improved Seals) e una rotazione semplicissima. Non ci sono dati che dicano che B livelli piu veloce di A: la differenza e la facilita di gioco.",
+   "when": "Scegli B invece di A se vuoi curare nei dungeon: Retribution fino al 21 (Benediction, Conviction, Pursuit of Justice), poi Holy dal 22 con Illumination e Holy Shock. Non ci sono dati che dicano che B livelli più veloce di A.",
    "pros": [
     "Rotazione 'extremely straightforward' (Icy Veins, Holy Paladin Leveling)",
-    "Ordine per livello dal client 70707 fino al 35, nessun dato stimato"
+    "Pursuit of Justice al 20–21: corri più veloce tra una quest e l'altra",
+    "Da Flash of Light in poi curi i dungeon senza fatica: i gruppi si trovano subito (Icy Veins)"
    ],
    "cons": [
-    "Nessun Seal of Command fino al 35 (client), contro A che lo prende al 20",
-    "Dal 36 nessun ordine disponibile: wowforever.be si ferma al 35"
+    "Healer: uccide più lento di una spec DPS (Icy Veins)",
+    "Mana stretto se usi molto le abilità di danno (Icy Veins)",
+    "Nessun Seal of Command: i 12 punti Retribution restano nei primi talenti"
    ],
    "ratings": {
     "speed": [
      3,
      "🟡 Icy Veins la definisce 'fairly solid leveling spec': dice che e valida, non misura la velocita",
-     "Icy Veins – Holy Paladin Leveling (snippet)"
+     "Icy Veins – Holy Paladin Leveling (4 nov)"
     ],
     "ease": [
      4,
      "Icy Veins: rotazione 'extremely straightforward', uguale per healing o damage",
-     "Icy Veins – Holy Paladin Leveling (snippet)"
+     "Icy Veins – Holy Paladin Leveling (4 nov)"
     ]
    },
    "build": [
-    "Divine Strength",
-    "Divine Strength",
-    "Divine Strength",
-    "Divine Strength",
-    "Divine Strength",
-    "Improved Seals",
-    "Improved Seals",
-    "Improved Seals",
     "Benediction",
     "Benediction",
     "Benediction",
     "Benediction",
     "Benediction",
+    "Conviction",
+    "Conviction",
+    "Conviction",
     "Improved Judgement",
     "Improved Judgement",
-    "Conviction",
-    "Conviction",
-    "Conviction",
     "Pursuit of Justice",
     "Pursuit of Justice",
-    "Sanctified Judgement",
-    "Sanctified Judgement",
-    "Sanctified Judgement",
-    "Unyielding Faith",
-    "Unyielding Faith",
-    "Sacred Arbiter"
+    "Spiritual Focus",
+    "Spiritual Focus",
+    "Spiritual Focus",
+    "Spiritual Focus",
+    "Spiritual Focus",
+    "Reverence",
+    "Reverence",
+    "Healing Light",
+    "Healing Light",
+    "Healing Light",
+    "Illumination",
+    "Illumination",
+    "Illumination",
+    "Illumination",
+    "Illumination",
+    "Oath of Light",
+    "Infusion of Light",
+    "Infusion of Light",
+    "Holy Conduit",
+    "Holy Conduit",
+    "Holy Shock",
+    "Boundless Light",
+    "Boundless Light",
+    "Divine Favor",
+    "Consecrated Ground",
+    "Holy Power",
+    "Holy Power",
+    "Holy Power",
+    "Holy Power",
+    "Holy Power",
+    "Light's Vigil",
+    "Divine Intellect",
+    "Divine Intellect",
+    "Divine Intellect",
+    "Divine Intellect",
+    "Divine Intellect",
+    "Consecrated Ground",
+    "Improved Seals",
+    "Improved Seals"
    ],
    "sources": [
     {
-     "name": "wowforever.be – Build di livellamento Paladin",
-     "url": "https://wowforever.be/leveling/paladin/",
-     "date": "1 nov 2026 (client 70707)",
-     "signal": "ordine esatto fino al 35",
-     "used": "build B"
+     "name": "Icy Veins – Holy Paladin Leveling",
+     "url": "https://www.icy-veins.com/wow-forever/holy-paladin-leveling",
+     "date": "4 nov 2026",
+     "signal": "ordine 10–60 dal link del calcolatore",
+     "used": "build B, pro e contro"
     },
     {
      "name": "Method – Paladin Leveling",
@@ -1201,10 +1228,7 @@
  ],
  "buildDoubts": [
   "🟡 Mobalytics yumytv (102 ♥) non letto in pagina: l'ordine Ret 10–35 è quello di classes/paladin.json, scritto prima dell'hotfix del 31 ott.",
-  "🟡 Il client wowforever.be (B) non prende Seal of Command fino al 35, mentre Method e le guide Ret lo prendono prima. Le due fonti non sono riconciliabili.",
-  "Ordine oltre il 35 non disponibile per nessuna build B: wowforever.be si ferma a 35 e Method indica solo 10–30 (o 35 con Talented).",
-  "Protection/Shockadin non proposta come C: nessun ordine per livello leggibile (Warcraft Tavern mostra i talent solo come immagini).",
-  "Ratings di B lasciati null: nessuna fonte giudica velocità, facilità o sopravvivenza di questa build.",
-  "Il file mobalytics.md indicato nel brief non esiste nella cartella scratchpad."
+  "Holy (B): dal 17 nov ordine 10–60 di Icy Veins (4 nov), dal link del calcolatore; wowforever.be ora propone una build Protection, non più Holy.",
+  "Protection/Shockadin non proposta come C: nessun ordine per livello leggibile (Warcraft Tavern mostra i talent solo come immagini)."
  ]
 }

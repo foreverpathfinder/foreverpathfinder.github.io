@@ -41,7 +41,7 @@ function setHash(){history.replaceState(null,'',HOME?location.pathname+location.
 var RA,CL,TAL,RT,FA,PT,CK;
 // build scelta (A/B/C): sovrascrive ordine dei talent, albero, spec e rotation della classe
 function buildView(base){var bs=base.builds||[],B=bs.filter(function(b){return b.id===S.o.b[S.c]})[0]||bs[0];if(!B)return base;
- var o=Object.create(base);o.B=B;if(B.build&&B.build.length){o.build=B.build;o.treeIndex=B.treeIndex}if(B.spec)o.spec=B.spec;if(B.icon)o.specIcon=B.icon;if(B.rotation&&B.rotation.length)o.rotation=B.rotation;return o}
+ var o=Object.create(base);o.B=B;if(B.build&&B.build.length){o.build=B.build;o.treeIndex=B.treeIndex}o.respec=B.respec||null;if(B.spec)o.spec=B.spec;if(B.icon)o.specIcon=B.icon;if(B.rotation&&B.rotation.length)o.rotation=B.rotation;return o}
 function bind(){RA=D.races[S.r];CL=buildView(D.classes[S.c]);TAL=D.talents[S.c];FA=D.factions[RA.faction];RT=compose();CK=S.r+'-'+S.c+(PT?'-x':'');S.done[CK]=S.done[CK]||{};
  if(SHARED){SHARED.forEach(function(id){S.done[CK][id]=1});SHARED=null;setHash()}save()}
 
@@ -63,9 +63,11 @@ function compose(){
 
 /* ---- talent (con il perk Talented i punti arrivano 5 livelli prima) ---- */
 function off(){return S.o.tal?5:0}
-function rankAt(l){var s={},n=Math.min(CL.build.length,Math.max(0,l-9+off()));for(var i=0;i<n;i++)s[CL.build[i]]=(s[CL.build[i]]||0)+1;return s}
+// respec (build B/C): dal livello respec.at vale il secondo ordine, contato dal primo punto
+function bAt(l){return CL.respec&&l>=CL.respec.at?CL.respec.build:CL.build}
+function rankAt(l){var b=bAt(l),s={},n=Math.min(b.length,Math.max(0,l-9+off()));for(var i=0;i<n;i++)s[b[i]]=(s[b[i]]||0)+1;return s}
 function tEnc(l,fc){var s=rankAt(l);return TAL.trees.map(function(t,i){return ((fc&&fc[i])||t[2]).map(function(n){return n&&s[t[0]+'/'+n]||0}).join('').replace(/0+$/,'')}).join('-').replace(/-+$/,'')}
-function tAt(l){var i=l-10+off();return i>=0&&i<CL.build.length?CL.build[i]:null}
+function tAt(l){var b=bAt(l),i=l-10+off();return i>=0&&i<b.length?b[i]:null}
 
 /* ---- click and go: pulsanti che portano sulla mappa ---- */
 function mine(side){return !side||side===(RA.faction==='A'?1:2)}
@@ -98,6 +100,7 @@ function profTasks(l){var P=S.o.prof;if(!P.length)return [];var a=P.join(' e ');
  if(l===20)return ['<b>'+a+'</b>: Expert (skill 125 → max 225) dal Trainer.'];
  if(l===35)return ['<b>'+a+'</b>: Artisan (skill 200 → max 300).'];return []}
 function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]===l}),b=tAt(l);
+ if(CL.respec&&l===CL.respec.at)t.push(['<b>Respec:</b> '+CL.respec.text,'<button class="go" data-sec="build">Calcolatore ›</button>']);
  if(b){var n=TAL.n[b];t.push([img(n[1])+'<b>Talent:</b> '+n[0]+' '+rankAt(l)[b]+'/'+n[2]+' <span class="note">'+(CL.why[n[0]]||'')+'</span>','<button class="go" data-sec="build">Calcolatore ›</button>'])}
  if(sp.length)t.push([img(sp[0][2])+'<b>Trainer:</b> '+sp.map(function(x){return x[1]}).join(', '),npcBtn(near(D.map.trainers[S.c],RT.steps[stepAt(l)][2],RT.steps[stepAt(l)][3]),CL.name+' Trainer')]);
  msFor(l).forEach(function(m){t.push([m.t,msBtns(m)])});
@@ -191,8 +194,11 @@ $('lvr').oninput=function(){S.L=+this.value;renderLevel()};
 /* ---- talent: ordine + calcolatore di wowforever.be ---- */
 function drawOrder(){
  var g=[],cnt={},o='',f=10-off();
- CL.build.forEach(function(b,i){if(f+i>MAXL)return;if(g.length&&g[g.length-1].k===b)g[g.length-1].n++;else g.push({k:b,n:1,from:f+i})});
- g.forEach(function(x){cnt[x.k]=(cnt[x.k]||0)+x.n;var a=x.from,e=x.from+x.n-1,t=TAL.n[x.k];
+ var R=CL.respec,push=function(b,lv){if(lv>MAXL)return;if(g.length&&g[g.length-1].k===b&&!g[g.length-1].rs){g[g.length-1].n++;g[g.length-1].to=lv}else g.push({k:b,n:1,from:lv,to:lv})};
+ CL.build.forEach(function(b,i){if(!R||f+i<R.at)push(b,f+i)});
+ // respec: i punti fino al livello del respec si rimettono tutti insieme, poi uno per livello
+ if(R){var m=g.push({rs:1,from:R.at});R.build.forEach(function(b,i){var lv=Math.max(R.at,f+i),x=lv===R.at&&g.slice(m).filter(function(y){return y.k===b})[0];if(x)x.n++;else push(b,lv)})}
+ g.forEach(function(x){if(x.rs){cnt={};o+='<div class="o rs'+(S.L>x.from?' past':S.L===x.from?' cur':'')+'" data-lv="'+x.from+'"><div><b>Respec · liv. '+x.from+'</b>'+R.text.charAt(0).toUpperCase()+R.text.slice(1)+'</div></div>';return}cnt[x.k]=(cnt[x.k]||0)+x.n;var a=x.from,e=x.to,t=TAL.n[x.k];
   o+='<div class="o'+(S.L>e?' past':'')+(S.L>=a&&S.L<=e?' cur':'')+'" data-lv="'+a+'">'+img(t[1],'s')+'<div><b>'+t[0]+'</b>'+cnt[x.k]+'/'+t[2]+' · liv. '+(a===e?a:a+'–'+e)+'</div></div>'});
  $('order').innerHTML=o;
 }

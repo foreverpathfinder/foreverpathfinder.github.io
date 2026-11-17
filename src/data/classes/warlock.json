@@ -1397,26 +1397,26 @@
    "name": "Affliction (ordine dei dati client)",
    "spec": "Affliction",
    "icon": "spell_shadow_deathcoil",
-   "when": "Stessa spec di A con Pandemic e Malevolence prima dei drain: per chi vuole l'ordine del client wowforever.be.",
+   "when": "Stessa spec di A con Pandemic presto e qualche punto in Demonology dal 46: per chi vuole l'ordine di wowforever.be.",
    "pros": [
-    "Ordine letto dal client wowforever.be, concorde con il testo Method",
-    "Suppression 5 entro il 19: niente miss sui mob del tuo livello",
-    "Pandemic e Malevolence arrivano prima: più crit sui DoT"
+    "Ordine per livello di wowforever.be dal 10 al 60",
+    "Suppression 4 entro il 13: meno miss sui mob del tuo livello",
+    "Pandemic al 20–22 e Fel Concentration subito dopo (23–25)"
    ],
    "cons": [
-    "Fel Concentration e Siphon Life solo dal 30/31",
-    "Crit investiti prima dei drain: rendono poco senza crit (Tavern, 🟡)",
-    "Soul Siphon solo al 34"
+    "Siphon Life solo al 41 e Improved Drains dal 43",
+    "Crit investiti presto (Pandemic, Malevolence): rendono poco senza crit (Tavern, 🟡)",
+    "Dal 46 punti in Demonology (Unholy Power, Fel Vitality) invece che in Affliction"
    ],
    "ratings": {
     "speed": [
      3,
-     "Pandemic e Malevolence prima dei drain: Warcraft Tavern li dà a basso rendimento senza crit (🟡 riportato dalla guida).",
+     "Pandemic e Malevolence presto, prima di Improved Drains: Warcraft Tavern li dà a basso rendimento senza crit (🟡 riportato dalla guida).",
      "Warcraft Tavern"
     ],
     "survival": [
      3,
-     "Fel Concentration arriva al 31, quindi il drain tank parte più tardi che in A (Method: serve per il drain tank).",
+     "Fel Concentration al 23–25, quasi come in A (Method: serve per il drain tank); Improved Drains solo dal 43.",
      "Method (Roguery)"
     ],
     "aoe": [
@@ -1440,35 +1440,55 @@
     "Improved Corruption",
     "Improved Corruption",
     "Improved Corruption",
-    "Suppression",
+    "Improved Life Tap",
     "Pandemic",
     "Pandemic",
     "Pandemic",
-    "Improved Bane of Agony",
-    "Improved Bane of Agony",
+    "Fel Concentration",
+    "Fel Concentration",
+    "Fel Concentration",
+    "Nightfall",
+    "Nightfall",
     "Malevolence",
     "Malevolence",
+    "Soul Siphon",
+    "Soul Siphon",
+    "Soul Siphon",
     "Malevolence",
     "Malevolence",
+    "Shadow Mastery",
+    "Shadow Mastery",
+    "Shadow Mastery",
+    "Shadow Mastery",
+    "Shadow Mastery",
     "Malevolence",
     "Siphon Life",
-    "Fel Concentration",
-    "Fel Concentration",
-    "Fel Concentration",
-    "Soul Siphon",
-    "Shadow Mastery",
-    "Shadow Mastery",
-    "Shadow Mastery",
-    "Shadow Mastery",
-    "Shadow Mastery",
-    "Wrack"
+    "Improved Life Tap",
+    "Improved Drains",
+    "Improved Drains",
+    "Improved Drains",
+    "Unholy Power",
+    "Unholy Power",
+    "Unholy Power",
+    "Unholy Power",
+    "Unholy Power",
+    "Demonic Energies",
+    "Demonic Energies",
+    "Fel Vitality",
+    "Fel Vitality",
+    "Fel Vitality",
+    "Improved Bane of Agony",
+    "Improved Bane of Agony",
+    "Grim Reach",
+    "Grim Reach",
+    "Suppression"
    ],
    "sources": [
     {
-     "name": "wowforever.be – Warlock leveling (client 1.60.1.70707)",
+     "name": "wowforever.be – Warlock leveling",
      "url": "https://wowforever.be/leveling/warlock/",
-     "date": "1 nov 2026",
-     "signal": "dati client",
+     "date": "17 nov 2026",
+     "signal": "dati client, ordine 10–60",
      "used": "ordine talent Affliction"
     },
     {
@@ -1491,6 +1511,6 @@
  "buildDoubts": [
   "Demonology (B): dal 6 nov ordine 10–60 di Mobalytics Crix (agg. 5 nov). Crix propone anche di passare da Affliction a Demonology al 26 (respec).",
   "Affliction A: ordine per livello di Crix (agg. 12 nov, dopo il rework di Wrack del 10 nov); i punti 55–59 sono flessibili (Bane sui server PvE, Molten Skin sui PvP).",
-  "Affliction C: uguale nel client wowforever.be e nel testo Method fino al 40; le valutazioni di speed sono 🟡 perché l'effetto dei crit prima dei drain viene da una sola guida."
+  "Affliction C: dal 17 nov ordine 10–60 di wowforever.be, diverso da quello del 1 nov (Pandemic al 20, Demonology dal 46); le valutazioni di speed sono 🟡 perché l'effetto dei crit prima dei drain viene da una sola guida."
  ]
 }

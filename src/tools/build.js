@@ -70,7 +70,10 @@ for (const [k, cl] of dir('classes')) {
   const builds = (cl.builds && cl.builds.length ? cl.builds : [{ id: 'a', name: cl.spec }]).map((b, i) => {
     const o = Object.assign({}, b, { id: b.id || 'abc'[i], sources: (b.sources || []).map(srcB) });
     if (i && b.build && b.build.length) Object.assign(o, resolve(b.build, k + ' build ' + o.id)); else { o.build = []; delete o.treeIndex; }
-    if (i && o.build.length && o.build.length < MAXL - 9) W(`${k} build ${o.id}: ordine corto (${o.build.length} punti)`);
+    // respec: dal livello at vale un secondo ordine completo (stessi nomi di build), contato dal primo punto
+    if (b.respec) o.respec = { at: b.respec.at, text: b.respec.text, build: resolve(b.respec.build, k + ' respec ' + o.id).build };
+    const fin = o.respec ? o.respec.build : o.build;
+    if (i && fin.length && fin.length < MAXL - 9) W(`${k} build ${o.id}: ordine corto (${fin.length} punti)`);
     return o;
   });
   talents[k] = { trees: wf.trees.map(t => [t.key, t.name, Object.entries(t.nodes).sort((a, b) => a[1].index - b[1].index).map(e => e[0])]), n: used,
