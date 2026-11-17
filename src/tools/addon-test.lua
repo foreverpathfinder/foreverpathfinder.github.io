@@ -267,7 +267,7 @@ local dbg = table.concat(chat, "\n", n0 + 1)
 check(#chat == n0 + 8 and dbg:find("OneForAll", 1, true) and dbg:find("Interface 16001", 1, true) and dbg:find("/ " .. RACE, 1, true) and dbg:find(EXPECT_KEY, 1, true), "/fp debug: 5 righe con Interface, razza, guida\n" .. dbg)
 -- 4c2) /fp bug: senza StaticPopup (qui) il link della issue va in chat, con versione e guida nel titolo
 n0 = #chat; fp("bug")
-check(#chat == n0 + 1 and chat[#chat]:find("foreverpathfinder.github.io/segnala?a=", 1, true) and chat[#chat]:find(EXPECT_KEY, 1, true), "/fp bug: link di segnala.html in chat\n" .. tostring(chat[#chat]))
+check(#chat == n0 + 1 and chat[#chat]:find("foreverpathfinder.github.io/report", 1, true), "/fp bug: link di report.html in chat\n" .. tostring(chat[#chat]))
 -- 4d) collegamenti col gioco (Human Warrior al livello 1)
 fp("set human-warrior"); ForeverPathfinderChar.opt = {}
 local hw = D["human-warrior"]
