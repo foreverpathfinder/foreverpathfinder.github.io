@@ -70,7 +70,7 @@ local TT = {
     dgDo = "completa {%s}", dgTurn = "consegna {%s}",
     dgSteps = "Tutti i passi", dgStepsHide = "Nascondi i passi", dgGLog = "Nel registro", dgGLock = "Da sbloccare", dgGTake = "Puoi prenderle subito", dgGDone = "Fatte",
     dgQSum = "Quest:", dgQLog = "%d nel registro", dgQDone = "%d fatte", dgQDone1 = "1 fatta", dgQTake = "%d da prendere", dgQn = "quest %d/%d",
-    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, portale = ingresso. Rotella o + e − per ingrandire, trascina per spostarti. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
+    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, portale = ingresso. Tasto sinistro tenuto per spostare la pianta, Ctrl + rotella o + e − per ingrandire. Maiusc + rotella: in cima o in fondo alla pagina. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
@@ -134,7 +134,7 @@ local TT = {
     dgDo = "complete {%s}", dgTurn = "turn in {%s}",
     dgSteps = "All steps", dgStepsHide = "Hide the steps", dgGLog = "In your log", dgGLock = "To unlock", dgGTake = "You can pick these up now", dgGDone = "Done",
     dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
-    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, portal = entrance. Mouse wheel or + and − to zoom, drag to move. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
+    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, portal = entrance. Hold the left button to move the layout, Ctrl + mouse wheel or + and − to zoom. Shift + mouse wheel: top or bottom of the page. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
@@ -581,8 +581,13 @@ rect(bar, "BACKGROUND", "bd", 1, 0, 0, 3, H - TOP - 10)
 local thumb = bar:CreateTexture(nil, "OVERLAY"); paint(thumb, "frame"); thumb:SetSize(3, 48); bar:SetThumbTexture(thumb)
 bar:SetMinMaxValues(0, 0); bar:SetValueStep(1); bar:SetValue(0)
 bar:SetScript("OnValueChanged", function(_, v) scroll:SetVerticalScroll(v) end)
+-- rotella: 120 px per scatto; con Maiusc salta in cima o in fondo alla pagina
+local function pageWheel(d)
+  local lo, hi = bar:GetMinMaxValues()
+  if IsShiftKeyDown() then bar:SetValue(d > 0 and lo or hi) else bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 120))) end
+end
 scroll:EnableMouseWheel(true)
-scroll:SetScript("OnMouseWheel", function(_, d) local lo, hi = bar:GetMinMaxValues(); bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 48))) end)
+scroll:SetScript("OnMouseWheel", function(_, d) pageWheel(d) end)
 
 -- elementi riusati a ogni disegno: testi, icone, rettangoli (card e righe di separazione), caselle, pulsanti
 local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {}, hv = {}, nd = {}, rw = {}, lb = {}, mp = {}, mk = {} }
@@ -1118,7 +1123,8 @@ end
 -- file del gioco nello zip). Ogni stanza sta in un quadrato che contiene il pezzo girato: SetTexCoord a 8 valori fa la rotazione
 -- e fuori dall'immagine il bordo è trasparente (CLAMPTOBLACKADDITIVE). Nei dungeon all'aperto il terreno passa da una maschera
 -- (Masks/*.tga, fatta da dgmaps.js: la sagoma attorno a boss e ingresso), così si vede solo il dungeon, sullo stesso fondo di tutti.
--- Visore: una finestra a ritaglio (ScrollFrame) con dentro una tela che si ingrandisce (rotella, + e −) e si trascina col mouse.
+-- Visore: una finestra a ritaglio (ScrollFrame) con dentro una tela che si ingrandisce (Ctrl + rotella, + e −) e si trascina col
+-- tasto sinistro; la rotella da sola fa scorrere la pagina, così la pianta non la blocca.
 -- I boss (ritratto del modello dal displayID, o un'icona) stanno sopra la tela e non cambiano misura con lo zoom. Fondo trasparente:
 -- si vede quello della finestra, come nel resto delle schede.
 local PLAN, PAK = ForeverPathfinderPlan or {}, { ["deathless guardians"] = "deathless marrow", ["doom'rel"] = "the seven" }
@@ -1132,11 +1138,11 @@ local function planViewer()
   local cv = CreateFrame("Frame", nil, hold); cv:SetSize(1, 1)
   local mask = cv:CreateMaskTexture(); mask:SetPoint("TOPLEFT", cv, "TOPLEFT", 0, 0)
   PV = { v = v, hold = hold, cv = cv, mask = mask, tex = {}, nt = 0, pins = {}, np = 0, z = 1, px = 0, py = 0 }
-  -- tela e boss nella posizione di zoom e spostamento attuali; il dungeon resta dentro la finestra
+  -- tela e boss nella posizione di zoom e spostamento attuali; il centro della finestra resta sempre sul dungeon
   function PV.place()
     local cw, ch = PV.cw * PV.z, PV.ch * PV.z
-    PV.px = cw <= PV.vw and (PV.vw - cw) / 2 or math.max(PV.vw - cw, math.min(0, PV.px))
-    PV.py = ch <= PV.vh and (PV.vh - ch) / 2 or math.max(PV.vh - ch, math.min(0, PV.py))
+    PV.px = math.max(PV.vw / 2 - cw, math.min(PV.vw / 2, PV.px))
+    PV.py = math.max(PV.vh / 2 - ch, math.min(PV.vh / 2, PV.py))
     cv:SetScale(PV.z); cv:ClearAllPoints(); cv:SetPoint("TOPLEFT", hold, "TOPLEFT", PV.px / PV.z, -PV.py / PV.z)
     for i = 1, PV.np do local o = PV.pins[i]; o:ClearAllPoints(); o:SetPoint("CENTER", hold, "TOPLEFT", PV.px + o.x * PV.s * PV.z, -(PV.py + o.y * PV.s * PV.z)) end
   end
@@ -1148,15 +1154,20 @@ local function planViewer()
     PV.px, PV.py = cx - (cx - PV.px) * nz / PV.z, cy - (cy - PV.py) * nz / PV.z
     PV.z = nz; PV.place()
   end
+  function PV.fit() PV.z = 1; PV.px, PV.py = (PV.vw - PV.cw) / 2, (PV.vh - PV.ch) / 2; PV.place() end
+  -- la rotella fa scorrere la pagina anche sopra la pianta; Ctrl + rotella ingrandisce. Tasto sinistro tenuto: sposta la pianta
   v:EnableMouse(true); v:EnableMouseWheel(true)
-  v:SetScript("OnMouseWheel", function(_, d) local cx, cy = cursor(); PV.zoom(d > 0 and 1.25 or 0.8, cx, cy) end)
-  v:SetScript("OnMouseDown", function() local cx, cy = cursor(); PV.drag = { cx, cy, PV.px, PV.py } end)
-  v:SetScript("OnMouseUp", function() PV.drag = nil end)
+  v:SetScript("OnMouseWheel", function(_, d)
+    if not IsControlKeyDown() then return pageWheel(d) end
+    local cx, cy = cursor(); PV.zoom(d > 0 and 1.25 or 0.8, cx, cy)
+  end)
+  v:SetScript("OnMouseDown", function(_, btn) if btn ~= "LeftButton" then return end; local cx, cy = cursor(); PV.drag = { cx, cy, PV.px, PV.py } end)
+  v:SetScript("OnMouseUp", function(_, btn) if btn == "LeftButton" then PV.drag = nil end end)
   v:SetScript("OnHide", function() PV.drag = nil end)
   v:SetScript("OnUpdate", function() local d = PV.drag; if not d then return end; local cx, cy = cursor(); PV.px, PV.py = d[3] + cx - d[1], d[4] + cy - d[2]; PV.place() end)
   -- + − e torna a vedere tutto, nell'angolo in alto a destra
   local x = -8
-  for _, k in ipairs({ { "1:1", function() PV.z = 1; PV.place() end }, { "−", function() PV.zoom(0.8) end }, { "+", function() PV.zoom(1.25) end } }) do
+  for _, k in ipairs({ { "1:1", function() PV.fit() end }, { "−", function() PV.zoom(0.8) end }, { "+", function() PV.zoom(1.25) end } }) do
     local bt = pill(v, k[1]); bt.fit(k[1] == "1:1" and 34 or 26, 26); bt.fs:ClearAllPoints(); bt.fs:SetPoint("CENTER", 0, 0); bt.set(true)
     bt:SetPoint("TOPRIGHT", v, "TOPRIGHT", x, -8); bt:SetFrameLevel(v:GetFrameLevel() + 20); bt:SetScript("OnClick", k[2]); x = x - bt:GetWidth() - 4
   end
@@ -1250,11 +1261,9 @@ local function dgPlan(d, wings)
   for i, b in ipairs(m.b) do bs[i] = { b[1], b[2], b[3], at(b[1]), i, b[4] } end
   table.sort(bs, function(a, b) if a[4] ~= b[4] then return a[4] < b[4] end return a[5] < b[5] end)
   if m.e then pvPin("", m.e[1], m.e[2], T.dgEntr) end
-  local names = {}
-  for k, b in ipairs(bs) do pvPin(k, b[2], b[3], k .. ". " .. b[1], b[6]); names[k] = "|cffe0a074" .. k .. "|r " .. b[1] end
-  pv.place()
+  for k, b in ipairs(bs) do pvPin(k, b[2], b[3], k .. ". " .. b[1], b[6]) end
+  pv.fit()
   y = y - 8 - VH - 4
-  line("0", table.concat(names, "   "))
   line("0", "|cff7b7770" .. T.dgPlanTip .. "|r")
 end
 
