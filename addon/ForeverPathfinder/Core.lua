@@ -70,7 +70,7 @@ local TT = {
     dgDo = "completa {%s}", dgTurn = "consegna {%s}",
     dgSteps = "Tutti i passi", dgStepsHide = "Nascondi i passi", dgGLog = "Nel registro", dgGLock = "Da sbloccare", dgGTake = "Puoi prenderle subito", dgGDone = "Fatte",
     dgQSum = "Quest:", dgQLog = "%d nel registro", dgQDone = "%d fatte", dgQDone1 = "1 fatta", dgQTake = "%d da prendere", dgQn = "quest %d/%d",
-    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, portale = ingresso. Tasto sinistro tenuto per spostare la pianta, Ctrl + rotella o + e − per ingrandire. Maiusc + rotella: in cima o in fondo alla pagina. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
+    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgKeyDrag = "Tasto sinistro", dgDrag = "trascina", dgKeyZoom = "Ctrl + rotella", dgZoom = "ingrandisci e riduci", dgCredit = "Pianta ricostruita dall'addon Twinmap", dgEntr = "Ingresso",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
@@ -134,7 +134,7 @@ local TT = {
     dgDo = "complete {%s}", dgTurn = "turn in {%s}",
     dgSteps = "All steps", dgStepsHide = "Hide the steps", dgGLog = "In your log", dgGLock = "To unlock", dgGTake = "You can pick these up now", dgGDone = "Done",
     dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
-    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, portal = entrance. Hold the left button to move the layout, Ctrl + mouse wheel or + and − to zoom. Shift + mouse wheel: top or bottom of the page. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
+    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgKeyDrag = "Left click", dgDrag = "drag", dgKeyZoom = "Ctrl + wheel", dgZoom = "zoom in and out", dgCredit = "Layout rebuilt by the Twinmap addon", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
@@ -581,11 +581,8 @@ rect(bar, "BACKGROUND", "bd", 1, 0, 0, 3, H - TOP - 10)
 local thumb = bar:CreateTexture(nil, "OVERLAY"); paint(thumb, "frame"); thumb:SetSize(3, 48); bar:SetThumbTexture(thumb)
 bar:SetMinMaxValues(0, 0); bar:SetValueStep(1); bar:SetValue(0)
 bar:SetScript("OnValueChanged", function(_, v) scroll:SetVerticalScroll(v) end)
--- rotella: 120 px per scatto; con Maiusc salta in cima o in fondo alla pagina
-local function pageWheel(d)
-  local lo, hi = bar:GetMinMaxValues()
-  if IsShiftKeyDown() then bar:SetValue(d > 0 and lo or hi) else bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 120))) end
-end
+-- rotella: 120 px per scatto
+local function pageWheel(d) local lo, hi = bar:GetMinMaxValues(); bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 120))) end
 scroll:EnableMouseWheel(true)
 scroll:SetScript("OnMouseWheel", function(_, d) pageWheel(d) end)
 
@@ -719,7 +716,7 @@ local function mini(ic, x, yy, tip, tip2, fn)
 end
 local PV -- visore della pianta dei dungeon (più sotto, scheda Dungeon)
 local function clear()
-  if PV then PV.v:Hide() end
+  if PV then PV.v:Hide(); PV.keys:Hide() end
   for k, l in pairs(P) do for i = 1, N[k] do l[i]:Hide() end; N[k] = 0 end
   y, cardTop = 0, nil
 end
@@ -1171,6 +1168,17 @@ local function planViewer()
     local bt = pill(v, k[1]); bt.fit(k[1] == "1:1" and 34 or 26, 26); bt.fs:ClearAllPoints(); bt.fs:SetPoint("CENTER", 0, 0); bt.set(true)
     bt:SetPoint("TOPRIGHT", v, "TOPRIGHT", x, -8); bt:SetFrameLevel(v:GetFrameLevel() + 20); bt:SetScript("OnClick", k[2]); x = x - bt:GetWidth() - 4
   end
+  -- comandi sotto la pianta, in tasti pieni perché si notino; il merito a Twinmap sta nel suggerimento al passaggio del mouse.
+  -- Sono figli della pagina (fuori dalla finestra a ritaglio verrebbero tagliati), quindi clear() li nasconde a parte
+  local keys = CreateFrame("Frame", nil, body); keys:SetSize(1, 26); PV.keys = keys
+  local kx = 0
+  for _, k in ipairs({ { T.dgKeyDrag, T.dgDrag }, { T.dgKeyZoom, T.dgZoom } }) do
+    local bt = pill(keys, k[1]); bt.prim = true; bt.set(); bt:SetPoint("TOPLEFT", kx, 0)
+    bt:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(T.dgCredit); GameTooltip:Show() end)
+    bt:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    local fs = keys:CreateFontString(nil, "OVERLAY"); fs:SetFontObject(F.nav); fs:SetTextColor(unpack(COL.ice)); fs:SetText(k[2])
+    fs:SetPoint("TOPLEFT", kx + bt:GetWidth() + 8, -6); kx = kx + bt:GetWidth() + 8 + fs:GetStringWidth() + 22
+  end
   return PV
 end
 local function pvTex()
@@ -1234,6 +1242,7 @@ local function dgPlan(d, wings)
   for _, o in ipairs(pv.pins) do o:Hide() end
   pv.v:ClearAllPoints(); pv.v:SetPoint("TOPLEFT", body, "TOPLEFT", PAD, y - 8); pv.v:SetSize(vw, VH); pv.hold:SetSize(vw, VH)
   pv.v:SetFrameLevel(body:GetFrameLevel() + 2); pv.v:Show()
+  pv.keys:ClearAllPoints(); pv.keys:SetPoint("TOPLEFT", body, "TOPLEFT", PAD, y - 8 - VH - 8); pv.keys:Show()
   -- terreno: blocchi della minimappa (533,33 yard per lato), tagliati ai bordi della pianta, dentro la maschera della sagoma
   local BYD = 1600 / 3
   if m.mk then pv.mask:SetTexture(MASKDIR .. m.mk .. ".tga", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE"); pv.mask:SetSize(m.w * s, m.h * s) end
@@ -1263,8 +1272,7 @@ local function dgPlan(d, wings)
   if m.e then pvPin("", m.e[1], m.e[2], T.dgEntr) end
   for k, b in ipairs(bs) do pvPin(k, b[2], b[3], k .. ". " .. b[1], b[6]) end
   pv.fit()
-  y = y - 8 - VH - 4
-  line("0", "|cff7b7770" .. T.dgPlanTip .. "|r")
+  y = y - 8 - VH - 8 - 26 - 8
 end
 
 function drawDungeons(g)

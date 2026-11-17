@@ -180,6 +180,8 @@ end
 -- sezione o parte più in basso di una scheda: "classe.Spell" = clic sul pulsante Spell, "talent~400" = scorrimento di 400
 local tb, sub = ONLY:match("^(%a+)%.(.+)$")
 local tb2, off = ONLY:match("^(%a+)~(%d+)$")
+-- "dungeon.Uldaman>Pianta~300": i clic e poi lo scorrimento
+if sub and sub:find("~%d+$") then sub, off = sub:match("^(.-)~(%d+)$") end
 if tb or tb2 then
   for _, t in ipairs(list) do if t[1] == (tb or tb2) then findPill(t[2]).scripts.OnClick() end end
   -- "dungeon.Uldaman>Pianta": più clic in fila
