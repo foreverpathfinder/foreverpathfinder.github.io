@@ -1097,9 +1097,9 @@ $('bShare').onclick=function(){var u=shareUrl();$('shareUrl').value=u;var q=$('q
  $('shareDlg').showModal()};
 $('shareCopy').onclick=function(){var i=$('shareUrl');i.select();try{navigator.clipboard.writeText(i.value)}catch(e){document.execCommand('copy')}this.textContent='Copied ✔'};
 
-/* ---- segnala un errore: issue già compilata nel repo GitHub ---- */
-function bugLink(){var t='Error: '+RA.name+' '+CL.name+' lvl '+S.L+' ('+(S.tab||'livello')+')',b='**Character:** '+RA.name+' '+CL.name+' – build '+(CL.B?CL.B.name:CL.spec)+'\n**Level:** '+S.L+'\n**Tab:** '+(S.tab||'livello')+'\n**Route:** '+RT.name+(PT?' + '+PT.title:'')+'\n\n**What is wrong:**\n\n\n**What it should say (if you know):**\n';
- $('bBug').href='https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues/new?title='+encodeURIComponent(t)+'&body='+encodeURIComponent(b)}
+/* ---- segnala un errore: pagina segnala.html (Google Form, senza login) col contesto già scritto ---- */
+function bugLink(){var c=RA.name+' '+CL.name+' · '+S.L+' · '+(S.tab||'livello')+' · '+(CL.B?CL.B.name:CL.spec)+' · '+RT.name+(PT?' + '+PT.title:'');
+ $('bBug').href='segnala.html?c='+encodeURIComponent(c)}
 
 /* ---- pagina iniziale: personaggi salvati + scelta razza/classe; barra compatta del personaggio sopra le schede ---- */
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return '&#'+c.charCodeAt(0)+';'})}

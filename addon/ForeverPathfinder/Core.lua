@@ -1706,10 +1706,10 @@ local function drawPage(v, name)
 end
 
 -- segnala un errore: il gioco non apre i link, quindi un riquadro col link già selezionato da copiare (Ctrl+C);
--- nel titolo della issue versione e guida, come il pulsante del sito
+-- la pagina segnala.html (senza login) riceve versione e guida già scritte, come dal pulsante del sito
 local function bugLink()
   local meta = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
-  local url = "https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues/new?title=Addon+v" .. tostring(meta and meta(ADDON, "Version")) .. "+" .. (charKey() or "")
+  local url = "https://foreverpathfinder.github.io/segnala.html?d=Addon&c=v" .. tostring(meta and meta(ADDON, "Version")) .. "+" .. (charKey() or "")
   if not (StaticPopupDialogs and StaticPopup_Show) then say(url); return end
   StaticPopupDialogs.FP_BUG = { text = T.bugTxt, button1 = OKAY or "OK", hasEditBox = true, editBoxWidth = 350, timeout = 0, whileDead = true, hideOnEscape = true,
     OnShow = function(s) local e = s.editBox or s.EditBox; e:SetText(url); e:HighlightText(); e:SetFocus() end,

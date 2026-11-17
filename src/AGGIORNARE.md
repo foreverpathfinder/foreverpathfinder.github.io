@@ -133,7 +133,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 - **Altre funzioni**:
   - ricerca 🔍 (`sIndex`);
   - condivisione `#s=<base64>`;
-  - «Segnala un errore» apre una issue di GitHub precompilata;
+  - «Segnala un errore» apre `segnala.html` (scritta a mano, IT/EN) col contesto già scritto; la pagina manda le segnalazioni, senza login, a un Google Form dell’utente (`FORM` ed `entry.*` in fondo alla pagina: se cambi i campi del modulo, aggiornali). Anche l’addon (`/fp bug`) e `addon.html` puntano lì. Claude controlla le risposte ogni giorno con il task pianificato `segnalazioni-forever-pathfinder`;
   - ☕ PayPal;
   - contatore hits.sh.
 - **Cookie**: il calcolatore di wowforever.be si carica solo dopo «Accetta e carica», perché salva cookie di Google Analytics. Il sito da solo non salva cookie.
