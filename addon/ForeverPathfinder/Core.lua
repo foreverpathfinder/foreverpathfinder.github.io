@@ -134,7 +134,7 @@ local TT = {
     dgDo = "complete {%s}", dgTurn = "turn in {%s}",
     dgSteps = "All steps", dgStepsHide = "Hide the steps", dgGLog = "In your log", dgGLock = "To unlock", dgGTake = "You can pick these up now", dgGDone = "Done",
     dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
-    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Map", dgPlanTip = "Bosses numbered as in the Bosses section, green = entrance. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
+    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, green = entrance. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
@@ -1112,7 +1112,7 @@ local function dgMenuRow(x, fit, full)
   local o = str(F.p, VCOL[x[4]] or "tx", t, bx, BW - PAD - bx); o:SetPoint("TOPLEFT", bx, y - 5)
   y = top - math.max(24, o:GetStringHeight() + 10)
 end
--- pianta del dungeon (1.10.7, prova): i pezzi sono texture del gioco prese per numero di file (niente file nello zip),
+-- pianta del dungeon (1.10.7): terreno (blocchi della minimappa) e stanze sono texture del gioco prese per numero di file (niente file nello zip),
 -- messe in un quadrato che contiene il pezzo girato; SetTexCoord a 8 valori fa la rotazione e fuori dall'immagine il bordo
 -- è trasparente (CLAMPTOBLACKADDITIVE). Coordinate in yard dall'angolo in alto a sinistra; dati da src/tools/dgmaps.js
 local PLAN, PAK = ForeverPathfinderPlan or {}, { ["deathless guardians"] = "deathless marrow", ["doom'rel"] = "the seven" }
@@ -1139,6 +1139,17 @@ local function dgPlan(d, wings)
     local s = math.min(mw / m.w, 380 / m.h)
     local ox, top = PAD + (mw - m.w * s) / 2, y - 8
     box("deep", 1, PAD, top, mw, m.h * s)
+    -- terreno: blocchi della minimappa (533,33 yard per lato), tagliati ai bordi della pianta
+    local BYD = 1600 / 3
+    for _, q in ipairs(m.g or {}) do
+      local x1, y1, x2, y2 = math.max(0, q[2]), math.max(0, q[3]), math.min(m.w, q[2] + BYD), math.min(m.h, q[3] + BYD)
+      if x2 > x1 and y2 > y1 then
+        local t = take("mp", function() return body:CreateTexture(nil, "ARTWORK") end)
+        t:SetTexture(q[1], "CLAMP", "CLAMP"); t:SetDrawLayer("ARTWORK", -8)
+        put(t, ox + x1 * s, top - y1 * s, (x2 - x1) * s, (y2 - y1) * s)
+        t:SetTexCoord((x1 - q[2]) / BYD, (x2 - q[2]) / BYD, (y1 - q[3]) / BYD, (y2 - q[3]) / BYD)
+      end
+    end
     for _, q in ipairs(m.p) do
       local t = take("mp", function() return body:CreateTexture(nil, "ARTWORK") end)
       local r, c, sn = math.sqrt(q[4] * q[4] + q[5] * q[5]) / 2, math.cos(q[6]), math.sin(q[6])

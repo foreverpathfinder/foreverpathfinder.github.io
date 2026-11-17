@@ -1,6 +1,6 @@
 // Mappe dei dungeon dai dati di Twinmap (twinmap.app), che le ricostruisce dai file del gioco:
 // - boss, ingresso e confini di ogni dungeon da DUNGEON_PINS e NEW_DUNGEON_PINS (renderer dentro app.asar);
-// - terreno dai blocchi i<mappa>/blocks/<colonna>/<riga>.dxt (533,33 yard per lato);
+// - terreno dai blocchi i<mappa>/blocks/<colonna>/<riga>.dxt (533,33 yard per lato) e, per l'addon, i loro FileID dal .wdt;
 // - stanze dai pezzi di interiors.json (yard, rotazione, piano) con le texture rooms/<file>.dxt.
 // Tutti i .dxt sono DXT1 compressi con zlib. Le coordinate sono yard nello stesso spazio per boss, pezzi e blocchi.
 // Scrive dgmap/<mappa>-<nome>.webp (un'immagine per dungeon o ala) e src/data/dgmaps.json (boss e ingresso in pixel).
@@ -21,6 +21,25 @@ function asarFile(re) {
   const d = Buffer.alloc(hit.size); fs.readSync(fd, d, 0, hit.size, base + Number(hit.offset)); return d.toString('utf8');
 }
 const JS = asarFile(/out\/renderer\/assets\/index-[^/]+\.js$/);
+// FileID dell'immagine della minimappa di ogni blocco di terreno, per l'addon (che le carica dal gioco per numero).
+// Si leggono dal .wdt di ogni mappa nell'archivio di Forever, con il lettore di Twinmap: interiors e geo copiati
+// in una cartella temporanea, tabelle (wdc5) e chiavi mandate dal server (keys) prese dal suo worker.
+function groundIds() {
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'twinmap-')), mod = {};
+  for (const n of ['geo', 'interiors', 'tiles-worker']) mod[n] = asarFile(new RegExp('out/main/' + n + '-[^/]+\\.js$'));
+  const geoName = mod.interiors.match(/require\("\.\/(geo-[^"]+)"\)/)[1];
+  fs.writeFileSync(path.join(tmp, geoName), mod.geo); fs.writeFileSync(path.join(tmp, 'interiors.js'), mod.interiors);
+  const I = require(path.join(tmp, 'interiors.js')), G = require(path.join(tmp, geoName)), w = mod['tiles-worker'];
+  const part = (from) => { const a = w.indexOf(from); return w.slice(a, w.indexOf('// src/', a + 10)); };
+  const readTable = Function(part('// src/shared/wdc5.ts') + ';return readTable')();
+  const sentKeys = Function('node_fs', 'node_path', part('// src/main/keys.ts') + ';return sentKeys')(fs, path);
+  const game = I.gameFolderFrom([I.registryInstallPath() || '', 'C:/Program Files (x86)/World of Warcraft/_forever_']);
+  const files = I.openClientFiles(game, sentKeys(game)), T = readTable(files.read(1349477, true), (k) => files.opens(k)), out = {};
+  for (const r of T.rows) { const wdt = r.int(21) && files.read(r.int(21)); if (wdt) out[r.id] = G.minimapTiles(wdt); } // blocco (riga * 64 + colonna) → FileID
+  fs.rmSync(tmp, { recursive: true, force: true });
+  return out;
+}
+const GROUND = groundIds();
 const grab = (v) => { const i = JS.indexOf('var ' + v + ' = ['), a = JS.indexOf('[', i); let d = 0, j = a;
   for (; j < JS.length; j++) { const c = JS[j]; if (c === '[' || c === '{') d++; else if (c === ']' || c === '}') { d--; if (!d) break; } }
   return Function('return ' + JS.slice(a, j + 1))(); };
@@ -72,14 +91,16 @@ const b64 = (f) => zlib.inflateSync(fs.readFileSync(f)).toString('base64');
     const P = (u, v) => [Math.round((u - x0) * s), Math.round((v - y0) * s)];
     out.push({ k: key, n: d.name, img: 'dgmap/' + file, w: Math.round(W * s), h: Math.round(H * s),
       e: d.entrance ? P(d.entrance[0], d.entrance[1]) : null, b: d.bosses.map((x) => [x[0], ...P(x[1], x[2])]) });
-    // per l'addon (pianta nella scheda Dungeon): solo i dungeon al chiuso, perché il terreno non ha numeri di file da caricare nel gioco
-    if (!blocks.length) { const r1 = (n) => Math.round(n * 10) / 10, Y = (u, v) => [r1(u - x0), r1(v - y0)];
-      plan.push({ k: key, n: d.name, w: r1(W), h: r1(H), e: d.entrance ? Y(d.entrance[0], d.entrance[1]) : null, b: d.bosses.map((x) => [x[0], ...Y(x[1], x[2])]),
+    // per l'addon (pianta nella scheda Dungeon): terreno g = [FileID, x, y] (blocchi di BY yard) e stanze p, tutto in yard
+    { const r1 = (n) => Math.round(n * 10) / 10, Y = (u, v) => [r1(u - x0), r1(v - y0)], gm = GROUND[d.map], g = [];
+      for (const k of blocks) { const id = gm && gm.get(k.row * 64 + k.col); if (id) g.push([id, ...Y(k.col * BY, k.row * BY)]); }
+      if (blocks.length && g.length < blocks.length) console.log('  terreno senza FileID:', blocks.length - g.length);
+      plan.push({ k: key, n: d.name, w: r1(W), h: r1(H), e: d.entrance ? Y(d.entrance[0], d.entrance[1]) : null, b: d.bosses.map((x) => [x[0], ...Y(x[1], x[2])]), g,
         p: pieces.map((q) => [q.file, ...Y(q.u, q.v), r1(q.w), r1(q.h), Math.round(q.a * 1e4) / 1e4, q.lv]) }); }
     console.log(file, Math.round(W * s) + 'x' + Math.round(H * s), 'blocchi', blocks.length, 'stanze', pieces.length, (fs.statSync(path.join(OUT, file)).size / 1024).toFixed(0) + ' KB');
   }
   await br.close();
   fs.writeFileSync(path.join(ROOT, 'src/data/dgmaps.json'), JSON.stringify({ _: 'Mappe dei dungeon da Twinmap (src/tools/dgmaps.js): k = chiave in dungeons.json, img, w/h in pixel, e = ingresso, b = boss [nome, x, y] in pixel dell\'immagine.', maps: out }, null, 1) + '\n');
-  fs.writeFileSync(path.join(ROOT, 'src/data/dgplan.json'), JSON.stringify({ _: "Piante dei dungeon al chiuso per l'addon (src/tools/dgmaps.js): yard dall'angolo in alto a sinistra; p = pezzi [FileID della texture, x, y, larghezza, altezza, angolo, piano].", maps: plan }) + '\n');
+  fs.writeFileSync(path.join(ROOT, 'src/data/dgplan.json'), JSON.stringify({ _: "Piante dei dungeon per l'addon (src/tools/dgmaps.js): yard dall'angolo in alto a sinistra; g = terreno [FileID della minimappa, x, y] a blocchi di 533,33 yard; p = stanze [FileID della texture, x, y, larghezza, altezza, angolo, piano].", maps: plan }) + '\n');
   console.log('mappe', out.length, "· piante per l'addon", plan.length);
 })();
