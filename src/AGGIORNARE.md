@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 17 nov 2026 · **sito v18** · **addon 1.10.5** (in locale, non ancora pubblicata).
+Aggiornato il 17 nov 2026 · **sito v18** · **addon 1.10.6** (beta su CurseForge).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:

@@ -1707,10 +1707,10 @@ end
 
 -- segnala un errore: il gioco non apre i link, quindi un riquadro col link già selezionato.
 -- Niente pulsante «Copia»: in Forever CopyToClipboard è bloccata agli addon (provato nel gioco, 1.10.5), quindi Ctrl+C.
--- Link corto e facile da leggere: foreverpathfinder.github.io/report (GitHub Pages apre report.html)
+-- Link corto: report?a=versione-guida (GitHub Pages apre report.html, che mette «Addon» e il contesto da sola)
 local function bugLink()
   local meta = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
-  local url = "foreverpathfinder.github.io/report"
+  local url = "foreverpathfinder.github.io/report?a=" .. tostring(meta and meta(ADDON, "Version")) .. "-" .. (charKey() or "")
   if not (StaticPopupDialogs and StaticPopup_Show) then say(url); return end
   StaticPopupDialogs.FP_BUG = { text = T.bugTxt, button1 = OKAY or "OK",
     hasEditBox = true, editBoxWidth = 350, timeout = 0, whileDead = true, hideOnEscape = true,
