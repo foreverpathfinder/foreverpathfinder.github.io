@@ -178,7 +178,8 @@ local tb, sub = ONLY:match("^(%a+)%.(.+)$")
 local tb2, off = ONLY:match("^(%a+)~(%d+)$")
 if tb or tb2 then
   for _, t in ipairs(list) do if t[1] == (tb or tb2) then findPill(t[2]).scripts.OnClick() end end
-  if sub then for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text == sub and o.shown and o.parent ~= f then o.scripts.OnClick(o); break end end end
+  -- "dungeon.Uldaman>Pianta": più clic in fila
+  if sub then for lab in sub:gmatch("[^>]+") do for _, o in ipairs(all) do if o.kind == "Button" and rawget(o, "fs") and o.fs.text == lab and o.shown and o.parent ~= f then o.scripts.OnClick(o); break end end end end
   snap(ONLY)
   if off then
     items = {}

@@ -33,7 +33,7 @@ const b64 = (f) => zlib.inflateSync(fs.readFileSync(f)).toString('base64');
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const br = await chromium.launch({ channel: 'chrome' }), pg = await br.newPage(), out = [];
+  const br = await chromium.launch({ channel: 'chrome' }), pg = await br.newPage(), out = [], plan = [];
   for (const d of PINS) {
     const key = keyOf(d.name); if (!DG[key]) { console.log('salto', d.name); continue; }
     const [u1, v1, u2, v2] = d.bounds, M = 24, x0 = u1 - M, y0 = v1 - M, W = u2 - u1 + 2 * M, H = v2 - v1 + 2 * M;
@@ -45,7 +45,7 @@ const b64 = (f) => zlib.inflateSync(fs.readFileSync(f)).toString('base64');
     }
     const reach = (p) => Math.hypot(p.width, p.height) / 2;
     const pieces = (m ? m.pieces : []).filter((p) => p.u + reach(p) > x0 && p.u - reach(p) < x0 + W && p.v + reach(p) > y0 && p.v - reach(p) < y0 + H)
-      .map((p) => ({ u: p.u, v: p.v, w: p.width, h: p.height, a: p.angle, data: b64(path.join(TILES, 'rooms', p.file + '.dxt')) }));
+      .map((p) => ({ u: p.u, v: p.v, w: p.width, h: p.height, a: p.angle, file: p.file, lv: p.level, data: b64(path.join(TILES, 'rooms', p.file + '.dxt')) }));
     const url = await pg.evaluate(({ blocks, pieces, x0, y0, W, H, s, BY }) => {
       // DXT1 → canvas (come roomPixels di Twinmap: il colore 3 con c0 <= c1 è trasparente)
       const pic = (b64, w) => { const bin = atob(b64), n = bin.length, dv = new DataView(new Uint8Array([...bin].map((ch) => ch.charCodeAt(0))).buffer);
@@ -72,9 +72,14 @@ const b64 = (f) => zlib.inflateSync(fs.readFileSync(f)).toString('base64');
     const P = (u, v) => [Math.round((u - x0) * s), Math.round((v - y0) * s)];
     out.push({ k: key, n: d.name, img: 'dgmap/' + file, w: Math.round(W * s), h: Math.round(H * s),
       e: d.entrance ? P(d.entrance[0], d.entrance[1]) : null, b: d.bosses.map((x) => [x[0], ...P(x[1], x[2])]) });
+    // per l'addon (pianta nella scheda Dungeon): solo i dungeon al chiuso, perché il terreno non ha numeri di file da caricare nel gioco
+    if (!blocks.length) { const r1 = (n) => Math.round(n * 10) / 10, Y = (u, v) => [r1(u - x0), r1(v - y0)];
+      plan.push({ k: key, n: d.name, w: r1(W), h: r1(H), e: d.entrance ? Y(d.entrance[0], d.entrance[1]) : null, b: d.bosses.map((x) => [x[0], ...Y(x[1], x[2])]),
+        p: pieces.map((q) => [q.file, ...Y(q.u, q.v), r1(q.w), r1(q.h), Math.round(q.a * 1e4) / 1e4, q.lv]) }); }
     console.log(file, Math.round(W * s) + 'x' + Math.round(H * s), 'blocchi', blocks.length, 'stanze', pieces.length, (fs.statSync(path.join(OUT, file)).size / 1024).toFixed(0) + ' KB');
   }
   await br.close();
   fs.writeFileSync(path.join(ROOT, 'src/data/dgmaps.json'), JSON.stringify({ _: 'Mappe dei dungeon da Twinmap (src/tools/dgmaps.js): k = chiave in dungeons.json, img, w/h in pixel, e = ingresso, b = boss [nome, x, y] in pixel dell\'immagine.', maps: out }, null, 1) + '\n');
-  console.log('mappe', out.length);
+  fs.writeFileSync(path.join(ROOT, 'src/data/dgplan.json'), JSON.stringify({ _: "Piante dei dungeon al chiuso per l'addon (src/tools/dgmaps.js): yard dall'angolo in alto a sinistra; p = pezzi [FileID della texture, x, y, larghezza, altezza, angolo, piano].", maps: plan }) + '\n');
+  console.log('mappe', out.length, "· piante per l'addon", plan.length);
 })();

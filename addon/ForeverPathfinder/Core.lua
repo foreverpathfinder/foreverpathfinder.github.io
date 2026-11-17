@@ -70,7 +70,7 @@ local TT = {
     dgDo = "completa {%s}", dgTurn = "consegna {%s}",
     dgSteps = "Tutti i passi", dgStepsHide = "Nascondi i passi", dgGLog = "Nel registro", dgGLock = "Da sbloccare", dgGTake = "Puoi prenderle subito", dgGDone = "Fatte",
     dgQSum = "Quest:", dgQLog = "%d nel registro", dgQDone = "%d fatte", dgQDone1 = "1 fatta", dgQTake = "%d da prendere", dgQn = "quest %d/%d",
-    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci",
+    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, verde = ingresso. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
@@ -134,7 +134,7 @@ local TT = {
     dgDo = "complete {%s}", dgTurn = "turn in {%s}",
     dgSteps = "All steps", dgStepsHide = "Hide the steps", dgGLog = "In your log", dgGLock = "To unlock", dgGTake = "You can pick these up now", dgGDone = "Done",
     dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
-    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there",
+    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Map", dgPlanTip = "Bosses numbered as in the Bosses section, green = entrance. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
@@ -585,8 +585,8 @@ scroll:EnableMouseWheel(true)
 scroll:SetScript("OnMouseWheel", function(_, d) local lo, hi = bar:GetMinMaxValues(); bar:SetValue(math.max(lo, math.min(hi, bar:GetValue() - d * 48))) end)
 
 -- elementi riusati a ogni disegno: testi, icone, rettangoli (card e righe di separazione), caselle, pulsanti
-local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {}, hv = {}, nd = {}, rw = {}, lb = {} }
-local N = { fs = 0, ic = 0, rc = 0, ln = 0, cb = 0, bt = 0, pn = 0, hv = 0, nd = 0, rw = 0, lb = 0 }
+local P = { fs = {}, ic = {}, rc = {}, ln = {}, cb = {}, bt = {}, pn = {}, hv = {}, nd = {}, rw = {}, lb = {}, mp = {}, mk = {} }
+local N = { fs = 0, ic = 0, rc = 0, ln = 0, cb = 0, bt = 0, pn = 0, hv = 0, nd = 0, rw = 0, lb = 0, mp = 0, mk = 0 }
 local y = 0
 local function take(kind, make)
   N[kind] = N[kind] + 1
@@ -1112,6 +1112,55 @@ local function dgMenuRow(x, fit, full)
   local o = str(F.p, VCOL[x[4]] or "tx", t, bx, BW - PAD - bx); o:SetPoint("TOPLEFT", bx, y - 5)
   y = top - math.max(24, o:GetStringHeight() + 10)
 end
+-- pianta del dungeon (1.10.7, prova): i pezzi sono texture del gioco prese per numero di file (niente file nello zip),
+-- messe in un quadrato che contiene il pezzo girato; SetTexCoord a 8 valori fa la rotazione e fuori dall'immagine il bordo
+-- è trasparente (CLAMPTOBLACKADDITIVE). Coordinate in yard dall'angolo in alto a sinistra; dati da src/tools/dgmaps.js
+local PLAN, PAK = ForeverPathfinderPlan or {}, { ["deathless guardians"] = "deathless marrow", ["doom'rel"] = "the seven" }
+local function planOf(name) return PLAN[(low(name):gsub("[^%w%s:'%-]", ""):gsub("^%s+", ""):gsub("%s+$", ""):gsub("^the ", ""))] end
+local function planPin(n, x, yy, tip, c)
+  local o = take("mk", function()
+    local b = CreateFrame("Button", nil, body); b:SetSize(18, 18)
+    b.bg = b:CreateTexture(nil, "OVERLAY"); b.bg:SetAllPoints()
+    b.fs = b:CreateFontString(nil, "OVERLAY"); b.fs:SetFontObject(F.small); b.fs:SetPoint("CENTER", 0, 0); b.fs:SetTextColor(0, 0, 0)
+    b:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.tip); GameTooltip:Show() end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    return b
+  end)
+  paint(o.bg, c); o.fs:SetText(tostring(n)); o.tip = tip; o:SetFrameLevel(body:GetFrameLevel() + 5)
+  return put(o, x - 9, yy + 9)
+end
+local function dgPlan(d, wings)
+  local order = {}
+  for i, b in ipairs(d[11]) do order[i] = low(b:gsub("%s*%b()", "")) end
+  local function at(n) n = low(n); n = PAK[n] or n; for i, o in ipairs(order) do if o == n or o:find(n, 1, true) or n:find(o, 1, true) then return i end end return 99 end
+  for _, m in ipairs(wings) do
+    if #wings > 1 then line("2", m.n) end
+    local mw = BW - 2 * PAD
+    local s = math.min(mw / m.w, 380 / m.h)
+    local ox, top = PAD + (mw - m.w * s) / 2, y - 8
+    box("deep", 1, PAD, top, mw, m.h * s)
+    for _, q in ipairs(m.p) do
+      local t = take("mp", function() return body:CreateTexture(nil, "ARTWORK") end)
+      local r, c, sn = math.sqrt(q[4] * q[4] + q[5] * q[5]) / 2, math.cos(q[6]), math.sin(q[6])
+      t:SetTexture(q[1], "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+      t:SetDrawLayer("ARTWORK", math.min(7, q[7] - 7)) -- i piani più alti sopra
+      put(t, ox + (q[2] - r) * s, top - (q[3] - r) * s, 2 * r * s, 2 * r * s)
+      local function tc(du, dv) return (du * c - dv * sn) / q[4] + 0.5, (du * sn + dv * c) / q[5] + 0.5 end
+      local ulx, uly = tc(-r, -r); local llx, lly = tc(-r, r); local urx, ury = tc(r, -r); local lrx, lry = tc(r, r)
+      t:SetTexCoord(ulx, uly, llx, lly, urx, ury, lrx, lry)
+    end
+    local bs = {}
+    for i, b in ipairs(m.b) do bs[i] = { b[1], b[2], b[3], at(b[1]), i } end
+    table.sort(bs, function(a, b) if a[4] ~= b[4] then return a[4] < b[4] end return a[5] < b[5] end)
+    if m.e then planPin("", ox + m.e[1] * s, top - m.e[2] * s, T.dgEntr, "ac") end
+    local names = {}
+    for k, b in ipairs(bs) do planPin(k, ox + b[2] * s, top - b[3] * s, k .. ". " .. b[1], "num"); names[k] = "|cffe0a074" .. k .. "|r " .. b[1] end
+    y = top - m.h * s - 4
+    line("0", table.concat(names, "   "))
+  end
+  line("0", "|cff7b7770" .. T.dgPlanTip .. "|r")
+end
+
 function drawDungeons(g)
   local lv, list, fit, d = UnitLevel("player"), DG[g.faction] or {}, {}, nil
   local fits = dungeonsAt(g, lv)
@@ -1172,6 +1221,8 @@ function drawDungeons(g)
   local secs = { { "q", T.dgSecQ .. "  " .. #qs } }
   if #d[11] > 0 then secs[#secs + 1] = { "b", T.dgBoss .. "  " .. #d[11] } end
   secs[#secs + 1] = { "w", T.dgSecWhere }
+  local wings = planOf(d[1])
+  if wings then secs[#secs + 1] = { "m", T.dgSecPlan } end
   if loose > 0 then secs[#secs + 1] = { "t", T.dgTips } end
   local sel = 1
   for i, s in ipairs(secs) do if s[1] == V.dgSec then sel = i end end
@@ -1218,6 +1269,8 @@ function drawDungeons(g)
     if d[10] ~= "" then line("2", T.dgKey); line("0", d[10]) end
     if d[7] == "" and d[14] ~= "" then line("2", T.dgNote); line("0", d[14]) end
     if p then y = y - 8; button(T.dgMap, PAD, y, function() dgMap(p) end); y = y - 26 end
+  elseif sec == "m" then
+    dgPlan(d, wings)
   else
     line("2", T.dgTips)
     for i, t in ipairs(d[12]) do if not used[i] then line("0", "• " .. t) end end

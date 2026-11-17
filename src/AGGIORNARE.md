@@ -69,6 +69,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 | `src/data/factions/alliance.json`, `horde.json` | razze, rotte 1–30 (`segments` e `steps`), `late` (tappe 30–60), `milestones` di fazione, `dungeons` `[nome, min, max, dove, nota]`, `crates` |
 | `src/data/dungeons.json` | scheda Dungeon (schema sotto); `general` e `glossary` = «Come conviene farli» |
 | `src/data/dgmaps.json`, `dgmap/*.webp` | mappe dei dungeon (scheda Mappa): immagine, boss e ingresso in pixel; li crea `dgmaps.js` |
+| `src/data/dgplan.json` | piante dei dungeon al chiuso per l'addon (sezione «Pianta» della scheda Dungeon): pezzi con il FileID della texture del gioco, in yard; lo crea `dgmaps.js`, `addon.js` lo mette in `ForeverPathfinderPlan`. I dungeon con terreno (all'aperto) non ci sono: il terreno non ha FileID salvati |
 | `src/data/zones.json` | zone consigliate per razza e livello: `node src/tools/zones.js <cartella QuestieDB>` |
 | `src/data/profs.json` | percorsi 1–300 delle professioni (fonte: wowforever.be «Leveling 1-300») |
 | `src/data/alts.json`, `transfers.json` | scheda Alt (classifica, piano dell'alt, Legacy); cambi di continente |

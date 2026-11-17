@@ -142,6 +142,10 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  //   { nome albero, { { talent, icona, riga, colonna, rank max, talent richiesto, descrizione al rank max } } }
  const htm=x=>lua(clean(String(x||'').replace(/\s*✔\s*client\b/g,'').replace(/\s*\((★|✔|🟡)\)/g,'').replace(/<li>/g,'\n• ').replace(/<\/(p|ul|ol|li|tr|h\d)>/g,'\n').replace(/<br\s*\/?>/g,'\n').replace(/<b>/g,'{').replace(/<\/b>/g,'}').replace(/<[^>]+>/g,'').replace(/\n+/g,'\n').trim()));
  const TD=path.join(ROOT,'src/data/talents');
+ // piante dei dungeon al chiuso (src/tools/dgmaps.js, da Twinmap): per chiave della scheda Dungeon, una voce per ala
+ const PLF=path.join(__dirname,'..','data','dgplan.json'),PK={};
+ for(const m of fs.existsSync(PLF)?JSON.parse(fs.readFileSync(PLF,'utf8')).maps:[])(PK[m.k]=PK[m.k]||[]).push(m);
+ s+='}\nForeverPathfinderPlan = {\n'+Object.entries(PK).map(([k,a])=>' ['+lua(k)+'] = { '+a.map(m=>'{ n = '+lua(m.n)+', w = '+m.w+', h = '+m.h+(m.e?', e = { '+m.e.join(', ')+' }':'')+',\n   b = { '+m.b.map(b=>'{ '+lua(b[0])+', '+b[1]+', '+b[2]+' }').join(', ')+' },\n   p = { '+m.p.map(q=>'{ '+q.join(', ')+' }').join(', ')+' } }').join(', ')+' },').join('\n')+'\n';
  s+='}\nForeverPathfinderTrees = {\n';
  for(const fn of fs.readdirSync(TD).filter(n=>n.endsWith('.json'))){const TT=JSON.parse(fs.readFileSync(path.join(TD,fn),'utf8'));
   s+='  '+fn.replace('.json','')+' = { '+TT.trees.map(t=>'{ '+lua(t.name)+', { '+Object.values(t.nodes).sort((a,b)=>a.index-b.index).map(n=>'{ '+lua(n.name)+', '+lua(n.icon)+', '+n.row+', '+n.col+', '+n.max+', '+lua(n.req&&t.nodes[n.req]?t.nodes[n.req].name:'')+', '+lua(clean(n.rmax||n.r1||''))+' }').join(', ')+' } }').join(', ')+' },\n'}
