@@ -70,7 +70,7 @@ local TT = {
     dgDo = "completa {%s}", dgTurn = "consegna {%s}",
     dgSteps = "Tutti i passi", dgStepsHide = "Nascondi i passi", dgGLog = "Nel registro", dgGLock = "Da sbloccare", dgGTake = "Puoi prenderle subito", dgGDone = "Fatte",
     dgQSum = "Quest:", dgQLog = "%d nel registro", dgQDone = "%d fatte", dgQDone1 = "1 fatta", dgQTake = "%d da prendere", dgQn = "quest %d/%d",
-    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, verde = ingresso. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
+    dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgPlanTip = "Boss numerati come nella sezione Boss, verde = ingresso. Rotella o + e − per ingrandire, trascina per spostarti. Ricostruita dai file del gioco da Twinmap.", dgEntr = "Ingresso",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
@@ -134,7 +134,7 @@ local TT = {
     dgDo = "complete {%s}", dgTurn = "turn in {%s}",
     dgSteps = "All steps", dgStepsHide = "Hide the steps", dgGLog = "In your log", dgGLock = "To unlock", dgGTake = "You can pick these up now", dgGDone = "Done",
     dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
-    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, green = entrance. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
+    dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgPlanTip = "Bosses numbered as in the Bosses section, green = entrance. Mouse wheel or + and − to zoom, drag to move. Rebuilt from the game files by Twinmap.", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
@@ -712,7 +712,9 @@ local function mini(ic, x, yy, tip, tip2, fn)
   o.tx:SetTexture(iconPath(ic)); o.tip, o.tip2, o.fn = tip, tip2, fn
   return put(o, x, yy)
 end
+local PV -- visore della pianta dei dungeon (più sotto, scheda Dungeon)
 local function clear()
+  if PV then PV.v:Hide() end
   for k, l in pairs(P) do for i = 1, N[k] do l[i]:Hide() end; N[k] = 0 end
   y, cardTop = 0, nil
 end
@@ -1112,63 +1114,139 @@ local function dgMenuRow(x, fit, full)
   local o = str(F.p, VCOL[x[4]] or "tx", t, bx, BW - PAD - bx); o:SetPoint("TOPLEFT", bx, y - 5)
   y = top - math.max(24, o:GetStringHeight() + 10)
 end
--- pianta del dungeon (1.10.7): terreno (blocchi della minimappa) e stanze sono texture del gioco prese per numero di file (niente file nello zip),
--- messe in un quadrato che contiene il pezzo girato; SetTexCoord a 8 valori fa la rotazione e fuori dall'immagine il bordo
--- è trasparente (CLAMPTOBLACKADDITIVE). Coordinate in yard dall'angolo in alto a sinistra; dati da src/tools/dgmaps.js
+-- pianta del dungeon (1.10.7): terreno (blocchi della minimappa) e stanze sono texture del gioco prese per numero di file (niente
+-- file del gioco nello zip). Ogni stanza sta in un quadrato che contiene il pezzo girato: SetTexCoord a 8 valori fa la rotazione
+-- e fuori dall'immagine il bordo è trasparente (CLAMPTOBLACKADDITIVE). Nei dungeon all'aperto il terreno passa da una maschera
+-- (Masks/*.tga, fatta da dgmaps.js: la sagoma attorno a boss e ingresso), così si vede solo il dungeon, sullo stesso fondo di tutti.
+-- Visore: una finestra a ritaglio (ScrollFrame) con dentro una tela che si ingrandisce (rotella, + e −) e si trascina col mouse.
+-- I boss (ritratto del modello dal displayID, o un'icona) stanno sopra la tela e non cambiano misura con lo zoom.
 local PLAN, PAK = ForeverPathfinderPlan or {}, { ["deathless guardians"] = "deathless marrow", ["doom'rel"] = "the seven" }
 local function planOf(name) return PLAN[(low(name):gsub("[^%w%s:'%-]", ""):gsub("^%s+", ""):gsub("%s+$", ""):gsub("^the ", ""))] end
-local function planPin(n, x, yy, tip, c)
-  local o = take("mk", function()
-    local b = CreateFrame("Button", nil, body); b:SetSize(18, 18)
-    b.bg = b:CreateTexture(nil, "OVERLAY"); b.bg:SetAllPoints()
-    b.fs = b:CreateFontString(nil, "OVERLAY"); b.fs:SetFontObject(F.small); b.fs:SetPoint("CENTER", 0, 0); b.fs:SetTextColor(0, 0, 0)
-    b:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.tip); GameTooltip:Show() end)
-    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
-    return b
-  end)
-  paint(o.bg, c); o.fs:SetText(tostring(n)); o.tip = tip; o:SetFrameLevel(body:GetFrameLevel() + 5)
-  return put(o, x - 9, yy + 9)
+local MASKDIR, ROUND, SKULL = "Interface\\AddOns\\" .. ADDON .. "\\Masks\\", "Interface\\CharacterFrame\\TempPortraitAlphaMask", "Interface\\Icons\\INV_Misc_Bone_Skull_02"
+local VH = 380
+local function planViewer()
+  if PV then return PV end
+  local v = CreateFrame("ScrollFrame", nil, body)
+  local hold = CreateFrame("Frame", nil, v); v:SetScrollChild(hold)
+  local cv = CreateFrame("Frame", nil, hold); cv:SetSize(1, 1)
+  local bg = hold:CreateTexture(nil, "BACKGROUND"); bg:SetAllPoints(); paint(bg, "deep")
+  local mask = cv:CreateMaskTexture(); mask:SetPoint("TOPLEFT", cv, "TOPLEFT", 0, 0)
+  PV = { v = v, hold = hold, cv = cv, mask = mask, tex = {}, nt = 0, pins = {}, np = 0, z = 1, px = 0, py = 0 }
+  -- tela e boss nella posizione di zoom e spostamento attuali; il dungeon resta dentro la finestra
+  function PV.place()
+    local cw, ch = PV.cw * PV.z, PV.ch * PV.z
+    PV.px = cw <= PV.vw and (PV.vw - cw) / 2 or math.max(PV.vw - cw, math.min(0, PV.px))
+    PV.py = ch <= PV.vh and (PV.vh - ch) / 2 or math.max(PV.vh - ch, math.min(0, PV.py))
+    cv:SetScale(PV.z); cv:ClearAllPoints(); cv:SetPoint("TOPLEFT", hold, "TOPLEFT", PV.px / PV.z, -PV.py / PV.z)
+    for i = 1, PV.np do local o = PV.pins[i]; o:ClearAllPoints(); o:SetPoint("CENTER", hold, "TOPLEFT", PV.px + o.x * PV.s * PV.z, -(PV.py + o.y * PV.s * PV.z)) end
+  end
+  local function cursor() local x, yy = GetCursorPosition(); local e = hold:GetEffectiveScale(); return x / e - hold:GetLeft(), hold:GetTop() - yy / e end
+  -- zoom attorno a un punto della finestra (il cursore, o il centro per i pulsanti)
+  function PV.zoom(f, cx, cy)
+    local nz = math.max(1, math.min(6, PV.z * f))
+    cx, cy = cx or PV.vw / 2, cy or PV.vh / 2
+    PV.px, PV.py = cx - (cx - PV.px) * nz / PV.z, cy - (cy - PV.py) * nz / PV.z
+    PV.z = nz; PV.place()
+  end
+  v:EnableMouse(true); v:EnableMouseWheel(true)
+  v:SetScript("OnMouseWheel", function(_, d) local cx, cy = cursor(); PV.zoom(d > 0 and 1.25 or 0.8, cx, cy) end)
+  v:SetScript("OnMouseDown", function() local cx, cy = cursor(); PV.drag = { cx, cy, PV.px, PV.py } end)
+  v:SetScript("OnMouseUp", function() PV.drag = nil end)
+  v:SetScript("OnHide", function() PV.drag = nil end)
+  v:SetScript("OnUpdate", function() local d = PV.drag; if not d then return end; local cx, cy = cursor(); PV.px, PV.py = d[3] + cx - d[1], d[4] + cy - d[2]; PV.place() end)
+  -- + − e torna a vedere tutto, nell'angolo in alto a destra
+  local x = -8
+  for _, k in ipairs({ { "1:1", function() PV.z = 1; PV.place() end }, { "−", function() PV.zoom(0.8) end }, { "+", function() PV.zoom(1.25) end } }) do
+    local bt = pill(v, k[1]); bt.fit(k[1] == "1:1" and 34 or 26, 26); bt.fs:ClearAllPoints(); bt.fs:SetPoint("CENTER", 0, 0); bt.set(true)
+    bt:SetPoint("TOPRIGHT", v, "TOPRIGHT", x, -8); bt:SetFrameLevel(v:GetFrameLevel() + 20); bt:SetScript("OnClick", k[2]); x = x - bt:GetWidth() - 4
+  end
+  return PV
+end
+local function pvTex()
+  PV.nt = PV.nt + 1
+  local t = PV.tex[PV.nt]
+  if not t then t = PV.cv:CreateTexture(nil, "ARTWORK"); PV.tex[PV.nt] = t end
+  if t.masked then t:RemoveMaskTexture(PV.mask); t.masked = nil end
+  t:ClearAllPoints(); t:Show(); return t
+end
+-- boss sulla mappa: ritratto rotondo (modello del gioco dal displayID, o icona) con il numero; senza numero = ingresso
+local function pvPin(n, x, yy, tip, pic)
+  PV.np = PV.np + 1
+  local o = PV.pins[PV.np]
+  if not o then
+    o = CreateFrame("Button", nil, PV.hold); o:SetSize(30, 30)
+    o.ring = o:CreateTexture(nil, "BORDER"); o.ring:SetPoint("CENTER"); o.ring:SetSize(32, 32); o.ring:SetTexture(ROUND)
+    o.pic = o:CreateTexture(nil, "ARTWORK"); o.pic:SetPoint("CENTER"); o.pic:SetSize(28, 28)
+    local m = o:CreateMaskTexture(); m:SetAllPoints(o.pic); m:SetTexture(ROUND, "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE"); o.pic:AddMaskTexture(m)
+    o.nb = o:CreateTexture(nil, "OVERLAY"); o.nb:SetPoint("BOTTOMRIGHT", 5, -3); o.nb:SetSize(15, 15); paint(o.nb, "num")
+    o.fs = o:CreateFontString(nil, "OVERLAY"); o.fs:SetFontObject(F.small); o.fs:SetPoint("CENTER", o.nb, "CENTER", 0, 0); o.fs:SetTextColor(0, 0, 0)
+    o:SetScript("OnEnter", function(self) GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:AddLine(self.tip); GameTooltip:Show() end)
+    o:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    PV.pins[PV.np] = o
+  end
+  o:SetFrameLevel(PV.v:GetFrameLevel() + 10)
+  o.ring:SetVertexColor(unpack(COL[n == "" and "ac" or "num"]))
+  o.pic:SetTexture(nil); o.pic:SetTexCoord(0, 1, 0, 1)
+  local ok = false
+  if type(pic) == "number" and pic > 0 and SetPortraitTextureFromCreatureDisplayID then
+    ok = pcall(SetPortraitTextureFromCreatureDisplayID, o.pic, pic) and o.pic:GetTexture() ~= nil
+  end
+  if n == "" then o.pic:SetColorTexture(COL.ac[1], COL.ac[2], COL.ac[3], 1)
+  elseif not ok then o.pic:SetTexture(type(pic) == "string" and ("Interface\\Icons\\" .. pic) or SKULL); o.pic:SetTexCoord(0.08, 0.92, 0.08, 0.92) end
+  o.nb:SetShown(n ~= ""); o.fs:SetText(tostring(n)); o.tip, o.x, o.y = tip, x, yy
+  o:Show(); return o
 end
 local function dgPlan(d, wings)
   local order = {}
   for i, b in ipairs(d[11]) do order[i] = low(b:gsub("%s*%b()", "")) end
   local function at(n) n = low(n); n = PAK[n] or n; for i, o in ipairs(order) do if o == n or o:find(n, 1, true) or n:find(o, 1, true) then return i end end return 99 end
-  for _, m in ipairs(wings) do
-    if #wings > 1 then line("2", m.n) end
-    local mw = BW - 2 * PAD
-    local s = math.min(mw / m.w, 380 / m.h)
-    local ox, top = PAD + (mw - m.w * s) / 2, y - 8
-    box("deep", 1, PAD, top, mw, m.h * s)
-    -- terreno: blocchi della minimappa (533,33 yard per lato), tagliati ai bordi della pianta
-    local BYD = 1600 / 3
-    for _, q in ipairs(m.g or {}) do
-      local x1, y1, x2, y2 = math.max(0, q[2]), math.max(0, q[3]), math.min(m.w, q[2] + BYD), math.min(m.h, q[3] + BYD)
-      if x2 > x1 and y2 > y1 then
-        local t = take("mp", function() return body:CreateTexture(nil, "ARTWORK") end)
-        t:SetTexture(q[1], "CLAMP", "CLAMP"); t:SetDrawLayer("ARTWORK", -8)
-        put(t, ox + x1 * s, top - y1 * s, (x2 - x1) * s, (y2 - y1) * s)
-        t:SetTexCoord((x1 - q[2]) / BYD, (x2 - q[2]) / BYD, (y1 - q[3]) / BYD, (y2 - q[3]) / BYD)
-      end
-    end
-    for _, q in ipairs(m.p) do
-      local t = take("mp", function() return body:CreateTexture(nil, "ARTWORK") end)
-      local r, c, sn = math.sqrt(q[4] * q[4] + q[5] * q[5]) / 2, math.cos(q[6]), math.sin(q[6])
-      t:SetTexture(q[1], "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
-      t:SetDrawLayer("ARTWORK", math.min(7, q[7] - 7)) -- i piani più alti sopra
-      put(t, ox + (q[2] - r) * s, top - (q[3] - r) * s, 2 * r * s, 2 * r * s)
-      local function tc(du, dv) return (du * c - dv * sn) / q[4] + 0.5, (du * sn + dv * c) / q[5] + 0.5 end
-      local ulx, uly = tc(-r, -r); local llx, lly = tc(-r, r); local urx, ury = tc(r, -r); local lrx, lry = tc(r, r)
-      t:SetTexCoord(ulx, uly, llx, lly, urx, ury, lrx, lry)
-    end
-    local bs = {}
-    for i, b in ipairs(m.b) do bs[i] = { b[1], b[2], b[3], at(b[1]), i } end
-    table.sort(bs, function(a, b) if a[4] ~= b[4] then return a[4] < b[4] end return a[5] < b[5] end)
-    if m.e then planPin("", ox + m.e[1] * s, top - m.e[2] * s, T.dgEntr, "ac") end
-    local names = {}
-    for k, b in ipairs(bs) do planPin(k, ox + b[2] * s, top - b[3] * s, k .. ". " .. b[1], "num"); names[k] = "|cffe0a074" .. k .. "|r " .. b[1] end
-    y = top - m.h * s - 4
-    line("0", table.concat(names, "   "))
+  -- più ali (Blackrock Spire, Dire Maul): una fila di pulsanti sceglie quale
+  local wi = math.min(V.dgWing or 1, #wings)
+  if #wings > 1 then
+    local labels = {}
+    for i, m in ipairs(wings) do labels[i] = (m.n:gsub("^.-: ", "")) end
+    y = y - 4; flow(labels, wi, function(i) V.dgWing = i; render() end); y = y + 14
   end
+  local m, pv = wings[wi], planViewer()
+  local vw = BW - 2 * PAD
+  local s = math.min(vw / m.w, VH / m.h)
+  pv.vw, pv.vh, pv.s, pv.cw, pv.ch, pv.z, pv.px, pv.py, pv.nt, pv.np = vw, VH, s, m.w * s, m.h * s, 1, 0, 0, 0, 0
+  for _, t in ipairs(pv.tex) do t:Hide() end
+  for _, o in ipairs(pv.pins) do o:Hide() end
+  pv.v:ClearAllPoints(); pv.v:SetPoint("TOPLEFT", body, "TOPLEFT", PAD, y - 8); pv.v:SetSize(vw, VH); pv.hold:SetSize(vw, VH)
+  pv.v:SetFrameLevel(body:GetFrameLevel() + 2); pv.v:Show()
+  -- terreno: blocchi della minimappa (533,33 yard per lato), tagliati ai bordi della pianta, dentro la maschera della sagoma
+  local BYD = 1600 / 3
+  if m.mk then pv.mask:SetTexture(MASKDIR .. m.mk .. ".tga", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE"); pv.mask:SetSize(m.w * s, m.h * s) end
+  for _, q in ipairs(m.g or {}) do
+    local x1, y1, x2, y2 = math.max(0, q[2]), math.max(0, q[3]), math.min(m.w, q[2] + BYD), math.min(m.h, q[3] + BYD)
+    if x2 > x1 and y2 > y1 then
+      local t = pvTex()
+      t:SetTexture(q[1], "CLAMP", "CLAMP"); t:SetDrawLayer("ARTWORK", -8)
+      t:SetPoint("TOPLEFT", pv.cv, "TOPLEFT", x1 * s, -y1 * s); t:SetSize((x2 - x1) * s, (y2 - y1) * s)
+      t:SetTexCoord((x1 - q[2]) / BYD, (x2 - q[2]) / BYD, (y1 - q[3]) / BYD, (y2 - q[3]) / BYD)
+      if m.mk then t:AddMaskTexture(pv.mask); t.masked = true end
+    end
+  end
+  for _, q in ipairs(m.p) do
+    local t = pvTex()
+    local r, c, sn = math.sqrt(q[4] * q[4] + q[5] * q[5]) / 2, math.cos(q[6]), math.sin(q[6])
+    t:SetTexture(q[1], "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+    t:SetDrawLayer("ARTWORK", math.min(7, q[7] - 7)) -- i piani più alti sopra
+    t:SetPoint("TOPLEFT", pv.cv, "TOPLEFT", (q[2] - r) * s, -(q[3] - r) * s); t:SetSize(2 * r * s, 2 * r * s)
+    local function tc(du, dv) return (du * c - dv * sn) / q[4] + 0.5, (du * sn + dv * c) / q[5] + 0.5 end
+    local ulx, uly = tc(-r, -r); local llx, lly = tc(-r, r); local urx, ury = tc(r, -r); local lrx, lry = tc(r, r)
+    t:SetTexCoord(ulx, uly, llx, lly, urx, ury, lrx, lry)
+  end
+  local bs = {}
+  for i, b in ipairs(m.b) do bs[i] = { b[1], b[2], b[3], at(b[1]), i, b[4] } end
+  table.sort(bs, function(a, b) if a[4] ~= b[4] then return a[4] < b[4] end return a[5] < b[5] end)
+  if m.e then pvPin("", m.e[1], m.e[2], T.dgEntr) end
+  local names = {}
+  for k, b in ipairs(bs) do pvPin(k, b[2], b[3], k .. ". " .. b[1], b[6]); names[k] = "|cffe0a074" .. k .. "|r " .. b[1] end
+  pv.place()
+  y = y - 8 - VH - 4
+  line("0", table.concat(names, "   "))
   line("0", "|cff7b7770" .. T.dgPlanTip .. "|r")
 end
 

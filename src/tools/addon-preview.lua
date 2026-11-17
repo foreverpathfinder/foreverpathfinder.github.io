@@ -47,6 +47,10 @@ local methods = {
   SetCheckedTexture = function(s, t) t.onlyChecked = true end, SetThumbTexture = function(s, t) s.thumb = t end,
   GetCenter = function() return 0, 0 end, GetEffectiveScale = function() return 1 end,
   GetFrameLevel = function() return 1 end, GetZoom = function() return 0 end, HookScript = function(s, n, fn) s.scripts[n] = fn end,
+  -- pianta dei dungeon: maschere (non si disegnano qui), ritratti, zoom
+  CreateMaskTexture = function(s) return new("MaskTexture", s, "ARTWORK") end, AddMaskTexture = function() end, RemoveMaskTexture = function() end,
+  SetShown = function(s, v) s.shown = v and true or false end, GetTexture = function(s) return s.tex end,
+  GetLeft = function() return 0 end, GetTop = function() return 0 end,
 }
 new = function(kind, parent, layer)
   local o = setmetatable({ kind = kind, parent = parent, layer = layer, shown = true, scripts = {}, kids = {}, regs = {} },

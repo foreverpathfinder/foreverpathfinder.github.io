@@ -477,7 +477,9 @@ function dgmList(){var L=D.dgmaps||[],lv=function(m){var d=FA.dungeons.filter(fu
  return L.map(function(m,i){return {i:i,m:m,lv:lv(m)}}).sort(function(a,b){return a.lv[0]-b.lv[0]||a.m.n.localeCompare(b.m.n)})}
 // numero di ogni boss: la posizione nella lista «in ordine» della scheda Dungeon, se c'è; gli altri dopo
 function dgmBoss(m){var o=((((D.dungeons||{}).dungeons||{})[m.k]||{}).b||[]).map(function(b){return b.replace(/\s*\(.*$/,'').toLowerCase()}),AK={'deathless guardians':'deathless marrow',"doom'rel":'the seven'},at=function(n){n=n.toLowerCase();n=AK[n]||n;for(var i=0;i<o.length;i++)if(o[i]===n||o[i].indexOf(n)>-1||n.indexOf(o[i])>-1)return i;return 99};
- return m.b.map(function(b,i){return {n:b[0],x:b[1],y:b[2],o:at(b[0]),t:i}}).sort(function(a,b){return a.o-b.o||a.t-b.t})}
+ return m.b.map(function(b,i){return {n:b[0],x:b[1],y:b[2],d:b[3],o:at(b[0]),t:i}}).sort(function(a,b){return a.o-b.o||a.t-b.t})}
+// ritratto del boss: miniatura del modello su Wowhead (displayID da OneForAll) o l'icona di riserva
+function dgmPic(d){return typeof d==='number'&&d>0?'background-image:url(https://wow.zamimg.com/modelviewer/classic/webthumbs/npc/'+(d&255)+'/'+d+'.webp)':typeof d==='string'?'background-image:url('+IC(d)+');background-size:cover':''}
 function dgmShow(i){var L=D.dgmaps||[],m=L[i];if(!m||!LF)return;DM.cur=i;$('dgsel').value=i;
  if(!DM.map){DM.map=LF.map($('dmap'),{crs:LF.CRS.Simple,minZoom:-3,maxZoom:2,zoomSnap:.25,zoomDelta:.5,attributionControl:false});DM.g=LF.layerGroup().addTo(DM.map)}
  var map=DM.map,P=function(x,y){return LF.latLng(-y,x)},bounds=LF.latLngBounds(P(0,m.h),P(m.w,0));
@@ -485,8 +487,8 @@ function dgmShow(i){var L=D.dgmaps||[],m=L[i];if(!m||!LF)return;DM.cur=i;$('dgse
  map.setMaxBounds(bounds.pad(.25));map.invalidateSize();map.fitBounds(bounds);
  var bs=dgmBoss(m);
  if(m.e)LF.marker(P(m.e[0],m.e[1]),{icon:LF.divIcon({className:'dpin in',html:'<b>➜</b>',iconSize:[26,26],iconAnchor:[13,13]})}).bindTooltip('Ingresso').addTo(DM.g);
- bs.forEach(function(b,k){b.mk=LF.marker(P(b.x,b.y),{icon:LF.divIcon({className:'dpin',html:'<b>'+(k+1)+'</b>',iconSize:[26,26],iconAnchor:[13,13]})}).bindTooltip(b.n).addTo(DM.g)});
- $('dbos').innerHTML=bs.map(function(b,k){return '<li><button type="button" data-k="'+k+'"><b>'+(k+1)+'</b> '+b.n+'</button></li>'}).join('');
+ bs.forEach(function(b,k){b.mk=LF.marker(P(b.x,b.y),{icon:LF.divIcon({className:'dpin pic',html:'<i style="'+dgmPic(b.d)+'"></i><b>'+(k+1)+'</b>',iconSize:[40,40],iconAnchor:[20,20]})}).bindTooltip(b.n).addTo(DM.g)});
+ $('dbos').innerHTML=bs.map(function(b,k){return '<li><button type="button" data-k="'+k+'"><i style="'+dgmPic(b.d)+'"></i><b>'+(k+1)+'</b> '+b.n+'</button></li>'}).join('');
  $('dbos').onclick=function(e){var t=e.target.closest('button');if(!t)return;var b=bs[+t.dataset.k];map.setView(b.mk.getLatLng(),Math.max(map.getZoom(),0),{animate:!RM});b.mk.openTooltip()}}
 function dgmInit(){var sel=$('dgsel');if(!sel||!(D.dgmaps||[]).length)return;var L=dgmList();
  sel.innerHTML=L.map(function(x){return '<option value="'+x.i+'">'+x.m.n+' · '+x.lv[0]+'–'+x.lv[1]+'</option>'}).join('');

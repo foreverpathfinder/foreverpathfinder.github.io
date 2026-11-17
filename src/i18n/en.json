@@ -6523,8 +6523,6 @@
  "<b>Zarla Ober / Blazeroar</b>: Zarla combatte da mage (Fireball, Flamestrike); quando è bassa diventa il drago Blazeroar: il tank lo gira lontano dal gruppo.": "<b>Zarla Ober / Blazeroar</b>: Zarla fights as a mage (Fireball, Flamestrike); when low she becomes the dragon Blazeroar: the tank turns it away from the group.",
  "Poche quest per l’Orda ed è in territorio Alleanza: non vale il viaggio.": "Few quests for the Horde and it is in Alliance territory: not worth the trip.",
  "17 novembre 2026": "November 17, 2026",
- "Overseer Mugg": "Overseer Mugg",
- "<b>Overseer Mugg</b> ha due Krol'dok Centurion: prima loro. Poi state sparpagliati, perché salta su giocatori a caso.": "<b>Overseer Mugg</b> has two Krol'dok Centurions: them first. Then stay spread out, because he leaps onto random players.",
  "Zevrim Thornhoof (East)": "Zevrim Thornhoof (East)",
  "Unstable Sentinel": "Unstable Sentinel",
  "<b>Unstable Sentinel</b> esplode intorno a sé (Malfunction): chi non fa il tank si allontana.": "<b>Unstable Sentinel</b> explodes around itself (Malfunction): everyone except the tank steps back.",
@@ -6623,5 +6621,7 @@
  "Ravasaur Hunters": "Ravasaur Hunters",
  "krol'dok stronghold": "krol'dok stronghold",
  "Krol'dok Stronghold": "Krol'dok Stronghold",
- "Handler Ashka": "Handler Ashka"
+ "Handler Ashka": "Handler Ashka",
+ "Overlord Mugg": "Overlord Mugg",
+ "<b>Overlord Mugg</b> ha due Krol'dok Centurion: prima loro. Poi state sparpagliati, perché salta su giocatori a caso.": "<b>Overlord Mugg</b> has two Krol'dok Centurions: them first. Then stay spread out, because he leaps onto random players."
 }
