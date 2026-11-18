@@ -192,6 +192,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 - Niente siti che vendono boost o gold. Mai dati di Classic spacciati per Forever.
   - Eccezione decisa dall'utente il 18 nov: Timesaver e Conquest Capped (vendono boost e gold) si usano per la classifica degli alt e per i dungeon, dicendolo nel testo; si prende solo il loro giudizio sulle classi o sui dungeon.
 - Il criterio di ogni consiglio va dichiarato.
+- Negli elenchi delle fonti restano solo quelle da cui la guida ha preso qualcosa: niente video non visti, pagine non lette o «solo segnale» (pulizia del 18 nov).
 
 **Siti e cosa prendere**:
 - **Build A di ogni classe**: la guida di leveling con più ♥ su https://mobalytics.gg/wow-forever/leveling-guides.

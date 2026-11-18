@@ -873,14 +873,6 @@
    "used": "ordine con Pathfinding e Bestial Swiftness al 20; 26/0/0 con Talented"
   },
   {
-   "name": "Mobalytics – Hunter Leveling 1-30 (Feor) e 1-60 BM (Kargoz)",
-   "url": "https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide",
-   "author": "Feor / Kargoz",
-   "date": "31 ott / 22 ott",
-   "signal": "38 ♥ / 30 ♥",
-   "used": "solo il segnale 31/20/0; ordine non letto"
-  },
-  {
    "name": "Zockify – Hunter Leveling Guide",
    "url": "https://www.zockify.com/forever/hunter/leveling/",
    "author": "Zockify",
@@ -953,34 +945,11 @@
    "used": "racial attuali"
   },
   {
-   "name": "YouTube – LudiDeo \"BM Hunter MASTERCLASS\"",
-   "url": "https://www.youtube.com/watch?v=XsoT9XxGnHk",
-   "author": "LudiDeo",
-   "date": "28 ott",
-   "signal": "27,5k views",
-   "used": "solo il segnale (trascrizione non leggibile)"
-  },
-  {
-   "name": "YouTube – Back From AFK (guida leveling Hunter)",
-   "url": "https://www.youtube.com/watch?v=mjqBAFIT_Qc",
-   "author": "Back From AFK",
-   "date": "26 ott",
-   "signal": "4,6k views",
-   "used": "solo il segnale"
-  },
-  {
    "name": "Elenco quest di Forever (Wowhead)",
    "url": "https://www.wowhead.com/forever/quests",
    "date": "2026-11-01",
    "signal": "Nomi quest, livelli, NPC, zona",
    "used": "Taming the Beast NPC per razza, The Great Outdoors NPC, Big Game Hunter 43, The Hunter's Path NPC"
-  },
-  {
-   "name": "Warcraft Tavern – Hunter Leveling Guide",
-   "url": "https://warcrafttavern.com/wow-forever/hunter-leveling-guide/",
-   "date": "2026-11-01",
-   "signal": "Letta solo in parte: troncata prima delle class quest",
-   "used": "Nessun dettaglio di quest utilizzabile: conferma solo che Taming è al 10"
   }
  ],
  "doubts": [

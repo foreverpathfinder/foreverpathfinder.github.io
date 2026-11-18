@@ -1104,36 +1104,12 @@
    "used": "Livelli forme, razze, armi"
   },
   {
-   "name": "YouTube – Tekn0de, Guida al livellamento del Druido",
-   "url": "https://www.youtube.com/watch?v=i_xkspMpv9g",
-   "author": "Tekn0de",
-   "date": "29 set",
-   "signal": "55k views",
-   "used": "Solo capitoli (razze, Feral/Balance/Spellbear/Multi-Root), pre-hotfix, non trascritto"
-  },
-  {
-   "name": "YouTube – Psybear_tv, Come livellare come Druido al giorno 1",
-   "url": "https://www.youtube.com/watch?v=71iEKSLU8sw",
-   "author": "Psybear_tv",
-   "date": "7 ott",
-   "signal": "50.6k views",
-   "used": "Solo descrizione"
-  },
-  {
    "name": "YouTube – Tactyks, modifiche TANK pre-lancio (Feral Druid)",
    "url": "https://www.youtube.com/watch?v=DbEq6GIOHbY",
    "author": "Tactyks",
    "date": "31 ott",
    "signal": "15.8k views (video del 28 ott: 26.5k)",
    "used": "Conferma hotfix albero Feral"
-  },
-  {
-   "name": "YouTube – LostNiceland tv, Feral Druid Leveling 1-60",
-   "url": "https://www.youtube.com/watch?v=4dvLBrsZ23U",
-   "author": "LostNiceland tv",
-   "date": "19 ott",
-   "signal": "8k views",
-   "used": "Esistenza (non trascritto)"
   },
   {
    "name": "Wowhead World Map Forever (wmd.json)",
@@ -1179,20 +1155,6 @@
    "date": "2026-11-01",
    "signal": "POI quest-giver e trainer di classe con ID quest e coordinate",
    "used": "Trainer per fazione e giver Alliance (Denatharion, Mathrengyl, Sheldras Moontree)"
-  },
-  {
-   "name": "WebSearch druid Classic quests (Warcraft Wiki, Icy Veins, noobtoboss)",
-   "url": "https://warcraft.wiki.gg/wiki/Druid_quests",
-   "date": "2026-11-01",
-   "signal": "Solo Classic, non Forever. Cure Poison lvl 14, Aquatic Form lvl 16, Travel Form lvl 30 o 20 discordanti",
-   "used": "Solo cross-check. Tutti i dati Classic sono marcati 🟡"
-  },
-  {
-   "name": "WebSearch Skyborne Zephras Isle",
-   "url": "https://www.warcrafttavern.com/forever/guides/zephras-isle-walkthrough/",
-   "date": "2026-11-01",
-   "signal": "Solo snippet, conferma che Zephras Isle è lo starting zone Skyborne",
-   "used": "Nessun dato druid"
   }
  ],
  "doubts": [

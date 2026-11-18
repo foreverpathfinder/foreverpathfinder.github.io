@@ -455,7 +455,7 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 - [Icy Veins – Frost Mage Leveling (Teloril)](https://www.icy-veins.com/wow-forever/frost-mage-leveling) · 30 ott
 - [wowforever.be – Build di livellamento Paladin (dati client 70707)](https://wowforever.be/leveling/paladin/) · 1 nov · dati client
 - [Mobalytics – Paladin Leveling Guide 1-60 (yumytv)](https://mobalytics.gg/wow-forever/classes/paladin-leveling-guide) · 1 nov · 102 ♥ (la più salvata), 12/8/31
-- [Mobalytics – Retribution Paladin Guide (Jampanos)](https://mobalytics.gg/wow-forever/classes/retribution-paladin-guide) · 1 nov · 26 ♥, 0/0/21
+- [Zockify – Paladin Leveling](https://www.zockify.com/forever/paladin/leveling/) · 30 ott · 12/8/31 Ret
 - [wowforever.be – Build di leveling Priest (client)](https://wowforever.be/leveling/priest/) · 1 nov 2026 · dati client, ordine 10→60
 - [Method – WoW Forever Priest Leveling Guide & Talents (Amaxagon)](https://www.method.gg/wow-forever/wow-forever-priest-leveling-guide-and-talents) · 29 ott 2026 · Method; stringa talent = wowforever.be
 - [Mobalytics – Priest Leveling Guide 1–60 (DoubleZug)](https://mobalytics.gg/wow-forever/classes/priest-leveling-guide-1-60) · 29 ott 2026 · 47 ♥ (lista) – Verified; pagina mostra “27” accanto alla data 🟡
