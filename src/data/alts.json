@@ -2,14 +2,14 @@
  "intro": "Guida agli alt per WoW: Forever (lancio 4 nov 2026). I punti Legacy sono condivisi a livello di account, ma ogni personaggio spende i propri perk. L'alt non è obbligatorio: serve per guadagnare più punti (classi e professioni nuove), per il leveling più veloce e per il bank.",
  "legacy": {
   "how": [
-   "Ogni challenge completata vale 1 punto Legacy. Sono 65 challenge (Blizzard, Method): Classi 27 (livello 25, 45 e 60 per ciascuna delle 9 classi); Tradeskill 18 (150, 225 e 300 in Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring: le primarie non gathering, quindi Mining, Herbalism e Skinning non danno punti); PvP 12; Dungeon 3 (Novice, Experienced, Master Spelunker); Raid 3 (Hyjal, Barrow Deeps, Onyxia); Adventure 2 (questline di Lord Valthalak, Explore Azeroth). Warcraft Tavern ne conta 62 (PvP 9, perché Exalted in una battleground vale 1 punto in totale e non 4): differenza da verificare in gioco 🟡.",
+   "Ogni challenge completata vale 1 punto Legacy. Sono 65 challenge (Blizzard, Method): Classi 27 (livello 25, 45 e 60 per ciascuna delle 9 classi); Tradeskill 18 (150, 225 e 300 in Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring: le primarie non gathering, quindi Mining, Herbalism e Skinning non danno punti); PvP 12; Dungeon 3 (Novice, Experienced, Master Spelunker); Raid 3 (Hyjal, Barrow Deeps, Onyxia); Adventure 2 (questline di Lord Valthalak, Explore Azeroth). Il wiki (warcraft.wiki.gg, 15 nov, dopo il lancio) conferma 65 con PvP 12: 5 gradi PvP, 4 Exalted (uno per fazione di battleground) e 3 settimane del Field of Honor. Warcraft Tavern ne contava 62, ma la sua guida è di prima del lancio.",
    "Primo punto: livello 25 del primo personaggio, oppure 150 skill in una primaria non gathering (Warcraft Tavern, wowforever.gg, Method). Hardcorehelper aggiunge anche l'esplorazione della mappa: non confermato 🟡.",
    "Account-wide: i punti sono condivisi da tutti i personaggi non Hardcore del Battle.net (Blizzard, Warcraft Tavern, Method). Un alt creato dopo il primo punto eredita i punti 🟡 (WoW Forever Guides).",
    "Spesa per personaggio: ogni personaggio spende i punti nei tre alberi Professions, Adventure e Resourcefulness, in modo indipendente. Cap di 16 punti per personaggio al lancio (Blizzard, Method; Method dice che il cap aumenterà nel tempo). Un solo personaggio può guadagnarne fino a 29 (Method): gli altri 13 non sono spendibili su quel personaggio 🟡.",
    "Costo: ogni rank costa 1 punto. Non dichiarato in modo esplicito: lo ricavo dalle build di Method, per esempio Thrill of Adventure (5) occupa 5 punti 🟡. Non risulta un costo in oro per spendere (Method parla solo del reset). Il reset si fa dal class trainer in capitale: 10 gold in beta (Method), il costo finale è sconosciuto.",
    "Requisiti: i perk a 5 punti richiedono 5 punti nel proprio albero, quelli a 10 richiedono 10 punti nell'albero. Alcuni richiedono un perk specifico al massimo: Talented richiede Well Rested (5), Dedicated Study richiede Bartering (2), Performance Bonus richiede Bountiful Harvest (5), Frequent Flier richiede Field Guide (3), Permanence richiede Gourmand (3), Reagent Economy richiede The Quick and the Dead (2) (wowforever.gg).",
-   "Oltre 16 punti, i punti proseguono un track cosmetico. Le ricompense si riscattano da Innkeeper Wiley a Ratchet: Replica Ironforge Air Rifle 15 punti, Spectral Bear Club/Cub 23 o 25 punti 🟡, Spectral Bear Tabard 40, Reins of the Spectral Bear 55 (Warcraft Tavern, Method).",
-   "Challenge per classe e per professione: il testo di Method dice 'Reach 150 skill in Alchemy for the first time'. Quindi quasi certamente ogni classe e ogni professione vale una volta per account 🟡: un secondo Warrior a 25 o un secondo Tailoring a 150 non danno punti nuovi."
+   "Oltre 16 punti, i punti proseguono un track cosmetico. Le ricompense si riscattano da Innkeeper Wiley a Ratchet: Replica Ironforge Air Rifle 15 punti, Spectral Bear Cub 25 punti, Spectral Bear Tabard 40, Reins of the Spectral Bear 55 (Warcraft Tavern, Method).",
+   "Ogni classe e ogni professione vale una volta per account: «Points cannot be duplicated across characters or tradeskills» (wiki, 15 nov). Un secondo Warrior a 25 o un secondo Tailoring a 150 non danno punti nuovi."
   ],
   "perks": [
    [
@@ -26,13 +26,13 @@
    ],
    [
     "Talented (Adventure, max 5)",
-    "I primi punti talento arrivano dal livello 9 invece che dal 10; il cap resta 51 (Warcraft Tavern). Method: da rispecare a livello 60.",
+    "I punti talento partono dal livello 9/8/7/6/5 invece che dal 10, un livello prima per grado; il cap resta 51 (Icy Veins, Warcraft Tavern). Method: da rispecare a livello 60.",
     "5 pt; richiede 5 pt in Adventure e Well Rested (5)",
     "no: si spende per personaggio (punti condivisi)"
    ],
    [
     "Field Guide (Adventure, max 3)",
-    "Riduce il cooldown dei camp feature: 8% per grado, cioè 8/17/25% (wowforever.be guide 🟡 per i gradi; Warcraft Tavern dice 8%).",
+    "Riduce il cooldown dei camp feature dell'8/16/25% (Icy Veins).",
     "3 pt; richiede 5 pt in Adventure",
     "no: si spende per personaggio (punti condivisi)"
    ],
@@ -56,13 +56,13 @@
    ],
    [
     "Bartering (Professions, max 2)",
-    "Prezzi più bassi dai vendor (Warcraft Tavern: -5%; wowforever guide: 5% poi 10% 🟡).",
+    "Prezzi dei vendor -5/10% (Icy Veins).",
     "2 pt; 5 pt in Professions",
     "no: si spende per personaggio (punti condivisi)"
    ],
    [
     "Dedicated Study (Professions, max 1)",
-    "+1 skill nella primaria o secondaria più bassa, una volta ogni 23 ore 🟡. A 300 in tutte le professioni dà 2–4 Elemental Essence (Warcraft Tavern).",
+    "+1 skill nella primaria o secondaria più bassa, cooldown 23 ore. A 300 in tutte le professioni dà 2–4 Elemental Essence (Icy Veins, Warcraft Tavern).",
     "1 pt; 10 pt in Professions e Bartering al massimo",
     "no: si spende per personaggio (punti condivisi)"
    ],
@@ -371,21 +371,28 @@
    "date": "ott 2026",
    "signal": "build beta 8 e 15 ottobre",
    "used": "ordine degli alt, lavori per Mage, Warlock, Paladin, Hunter"
+  },
+  {
+   "name": "warcraft.wiki.gg – Legacy System",
+   "url": "https://warcraft.wiki.gg/wiki/Legacy_System",
+   "date": "15 nov 2026 (dopo il lancio)",
+   "signal": "wiki aggiornato al lancio (patch 1.60.1)",
+   "used": "65 challenge con PvP 12, punti non duplicabili tra personaggi e professioni, soglie del reward track"
+  },
+  {
+   "name": "Icy Veins – WoW Forever Legacy System Guide",
+   "url": "https://www.icy-veins.com/wow-forever/legacy-system",
+   "date": "8 ott 2026",
+   "signal": "tabelle dei tre alberi con i valori per grado",
+   "used": "Talented 9/8/7/6/5, Field Guide 8/16/25%, Bartering 5/10%, Dedicated Study 23 h, Spectral Bear Cub 25"
   }
  ],
  "doubts": [
-  "Conteggio challenge: Blizzard dice 65 con PvP 12 (4 punti per Exalted con ciascuna battleground). Warcraft Tavern conta 62 con PvP 9 (1 punto in totale). Verifica in gioco.",
   "Primo punto: livello 25 o 150 in una primaria non gathering (Warcraft Tavern, wowforever.gg, Method). Hardcorehelper aggiunge l'esplorazione della mappa: non confermato.",
-  "Scope delle challenge: ogni classe e professione vale una volta per account? Method dice 'for the first time', ma non lo dichiara in modo esplicito. Probabile, non confermato.",
   "Costo per rank: non dichiarato da nessuna fonte. 1 punto per rank è dedotto dalle build di Method.",
   "Livello minimo per spendere i punti: non pubblicato (WoW Forever Guides).",
   "Cap 16 per personaggio al lancio, che Method dice aumenterà nel tempo. Un personaggio può guadagnarne 29 (Method). Il cap a lancio non è ancora definitivo.",
   "Alt che eredita i punti: solo da WoW Forever Guides, e riguarda la regola di creazione dopo il primo punto.",
-  "Talented: Warcraft Tavern dice dal livello 9, WoW Forever Guides dice 'up to five levels earlier' senza precisare la regola per grado.",
-  "Field Guide: Warcraft Tavern dice 8%, WoW Forever Guides dice 8/17/25% per grado. Mi fido della seconda, da verificare.",
-  "Bartering: Warcraft Tavern dice -5%, WoW Forever Guides dice 5% poi 10% per grado.",
-  "Reward track: Spectral Bear Club a 23 punti nella news di Warcraft Tavern, Spectral Bear Cub a 25 nella guida Legacy di Warcraft Tavern.",
-  "Dedicated Study 'una volta ogni 23 ore' viene da profs.json (wowforever.be) e non l'ho riletto.",
   "Rate del rested XP fuori dalle zone riposate: non dichiarato da wowforever.be. Un snippet parla di 1.25% fuori zona (non confermato).",
   "Camp Tent 5%: se è una quota totale o un tasso non è chiaro (wowforever.be).",
   "Reset Legacy: 10 gold solo in beta. Il costo al lancio è sconosciuto.",

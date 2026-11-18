@@ -871,7 +871,7 @@
     "A": [
      "skip",
      "",
-     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
+     "Nessuna quest Alleanza. L'ingresso è in Tirisfal Glades, in zona dell'Orda, e la rotta Alleanza non passa vicino: è un viaggio apposta."
     ]
    },
    "q": {
@@ -906,9 +906,9 @@
      "Seconda ala: qui si completano le quest dei libri."
     ],
     "A": [
-     "skip",
-     "",
-     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
+     "opt",
+     "38",
+     "Due quest Alleanza di livello 38 (Mythology of the Titans da Ironforge, Past Due ★ da Dalaran) e Houndmaster Loksey per In the Name of the Light. L'ingresso è in Tirisfal Glades, in zona dell'Orda, e la rotta Alleanza non passa vicino: è un viaggio apposta."
     ]
    },
    "q": {
@@ -940,9 +940,10 @@
       "Raleigh the Devout, Southshore (Hillsbrad Foothills), dopo Down the Scarlet Path"
      ]
     ],
-    "N": [
+    "C": [
      [
       "Rituals of Power",
+      "mage",
       "Magus Tirth, Thousand Needles (The Shimmering Flats), dopo Get the Scoop"
      ]
     ]
@@ -970,9 +971,9 @@
      "Terza ala: un solo boss, Herod, che serve per Into The Scarlet Monastery."
     ],
     "A": [
-     "skip",
-     "",
-     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
+     "opt",
+     "40",
+     "Solo Herod, che serve per In the Name of the Light (Southshore, livello 40). L'ingresso è in Tirisfal Glades, in zona dell'Orda, e la rotta Alleanza non passa vicino: è un viaggio apposta."
     ]
    },
    "q": {
@@ -1006,9 +1007,9 @@
      "Ultima ala: qui finiscono Into The Scarlet Monastery e In the Name of the Light."
     ],
     "A": [
-     "skip",
-     "",
-     "Lontano per l'Alleanza: l'ingresso è in Tirisfal Glades, in piena zona dell'Orda."
+     "opt",
+     "40",
+     "Mograine e Whitemane chiudono In the Name of the Light (Southshore, livello 40). L'ingresso è in Tirisfal Glades, in zona dell'Orda, e la rotta Alleanza non passa vicino: è un viaggio apposta."
     ]
    },
    "q": {

@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 17 nov 2026 · **sito v21** · **addon 1.10.9** (in locale, non ancora pubblicata).
+Aggiornato il 17 nov 2026 · **sito v22** · **addon 1.10.10** (in locale, non ancora pubblicata).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -245,7 +245,10 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 1. **30–60 quest per quest**: fatto il 17 nov (44–60 con QuestieDB del 16 nov: quest con XP osservata, per hub; posizioni dei quest giver da `worldmap.json`, rinfrescato con `map.js`; `quests.txt` rinfrescato con `quests.js` per le quest di Mount Hyjal). Mount Hyjal ★ ha 33 quest 56–60: è la tappa del 60 e compare come alternativa nelle milestone 58–59. Da ricontrollare quando ci saranno guide provate (ordine delle quest 🟡). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
 2. **Build B e C fino al 60**: fatto il 17 nov. Mage B è Arcane vera (Icy Veins 10–60; la partenza Arcane con respec Frost al 31 dal 31 era uguale alla A) e Priest B (Discipline, respec Shadow al 40) ha il `respec`; Paladin B (Holy) e Shaman C (Restoration) seguono Icy Veins 10–60; Warlock C l'ordine 10–60 di wowforever.be.
-3. **Da ricontrollare nel gioco uscito**: classifica degli alt (le tier list erano sulla beta 1–30), costi del Legacy, giudizio Alleanza di Scarlet Monastery (oggi «skip»: ingresso in zona Orda).
+3. **Da ricontrollare nel gioco uscito**:
+   - classifica degli alt: le tier list erano sulla beta 1–30. Al 18 nov Mobalytics è ferma al 17 set; le uniche rifatte dopo il lancio (Timesaver, Conquest Capped) sono di siti che vendono boost e gold.
+   - Legacy: fatto il 18 nov (wiki del 15 nov e Icy Veins: 65 challenge con PvP 12, punti non duplicabili, Talented 9/8/7/6/5, Field Guide 8/16/25%, Bartering 5/10%, Bear Cub a 25). Resta sconosciuto il costo del reset.
+   - Scarlet Monastery Alleanza: fatto il 18 nov. Graveyard «skip» (nessuna quest), Library, Armory e Cathedral «opzionale» con le 3 quest Alleanza e il viaggio apposta. Rituals of Power spostata tra le quest di classe (solo Mage).
 4. **Gold farming**: solo quando ci saranno testimonianze dal gioco.
 5. **Wago**: l'addon non c'è ancora.
 6. **Pagina di prova**: aggiornarla all'aspetto della 1.10, se l'utente la chiede.
