@@ -16,6 +16,7 @@ local function obj(kind, name, template)
     SetChecked = function(s, v) s.checked = v end, GetChecked = function(s) return s.checked end,
     CreateFontString = function() local x = obj("FontString"); fstrings[#fstrings + 1] = x; return x end,
     CreateTexture = function() return obj("Texture") end,
+    CreateMaskTexture = function() return obj("MaskTexture") end,
     GetCenter = function() return 100, 100 end, GetEffectiveScale = function() return 1 end, GetStringWidth = function() return 40 end,
     GetWidth = function() return 60 end, GetMinMaxValues = function() return 0, 100 end, GetValue = function() return 0 end,
     GetHeight = function() return 40 end, GetFrameLevel = function() return 1 end, GetID = function() return 1 end, GetZoom = function() return 0 end,
@@ -378,13 +379,13 @@ for _, s in ipairs(lang == "it" and { "Rotazione", "Spell", "Razza", "Consigli" 
   local b = nav(s); check(b ~= nil, "sezione " .. s .. " della scheda Classe")
   b.scripts.OnClick(b); check(#shownTexts() >= 6, "sezione " .. s .. " con contenuto")
 end
--- Dungeon (dalla 1.5): menu con i dungeon; un clic apre la scheda del dungeon. "Mappa" apre la mappa del mondo sull'ingresso
+-- Dungeon (dalla 1.5): menu con i dungeon; un clic apre la scheda del dungeon. "Ingresso" apre la mappa del mondo sull'ingresso
 -- con il segnaposto; "Boss e loot" apre il dungeon in OneForAll; le quest con la prima della catena (Questie)
 nav(tabName("dungeon")).scripts.OnClick()
 QDONE[776] = true
 check(has(lang == "it" and "Adatti al tuo livello adesso" or "Right for your level now"), "menu: riquadro dei dungeon adatti al livello")
 local dmMenu = nav("The Deadmines")
-check(dmMenu and nav("Hall of Thanes |cff7fd4b0•|r") and not nav(lang == "it" and "Mappa" or "Map"), "menu dei dungeon (senza pulsanti Mappa)")
+check(dmMenu and nav("Hall of Thanes |cff7fd4b0•|r") and not nav(lang == "it" and "Ingresso" or "Entrance"), "menu dei dungeon (senza pulsanti Ingresso)")
 dmMenu.scripts.OnClick(dmMenu)
 check(nav(lang == "it" and "‹ Tutti i dungeon" or "‹ All dungeons") and has(lang == "it" and "da prendere" or "to pick up"), "scheda dei Deadmines: testata con le quest, ritorno al menu")
 if g.faction == "A" then
@@ -402,7 +403,7 @@ local bossB, whereB = sec((lang == "it" and "Boss" or "Bosses") .. "  "), sec(la
 check(bossB and whereB, "sezioni Boss e Come arrivarci")
 bossB.scripts.OnClick(bossB); check(has("Rhahk'zor"), "sezione Boss")
 whereB.scripts.OnClick(whereB); check(has(lang == "it" and "Dove si trova" or "Where it is"), "sezione Come arrivarci")
-local dmB, lootB = nav(lang == "it" and "Mappa" or "Map"), nav(lang == "it" and "Boss e loot" or "Bosses and loot")
+local dmB, lootB = nav(lang == "it" and "Ingresso" or "Entrance"), nav(lang == "it" and "Boss e loot" or "Bosses and loot")
 check(dmB and lootB, "pulsanti Mappa e Boss e loot nella scheda Dungeon")
 WorldMapFrame.shown = false; dmB.scripts.OnClick(dmB)
 check(WorldMapFrame.shown and said("zona") and said("MapUtils"), "mappa sull'ingresso, segnaposto e indicazione per MapUtils")
