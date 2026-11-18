@@ -1344,8 +1344,8 @@
      1,
      25,
      "Enchant Bracer - Inferior Stamina",
-     7418,
-     null,
+     0,
+     "spell_holy_greaterheal",
      31,
      [
       [
@@ -1362,8 +1362,8 @@
      25,
      95,
      "Enchant Chest - Inferior Stamina",
-     7420,
-     null,
+     0,
+     "spell_holy_greaterheal",
      84,
      [
       [
@@ -1380,8 +1380,8 @@
      95,
      110,
      "Enchant Bracer - Minor Stamina",
-     7457,
-     null,
+     0,
+     "spell_holy_greaterheal",
      17,
      [
       [
@@ -1398,8 +1398,8 @@
      110,
      134,
      "Enchant Cloak - Minor Protection",
-     7771,
-     null,
+     0,
+     "spell_holy_greaterheal",
      36,
      [
       [
@@ -1416,8 +1416,8 @@
      134,
      144,
      "Enchant 2H Weapon - Minor Impact",
-     7745,
-     null,
+     0,
+     "spell_holy_greaterheal",
      13,
      [
       [
@@ -1441,8 +1441,8 @@
      144,
      160,
      "Enchant Boots - Minor Stamina",
-     7863,
-     null,
+     0,
+     "spell_holy_greaterheal",
      18,
      [
       [
@@ -1459,8 +1459,8 @@
      160,
      198,
      "Enchant Boots - Lesser Agility",
-     13637,
-     null,
+     0,
+     "spell_holy_greaterheal",
      44,
      [
       [
@@ -1477,8 +1477,8 @@
      198,
      210,
      "Enchant Bracer - Strength",
-     13661,
-     null,
+     0,
+     "spell_holy_greaterheal",
      14,
      [
       [
@@ -1495,8 +1495,8 @@
      210,
      249,
      "Enchant Cloak - Greater Defense",
-     13746,
-     null,
+     0,
+     "spell_holy_greaterheal",
      51,
      [
       [
@@ -1513,8 +1513,8 @@
      249,
      267,
      "Enchant Gloves - Agility",
-     13815,
-     null,
+     0,
+     "spell_holy_greaterheal",
      73,
      [
       [
@@ -1531,8 +1531,8 @@
      267,
      278,
      "Enchant Chest - Superior Stamina",
-     13858,
-     null,
+     0,
+     "spell_holy_greaterheal",
      68,
      [
       [
@@ -1549,8 +1549,8 @@
      278,
      294,
      "Enchant Bracer - Greater Strength",
-     13939,
-     null,
+     0,
+     "spell_holy_greaterheal",
      50,
      [
       [
@@ -1574,8 +1574,8 @@
      294,
      300,
      "Enchant Gloves - Minor Haste",
-     13948,
-     null,
+     0,
+     "spell_holy_greaterheal",
      19,
      [
       [
@@ -3123,8 +3123,8 @@
      190,
      213,
      "Long Silken Cloak",
-     439094,
-     null,
+     4326,
+     "inv_misc_cape_02",
      25,
      [
       [
@@ -3155,8 +3155,8 @@
      213,
      248,
      "Black Mageweave Leggings",
-     439088,
-     null,
+     9999,
+     "inv_pants_09",
      82,
      [
       [

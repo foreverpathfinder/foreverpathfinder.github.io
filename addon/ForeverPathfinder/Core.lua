@@ -1780,6 +1780,8 @@ local function ofaRecipeOpen(prof, r)
 end
 -- passi del percorso: fascia, icona, cosa (tooltip dell'oggetto), volte, materiali con quanti ne hai, dove; ranks = righe dei gradi
 -- (Apprentice in cima, poi prima del passo che supera il cap); restituisce la posizione del passo attuale per lo scorrimento
+-- icona di un oggetto dentro il testo (materiali, lista della spesa)
+local function inl(ic) return ic and ic ~= "" and "|T" .. iconPath(ic) .. ":14:14:0:0:64:64:5:59:5:59|t " or "" end
 local function profSteps(name, P, rt, sk, ranks)
   local here, found, ri, w = nil, false, 1, BW - 2 * PAD - 88 - 28
   local function sep() box("bd", 1, PAD, y + 3, BW - 2 * PAD, 1, true) end
@@ -1804,7 +1806,7 @@ local function profSteps(name, P, rt, sk, ranks)
     y = y - 8
     local top = y
     str(F.small, past and "mu" or cur and "gold" or "tx", s[1] .. "–" .. s[2], PAD + 4, 56)
-    icon(s[5] ~= "" and s[5] or "inv_misc_questionmark", PAD + 62, y, 20)
+    icon(s[5] ~= "" and s[5] or P.icon, PAD + 62, y, 20)
     local times = s[6] > 0 and "  ×" .. s[6] or ""
     local o = str(F.h3, past and "mu" or "tx", past and s[3] .. times or "{" .. s[3] .. "}" .. times .. (cur and "   |cfff1eee8" .. T.pHere .. "|r" or ""), PAD + 88, w)
     if s[4] ~= 0 then hover(PAD + 88, top, math.min(w, o:GetStringWidth() + 4), 16, nil, nil, s[4]) end
@@ -1813,7 +1815,7 @@ local function profSteps(name, P, rt, sk, ranks)
       local parts = {}
       for _, m in ipairs(s[7]) do
         local h = not past and itemCount(m[3])
-        parts[#parts + 1] = m[1] .. "× " .. m[2] .. (m[5] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and ((h >= m[1] and " |cff7fd4b0(" or " |cffd7d3cb(") .. h .. ")|r") or "")
+        parts[#parts + 1] = m[1] .. "× " .. inl(m[4]) .. m[2] .. (m[5] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and ((h >= m[1] and " |cff7fd4b0(" or " |cffd7d3cb(") .. h .. ")|r") or "")
       end
       local mo = str(F.p, "mu", table.concat(parts, ", "), PAD + 88, w); y = y - mo:GetStringHeight() - 2
     end
@@ -1875,13 +1877,13 @@ local function drawProfs(g, k)
   if V.profShop then
     local tot, keys = {}, {}
     for _, list in ipairs({ P.route, P.alt }) do for _, s in ipairs(list) do if s[2] > sk then for _, m in ipairs(s[7]) do
-      if not tot[m[2]] then tot[m[2]] = { 0, m[3], m[5] }; keys[#keys + 1] = m[2] end
+      if not tot[m[2]] then tot[m[2]] = { 0, m[3], m[5], m[4] }; keys[#keys + 1] = m[2] end
       tot[m[2]][1] = tot[m[2]][1] + m[1]
     end end end end
     table.sort(keys)
     for _, n in ipairs(keys) do
       local t, h = tot[n], itemCount(tot[n][2])
-      line("0", "• " .. t[1] .. "× " .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff7fd4b0(" .. h .. ")|r" or ""))
+      line("0", "• " .. t[1] .. "× " .. inl(t[4]) .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff7fd4b0(" .. h .. ")|r" or ""))
     end
   end
   if V.profMore then

@@ -309,15 +309,15 @@ function renderProf(){var P=CL.professions,X=D.profs;
    rt.forEach(function(s){if(rank)while(ri<X.ranks.length&&s[1]>X.ranks[ri][0])o+=rk(X.ranks[ri++]);
     var c=sk>=s[1]?'past':found?'':(found=true,'cur');
     o+='<li class="'+c+'"><span class="rg">'+s[0]+'–'+s[1]+'</span><div>'+img(s[4],'s')+' <b>'+s[2]+'</b>'+(s[5]?' <span class="pill">'+s[5]+'×</span>':'')+(c==='cur'?' <span class="pill p-here">sei qui</span>':'')+
-     (s[6].length?'<br><span class="note">'+s[6].map(function(m){return m[0]+'× '+m[1]+(m[4]?' (vendor)':'')}).join(', ')+'</span>':'')+(s[7]?'<br><span class="note">📍 '+s[7]+'</span>':'')+'</div></li>'});
+     (s[6].length?'<br><span class="note">'+s[6].map(function(m){return m[0]+'× '+(m[3]?img(m[3],'s')+' ':'')+m[1]+(m[4]?' (vendor)':'')}).join(', ')+'</span>':'')+(s[7]?'<br><span class="note">📍 '+s[7]+'</span>':'')+'</div></li>'});
    return '<ol class="proute">'+o+'</ol>'};
  // lista della spesa: materiali dei passi che restano da fare (fusione compresa)
- rt.concat(p.alt||[]).forEach(function(s){if(s[1]>sk)s[6].forEach(function(m){if(!tot[m[1]]){tot[m[1]]=[0,m[4]];keys.push(m[1])}tot[m[1]][0]+=m[0]})});
+ rt.concat(p.alt||[]).forEach(function(s){if(s[1]>sk)s[6].forEach(function(m){if(!tot[m[1]]){tot[m[1]]=[0,m[4],m[3]];keys.push(m[1])}tot[m[1]][0]+=m[0]})});
  $('profP').innerHTML='<div class="pick"><div class="opts">'+list.map(pill).join('')+'</div></div>'+(sel.length?'':'<p class="note">Non hai ancora scelto le profession: sceglile nelle opzioni del personaggio (👥 Personaggi). Intanto puoi guardarle tutte.</p>')+
   '<div class="card"><h3>'+img(p.icon,'s')+' '+p.name+' <span class="note">· '+({gathering:'raccolta',crafting:'crafting',secondary:'secondaria'}[p.type]||p.type)+'</span></h3>'+
   '<div class="lvctl pskill"><button type="button" data-ps="-1" aria-label="Fascia prima">‹</button><label>Skill <input type="number" id="psk" min="1" max="300" inputmode="numeric" value="'+sk+'"></label><button type="button" data-ps="1" aria-label="Fascia dopo">›</button><span class="note">la tua skill attuale: si salva per questo personaggio</span></div>'+
   steps(rt,true)+(p.alt?'<h3>'+p.altTitle+'</h3>'+steps(p.alt,false):'')+'<p class="note">'+X.routeSource+'</p></div>'+
-  (keys.length?'<details><summary>Lista della spesa da '+sk+' a 300</summary><ul>'+keys.sort().map(function(k){return '<li>'+tot[k][0]+'× '+k+(tot[k][1]?' <span class="note">(vendor)</span>':'')+'</li>'}).join('')+'</ul></details>':'')+
+  (keys.length?'<details><summary>Lista della spesa da '+sk+' a 300</summary><ul>'+keys.sort().map(function(k){return '<li>'+tot[k][0]+'× '+(tot[k][2]?img(tot[k][2],'s')+' ':'')+k+(tot[k][1]?' <span class="note">(vendor)</span>':'')+'</li>'}).join('')+'</ul></details>':'')+
   '<details><summary>Novità di Forever, camp e gold</summary>'+(p.forever&&p.forever.length?'<ul>'+li(p.forever)+'</ul>':'')+(p.camp?'<p><b>Camping:</b> '+p.camp+'</p>':'')+'<p><b>Gold:</b> '+p.gold+'</p>'+(p.pairs&&p.pairs.length?'<p><b>Si abbina con:</b> '+p.pairs.join(', ')+'</p>':'')+(p.skillByLevel?'<p><b>Trainer e cap:</b> '+p.skillByLevel+'</p>':'')+
   (p.recipes&&p.recipes.length?'<div class="wrap"><table><tr><th>Item / recipe</th><th>Skill</th><th>Perché</th></tr>'+p.recipes.map(function(r){return '<tr><td>'+r.join('</td><td>')+'</td></tr>'}).join('')+'</table></div>':'')+(p.tips&&p.tips.length?'<ul>'+li(p.tips)+'</ul>':'')+'</details>';
  $('profx').innerHTML='<h3>Tutte le profession</h3><div class="pick"><div class="opts">'+ps.map(function(q){return pill(q.name)}).join('')+'</div></div><p class="note">Tocca una profession per vederne il percorso; quelle del personaggio si scelgono nelle opzioni (👥 Personaggi).</p>'+

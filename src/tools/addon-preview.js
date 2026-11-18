@@ -18,9 +18,10 @@ const FONT=n=>'data:font/ttf;base64,'+fs.readFileSync(ADDON+'/Fonts/'+n).toStrin
 const FILES=fs.readdirSync(ADDON+'/Fonts').filter(n=>n.endsWith('.ttf'));
 const FACES=FILES.map(n=>`@font-face{font-family:'${n.slice(0,-4)}';src:url('${FONT(n)}')}`).join('');
 const fam=file=>"'"+String(file).replace(/.ttf$/,'')+"'";
-const plain=s=>s.replace(/\|c[0-9a-fA-F]{8}/g,'').replace(/\|r/g,'');
+const plain=s=>s.replace(/\|T[^|]*\|t/g,' ').replace(/\|c[0-9a-fA-F]{8}/g,'').replace(/\|r/g,'');
 const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
-const colored=(s,base)=>esc(s).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<span style="color:#$1">').replace(/\|r/g,'</span>').replace(/\n/g,'<br>');
+// |TInterface\Icons\nome:14:...|t = icona dentro il testo (materiali delle profession)
+const colored=(s,base)=>esc(s).replace(/\|TInterface\\Icons\\([a-z0-9_]+)[^|]*\|t/gi,(m,n)=>`<img src="https://wow.zamimg.com/images/wow/icons/small/${n.toLowerCase()}.jpg" style="width:14px;height:14px;vertical-align:-2px;clip-path:inset(7%)">`).replace(/\|c[0-9a-fA-F]{2}([0-9a-fA-F]{6})/g,'<span style="color:#$1">').replace(/\|r/g,'</span>').replace(/\n/g,'<br>');
 (async()=>{const b=await chromium.launch({channel:'chrome'});const p=await b.newPage();
  await p.setContent(`<html><head><style>${FACES}</style></head><body></body></html>`);
  // passata 1: quali testi vanno misurati
