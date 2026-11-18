@@ -798,7 +798,34 @@
      ],
      ""
     ]
-   ]
+   ],
+   "trainerMax": {
+    "Bena Winterhoof": 3,
+    "Miao'zan": 2,
+    "Yelmak": 3,
+    "Cyndra Kindwhisper": 2,
+    "Kylanna": 3,
+    "Ainethil": 4,
+    "Alchemist Narett": 3,
+    "Kylanna Windwhisper": 4,
+    "Milla Fairancora": 2,
+    "Sylvanna Forestmoon": 3,
+    "Whuut": 2,
+    "Kray": 2,
+    "Alchemist Mallory": 2,
+    "Vosur Brakthel": 2,
+    "Rogvar": 4,
+    "Ghak Healtouch": 2,
+    "Carolai Anise": 2,
+    "Serge Hinott": 3,
+    "Jaxin Chong": 3,
+    "Doctor Marsh": 3,
+    "Doctor Herbert Halsey": 4,
+    "Tally Berryfizz": 3,
+    "Lilyssia Nightbreeze": 3,
+    "Tel'Athir": 2,
+    "Doctor Martin Felben": 2
+   }
   },
   {
    "name": "Blacksmithing",
@@ -1294,7 +1321,29 @@
      ],
      ""
     ]
-   ]
+   ],
+   "trainerMax": {
+    "Snarl": 3,
+    "Karn Stonehoof": 3,
+    "Dwukk": 2,
+    "Saru Steelfury": 4,
+    "Traugh": 3,
+    "Delfrum Flintbeard": 2,
+    "Ug'thok": 2,
+    "Thrag Stonehoof": 2,
+    "Smith Argus": 2,
+    "Dane Lindgren": 2,
+    "Tognus Flintfire": 2,
+    "Brikk Keencraft": 4,
+    "Clarise Gnarltree": 3,
+    "Guillaume Sorouy": 2,
+    "Bengus Deepforge": 4,
+    "James Van Brunt": 3,
+    "Basil Frye": 2,
+    "Therum Deepforge": 3,
+    "Rotgath Stonebeard": 3,
+    "Groum Stonebeard": 2
+   }
   },
   {
    "name": "Enchanting",
@@ -1595,7 +1644,26 @@
      ],
      ""
     ]
-   ]
+   ],
+   "trainerMax": {
+    "Teg Dawnstrider": 3,
+    "Godan": 3,
+    "Alanna Raveneye": 2,
+    "Taladan": 3,
+    "Xylinnia Starshine": 3,
+    "Jhag": 2,
+    "Lalina Summermoon": 2,
+    "Mot Dawnstrider": 2,
+    "Hgarth": 4,
+    "Lucan Cordell": 3,
+    "Lavinia Crowe": 3,
+    "Gimble Thistlefuzz": 3,
+    "Vance Undergloom": 2,
+    "Thonys Pillarstone": 2,
+    "Malcomb Wynn": 2,
+    "Betty Quin": 2,
+    "Kitta Firewind": 4
+   }
   },
   {
    "name": "Engineering",
@@ -2078,7 +2146,27 @@
      ],
      ""
     ]
-   ]
+   ],
+   "trainerMax": {
+    "Thund": 2,
+    "Nogg": 3,
+    "Tinkerwiz": 2,
+    "Buzzek Bracketswing": 4,
+    "Twizwick Sprocketgrind": 2,
+    "Roxxik": 4,
+    "Mukdrak": 2,
+    "Jenna Lemkenilli": 2,
+    "Finbus Geargrind": 3,
+    "Bronk Guzzlegear": 2,
+    "Deek Fizzlebizz": 2,
+    "Graham Van Talen": 2,
+    "Springspindle Fizzlegear": 4,
+    "Lilliam Sparkspindle": 3,
+    "Sprite Jumpsprocket": 2,
+    "Jemma Quikswitch": 2,
+    "Trixie Quikswitch": 3,
+    "Franklin Lloyd": 3
+   }
   },
   {
    "name": "Leatherworking",
@@ -2651,7 +2739,33 @@
      ],
      ""
     ]
-   ]
+   ],
+   "trainerMax": {
+    "Una": 4,
+    "Mak": 2,
+    "Chaw Stronghide": 2,
+    "Karolek": 3,
+    "Nadyia Maneweaver": 2,
+    "Krulmoo Fullmoon": 3,
+    "Aayndia Floralwind": 3,
+    "Telonis": 4,
+    "Kamari": 2,
+    "Narv Hidecrafter": 3,
+    "Faldron": 3,
+    "Darianna": 2,
+    "Tarn": 3,
+    "Hahrana Ironhide": 4,
+    "Dan Golthas": 2,
+    "Brawn": 3,
+    "Gretta Finespindle": 2,
+    "Adele Fielder": 2,
+    "Shelene Rhobart": 2,
+    "Arthur Moore": 3,
+    "Fimble Finespindle": 3,
+    "Simon Tanner": 3,
+    "Randal Worth": 2,
+    "Drakk Stonehand": 4
+   }
   },
   {
    "name": "Skinning",
@@ -3272,7 +3386,31 @@
      ],
      ""
     ]
-   ]
+   ],
+   "trainerMax": {
+    "Snang": 2,
+    "Tepa": 3,
+    "Magar": 3,
+    "Kil'hala": 2,
+    "Mahani": 3,
+    "Me'lynn": 3,
+    "Grondal Moonbreeze": 2,
+    "Trianna": 2,
+    "Vhan": 2,
+    "Timothy Worthington": 4,
+    "Eldrin": 2,
+    "Lawrence Schneider": 2,
+    "Georgio Bolero": 4,
+    "Uthrar Threx": 2,
+    "Daryl Stack": 4,
+    "Grarnik Goodstitch": 3,
+    "Bowen Brisboise": 2,
+    "Josef Gregorian": 4,
+    "Jormund Stonebrow": 3,
+    "Sellandus": 3,
+    "Victor Ward": 2,
+    "Rhiannon Davis": 3
+   }
   },
   {
    "name": "Cooking",

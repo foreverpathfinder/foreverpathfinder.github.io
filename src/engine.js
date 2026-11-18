@@ -294,7 +294,10 @@ function renderClass(){
 var PSEC=['Cooking','First Aid','Fishing'],PCUR;
 function pby(n){return (D.profs?D.profs.professions:[]).filter(function(p){return p.name===n})[0]}
 // trainer della profession più vicino; adv = per un grado dopo Apprentice (niente trainer che insegnano solo Apprentice)
-function ptrain(p,x,y,adv){var q=pby(p),ap=adv&&q&&q.apprentice||[];return near((D.map.prof[pkey(p)]||[]).filter(function(t){return ap.indexOf(t[0])<0}),x,y)}
+// adv: true = dopo Apprentice; 2/3/4 = grado da imparare (Journeyman, Expert, Artisan): solo chi lo insegna (trainerMax, dal titolo dell'NPC), se c'è
+function ptrain(p,x,y,adv){var q=pby(p),ap=adv&&q&&q.apprentice||[],tm=q&&q.trainerMax,L=(D.map.prof[pkey(p)]||[]).filter(function(t){return ap.indexOf(t[0])<0});
+ if(tm&&adv>2){var K=L.filter(function(t){return (tm[t[0]]||0)>=adv});if(K.length)L=K}return near(L,x,y)}
+var RANKN={Journeyman:2,Expert:3,Artisan:4};
 function renderProf(){var P=CL.professions,X=D.profs;
  $('profc').innerHTML='<div class="card"><h3>Main: gold subito</h3><p>'+(P.gold||C.profGold)+'</p></div><div class="card"><h3>Main: più forza in leveling</h3><p>'+P.power+'</p></div><div class="card"><h3>Il consiglio per il '+CL.name+'</h3><p>'+P.advice+(X&&X.classPicks&&X.classPicks[S.c]?'<br>'+X.classPicks[S.c]:'')+'</p></div>';
  renderAlt();if(!X){$('profP').innerHTML=$('profx').innerHTML='';return}
@@ -304,7 +307,9 @@ function renderProf(){var P=CL.professions,X=D.profs;
  var p=pby(cur),sk=Math.max(1,Math.min(300,+S.o.ps[cur]||1)),st=RT.steps[stepAt(S.L)],found=false,rt=p.route||[],tot={},keys=[],
   pill=function(n){return '<button type="button" data-pv="'+n+'"'+(n===cur?' class="on"':'')+'>'+img(pby(n).icon)+n+(sel.indexOf(n)>-1?' ★':'')+'</button>'},
   tb=function(adv){return npcBtn(ptrain(cur,st[2],st[3],adv),cur+' Trainer')},
-  rk=function(r){var how=(p.rankHow||{})[r[1]];return '<li class="rk'+(sk>r[0]?' past':sk>=r[3]?' due':'')+'"><span class="rg">'+r[0]+'</span><div>📜 Impara <b>'+r[1]+'</b> prima di '+r[0]+' <span class="note">· liv. '+r[2]+', skill '+r[3]+'</span>'+(how?'<br><span class="note">Si impara con '+how+'</span>':' '+tb(true))+'</div></li>'},
+  rk=function(r){var how=(p.rankHow||{})[r[1]],cap=sk===r[0],t=how?null:ptrain(cur,st[2],st[3],RANKN[r[1]]);
+   // al cap del grado: la riga si accende e dice da chi andare (il trainer più vicino che insegna questo grado)
+   return '<li class="rk'+(sk>r[0]?' past':cap?' cur':sk>=r[3]?' due':'')+'"><span class="rg">'+r[0]+'</span><div>📜 Impara <b>'+r[1]+'</b> prima di '+r[0]+' <span class="note">· liv. '+r[2]+', skill '+r[3]+'</span>'+(cap?' <span class="pill p-here">sei al cap: vai a impararlo</span>':'')+(how?'<br><span class="note">Si impara con '+how+'</span>':t?'<br><span class="note">Trainer: </span>'+npcBtn(t):'')+'</div></li>'},
   steps=function(rt,rank){var o=rank?'<li class="rk'+(sk>1?' past':'')+'"><span class="rg">1</span><div>📜 Impara <b>Apprentice</b> (skill fino a 75) '+tb(false)+'</div></li>':'',ri=0;found=false;
    rt.forEach(function(s){if(rank)while(ri<X.ranks.length&&s[1]>X.ranks[ri][0])o+=rk(X.ranks[ri++]);
     var c=sk>=s[1]?'past':found?'':(found=true,'cur');

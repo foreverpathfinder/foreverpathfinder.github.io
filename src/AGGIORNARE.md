@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 17 nov 2026 · **sito v23** · **addon 1.10.11** (in locale, non ancora pubblicata).
+Aggiornato il 17 nov 2026 · **sito v24** · **addon 1.10.12** (in locale, non ancora pubblicata).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -126,6 +126,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
   - `t`: consigli. Un consiglio che nomina un boss in `<b>` finisce sotto quel boss.
 
   I nomi devono essere uguali a quelli di OneForAll (es. «Scarlet Monastery: Library»), così il pulsante «Boss e loot» apre la pagina giusta.
+- **Trainer delle profession** (`profs.json` → `professions[].trainerMax`): per le 6 di crafting, NPC → grado più alto che insegna (2 Journeyman, 3 Expert, 4 Artisan), dal titolo in `foreverNpcDB.lua` di QuestieDB («Journeyman Tailor», «Expert …», «Artisan …»/«Master …»). Sito (`ptrain`) e addon (`nearestTrainer`, `mx`) per ogni grado scelgono il più vicino che lo insegna; senza titolo vale solo per Journeyman. Raccolta e secondarie: titoli generici, nessun filtro. Se cambia `worldmap.json`, rifai `trainerMax` con `node src/tools/trainers.js <cartella QuestieDB>`.
 - **Classifica degli alt** (`alts.rank`): `tiers {classe: [voto Mobalytics, voto Timesaver]}` con S=4…D=0, `order` (spareggio), `profs`.
 
 ## 6. Sito (`engine.js`)

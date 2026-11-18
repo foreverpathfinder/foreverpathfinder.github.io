@@ -311,5 +311,6 @@
 ["La pianta di ogni dungeon con i boss numerati nell’ordine della scheda Dungeon e l’ingresso (➜). Ricostruite dai file del gioco da Twinmap. Tocca un boss nell’elenco per trovarlo.","The layout of every dungeon, with the bosses numbered in the order of the Dungeons tab and the entrance (➜). Rebuilt from the game files by Twinmap. Tap a boss in the list to find it."],
 ["aria-label=\"Mappa del dungeon\"","aria-label=\"Dungeon map\""],
 ["bindTooltip('Ingresso')","bindTooltip('Entrance')"],
-["🗺 Mappa del dungeon</a>","🗺 Dungeon map</a>"]
+["🗺 Mappa del dungeon</a>","🗺 Dungeon map</a>"],
+["sei al cap: vai a impararlo","at the cap: go and learn it"]
 ]

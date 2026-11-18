@@ -73,7 +73,7 @@ local TT = {
     dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgKeyDrag = "Tasto sinistro", dgDrag = "trascina", dgKeyZoom = "Ctrl + rotella", dgZoom = "ingrandisci e riduci", dgCredit = "Pianta ricostruita dall'addon Twinmap", dgEntr = "Ingresso",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pItemKeys = "Mouse su un oggetto: anteprima   ·   Maiusc + clic: link in chat", pApp = "Impara {Apprentice} (skill fino a 75)",
-    pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
+    pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pFrom = "Trainer: {%s}%s", pAtCap = "Sei al cap %d: vai dal trainer qui sotto per imparare %s e continuare a salire.", pShop = "Lista della spesa da %d a 300",
     pMore = "Novità di Forever, camp e gold", pHide = "Nascondi", pBag = "Tra parentesi quanti ne hai (borse e banca).", pVendor = "vendor",
     pMapT = "Trainer delle tue profession sulla mappa del mondo", pMapV = "Reagent vendor dei materiali delle tue profession sulla mappa del mondo (da Questie)",
     pCap = "%s %d/%d: impara %s prima di andare avanti (%s).", pCapT = "trainer: %s", pOfaTip = "Apre la ricetta in OneForAll (fonti, chi la conosce, skill-up)",
@@ -137,7 +137,7 @@ local TT = {
     dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgKeyDrag = "Left click", dgDrag = "drag", dgKeyZoom = "Ctrl + wheel", dgZoom = "zoom in and out", dgCredit = "Layout rebuilt by the Twinmap addon", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pItemKeys = "Hover an item: preview   ·   Shift + click: link in chat", pApp = "Learn {Apprentice} (skill up to 75)",
-    pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
+    pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pFrom = "Trainer: {%s}%s", pAtCap = "You're at the %d cap: go to the trainer below to learn %s and keep leveling.", pShop = "Shopping list from %d to 300",
     pMore = "New in Forever, camp and gold", pHide = "Hide", pBag = "In brackets how many you have (bags and bank).", pVendor = "vendor",
     pMapT = "Your profession trainers on the world map", pMapV = "Reagent vendors for your professions' materials on the world map (from Questie)",
     pCap = "%s %d/%d: learn %s before going on (%s).", pCapT = "trainer: %s", pOfaTip = "Opens the recipe in OneForAll (sources, who knows it, skill-ups)",
@@ -1790,7 +1790,10 @@ end
 -- (Apprentice in cima, poi prima del passo che supera il cap); restituisce la posizione del passo attuale per lo scorrimento
 -- icona di un oggetto dentro il testo (materiali, lista della spesa)
 local function inl(ic) return ic and ic ~= "" and "|T" .. iconPath(ic) .. ":14:14:0:0:64:64:5:59:5:59|t " or "" end
-local function profSteps(name, P, rt, sk, ranks)
+local RANKN = { Journeyman = 2, Expert = 3, Artisan = 4 }
+local function zname(z) local i = z and C_Map and C_Map.GetMapInfo and C_Map.GetMapInfo(z); return i and i.name end
+-- mx = il tuo massimo attuale nella profession: se è il cap di un grado, quella riga si accende e dice da chi andare
+local function profSteps(name, P, rt, sk, ranks, mx)
   local here, found, ri, w = nil, false, 1, BW - 2 * PAD - 88 - 28
   local function sep() box("bd", 1, PAD, y + 3, BW - 2 * PAD, 1, true) end
   local function rankRow(cap, rname, lvl, need, first)
@@ -1798,12 +1801,20 @@ local function profSteps(name, P, rt, sk, ranks)
     local top = y
     local how = not first and P.how[rname]
     local s = first and T.pApp or T.pLearn:format(rname, cap, lvl, need)
-    if how then s = s .. "\n" .. T.pHow:format(how) end
+    local atCap = not first and mx == cap and sk >= cap
+    if atCap then s = "|cffe0a074" .. T.pAtCap:format(cap, rname) .. "|r\n" .. s end
+    if how then s = s .. "\n" .. T.pHow:format(how)
+    elseif not first then
+      -- il trainer più vicino che insegna questo grado, con la zona
+      local t = nearestTrainer(name, RANKN[rname])
+      if t then local zn = zname(t.z); s = s .. "\n" .. T.pFrom:format(t.who, zn and ", " .. zn or "") end
+    end
     str(F.small, "mu", tostring(first and 1 or cap), PAD + 4, 56)
     icon("inv_scroll_03", PAD + 62, y, 18)
     local o = str(F.p, sk > cap and "mu" or "ice", s, PAD + 88, w)
-    if not how then mini("inv_misc_map_01", BW - PAD - 20, top, name .. " Trainer", T.pTrainer, function() local p = nearestTrainer(name, not first); if p then mapAt(p) end end) end
+    if not how then mini("inv_misc_map_01", BW - PAD - 20, top, name .. " Trainer", T.pTrainer, function() local p = nearestTrainer(name, first and nil or RANKN[rname] or true); if p then mapAt(p) end end) end
     y = top - math.max(22, o:GetStringHeight()) - 6
+    if atCap then box("goldbg", 1, PAD - 4, top + 4, BW - 2 * PAD + 8, top - y, true) end
     sep()
   end
   if ranks then rankRow(75, "Apprentice", 1, 1, true) end
@@ -1884,7 +1895,7 @@ local function drawProfs(g, k)
   if o then line("0", T.pBag); y = y - 4 end
   -- comandi sugli oggetti, nel colore d'accento come sotto la pianta dei dungeon
   do local h = str(F.nav, "ac", T.pItemKeys, PAD, BW - 2 * PAD); y = y - h:GetStringHeight() - 4 end
-  local here = profSteps(V.profSel, P, P.route, sk, PD.ranks)
+  local here = profSteps(V.profSel, P, P.route, sk, PD.ranks, o and o[3])
   if #P.alt > 0 then y = y - 10; line("2", P.altTitle); profSteps(V.profSel, P, P.alt, sk) end
   y = y - 6; line("0", PD.src)
   cardClose()
@@ -2411,18 +2422,23 @@ local function playerOn(cont) -- posizione del giocatore 0–1 sul continente
 end
 -- trainer più vicino di una profession sul tuo continente (della tua fazione; adv = per un grado dopo Apprentice: niente trainer
 -- delle zone iniziali che insegnano solo Apprentice); se sul continente non c'è, il primo che va bene
+-- adv = 2/3/4 (Journeyman, Expert, Artisan): solo i trainer che insegnano quel grado (mx, dal titolo dell'NPC), se ce ne sono
 nearestTrainer = function(prof, adv)
-  local side, here, best, bd, any = UnitFactionGroup("player") == "Horde" and 2 or 1, {}
+  local side, here = UnitFactionGroup("player") == "Horde" and 2 or 1, {}
   for ck, cid in pairs(continents()) do local px, py = playerOn(cid); if px and px >= 0 and px <= 1 and py >= 0 and py <= 1 then here[ck] = { px, py } end end
-  for _, t in ipairs(ForeverPathfinderProfTrainers and ForeverPathfinderProfTrainers[pkey(prof)] or {}) do
-    if (t[5] == 0 or t[5] == side) and not (adv and t.ap) then
-      local p = { t[2], t[3], t[4], prof .. " Trainer", nil, z = t.z, who = t[1] }
-      any = any or p
-      local h = here[t[2]]
-      if h then local gx, gy = xy(p); local d = (gx - h[1]) ^ 2 + (gy - h[2]) ^ 2; if not bd or d < bd then best, bd = p, d end end
+  local function pick(need)
+    local best, bd, any
+    for _, t in ipairs(ForeverPathfinderProfTrainers and ForeverPathfinderProfTrainers[pkey(prof)] or {}) do
+      if (t[5] == 0 or t[5] == side) and not (adv and t.ap) and not (need and (t.mx or 0) < need) then
+        local p = { t[2], t[3], t[4], prof .. " Trainer", nil, z = t.z, who = t[1] }
+        any = any or p
+        local h = here[t[2]]
+        if h then local gx, gy = xy(p); local d = (gx - h[1]) ^ 2 + (gy - h[2]) ^ 2; if not bd or d < bd then best, bd = p, d end end
+      end
     end
+    return best or any
   end
-  return best or any
+  return type(adv) == "number" and adv > 2 and pick(adv) or pick(nil)
 end
 -- al massimo del grado (75, 150, 225) una riga in chat, una volta per profession e grado: cosa imparare e da chi
 local function capCheck()
@@ -2434,7 +2450,7 @@ local function capCheck()
       if p[3] == r[1] and p[2] >= r[1] and not C.capw[p[1] .. r[1]] then
         C.capw[p[1] .. r[1]] = true
         local how = PD.list[p[1]].how[r[2]]
-        if not how then local t = nearestTrainer(p[1], true); how = T.pCapT:format(t and t.who or "?") end
+        if not how then local t = nearestTrainer(p[1], RANKN[r[2]]); local zn = t and zname(t.z); how = T.pCapT:format(t and (t.who .. (zn and ", " .. zn or "")) or "?") end
         say(T.pCap:format(p[1], p[2], p[3], r[2], how))
       end
     end

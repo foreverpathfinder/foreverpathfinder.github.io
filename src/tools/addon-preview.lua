@@ -79,7 +79,9 @@ UnitFactionGroup = function() return "Alliance" end
 UnitLevel = function() return tonumber(PVL) or 18 end
 -- profession del personaggio (1.7): Blacksmithing 85/150, Mining 120/150; materiali nelle borse
 GetProfessions = function() return 1, 2 end
-GetProfessionInfo = function(i) if i == 1 then return "Blacksmithing", "", 85, 150 elseif i == 2 then return "Mining", "", 120, 150 end end
+-- PVSK="150,150": skill e massimo di Blacksmithing (per vedere una riga al cap)
+local PSK, PMX = (PVSK or ""):match("^(%d+),(%d+)$")
+GetProfessionInfo = function(i) if i == 1 then return "Blacksmithing", "", tonumber(PSK) or 85, tonumber(PMX) or 150 elseif i == 2 then return "Mining", "", 120, 150 end end
 GetItemCount = function(id) return id == 2842 and 20 or id == 3470 and 6 or 0 end
 GetNumTalentTabs = function() return 3 end
 GetTalentTabInfo = function(i) return "t", nil, i == 3 and 8 or 0 end
