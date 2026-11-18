@@ -189,6 +189,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 **Regola**: le fonti si scelgono per voti e preferiti; i dati del client decidono i dettagli.
 - ✔ = confermato da più fonti, 🟡 = una sola fonte o prima del lancio, ★ = novità di Forever.
 - Niente siti che vendono boost o gold. Mai dati di Classic spacciati per Forever.
+  - Eccezione decisa dall'utente il 18 nov: Timesaver e Conquest Capped (vendono boost e gold) si usano per la classifica degli alt e per i dungeon, dicendolo nel testo; si prende solo il loro giudizio sulle classi o sui dungeon.
 - Il criterio di ogni consiglio va dichiarato.
 
 **Siti e cosa prendere**:
@@ -246,7 +247,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 1. **30–60 quest per quest**: fatto il 17 nov (44–60 con QuestieDB del 16 nov: quest con XP osservata, per hub; posizioni dei quest giver da `worldmap.json`, rinfrescato con `map.js`; `quests.txt` rinfrescato con `quests.js` per le quest di Mount Hyjal). Mount Hyjal ★ ha 33 quest 56–60: è la tappa del 60 e compare come alternativa nelle milestone 58–59. Da ricontrollare quando ci saranno guide provate (ordine delle quest 🟡). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
 2. **Build B e C fino al 60**: fatto il 17 nov. Mage B è Arcane vera (Icy Veins 10–60; la partenza Arcane con respec Frost al 31 dal 31 era uguale alla A) e Priest B (Discipline, respec Shadow al 40) ha il `respec`; Paladin B (Holy) e Shaman C (Restoration) seguono Icy Veins 10–60; Warlock C l'ordine 10–60 di wowforever.be.
 3. **Da ricontrollare nel gioco uscito**:
-   - classifica degli alt: le tier list erano sulla beta 1–30. Al 18 nov Mobalytics è ferma al 17 set; le uniche rifatte dopo il lancio (Timesaver, Conquest Capped) sono di siti che vendono boost e gold.
+   - classifica degli alt: fatto il 18 nov. Tre voti (`rank.voters`): Mobalytics (17 set, prima del lancio), Timesaver (13 nov) e Conquest Capped (10 nov), rifatte dopo il lancio. Da ricontrollare quando Mobalytics aggiorna la sua.
    - Legacy: fatto il 18 nov (wiki del 15 nov e Icy Veins: 65 challenge con PvP 12, punti non duplicabili, Talented 9/8/7/6/5, Field Guide 8/16/25%, Bartering 5/10%, Bear Cub a 25). Resta sconosciuto il costo del reset.
    - Scarlet Monastery Alleanza: fatto il 18 nov. Graveyard «skip» (nessuna quest), Library, Armory e Cathedral «opzionale» con le 3 quest Alleanza e il viaggio apposta. Rituals of Power spostata tra le quest di classe (solo Mage).
 4. **Gold farming**: solo quando ci saranno testimonianze dal gioco.

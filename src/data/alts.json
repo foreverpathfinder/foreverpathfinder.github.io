@@ -359,10 +359,10 @@
    "used": "voto di leveling per la classifica degli alt"
   },
   {
-   "name": "Timesaver, WoW Forever best class to level (beta tier list)",
+   "name": "Timesaver – WoW Forever best class to level (tier list checked against the live race to 60)",
    "url": "https://timesaver.gg/blog/wow-forever-best-class-to-level-beta-tier-list",
-   "date": "ott 2026",
-   "signal": "basata sulla beta 1–30",
+   "date": "13 nov 2026",
+   "signal": "aggiornata dopo il lancio: corsa al 60 del 6 nov e hotfix del 10 nov; il sito vende anche boost e gold",
    "used": "voto di leveling per la classifica degli alt"
   },
   {
@@ -385,6 +385,13 @@
    "date": "8 ott 2026",
    "signal": "tabelle dei tre alberi con i valori per grado",
    "used": "Talented 9/8/7/6/5, Field Guide 8/16/25%, Bartering 5/10%, Dedicated Study 23 h, Spectral Bear Cub 25"
+  },
+  {
+   "name": "Conquest Capped – WoW Forever Best Leveling Class",
+   "url": "https://conquestcapped.com/guides/wow-forever/wow-forever-best-leveling-class/",
+   "date": "10 nov 2026",
+   "signal": "tier list dopo la prima settimana di gioco (hotfix fino al 10 nov); il sito vende anche boost e gold",
+   "used": "terzo voto di leveling per la classifica degli alt"
   }
  ],
  "doubts": [
@@ -804,7 +811,7 @@
   }
  ],
  "rank": {
-  "criteria": "Come è fatta la classifica: l’alt serve soprattutto a fare punti Legacy ai livelli 25, 45 e 60, quindi conta quanto la classe è veloce e sicura da livellare da sola. Per ogni classe ci sono due voti (S il migliore, D il peggiore): il primo dalla tier list del leveling di Mobalytics, il secondo da quella di Timesaver sulla beta. La posizione è la media dei due; a parità vale l’ordine della guida agli alt di Conquest Capped, che mette prima le classi più facili da livellare.",
+  "criteria": "Come è fatta la classifica: l’alt serve soprattutto a fare punti Legacy ai livelli 25, 45 e 60, quindi conta quanto la classe è veloce e sicura da livellare da sola. Per ogni classe ci sono tre voti (S il migliore, D il peggiore): Mobalytics (17 set, prima del lancio), Timesaver (13 nov) e Conquest Capped (10 nov), rifatte tutte e due dopo il lancio con la corsa al 60 e gli hotfix. La posizione è la media dei tre; a parità vale l’ordine della guida agli alt di Conquest Capped, che mette prima le classi più facili da livellare. Timesaver e Conquest Capped vendono anche boost e gold: qui si usa solo il loro giudizio sulle classi.",
   "sources": [
    [
     "Mobalytics – Leveling Class Tier List",
@@ -812,9 +819,14 @@
     "17 set 2026"
    ],
    [
-    "Timesaver – Best class to level (beta)",
+    "Timesaver – Tier list checked against the live race to 60",
     "https://timesaver.gg/blog/wow-forever-best-class-to-level-beta-tier-list",
-    "ott 2026"
+    "13 nov 2026"
+   ],
+   [
+    "Conquest Capped – Best Leveling Class",
+    "https://conquestcapped.com/guides/wow-forever/wow-forever-best-leveling-class/",
+    "10 nov 2026"
    ],
    [
     "Conquest Capped – Alt Leveling",
@@ -825,38 +837,47 @@
   "tiers": {
    "mage": [
     "S",
+    "S",
     "S"
    ],
    "hunter": [
+    "S",
     "S",
     "S"
    ],
    "warlock": [
     "A",
+    "A",
     "A"
    ],
    "rogue": [
     "A",
+    "B",
     "B"
    ],
    "shaman": [
     "B",
-    "A"
+    "A",
+    "B"
    ],
    "paladin": [
     "D",
+    "A",
     "A"
    ],
    "druid": [
     "B",
-    "C"
+    "B",
+    "B"
    ],
    "priest": [
     "C",
-    "B"
+    "B",
+    "C"
    ],
    "warrior": [
     "D",
+    "C",
     "C"
    ]
   },
@@ -917,6 +938,11 @@
     "Blacksmithing",
     "Gfinity 🟡"
    ]
-  }
+  },
+  "voters": [
+   "Mobalytics",
+   "Timesaver",
+   "Conquest Capped"
+  ]
  }
 }

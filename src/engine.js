@@ -341,10 +341,10 @@ var FEED={Mining:['Blacksmithing','Engineering'],Herbalism:['Alchemy'],Skinning:
 // scheda Alt: classifica dei migliori alt con criteri e fonti dichiarati (alts.json → rank), indipendente dal main,
 // e piano dell'alt (classe, razza, lavori) salvato a parte dai personaggi in P.alt
 var TIER={S:4,A:3,B:2,C:1,D:0},GATHER=['Herbalism','Mining','Skinning'];
-function altRank(R){var T=R.tiers||{},o=R.order||[];return Object.keys(T).filter(function(c){return D.classes[c]}).map(function(c){return {c:c,t:T[c],s:(TIER[T[c][0]]+TIER[T[c][1]])/2,o:o.indexOf(c)}}).sort(function(x,y){return y.s-x.s||x.o-y.o})}
+function altRank(R){var T=R.tiers||{},o=R.order||[];return Object.keys(T).filter(function(c){return D.classes[c]}).map(function(c){return {c:c,t:T[c],s:T[c].reduce(function(a,x){return a+TIER[x]},0)/T[c].length,o:o.indexOf(c)}}).sort(function(x,y){return y.s-x.s||x.o-y.o})}
 function renderAlt(){var A=D.alts||{},R=A.rank||{},L=altRank(R),pa=P.alt=P.alt||{prof:[]},M={},X={};
  (A.altClasses||[]).forEach(function(c){M[c['class']]=c});(A.altRaces||[]).forEach(function(r){X[r.race]=r});
- var tiers=function(t){return '<span class="tier t'+t[0]+'" title="Mobalytics">'+t[0]+'</span><span class="tier t'+t[1]+'" title="Timesaver">'+t[1]+'</span>'};
+ var VO=R.voters||[],tiers=function(t){return t.map(function(x,i){return '<span class="tier t'+x+'" title="'+(VO[i]||'')+'">'+x+'</span>'}).join('')};
  $('altCrit').innerHTML=(R.criteria||'')+' <span class="srcs">'+(R.sources||[]).map(function(s){return '<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a>'}).join(' · ')+'</span>';
  $('altRank').innerHTML='<ol class="arank">'+L.map(function(x,i){var c=M[x.c]||{},pr=(R.profs||{})[x.c]||[];
   return '<li><button type="button" data-ac="'+x.c+'"'+(pa.c===x.c?' class="on" aria-pressed="true"':' aria-pressed="false"')+'><b class="n">'+(i+1)+'</b>'+img('classicon_'+x.c)+'<span class="w"><span class="h"><b>'+D.classes[x.c].name+'</b>'+tiers(x.t)+'</span><small>'+(c.role||'')+'</small>'+(pr.length?'<small>Lavori: '+pr[0]+' + '+pr[1]+'</small>':'')+'</span></button></li>'}).join('')+'</ol>';
@@ -366,7 +366,7 @@ function altPlan(A,R,L,pa,M,X){var c=pa.c;if(!c||!D.classes[c])return '<p class=
   '<div><div class="lab">Lavori (2) <span class="note">★ = coppia consigliata per il '+K.name+'</span></div><div class="opts">'+PROFS.map(function(p){return bt('data-ap',p[0],pf.indexOf(p[0])>-1,img(p[1])+p[0],sug.indexOf(p[0])>-1)}).join('')+'</div></div></div>';
  // giudizio: ✔ quando la scelta segue i criteri, 🟡 quando no (con l'alternativa)
  var ok=function(y,t){return '<li>'+(y?'✔ ':'🟡 ')+t+'</li>'},o=[];
- o.push(ok(pos<3,'<b>Classe:</b> '+(pos+1)+'ª su '+L.length+' nella classifica (Mobalytics '+x.t[0]+', Timesaver '+x.t[1]+'). '+(m.leveling||'')));
+ o.push(ok(pos<3,'<b>Classe:</b> '+(pos+1)+'ª su '+L.length+' nella classifica ('+x.t.map(function(v,i){return ((R.voters||[])[i]||'')+' '+v}).join(', ')+'). '+(m.leveling||'')));
  if(m.role)o.push('<li>➕ <b>Porta all’account:</b> '+m.role+'.'+((m.why||[]).length?' '+m.why[0]:'')+'</li>');
  o.push(pa.r&&!best.length?'<li>✔ <b>Razza:</b> '+D.races[pa.r].name+'. Le fonti non indicano una razza migliore per il '+K.name+'.'+(X[pa.r]&&X[pa.r].why&&X[pa.r].why[0]?' '+X[pa.r].why[0]:'')+'</li>':pa.r?ok(best.indexOf(pa.r)>-1,'<b>Razza:</b> '+(best.indexOf(pa.r)>-1?D.races[pa.r].name+' è tra le consigliate per il '+K.name+'.':D.races[pa.r].name+' va bene, ma per il '+K.name+' sono consigliate: '+best.map(function(r){return D.races[r].name}).join(', ')+'.')+(X[pa.r]&&X[pa.r].why&&X[pa.r].why[0]?' '+X[pa.r].why[0]:'')):'<li>Scegli la razza.</li>');
  if(pf.length<2)o.push('<li>Scegli 2 lavori'+(sug.length?': per il '+K.name+' è consigliata <b>'+sug[0]+' + '+sug[1]+'</b> ('+sug[2]+').':'.')+'</li>');
