@@ -72,7 +72,7 @@ local TT = {
     dgQSum = "Quest:", dgQLog = "%d nel registro", dgQDone = "%d fatte", dgQDone1 = "1 fatta", dgQTake = "%d da prendere", dgQn = "quest %d/%d",
     dgNeedKey = "serve una chiave", dgNow = "Adatti al tuo livello adesso (liv. %d)", dgAllT = "Tutti i dungeon", dgSecQ = "Quest", dgSecWhere = "Come arrivarci", dgSecPlan = "Pianta", dgKeyDrag = "Tasto sinistro", dgDrag = "trascina", dgKeyZoom = "Ctrl + rotella", dgZoom = "ingrandisci e riduci", dgCredit = "Pianta ricostruita dall'addon Twinmap", dgEntr = "Ingresso",
     pNone = "Il personaggio non ha ancora profession. Consigliate per la tua classe:", pBrowse = "Tutte le profession (clic per vedere il percorso):", pOthers = "Altre ›",
-    pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pApp = "Impara {Apprentice} (skill fino a 75)",
+    pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pItemKeys = "Mouse su un oggetto: anteprima   ·   Maiusc + clic: link in chat", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pShop = "Lista della spesa da %d a 300",
     pMore = "Novità di Forever, camp e gold", pHide = "Nascondi", pBag = "Tra parentesi quanti ne hai (borse e banca).", pVendor = "vendor",
     pMapT = "Trainer delle tue profession sulla mappa del mondo", pMapV = "Reagent vendor dei materiali delle tue profession sulla mappa del mondo (da Questie)",
@@ -136,7 +136,7 @@ local TT = {
     dgQSum = "Quests:", dgQLog = "%d in your log", dgQDone = "%d done", dgQDone1 = "1 done", dgQTake = "%d to pick up", dgQn = "quests %d/%d",
     dgNeedKey = "needs a key", dgNow = "Right for your level now (lvl %d)", dgAllT = "All dungeons", dgSecQ = "Quests", dgSecWhere = "How to get there", dgSecPlan = "Layout", dgKeyDrag = "Left click", dgDrag = "drag", dgKeyZoom = "Ctrl + wheel", dgZoom = "zoom in and out", dgCredit = "Layout rebuilt by the Twinmap addon", dgEntr = "Entrance",
     pNone = "This character has no professions yet. Recommended for your class:", pBrowse = "All professions (click to see the route):", pOthers = "Others ›",
-    pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pApp = "Learn {Apprentice} (skill up to 75)",
+    pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pItemKeys = "Hover an item: preview   ·   Shift + click: link in chat", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pShop = "Shopping list from %d to 300",
     pMore = "New in Forever, camp and gold", pHide = "Hide", pBag = "In brackets how many you have (bags and bank).", pVendor = "vendor",
     pMapT = "Your profession trainers on the world map", pMapV = "Reagent vendors for your professions' materials on the world map (from Questie)",
@@ -1474,6 +1474,14 @@ local function hover(x, yy, w, h, t1, t2, item)
       GameTooltip:Show()
     end)
     b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    -- Maiusc+clic sinistro: link dell'oggetto in chat; Ctrl+clic: camerino (HandleModifiedItemClick, come nel gioco)
+    b:RegisterForClicks("LeftButtonUp")
+    b:SetScript("OnClick", function(self)
+      if not (self.item and IsModifiedClick and IsModifiedClick()) then return end
+      local gi = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+      local link = gi and select(2, gi(self.item))
+      if link and HandleModifiedItemClick then HandleModifiedItemClick(link) end
+    end)
     return b
   end)
   o.t1, o.t2, o.item = t1, t2, item
@@ -1809,15 +1817,24 @@ local function profSteps(name, P, rt, sk, ranks)
     icon(s[5] ~= "" and s[5] or P.icon, PAD + 62, y, 20)
     local times = s[6] > 0 and "  ×" .. s[6] or ""
     local o = str(F.h3, past and "mu" or "tx", past and s[3] .. times or "{" .. s[3] .. "}" .. times .. (cur and "   |cfff1eee8" .. T.pHere .. "|r" or ""), PAD + 88, w)
-    if s[4] ~= 0 then hover(PAD + 88, top, math.min(w, o:GetStringWidth() + 4), 16, nil, nil, s[4]) end
+    if s[4] ~= 0 then hover(PAD + 62, top + 2, 26 + math.min(w, o:GetStringWidth() + 4), 22, nil, nil, s[4]) end
     y = y - o:GetStringHeight() - 3
+    -- materiali: un pezzo per oggetto (va a capo da solo), ognuno col suo tooltip e Maiusc+clic per il link
     if #s[7] > 0 then
-      local parts = {}
-      for _, m in ipairs(s[7]) do
+      local x, lh = PAD + 88, 0
+      for i, m in ipairs(s[7]) do
         local h = not past and itemCount(m[3])
-        parts[#parts + 1] = m[1] .. "× " .. inl(m[4]) .. m[2] .. (m[5] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and ((h >= m[1] and " |cff7fd4b0(" or " |cffd7d3cb(") .. h .. ")|r") or "")
+        local mo = str(F.p, "mu", m[1] .. "× " .. inl(m[4]) .. m[2] .. (m[5] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and ((h >= m[1] and " |cff7fd4b0(" or " |cffd7d3cb(") .. h .. ")|r") or "") .. (i < #s[7] and "," or ""), x, w)
+        -- una riga sola, larga quanto il suo testo (le scritte riusate si porterebbero dietro la larghezza di prima)
+        mo:SetWordWrap(false)
+        local mw = math.min(w, mo:GetStringWidth() + 4)
+        if x > PAD + 88 and x + mw > PAD + 88 + w then y = y - lh; x = PAD + 88; mo:ClearAllPoints(); mo:SetPoint("TOPLEFT", x, y) end
+        mo:SetWidth(mw)
+        lh = math.max(lh, mo:GetStringHeight())
+        if m[3] ~= 0 then hover(x, y, mw, lh, nil, nil, m[3]) end
+        x = x + mw + 5
       end
-      local mo = str(F.p, "mu", table.concat(parts, ", "), PAD + 88, w); y = y - mo:GetStringHeight() - 2
+      y = y - lh - 2
     end
     if s[8] ~= "" then local wo = str(F.p, "mu", s[8], PAD + 88, w); y = y - wo:GetStringHeight() - 2 end
     local r = s[6] > 0 and ofaRecipe(name, s[4], s[3])
@@ -1865,6 +1882,8 @@ local function drawProfs(g, k)
   str(F.h2, o and "hd" or "mu", heading(o and T.pSkill:format(o[2], o[3]) or T.pNotYours), PAD + 40, BW - 2 * PAD - 40)
   y = top - 38
   if o then line("0", T.pBag); y = y - 4 end
+  -- comandi sugli oggetti, nel colore d'accento come sotto la pianta dei dungeon
+  do local h = str(F.nav, "ac", T.pItemKeys, PAD, BW - 2 * PAD); y = y - h:GetStringHeight() - 4 end
   local here = profSteps(V.profSel, P, P.route, sk, PD.ranks)
   if #P.alt > 0 then y = y - 10; line("2", P.altTitle); profSteps(V.profSel, P, P.alt, sk) end
   y = y - 6; line("0", PD.src)
@@ -1883,7 +1902,9 @@ local function drawProfs(g, k)
     table.sort(keys)
     for _, n in ipairs(keys) do
       local t, h = tot[n], itemCount(tot[n][2])
-      line("0", "• " .. t[1] .. "× " .. inl(t[4]) .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff7fd4b0(" .. h .. ")|r" or ""))
+      local top = y
+      local o = line("0", "• " .. t[1] .. "× " .. inl(t[4]) .. n .. (t[3] == 1 and " (" .. T.pVendor .. ")" or "") .. (h and h > 0 and "  |cff7fd4b0(" .. h .. ")|r" or ""))
+      if t[2] and t[2] ~= 0 then hover(PAD + 8, top - 5, o:GetStringWidth() + 4, top - 5 - y, nil, nil, t[2]) end
     end
   end
   if V.profMore then
