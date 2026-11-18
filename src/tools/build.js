@@ -17,6 +17,13 @@ for (const M of Object.values(WM)) {
   M.flights.forEach(r => r[1].forEach(p => g(p, 0))); M.ships.forEach(r => r[1].forEach(p => g(p, 0)));
   Object.values(M.nodes).forEach(a => { for (let i = 0; i < a.length; i += 2) g(a, i); });
 }
+// ingressi dei dungeon verificati (data/entrances.json, coordinate della zona) al posto dei segnaposti di Wowhead;
+// più ingressi = più voci con lo stesso nome, la prima è la principale, le altre con l'etichetta in d[6]
+{ const ENT = J(path.join(DATA, 'entrances.json')), UZ = J(path.join(DATA, 'uimaps.json')).continents; delete ENT._;
+  for (const [c, M] of Object.entries(WM)) M.dg = M.dg.flatMap(d => { const E = ENT[d[0]]; if (!E) return [d]; delete ENT[d[0]];
+    return E.map(([zn, x, y, lab]) => { const z = (UZ[c] || []).find(z => z[1] === zn); if (!z) { console.log('ingresso: zona', zn, 'non trovata per', d[0]); return d; }
+      const e = [d[0], d[1], Math.round(M.ox + z[2] + (z[4] - z[2]) * x / 100), Math.round(M.oy + z[3] + (z[5] - z[3]) * y / 100), d[4], d[5]]; if (lab) e.push(lab); return e; }); });
+  if (Object.keys(ENT).length) console.log('ingressi senza dungeon nella mappa:', Object.keys(ENT).join(', ')); }
 
 /* ---- NPC → posizione (quest giver, trainer, innkeeper, flight master) e milestone normalizzate ---- */
 const NPCS = []; for (const M of Object.values(WM)) NPCS.push(...M.quests, ...M.inn, ...M.fp, ...Object.values(M.trainers).flat(), ...Object.values(M.prof).flat());

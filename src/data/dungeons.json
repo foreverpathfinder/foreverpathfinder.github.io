@@ -10,7 +10,7 @@
  ],
  "dungeons": {
   "ragefire chasm": {
-   "e": "Orgrimmar, Cleft of Shadow (52.8 49.6).",
+   "e": "Orgrimmar, Cleft of Shadow (52.6 49.0).",
    "v": {
     "H": [
      "go",
@@ -61,7 +61,7 @@
    ]
   },
   "hall of thanes": {
-   "e": "Ironforge: dalla Great Forge verso The High Seat, a sinistra il passaggio con le ragnatele (43.5 52.0). Cadere è letale.",
+   "e": "Ironforge: dalla Great Forge verso The High Seat, a sinistra il passaggio con le ragnatele (parte da 44.0 51.8, ingresso 27.7 47.8). Cadere è letale.",
    "v": {
     "A": [
      "go",
@@ -113,7 +113,7 @@
    ]
   },
   "ruins of lordaeron": {
-   "e": "Fuori da Undercity, Tirisfal Glades (72.4 11.6): prima del castello, a sinistra su per le scale.",
+   "e": "Fuori da Undercity, Tirisfal Glades (63.4 67.4): prima del castello, a sinistra su per le scale.",
    "v": {
     "H": [
      "go",
@@ -192,7 +192,7 @@
    ]
   },
   "deadmines": {
-   "e": "Westfall, Moonbrook: Defias Hideout (42 72), attraversa la miniera fino al portale.",
+   "e": "Westfall, Moonbrook: Defias Hideout (42.5 71.7), attraversa la miniera fino al portale.",
    "v": {
     "A": [
      "go",
@@ -257,7 +257,7 @@
    ]
   },
   "wailing caverns": {
-   "e": "The Barrens, Lushwater Oasis (46.0 36.3): entra nella grotta e scendi fino al portale.",
+   "e": "The Barrens, Lushwater Oasis (46.0 36.5): entra nella grotta e scendi fino al portale.",
    "v": {
     "H": [
      "go",
@@ -326,7 +326,7 @@
    ]
   },
   "shadowfang keep": {
-   "e": "Silverpine Forest, sulle montagne a nord di Pyrewood Village (44.7 67.8).",
+   "e": "Silverpine Forest, sulle montagne a nord di Pyrewood Village (44.8 67.8).",
    "v": {
     "H": [
      "opt",
@@ -395,7 +395,7 @@
    ]
   },
   "blackfathom deeps": {
-   "e": "Ashenvale, Zoram Strand (14.5 14.6): nuota nella pozza e segui la grotta con i naga elite.",
+   "e": "Ashenvale, Zoram Strand (14.5 14.2): nuota nella pozza e segui la grotta con i naga elite.",
    "v": {
     "A": [
      "go",
@@ -486,7 +486,7 @@
    ]
   },
   "stockade": {
-   "e": "Stormwind, The Canals vicino alla Mage Quarter (42 58).",
+   "e": "Stormwind, The Canals vicino alla Mage Quarter (52.4 70.0).",
    "v": {
     "A": [
      "go",
@@ -546,7 +546,7 @@
    ]
   },
   "excavation site: wetlands": {
-   "e": "Wetlands: sentiero a sinistra di Thelgen Rock (parte da 53.9 65.4), ingresso 48.1 56.5.",
+   "e": "Wetlands: sentiero a sinistra di Thelgen Rock (parte da 53.9 65.4), ingresso 47.8 56.2.",
    "v": {
     "A": [
      "go",
@@ -612,7 +612,7 @@
    ]
   },
   "city of dalaran": {
-   "e": "Ingresso dalle fogne in Silverpine Forest (69.3 45.6); la città è in Alterac Mountains.",
+   "e": "Ingresso dalle fogne in Silverpine Forest (69.2 45.5); la città è in Alterac Mountains.",
    "k": {
     "A": "Emissary Jaques, Hillsbrad Foothills (48.3 60.1) → dentro, Image of Archmage Modera dà la Dalaran Sewer Key.",
     "H": "Magus Wordeen Voidglare, Tarren Mill (61.5 20.9) → dentro, Image of Archmage Modera dà la Dalaran Sewer Key."
@@ -693,7 +693,7 @@
    ]
   },
   "gnomeregan": {
-   "e": "Dun Morogh nord-ovest (24 40). Horde: Goblin Transponder da Booty Bay.",
+   "e": "Dun Morogh nord-ovest (24.3 39.8). Horde: Goblin Transponder da Booty Bay.",
    "v": {
     "A": [
      "go",
@@ -782,7 +782,7 @@
    ]
   },
   "razorfen kraul": {
-   "e": "The Barrens, angolo sud-ovest (42.3 89.9).",
+   "e": "The Barrens, angolo sud-ovest (42.9 90.2).",
    "q": {
     "A": [
      [
@@ -861,7 +861,7 @@
    }
   },
   "scarlet monastery: graveyard": {
-   "e": "Tirisfal Glades nord-est (85.1 31.4). Graveyard: il portale più a sinistra.",
+   "e": "Tirisfal Glades nord-est (82.6 33.8). Graveyard: il portale più a sinistra.",
    "v": {
     "H": [
      "go",
@@ -898,7 +898,7 @@
    ]
   },
   "scarlet monastery: library": {
-   "e": "Tirisfal Glades nord-est (85.1 31.4), stesso ingresso del Graveyard.",
+   "e": "Tirisfal Glades nord-est (82.6 33.8), stesso ingresso del Graveyard.",
    "v": {
     "H": [
      "go",
@@ -959,7 +959,7 @@
    ]
   },
   "scarlet monastery: armory": {
-   "e": "Tirisfal Glades nord-est (85.1 31.4), stesso ingresso; serve The Scarlet Key.",
+   "e": "Tirisfal Glades nord-est (82.6 33.8), stesso ingresso; serve The Scarlet Key.",
    "k": {
     "A": "The Scarlet Key: uccidi Arcanist Doan in fondo alla Library e apri Doan's Strongbox dietro di lui.",
     "H": "The Scarlet Key: uccidi Arcanist Doan in fondo alla Library e apri Doan's Strongbox dietro di lui."
@@ -999,7 +999,7 @@
    ]
   },
   "scarlet monastery: cathedral": {
-   "e": "Tirisfal Glades nord-est (85.1 31.4), stesso ingresso; serve The Scarlet Key.",
+   "e": "Tirisfal Glades nord-est (82.6 33.8), stesso ingresso; serve The Scarlet Key.",
    "v": {
     "H": [
      "go",
@@ -1174,7 +1174,7 @@
      ]
     ]
    },
-   "e": "Nord di Badlands (44 12), vicino al passaggio per Loch Modan; c’è un’entrata sul retro a Dustwind Gulch (66 43).",
+   "e": "Nord di Badlands (44.6 12.1), vicino al passaggio per Loch Modan; c’è un’entrata sul retro a Dustwind Gulch (65.2 43.5).",
    "v": {
     "A": [
      "go",
@@ -1247,7 +1247,7 @@
      ]
     ]
    },
-   "e": "Angolo sud-est di The Barrens (43 95): un labirinto di rovi pieno di quilboar elite porta al portale.",
+   "e": "Angolo sud-est di The Barrens (49.0 93.9): un labirinto di rovi pieno di quilboar elite porta al portale.",
    "v": {
     "A": [
      "skip",
@@ -1410,7 +1410,7 @@
      ]
     ]
    },
-   "e": "Angolo nord-ovest di Tanaris (39 20).",
+   "e": "Angolo nord-ovest di Tanaris (38.7 20.1).",
    "v": {
     "A": [
      "go",
@@ -1500,7 +1500,7 @@
      ]
     ]
    },
-   "e": "Valley of Spears, Desolace: la Stone Door a ovest (38 58) porta nelle grotte esterne; tre portali (viola, arancione e, con lo Scepter of Celebras, quello interno).",
+   "e": "Valley of Spears, Desolace: l’ingresso (29.1 62.5) porta nelle grotte esterne; tre portali (viola, arancione e, con lo Scepter of Celebras, quello interno).",
    "v": {
     "A": [
      "go",
@@ -1573,7 +1573,7 @@
      ]
     ]
    },
-   "e": "Alcaz Island, al largo di Dustwallow Marsh: il portale è nel sotterraneo del grande edificio (75 15), sul sentiero a sinistra dal molo.",
+   "e": "Alcaz Island, al largo di Dustwallow Marsh: il portale è nel sotterraneo del grande edificio (75.3 14.1), sul sentiero a sinistra dal molo.",
    "k": {
     "A": "Overseer Wrex, dentro, lascia la chiave per l’ala destra.",
     "H": "Overseer Wrex, dentro, lascia la chiave per l’ala destra."
@@ -1642,7 +1642,7 @@
      ]
     ]
    },
-   "e": "In mezzo al lago di Swamp of Sorrows: nuotate fino al tempio e scendete fino al portale. Per l’Orda è vicino a Stonard; l’Alleanza arriva da Deadwind Pass o Blasted Lands.",
+   "e": "In mezzo al lago di Swamp of Sorrows (69.9 53.5): nuotate fino al tempio e scendete fino al portale. Per l’Orda è vicino a Stonard; l’Alleanza arriva da Deadwind Pass o Blasted Lands.",
    "v": {
     "A": [
      "opt",
@@ -1762,7 +1762,7 @@
      ]
     ]
    },
-   "e": "Blackrock Mountain, tra Searing Gorge e Burning Steppes: scendete la grande catena fino alla struttura centrale, poi giù per Forgewright's Tomb.",
+   "e": "Blackrock Mountain, con due ingressi, da Burning Steppes (29.4 38.3) e da Searing Gorge (34.8 85.3): scendete la grande catena fino alla struttura centrale, poi giù per Forgewright's Tomb.",
    "k": {
     "A": "Prison Cell Key da High Interrogator Gerstahn (apre le celle del Detention Block); la Shadowforge Key, da una quest al Monument of Franclorn Forgewright, apre le porte più avanti.",
     "H": "Prison Cell Key da High Interrogator Gerstahn (apre le celle del Detention Block); la Shadowforge Key, da una quest al Monument of Franclorn Forgewright, apre le porte più avanti."
@@ -1912,7 +1912,7 @@
      ]
     ]
    },
-   "e": "Blackrock Mountain: dalla porta accanto alla meeting stone di Blackrock Spire salite il sentiero fino al portale. Lower e Upper hanno lo stesso ingresso.",
+   "e": "Blackrock Mountain, da Burning Steppes (29.4 38.3) o da Searing Gorge (34.8 85.3): dalla porta accanto alla meeting stone di Blackrock Spire salite il sentiero fino al portale. Lower e Upper hanno lo stesso ingresso.",
    "k": {
     "A": "Upper Blackrock Spire si apre con la Seal of Ascension: la quest parte dentro Lower Blackrock Spire.",
     "H": "Upper Blackrock Spire si apre con la Seal of Ascension: la quest parte dentro Lower Blackrock Spire."
@@ -2066,7 +2066,7 @@
      ]
     ]
    },
-   "e": "Feralas, a nord-est di Camp Mojache: East si apre dal cortile centrale o da Eldreth Row; West e North dal cortile, con la Crescent Key.",
+   "e": "Feralas, a nord-est di Camp Mojache (59.2 45.1, accanto alla meeting stone); porte delle ali: North 62.5 24.9, West 60.3 30.2, East 64.8 30.2. East si apre dal cortile centrale o da Eldreth Row; West e North dal cortile, con la Crescent Key.",
    "k": {
     "A": "Crescent Key: la lascia Pusillin in Dire Maul East; apre West e North.",
     "H": "Crescent Key: la lascia Pusillin in Dire Maul East; apre West e North."
@@ -2143,7 +2143,7 @@
      ]
     ]
    },
-   "e": "Caer Darrow, isola nel sud-est di Western Plaguelands: l’Alleanza arriva da Chillwind Camp, l’Orda da The Bulwark.",
+   "e": "Caer Darrow (69.7 73.2), isola nel sud-est di Western Plaguelands: l’Alleanza arriva da Chillwind Camp, l’Orda da The Bulwark.",
    "k": {
     "A": "Skeleton Key: una lunga catena di quest a Western Plaguelands apre la porta del portale.",
     "H": "Skeleton Key: una lunga catena di quest a Western Plaguelands apre la porta del portale."
@@ -2231,7 +2231,7 @@
      ]
     ]
    },
-   "e": "Angolo nord-ovest di Eastern Plaguelands: la Main Gate porta all’ala Living; la Service Gate, a est, all’ala Undead.",
+   "e": "Angolo nord-ovest di Eastern Plaguelands: la Main Gate (26.5 10.4) porta all’ala Living; la Service Gate (41.5 17.7), a est, all’ala Undead.",
    "k": {
     "A": "Key to the City: la lascia Magistrate Barthilas; apre la Service Gate e il Gauntlet Gate dell’ala Undead.",
     "H": "Key to the City: la lascia Magistrate Barthilas; apre la Service Gate e il Gauntlet Gate dell’ala Undead."

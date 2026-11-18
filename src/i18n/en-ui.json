@@ -172,6 +172,7 @@
 ["'Pet da tame'","'Tameable pets'"],
 ["Sulla tua rotta</span>","On your route</span>"],
 ["' ★ nuovo'","' ★ new'"],
+["' · Ingresso: '","' · Entrance: '"],
 ["'<br>Livelli '","'<br>Levels '"],
 ["'</b><br>Livelli '","'</b><br>Levels '"],
 ["<b class=\"t\">Tappa '+(i+1)+' di '+steps.length+' · livelli '","<b class=\"t\">Step '+(i+1)+' of '+steps.length+' · levels '"],

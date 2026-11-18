@@ -76,7 +76,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
      (x.k||{})[f]||'',x.b||[],x.t||[],d[3]||'',d[4]||'',/★/.test(d[0])]});
    // scheda Profession (1.7): percorsi 1–300 di profs.json, già nella lingua della pagina
    const X=D.profs;const nm=t=>String(t).replace(/\s*🟡/g,'');out._prof={ranks:X.ranks,src:nm(X.routeSource),picks:Object.fromEntries(Object.entries(X.classPicks||{}).map(([c,t])=>[c,nm(t)])),list:X.professions.map(p=>({name:p.name,icon:p.icon,type:p.type,route:p.route||[],alt:p.alt||[],altTitle:p.altTitle||'',how:p.rankHow||{},forever:p.forever||[],camp:p.camp||'',gold:p.gold||'',tips:p.tips||[],ap:p.apprentice||[]}))};
-   out._dg=dg;out._dginfo=[(D.dungeons||{}).general||[],(D.dungeons||{}).glossary||''];out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3]]);out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
+   out._dg=dg;out._dginfo=[(D.dungeons||{}).general||[],(D.dungeons||{}).glossary||''];out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3],d[6]||'']);out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
  await b.close();
  // elenco unico dei testi (voci della checklist e pagine delle schede): ogni testo una volta sola
  const pool=[],pix=new Map(),P=s=>{s=clean(s);if(!pix.has(s)){pix.set(s,pool.length+1);pool.push(s)}return pix.get(s)};
@@ -183,8 +183,8 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  // rec = per razza, per livello, "indice:quest adatte,…" (indici da 1, come in Lua)
  {const ZR=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/zones.json'),'utf8'));
   s+='}\nForeverPathfinderZones = {\n z = {\n'+ZR.zones.map(z=>{const c=WM[z[2]];return '  { '+lua(CONT[z[2]])+', '+(z[3]/c.w).toFixed(4)+', '+(z[4]/c.h).toFixed(4)+', '+lua(z[0])+', lv = '+lua(z[1])+zf(zoneAt(z[2],z[3],z[4]))+' },'}).join('\n')+'\n },\n rec = {\n'+Object.entries(ZR.rec).map(([r,a])=>'  '+r+' = { '+a.map(l=>lua(l.map(x=>(x[0]+1)+':'+x[1]).join(','))).join(', ')+' },').join('\n')+'\n },\n';}
- // ingressi dei dungeon (icone della mappa del sito): { nome, continente, x, y } per il pulsante Mappa della scheda Dungeon
- s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+' },'}).filter(Boolean).join('\n')+'\n';
+ // ingressi dei dungeon (data/entrances.json, via la mappa del sito): { nome, continente, x, y, l = etichetta } per il pulsante Ingresso; più voci = più ingressi, la prima è la principale
+ s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+(d[3]?', l = '+lua(d[3]):'')+' },'}).filter(Boolean).join('\n')+'\n';
  // zone del gioco (uiMapID e rettangolo 0–1 sul continente del sito, da uimaps.json): l'addon ci converte i segnaposti, perché
  // i bordi della mappa del continente nel gioco non sono quelli di Wowhead, quelli delle zone sì
  const UM=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/uimaps.json'),'utf8')).continents;

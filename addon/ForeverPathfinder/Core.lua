@@ -1005,7 +1005,13 @@ local function norm(s) return (s:lower():gsub("^the ", ""):gsub("[^%w]", "")) en
 -- d'ingresso (un clic apre la mappa interna: MapUtils non ha funzioni per altri addon); boss e loot nella scheda di OneForAll
 local DPOS
 local function dgFind(title) -- il nome più lungo con cui comincia il titolo ("The Deadmines Livelli 17–26 …")
-  if not DPOS then DPOS = {}; for _, d in ipairs(ForeverPathfinderDungeonPos or {}) do DPOS[#DPOS + 1] = { d[2], d[3], d[4], d[1], norm(d[1]), z = d.z } end end
+  if not DPOS then -- più voci con lo stesso nome = più ingressi (la prima è la principale): ognuna li ha tutti in .all
+    DPOS = {}; local by = {}
+    for _, d in ipairs(ForeverPathfinderDungeonPos or {}) do
+      local p = { d[2], d[3], d[4], d[1], norm(d[1]), z = d.z, l = d.l }
+      local k = p[5]; by[k] = by[k] or {}; p.all = by[k]; by[k][#by[k] + 1] = p; DPOS[#DPOS + 1] = p
+    end
+  end
   local t, best = norm(title)
   for _, p in ipairs(DPOS) do if t:sub(1, #p[5]) == p[5] and (not best or #p[5] > #best[5]) then best = p end end
   return best
@@ -1425,7 +1431,15 @@ function drawDungeons(g)
     line("2", T.dgWhere); line("0", d[7] ~= "" and d[7] or d[13])
     if d[10] ~= "" then line("2", T.dgKey); line("0", d[10]) end
     if d[7] == "" and d[14] ~= "" then line("2", T.dgNote); line("0", d[14]) end
-    if p then y = y - 8; button(T.dgMap, PAD, y, function() dgMap(p) end); y = y - 26 end
+    if p then -- un pulsante per ingresso, in fila (a capo se non ci stanno)
+      y = y - 8; local bx = PAD
+      for _, q in ipairs(p.all or { p }) do
+        local b = button(q.l and (T.dgMap .. ": " .. q.l) or T.dgMap, bx, y, function() dgMap(q) end)
+        if bx > PAD and bx + b:GetWidth() > BW - PAD then y = y - 30; bx = PAD; b:ClearAllPoints(); b:SetPoint("TOPLEFT", bx, y) end
+        bx = bx + b:GetWidth() + 8
+      end
+      y = y - 26
+    end
   elseif sec == "m" then
     dgPlan(d, wings)
   else
