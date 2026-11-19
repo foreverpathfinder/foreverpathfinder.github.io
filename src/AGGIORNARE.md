@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 18 nov 2026 · **sito v25** · **addon 1.10.13** (pubblicati il 18 nov).
+Aggiornato il 19 nov 2026 · **sito v26** · **addon 1.10.14** (in locale, non ancora pubblicati).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -196,8 +196,9 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 **Siti e cosa prendere**:
 - **Build A di ogni classe**: la guida di leveling con più ♥ su https://mobalytics.gg/wow-forever/leveling-guides.
-  - Al 15 nov: Warlock Crix (682 ♥), Hunter Feor (522), Paladin yumytv (407), Shaman Tiqqle (371), Warrior Ahlaundoh (316, scheda «Protection 1-60»; la B è la sua «Arms 1-60»), Mage Asuna_qt (307), Druid yumytv (208), Priest DoubleZug (192), Rogue Djexde (138).
-  - Tutte uguali alle nostre, rotazioni comprese (fasce 40+ aggiunte il 15 nov).
+  - Al 19 nov: Warlock Crix (789 ♥, agg. 18 nov), Hunter Feor (649, 18 nov), Paladin yumytv (492, 12 nov), Shaman Tiqqle (435, 13 nov), Mage Asuna_qt (397, 18 nov), Warrior Ahlaundoh (392, 17 nov, scheda «Protection 1-60»; la B è la sua «Arms 1-60»), Druid yumytv (252, 14 nov), Priest DoubleZug (217, 9 nov), Rogue Djexde (187, 12 nov).
+  - Le build A sono tutte uguali alle loro. Dal 19 nov seguono le guide più votate anche Warlock B (Demonology di Crix), Mage B (scheda «Arcane Leveling 1-60» di Asuna_qt) e Rogue B (scheda «1-60 Subtlety» di Djexde); per le altre B e C restano Icy Veins o i dati del client.
+  - ♥ e date compaiono nei testi delle classi (summary, buildSource, fonti): quando cambiano, aggiornali anche lì e in `en.json`.
   - Come leggerle: nel browser integrato, sulla pagina della guida, esegui con `javascript_tool` il codice stampato da `node src/tools/mobalytics.js talenti` (o `rotazione`). Poi confronta con `node src/tools/mobalytics.js confronta <classe> a "<riga>"`.
 - **Alberi, spell, patch, dungeon**: https://foreverchanges.pro, che legge i dati del client.
   - Pagine utili: `/talents/<classe>` (con `fc.js`), `/spellbook/<classe>` (spell anticipate in Forever), `/patch-notes`, `/dungeons` (livelli di ogni dungeon e ala) e `/dungeons/<nome>` (boss).
@@ -208,7 +209,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 - **Boss dei dungeon**: Twinmap (twinmap.app, di un amico dell'utente; app installata in `%LOCALAPPDATA%/Programs/twinmap`). In `resources/app.asar` il renderer ha `DUNGEON_PINS` (dungeon classici) e `NEW_DUNGEON_PINS` (i 9 nuovi di Forever), ricostruiti dai file del gioco: per ogni dungeon nome, mappa, ingresso e boss con coordinate. L'ordine è quello degli incontri nei file, non il percorso; i nomi sono quelli degli incontri (es. «Deathless Guardians», «Ravasaur Hunters»): per il nome del mostro guarda gli NPC di Questie. L'asar si legge con un piccolo script node (intestazione JSON dopo 16 byte), senza installare niente.
 - **Ingressi dei dungeon**: `src/data/entrances.json` (coordinate della zona, più ingressi = più voci, il primo è il principale) sostituisce in `build.js` i segnaposti di Wowhead. Wowhead, MapUtils e Twinmap a volte segnano il portale o l'icona della mappa e si copiano a vicenda (Krol'dok era sbagliato in tutti e tre): per i dungeon classici vale la porta di QuestieDB (`support/Forever/Zones/dungeons.lua`, già convertita per le zone cambiate) confermata dalla meeting stone (`foreverObjectDB`); per quelli nuovi servono due fonti che concordano o la prova nel gioco. Se non è sicuro, metti la meeting stone. Coordinate nei testi «Come arrivarci» uguali a quelle del file.
 - **Icy Veins, ordine dei talent**: il link «Open in Calculator» della guida ha l'ordine dei punti dopo `#tc-` (prima di `~`): ogni carattere è il `data-talenturlid` di un talento nel calcolatore. Apri il link nel browser integrato e leggi i nomi dagli `input[data-talenturlid]` (controlla che i conteggi coincidano con i ranghi mostrati).
-- **Altre**: Icy Veins (guide del 4–10 nov, più vecchie di Mobalytics), Wowhead Forever (mappa, zone), wowforever.be (calcolatore, professioni), Warcraft Tavern e Conquest Capped (dungeon, giudizi).
+- **Altre**: Icy Veins (guide di leveling aggiornate il 13–17 nov, data in `dateModified`; Holy Paladin e Restoration Shaman ricontrollate il 19 nov: uguali alle nostre Paladin B e Shaman C; Arcane Mage e alcune altre ferme al 4 nov), Wowhead Forever (mappa, zone), wowforever.be (calcolatore, professioni), Warcraft Tavern e Conquest Capped (dungeon, giudizi).
 
 ## 9. Regole dell'utente
 
@@ -248,12 +249,12 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 ## 11. Aperto e da fare
 
 1. **30–60 quest per quest**: fatto il 17 nov (44–60 con QuestieDB del 16 nov: quest con XP osservata, per hub; posizioni dei quest giver da `worldmap.json`, rinfrescato con `map.js`; `quests.txt` rinfrescato con `quests.js` per le quest di Mount Hyjal). Mount Hyjal ★ ha 33 quest 56–60: è la tappa del 60 e compare come alternativa nelle milestone 58–59. Da ricontrollare quando ci saranno guide provate (ordine delle quest 🟡). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
-2. **Build B e C fino al 60**: fatto il 17 nov. Mage B è Arcane vera (Icy Veins 10–60; la partenza Arcane con respec Frost al 31 dal 31 era uguale alla A) e Priest B (Discipline, respec Shadow al 40) ha il `respec`; Paladin B (Holy) e Shaman C (Restoration) seguono Icy Veins 10–60; Warlock C l'ordine 10–60 di wowforever.be.
+2. **Build B e C fino al 60**: fatto il 17 nov. Mage B è Arcane vera (dal 19 nov ordine di Asuna_qt, prima Icy Veins 10–60; la partenza Arcane con respec Frost al 31 dal 31 era uguale alla A) e Priest B (Discipline, respec Shadow al 40) ha il `respec`; Paladin B (Holy) e Shaman C (Restoration) seguono Icy Veins 10–60; Warlock C l'ordine 10–60 di wowforever.be.
 3. **Da ricontrollare nel gioco uscito**:
    - classifica degli alt: fatto il 18 nov. Tre voti (`rank.voters`): Mobalytics (17 set, prima del lancio), Timesaver (13 nov) e Conquest Capped (10 nov), rifatte dopo il lancio. Da ricontrollare quando Mobalytics aggiorna la sua.
    - Legacy: fatto il 18 nov (wiki del 15 nov e Icy Veins: 65 challenge con PvP 12, punti non duplicabili, Talented 9/8/7/6/5, Field Guide 8/16/25%, Bartering 5/10%, Bear Cub a 25). Resta sconosciuto il costo del reset.
    - Scarlet Monastery Alleanza: fatto il 18 nov. Graveyard «skip» (nessuna quest), Library, Armory e Cathedral «opzionale» con le 3 quest Alleanza e il viaggio apposta. Rituals of Power spostata tra le quest di classe (solo Mage).
-4. **Gold farming**: solo quando ci saranno testimonianze dal gioco.
+4. **Gold farming**: solo quando ci saranno testimonianze dal gioco. Il 19 nov letta la «Rogue Gold Farming Guide» di Rogue's Diary (Mobalytics, Verified, 18 nov): l'elenco è quello del Classic («la maggior parte resterà valida») con stime, quindi non basta.
 5. **Wago**: l'addon non c'è ancora.
 6. **Pagina di prova**: aggiornarla all'aspetto della 1.10, se l'utente la chiede.
 7. **Dubbi aperti**:

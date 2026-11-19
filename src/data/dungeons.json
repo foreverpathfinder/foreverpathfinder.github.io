@@ -1240,14 +1240,10 @@
      [
       "Extinguishing the Idol",
       "Belnistrasz, dentro il dungeon, dopo Scourge of the Downs"
-     ],
-     [
-      "Agamaggan's Blood",
-      "Kog'thug the Brave"
      ]
     ]
    },
-   "e": "Angolo sud-est di The Barrens (49.0 93.9): un labirinto di rovi pieno di quilboar elite porta al portale.",
+   "e": "Angolo sud-est di The Barrens (49.0 93.9): un labirinto di rovi pieno di quilboar elite porta al portale. Agamaggan's Blood (Kog'thug the Brave) dal 17 nov non è più una quest del dungeon: si completa nell'area elite davanti all'ingresso.",
    "v": {
     "A": [
      "skip",
@@ -1947,7 +1943,7 @@
     "General Drakkisath (Upper)"
    ],
    "t": [
-    "Lower Blackrock Spire (55–60) è da 5; Upper Blackrock Spire (59–60) è un dungeon da 10 giocatori.",
+    "Lower Blackrock Spire (55–60) è da 5; Upper Blackrock Spire (59–60) è un dungeon da 10 giocatori. Dal 17 nov (hotfix) i nemici di Upper hanno di nuovo salute e danni pieni: serve un gruppo completo.",
     "<b>Overlord Wyrmthalak</b> chiude Lower: quando è basso chiama due Spirestone Warlord, tenete pronti controllo e cooldown.",
     "<b>General Drakkisath</b> ha due guardie: chi indossa la Seal of Ascension può evocare Vaelastrasz per curarsi."
    ]

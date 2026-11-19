@@ -4,7 +4,7 @@
  "resource": "Mana (+ Rage in Bear Form, Energy e Combo Point in Cat Form)",
  "spec": "Feral",
  "specIcon": "ability_druid_catform",
- "summary": "Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez) 'la scelta più veloce e popolare', mmonster (tier list del 5 nov) e Mobalytics. Dal 6 nov la build A è quella di Mobalytics <b>yumytv</b> (87 ♥, guida Druid 1–60 aggiornata dopo il lancio): Ferocity, Furor 5 (Energy e Rage quando cambi forma), Feral Swiftness, Sharpened Claws e Savage Fury, Feral Charge al 24, Leader of the Pack al 30, Shifting Power al 40; poi Balance (Genesis, Nature's Majesty) e Restoration (Heart of the Wild, Naturalist), 9/31/11 al 60. wowforever.be (dati client) fa 0/34/17.",
+ "summary": "Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez) 'la scelta più veloce e popolare', mmonster (tier list del 5 nov) e Mobalytics. Dal 6 nov la build A è quella di Mobalytics <b>yumytv</b> (252 ♥, guida Druid 1–60 aggiornata dopo il lancio): Ferocity, Furor 5 (Energy e Rage quando cambi forma), Feral Swiftness, Sharpened Claws e Savage Fury, Feral Charge al 24, Leader of the Pack al 30, Shifting Power al 40; poi Balance (Genesis, Nature's Majesty) e Restoration (Heart of the Wild, Naturalist), 9/31/11 al 60. wowforever.be (dati client) fa 0/34/17.",
  "build": [
   "Ferocity",
   "Ferocity",
@@ -58,7 +58,7 @@
   "Naturalist",
   "Natural Shapeshifter"
  ],
- "buildSource": "Mobalytics yumytv «Druid Leveling Guide 1-60» (87 ♥, agg. 4 nov): ordine 10–60 per livello, 9/31/11 al 60. Fino al 5 nov: wowforever.be (client 70707), 0/34/17.",
+ "buildSource": "Mobalytics yumytv «Druid Leveling Guide 1-60» (252 ♥, agg. 14 nov): ordine 10–60 per livello, 9/31/11 al 60. Fino al 5 nov: wowforever.be (client 70707), 0/34/17.",
  "why": {
   "Ferocity": "Costo di Maul, Swipe, Claw e Rake −5 Rage/Energy a 5/5: in Bear Form più Maul, in Cat Form rotazione molto più economica. Unanimità delle fonti: primo talent.",
   "Feral Instinct": "Swipe +30% e stealth come +3 livelli: con Swipe (16) è il tuo AoE da Bear nel 10–19 (Mobalytics bear + wowforever.be).",
@@ -86,7 +86,7 @@
  "compare": [
   {
    "source": "Mobalytics – yumytv, Druid Leveling Guide 1-60 – BUILD A",
-   "signal": "87 ♥ · agg. 4 nov · 9/31/11 a 60",
+   "signal": "252 ♥ · agg. 14 nov · 9/31/11 a 60",
    "l10_19": "Ferocity 3 (10–12), Furor 5 (13–17), Feral Swiftness 2 (18–19)",
    "l20": "Sharpened Claws",
    "l21_30": "Sharpened Claws 2/2, Savage Fury 2, Feral Charge (24), Predatory Discipline, Blood Frenzy 2, Predatory Strikes 2, Leader of the Pack al 30; Shifting Power al 40"
@@ -1222,8 +1222,8 @@
     {
      "name": "Mobalytics – Druid Leveling Guide 1-60 (yumytv)",
      "url": "https://mobalytics.gg/wow-forever/classes/druid-leveling-guide",
-     "date": "4 nov 2026",
-     "signal": "87 ♥",
+     "date": "14 nov 2026",
+     "signal": "252 ♥",
      "used": "ordine talent 10–60"
     },
     {

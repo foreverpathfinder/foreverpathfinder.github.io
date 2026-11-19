@@ -4,7 +4,7 @@
  "resource": "Mana",
  "spec": "Enhancement",
  "specIcon": "ability_shaman_stormstrike",
- "summary": "Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui convergono Method (Erik, agg. 23 ott: \"la più forte\"), Warcraft Tavern (\"la via più pulita\"), Mobalytics Tiqqle (<b>175 ♥</b>, Verified, agg. 6 nov: la guida Shaman più salvata) e wowforever.be (dati client). Ordine di Tiqqle: Thundering Strikes, Mental Dexterity, Ancestral Knowledge, Shamanistic Focus al 20, Elemental Weapons, Stormstrike al 25, Improved Ghost Wolf, Flurry; dal 32 undici punti in Restoration (Tidal Focus, Mindfulness, Totemic Focus) per <b>Water Shield</b> al 42, come NickTew (67 ♥). Il Mana è il vero limite: Elemental e Resto sono più lenti da soli.",
+ "summary": "Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui convergono Method (Erik, agg. 23 ott: \"la più forte\"), Warcraft Tavern (\"la via più pulita\"), Mobalytics Tiqqle (<b>435 ♥</b>, Verified, agg. 13 nov: la guida Shaman più salvata) e wowforever.be (dati client). Ordine di Tiqqle: Thundering Strikes, Mental Dexterity, Ancestral Knowledge, Shamanistic Focus al 20, Elemental Weapons, Stormstrike al 25, Improved Ghost Wolf, Flurry; dal 32 undici punti in Restoration (Tidal Focus, Mindfulness, Totemic Focus) per <b>Water Shield</b> al 42, come NickTew (67 ♥). Il Mana è il vero limite: Elemental e Resto sono più lenti da soli.",
  "build": [
   "Thundering Strikes",
   "Thundering Strikes",
@@ -58,7 +58,7 @@
   "Concussion",
   "Concussion"
  ],
- "buildSource": "Mobalytics Tiqqle «1-60 Enhance» (175 ♥, Verified, agg. 6 nov): ordine 10–60 per livello. NickTew (67 ♥, agg. 4 nov) arriva allo stesso 6/34/11 con Water Shield. Prima del 6 nov: wowforever.be (client 70707), che dopo il 41 va in Elemental invece che in Restoration.",
+ "buildSource": "Mobalytics Tiqqle «1-60 Enhance» (435 ♥, Verified, agg. 13 nov): ordine 10–60 per livello. NickTew (67 ♥, agg. 4 nov) arriva allo stesso 6/34/11 con Water Shield. Prima del 6 nov: wowforever.be (client 70707), che dopo il 41 va in Elemental invece che in Restoration.",
  "why": {
   "Thundering Strikes": "+1% crit per Rank su melee E spell: 5% fisso dal 14 e carburante per Flurry.",
   "Mental Dexterity": "★ Attack Power = 33/66/100% del tuo Intellect: l'Intellect (gear, Incense Candle) diventa AP; sblocca Flurry.",
@@ -100,7 +100,7 @@
   },
   {
    "source": "Mobalytics – Shaman Leveling Guide 1-60 (Tiqqle)",
-   "signal": "175 ♥ · Verified · agg. 6 nov",
+   "signal": "435 ♥ · Verified · agg. 13 nov",
    "l10_19": "10–14 Thundering Strikes · 15–17 Mental Dexterity · 18–19 Ancestral Knowledge",
    "l20": "Shamanistic Focus",
    "l21_30": "21–23 Elemental Weapons · 24 Ancestral Knowledge · 25 Stormstrike · 26–27 Improved Ghost Wolf · 28–29 Flurry · 30 Improved Stormstrike · poi Resto: 32–36 Tidal Focus, 37–39 Mindfulness, 40–41 Totemic Focus, 42 Water Shield"
@@ -1137,8 +1137,8 @@
     {
      "name": "Mobalytics – Shaman Leveling Guide 1-60 (Tiqqle)",
      "url": "https://mobalytics.gg/wow-forever/classes/shaman-leveling-guide",
-     "date": "6 nov 2026",
-     "signal": "175 ♥ · Verified",
+     "date": "13 nov 2026",
+     "signal": "435 ♥ · Verified",
      "used": "ordine talent 10–60"
     },
     {
@@ -1455,7 +1455,7 @@
     {
      "name": "Icy Veins – Restoration Shaman Leveling",
      "url": "https://www.icy-veins.com/wow-forever/restoration-shaman-leveling",
-     "date": "4 nov 2026",
+     "date": "16 nov 2026",
      "signal": "ordine 10–60 dal link del calcolatore",
      "used": "ordine dei talent 10–60"
     },

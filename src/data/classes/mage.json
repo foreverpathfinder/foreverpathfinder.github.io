@@ -4,7 +4,7 @@
  "resource": "Mana",
  "spec": "Frost",
  "specIcon": "spell_frost_frostbolt02",
- "summary": "Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, <b>112 preferiti</b>, agg. 4 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a <b>wowforever.be</b> (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.",
+ "summary": "Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, <b>397 ♥</b>, agg. 18 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a <b>wowforever.be</b> (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.",
  "build": [
   "Improved Frostbolt",
   "Improved Frostbolt",
@@ -58,7 +58,7 @@
   "Arcane Concentration",
   "Arcane Concentration"
  ],
- "buildSource": "Mobalytics Asuna_qt «Frost Leveling 1-60» (112 ♥, Verified, agg. 4 nov): ordine 10–60 per livello. Fino al 5 nov: wowforever.be (client 70707), solo fino al 35.",
+ "buildSource": "Mobalytics Asuna_qt «Frost Leveling 1-60» (397 ♥, Verified, agg. 18 nov): ordine 10–60 per livello. Fino al 5 nov: wowforever.be (client 70707), solo fino al 35.",
  "why": {
   "Improved Frostbolt": "Frostbolt più rapido: è il 90% dei tuoi cast.",
   "Precision": "Niente “Resisted”: con 2 talent point niente Miss sui mob del tuo livello.",
@@ -81,7 +81,7 @@
   },
   {
    "source": "<b>Questa guida</b> (= Mobalytics – Asuna_qt)",
-   "signal": "112 ♥, “Verified”, agg. 4 nov",
+   "signal": "397 ♥, “Verified”, agg. 18 nov",
    "l10_19": "IFB 5 · Precision 3 · Frostbite 2",
    "l20": "Ice Lance",
    "l21_30": "Ice Shards 4 · Ice Block · Shatter 3 · Ice Shards 5 · FoF"
@@ -623,8 +623,8 @@
     {
      "name": "Mobalytics – Mage Leveling (Asuna_qt)",
      "url": "https://mobalytics.gg/wow-forever/classes/mage-leveling-guide",
-     "date": "4 nov 2026",
-     "signal": "112 ♥ · Verified",
+     "date": "18 nov 2026",
+     "signal": "397 ♥ · Verified",
      "used": "build A (10–60)"
     },
     {
@@ -655,10 +655,10 @@
    "name": "Arcane (Missile Barrage)",
    "spec": "Arcane",
    "icon": "spell_arcane_blast",
-   "when": "Se vuoi giocare Arcane fino al 60: Arcane Blast finché scatta Missile Barrage, poi Arcane Missiles gratis, e Arcane Wrath per il burst. Dal 43 qualche punto in Fire.",
+   "when": "Se vuoi giocare Arcane fino al 60: Arcane Blast finché scatta Missile Barrage, poi Arcane Missiles gratis, e Arcane Wrath per il burst. Dal 41 Precision in Frost, dal 45 punti in Fire (Accelerant, Ignite, Pyroblast).",
    "pros": [
     "Missile Barrage ★ e Arcane Blast ★: Arcane Missiles gratis quando scatta il proc (Icy Veins)",
-    "Arcane Wrath ★ al 27: tanto danno in un colpo per uccidere in fretta (Icy Veins)",
+    "Arcane Wrath ★ al 25: tanto danno in un colpo per uccidere in fretta (Asuna_qt, Icy Veins)",
     "Arcane Meditation e Mage Armor: in combattimento il mana si rigenera col 100% dello Spirit (Icy Veins)"
    ],
    "cons": [
@@ -684,8 +684,8 @@
     ]
    },
    "build": [
-    "Wand Specialization",
-    "Wand Specialization",
+    "Improved Channeling",
+    "Improved Channeling",
     "Improved Channeling",
     "Improved Channeling",
     "Improved Channeling",
@@ -695,46 +695,46 @@
     "Arcane Concentration",
     "Arcane Concentration",
     "Arcane Blast",
-    "Precision",
-    "Precision",
-    "Improved Channeling",
-    "Improved Channeling",
     "Arcane Concentration",
     "Arcane Concentration",
-    "Arcane Wrath",
-    "Arcane Meditation",
-    "Arcane Meditation",
-    "Arcane Meditation",
     "Arcane Subtlety",
+    "Arcane Subtlety",
+    "Arcane Wrath",
+    "Arcane Impact",
+    "Arcane Impact",
+    "Arcane Impact",
+    "Arcane Meditation",
     "Presence of Mind",
     "Arcane Mind",
     "Arcane Mind",
     "Arcane Mind",
     "Arcane Mind",
+    "Arcane Instability",
+    "Arcane Instability",
+    "Arcane Instability",
     "Arcane Mind",
-    "Arcane Instability",
-    "Arcane Instability",
-    "Arcane Instability",
-    "Arcane Subtlety",
+    "Arcane Meditation",
     "Arcane Power",
-    "Incineration",
-    "Incineration",
-    "Incineration",
-    "Incineration",
-    "Incineration",
+    "Precision",
+    "Precision",
+    "Precision",
+    "Arcane Meditation",
     "Accelerant",
     "Accelerant",
     "Accelerant",
     "Accelerant",
     "Accelerant",
-    "Improved Fire Blast",
-    "Improved Fire Blast",
+    "Ignite",
+    "Ignite",
+    "Ignite",
     "Ignite",
     "Ignite",
     "Pyroblast",
-    "Heating Up",
-    "Ignite",
-    "Precision"
+    "Improved Fire Blast",
+    "Improved Fire Blast",
+    "Incineration",
+    "Incineration",
+    "Heating Up"
    ],
    "rotation": [
     {
@@ -780,11 +780,18 @@
    ],
    "sources": [
     {
+     "name": "Mobalytics – Mage Leveling, Arcane Leveling 1-60 (Asuna_qt)",
+     "url": "https://mobalytics.gg/wow-forever/classes/mage-leveling-guide",
+     "date": "18 nov 2026",
+     "signal": "397 ♥, la guida Mage più votata",
+     "used": "ordine talent 10–60"
+    },
+    {
      "name": "Icy Veins – Arcane Mage Leveling",
      "url": "https://www.icy-veins.com/wow-forever/arcane-mage-leveling",
      "date": "4 nov 2026",
      "signal": "ordine 10–60 dal link del calcolatore; rotazione, punti forti e deboli",
-     "used": "build B, rotazione, pro e contro"
+     "used": "rotazione, pro e contro (ordine talent fino al 18 nov)"
     }
    ]
   }

@@ -4,7 +4,7 @@
  "resource": "Energy",
  "spec": "Combat",
  "specIcon": "ability_backstab",
- "summary": "Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): dal 6 nov l'ordine è quello di Mobalytics Djexde (agg. 5 nov), con la stessa ripartizione 16/35/0 di Rogue’s Diary (agg. 4 nov): Remorseless Attacks subito, Endurance al 24–25, Blade Flurry al 32, Adrenaline Rush al 42. La variante con pugnale (Puncturing Wounds, wowforever.gg) è la build C.",
+ "summary": "Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): dal 6 nov l'ordine è quello di Mobalytics Djexde (agg. 12 nov), con la stessa ripartizione 16/35/0 di Rogue’s Diary (agg. 4 nov): Remorseless Attacks subito, Endurance al 24–25, Blade Flurry al 32, Adrenaline Rush al 42. La variante con pugnale (Puncturing Wounds, wowforever.gg) è la build C.",
  "build": [
   "Remorseless Attacks",
   "Remorseless Attacks",
@@ -58,7 +58,7 @@
   "Cold Blood",
   "Flawless Execution"
  ],
- "buildSource": "Mobalytics Djexde «Rogue Leveling Guide 1-60» (Progress, agg. 5 nov): ordine 10–60 per livello, 16/35/0 al 60; Rogue’s Diary «Complete Combat Leveling 1-60» (50 ♥, agg. 4 nov) arriva alla stessa ripartizione. La vecchia A (checkpoint wowforever.gg con Puncturing Wounds) è ora la build C.",
+ "buildSource": "Mobalytics Djexde «Rogue Leveling Guide 1-60» (Progress, agg. 12 nov): ordine 10–60 per livello, 16/35/0 al 60; Rogue’s Diary «Complete Combat Leveling 1-60» (50 ♥, agg. 4 nov) arriva alla stessa ripartizione. La vecchia A (checkpoint wowforever.gg con Puncturing Wounds) è ora la build C.",
  "why": {
   "Remorseless Attacks": "Dopo ogni kill, +20% / +40% crit sul prossimo Sinister Strike, Backstab, Ambush… per 20 s: ideale per catene di mob singoli. Djexde la prende per prima (10–11).",
   "Puncturing Wounds": "★ Nuovo in Forever: +30% crit a Backstab e 45% di Combo Point extra; per chi usa un pugnale (Blade of Cunning, quest del 10). Se non hai pugnali, Method sposta questi 3 punti su Endurance 2 + Lightning Reflexes 1.",
@@ -86,7 +86,7 @@
  "compare": [
   {
    "source": "Mobalytics – Djexde, Rogue Leveling 1-60 – BUILD A",
-   "signal": "36 ♥ · agg. 5 nov · 16/35/0 a 60",
+   "signal": "187 ♥ · agg. 12 nov · 16/35/0 a 60",
    "l10_19": "Remorseless Attacks 2 (10–11), Efficient Strikes 2, Coup de Grace 3, Deflection 3 (17–19)",
    "l20": "Precision",
    "l21_30": "Precision, Riposte (22), Precision 3/3, Endurance 2 (24–25), Lightning Reflexes, Weapon Expertise 2, Aggression; Blade Flurry al 32, Adrenaline Rush al 42"
@@ -908,8 +908,8 @@
     {
      "name": "Mobalytics – Rogue Leveling Guide 1-60 (Djexde, Progress)",
      "url": "https://mobalytics.gg/wow-forever/classes/rogue-leveling-guide",
-     "date": "5 nov 2026",
-     "signal": "36 ♥",
+     "date": "12 nov 2026",
+     "signal": "187 ♥",
      "used": "ordine talent 10–60"
     },
     {
@@ -935,9 +935,9 @@
    "icon": "ability_stealth",
    "when": "Ti piace aprire da Stealth e isolare i mob; non per velocità né per dungeon.",
    "pros": [
-    "Hemorrhage a 30 come builder principale (Tavern).",
+    "Hemorrhage al 32 come builder principale (Djexde; Tavern).",
     "Opener da Stealth: Ambush e Vanish (wowforever.gg).",
-    "Ordine 10–60 validato sul client (checkpoint wowforever.gg)."
+    "Ordine 10–60 della guida Rogue più votata (Mobalytics Djexde, agg. 12 nov): 31 punti in Subtlety entro il 42, poi Combat e Assassination (6/14/31)."
    ],
    "cons": [
     "Lenta all'inizio: i punti servono a raggiungere Hemorrhage (Icy Veins, snippet).",
@@ -972,57 +972,57 @@
     ]
    },
    "build": [
+    "Remorseless Attacks",
+    "Remorseless Attacks",
+    "Setup",
+    "Setup",
+    "Setup",
+    "Opportunity",
+    "Opportunity",
+    "Dirty Deeds",
+    "Dirty Deeds",
     "Opportunity",
     "Opportunity",
     "Opportunity",
-    "Opportunity",
-    "Opportunity",
-    "Camouflage",
-    "Camouflage",
-    "Camouflage",
-    "Improved Ambush",
-    "Improved Ambush",
-    "Improved Ambush",
-    "Initiative",
-    "Initiative",
-    "Initiative",
     "Serrated Blades",
     "Serrated Blades",
     "Serrated Blades",
-    "Ghostly Strike",
-    "Setup",
-    "Setup",
-    "Hemorrhage",
-    "Setup",
     "Premeditation",
-    "Dirty Tricks",
+    "Initiative",
+    "Ghostly Strike",
+    "Initiative",
+    "Initiative",
+    "Elusiveness",
+    "Elusiveness",
+    "Hemorrhage",
     "Preparation",
+    "Heightened Senses",
+    "Heightened Senses",
+    "Camouflage",
     "Boot Knife",
     "Boot Knife",
     "Boot Knife",
     "Boot Knife",
     "Boot Knife",
     "Death Mark",
-    "Improved Gouge",
-    "Improved Gouge",
-    "Improved Gouge",
-    "Remorseless Attacks",
-    "Remorseless Attacks",
-    "Ruthlessness",
-    "Ruthlessness",
-    "Ruthlessness",
-    "Improved Expose Armor",
-    "Improved Expose Armor",
+    "Efficient Strikes",
+    "Efficient Strikes",
+    "Coup de Grace",
+    "Coup de Grace",
+    "Coup de Grace",
+    "Deflection",
+    "Deflection",
+    "Deflection",
+    "Precision",
+    "Precision",
+    "Riposte",
+    "Precision",
+    "Composure",
+    "Composure",
     "Malice",
     "Malice",
     "Malice",
-    "Improved Slice and Dice",
-    "Improved Slice and Dice",
-    "Vile Poisons",
-    "Vile Poisons",
-    "Vile Poisons",
-    "Vile Poisons",
-    "Vile Poisons"
+    "Improved Slice and Dice"
    ],
    "rotation": [
     {
@@ -1064,11 +1064,18 @@
    ],
    "sources": [
     {
+     "name": "Mobalytics – Rogue Leveling Guide 1-60, scheda 1-60 Subtlety (Djexde)",
+     "url": "https://mobalytics.gg/wow-forever/classes/rogue-leveling-guide",
+     "date": "12 nov 2026",
+     "signal": "187 ♥, la guida Rogue più votata",
+     "used": "ordine talent 10–60"
+    },
+    {
      "name": "wowforever.gg – Rogue Subtlety Leveling Build",
      "url": "https://wowforever.gg/en/builds/rogue-subtlety-leveling/",
      "date": "Updated 30 ott 2026",
      "signal": "sito fan non ufficiale; calcolatore con checkpoint 10–60",
-     "used": "ordine 10–60, core talents (Ghostly Strike 20, Premeditation 28, Hemorrhage 30, Preparation 37, Thousand Cuts 40), rotazione"
+     "used": "ordine 10–60 fino al 18 nov, core talents (Ghostly Strike 20, Premeditation 28, Hemorrhage 30, Preparation 37, Thousand Cuts 40), rotazione"
     },
     {
      "name": "Warcraft Tavern – Rogue Leveling Guide",

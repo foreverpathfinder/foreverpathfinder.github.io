@@ -4,7 +4,7 @@
  "resource": "Mana (+ Health via Life Tap) · Soul Shard",
  "spec": "Affliction",
  "specIcon": "spell_shadow_deathcoil",
- "summary": "Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 <b>Wrack</b> (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, <b>659 ♥</b>, agg. 12 nov, la guida Warlock più salvata): drain dal 19, Siphon Life al 30, Wrack al 40, poi Pandemic e gli ultimi 11 punti in Destruction fino a Shadowburn (40/0/11). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.",
+ "summary": "Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 <b>Wrack</b> (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, <b>789 ♥</b>, agg. 18 nov, la guida Warlock più salvata): drain dal 19, Siphon Life al 30, Wrack al 40, poi Pandemic e gli ultimi 11 punti in Destruction fino a Shadowburn (40/0/11). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.",
  "build": [
   "Improved Corruption",
   "Improved Corruption",
@@ -58,7 +58,7 @@
   "Bane",
   "Shadowburn"
  ],
- "buildSource": "Mobalytics Crix «Affliction 1-60» (659 ♥, agg. 12 nov): ordine 10–60 per livello, 40/0/11. Rispetto al 5 nov Crix arriva a Wrack il prima possibile (rifatto il 10 nov, molto più forte) e mette gli ultimi punti in Destruction: Improved Shadow Bolt 50–54, Bane 55–59 (sui server PvP Molten Skin), Shadowburn al 60. Scelte libere secondo Crix: Improved Life Tap al posto di Soul Harvest, Amplify Curse e Curse of Exhaustion. wowforever.be (client) e Method in alternatives.",
+ "buildSource": "Mobalytics Crix «Affliction 1-60» (789 ♥, agg. 18 nov): ordine 10–60 per livello, 40/0/11. Rispetto al 5 nov Crix arriva a Wrack il prima possibile (rifatto il 10 nov, molto più forte) e mette gli ultimi punti in Destruction: Improved Shadow Bolt 50–54, Bane 55–59 (sui server PvP Molten Skin), Shadowburn al 60. Scelte libere secondo Crix: Improved Life Tap al posto di Soul Harvest, Amplify Curse e Curse of Exhaustion. wowforever.be (client) e Method in alternatives.",
  "why": {
   "Improved Corruption": "5 rank = Corruption istantanea (−2 s di cast) e +10% danno: la applichi in movimento su ogni mob. Tutte le fonti la prendono per prima.",
   "Suppression": "+1% Hit per rank (5% a 5/5) e meno threat: con 4 rank non manchi mai un mob del tuo livello, con 5 anche quelli più alti.",
@@ -92,7 +92,7 @@
  "compare": [
   {
    "source": "Mobalytics – Crix (Verified, 40/0/11)",
-   "signal": "659 ♥ (la guida Warlock più salvata) · agg. 12 nov",
+   "signal": "789 ♥ (la guida Warlock più salvata) · agg. 18 nov",
    "l10_19": "Improved Corruption 5 (10–14), Suppression 4 (15–18), Improved Drains (19)",
    "l20": "Improved Drains 2/3",
    "l21_30": "Improved Drains 3/3, Fel Concentration 3 (22–24), Soul Harvest 2 (25–26), Nightfall 2 (27–28), Grim Reach (29), Siphon Life (30); 31–33 Soul Siphon, 34 Grim Reach, 35–39 Shadow Mastery, 40 Wrack; poi Improved Bane of Agony, Pandemic 3, Amplify Curse, Curse of Exhaustion, Malevolence 2, Improved Shadow Bolt 5 (50–54), Bane 5 (55–59), Shadowburn (60)."
@@ -1195,8 +1195,8 @@
     {
      "name": "Mobalytics – Warlock Leveling (Crix)",
      "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
-     "date": "12 nov 2026",
-     "signal": "659 ♥",
+     "date": "18 nov 2026",
+     "signal": "789 ♥",
      "used": "build A (10–60)"
     },
     {
@@ -1302,7 +1302,8 @@
     "Improved Corruption",
     "Improved Corruption",
     "Improved Corruption",
-    "Suppression",
+    "Soul Harvest",
+    "Soul Harvest",
     "Suppression",
     "Suppression",
     "Suppression",
@@ -1312,7 +1313,6 @@
     "Pandemic",
     "Improved Bane of Agony",
     "Improved Bane of Agony",
-    "Malevolence",
     "Malevolence",
     "Malevolence",
     "Malevolence",
@@ -1364,8 +1364,8 @@
     {
      "name": "Mobalytics – Warlock Leveling, Demonology 1-60 (Crix)",
      "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
-     "date": "5 nov 2026",
-     "signal": "337 ♥",
+     "date": "18 nov 2026",
+     "signal": "789 ♥",
      "used": "ordine talent 10–60"
     },
     {
@@ -1502,7 +1502,7 @@
  ],
  "buildDoubts": [
   "Demonology (B): dal 6 nov ordine 10–60 di Mobalytics Crix (agg. 5 nov). Crix propone anche di passare da Affliction a Demonology al 26 (respec).",
-  "Affliction A: ordine per livello di Crix (agg. 12 nov, dopo il rework di Wrack del 10 nov); i punti 55–59 sono flessibili (Bane sui server PvE, Molten Skin sui PvP).",
+  "Affliction A: ordine per livello di Crix (agg. 18 nov, dopo il rework di Wrack del 10 nov); i punti 55–59 sono flessibili (Bane sui server PvE, Molten Skin sui PvP).",
   "Affliction C: dal 17 nov ordine 10–60 di wowforever.be, diverso da quello del 1 nov (Pandemic al 20, Demonology dal 46); le valutazioni di speed sono 🟡 perché l'effetto dei crit prima dei drain viene da una sola guida."
  ]
 }

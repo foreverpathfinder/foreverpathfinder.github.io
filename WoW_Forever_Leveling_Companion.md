@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v25)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v26)
 
-> Aggiornato: **18 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **19 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -20,7 +20,7 @@
 ## Build per classe (talent point 10–60)
 
 ### Druid – Feral
-Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez) 'la scelta più veloce e popolare', mmonster (tier list del 5 nov) e Mobalytics. Dal 6 nov la build A è quella di Mobalytics yumytv (87 ♥, guida Druid 1–60 aggiornata dopo il lancio): Ferocity, Furor 5 (Energy e Rage quando cambi forma), Feral Swiftness, Sharpened Claws e Savage Fury, Feral Charge al 24, Leader of the Pack al 30, Shifting Power al 40; poi Balance (Genesis, Nature's Majesty) e Restoration (Heart of the Wild, Naturalist), 9/31/11 al 60. wowforever.be (dati client) fa 0/34/17.
+Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliata: Warcraft Tavern (Luxrah) 'Feral cats will have the smoothest route', Method (BirraGzeez) 'la scelta più veloce e popolare', mmonster (tier list del 5 nov) e Mobalytics. Dal 6 nov la build A è quella di Mobalytics yumytv (252 ♥, guida Druid 1–60 aggiornata dopo il lancio): Ferocity, Furor 5 (Energy e Rage quando cambi forma), Feral Swiftness, Sharpened Claws e Savage Fury, Feral Charge al 24, Leader of the Pack al 30, Shifting Power al 40; poi Balance (Genesis, Nature's Majesty) e Restoration (Heart of the Wild, Naturalist), 9/31/11 al 60. wowforever.be (dati client) fa 0/34/17.
 
 - 10–12: Ferocity 3/5
 - 13–17: Furor 5/5
@@ -45,7 +45,7 @@ Feral (Cat dal 20, Bear se serve) è la spec di leveling in solo più consigliat
 - 60: Natural Shapeshifter 1/3
 
 ### Hunter – Beast Mastery
-Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Zockify (25 ott) e la guida Hunter più votata di Mobalytics (Feor, 222 ♥, Verified, agg. 7 nov), che dà l’ordine livello per livello dal 10 al 60. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. La build segue Feor: Pathfinding al 20–21, Summon Hawk al 25, Intimidation al 30, Bestial Wrath al 40, poi 20 punti in Marksmanship (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.
+Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Zockify (25 ott) e la guida Hunter più votata di Mobalytics (Feor, 649 ♥, Verified, agg. 18 nov), che dà l’ordine livello per livello dal 10 al 60. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. La build segue Feor: Pathfinding al 20–21, Summon Hawk al 25, Intimidation al 30, Bestial Wrath al 40, poi 20 punti in Marksmanship (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.
 
 - 10–14: Deadly Aspects 5/5
 - 15–16: Focused Fire 2/2
@@ -70,7 +70,7 @@ Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft
 - 57–60: Mortal Shots 4/5
 
 ### Mage – Frost
-Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, 112 preferiti, agg. 4 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a wowforever.be (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.
+Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, 397 ♥, agg. 18 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a wowforever.be (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.
 
 - 10–14: Improved Frostbolt 5/5
 - 15–17: Precision 3/3
@@ -95,7 +95,7 @@ Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salv
 - 57–60: Arcane Concentration 4/5
 
 ### Paladin – Retribution
-Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordine dei talent è quello della guida Paladin più votata, Mobalytics yumytv (102 ♥, agg. 1 nov): Deflection 10–14, Conviction, Improved Judgement, Pursuit of Justice e Seal of Command al 22, poi Sanctified Judgement e Two-Handed Weapon Specialization; split finale 12 Holy / 8 Protection / 31 Retribution, come Zockify. Concordano sulla spec anche Maxroll, Conquest Capped e Icy Veins. wowforever.be (dati client) apre invece in Holy: la trovi come build B.
+Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordine dei talent è quello della guida Paladin più votata, Mobalytics yumytv (492 ♥, agg. 12 nov): Deflection 10–14, Conviction, Improved Judgement, Pursuit of Justice e Seal of Command al 22, poi Sanctified Judgement e Two-Handed Weapon Specialization; split finale 12 Holy / 8 Protection / 31 Retribution, come Zockify. Concordano sulla spec anche Maxroll, Conquest Capped e Icy Veins. wowforever.be (dati client) apre invece in Holy: la trovi come build B.
 
 - 10–14: Deflection 5/5
 - 15–17: Conviction 3/3
@@ -118,7 +118,7 @@ Retribution con Two-Handed lenta: è il consenso per livellare da soli. L’ordi
 - 58–60: Precision 3/3
 
 ### Priest – Shadow
-Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug (165 ♥, Verified, agg. 9 nov), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Mind Flay al 22, Vampiric Embrace al 27, Shadow Weaving (28–30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.
+Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalytics DoubleZug (217 ♥, Verified, agg. 9 nov), Twicks 27 ♥ e Kargoz 8 ♥ sono Shadow; Warcraft Tavern, Icy Veins (“Deep Shadow”), wowforever.gg e wow4evernews vanno Shadow fino al 30. Tutte le fonti concordano su 10–18: Wand Specialization 2/2, Spirit Tap 5/5, Improved Shadow Word: Pain 2/2; poi Shadow Focus, Mind Flay al 22, Vampiric Embrace al 27, Shadow Weaving (28–30) e Shadowform al 42, senza respec. L’ibrido Disc con Meditation (wowforever.be = Method, Amaxagon, agg. 29 ott; ConquestCapped) resta l’alternativa: Disc fino al 39 (solo 7 punti Shadow, NON “Disc fino al ~23”) e respec Shadow al 40. DoubleZug stesso dice che le due vie rendono “very similarly”; Shadow evita il respec.
 
 - 10–11: Wand Specialization 2/2
 - 12–16: Spirit Tap 5/5
@@ -143,7 +143,7 @@ Build Shadow-deep: la più preferita dalle guide Forever per il Priest. Mobalyti
 - 58–60: Mental Agility 3/3
 
 ### Rogue – Combat
-Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): dal 6 nov l'ordine è quello di Mobalytics Djexde (agg. 5 nov), con la stessa ripartizione 16/35/0 di Rogue’s Diary (agg. 4 nov): Remorseless Attacks subito, Endurance al 24–25, Blade Flurry al 32, Adrenaline Rush al 42. La variante con pugnale (Puncturing Wounds, wowforever.gg) è la build C.
+Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore), Method (Reholy, 9 ott), wowforever.be (client), Mobalytics (DonTheCrown 37 ♥, Rogue's Diary 28 ♥), il canale ufficiale WoW Forever e i video più visti (Ragequitting 69k, Gaunerh 65k, DonTheCrown 62k views). Combat ha Blade Flurry (cleave) e Adrenaline Rush, usa qualsiasi arma grazie a Hack and Slash, e Sinister Strike + Slice and Dice + Eviscerate sono facili da giocare. Dal 3 novembre l'albero Combat è cambiato (Improved Sinister Strike ed Improved Eviscerate ora si chiamano Efficient Strikes e Coup de Grace, Dual Wield Specialization ha 2 rank, Flash of Steel potenzia la nuova Shank): dal 6 nov l'ordine è quello di Mobalytics Djexde (agg. 12 nov), con la stessa ripartizione 16/35/0 di Rogue’s Diary (agg. 4 nov): Remorseless Attacks subito, Endurance al 24–25, Blade Flurry al 32, Adrenaline Rush al 42. La variante con pugnale (Puncturing Wounds, wowforever.gg) è la build C.
 
 - 10–11: Remorseless Attacks 2/2
 - 12–13: Efficient Strikes 2/2
@@ -172,7 +172,7 @@ Tutte le fonti scelgono Combat per livellare da soli: Warcraft Tavern (Nevermore
 - 60: Flawless Execution 1/1
 
 ### Shaman – Enhancement
-Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui convergono Method (Erik, agg. 23 ott: "la più forte"), Warcraft Tavern ("la via più pulita"), Mobalytics Tiqqle (175 ♥, Verified, agg. 6 nov: la guida Shaman più salvata) e wowforever.be (dati client). Ordine di Tiqqle: Thundering Strikes, Mental Dexterity, Ancestral Knowledge, Shamanistic Focus al 20, Elemental Weapons, Stormstrike al 25, Improved Ghost Wolf, Flurry; dal 32 undici punti in Restoration (Tidal Focus, Mindfulness, Totemic Focus) per Water Shield al 42, come NickTew (67 ♥). Il Mana è il vero limite: Elemental e Resto sono più lenti da soli.
+Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui convergono Method (Erik, agg. 23 ott: "la più forte"), Warcraft Tavern ("la via più pulita"), Mobalytics Tiqqle (435 ♥, Verified, agg. 13 nov: la guida Shaman più salvata) e wowforever.be (dati client). Ordine di Tiqqle: Thundering Strikes, Mental Dexterity, Ancestral Knowledge, Shamanistic Focus al 20, Elemental Weapons, Stormstrike al 25, Improved Ghost Wolf, Flurry; dal 32 undici punti in Restoration (Tidal Focus, Mindfulness, Totemic Focus) per Water Shield al 42, come NickTew (67 ♥). Il Mana è il vero limite: Elemental e Resto sono più lenti da soli.
 
 - 10–14: Thundering Strikes 5/5
 - 15–17: Mental Dexterity 3/3
@@ -198,7 +198,7 @@ Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui conve
 - 57–60: Concussion 4/5
 
 ### Warlock – Affliction
-Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 Wrack (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 659 ♥, agg. 12 nov, la guida Warlock più salvata): drain dal 19, Siphon Life al 30, Wrack al 40, poi Pandemic e gli ultimi 11 punti in Destruction fino a Shadowburn (40/0/11). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.
+Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 Wrack (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 789 ♥, agg. 18 nov, la guida Warlock più salvata): drain dal 19, Siphon Life al 30, Wrack al 40, poi Pandemic e gli ultimi 11 punti in Destruction fino a Shadowburn (40/0/11). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.
 
 - 10–14: Improved Corruption 5/5
 - 15–18: Suppression 4/5
@@ -222,7 +222,7 @@ Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più cons
 - 60: Shadowburn 1/1
 
 ### Warrior – Protection
-Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 138 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (165 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 165 ♥, agg. 6 nov); Fury non decolla prima del 36–40.
+Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 214 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (392 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 392 ♥, agg. 17 nov); Fury non decolla prima del 36–40.
 
 - 10–14: Shield Specialization 5/5
 - 15–17: Improved Revenge 3/3
@@ -447,14 +447,14 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 - [wowforever.be – Druid leveling build (client 1.60.1.70707)](https://wowforever.be/leveling/druid/) · letto 1 nov · dati client (albero post-hotfix)
 - [wowforever.be news – Druids and Paladins get reshuffled talent trees](https://wowforever.be/news/druids-and-paladins-get-reshuffled-talent-trees/) · 31 ott · news pre-lancio
 - [GitHub alsh0083/wowforever-helper issue #455](https://github.com/alsh0083/wowforever-helper/issues/455) · 31 ott · dati client 70707
-- [Mobalytics – Hunter Leveling Guide 1-60 (Feor)](https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide) · agg. 7 nov 2026 · 222 ♥, Verified: la guida Hunter più votata
+- [Mobalytics – Hunter Leveling Guide 1-60 (Feor)](https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide) · agg. 18 nov 2026 · 649 ♥, Verified: la guida Hunter più votata
 - [wowforever.be – build di leveling Hunter](https://wowforever.be/leveling/hunter/) · client 1.60.1.70707, 1 nov · dati client; fino al 35
 - [Method – Hunter Leveling Guide & Talents (Celz)](https://www.method.gg/wow-forever/wow-forever-hunter-leveling-guide-and-talents) · 21 ott 2026 · Method (reputazione alta)
 - [Mobalytics – Mage Leveling (Asuna_qt)](https://mobalytics.gg/wow-forever/classes/mage-leveling-guide) · 31 ott · 40 ♥
 - [wowforever.be – Mage leveling](https://wowforever.be/it/leveling/mage/) · client 1.60.1.70707
 - [Icy Veins – Frost Mage Leveling (Teloril)](https://www.icy-veins.com/wow-forever/frost-mage-leveling) · 30 ott
 - [wowforever.be – Build di livellamento Paladin (dati client 70707)](https://wowforever.be/leveling/paladin/) · 1 nov · dati client
-- [Mobalytics – Paladin Leveling Guide 1-60 (yumytv)](https://mobalytics.gg/wow-forever/classes/paladin-leveling-guide) · 1 nov · 102 ♥ (la più salvata), 12/8/31
+- [Mobalytics – Paladin Leveling Guide 1-60 (yumytv)](https://mobalytics.gg/wow-forever/classes/paladin-leveling-guide) · 12 nov · 492 ♥ (la più salvata), 12/8/31
 - [Zockify – Paladin Leveling](https://www.zockify.com/forever/paladin/leveling/) · 30 ott · 12/8/31 Ret
 - [wowforever.be – Build di leveling Priest (client)](https://wowforever.be/leveling/priest/) · 1 nov 2026 · dati client, ordine 10→60
 - [Method – WoW Forever Priest Leveling Guide & Talents (Amaxagon)](https://www.method.gg/wow-forever/wow-forever-priest-leveling-guide-and-talents) · 29 ott 2026 · Method; stringa talent = wowforever.be
@@ -468,7 +468,7 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 - [Mobalytics – Warlock Leveling Guide 1–60 (Crix, Verified)](https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide) · 1 nov 2026 · 109 ♥ · 36/12/0
 - [wowforever.be – Warlock leveling (dati client 1.60.1.70707)](https://wowforever.be/leveling/warlock/) · 1 nov 2026 · dati client
 - [Method – Warlock Leveling Guide & Talents (Roguery)](https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents) · 17 ott 2026 · Method (reputazione alta)
-- [Mobalytics – Warrior Leveling 1-60, Protection 1-60 (Ahlaundoh)](https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide) · agg. 6 nov 2026 · 165 ♥: la guida Warrior più votata
+- [Mobalytics – Warrior Leveling 1-60, Protection 1-60 (Ahlaundoh)](https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide) · agg. 17 nov 2026 · 392 ♥: la guida Warrior più votata
 - [wowforever.be – Build di leveling Warrior](https://wowforever.be/leveling/warrior/) · 1 nov (client 1.60.1.70707) · dati client
 - [Mobalytics – classifica preferiti (mobalytics.md) (KallTorak (Prot 82 ♥, 30 ott, 0/0/21); Ahlaundoh (Warrior 1-60 Verified 48 ♥, 35/14/2); Kargoz (Prot 15 ♥, 14 ott, 5/6/40))](https://mobalytics.gg/wow-forever/classes/protection-warrior-guide-kalltorak) · 14–30 ott · 82 / 48 / 15 ♥
 - [wowforever.be – talent e build di leveling (dati client)](https://wowforever.be/leveling/) · client 1.60.1.70707
