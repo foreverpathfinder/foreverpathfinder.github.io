@@ -20,22 +20,23 @@ Materiale pronto da copiare. Prima della pubblicazione: prova nel gioco vero (`/
 ## Riassunto (CurseForge «Summary», Wago «Short description»)
 The whole leveling guide in game: next step, recommended zones, talents, dungeon quests, professions, waypoints and quests that tick themselves. EN / IT.
 
-## Galleria (14 nov, addon 1.10.1, caricata su CurseForge il 14 nov con titoli, didascalie e stella)
-Immagini dell'addon vero, fatte con `PVSCALE=2 PVBG=#14181d node src/tools/addon-preview.js enUS <scheda>` (Human Warrior al 18; `livello~600` per la parte bassa del Percorso). Le due `gioco-*` vengono dal gioco (5 nov) e sono ancora giuste.
+## Galleria (20 nov, addon 1.10.14, caricata su CurseForge il 20 nov con titoli, didascalie e stella)
+Immagini dell'addon vero, fatte con `PVSCALE=2 PVBG=#14181d PV="Human,WARRIOR,18" node src/tools/addon-preview.js enUS <scheda>` (`livello~600` per la parte bassa del Percorso; ingressi con `PV="Human,WARRIOR,58"` e `"dungeon.Dire Maul>How to get there"`; profession al cap con `PVSK="150,150"` e `"prof~330"`). Le due `gioco-*` vengono dal gioco (5 nov) e sono ancora giuste.
 
-| File | Didascalia |
-|---|---|
-| `cf-1-route.png` | Route: the next thing to do, then the stage in one line per item |
-| `cf-2-route-level.png` | At this level: talent, dungeons and recommended zones |
-| `cf-3-talents.png` | Talents: the tree at any level, with a bar for every level |
-| `cf-4-dungeon.png` | A dungeon: quests in your log, chains step by step, what to do now |
-| `cf-5-dungeons.png` | Dungeons for your level and the full list |
-| `cf-6-professions.png` | Professions: live skill, current step, materials in your bags |
-| `cf-7-options.png` | Options |
-| `gioco-mappa.webp` | World map: the stage waypoints (from the game, Nov 5) |
-| `gioco-minimappa.webp` | Minimap icon (from the game, Nov 5) |
+| File | Titolo | Didascalia |
+|---|---|---|
+| `cf-1-route.png` | Route: the next thing to do | The next step in large type, with Show on the map, Questie and Done. The rest of the stage takes one line per item. |
+| `cf-2-route-level.png` | At this level: talent, dungeons, zones | The talent to take, the dungeons that fit your level and the zones with the most quests for your race right now. |
+| `cf-3-talents.png` | Talents at any level | The tree at any level of the build, with a bar to move along it. The talent to take glows in the game talent window. |
+| `cf-4-dungeon.png` | A dungeon, step by step | Quests in your log, chains step by step and what to do now. Entrance opens the world map on the door you walk in through. |
+| `cf-5-entrances.png` | Every entrance | Entrances checked against several sources. Dungeons with more than one door get a button each, like Dire Maul North, West and East. |
+| `cf-6-dungeons.png` | Dungeons for your level | The dungeons that fit you now, then the full list from 13 to 60 with levels and a verdict per faction. |
+| `cf-7-professions.png` | Professions: the trainer at each cap | Live skill, the current step of the 1-300 route and the materials in your bags. At a cap, the trainer who teaches the next rank. |
+| `cf-8-options.png` | Options | Build A, B or C, dungeons on or off, recommended zones, every game link, English or Italian. |
+| `gioco-minimappa.webp` | | Minimap icon (from the game, Nov 5) |
+| `gioco-mappa.webp` | | World map: the stage waypoints (from the game, Nov 5) |
 
-Le vecchie `gioco-percorso`, `gioco-talenti`, `gioco-dungeon`, `gioco-opzioni` (grafica di prima della 1.10) sono state tolte dalla galleria il 14 nov. Ordine sistemato il 14 nov: le 7 nuove, poi minimappa e mappa. Il riordino (Media → Reorder gallery, griglia di 3 colonne) non risponde al trascinamento automatico ma alla tastiera: fuoco sull'immagine (li draggable), Spazio, frecce (sinistra/destra dentro la riga, giù/su tra le righe), Spazio, poi Done.
+Ordine: le 8 nuove, poi minimappa e mappa. Le 7 della 1.10.1 sono state cancellate il 20 nov. Come caricare senza la finestra di Windows: in Chrome, prima di «Upload or Drag Image», intercettare `HTMLInputElement.prototype.click` per gli input file, poi `file_upload` sull'input preso. Titoli e didascalie: matita sull'immagine, frecce per passare alla successiva, stella «Feature Media», Apply. Riordino: Reorder gallery, poi tastiera (fuoco sull'elemento, Spazio, frecce, Spazio, Done).
 
 ## Descrizione (Markdown, pubblicata su CurseForge il 20 nov)
 Stesse regole della descrizione di Forever Cleanse (inglese, poi un paragrafo in italiano; frase in grassetto in cima; «Good to know» con WoW: Forever, niente file Blizzard e link alle segnalazioni), stile diverso: una partita raccontata passo per passo e una tabella delle schede. Va in **Description**, editor in Markdown, senza il titolo (CurseForge mostra già il nome). In cima banner e pulsante Ko-fi (`banner.png`, `kofi.png`, fatti da `banner.html` con `node src/tools/banner.js`, serviti da raw.githubusercontent.com come per Cleanse: se cambiano, alza `?v=`).

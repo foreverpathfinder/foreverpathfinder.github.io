@@ -3,9 +3,9 @@
 
 <p>
   <img src="addon/pubblicazione/cf-1-route.png" width="400" alt="Route: the next thing to do, then the stage one line per item">
-  <img src="addon/pubblicazione/cf-3-talents.png" width="400" alt="Talents: the tree at any level of the build">
+  <img src="addon/pubblicazione/cf-5-entrances.png" width="400" alt="Every entrance of a dungeon, one button each">
   <img src="addon/pubblicazione/cf-4-dungeon.png" width="400" alt="A dungeon: quests in your log, chains step by step, what to do now">
-  <img src="addon/pubblicazione/cf-6-professions.png" width="400" alt="Professions: live skill, current step, materials in your bags">
+  <img src="addon/pubblicazione/cf-7-professions.png" width="400" alt="Professions: at a cap, the trainer who teaches the next rank">
 </p>
 
 A free leveling guide for **WoW: Forever**, from 1 to 60, for every race (Skyborne included) and every class. Two ways to use it, same data:
