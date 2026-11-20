@@ -15,19 +15,19 @@ Il livello 1–30 è dettagliato quest per quest. Dal 30 al 44 ogni tappa nomina
 
 1. Leggi questo file e basta. Il resto si apre solo nel punto che serve (`grep -n`).
 2. Nella cartella del progetto lancia `git status` e `git log --oneline -5`. A volte ci lavorano più sessioni: committa **solo i file che hai toccato**.
-3. Avvia il server locale con il preview `guida-wow` (config in `~/Desktop/CLAUDE/.claude/launch.json`, serve la cartella Desktop sulla porta 8765). Se la 8765 è occupata, il preview prende un'altra porta: passala alle prove con `PORT=<porta>`.
-   - Pagina: `http://localhost:<porta>/CLAUDE/WoW%20Forever%20leveling%20companion/WoW_Forever_Leveling_Companion.html#<razza>-<classe>`.
+3. Avvia il server locale `guida-wow` (serve la cartella Desktop sulla porta 8765). Se la 8765 è occupata, il server prende un'altra porta: passala alle prove con `PORT=<porta>`.
+   - Pagina: `http://localhost:<porta>/<percorso del progetto sotto Desktop>/WoW_Forever_Leveling_Companion.html#<razza>-<classe>`.
 
 ## 2. Dove sta cosa
 
 | Cosa | Dove |
 |---|---|
-| Progetto | `~/Desktop/CLAUDE/WoW Forever leveling companion/` (Windows 11, Git Bash e PowerShell) |
+| Progetto | cartella `WoW Forever leveling companion/` sul Desktop (Windows 11, Git Bash e PowerShell) |
 | Sito pubblicato | https://foreverpathfinder.github.io/ (GitHub Pages da `main`), pagina dell'addon `/addon.html` |
 | Repo | `foreverpathfinder/foreverpathfinder.github.io`. Il vecchio repo `Stalioot/wow-forever-leveling-companion` fa solo da rimando: non toccarlo |
 | CurseForge | progetto 1787542, https://www.curseforge.com/wow/addons/forever-pathfinder (account dell'utente «Staliot») |
 | Gioco dell'utente | `C:\Program Files (x86)\World of Warcraft\_forever_\`. Addon in `Interface\AddOns\`: ci sono anche Questie, OneForAll e MapUtils, con sorgenti leggibili |
-| Pagina di prova | Artifact privato https://claude.ai/artifact/LzThf1vHNcLhqUpi7LAoLU: l'addon in un WoW finto. Sorgenti in `src/prova/`, preparazione con `node src/tools/prova.js <cartella>`. È ferma all'aspetto di prima della 1.10 |
+| Pagina di prova | Pagina privata (link nelle note locali): l'addon in un WoW finto. Sorgenti in `src/prova/`, preparazione con `node src/tools/prova.js <cartella>`. È ferma all'aspetto di prima della 1.10 |
 
 Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_Forever_Leveling_Companion» per non rompere link e QR.
 
@@ -53,7 +53,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
    - addon: `## Version` in `addon/ForeverPathfinder/ForeverPathfinder.toc` e le due pill «versione» in `addon.html`, poi riscrivi `addon/changelog.md` (in inglese, solo la versione nuova).
 7. **Commit** dei soli file toccati:
    - comando: `git -c user.email=80699208+Stalioot@users.noreply.github.com commit`;
-   - messaggio in italiano, ultima riga `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
+   - messaggio in italiano, senza righe di attribuzione (niente `Co-Authored-By`, nessuna citazione di strumenti).
 8. **Pubblica solo se l'utente lo dice** («pusha», «pusha in beta»):
    - `git push`. Pages si aggiorna in 1–2 minuti;
    - se il `.toc` ha cambiato versione, il workflow `.github/workflows/curseforge.yml` carica da solo lo zip committato su CurseForge come **beta**. Controlla con `gh run list --limit 3`: il tag `cf/v<versione>` vuol dire «già caricata»;
@@ -140,7 +140,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 - **Altre funzioni**:
   - ricerca 🔍 (`sIndex`);
   - condivisione `#s=<base64>`;
-  - «Segnala un errore» apre `report.html` (link corto `foreverpathfinder.github.io/report`) (scritta a mano, IT/EN) col contesto già scritto; la pagina manda le segnalazioni, senza login, a un Google Form dell’utente (`FORM` ed `entry.*` in fondo alla pagina: se cambi i campi del modulo, aggiornali). Anche l’addon (`/fp bug`) e `addon.html` puntano lì. Claude controlla le risposte ogni giorno con il task pianificato `segnalazioni-forever-pathfinder`;
+  - «Segnala un errore» apre `report.html` (link corto `foreverpathfinder.github.io/report`) (scritta a mano, IT/EN) col contesto già scritto; la pagina manda le segnalazioni, senza login, a un Google Form dell’utente (`FORM` ed `entry.*` in fondo alla pagina: se cambi i campi del modulo, aggiornali). Anche l’addon (`/fp bug`) e `addon.html` puntano lì. Le risposte vengono controllate ogni giorno con il task pianificato `segnalazioni-forever-pathfinder`;
   - ☕ PayPal;
   - contatore hits.sh.
 - **Cookie**: il calcolatore di wowforever.be si carica solo dopo «Accetta e carica», perché salva cookie di Google Analytics. Il sito da solo non salva cookie.

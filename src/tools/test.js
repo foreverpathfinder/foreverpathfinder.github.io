@@ -3,7 +3,7 @@ const {chromium}=require(process.env.LOCALAPPDATA+'/npm-cache/_npx/9833c18b2d85b
 (async()=>{const b=await chromium.launch({channel:'chrome'});
 for(const [f,lang] of [['','it'],['_EN','en']]){const p=await b.newPage({viewport:{width:1100,height:900}});await p.addInitScript(l=>localStorage.setItem('wfcLang',l),lang);
 const errs=[];p.on('pageerror',e=>errs.push(e.message));
-await p.goto('http://localhost:'+(process.env.PORT||8765)+'/CLAUDE/WoW%20Forever%20leveling%20companion/WoW_Forever_Leveling_Companion'+f+'.html#gnome-mage',{waitUntil:'networkidle'});
+await p.goto('http://localhost:'+(process.env.PORT||8765)+'/'+encodeURI(require('path').relative(require('os').homedir()+'/Desktop',require('path').join(__dirname,'../..')).split(require('path').sep).join('/'))+'/WoW_Forever_Leveling_Companion'+f+'.html#gnome-mage',{waitUntil:'networkidle'});
 const r=await p.evaluate(async()=>{const bad=[];let n=0;
  // pagina inglese: testo (anche delle schede nascoste) con parole italiane (nomi di gioco a parte non ce ne devono essere)
  const ita=new Set(),IT=/[^.!?;:]{0,40}(?<![\w’'-])(della|delle|degli|dello|nella|nelle|che|non|sono|anche|più|già|quando|dopo|oppure|puoi|devi|è|il|livello|livelli|razza|perché|questo|questa|ogni|alla|alle|dal|dalla|sulla|cosa|fino|tutte|tutti)(?![\w’'-])[^.!?;:]{0,40}/i,EN=document.documentElement.lang==='en';

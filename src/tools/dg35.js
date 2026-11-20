@@ -1,7 +1,7 @@
 // Quest dei dungeon 35–60 (e controllo degli altri) da qdq.json: solo quelle date da un NPC, niente Season of Discovery,
 // eventi, catene del livello 60 (tier 0.5, Lunar Festival) e passi intermedi (resta l'ultima quest di ogni catena).
 // node dg35.js        → stampa   ·   node dg35.js scrivi → aggiorna dungeons.json ed en.json
-const fs = require('fs'), D = __dirname + '/', ROOT = 'C:/Users/damia/Desktop/CLAUDE/WoW Forever leveling companion/';
+const fs = require('fs'), D = __dirname + '/', ROOT = require('path').join(__dirname, '..', '..') + '/';
 const db = JSON.parse(fs.readFileSync(D + 'qdq.json', 'utf8')), Q = JSON.parse(fs.readFileSync(D + 'qall.json', 'utf8')), N = JSON.parse(fs.readFileSync(D + 'npc.json', 'utf8'));
 const KEYS = ['drowned city', 'uldaman', 'razorfen downs', "krol'dok stronghold", "zul'farrak", 'maraudon', 'alcaz prison', "temple of atal'hakkar", 'blackrock depths', 'blackrock spire', 'blackmaw hold', 'dire maul', 'scholomance', 'stratholme'];
 const DNAME = { 'drowned city': /drowned city/i, uldaman: /uldaman/i, 'razorfen downs': /razorfen downs/i, "krol'dok stronghold": /krol.?dok/i, "zul'farrak": /zul.?farrak/i, maraudon: /maraudon/i, 'alcaz prison': /alcaz/i,
