@@ -38,9 +38,11 @@ Immagini dell'addon vero, fatte con `PVSCALE=2 PVBG=#14181d node src/tools/addon
 Le vecchie `gioco-percorso`, `gioco-talenti`, `gioco-dungeon`, `gioco-opzioni` (grafica di prima della 1.10) sono state tolte dalla galleria il 14 nov. Ordine sistemato il 14 nov: le 7 nuove, poi minimappa e mappa. Il riordino (Media → Reorder gallery, griglia di 3 colonne) non risponde al trascinamento automatico ma alla tastiera: fuoco sull'immagine (li draggable), Spazio, frecce (sinistra/destra dentro la riga, giù/su tra le righe), Spazio, poi Done.
 
 ## Descrizione (Markdown, pubblicata su CurseForge il 20 nov)
-Stesse regole della descrizione di Forever Cleanse (inglese, poi un paragrafo in italiano; frase in grassetto in cima; «Good to know» con WoW: Forever, niente file Blizzard e link alle segnalazioni), stile diverso: una partita raccontata passo per passo e una tabella delle schede. Va in **Description**, editor in Markdown, senza il titolo (CurseForge mostra già il nome).
+Stesse regole della descrizione di Forever Cleanse (inglese, poi un paragrafo in italiano; frase in grassetto in cima; «Good to know» con WoW: Forever, niente file Blizzard e link alle segnalazioni), stile diverso: una partita raccontata passo per passo e una tabella delle schede. Va in **Description**, editor in Markdown, senza il titolo (CurseForge mostra già il nome). In cima banner e pulsante Ko-fi (`banner.png`, `kofi.png`, fatti da `banner.html` con `node src/tools/banner.js`, serviti da raw.githubusercontent.com come per Cleanse: se cambiano, alza `?v=`).
 
 ```markdown
+![Forever Pathfinder](https://raw.githubusercontent.com/foreverpathfinder/foreverpathfinder.github.io/main/addon/pubblicazione/banner.png?v=1) [![Support me on Ko-fi](https://raw.githubusercontent.com/foreverpathfinder/foreverpathfinder.github.io/main/addon/pubblicazione/kofi.png?v=1)](https://ko-fi.com/staliot)
+
 **Your leveling guide, one keypress away, for WoW: Forever.**
 
 You log in. You press `/fp`. The guide already knows your race, class and level, and it shows one thing in large type: what to do next. You go, you do it, the line ticks itself when you turn in the quest. Close the window and keep playing.
