@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 19 nov 2026 · **sito v26** · **addon 1.10.14** (pubblicati il 19 nov).
+Aggiornato il 20 nov 2026 · **sito v27** · **addon 1.10.15** (pubblicati il 20 nov).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -248,7 +248,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 ## 11. Aperto e da fare
 
-1. **30–60 quest per quest**: fatto il 17 nov (44–60 con QuestieDB del 16 nov: quest con XP osservata, per hub; posizioni dei quest giver da `worldmap.json`, rinfrescato con `map.js`; `quests.txt` rinfrescato con `quests.js` per le quest di Mount Hyjal). Mount Hyjal ★ ha 33 quest 56–60: è la tappa del 60 e compare come alternativa nelle milestone 58–59. Da ricontrollare quando ci saranno guide provate (ordine delle quest 🟡). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate.
+1. **30–60 quest per quest**: fatto il 17 nov (44–60 con QuestieDB del 16 nov: quest con XP osservata, per hub; posizioni dei quest giver da `worldmap.json`, rinfrescato con `map.js`; `quests.txt` rinfrescato con `quests.js` per le quest di Mount Hyjal). Mount Hyjal ★ ha 33 quest 56–60: è la tappa del 60 e compare come alternativa nelle milestone 58–59. Da ricontrollare quando ci saranno guide provate (ordine delle quest 🟡). I dungeon 35–60 hanno giudizio, boss e consigli dal 17 nov (Warcraft Tavern, Conquest Capped, ordine dei boss da Twinmap): da ricontrollare quando ci saranno più run. Il 30–44 va ricontrollato quando ci saranno guide provate. Il 20 nov: `quests.txt` e `questinfo.json` rifatti (Wowhead e MapUtils del 20 nov); confronto delle correzioni di QuestieDB dal 16 al 20 nov sulle quest della guida: nessuna quest tolta, prerequisiti dei dungeon giusti, cambiano solo razze di alcune quest di classe e qualche livello minimo.
 2. **Build B e C fino al 60**: fatto il 17 nov. Mage B è Arcane vera (dal 19 nov ordine di Asuna_qt, prima Icy Veins 10–60; la partenza Arcane con respec Frost al 31 dal 31 era uguale alla A) e Priest B (Discipline, respec Shadow al 40) ha il `respec`; Paladin B (Holy) e Shaman C (Restoration) seguono Icy Veins 10–60; Warlock C l'ordine 10–60 di wowforever.be.
 3. **Da ricontrollare nel gioco uscito**:
    - classifica degli alt: fatto il 18 nov. Tre voti (`rank.voters`): Mobalytics (17 set, prima del lancio), Timesaver (13 nov) e Conquest Capped (10 nov), rifatte dopo il lancio. Da ricontrollare quando Mobalytics aggiorna la sua.
