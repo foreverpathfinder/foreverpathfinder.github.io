@@ -37,48 +37,66 @@ Immagini dell'addon vero, fatte con `PVSCALE=2 PVBG=#14181d node src/tools/addon
 
 Le vecchie `gioco-percorso`, `gioco-talenti`, `gioco-dungeon`, `gioco-opzioni` (grafica di prima della 1.10) sono state tolte dalla galleria il 14 nov. Ordine sistemato il 14 nov: le 7 nuove, poi minimappa e mappa. Il riordino (Media → Reorder gallery, griglia di 3 colonne) non risponde al trascinamento automatico ma alla tastiera: fuoco sull'immagine (li draggable), Spazio, frecce (sinistra/destra dentro la riga, giù/su tra le righe), Spazio, poi Done.
 
-## Descrizione (Markdown)
+## Descrizione (Markdown, pubblicata su CurseForge il 20 nov)
+Stesse regole della descrizione di Forever Cleanse (inglese, poi un paragrafo in italiano; frase in grassetto in cima; «Good to know» con WoW: Forever, niente file Blizzard e link alle segnalazioni), stile diverso: una partita raccontata passo per passo e una tabella delle schede. Va in **Description**, editor in Markdown, senza il titolo (CurseForge mostra già il nome).
 
 ```markdown
-**Forever Pathfinder** is the in-game companion of the free leveling guide at [foreverpathfinder.github.io](https://foreverpathfinder.github.io/), made for **WoW: Forever**: every race (Skyborne included), every class, from 1 to 60.
+**Your leveling guide, one keypress away, for WoW: Forever.**
 
-Open it, read the next thing to do, close it and keep playing.
+You log in. You press `/fp`. The guide already knows your race, class and level, and it shows one thing in large type: what to do next. You go, you do it, the line ticks itself when you turn in the quest. Close the window and keep playing.
 
-### What it does
-- **Route**: the next thing to do in large type, with **Show on the map**, **Questie** and **Done** buttons. The other items of the stage take one line each (click a line for the details) and are saved per character. Items you skipped in earlier stages wait under *Left behind*.
-- **At this level**: the talent to take, the dungeons that fit your level (one click opens their quests) and the **recommended zones**: the zones with the most quests your race can pick up right now, from game data, each with a map button. You can turn the zones off in the Options.
-- **Map and quests, with Questie (required)**: the map button puts a waypoint on the exact spot from Questie's database: who gives the quest or, once it is in your log, the nearest objective or turn-in. The chosen waypoint is highlighted with the NPC and quest name, and it clears itself when you arrive. Items tick themselves when you turn in the quest, also for quests done before installing the addon, and Flight Path items tick when you learn the flight path.
-- **Talents**: the tree at any level of the build. A bar with every level, plus − and +, lets you move along it; your level is marked. The talent to take glows in the game's talent window. With **OneForAll**, one click loads the whole build.
-- **Dungeons**: quests for every dungeon that has them, from Ragefire Chasm to Stratholme, checked against live game data, with who gives each quest. Quests that need earlier steps show *step n of m* and what to do now. Up to level 38 also bosses in order with tips, and how to get there. **Map** opens the world map on the entrance (with **MapUtils**, its entrance icon opens the dungeon map); with **OneForAll**, *Bosses and loot* opens the dungeon in its tab.
-- **Professions**: your professions with their live skill, the current step of the 1–300 route, the materials you already have in your bags and bank, the nearest trainer on the map, a warning when you reach a rank's cap, and the recipe in **OneForAll**. Optional: every trainer and reagent vendor of your professions on the world map.
-- **Trainer**: prints and marks the guide spells to buy.
-- **Class, Alts, More, Info**: rotation, spells, race tips, which alt to make, XP bonuses, and where every piece of advice comes from.
-- **Options**: build, dungeons, continent switch, recommended zones, and every game link on or off.
-- **English or Italian**, your choice in the Options (or `/fp lang`); game names stay in English.
+That is the whole idea. Everything else is there for when you want it.
 
-### How the guide is made
-Builds follow the most favorited leveling guides on Mobalytics; routes, quests, zones and dungeon quests are checked against live game data (Wowhead and Questie). Every piece of advice is marked as confirmed by several sources, from a single source, or new in Forever.
+## A session with Pathfinder
 
-### Commands
-| Command | What it does |
+**Starting out.** The *Route* tab opens on the next step, with three buttons: *Show on the map*, *Questie*, *Done*. The rest of the stage is one line per item; click a line to read it. If you skipped something earlier, it waits under *Left behind*.
+
+**Finding the way.** The map button drops a waypoint exactly where Questie says: the quest giver, or, once the quest is in your log, the nearest objective or turn-in. The waypoint clears itself when you get there.
+
+**Ding.** *At this level* tells you which talent to take (it glows in the game's talent window), which dungeons fit you now and which zones have the most quests for your race right now.
+
+**Group time.** Pick a dungeon and you get its quests, who gives them and the step you are on, the bosses in order with what to do, and a map of the inside with the bosses numbered. *Entrance* opens the world map on the door you walk in through. Dungeons with more than one door show a button for each.
+
+**Crafting.** *Professions* follows your live skill: the current step of the 1–300 route, the materials already in your bags and bank, and, when you hit a cap, the trainer who teaches the next rank and where to find them. Hover an item for its tooltip, Shift + click to link it in chat.
+
+## The tabs
+
+| Tab | What you find |
 |---|---|
-| `/fp` | Opens or closes the guide (also `/pathfinder` or the minimap icon) |
-| `/fp options` | Opens the Options |
-| `/fp dungeon` | Recommended dungeons and their quests in chat |
-| `/fp find word` | Searches the whole guide |
-| `/fp set race-class` | Picks the route by hand (e.g. `/fp set skyborne_h-druid`) |
-| `/fp auto` | Back to automatic detection |
-| `/fp list` | Every race-class combination |
-| `/fp lang` | English or Italian |
-| `/fp debug` | Version, race and class as the game sees them, talents, saved data, game links |
+| Route | The next thing to do, then the stage one line per item |
+| Talents | The tree at any level of the build, with a bar to slide along it |
+| Dungeons | Quests, bosses, map and entrance of every dungeon, 13 to 60 |
+| Professions | Skill, route step, materials, trainers |
+| Class | Rotation, spells, race tips |
+| Alts | Which alt to make next and how the Legacy points work |
+| More · Info | XP bonuses, and where every piece of advice comes from |
+| Options | Build A, B or C, dungeons on or off, zones, every game link, language |
 
-For the interactive map and the full guide, keep the website open on your phone.
+The window can be resized from its corners.
 
-Found a bug? [Open an issue](https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues) with a screenshot of `/fp debug`.
+## Works with
+
+- **Questie**: required. Waypoints, automatic ticks and quest details come from it.
+- **OneForAll**: optional. One click loads the whole talent build; *Bosses and loot* opens the dungeon in its tab.
+- **MapUtils**: optional. Its entrance icon opens the dungeon map.
+
+## Commands
+
+`/fp` open or close · `/fp options` · `/fp find <word>` search the whole guide · `/fp dungeon` dungeons for your level in chat · `/fp set race-class` pick a route by hand, `/fp auto` to go back · `/fp lang` English or Italian · `/fp debug` what the addon sees
+
+## Good to know
+
+- Made for **WoW: Forever**, every race (Skyborne included) and every class, from 1 to 60.
+- Builds follow the most voted leveling guides on Mobalytics. Quests, zones and dungeons are checked against live game data. Each tip says whether it is confirmed by several sources, comes from a single one, or is new in Forever.
+- The same guide is on the web at [foreverpathfinder.github.io](https://foreverpathfinder.github.io/), with the interactive map: handy on your phone next to the PC.
+- No Blizzard files are bundled: game icons are used by name.
+- Found a bug? [Open an issue](https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues) with a screenshot of `/fp debug`.
 
 ---
 
-**Italiano** — Tutta la guida di leveling dentro WoW: Forever, per tutte le razze e classi, dall'1 al 60: la prossima cosa da fare in grande, zone consigliate per il tuo livello, quest di tutti i dungeon, talenti con l'albero a ogni livello, profession, segnaposti sulla mappa e quest che si spuntano da sole con Questie. Guida completa e istruzioni in italiano: [foreverpathfinder.github.io/addon.html](https://foreverpathfinder.github.io/addon.html).
+## Italiano
+
+Premi `/fp` e la guida ti dice la prossima cosa da fare, già per la tua razza, classe e livello; la voce si spunta da sola quando consegni la quest. Poi ci sono i segnaposti sulla mappa con Questie, il talento da prendere a ogni livello, quest, boss, mappa e ingresso di ogni dungeon, le profession con i materiali che hai e il trainer giusto a ogni cap. Testi in italiano e inglese: si sceglie nelle Opzioni o con `/fp lang`. Guida completa e istruzioni: [foreverpathfinder.github.io/addon.html](https://foreverpathfinder.github.io/addon.html).
 
 *Free personal project, not affiliated with Blizzard Entertainment.*
 ```
