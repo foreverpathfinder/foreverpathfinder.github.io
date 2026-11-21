@@ -17116,7 +17116,7 @@ ForeverPathfinderVendors = {
   { "Ginny Longberry", "R", "A", 1455, 0.3132, 0.2779 },
   { "Tynnus Venomsprout", "R", "A", 1455, 0.5295, 0.1371 },
   { "Chepi", "R", "H", 1456, 0.3638, 0.5485 },
-  { "Alaindia", "R", "A", 1457, 0.3899, 0.7425 },
+  { "Alaindia", "R", "A", 1457, 0.3843, 0.4395 },
   { "Cyroen", "R", "A", 1457, 0.3385, 0.0951 },
   { "Kyrai", "R", "A", 1457, 0.3254, 0.1973 },
   { "Ezekiel Graves", "R", "H", 1458, 0.7520, 0.5118 },

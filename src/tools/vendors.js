@@ -36,6 +36,10 @@ while ((g = ri.exec(gn))) {
   const f = k => (b.match(new RegExp('\\[npcKeys\\.' + k + '\\]\\s*=\\s*(.*?),?\\s*(--.*)?$', 'm')) || [])[1], s = x => x.replace(/^"|"$/g, '');
   if (f('name')) n.name = s(f('name')); if (f('subName')) n.sub = s(f('subName')); if (f('friendlyToFaction')) n.fac = s(f('friendlyToFaction')); if (f('spawns')) n.sp = f('spawns');
 }
+// posizioni viste nel gioco che QuestieDB ha sbagliate: nome → [areaId, x, y]. Alaindia (Darnassus): QuestieDB la mette al Temple of the Moon
+// (39.0 74.3), ma in Forever sta nei Temple Gardens, l'ultimo punto del suo percorso (visto dall'utente il 21 nov).
+const FIX = { Alaindia: [1657, 38.43, 43.95] };
+for (const [name, [a, x, y]] of Object.entries(FIX)) for (const n of Object.values(npc)) if (n.name === name) n.sp = '{[' + a + ']={{' + x + ',' + y + '}}}';
 const out = [];
 for (const [id, n] of Object.entries(npc)) {
   const kind = /^Trade (Supplies|Supplier|Goods)$/.test(n.sub) ? 'T' : sellers.has(id) || /^Reagent/.test(n.sub) ? 'R' : '';
