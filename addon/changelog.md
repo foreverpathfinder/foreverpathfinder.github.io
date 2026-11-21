@@ -1,5 +1,3 @@
-### 1.10.15
+### 1.10.16
 
-- Quests: who can do each quest (faction, race, class) refreshed from the current MapUtils data, so class quests such as Call of Earth, Call of Water and Taming the Beast link only for the races that really get them.
-- Quest index refreshed from the live game map (18 new level 60 quests).
-- Horde route, Tirisfal: the Undercity step now ticks itself when you turn in A Recipe For Death.
+- Map: the vendor option now shows every Reagent vendor and Trade Supplies vendor of your faction (92 in the game data), also when you have no professions or your professions buy nothing from them. Vendors that sell materials of your professions still list them in the tooltip.

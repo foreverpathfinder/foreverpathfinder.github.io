@@ -460,6 +460,10 @@ ForeverPathfinderChar.opt.ptr, ForeverPathfinderChar.opt.pvd = true, true
 WorldMapFrame.shown = true; WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p[4] == "Mining Trainer" and o.shown end) ~= nil, "trainer delle profession sulla mappa")
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who == "Tharynn Bouden" and o.p.small and (o.p.sells or ""):find("Weak Flux", 1, true) and o.shown end) ~= nil, "reagent vendor da Questie sulla mappa")
+-- 1.10.16: anche i reagent vendor che non vendono materiali delle tue profession (Data.lua, da QuestieDB), della tua fazione
+local myFac = UnitFactionGroup("player") == "Horde" and "H" or "A"
+local want; for _, v in ipairs(ForeverPathfinderVendors) do if v[2] == "R" and v[3] == myFac then want = v[1]; break end end
+check(want and find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who == want and o.shown end) ~= nil, "tutti i reagent vendor della fazione sulla mappa")
 ForeverPathfinderChar.opt.ptr, ForeverPathfinderChar.opt.pvd = nil, nil
 -- finestra dei talenti: bordo sul talento da prendere
 TalentFrame, TalentFrameTalent1 = obj("Frame"), obj("Frame")

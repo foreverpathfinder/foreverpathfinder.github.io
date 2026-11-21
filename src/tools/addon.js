@@ -179,6 +179,9 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  const TMX={};for(const p of require('../data/profs.json').professions)if(p.trainerMax)TMX[p.name.toLowerCase().replace(/ /g,'-')]=p.trainerMax;
  const AP=new Set(all.it._prof.list.flatMap(p=>p.ap)),PTR={};for(const [k,c] of Object.entries(WM))for(const [pk,a] of Object.entries(c.prof||{}))for(const t of a)(PTR[pk]=PTR[pk]||[]).push('{ '+lua(clean(t[0]))+', '+lua(CONT[k])+', '+(t[2]/c.w).toFixed(4)+', '+(t[3]/c.h).toFixed(4)+', '+(t[1]||0)+zf(zoneAt(k,t[2],t[3]))+(AP.has(t[0])?', ap = true':'')+((TMX[pk]||{})[t[0]]?', mx = '+TMX[pk][t[0]]:'')+' }');
  s+='}\nForeverPathfinderProfTrainers = {\n'+Object.entries(PTR).map(([pk,a])=>'  ['+lua(pk)+'] = { '+a.join(', ')+' },').join('\n')+'\n';
+ // reagent vendor e Trade Supplies (1.10.16, data/vendors.json da src/tools/vendors.js): { nome, "R"/"T", fazione, uiMapID, x, y } con x, y 0–1
+ const VND=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/vendors.json'),'utf8')).vendors;
+ s+='}\nForeverPathfinderVendors = {\n'+VND.map(v=>'  { '+lua(v[0])+', '+lua(v[1])+', '+lua(v[2])+', '+v[3]+', '+(v[4]/100).toFixed(4)+', '+(v[5]/100).toFixed(4)+' },').join('\n')+'\n';
  // zone consigliate (1.9, data/zones.json): z = segnaposto della zona { continente, x, y, nome, lv = livelli, z = mappa del gioco };
  // rec = per razza, per livello, "indice:quest adatte,…" (indici da 1, come in Lua)
  {const ZR=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/zones.json'),'utf8'));

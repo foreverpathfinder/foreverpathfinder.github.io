@@ -75,9 +75,9 @@ local TT = {
     pSkill = "Skill %d/%d", pNotYours = "Non ce l'hai: il percorso parte da 1.", pHere = "sei qui", pItemKeys = "Mouse su un oggetto: anteprima   ·   Maiusc + clic: link in chat", pApp = "Impara {Apprentice} (skill fino a 75)",
     pLearn = "Impara {%s} prima di %d · liv. %d, skill %d", pHow = "Si impara con %s", pTrainer = "Trainer più vicino sulla mappa", pFrom = "Trainer: {%s}%s", pAtCap = "Sei al cap %d: vai dal trainer qui sotto per imparare %s e continuare a salire.", pShop = "Lista della spesa da %d a 300",
     pMore = "Novità di Forever, camp e gold", pHide = "Nascondi", pBag = "Tra parentesi quanti ne hai (borse e banca).", pVendor = "vendor",
-    pMapT = "Trainer delle tue profession sulla mappa del mondo", pMapV = "Reagent vendor dei materiali delle tue profession sulla mappa del mondo (da Questie)",
+    pMapT = "Trainer delle tue profession sulla mappa del mondo", pMapV = "Reagent vendor e Trade Supplies della tua fazione sulla mappa del mondo (con i materiali delle tue profession che vendono)",
     pCap = "%s %d/%d: impara %s prima di andare avanti (%s).", pCapT = "trainer: %s", pOfaTip = "Apre la ricetta in OneForAll (fonti, chi la conosce, skill-up)",
-    pVendT = "Reagent vendor", pCamp = "Camping", pGold = "Gold",
+    pVendT = "Reagent vendor", pTradeT = "Trade Supplies", pCamp = "Camping", pGold = "Gold",
     pSells = "Vende: %s",
   },
   en = {
@@ -139,9 +139,9 @@ local TT = {
     pSkill = "Skill %d/%d", pNotYours = "You do not have it: the route starts at 1.", pHere = "you are here", pItemKeys = "Hover an item: preview   ·   Shift + click: link in chat", pApp = "Learn {Apprentice} (skill up to 75)",
     pLearn = "Learn {%s} before %d · lvl %d, skill %d", pHow = "Learned with %s", pTrainer = "Nearest trainer on the map", pFrom = "Trainer: {%s}%s", pAtCap = "You're at the %d cap: go to the trainer below to learn %s and keep leveling.", pShop = "Shopping list from %d to 300",
     pMore = "New in Forever, camp and gold", pHide = "Hide", pBag = "In brackets how many you have (bags and bank).", pVendor = "vendor",
-    pMapT = "Your profession trainers on the world map", pMapV = "Reagent vendors for your professions' materials on the world map (from Questie)",
+    pMapT = "Your profession trainers on the world map", pMapV = "Reagent vendors and Trade Supplies of your faction on the world map (with the materials of your professions they sell)",
     pCap = "%s %d/%d: learn %s before going on (%s).", pCapT = "trainer: %s", pOfaTip = "Opens the recipe in OneForAll (sources, who knows it, skill-ups)",
-    pVendT = "Reagent vendor", pCamp = "Camping", pGold = "Gold",
+    pVendT = "Reagent vendor", pTradeT = "Trade Supplies", pCamp = "Camping", pGold = "Gold",
     pSells = "Sells: %s",
   },
 }
@@ -2305,7 +2305,20 @@ function profPins()
       end
     end
   end
-  if C.opt.pvd then for _, p in ipairs(vendorPins(mine)) do out[#out + 1] = p end end
+  if C.opt.pvd then
+    -- tutti i reagent vendor e Trade Supplies della tua fazione (1.10.16, Data.lua da QuestieDB): sempre, anche senza profession;
+    -- chi vende anche materiali delle tue profession prende la riga «vende …»; gli altri vendor di quei materiali restano come prima
+    local fac, sells, seen = side == 2 and "H" or "A", {}, {}
+    for _, p in ipairs(vendorPins(mine)) do if p.who then sells[p.who] = p.sells end end
+    for _, v in ipairs(ForeverPathfinderVendors or {}) do
+      if v[3]:find(fac) then
+        local p = zonePin(v[4], v[5], v[6], v[2] == "T" and T.pTradeT or T.pVendT)
+        p.who, p.ic, p.small, p.sells = v[1], "inv_misc_bag_10", true, sells[v[1]]
+        if p[1] then out[#out + 1] = p; seen[v[1]] = true end
+      end
+    end
+    for _, p in ipairs(vendorPins(mine)) do if not seen[p.who] then out[#out + 1] = p end end
+  end
   return out
 end
 end
