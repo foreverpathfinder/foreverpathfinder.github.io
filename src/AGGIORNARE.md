@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 21 nov 2026 · **sito v27** · **addon 1.10.16** (pubblicato il 21 nov).
+Aggiornato il 22 nov 2026 · **sito v28** · **addon 1.10.17** (da pubblicare; la 1.10.16 è uscita il 21 nov).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
 Due prodotti con gli stessi dati:
@@ -196,7 +196,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 **Siti e cosa prendere**:
 - **Build A di ogni classe**: la guida di leveling con più ♥ su https://mobalytics.gg/wow-forever/leveling-guides.
-  - Al 19 nov: Warlock Crix (789 ♥, agg. 18 nov), Hunter Feor (649, 18 nov), Paladin yumytv (492, 12 nov), Shaman Tiqqle (435, 13 nov), Mage Asuna_qt (397, 18 nov), Warrior Ahlaundoh (392, 17 nov, scheda «Protection 1-60»; la B è la sua «Arms 1-60»), Druid yumytv (252, 14 nov), Priest DoubleZug (217, 9 nov), Rogue Djexde (187, 12 nov).
+  - Al 19 nov (Warlock al 22 nov): Warlock Crix (847 ♥, agg. 22 nov: la A ora è 40/11/0, senza Nightfall, con Demonic Sacrifice al 51; la sua variante Destruction è citata come scelta libera), Hunter Feor (649, 18 nov), Paladin yumytv (492, 12 nov), Shaman Tiqqle (435, 13 nov), Mage Asuna_qt (397, 18 nov), Warrior Ahlaundoh (392, 17 nov, scheda «Protection 1-60»; la B è la sua «Arms 1-60»), Druid yumytv (252, 14 nov), Priest DoubleZug (217, 9 nov), Rogue Djexde (187, 12 nov).
   - Le build A sono tutte uguali alle loro. Dal 19 nov seguono le guide più votate anche Warlock B (Demonology di Crix), Mage B (scheda «Arcane Leveling 1-60» di Asuna_qt) e Rogue B (scheda «1-60 Subtlety» di Djexde); per le altre B e C restano Icy Veins o i dati del client.
   - ♥ e date compaiono nei testi delle classi (summary, buildSource, fonti): quando cambiano, aggiornali anche lì e in `en.json`.
   - Come leggerle: nel browser integrato, sulla pagina della guida, esegui con `javascript_tool` il codice stampato da `node src/tools/mobalytics.js talenti` (o `rotazione`). Poi confronta con `node src/tools/mobalytics.js confronta <classe> a "<riga>"`.

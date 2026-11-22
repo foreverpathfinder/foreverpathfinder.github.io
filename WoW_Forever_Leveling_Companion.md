@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v27)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v28)
 
-> Aggiornato: **20 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **22 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -198,28 +198,28 @@ Enhancement (2H, melee + totem) è la spec di leveling in solitaria su cui conve
 - 57–60: Concussion 4/5
 
 ### Warlock – Affliction
-Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 Wrack (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 789 ♥, agg. 18 nov, la guida Warlock più salvata): drain dal 19, Siphon Life al 30, Wrack al 40, poi Pandemic e gli ultimi 11 punti in Destruction fino a Shadowburn (40/0/11). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.
+Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 Wrack (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, 847 ♥, agg. 22 nov, la guida Warlock più salvata): Soul Harvest al 19, drain dal 23, Siphon Life al 30, Wrack al 40, poi 11 punti in Demonology fino a Demonic Sacrifice (51) e Pandemic e Malevolence alla fine (40/11/0). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.
 
 - 10–14: Improved Corruption 5/5
 - 15–18: Suppression 4/5
-- 19–21: Improved Drains 3/3
-- 22–24: Fel Concentration 3/3
-- 25–26: Soul Harvest 2/2
-- 27–28: Nightfall 2/2
+- 19–20: Soul Harvest 2/2
+- 21–22: Improved Bane of Agony 2/2
+- 23–25: Improved Drains 3/3
+- 26–28: Fel Concentration 3/3
 - 29: Grim Reach 1/2
 - 30: Siphon Life 1/1
 - 31–33: Soul Siphon 3/3
 - 34: Grim Reach 2/2
 - 35–39: Shadow Mastery 5/5
 - 40: Wrack 1/1
-- 41–42: Improved Bane of Agony 2/2
-- 43–45: Pandemic 3/3
-- 46: Amplify Curse 1/1
-- 47: Curse of Exhaustion 1/1
-- 48–49: Malevolence 2/5
-- 50–54: Improved Shadow Bolt 5/5
-- 55–59: Bane 5/5
-- 60: Shadowburn 1/1
+- 41–45: Demonic Embrace 5/5
+- 46–48: Fel Vitality 3/3
+- 49–50: Demonic Aegis 2/2
+- 51: Demonic Sacrifice 1/1
+- 52: Amplify Curse 1/1
+- 53: Curse of Exhaustion 1/1
+- 54–56: Pandemic 3/3
+- 57–60: Malevolence 4/5
 
 ### Warrior – Protection
 Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 214 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (392 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 392 ♥, agg. 17 nov); Fury non decolla prima del 36–40.
@@ -465,7 +465,7 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 - [wowforever.be – Build di leveling Shaman (client 1.60.1.70707)](https://wowforever.be/leveling/shaman/) · 1 nov 2026 · dati client ✔
 - [Warcraft Tavern – Shaman Leveling Guide (Shadostruct)](https://www.warcrafttavern.com/forever/guides/shaman-leveling/) · ott 2026 · testata di riferimento
 - [Warcraft Tavern – Dwarf Shaman Totem Quests (Val Hull)](https://www.warcrafttavern.com/forever/guides/dwarf-shaman-totem-quests/) · ott 2026 · testata di riferimento
-- [Mobalytics – Warlock Leveling Guide 1–60 (Crix, Verified)](https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide) · 1 nov 2026 · 109 ♥ · 36/12/0
+- [Mobalytics – Warlock Leveling Guide 1–60 (Crix, Verified)](https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide) · 22 nov 2026 · 847 ♥ · 40/11/0
 - [wowforever.be – Warlock leveling (dati client 1.60.1.70707)](https://wowforever.be/leveling/warlock/) · 1 nov 2026 · dati client
 - [Method – Warlock Leveling Guide & Talents (Roguery)](https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents) · 17 ott 2026 · Method (reputazione alta)
 - [Mobalytics – Warrior Leveling 1-60, Protection 1-60 (Ahlaundoh)](https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide) · agg. 17 nov 2026 · 392 ♥: la guida Warrior più votata

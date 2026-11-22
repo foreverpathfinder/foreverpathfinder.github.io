@@ -1,4 +1,3 @@
-### 1.10.16
+### 1.10.17
 
-- Map: the vendor option now shows every Reagent vendor and Trade Supplies vendor of your faction (92 in the game data), also when you have no professions or your professions buy nothing from them. Vendors that sell materials of your professions still list them in the tooltip.
-- Map: Alaindia, the Darnassus reagent vendor, is now marked in the Temple Gardens, where she stands in Forever (the game data still had her old spot).
+- Warlock build A (Affliction) follows the Nov 22 update of the most saved guide (Mobalytics, Crix): Soul Harvest at 19, no Nightfall, and from 41 eleven points in Demonology up to Demonic Sacrifice (sacrifice your Imp for +15% Shadow damage) instead of Destruction. Talent order, notes and rotation updated.
