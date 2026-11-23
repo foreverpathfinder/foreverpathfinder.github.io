@@ -1,4 +1,4 @@
-// node src/tools/addon-preview.js itIT|enUS [scheda] [cartella] → anteprima fedele della finestra dell'addon (PNG nella cartella, di base quella attuale):
+// node src/tools/addon-preview.js itIT|enUS|esES|frFR [scheda] [cartella] → anteprima fedele della finestra dell'addon (PNG nella cartella, di base quella attuale):
 // l'addon vero gira in un WoW finto (addon-preview.lua) che registra ogni texture e ogni testo con posizione e stile;
 // le misure dei testi (altezza con a capo, larghezza) vengono dal browser con gli stessi caratteri (due passate), poi si disegna in HTML
 const fs=require('fs');

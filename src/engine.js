@@ -3,6 +3,8 @@ var D=DATA,C=D.common,LF=window.L; // Leaflet: L resta il nome globale di Leafle
 // meno animazioni se il sistema lo chiede: scorrimenti istantanei, la mappa salta invece di volare
 var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),SM=RM?'auto':'smooth';
 var IC=function(n){return 'https://wow.zamimg.com/images/wow/icons/large/'+n+'.jpg'};
+// nome inglese di un nome di gioco tradotto (pagine spagnola e francese: D.en), per le chiavi dei dati (dungeon, boss)
+function EN(s){return D.en&&D.en[s]||s}
 function img(n,c,alt){return '<img class="ic'+(c?' '+c:'')+'" src="'+IC(n)+'" alt="'+(alt||'')+'" loading="lazy" onerror="icoFail(this,\''+n+'\')">'}
 // icona mancante: prima wowforever.be, poi il punto di domanda di WoW (mai un riquadro vuoto)
 function icoFail(i,n){if(!i.dataset.f){i.dataset.f=1;i.src='https://wowforever.be/icons/'+n+'.jpg'}else{i.onerror=null;i.src=IC('inv_misc_questionmark')}}
@@ -84,7 +86,7 @@ function npcLinks(html,skip){var t=txt(html),h='',seen=skip||{};RT.quests.forEac
 // milestone: {t, r?:[razze], f?:'A'|'H', n?:[[npc,x,y]]} → solo quelle della tua razza/fazione, con 📍 sugli NPC
 function msFor(l){return [].concat(RT.milestones[l]||[],CL.milestones[l]||[],(FA.milestones&&FA.milestones[l])||[]).filter(function(m){return (!m.r||m.r.indexOf(S.r)>-1)&&(!m.f||m.f===RA.faction)&&(!m.b||m.b.indexOf(CL.B?CL.B.id:'a')>-1)})}
 function msBtns(m){var seen={},h=(m.n||[]).map(function(n){seen[n[0]]=1;return goBtn(n[0],n[1],n[2],6.25,'<b>'+n[0]+'</b>')}).join('');return h+npcLinks(m.t,seen)}
-function dgBtn(name){var n=name.replace(/[★✔🟡]/g,'').trim().toLowerCase(),d=D.map.dg.filter(function(x){return x[0].toLowerCase()===n||n.indexOf(x[0].toLowerCase())>-1||x[0].toLowerCase().indexOf(n)>-1})[0];return d?goBtn(name,d[2],d[3],5.5,'<b>⚔ '+d[0]+'</b><br>Livelli '+d[1]):''}
+function dgBtn(name){var n=EN(name.replace(/[★✔🟡]/g,'').trim()).toLowerCase(),d=D.map.dg.filter(function(x){return EN(x[0]).toLowerCase()===n||n.indexOf(EN(x[0]).toLowerCase())>-1||EN(x[0]).toLowerCase().indexOf(n)>-1})[0];return d?goBtn(name,d[2],d[3],5.5,'<b>⚔ '+d[0]+'</b><br>Livelli '+d[1]):''}
 document.addEventListener('click',function(e){var b=e.target.closest('.go');if(!b)return;e.preventDefault();
  if(b.dataset.lv){S.L=+b.dataset.lv;renderLevel();return}
  if(b.dataset.sec){showTab('talent');$(b.dataset.sec).scrollIntoView({behavior:SM});return}
@@ -107,7 +109,7 @@ function tasksFor(l,first){var t=[],sp=CL.spells.filter(function(x){return x[0]=
  profTasks(l).forEach(function(m){var s=RT.steps[stepAt(l)];t.push([m,S.o.prof.map(function(p){return npcBtn(ptrain(p,s[2],s[3],l>5),p+' Trainer')}).join('')])});
  if(l===10)t.push(['Le <b>Waylaid Crates</b> diventano utilizzabili (consegna: '+(FA.crates||'—')+')','']);
  // dungeon nella checklist: stesso giudizio della scheda Dungeon (niente "salta"), con il suo perché al posto delle note interne
- if(S.o.dg)FA.dungeons.forEach(function(d){var x=((D.dungeons||{}).dungeons||{})[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[RA.faction];if(v?v[0]==='skip':/non consigliat|not recommended/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest.'+(v&&v[2]?' '+v[2]:''),dgBtn(d[0])])});
+ if(S.o.dg)FA.dungeons.forEach(function(d){var x=((D.dungeons||{}).dungeons||{})[EN(d[0].replace(/[★✔🟡]/g,'').trim()).replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[RA.faction];if(v?v[0]==='skip':/non consigliat|not recommended|no recomendad|déconseill/i.test(d[4]||''))return;if(d[1]===l||(first&&d[1]<l&&d[2]>=l&&d[1]>=l-1))t.push(['⚔ <b>'+d[0]+'</b> ('+d[1]+'–'+d[2]+'): entra una volta, con tutte le quest.'+(v&&v[2]?' '+v[2]:''),dgBtn(d[0])])});
  return t}
 // id della voce = capitolo + livello + posizione: uguale in tutte le lingue (i vecchi id, dal testo italiano, vengono convertiti)
 var SEQ={};
@@ -265,12 +267,12 @@ function renderClass(){
  $('camp').innerHTML=CL.camp.map(function(c,i){return card(c[2],c[0],c[3],'<span class="note">· '+c[1]+'</span>'+(i<3?' <span class="pill p-ok">priorità '+(i+1)+'</span>':''))}).join('');
  // dungeon
  // scheda Dungeon: una scheda apribile per dungeon (D.dungeons da data/dungeons.json), giudizio per la tua fazione, quest tue e della tua classe
- var DG=D.dungeons||{dungeons:{},general:[]},fk=RA.faction,ql=function(a,x,d){return a.map(function(q){var p=(x.qp||{})[q[0]];return '<li><b>'+q[0]+'</b> · '+q[q.length-1]+(p?' '+goBtn(p[2],p[0],p[1],6.25,'<b>'+q[0]+'</b><br>'+p[2]):p===0?' '+dgBtn(d[0]):'')+'</li>'}).join('')},
+ var DG=D.dungeons||{dungeons:{},general:[]},fk=RA.faction,ql=function(a,x,d){return a.map(function(q){var p=(x.qp||{})[EN(q[0])];return '<li><b>'+q[0]+'</b> · '+q[q.length-1]+(p?' '+goBtn(p[2],p[0],p[1],6.25,'<b>'+q[0]+'</b><br>'+p[2]):p===0?' '+dgBtn(d[0]):'')+'</li>'}).join('')},
   // boss in ordine, ognuno con il suo consiglio (il consiglio che nomina il boss); quelli che non nominano un boss vanno in "In generale"
   bl=function(x){var used={},li=(x.b||[]).map(function(b){var n=b.replace(/\s*\(.*$/,''),t=(x.t||[]).filter(function(t){return !used[t]&&(t.indexOf('<b>'+n)>-1||t.indexOf('<b>'+n.replace(/'/g,'’'))>-1||n.indexOf('Sneed')===0&&t.indexOf('<b>Sneed</b>')>-1)})[0];if(t)used[t]=1;return '<li>'+(t||'<b>'+b+'</b>')+(t&&b!==n?' <span class="note">'+b.slice(n.length).trim()+'</span>':'')+'</li>'}).join(''),
    rest=(x.t||[]).filter(function(t){return !used[t]});return (li?'<h4>Boss, in ordine: cosa fare</h4><ol>'+li+'</ol>':'')+(rest.length?'<h4>In generale</h4><ul>'+rest.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>':'')};
  $('dgen').innerHTML='<b class="t">Come conviene farli</b><ul>'+DG.general.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>'+(DG.glossary?'<p class="note">'+DG.glossary+'</p>':'');
- var dk=function(d){return d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()},dx=function(d){return DG.dungeons[dk(d)]||{}},sk=function(d){var v=(dx(d).v||{})[fk];return v&&v[0]==='skip'?1:0};
+ var dk=function(d){return EN(d[0].replace(/[★✔🟡]/g,'').trim()).replace(/^The /,'').toLowerCase()},dx=function(d){return DG.dungeons[dk(d)]||{}},sk=function(d){var v=(dx(d).v||{})[fk];return v&&v[0]==='skip'?1:0};
  $('dlist').innerHTML=FA.dungeons.filter(function(d){return d[1]<=MAXL+2}).sort(function(a,b){return sk(a)-sk(b)||a[1]-b[1]}).map(function(d){var x=dx(d),v=(x.v||{})[fk],q=x.q||{},
    mq=(q[fk]||[]).concat(q.N||[]),cq=(q.C||[]).filter(function(c){return c[1]===S.c}),V={go:['p-ok','✔ Vai'],opt:['p-wa','🟡 Facoltativo'],skip:['p-bad','✖ Salta']}[v&&v[0]];
   return '<details class="dg'+(v&&v[0]==='skip'?' skip':'')+'" data-a="'+d[1]+'" data-b="'+d[2]+'"><summary><span><b>'+d[0]+'</b><small>Livelli '+d[1]+'–'+d[2]+' · '+d[3]+'</small></span>'+(V?'<span class="pill '+V[0]+'">'+V[1]+(v[1]?' '+v[1]:'')+'</span>':'')+'</summary>'+
@@ -484,10 +486,10 @@ function drawMap(){
 
 /* ---- mappe dei dungeon (immagini e boss da Twinmap, src/tools/dgmaps.js): una seconda mappa Leaflet in pixel dell'immagine ---- */
 var DM={map:null,img:null,g:null,cur:-1};
-function dgmList(){var L=D.dgmaps||[],lv=function(m){var d=FA.dungeons.filter(function(x){return x[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()===m.k})[0];return d?[d[1],d[2]]:[99,99]};
+function dgmList(){var L=D.dgmaps||[],lv=function(m){var d=FA.dungeons.filter(function(x){return EN(x[0].replace(/[★✔🟡]/g,'').trim()).replace(/^The /,'').toLowerCase()===m.k})[0];return d?[d[1],d[2]]:[99,99]};
  return L.map(function(m,i){return {i:i,m:m,lv:lv(m)}}).sort(function(a,b){return a.lv[0]-b.lv[0]||a.m.n.localeCompare(b.m.n)})}
 // numero di ogni boss: la posizione nella lista «in ordine» della scheda Dungeon, se c'è; gli altri dopo
-function dgmBoss(m){var o=((((D.dungeons||{}).dungeons||{})[m.k]||{}).b||[]).map(function(b){return b.replace(/\s*\(.*$/,'').toLowerCase()}),AK={'deathless guardians':'deathless marrow',"doom'rel":'the seven'},at=function(n){n=n.toLowerCase();n=AK[n]||n;for(var i=0;i<o.length;i++)if(o[i]===n||o[i].indexOf(n)>-1||n.indexOf(o[i])>-1)return i;return 99};
+function dgmBoss(m){var o=((((D.dungeons||{}).dungeons||{})[m.k]||{}).b||[]).map(function(b){return EN(b.replace(/\s*\(.*$/,'')).toLowerCase()}),AK={'deathless guardians':'deathless marrow',"doom'rel":'the seven'},at=function(n){n=EN(n).toLowerCase();n=AK[n]||n;for(var i=0;i<o.length;i++)if(o[i]===n||o[i].indexOf(n)>-1||n.indexOf(o[i])>-1)return i;return 99};
  return m.b.map(function(b,i){return {n:b[0],x:b[1],y:b[2],d:b[3],o:at(b[0]),t:i}}).sort(function(a,b){return a.o-b.o||a.t-b.t})}
 // ritratto del boss: miniatura del modello su Wowhead (displayID da OneForAll) o l'icona di riserva
 function dgmPic(d){return typeof d==='number'&&d>0?'background-image:url(https://wow.zamimg.com/modelviewer/classic/webthumbs/npc/'+(d&255)+'/'+d+'.webp)':typeof d==='string'?'background-image:url('+IC(d)+');background-size:cover':''}
@@ -607,7 +609,8 @@ $('pRen').onclick=function(){var p=P.list[P.cur],n=prompt('Nome del personaggio 
 $('pDel').onclick=function(){if(P.list.length<2||!confirm('Eliminare “'+(P.list[P.cur].n||RA.name+' '+CL.name)+'” con livello e checklist?'))return;P.list.splice(P.cur,1);usePreset(Math.max(0,P.cur-1))};
 function goHome(on){HOME=on;if(!on&&!P.in){P.in=1;save()}document.body.classList.toggle('home',on);setHash();window.scrollTo(0,0);if(!on)showTab(S.tab||'livello')}
 $('bWiz').onclick=function(){goHome(true)};
-$('lang').onclick=function(){store('wfcLang',this.hreflang);this.href=this.href.split('#')[0]+location.hash};
+// menu della lingua: la bandierina della pagina in testata; la scelta resta salvata e porta con sé il personaggio aperto (#…)
+(function(){var c=document.querySelector('#lang a[hreflang="'+document.documentElement.lang+'"]');$('lang').firstChild.innerHTML=c.querySelector('svg').outerHTML;c.setAttribute('aria-current','true');[].forEach.call(document.querySelectorAll('#lang a'),function(a){a.onclick=function(){store('wfcLang',this.hreflang);this.href=this.href.split('#')[0]+location.hash}})})();
 $('bGo').onclick=function(){goHome(false)};
 // pro e contro di razza, classe e combinazione (racial e altRaces/altClasses della guida alt, build più votata)
 function pickInfo(){var A=D.alts||{},ar=(A.altRaces||[]).filter(function(x){return x.race===S.r})[0],ac=(A.altClasses||[]).filter(function(x){return x.class===S.c})[0],B=(D.classes[S.c].builds||[])[0]||{},

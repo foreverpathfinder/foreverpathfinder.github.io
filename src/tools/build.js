@@ -243,15 +243,33 @@ const page = (data, tpl, eng) => tpl.replace('/*STYLE*/', () => fs.readFileSync(
 const TPL = fs.readFileSync(path.join(SRC, 'template.html'), 'utf8'), ENG = fs.readFileSync(path.join(SRC, 'engine.js'), 'utf8');
 const html = page(ALL, TPL, ENG);
 fs.writeFileSync(OUT, html);
-// inglese: ogni testo dei dati con uno spazio deve avere la sua traduzione (talent e mappa sono già i nomi del client)
-const miss = new Set(), tr = v => typeof v === 'string' ? (v in EN ? EN[v] : (/\s/.test(v) && /[a-z]/i.test(v) && !/^https?:\S+$/.test(v) && miss.add(v), v))
-  : Array.isArray(v) ? v.map(tr) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, tr(x)])) : v;
-const DATA_EN = Object.fromEntries(Object.entries(ALL).map(([k, v]) => [k, k === 'talents' || k === 'map' ? v : tr(v)]));
-let tplEn = TPL, engEn = ENG;
-ENUI.forEach(([a, b]) => { if (!tplEn.includes(a) && !engEn.includes(a)) W('en-ui: "' + a + '" non trovato'); tplEn = tplEn.split(a).join(b); engEn = engEn.split(a).join(b); });
-fs.writeFileSync(OUT.replace(/\.html$/, '_EN.html'), page(DATA_EN, tplEn, engEn));
-fs.writeFileSync(path.join(I18N, 'missing-en.json'), JSON.stringify([...miss], null, 1));
-if (miss.size) W(miss.size + ' testi senza traduzione inglese → src/i18n/missing-en.json');
+// altre lingue: <lingua>.json traduce ogni testo dei dati con uno spazio (talent e mappa sono già i nomi del client),
+// <lingua>-ui.json template ed engine. Spagnolo e francese: i nomi di quest, NPC, oggetti e zone vengono da names-<lingua>.json
+// (src/tools/names.js, nomi del client da QuestieDB e Questie), uguali ovunque: un testo che è solo un nome prende quello,
+// anche nella mappa; spell e talenti restano in inglese. Così i nomi scritti nei testi coincidono con quelli di mappa e dungeon.
+const SPN = new Set([...Object.values(classes).flatMap(c => (c.spells || []).concat(c.talentSpells || []).map(s => s[1])), ...Object.values(talents).flatMap(t => Object.values(t.n || {}).map(x => x[0]).concat(t.trees.map(x => x[1])))]);
+const LANGS = [['en', '_EN', 'inglese'], ['es', '_ES', 'spagnola'], ['fr', '_FR', 'francese']];
+for (const [L, suf, nome] of LANGS) {
+  const T = L === 'en' ? EN : J(path.join(I18N, L + '.json')), NM = L === 'en' ? {} : J(path.join(I18N, 'names-' + L + '.json'));
+  const UI = (L === 'en' ? ENUI : J(path.join(I18N, L + '-ui.json'))).sort((a, b) => b[0].length - a[0].length);
+  const miss = new Set(), tr = v => typeof v === 'string' ? (v in NM ? NM[v] : v in T ? T[v] : SPN.has(v) ? v : (/\s/.test(v) && /[a-z]/i.test(v) && !/^https?:\S+$/.test(v) && miss.add(v), v))
+    : Array.isArray(v) ? v.map(tr) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, tr(x)])) : v;
+  // mappa: solo nomi; in spagnolo e francese quelli di names-<l>.json, se no quelli tradotti nei dati (es. "Scarlet Monastery: Library"), così coincidono
+  const MT = L === 'en' ? {} : T, nm = v => typeof v === 'string' ? (v in NM ? NM[v] : v in MT ? MT[v] : v) : Array.isArray(v) ? v.map(nm) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, nm(x)])) : v;
+  const DATA = Object.fromEntries(Object.entries(ALL).map(([k, v]) => [k, k === 'talents' ? v : k === 'map' ? nm(v) : tr(v)]));
+  if (DATA.dgmaps) DATA.dgmaps.forEach((m, i) => { m.k = ALL.dgmaps[i].k; }); // k = chiave della scheda Dungeon, non un testo
+  // D.en: nome tradotto → inglese, per le chiavi dei dati scritte in inglese (dungeon e boss: EN() in engine.js); anche i nomi dei dungeon tradotti nei testi
+  if (L !== 'en') {
+    const js = JSON.stringify(ALL), st = s => s.replace(/[★✔🟡]/g, '').trim();
+    DATA.en = Object.fromEntries(Object.entries(NM).filter(([e]) => js.includes(e)).map(([e, l]) => [l, e]));
+    for (const d of Object.values(factions).flatMap(f => f.dungeons).concat(map.dg)) if (!(d[0] in NM) && d[0] in T && T[d[0]] !== d[0]) DATA.en[st(T[d[0]])] = st(d[0]);
+  }
+  let tpl = TPL, eng = ENG;
+  UI.forEach(([a, b]) => { if (!tpl.includes(a) && !eng.includes(a)) W(L + '-ui: "' + a + '" non trovato'); tpl = tpl.split(a).join(b); eng = eng.split(a).join(b); });
+  fs.writeFileSync(OUT.replace(/\.html$/, suf + '.html'), page(DATA, tpl, eng));
+  fs.writeFileSync(path.join(I18N, 'missing-' + L + '.json'), JSON.stringify([...miss], null, 1));
+  if (miss.size) W(miss.size + ' testi senza traduzione ' + nome + ' → src/i18n/missing-' + L + '.json');
+}
 
 /* ---- riepilogo Markdown (stessi dati della pagina) ---- */
 const strip = s => String(s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();

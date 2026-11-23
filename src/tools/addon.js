@@ -4,14 +4,17 @@
 // un elenco unico senza doppioni (Pool); ogni variante li richiama per numero. Poi crea ForeverPathfinder.zip da scaricare dal sito
 const {chromium}=require(process.env.LOCALAPPDATA+'/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core');
 const fs=require('fs'),path=require('path'),{execFileSync}=require('child_process');
+// lingue: pagina del sito e chiave in Data.lua. Spagnolo e francese hanno i nomi di quest, NPC, zone e boss del client (names-<l>.json):
+// _en = nome tradotto → inglese, per controllare le quest su quests.txt e per le ricerche dell'addon (ForeverPathfinderEN)
+const LANGS=[['','it'],['_EN','en'],['_ES','es'],['_FR','fr']],LL=LANGS.map(x=>x[1]);
 const ROOT=path.join(__dirname,'../..'),OUT=path.join(ROOT,'addon/ForeverPathfinder');
 // schede del sito portate nell'addon (Percorso, Profession e Mappa sono disegnate dall'addon stesso)
 const TABS=['talent','classe','dungeon','alt','altro','info'];
 // i font di WoW mostrano solo l'alfabeto latino di base: via emoji e simboli, le frecce diventano "->", "|" è un codice di WoW
-const clean=s=>s.replace(/→/g,'->').replace(/\|/g,'/').replace(/[^\x20-\xFF–—‘’“”…•‹›€\n]/g,'').replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
+const clean=s=>s.replace(/→/g,'->').replace(/\|/g,'/').replace(/[^\x20-\xFF–—‘’“”…•‹›€œŒ\n]/g,'').replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').trim();
 const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n')+'"';
 (async()=>{const b=await chromium.launch({channel:'chrome'}),all={};
- for(const [f,l] of [['','it'],['_EN','en']]){const p=await b.newPage();await p.addInitScript(l=>localStorage.setItem('wfcLang',l),l);
+ for(const [f,l] of LANGS){const p=await b.newPage();await p.addInitScript(l=>localStorage.setItem('wfcLang',l),l);
   await p.goto('file:///'+path.join(ROOT,'WoW_Forever_Leveling_Companion'+f+'.html').replace(/\\/g,'/')+'#gnome-mage',{waitUntil:'load'});
   all[l]=await p.evaluate(TABS=>{
    // una scheda del sito → righe: "1"/"2"/"3" titoli, "0" paragrafi; grassetto tra \x01 e \x02 (l'addon lo colora)
@@ -61,7 +64,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
    const cls={},rcs={};
    for(const c of Object.keys(D.classes)){const K=D.classes[c];
     // spell del trainer + spell dei talenti (1 = talento); B e C hanno i loro (bsp)
-    const sl=ts=>K.spells.filter(x=>x[0]<=MAXL).map(x=>[x[0],x[1],x[2],x[3],0]).concat(ts.filter(x=>x[0]<=MAXL&&!/non in build|not in build/i.test(x[1])).map(x=>[x[0],x[1],x[2],x[3],1])).sort((a,b)=>a[0]-b[0]);
+    const sl=ts=>K.spells.filter(x=>x[0]<=MAXL).map(x=>[x[0],x[1],x[2],x[3],0]).concat(ts.filter(x=>x[0]<=MAXL&&!/non in build|not in build|no está en la build|pas dans le build/i.test(x[1])).map(x=>[x[0],x[1],x[2],x[3],1])).sort((a,b)=>a[0]-b[0]);
     cls[c]={why:K.why||{},summary:K.summary||'',bsum:Object.fromEntries((K.builds||[]).slice(1).filter(b=>b.when).map(b=>[b.id,b.when])),rot:K.rotation||[],brot:Object.fromEntries((K.builds||[]).filter(b=>b.rotation&&b.rotation.length).map(b=>[b.id,b.rotation])),
      notes:(K.rotNotes||[]).map(a=>[a.title,a.html]),stats:K.stats||'',forever:K.forever||[],races:K.races||{},
      spells:sl(K.talentSpells),bsp:Object.fromEntries((K.builds||[]).filter(b=>b.talentSpells).map(b=>[b.id,sl(b.talentSpells)]))}}
@@ -69,14 +72,14 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
    out._cls=cls;out._rcs=rcs;
    // dungeon per fazione, come nella scheda Dungeon: livelli, giudizio, ingresso, quest (anche di classe)
    const G=(D.dungeons||{}).dungeons||{},dg={};
-   for(const f of ['A','H'])dg[f]=D.factions[f].dungeons.filter(d=>d[1]<=MAXL+2).map(d=>{const x=G[d[0].replace(/[★✔🟡]/g,'').trim().replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[f]||[],q=x.q||{},last=a=>a.filter(s=>typeof s==='string').pop()||'';
+   for(const f of ['A','H'])dg[f]=D.factions[f].dungeons.filter(d=>d[1]<=MAXL+2).map(d=>{const x=G[EN(d[0].replace(/[★✔🟡]/g,'').trim()).replace(/^The /,'').toLowerCase()]||{},v=(x.v||{})[f]||[],q=x.q||{},last=a=>a.filter(s=>typeof s==='string').pop()||'';
     // dal menu dei dungeon (1.5): anche dove si trova e nota della fazione, catena della chiave, boss e consigli; senza giudizio, "salta" se la nota lo sconsiglia
-    const skip=!v[0]&&/non consigliat|not recommended/i.test(d[4]||'');
+    const skip=!v[0]&&/non consigliat|not recommended|no recomendad|déconseill/i.test(d[4]||'');
     return [d[0].replace(/[★✔🟡]/g,'').trim(),d[1],d[2],v[0]||(skip?'skip':''),v[1]||'',v[2]||'',x.e||'',(q[f]||[]).concat(q.N||[]).map(y=>[y[0],last(y.slice(1))]),(q.C||[]).map(y=>[y[0],y[1],last(y.slice(2))]),
      (x.k||{})[f]||'',x.b||[],x.t||[],d[3]||'',d[4]||'',/★/.test(d[0])]});
    // scheda Profession (1.7): percorsi 1–300 di profs.json, già nella lingua della pagina
    const X=D.profs;const nm=t=>String(t).replace(/\s*🟡/g,'');out._prof={ranks:X.ranks,src:nm(X.routeSource),picks:Object.fromEntries(Object.entries(X.classPicks||{}).map(([c,t])=>[c,nm(t)])),list:X.professions.map(p=>({name:p.name,icon:p.icon,type:p.type,route:p.route||[],alt:p.alt||[],altTitle:p.altTitle||'',how:p.rankHow||{},forever:p.forever||[],camp:p.camp||'',gold:p.gold||'',tips:p.tips||[],ap:p.apprentice||[]}))};
-   out._dg=dg;out._dginfo=[(D.dungeons||{}).general||[],(D.dungeons||{}).glossary||''];out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3],d[6]||'']);out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
+   out._dg=dg;out._dginfo=[(D.dungeons||{}).general||[],(D.dungeons||{}).glossary||''];out._dgpos=D.map.dg.map(d=>[d[0],d[2],d[3],d[6]||'']);out._en=D.en||{};out._tabs=[...document.querySelectorAll('nav button[data-tab]')].map(x=>[x.dataset.tab,x.textContent.trim()]);return out},TABS);await p.close()}
  await b.close();
  // elenco unico dei testi (voci della checklist e pagine delle schede): ogni testo una volta sola
  const pool=[],pix=new Map(),P=s=>{s=clean(s);if(!pix.has(s)){pix.set(s,pool.length+1);pool.push(s)}return pix.get(s)};
@@ -102,12 +105,13 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  const RID={human:1,orc:2,dwarf:3,nightelf:4,scourge:5,tauren:6,gnome:7,troll:8,skyborne_a:33,skyborne_h:34},CID={warrior:1,paladin:2,hunter:3,rogue:4,priest:5,shaman:7,mage:8,warlock:9,druid:11};
  const bit=(m,n)=>!m||!n||Math.floor(m/2**(n-1))%2===1;let CUR=null;
  // quest con lo stesso nome (Encrypted Letter: lettera del Rogue al 1 e un'altra al 34): contano quelle entro 10 livelli dalla voce, se ce ne sono
- const doable=(n,lv)=>{if(!CUR||!QI[n])return true;const near=QI[n].filter(e=>Math.abs(e[3]-lv)<=10),E=near.length?near:QI[n];return E.some(e=>(!e[0]||e[0]===CUR.side)&&bit(e[1],CUR.race)&&bit(e[2],CUR.cls))};
+ let ENM={},FWD={};const EnN=n=>ENM[n]||n,Fw=n=>FWD[n]||n;
+ const doable=(n,lv)=>{n=EnN(n);if(!CUR||!QI[n])return true;const near=QI[n].filter(e=>Math.abs(e[3]-lv)<=10),E=near.length?near:QI[n];return E.some(e=>(!e[0]||e[0]===CUR.side)&&bit(e[1],CUR.race)&&bit(e[2],CUR.cls))};
  const questsOf=t=>{const o=questsAll(t);o.q=o.q.filter(n=>doable(n,t[0]));if(o.any&&o.q.length===1)o.any=false;return o};
- const questsAll=t=>{const plain=clean(t[2]).replace(/^\^[^^]*\^/,''),m=plain.match(/^(?:Lettera di classe|Class letter):\s*([^,.]+)/);
-  if(m)return {q:[...new Set(QL.filter(x=>x[2]===m[1].trim()&&x[1]==='1'&&LETTER.test(x[0])).map(x=>x[0]))],any:true};
-  const q=[...new Set(t[4].filter(x=>QN.has(x)))];if(q.length||/^(Trainer|Prima di partire|Before you leave)/.test(plain))return {q};
-  if(!qc.has(plain))qc.set(plain,QLONG.filter(n=>plain.includes(n)));return {q:qc.get(plain).slice()}};
+ const questsAll=t=>{const plain=clean(t[2]).replace(/^\^[^^]*\^/,''),m=plain.match(/^(?:Lettera di classe|Class letter|Carta de clase|Lettre de classe)\s?:\s*([^,.]+)/);
+  if(m)return {q:[...new Set(QL.filter(x=>x[2]===EnN(m[1].trim())&&x[1]==='1'&&LETTER.test(x[0])).map(x=>Fw(x[0])))],any:true};
+  const q=[...new Set(t[4].filter(x=>QN.has(EnN(x))))];if(q.length||/^(Trainer|Prima di partire|Before you leave|Antes de salir|Avant de partir)/.test(plain))return {q};
+  if(!qc.has(plain))qc.set(plain,QLONG.map(Fw).filter(n=>plain.includes(n)));return {q:qc.get(plain).slice()}};
  // la stessa frase può avere segnaposti diversi per razza (es. "Trainer: Fireball…": Northshire per l'Human, Anvilmar per lo Gnome):
  // allora prende un altro numero dell'elenco, con lo stesso testo, perché l'addon legge i collegamenti per numero
  const ext=new Map(),sig=new Map(),Tk=t=>{const pins=t[3].map(p=>{const w=where(p[0],p[1]);return w&&[w[0],w[1].toFixed(4),w[2].toFixed(4),clean(p[2]),w[3]]}).filter(Boolean),{q,any}=questsOf(t);
@@ -115,7 +119,8 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
   let i=P(t[2]);if(ext.has(i)){pool.push(clean(t[2]));i=pool.length}ext.set(i,e);sig.set(k,i);return i};
  let s='-- generato da src/tools/addon.js: non modificare a mano\nForeverPathfinderData = {\n';
  const pools={},pagesL={},links={};
- for(const l of ['it','en']){pool.length=0;pix.clear();pages.length=0;gix.clear();ext.clear();sig.clear();s+=' '+l+' = {\n';
+ for(const l of LL){pool.length=0;pix.clear();pages.length=0;gix.clear();ext.clear();sig.clear();s+=' '+l+' = {\n';
+  ENM=all[l]._en;FWD=Object.fromEntries(Object.entries(ENM).map(([a,b])=>[b,a]));
   s+='  _tabs = { '+all[l]._tabs.filter(t=>TABS.includes(t[0])||t[0]==='livello'||t[0]==='prof').map(t=>'{ '+lua(t[0])+', '+lua(clean(t[1]))+' }').join(', ')+' },\n';
   for(const [k,g] of Object.entries(all[l]))if(k[0]!=='_'){const [rk,ck]=k.split('-');CUR={side:g.faction==='A'?1:2,race:RID[rk],cls:CID[ck]};
    s+='  ['+lua(k)+'] = { name = '+lua(g.name)+', faction = '+lua(g.faction)+', x = '+(g.xs.length>1)+',\n   builds = { '+g.builds.map(x=>'{ '+lua(x[0])+', '+lua(clean(x[1]))+' }').join(', ')+' },\n   v = {\n';
@@ -127,17 +132,17 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
    s+='   },\n  },\n'}
   s+=' },\n';pools[l]=pool.slice();pagesL[l]=pages.slice();links[l]=[...ext].filter(e=>e[1])}
  s+='}\n-- elenco unico dei testi: le varianti li richiamano per numero\nForeverPathfinderPool = {\n';
- for(const l of ['it','en'])s+=' '+l+' = {\n'+pools[l].map(x=>'  '+lua(x)+',').join('\n')+'\n },\n';
+ for(const l of LL)s+=' '+l+' = {\n'+pools[l].map(x=>'  '+lua(x)+',').join('\n')+'\n },\n';
  s+='}\n-- pagine delle schede, tappe e checklist: numeri dell\'elenco unico separati da , (e ; tra le voci della checklist)\nForeverPathfinderPages = {\n';
- for(const l of ['it','en'])s+=' '+l+' = {\n'+pagesL[l].map(x=>'  '+lua(x)+',').join('\n')+'\n },\n';
+ for(const l of LL)s+=' '+l+' = {\n'+pagesL[l].map(x=>'  '+lua(x)+',').join('\n')+'\n },\n';
  // collegamenti delle voci (numero del testo): p = segnaposti { continente, x, y, nome }, q = quest da consegnare
  s+='}\nForeverPathfinderLinks = {\n';
- for(const l of ['it','en'])s+=' '+l+' = {\n'+links[l].map(([i,e])=>'  ['+i+'] = { p = { '+e.pins.map(p=>'{ '+lua(p[0])+', '+p[1]+', '+p[2]+', '+lua(p[3])+zf(p[4])+' }').join(', ')+' }, q = { '+e.q.map(lua).join(', ')+' }'+(e.any?', any = true':'')+' },').join('\n')+'\n },\n';
+ for(const l of LL)s+=' '+l+' = {\n'+links[l].map(([i,e])=>'  ['+i+'] = { p = { '+e.pins.map(p=>'{ '+lua(p[0])+', '+p[1]+', '+p[2]+', '+lua(p[3])+zf(p[4])+' }').join(', ')+' }, q = { '+e.q.map(lua).join(', ')+' }'+(e.any?', any = true':'')+' },').join('\n')+'\n },\n';
  // dungeon: { nome, min, max, giudizio go/opt/skip, livello ideale, perché, ingresso, {quest, dove}, {quest di classe, classe, dove},
  //   catena della chiave, {boss}, {consigli}, dove si trova, nota, nuovo (true/false) }; grassetto tra { } (l'addon lo colora)
  const tx=x=>lua(clean(String(x).replace(/<[^>]+>/g,''))),txb=x=>lua(clean(String(x).replace(/<b>/g,'{').replace(/<\/b>/g,'}').replace(/<[^>]+>/g,'')));
  s+='}\nForeverPathfinderDungeons = {\n';
- for(const l of ['it','en']){s+=' '+l+' = {\n';
+ for(const l of LL){s+=' '+l+' = {\n';
   for(const f of ['A','H'])s+='  '+f+' = {\n'+all[l]._dg[f].map(d=>'   { '+tx(d[0])+', '+d[1]+', '+d[2]+', '+lua(d[3])+', '+tx(d[4])+', '+tx(d[5])+', '+tx(d[6])+',\n    { '+d[7].map(q=>'{ '+tx(q[0])+', '+tx(q[1])+' }').join(', ')+' },\n    { '+d[8].map(q=>'{ '+tx(q[0])+', '+lua(q[1])+', '+tx(q[2])+' }').join(', ')+' },\n    '+tx(d[9])+', { '+d[10].map(tx).join(', ')+' }, { '+d[11].map(txb).join(', ')+' }, '+tx(d[12])+', '+tx(d[13])+', '+(d[14]?'true':'false')+' },').join('\n')+'\n  },\n';
   // consigli generali e glossario della scheda Dungeon del sito
   s+='  info = { '+all[l]._dginfo[0].map(txb).join(', ')+' }, glossary = '+txb(all[l]._dginfo[1])+',\n';
@@ -159,7 +164,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  s+='}\nForeverPathfinderClass = {\n';
  // spell della scheda Classe: { livello, nome, icona, descrizione, talento }
  const spl=L=>'{ '+L.map(x=>'{ '+x[0]+', '+tx(x[1])+', '+lua(x[2])+', '+htm(x[3])+', '+(x[4]?'true':'false')+' }').join(', ')+' }';
- for(const l of ['it','en']){s+=' '+l+' = {\n';
+ for(const l of LL){s+=' '+l+' = {\n';
   for(const [c,K] of Object.entries(all[l]._cls))s+='  '+c+' = { why = { '+Object.entries(K.why).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   summary = '+htm(K.summary)+', bsum = { '+Object.entries(K.bsum||{}).map(([b,t])=>b+' = '+htm(t)).join(', ')+' }, rot = '+rot(K.rot)+',\n   brot = { '+Object.entries(K.brot).map(([b,r])=>b+' = '+rot(r)).join(', ')+' },\n   notes = { '+K.notes.map(n=>'{ '+tx(n[0])+', '+htm(n[1])+' }').join(', ')+' }, stats = '+htm(K.stats)+', forever = { '+K.forever.map(htm).join(', ')+' },\n   races = { '+Object.entries(K.races).map(([k,v])=>'['+lua(k)+'] = '+htm(v)).join(', ')+' },\n   spells = '+spl(K.spells)+',\n   bsp = { '+Object.entries(K.bsp||{}).map(([b,l])=>b+' = '+spl(l)).join(', ')+' } },\n';
   s+='  _races = { '+Object.entries(all[l]._rcs).map(([k,R])=>'['+lua(k)+'] = { '+tx(R.name)+', { '+R.racials.map(x=>'{ '+tx(x[0])+', '+lua(x[1])+', '+htm(x[2])+' }').join(', ')+' }, '+htm(R.tips)+' }').join(', ')+' },\n';
   s+=' },\n'}
@@ -172,7 +177,7 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  //   che non si imparano dal trainer, novità, camp, gold, consigli
  const step=x=>'{ '+x[0]+', '+x[1]+', '+tx(x[2])+', '+(x[3]||0)+', '+lua(x[4]||'')+', '+(x[5]||0)+', { '+x[6].map(m=>'{ '+m[0]+', '+tx(m[1])+', '+(m[2]||0)+', '+lua(m[3]||'')+', '+(m[4]||0)+' }').join(', ')+' }, '+tx(x[7]||'')+' }';
  s+='}\nForeverPathfinderProfs = {\n';
- for(const l of ['it','en']){const X=all[l]._prof;s+=' '+l+' = { ranks = { '+X.ranks.map(r=>'{ '+r[0]+', '+lua(r[1])+', '+r[2]+', '+r[3]+' }').join(', ')+' }, src = '+tx(X.src)+',\n  picks = { '+Object.entries(X.picks).map(([c,t])=>c+' = '+htm(t)).join(', ')+' },\n  order = { '+X.list.map(p=>lua(p.name)).join(', ')+' },\n  list = {\n'+
+ for(const l of LL){const X=all[l]._prof;s+=' '+l+' = { ranks = { '+X.ranks.map(r=>'{ '+r[0]+', '+lua(r[1])+', '+r[2]+', '+r[3]+' }').join(', ')+' }, src = '+tx(X.src)+',\n  picks = { '+Object.entries(X.picks).map(([c,t])=>c+' = '+htm(t)).join(', ')+' },\n  order = { '+X.list.map(p=>lua(p.name)).join(', ')+' },\n  list = {\n'+
   X.list.map(p=>'   ['+lua(p.name)+'] = { icon = '+lua(p.icon)+', type = '+lua(p.type)+', altTitle = '+tx(p.altTitle)+', how = { '+Object.entries(p.how).map(([k,v])=>k+' = '+tx(v)).join(', ')+' },\n    route = { '+p.route.map(step).join(', ')+' },\n    alt = { '+p.alt.map(step).join(', ')+' },\n    forever = { '+p.forever.map(htm).join(', ')+' }, camp = '+htm(p.camp)+', gold = '+htm(p.gold)+', tips = { '+p.tips.map(htm).join(', ')+' } },').join('\n')+'\n  } },\n'}
  // trainer delle profession (mappa del sito): { NPC, continente, x, y, fazione 0/1/2, ap = insegna solo Apprentice }
  // mx = grado più alto che il trainer insegna (2 Journeyman, 3 Expert, 4 Artisan; profs.json trainerMax, dal titolo dell'NPC)
@@ -187,7 +192,9 @@ const lua=s=>'"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n
  {const ZR=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/zones.json'),'utf8'));
   s+='}\nForeverPathfinderZones = {\n z = {\n'+ZR.zones.map(z=>{const c=WM[z[2]];return '  { '+lua(CONT[z[2]])+', '+(z[3]/c.w).toFixed(4)+', '+(z[4]/c.h).toFixed(4)+', '+lua(z[0])+', lv = '+lua(z[1])+zf(zoneAt(z[2],z[3],z[4]))+' },'}).join('\n')+'\n },\n rec = {\n'+Object.entries(ZR.rec).map(([r,a])=>'  '+r+' = { '+a.map(l=>lua(l.map(x=>(x[0]+1)+':'+x[1]).join(','))).join(', ')+' },').join('\n')+'\n },\n';}
  // ingressi dei dungeon (data/entrances.json, via la mappa del sito): { nome, continente, x, y, l = etichetta } per il pulsante Ingresso; più voci = più ingressi, la prima è la principale
- s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map(d=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+(d[3]?', l = '+lua(d[3]):'')+' },'}).filter(Boolean).join('\n')+'\n';
+ s+='}\nForeverPathfinderDungeonPos = {\n'+all.it._dgpos.map((d,i)=>{const w=where(d[1],d[2]);return w&&'  { '+lua(clean(d[0]))+', '+lua(w[0])+', '+w[1].toFixed(4)+', '+w[2].toFixed(4)+zf(w[3])+(d[3]?', l = '+lua(d[3]):'')+['es','fr'].map(l=>all[l]._dgpos[i][0]!==d[0]?', '+l+' = '+lua(clean(all[l]._dgpos[i][0])):'').join('')+' },'}).filter(Boolean).join('\n')+'\n';
+ // nome tradotto → inglese dei nomi che compaiono nei dati (boss, dungeon, quest): l'addon lo usa per Questie e le piante dei dungeon
+ s+='}\nForeverPathfinderEN = {\n'+['es','fr'].map(l=>' '+l+' = { '+Object.entries(all[l]._en).filter(([a])=>s.includes(lua(clean(a)))).map(([a,b])=>'['+lua(clean(a))+'] = '+lua(clean(b))).join(', ')+' },').join('\n')+'\n';
  // zone del gioco (uiMapID e rettangolo 0–1 sul continente del sito, da uimaps.json): l'addon ci converte i segnaposti, perché
  // i bordi della mappa del continente nel gioco non sono quelli di Wowhead, quelli delle zone sì
  const UM=JSON.parse(fs.readFileSync(path.join(ROOT,'src/data/uimaps.json'),'utf8')).continents;

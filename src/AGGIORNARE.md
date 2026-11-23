@@ -1,8 +1,8 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 22 nov 2026 · **sito v28** · **addon 1.10.17** (da pubblicare; la 1.10.16 è uscita il 21 nov).
+Aggiornato il 23 nov 2026 · **sito v29** · **addon 1.10.18** (da pubblicare: spagnolo e francese).
 
-Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, italiano e inglese.
+Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, in italiano, inglese, spagnolo e francese.
 Due prodotti con gli stessi dati:
 - un **sito** statico per il telefono, da tenere accanto al PC;
 - un **addon** per il gioco, che porta la guida in una finestra e la collega a mappa, quest, talenti e trainer.
@@ -35,22 +35,23 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 1. **Modifica solo i sorgenti**: `src/data/*`, `src/i18n/*`, `src/engine.js`, `src/template.html`, `src/style.css`, `addon/ForeverPathfinder/Core.lua`, `addon.html`. Gli HTML della radice, `Data.lua` e lo zip sono **generati**: non toccarli a mano.
 2. **Rigenera il sito**: `node src/tools/build.js`. Leggi gli avvisi:
-   - «testi senza traduzione inglese» → `src/i18n/missing-en.json` (vanno aggiunti a `en.json`, anche quando sono identici in inglese);
+   - «testi senza traduzione inglese/spagnola/francese» → `src/i18n/missing-<lingua>.json` (vanno aggiunti a `en.json`, `es.json`, `fr.json`, anche quando sono identici; vedi §5 «Testi e traduzioni»);
+   - «<lingua>-ui: … non trovato» → una scritta di `template.html`/`engine.js` è cambiata: aggiorna la coppia in `en-ui.json`, `es-ui.json`, `fr-ui.json`;
    - talent, NPC o quest non validi → `src/check-report.txt`;
    - «ordine corto» per alcune build B/C: è normale.
 3. **Prova il sito** (serve il server):
-   - `PORT=<porta> node src/tools/test.js` → in tutte e due le lingue deve dare `nbad 0`, `errors []`, `nita 0`. `nita` conta l'italiano rimasto nella pagina inglese;
+   - `PORT=<porta> node src/tools/test.js` (o `… test.js es,fr` per alcune lingue) → in ogni lingua `nbad 0`, `errors []`, `nita 0`. `nita` conta l'italiano rimasto nelle pagine non italiane; `neng` (spagnolo e francese) le frasi inglesi fuori da grassetto e link: devono restare solo nomi di gioco senza nome ufficiale (talenti, perk, sottozone) e citazioni. Le frasi trovate vanno in `src/i18n/rimasto-<lingua>.txt` (da non committare);
    - `PORT=<porta> node src/tools/icons.js` → `rotte 0`.
 4. **Addon**, se cambiano dati o `Core.lua`:
    - `node src/tools/addon.js` (circa 1 min) → rigenera `Data.lua` e `ForeverPathfinder.zip`;
-   - `node src/tools/addon-test.js` → «addon: tutte le prove ok» (4 lingue × 56 combinazioni). Usa fengari in `%LOCALAPPDATA%/fp-lua`.
+   - `node src/tools/addon-test.js` → «addon: tutte le prove ok» (7 client: enUS ×2, deDE, itIT, esES, esMX, frFR × 56 combinazioni; addon in it, en, es, fr). Usa fengari in `%LOCALAPPDATA%/fp-lua`. Il Questie finto della prova è quello di un client inglese: i nomi spagnoli e francesi li trova solo ripiegando sull'inglese (`enName`).
 5. **Guarda il risultato**:
    - sito: browser integrato a **390×844** e su desktop;
-   - addon: `PV="Razza,CLASSE,livello" PVBG='#14181d' node src/tools/addon-preview.js itIT|enUS <scheda> <cartella>`. Schede: `livello`, `talent`, `dungeon`, `prof`, `classe`, `alt`, `altro`, `info`, `opzioni`. Varianti: `"dungeon.<nome>"` clicca un pulsante, `"talent~400"` scorre di 400 px;
+   - addon: `PV="Razza,CLASSE,livello" PVBG='#14181d' node src/tools/addon-preview.js itIT|enUS|esES|frFR <scheda> <cartella>`. Schede: `livello`, `talent`, `dungeon`, `prof`, `classe`, `alt`, `altro`, `info`, `opzioni`. Varianti: `"dungeon.<nome>"` clicca un pulsante, `"talent~400"` scorre di 400 px;
    - **manda gli screenshot all'utente**.
 6. **Versione**, quando cambia qualcosa di visibile:
-   - sito: `version` e `updated` in `src/data/common.json` (a mano: quel file ha un formato suo). Per una data nuova serve la riga in `en.json` (es. «15 novembre 2026»);
-   - addon: `## Version` in `addon/ForeverPathfinder/ForeverPathfinder.toc` e le due pill «versione» in `addon.html`, poi riscrivi `addon/changelog.md` (in inglese, solo la versione nuova).
+   - sito: `version` e `updated` in `src/data/common.json` (a mano: quel file ha un formato suo). Per una data nuova serve la riga in `en.json`, `es.json` e `fr.json` (es. «15 novembre 2026» → «November 15, 2026», «15 de noviembre de 2026», «15 novembre 2026»);
+   - addon: `## Version` in `addon/ForeverPathfinder/ForeverPathfinder.toc` e le quattro pill «versione» in `addon.html` (it, en, es, fr), poi riscrivi `addon/changelog.md` (in inglese, solo la versione nuova).
 7. **Commit** dei soli file toccati:
    - comando: `git -c user.email=80699208+Stalioot@users.noreply.github.com commit`;
    - messaggio in italiano, senza righe di attribuzione (niente `Co-Authored-By`, nessuna citazione di strumenti).
@@ -75,11 +76,12 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 | `src/data/alts.json`, `transfers.json` | scheda Alt (classifica, piano dell'alt, Legacy); cambi di continente |
 | `src/data/worldmap.json`, `uimaps.json` | mappa di Wowhead (`map.js`); zone di Wowhead con gli uiMapID del gioco (`uimaps.js`), per i segnaposti nell'addon |
 | `src/data/quests.txt`, `questinfo.json` | elenco delle quest di Forever (`quests.js`; serve a controllare i nomi); chi può fare ogni quest, da MapUtils (`questinfo.js`) |
-| `src/i18n/en.json` | inglese dei **dati**: `{"testo italiano esatto": "inglese"}` |
-| `src/i18n/en-ui.json` | inglese di template ed engine: coppie `["italiano", "inglese"]` sostituite come sottostringhe |
+| `src/i18n/en.json`, `es.json`, `fr.json` | traduzione dei **dati**: `{"testo italiano esatto": "traduzione"}` |
+| `src/i18n/en-ui.json`, `es-ui.json`, `fr-ui.json` | template ed engine: coppie `["italiano", "traduzione"]` sostituite come sottostringhe. Spagnolo e francese hanno in fondo anche le scritte uguali in italiano e in inglese (scheda «Dungeon», «Rotation», «Bags»…), che in `en-ui.json` non servono |
+| `src/i18n/names-es.json`, `names-fr.json` | nomi del client spagnolo (esES) e francese di quest, NPC, oggetti, object e zone usati nella guida: `{"nome inglese": "nome del client"}`. Li crea `node src/tools/names.js <cartella QuestieDB>` (vedi §8) |
 | `src/engine.js`, `template.html`, `style.css` | motore del sito (nessun dato di gioco), struttura, stile (colori come variabili in `:root`) |
 | `addon/ForeverPathfinder/` | `.toc` (Interface 16001), `Core.lua` (scritto a mano), `Data.lua` (generato, ~4 MB: non leggerlo intero), `icon.tga`, `Fonts/` (Barlow e Barlow Condensed, licenza OFL). Niente librerie proprie: LibDBIcon arriva da Questie |
-| `addon.html` | pagina dell'addon, scritta a mano, IT ed EN nella stessa pagina |
+| `addon.html`, `report.html` | pagina dell'addon e pagina delle segnalazioni, scritte a mano, IT, EN, ES e FR nella stessa pagina (`data-l`) con il menu delle bandierine |
 | `addon/pubblicazione/` | immagini e testi per CurseForge (`README.md`: riassunto, galleria, descrizione in Markdown, come riordinare la galleria) |
 | `PRODUCT.md` | contesto di prodotto per la skill impeccable (design) |
 
@@ -101,7 +103,11 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 - **Testi e traduzioni**: ogni testo italiano dei dati ha la sua riga in `en.json`, con chiave = testo italiano **esatto**.
   - Se cambi un testo, cambia anche la chiave: togli la riga vecchia e aggiungi la nuova.
-  - I nomi di gioco restano in inglese anche nella versione italiana.
+  - I nomi di gioco restano in inglese nella versione italiana e in quella inglese. In spagnolo e francese (decisione dell'utente del 23 nov) quest, NPC, oggetti, zone e boss hanno il **nome del client** dove c'è una fonte (`names-<lingua>.json`); spell, talenti, alberi, specializzazioni, profession e termini di gioco (Trainer, Flight Master, Rage…) restano in inglese.
+  - **Aggiungere o cambiare un testo dei dati**: la chiave italiana va in `en.json`, `es.json` e `fr.json`, ognuna con la sua traduzione. Non servono i testi che sono esattamente un nome di `names-<lingua>.json` (`build.js` prende il nome del client) né i nomi di spell e talenti (restano come sono). Nei testi spagnoli e francesi un nome di quest, NPC o zona va scritto **esattamente** come in `names-<lingua>.json` (stesse maiuscole e accenti, articoli fuori dal `<b>`): sito e addon confrontano i nomi dei testi con quelli di mappa, boss e quest; le chiavi dei dati restano inglesi e si raggiungono con `D.en` (nome tradotto → inglese) e `EN()` in `engine.js`.
+  - Tono: spagnolo col **tú** («misiones», «hechizos», «mazmorras», «entrenador»); francese col **vous** («quêtes», «sorts», «donjons», «alts», «PNJ», «Trainer»). Niente note del tipo «testo inglese → traduzione».
+  - Le scritte di template ed engine vanno in `en-ui.json`, `es-ui.json`, `fr-ui.json`.
+  - Per molti testi nuovi: uno script nello scratchpad che prepara i lotti con il glossario dei nomi, li fa tradurre e controlla tag, numeri, simboli e nomi prima di unirli.
   - Per modifiche grandi scrivi uno script Node nello scratchpad che cambia il JSON ed `en.json` insieme. Riscrivili con `JSON.stringify(o, null, 1) + "\n"`: è il formato dei file, tranne `common.json`.
 - **Milestone**: `{"l":10,"t":"<b>Quest</b>: …","r":["dwarf"],"f":"A","npc":["Nome esatto"]}`.
   - `r` e `f` filtrano per razza e fazione;
@@ -181,8 +187,10 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
   - **OneForAll** (facoltativo): import della build (`TalentCode`) e «Boss e loot» (`ofaDungeon`, per nome esatto);
   - **MapUtils** (facoltativo): non ha funzioni pubbliche. La mappa si apre sulla zona dell'ingresso (`dgFind`) e MapUtils mostra la sua icona.
 - **Spunte automatiche**: quest consegnate, Flight Path imparati (`fpDone`), punti talento spesi, spell del trainer già nel libro.
-- **Lingua**: inglese di base; l'utente la cambia nelle Opzioni o con `/fp lang`. Niente pulsante della lingua in testata.
-- **Comandi**: `/fp`, `options`, `lang`, `dungeon`, `find <parola>`, `set <razza-classe>`, `auto`, `list`, `debug`, `help`. Se ne aggiungi uno, mettilo anche nelle tabelle IT ed EN di `addon.html`.
+- **Lingua**: di base quella del gioco se è spagnolo (esES, esMX) o francese (frFR), altrimenti inglese (il gioco non ha l'italiano); l'utente la cambia nelle Opzioni (`LANGS`) o con `/fp lang it|en|es|fr` (`/fp lang` da solo torna alla precedente, `DB.prevLang`). Niente pulsante della lingua in testata. Testi in `TT.it/en/es/fr`.
+  - Spagnolo e francese hanno i nomi del client: `ForeverPathfinderEN[lingua]` (tradotto → inglese, scritto da `addon.js`) e `enName()` fanno ripiegare sul nome inglese Questie (`qIDs`, quest sotto gli NPC), le piante dei dungeon e OneForAll; `ForeverPathfinderDungeonPos` ha `es`/`fr` per riconoscere i titoli. `UP()` mette in maiuscolo anche le lettere accentate.
+  - Con il gioco in spagnolo o francese e l'addon in inglese o italiano i nomi inglesi non trovano le quest in Questie (che usa i nomi del client): da sistemare con gli ID delle quest calcolati al build.
+- **Comandi**: `/fp`, `options`, `lang`, `dungeon`, `find <parola>`, `set <razza-classe>`, `auto`, `list`, `debug`, `help`. Se ne aggiungi uno, mettilo anche nelle quattro tabelle (IT, EN, ES, FR) di `addon.html`.
 - **Limite di Lua**: al massimo 200 variabili locali per file. Lo stato delle schede sta nella tabella `V` e i blocchi grandi sono chiusi in `do … end`.
 
 ## 8. Fonti e come aggiornarle
@@ -207,6 +215,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
   - scaricali con `gh api repos/Questie/QuestieDB/contents/<percorso> -H "Accept: application/vnd.github.raw"` in una cartella, insieme a `whdq.json` (quest per dungeon dalle pagine zona di Wowhead, via `fetch` dal browser integrato);
   - copia lì `qdb.js` e `dg35.js` ed eseguili da lì.
 - **Boss dei dungeon**: Twinmap (twinmap.app, di un amico dell'utente; app installata in `%LOCALAPPDATA%/Programs/twinmap`). In `resources/app.asar` il renderer ha `DUNGEON_PINS` (dungeon classici) e `NEW_DUNGEON_PINS` (i 9 nuovi di Forever), ricostruiti dai file del gioco: per ogni dungeon nome, mappa, ingresso e boss con coordinate. L'ordine è quello degli incontri nei file, non il percorso; i nomi sono quelli degli incontri (es. «Deathless Guardians», «Ravasaur Hunters»): per il nome del mostro guarda gli NPC di Questie. L'asar si legge con un piccolo script node (intestazione JSON dopo 16 byte), senza installare niente.
+- **Nomi spagnoli e francesi** (`names-es.json`, `names-fr.json`): QuestieDB ha i nomi dei client localizzati in `l10n/Forever/lookup<Tipo>/<lingua>.lua` e `l10n/Forever/traces/lookup<Tipo>/<lingua>.lua` (raccolti in Forever: vincono), i nomi inglesi in `data/Forever/forever*DB.lua` e `src/corrections/Forever/generated/foreverBase*.lua`; le zone vengono da Questie installato (`Localization/Translations/Zones`; in Classic vale `X` di `(Questie.IsClassic and X) or Y`). Scaricali con `gh api` in una cartella con gli stessi percorsi e lancia `node src/tools/names.js <cartella>`: tiene solo i nomi usati nella guida, scarta spell e talenti e, per le parole singole, tiene solo zone e NPC (quest e oggetti di una parola sono parole comuni).
 - **Reagent vendor e Trade Supplies** (opzione della mappa nell'addon): `src/data/vendors.json` con `node src/tools/vendors.js <cartella QuestieDB>` (foreverNpcDB, foreverItemDB, lo strato generato foreverBaseNpc/foreverBaseItem e areaIdToUiMapId.lua). Reagent vendor = chi vende i reagent delle classi (Arcane Powder, Light Feather, candele, semi…), perché il sottotitolo in QuestieDB spesso manca; Trade Supplies dal sottotitolo. Se un giocatore segnala un vendor che lì non c'è, chiedigli il nome: QuestieDB può non averlo.
 - **Ingressi dei dungeon**: `src/data/entrances.json` (coordinate della zona, più ingressi = più voci, il primo è il principale) sostituisce in `build.js` i segnaposti di Wowhead. Wowhead, MapUtils e Twinmap a volte segnano il portale o l'icona della mappa e si copiano a vicenda (Krol'dok era sbagliato in tutti e tre): per i dungeon classici vale la porta di QuestieDB (`support/Forever/Zones/dungeons.lua`, già convertita per le zone cambiate) confermata dalla meeting stone (`foreverObjectDB`); per quelli nuovi servono due fonti che concordano o la prova nel gioco. Se non è sicuro, metti la meeting stone. Coordinate nei testi «Come arrivarci» uguali a quelle del file.
 - **Icy Veins, ordine dei talent**: il link «Open in Calculator» della guida ha l'ordine dei punti dopo `#tc-` (prima di `~`): ogni carattere è il `data-talenturlid` di un talento nel calcolatore. Apri il link nel browser integrato e leggi i nomi dagli `input[data-talenturlid]` (controlla che i conteggi coincidano con i ranghi mostrati).
@@ -214,7 +223,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 ## 9. Regole dell'utente
 
-- Rispondi in italiano, con i termini di gioco in inglese. Ogni testo visibile deve esistere anche in inglese.
+- Rispondi in italiano, con i termini di gioco in inglese. Ogni testo visibile deve esistere in tutte e quattro le lingue (italiano, inglese, spagnolo, francese).
 - Le domande all'utente sono **sempre cliccabili** (AskUserQuestion), una decisione alla volta.
 - **Push e pubblicazioni solo quando l'utente lo dice.** Su CurseForge sempre in **beta**, mai release. Prima di azioni verso l'esterno (repo nuovi, account, pubblicazioni) chiedi.
 - Ogni modifica visibile: controlla a 390 px e su desktop (o con l'anteprima dell'addon) e **manda lo screenshot**.

@@ -2,8 +2,8 @@
 -- checklist da spuntare, Talent, Classe, Profession, Dungeon, Alt, Altro, Info) e le Opzioni (build, dungeon, cambio continente).
 -- Dati in Data.lua (generati da src/tools/addon.js dal sito). /fp apre e chiude, /fp dungeon, /fp cerca e /fp debug scrivono in chat.
 local ADDON = ...
--- lingua dell'addon: la sceglie il giocatore (Opzioni o /fp lang, salvata in ForeverPathfinderDB), inglese di base;
--- il gioco non ha l'italiano. Anche in italiano i nomi di gioco (quest, NPC, spell, oggetti) restano in inglese, come sul sito
+-- lingua dell'addon: la sceglie il giocatore (Opzioni o /fp lang, salvata in ForeverPathfinderDB); di base quella del gioco
+-- se è spagnolo (esES, esMX) o francese (frFR), altrimenti inglese: il gioco non ha l'italiano. Anche in italiano i nomi di gioco (quest, NPC, spell, oggetti) restano in inglese, come sul sito
 local LANG, D, POOL, PAGES, DG, LINKS = "en"
 local function bindData()
   D = ForeverPathfinderData[LANG] or ForeverPathfinderData.en
@@ -13,7 +13,14 @@ local function bindData()
   LINKS = ForeverPathfinderLinks and (ForeverPathfinderLinks[LANG] or ForeverPathfinderLinks.en) or {} -- per voce: p segnaposti, q quest
 end
 bindData()
+-- spagnolo e francese: nomi del client (quest, NPC, boss, dungeon); enName dà quello inglese, per Questie e le piante dei dungeon
+-- maiuscole anche per le lettere accentate (UTF-8 \195\160–190 → \195\128–158): Métiers → MÉTIERS
+local function UP(x) return (x:upper():gsub("\195([\160-\190])", function(c) return "\195" .. string.char(c:byte() - 32) end)) end
+local function enName(s) local m = ForeverPathfinderEN and ForeverPathfinderEN[LANG]; return m and m[s] or s end
 
+-- lingue dell'addon, nell'ordine delle Opzioni e di /fp lang; quella di base per il client spagnolo e francese
+local LANGS = { { "en", "English" }, { "it", "Italiano" }, { "es", "Español" }, { "fr", "Français" } }
+local CLIENT_LANG = { esES = "es", esMX = "es", frFR = "fr" }
 local TT = {
   it = {
     level = "Liv. %d", stageWord = "TAPPA", build = "Build: %s",
@@ -143,6 +150,134 @@ local TT = {
     pCap = "%s %d/%d: learn %s before going on (%s).", pCapT = "trainer: %s", pOfaTip = "Opens the recipe in OneForAll (sources, who knows it, skill-ups)",
     pVendT = "Reagent vendor", pTradeT = "Trade Supplies", pCamp = "Camping", pGold = "Gold",
     pSells = "Sells: %s",
+  },
+  es = {
+    level = "Nv. %d", stageWord = "ETAPA", build = "Build: %s",
+    talentNow = "Talento que coger ahora: %s (%s)", talentNext = "Próximo talento al nv. %d: %s (%s)", talentDone = "Talentos de la guía completados.",
+    unknown = "Raza o clase no reconocida. Escribe /fp set raza-clase (p. ej. /fp set human-warrior); /fp list para la lista.",
+    help = "/fp abre o cierra · /fp options · /fp dungeon · /fp find palabra · /fp set raza-clase · /fp auto · /fp list · /fp lang · /fp debug · /fp bug",
+    bug = "Informar de un error", bugTxt = "El enlace ya está seleccionado: cópialo con Ctrl+C y ábrelo en tu navegador. La página no pide registrarse.",
+    dungeon = "Mazmorra: %s · /fp dungeon para las misiones", go = "ve", opt = "opcional", skip = "sáltala",
+    dgAll = "‹ Todas las mazmorras", dgPick = "Haz clic en una mazmorra: misiones, jefes, cómo llegar. |cff7fd4b0•|r = novedad de Forever.", dgYou = "adecuada para tu nivel", dgLv = "Niveles %d–%d",
+    dgIdeal = "ideal al %s", dgWhere = "Dónde está", dgKey = "Llave de entrada", dgQ = "Misiones que coger antes de entrar", dgQC = "Misiones de clase",
+    dgNoQ = "No hay misiones en los datos para tu facción.", dgFrom = "De: %s", dgChainTip = "Muestra en el mapa el siguiente paso de la cadena",
+    dgBoss = "Jefes", dgTips = "Consejos", dgInfo = "Cómo hacerlas", dgNote = "Nota", qDoneTag = "hecha", dgNew = "novedad de Forever", oTrainers = "Todos los entrenadores de tu clase en el mapa del mundo",
+    zRec = "ZONAS RECOMENDADAS AL NIVEL %d", zRow = "niveles %s · %s misiones adecuadas", oZones = "Zonas recomendadas para tu nivel en la pestaña Ruta",
+    talTitle = "Talentos · %s", talLv = "Nivel %d", talMine = "Mi nivel (%d)", talNow = "Al nivel %d coge: {%s} %d/%d", talNext = "Después, al %d: %s",
+    talFrom10 = "Los talentos empiezan al nivel 10: aquí ves lo que cogerás.", talDone = "Build completa: no hay más puntos después del %d.", talRespec = "Respec al %d: %s", resize = "Arrastra para agrandar o achicar la ventana", talWhy = "Por qué esta build", talHide = "Ocultar",
+    talTrees = "Pasa el ratón por un talento para ver su descripción; haz clic para ir al nivel en que lo coges.", talOrder = "Orden de los talentos (clic para ir a ese nivel)",
+    cRot = "Rotación", cSpells = "Hechizos", cRace = "Raza", cNotes = "Consejos", cRotPick = "Elige la situación (se abre en tu nivel):",
+    cSpNow = "Para comprar y próximos", cSpAll = "Todos", cSpNone = "Nada que comprar ahora: vuelve al entrenador dentro de unos niveles.", cBuy = "comprar", cHave = "aprendido",
+    cSoon = "al nv. %d", cTal = "talento", cSpTip = "Pasa el ratón por un hechizo para ver su descripción.", cStats = "Estadísticas y armas", cForever = "Novedades de Forever",
+    dgNone = "Ninguna mazmorra recomendada al nv. %d.", dgEntry = "Entrada: %s", dgQuests = "Antes de entrar, coge:", dgClass = "(clase)",
+    found = "Encontradas %d tareas para \"%s\":", notFound = "Ninguna tarea de la guía contiene \"%s\".", lv = "Nv.",
+    loaded = "cargado: haz clic en el icono del minimapa o escribe /fp para abrir la guía.",
+    dbgGuide = "Guía: %s (%s)", dbgAuto = "automática", dbgHand = "elegida a mano",
+    dbgTal = "Talentos: gastados %s, libres %d", dbgSave = "Datos guardados: cargas %d, marcas %d",
+    nowMap = "Ver en el mapa", nowQuestie = "Questie", nowDone = "Hecho", nowAll = "Etapa completada", nowAllD = "Has marcado todas las tareas de esta etapa: pasa a la siguiente con la flecha de arriba.",
+    atLevel = "EN ESTE NIVEL (%d)", talWord = "Talento", dgWord = "Mazmorra", dgQ = "Misiones", talGo = "Árbol", zRow2 = "%s misiones adecuadas",
+    talPick = "%s, %d de %d", talNextT = "PRÓXIMOS", talBar = "Nivel %d", talBarTip = "Clic: ver el árbol en este nivel", talTreesT = "EL ÁRBOL AL NIVEL %d",
+    options = "Opciones", now = "estás aquí", mbHint = "Clic: abrir o cerrar la guía\nClic derecho: opciones\nArrastrar: mover el icono",
+    oBuild = "Build", oRoute = "Ruta", oDg = "Mazmorras en la ruta (con sus misiones)", oX = "Cambiar de continente después de la zona inicial",
+    oNoX = "Para esta raza la ruta se queda en el mismo continente.", oShow = "Interfaz", oMinimap = "Icono del minimapa",
+    oChar = "Personaje", oAuto = "Detectado por el juego: %s. Si no es correcto, escribe /fp set raza-clase; /fp auto para volver al modo automático.",
+    oSite = "La guía completa, con mapa y calculadoras: foreverpathfinder.github.io",
+    oLate = "Del 30 al 60", oLateTxt = "Del 30 al 44 cada etapa tiene las misiones reales de Forever; el orden de las zonas viene de guías aún no probadas en el juego. Del 44 al 60 la ruta va por etapas de zona: la actualizaremos cuando haya información más fiable.",
+    oLinks = "Enlaces con el juego", oMap = "Puntos de la etapa en el mapa del mundo; desde el punto de una tarea, también en el minimapa",
+    oQuests = "Marca sola las tareas cuando entregas la misión y muestra las misiones de tu registro",
+    oTal = "Resalta el talento que coger en la ventana de talentos", oTrainer = "En el entrenador, escribe y marca los hechizos de la guía que comprar",
+    oEnglish = "Talentos y hechizos se reconocen por su nombre en inglés: funcionan con el juego en inglés.",
+    inLog = "en tu registro", toTurn = "lista para entregar", pinSet = "Punto: %s · %s %.1f, %.1f", pinHere = "Has llegado: %s",
+    pinTip = "Ver en el mapa y en el minimapa", trainerBuy = "Para comprar según la guía: %s", ticked = "Marcado en la guía: %s",
+    dbgLinks = "Continentes %s · punto del juego %s · ventana de talentos %s · misiones en el registro %d", yes = "sí", no = "no",
+    qMap = "Ver la misión en el mapa", qMapTip = "Abre el mapa en el lugar, con el punto resaltado: quien la da o, si está en tu registro, el objetivo o la entrega más cercana",
+    qInfo = "Detalles de la misión", qInfoTip = "Abre la misión en el Journey de Questie", qWait = "Questie todavía está cargando: inténtalo de nuevo en un momento.",
+    qOff = "Questie no está activo: las marcas automáticas, el mapa y los detalles de las misiones pasan por Questie.", qSync = "Marcadas %d tareas ya hechas (misiones entregadas, hechizos ya aprendidos o talentos gastados).",
+    ofa = "Abrir en OneForAll", ofaTip = "Carga esta build (hasta el 60) en la calculadora de talentos de OneForAll",
+    ofaFail = "OneForAll no ha cargado la build solo: cópiala con Ctrl+C y pégala en Import.",
+    dgMap = "Entrada", dgMapTip = "Abre el mapa del mundo en la entrada, con el punto", dgMapMU = "Haz clic en el icono de entrada de MapUtils: se abre el mapa de la mazmorra",
+    dgLoot = "Jefes y botín", dgLootTip = "Abre la mazmorra en OneForAll (jefes, botín, misiones)",
+    dbgSpell = "Hechizos en el libro: %d · Tarea del entrenador %s, faltan: %s",
+    dbgAddons = "Addons enlazados: Questie %s · OneForAll %s · MapUtils %s",
+    behind = "PENDIENTES (%d)", behindMore = "y %d más: vuelve atrás con < para encontrarlas",
+    qNoPoint = "Questie no tiene un punto en el mapa para %s (empieza con un objeto o un monstruo).", pinSetQ = "%s: %s · %s %.1f, %.1f", pinOn = "Clic: punto aquí", pinOff = "Clic: quitar el punto",
+    dgNext = "siguiente", dgThis = "la misión de la mazmorra", dgStep = "paso %d de %d", dgNowDo = "Ahora:", dgGo = "ve a {%s}",
+    dgDo = "completa {%s}", dgTurn = "entrega {%s}",
+    dgSteps = "Todos los pasos", dgStepsHide = "Ocultar los pasos", dgGLog = "En tu registro", dgGLock = "Por desbloquear", dgGTake = "Puedes cogerlas ahora", dgGDone = "Hechas",
+    dgQSum = "Misiones:", dgQLog = "%d en tu registro", dgQDone = "%d hechas", dgQDone1 = "1 hecha", dgQTake = "%d por coger", dgQn = "misiones %d/%d",
+    dgNeedKey = "necesita una llave", dgNow = "Adecuadas para tu nivel ahora (nv. %d)", dgAllT = "Todas las mazmorras", dgSecQ = "Misiones", dgSecWhere = "Cómo llegar", dgSecPlan = "Mapa", dgKeyDrag = "Clic izquierdo", dgDrag = "arrastrar", dgKeyZoom = "Ctrl + rueda", dgZoom = "acercar y alejar", dgCredit = "Mapa reconstruido por el addon Twinmap", dgEntr = "Entrada",
+    pNone = "Este personaje aún no tiene profesiones. Recomendadas para tu clase:", pBrowse = "Todas las profesiones (clic para ver la ruta):", pOthers = "Otras ›",
+    pSkill = "Skill %d/%d", pNotYours = "No la tienes: la ruta empieza en 1.", pHere = "estás aquí", pItemKeys = "Ratón sobre un objeto: vista previa   ·   Mayús + clic: enlace en el chat", pApp = "Aprende {Apprentice} (skill hasta 75)",
+    pLearn = "Aprende {%s} antes del %d · nv. %d, skill %d", pHow = "Se aprende con %s", pTrainer = "Entrenador más cercano en el mapa", pFrom = "Entrenador: {%s}%s", pAtCap = "Estás en el cap de %d: ve al entrenador de abajo para aprender %s y seguir subiendo.", pShop = "Lista de la compra de %d a 300",
+    pMore = "Novedades de Forever, camping y oro", pHide = "Ocultar", pBag = "Entre paréntesis cuántos tienes (bolsas y banco).", pVendor = "vendedor",
+    pMapT = "Los entrenadores de tus profesiones en el mapa del mundo", pMapV = "Reagent vendors y Trade Supplies de tu facción en el mapa del mundo (con los materiales de tus profesiones que venden)",
+    pCap = "%s %d/%d: aprende %s antes de seguir (%s).", pCapT = "entrenador: %s", pOfaTip = "Abre la receta en OneForAll (fuentes, quién la sabe, skill-ups)",
+    pVendT = "Reagent vendor", pTradeT = "Trade Supplies", pCamp = "Camping", pGold = "Oro",
+    pSells = "Vende: %s",
+  },
+  fr = {
+    level = "Niv. %d", stageWord = "ÉTAPE", build = "Build : %s",
+    talentNow = "Talent à prendre maintenant : %s (%s)", talentNext = "Prochain talent au niv. %d : %s (%s)", talentDone = "Talents du guide terminés.",
+    unknown = "Race ou classe non reconnue. Tapez /fp set race-classe (ex. /fp set human-warrior) ; /fp list pour la liste.",
+    help = "/fp ouvre ou ferme · /fp options · /fp dungeon · /fp find mot · /fp set race-classe · /fp auto · /fp list · /fp lang · /fp debug · /fp bug",
+    bug = "Signaler une erreur", bugTxt = "Le lien est déjà sélectionné : copiez-le avec Ctrl+C et ouvrez-le dans votre navigateur. La page ne demande pas d’inscription.",
+    dungeon = "Donjon : %s · /fp dungeon pour les quêtes", go = "allez-y", opt = "optionnel", skip = "à éviter",
+    dgAll = "‹ Tous les donjons", dgPick = "Cliquez sur un donjon : quêtes, boss, comment y aller. |cff7fd4b0•|r = nouveauté de Forever.", dgYou = "adapté à votre niveau", dgLv = "Niveaux %d–%d",
+    dgIdeal = "idéal au %s", dgWhere = "Où il se trouve", dgKey = "Clé d’entrée", dgQ = "Quêtes à prendre avant d’entrer", dgQC = "Quêtes de classe",
+    dgNoQ = "Aucune quête dans les données pour votre faction.", dgFrom = "De : %s", dgChainTip = "Montre sur la carte l’étape suivante de la chaîne",
+    dgBoss = "Boss", dgTips = "Conseils", dgInfo = "Comment les faire", dgNote = "Note", qDoneTag = "faite", dgNew = "nouveauté de Forever", oTrainers = "Tous les Trainers de votre classe sur la carte du monde",
+    zRec = "ZONES CONSEILLÉES AU NIVEAU %d", zRow = "niveaux %s · %s quêtes adaptées", oZones = "Zones conseillées pour votre niveau dans l’onglet Parcours",
+    talTitle = "Talents · %s", talLv = "Niveau %d", talMine = "Mon niveau (%d)", talNow = "Au niveau %d prenez : {%s} %d/%d", talNext = "Puis, au %d : %s",
+    talFrom10 = "Les talents commencent au niveau 10 : ici vous voyez ce que vous prendrez.", talDone = "Build terminé : plus de points après le %d.", talRespec = "Respec au %d : %s", resize = "Faites glisser pour agrandir ou réduire la fenêtre", talWhy = "Pourquoi ce build", talHide = "Masquer",
+    talTrees = "Survolez un talent pour sa description ; cliquez pour aller au niveau où vous le prenez.", talOrder = "Ordre des talents (clic pour aller à ce niveau)",
+    cRot = "Rotation", cSpells = "Sorts", cRace = "Race", cNotes = "Conseils", cRotPick = "Choisissez la situation (elle s’ouvre sur votre niveau) :",
+    cSpNow = "À acheter et prochains", cSpAll = "Tous", cSpNone = "Rien à acheter maintenant : retournez voir le Trainer dans quelques niveaux.", cBuy = "à acheter", cHave = "appris",
+    cSoon = "au niv. %d", cTal = "talent", cSpTip = "Survolez un sort pour sa description.", cStats = "Stats et armes", cForever = "Nouveautés de Forever",
+    dgNone = "Aucun donjon conseillé au niv. %d.", dgEntry = "Entrée : %s", dgQuests = "Avant d’entrer, prenez :", dgClass = "(classe)",
+    found = "%d tâches trouvées pour \"%s\" :", notFound = "Aucune tâche du guide ne contient \"%s\".", lv = "Niv.",
+    loaded = "chargé : cliquez sur l’icône de la minicarte ou tapez /fp pour ouvrir le guide.",
+    dbgGuide = "Guide : %s (%s)", dbgAuto = "automatique", dbgHand = "choisi à la main",
+    dbgTal = "Talents : dépensés %s, libres %d", dbgSave = "Données enregistrées : chargements %d, coches %d",
+    nowMap = "Voir sur la carte", nowQuestie = "Questie", nowDone = "Fait", nowAll = "Étape terminée", nowAllD = "Vous avez coché toutes les tâches de cette étape : passez à la suivante avec la flèche en haut.",
+    atLevel = "À CE NIVEAU (%d)", talWord = "Talent", dgWord = "Donjon", dgQ = "Quêtes", talGo = "Arbre", zRow2 = "%s quêtes adaptées",
+    talPick = "%s, %d sur %d", talNextT = "ENSUITE", talBar = "Niveau %d", talBarTip = "Clic : voir l’arbre à ce niveau", talTreesT = "L’ARBRE AU NIVEAU %d",
+    options = "Options", now = "vous êtes ici", mbHint = "Clic : ouvrir ou fermer le guide\nClic droit : options\nGlisser : déplacer l’icône",
+    oBuild = "Build", oRoute = "Parcours", oDg = "Donjons dans le parcours (avec leurs quêtes)", oX = "Changer de continent après la zone de départ",
+    oNoX = "Pour cette race, le parcours reste sur le même continent.", oShow = "Interface", oMinimap = "Icône de la minicarte",
+    oChar = "Personnage", oAuto = "Détecté par le jeu : %s. Si c’est faux, tapez /fp set race-classe ; /fp auto pour revenir en automatique.",
+    oSite = "Le guide complet, avec carte et calculateurs : foreverpathfinder.github.io",
+    oLate = "Du 30 au 60", oLateTxt = "Du 30 au 44, chaque étape a les vraies quêtes de Forever ; l’ordre des zones vient de guides pas encore testés en jeu. Du 44 au 60, le parcours avance par étapes de zone : nous le mettrons à jour quand il y aura des informations plus fiables.",
+    oLinks = "Liens avec le jeu", oMap = "Repères de l’étape sur la carte du monde ; depuis le repère d’une tâche, aussi sur la minicarte",
+    oQuests = "Coche tout seul les tâches quand vous rendez la quête et montre les quêtes de votre journal",
+    oTal = "Met en évidence le talent à prendre dans la fenêtre des talents", oTrainer = "Chez le Trainer, affiche et marque les sorts du guide à acheter",
+    oEnglish = "Talents et sorts sont reconnus par leur nom anglais : ils marchent avec le jeu en anglais.",
+    inLog = "dans votre journal", toTurn = "à rendre", pinSet = "Repère : %s · %s %.1f, %.1f", pinHere = "Vous êtes arrivé : %s",
+    pinTip = "Voir sur la carte et la minicarte", trainerBuy = "À acheter selon le guide : %s", ticked = "Coché dans le guide : %s",
+    dbgLinks = "Continents %s · repère du jeu %s · fenêtre des talents %s · quêtes dans le journal %d", yes = "oui", no = "non",
+    qMap = "Voir la quête sur la carte", qMapTip = "Ouvre la carte à l’endroit, avec le repère en évidence : qui la donne ou, si elle est dans votre journal, l’objectif ou le rendu le plus proche",
+    qInfo = "Détails de la quête", qInfoTip = "Ouvre la quête dans le Journey de Questie", qWait = "Questie est encore en train de charger : réessayez dans un instant.",
+    qOff = "Questie n’est pas actif : les coches automatiques, la carte et les détails des quêtes passent par Questie.", qSync = "%d tâches déjà faites cochées (quêtes rendues, sorts déjà appris ou talents dépensés).",
+    ofa = "Ouvrir dans OneForAll", ofaTip = "Charge ce build (jusqu’au 60) dans le calculateur de talents de OneForAll",
+    ofaFail = "OneForAll n’a pas chargé le build tout seul : copiez-le avec Ctrl+C et collez-le dans Import.",
+    dgMap = "Entrée", dgMapTip = "Ouvre la carte du monde sur l’entrée, avec le repère", dgMapMU = "Cliquez sur l’icône d’entrée de MapUtils : la carte du donjon s’ouvre",
+    dgLoot = "Boss et butin", dgLootTip = "Ouvre le donjon dans OneForAll (boss, butin, quêtes)",
+    dbgSpell = "Sorts dans le grimoire : %d · Tâche du Trainer %s, manquants : %s",
+    dbgAddons = "Addons liés : Questie %s · OneForAll %s · MapUtils %s",
+    behind = "EN RETARD (%d)", behindMore = "et %d de plus : revenez en arrière avec < pour les trouver",
+    qNoPoint = "Questie n’a pas de point sur la carte pour %s (elle commence par un objet ou un monstre).", pinSetQ = "%s : %s · %s %.1f, %.1f", pinOn = "Clic : repère ici", pinOff = "Clic : retirer le repère",
+    dgNext = "suivante", dgThis = "la quête du donjon", dgStep = "étape %d sur %d", dgNowDo = "Maintenant :", dgGo = "allez à {%s}",
+    dgDo = "terminez {%s}", dgTurn = "rendez {%s}",
+    dgSteps = "Toutes les étapes", dgStepsHide = "Masquer les étapes", dgGLog = "Dans votre journal", dgGLock = "À débloquer", dgGTake = "Vous pouvez les prendre maintenant", dgGDone = "Faites",
+    dgQSum = "Quêtes :", dgQLog = "%d dans votre journal", dgQDone = "%d faites", dgQDone1 = "1 faite", dgQTake = "%d à prendre", dgQn = "quêtes %d/%d",
+    dgNeedKey = "demande une clé", dgNow = "Adaptés à votre niveau maintenant (niv. %d)", dgAllT = "Tous les donjons", dgSecQ = "Quêtes", dgSecWhere = "Comment y aller", dgSecPlan = "Carte", dgKeyDrag = "Clic gauche", dgDrag = "glisser", dgKeyZoom = "Ctrl + molette", dgZoom = "zoomer et dézoomer", dgCredit = "Carte reconstituée par l’addon Twinmap", dgEntr = "Entrée",
+    pNone = "Ce personnage n’a pas encore de métiers. Conseillés pour votre classe :", pBrowse = "Tous les métiers (clic pour voir le parcours) :", pOthers = "Autres ›",
+    pSkill = "Skill %d/%d", pNotYours = "Vous ne l’avez pas : le parcours commence à 1.", pHere = "vous êtes ici", pItemKeys = "Survolez un objet : aperçu   ·   Maj + clic : lien dans le chat", pApp = "Apprenez {Apprentice} (skill jusqu’à 75)",
+    pLearn = "Apprenez {%s} avant le %d · niv. %d, skill %d", pHow = "S’apprend avec %s", pTrainer = "Trainer le plus proche sur la carte", pFrom = "Trainer : {%s}%s", pAtCap = "Vous êtes au cap de %d : allez voir le Trainer ci-dessous pour apprendre %s et continuer à monter.", pShop = "Liste de courses de %d à 300",
+    pMore = "Nouveautés de Forever, camping et or", pHide = "Masquer", pBag = "Entre parenthèses, combien vous en avez (sacs et banque).", pVendor = "vendeur",
+    pMapT = "Les Trainers de vos métiers sur la carte du monde", pMapV = "Reagent vendors et Trade Supplies de votre faction sur la carte du monde (avec les matériaux de vos métiers qu’ils vendent)",
+    pCap = "%s %d/%d : apprenez %s avant de continuer (%s).", pCapT = "Trainer : %s", pOfaTip = "Ouvre la recette dans OneForAll (sources, qui la connaît, skill-ups)",
+    pVendT = "Reagent vendor", pTradeT = "Trade Supplies", pCamp = "Camping", pGold = "Or",
+    pSells = "Vend : %s",
   },
 }
 local T = TT.en
@@ -350,6 +485,8 @@ local function mod(name) return QuestieLoader:ImportModule(name) end
 local function qIDs(name)
   if not QZ() then return end
   local ok, ids = pcall(LibQuestieDB.Quest.IdsByName, name)
+  -- nome del client spagnolo o francese: Questie col gioco in inglese conosce quello inglese
+  if not (ok and ids) and enName(name) ~= name then ok, ids = pcall(LibQuestieDB.Quest.IdsByName, enName(name)) end
   return ok and ids or nil
 end
 -- ponytail: basta un ID con quel nome consegnato; due quest omonime (Alleanza e Orda) sarebbero un falso positivo, raro nel leveling
@@ -1005,10 +1142,10 @@ local function norm(s) return (s:lower():gsub("^the ", ""):gsub("[^%w]", "")) en
 -- d'ingresso (un clic apre la mappa interna: MapUtils non ha funzioni per altri addon); boss e loot nella scheda di OneForAll
 local DPOS
 local function dgFind(title) -- il nome più lungo con cui comincia il titolo ("The Deadmines Livelli 17–26 …")
-  if not DPOS then -- più voci con lo stesso nome = più ingressi (la prima è la principale): ognuna li ha tutti in .all
-    DPOS = {}; local by = {}
+  if not DPOS or DPOS.lang ~= LANG then -- più voci con lo stesso nome = più ingressi (la prima è la principale): ognuna li ha tutti in .all
+    DPOS = { lang = LANG }; local by = {} -- d.es, d.fr: il nome nella lingua dell'addon, come nei titoli
     for _, d in ipairs(ForeverPathfinderDungeonPos or {}) do
-      local p = { d[2], d[3], d[4], d[1], norm(d[1]), z = d.z, l = d.l }
+      local p = { d[2], d[3], d[4], d[1], norm(d[LANG] or d[1]), z = d.z, l = d.l }
       local k = p[5]; by[k] = by[k] or {}; p.all = by[k]; by[k][#by[k] + 1] = p; DPOS[#DPOS + 1] = p
     end
   end
@@ -1274,7 +1411,7 @@ local function pvPin(n, x, yy, tip, pic)
 end
 local function dgPlan(d, wings)
   local order = {}
-  for i, b in ipairs(d[11]) do order[i] = low(b:gsub("%s*%b()", "")) end
+  for i, b in ipairs(d[11]) do order[i] = low(enName((b:gsub("%s*%b()", "")))) end
   local function at(n) n = low(n); n = PAK[n] or n; for i, o in ipairs(order) do if o == n or o:find(n, 1, true) or n:find(o, 1, true) then return i end end return 99 end
   -- più ali (Blackrock Spire, Dire Maul): una fila di pulsanti sceglie quale
   local wi = math.min(V.dgWing or 1, #wings)
@@ -1356,7 +1493,7 @@ function drawDungeons(g)
   end
   button(T.dgAll, 0, y, function() V.dgSel = nil; render(true) end); y = y - 32
   -- testata: nome, a destra Mappa e Boss e loot, livelli e giudizio, perché, le quest che hai
-  local p, od = dgFind(d[1]), ofaDungeon(d[1])
+  local p = dgFind(d[1]); local od = ofaDungeon(p and p[4] or d[1])
   cardOpen(); y = y - 12
   local top, bxr = y, BW - PAD
   line("1", d[1])
@@ -2006,9 +2143,8 @@ local function drawOptions(g, k)
   opt(T.pMapT, o.ptr == true, function(val) o.ptr = val or nil end)
   opt(T.pMapV, o.pvd == true, function(val) o.pvd = val or nil end)
   line("0", T.oEnglish)
-  line("2", "Language · Lingua")
-  opt("English", LANG == "en", function() setLang("en") end)
-  opt("Italiano", LANG == "it", function() setLang("it") end)
+  line("2", "Language · Lingua · Idioma · Langue")
+  for _, l in ipairs(LANGS) do opt(l[2], LANG == l[1], function() setLang(l[1]) end) end
   line("2", T.oChar)
   line("0", T.oAuto:format(g.name .. " (" .. k .. ")"))
   line("0", T.oSite)
@@ -2054,7 +2190,7 @@ local function layoutNav()
     if not t then ny = ny - 14
     else
       local b = navB[t[1]]
-      b.fs:SetText(t[2]:upper())
+      b.fs:SetText(UP(t[2])) -- maiuscole anche per le lettere accentate (é → É)
       b:ClearAllPoints()
       if t[1] == "opzioni" then b:SetPoint("TOPLEFT", 0, -(H - 36)) else b:SetPoint("TOPLEFT", 0, ny); ny = ny - 26 end
     end
@@ -2064,7 +2200,9 @@ end
 layoutNav()
 -- lingua dell'addon: si sceglie nelle Opzioni (o con /fp lang)
 setLang = function(l)
-  LANG = (l == "it") and "it" or "en"
+  l = TT[l] and l or "en"
+  if DB and DB.lang and DB.lang ~= l then DB.prevLang = DB.lang end -- /fp lang senza lingua torna a questa
+  LANG = l
   if DB then DB.lang = LANG end
   T = TT[LANG]; bindData(); layoutNav()
   if f:IsShown() then render() end
@@ -2080,7 +2218,7 @@ render = function(top)
   else
     local cls = k:match("-(%a+)$")
     crest:SetTexture(iconPath("classicon_" .. cls))
-    title:SetText(g.name:upper())
+    title:SetText(UP(g.name))
     sub:SetText(T.level:format(UnitLevel("player")) .. " · " .. v.build)
     sub:ClearAllPoints(); sub:SetPoint("TOPLEFT", 42 + math.floor(title:GetStringWidth() or 0) + 10, -16)
     local here
@@ -2140,7 +2278,7 @@ do
     if not QZ() then return qs end
     local key = npc .. "|" .. table.concat(qs, "|")
     if PQ[key] then return PQ[key] end
-    local who, out = low(npc), {}
+    local who, whoEn, out = low(npc), low(enName(npc)), {} -- whoEn: col gioco in inglese Questie ha il nome inglese
     local ok = pcall(function()
       local DBQ = mod("QuestieDB")
       for _, q in ipairs(qs) do
@@ -2148,7 +2286,7 @@ do
         for _, id in ipairs(qIDs(q) or {}) do
           for _, f in ipairs({ "startedBy", "finishedBy" }) do
             for _, n in ipairs((DBQ.QueryQuestSingle(id, f) or {})[1] or {}) do
-              if not hit and low(tostring(DBQ.QueryNPCSingle(n, "name") or "")) == who then hit = true end
+              local nn = low(tostring(DBQ.QueryNPCSingle(n, "name") or "")); if not hit and (nn == who or nn == whoEn) then hit = true end
             end
           end
         end
@@ -2802,7 +2940,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
     C.turned = C.turned or {} -- titoli delle quest consegnate
     C.fp = C.fp or {} -- Flight Path conosciuti, visti sulla mappa dei voli
     minimapIcon()
-    setLang(DB.lang or "en")
+    setLang(DB.lang or CLIENT_LANG[GetLocale and GetLocale() or ""] or "en")
     hookBlizzard()
     return
   elseif event == "PLAYER_LOGIN" then
@@ -2923,7 +3061,8 @@ SlashCmdList.FOREVERPATHFINDER = function(msg)
   elseif cmd == "bug" or cmd == "errore" then
     bugLink(); return
   elseif cmd == "lang" or cmd == "lingua" or cmd == "language" then
-    setLang(arg == "it" and "it" or arg == "en" and "en" or (LANG == "it" and "en" or "it")); return
+    -- /fp lang it|en|es|fr; senza lingua torna a quella di prima (o passa tra inglese e italiano)
+    setLang(TT[arg] and arg or DB.prevLang or (LANG == "en" and "it" or "en")); return
   elseif cmd == "help" or cmd == "?" then
     say(T.help); return
   elseif f:IsShown() then

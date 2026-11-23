@@ -17,7 +17,7 @@ a{color:var(--ac)}
 .hero small{display:block;font:600 .8rem Cinzel,serif;letter-spacing:.3em;color:var(--ice)}
 .hero h1{margin:.1em 0 0;font:800 2.2rem/1.1 Cinzel,serif;background:linear-gradient(#ffe7a3,#e8b84a 55%,#a8761e);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{margin:.5em auto 0;max-width:34em;color:var(--mu)}
-.lang{position:absolute;top:12px;right:12px;display:flex;padding:5px 7px;border:1px solid var(--bd);border-radius:8px;background:#0b1626;cursor:pointer}
+.lang{position:absolute;top:12px;right:12px;z-index:3;text-align:left}.lang>summary{display:flex;align-items:center;gap:6px;padding:5px 7px;border:1px solid var(--bd);border-radius:8px;background:#0b1626;cursor:pointer;list-style:none;line-height:0}.lang>summary::-webkit-details-marker{display:none}.lang>summary:after{content:"";border:4px solid transparent;border-top-color:var(--mu);margin-top:4px}.lang>summary:hover,.lang[open]>summary{border-color:var(--gold)}.lang>div{position:absolute;right:0;top:calc(100% + 6px);display:grid;min-width:160px;padding:4px;border-radius:9px;background:#0b1626;border:1px solid var(--bd);box-shadow:0 10px 28px #000a}.lang a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:6px;color:var(--tx,#e7eef7);text-decoration:none;line-height:1.2}.lang a:hover,.lang a[aria-current]{background:var(--card2)}.lang a[aria-current]{color:var(--gold)}.lang svg{display:block;border-radius:2px;flex:none}
 .back{position:absolute;top:14px;left:14px;font-size:.85rem;text-decoration:none}
 main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
 h2{font:800 1.35rem Cinzel,serif;color:var(--gold);margin:1.6em 0 .5em}
@@ -41,22 +41,24 @@ summary{cursor:pointer;padding:12px 0;font-weight:700}details[open]{padding-bott
 .gal img{display:block;width:auto;max-width:100%;height:auto;margin:0 auto;border-radius:6px;box-shadow:0 8px 24px #000a}
 .gal figcaption{color:var(--mu);font-size:.88rem;margin-top:8px;text-align:center}
 .keys{display:flex;flex-wrap:wrap;gap:6px}.keys code{font-size:.8rem}
-[data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en]{display:block}
-html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
+[data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en],html[lang=es] [data-l=es],html[lang=fr] [data-l=fr]{display:block}
+html[lang=it] span[data-l=it],html[lang=en] span[data-l=en],html[lang=es] span[data-l=es],html[lang=fr] span[data-l=fr]{display:inline}
 .totop{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card2);color:var(--gold);border:1px solid var(--gold);box-shadow:0 6px 18px #000a;cursor:pointer;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}.totop.on{opacity:1;transform:none;pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.totop{transition:none}html{scroll-behavior:auto}}
-@media(max-width:520px){.btn,.back,.lang{min-height:44px}.back{display:inline-flex;align-items:center;padding:0 6px}.lang{min-width:44px;align-items:center;justify-content:center}}
+@media(max-width:520px){.btn,.back,.lang>summary,.lang a{min-height:44px}.back{display:inline-flex;align-items:center;padding:0 6px}.lang>summary{min-width:44px;justify-content:center}}
 @media(max-width:480px){.hero h1{font-size:1.8rem}td:first-child{white-space:normal}}
 </style></head><body>
 
 <header class="hero">
- <a class="back" href="./"><span data-l="it">‹ Guida</span><span data-l="en">‹ Guide</span></a>
- <button class="lang" id="lang" type="button" aria-label="Lingua / Language"><svg id="flagEn" viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg><svg id="flagIt" viewBox="0 0 3 2" width="23" height="15" aria-hidden="true" style="display:none"><path fill="#009246" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#CE2B37" d="M2 0h1v2H2z"/></svg></button>
+ <a class="back" href="./"><span data-l="it">‹ Guida</span><span data-l="en">‹ Guide</span><span data-l="es">‹ Guía</span><span data-l="fr">‹ Guide</span></a>
+ <details class="lang" id="lang"><summary aria-label="Lingua · Language · Idioma · Langue"></summary><div><a href="#" data-lang="it" lang="it"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#009246" d="M0 0h20v30H0z"/><path fill="#fff" d="M20 0h20v30H20z"/><path fill="#CE2B37" d="M40 0h20v30H40z"/></svg>Italiano</a><a href="#" data-lang="en" lang="en"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>English</a><a href="#" data-lang="es" lang="es"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#AA151B" d="M0 0h60v30H0z"/><path fill="#F1BF00" d="M0 7.5h60v15H0z"/></svg>Español</a><a href="#" data-lang="fr" lang="fr"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#002395" d="M0 0h20v30H0z"/><path fill="#fff" d="M20 0h20v30H20z"/><path fill="#ED2939" d="M40 0h20v30H40z"/></svg>Français</a></div></details>
  <small>Forever Pathfinder</small>
- <h1><span data-l="it">Addon in gioco</span><span data-l="en">In-game addon</span></h1>
- <p data-l="it">Porta la guida dentro il gioco: tutte le schede del sito in una finestra, con i segnaposti sulla mappa, le quest che si spuntano da sole, il talento da prendere evidenziato e gli spell da comprare al trainer. Collegata a Questie (obbligatorio), OneForAll e MapUtils. GRATIS. <span class="pill">versione 1.10.17 · prova</span></p>
- <p data-l="en">Brings the guide into the game: every tab of the website in one window, with waypoints on the map, quests that tick themselves, the talent to take highlighted and the spells to buy at the trainer. Linked to Questie (required), OneForAll and MapUtils. Free. <span class="pill">version 1.10.17 · test</span></p>
- <div class="btns"><a class="btn" href="ForeverPathfinder.zip" download><span data-l="it">⬇ Scarica l’addon (.zip, 1 MB)</span><span data-l="en">⬇ Download the addon (.zip, 1 MB)</span></a><a class="btn sec" href="https://www.curseforge.com/wow/addons/forever-pathfinder" target="_blank" rel="noopener"><span data-l="it">CurseForge ↗</span><span data-l="en">CurseForge ↗</span></a><a class="btn sec" href="./"><span data-l="it">Apri la guida sul sito</span><span data-l="en">Open the guide on the website</span></a></div>
+ <h1><span data-l="it">Addon in gioco</span><span data-l="en">In-game addon</span><span data-l="es">Addon para el juego</span><span data-l="fr">Addon en jeu</span></h1>
+ <p data-l="it">Porta la guida dentro il gioco: tutte le schede del sito in una finestra, con i segnaposti sulla mappa, le quest che si spuntano da sole, il talento da prendere evidenziato e gli spell da comprare al trainer. Collegata a Questie (obbligatorio), OneForAll e MapUtils. GRATIS. <span class="pill">versione 1.10.18 · prova</span></p>
+ <p data-l="en">Brings the guide into the game: every tab of the website in one window, with waypoints on the map, quests that tick themselves, the talent to take highlighted and the spells to buy at the trainer. Linked to Questie (required), OneForAll and MapUtils. Free. <span class="pill">version 1.10.18 · test</span></p>
+ <p data-l="es">Lleva la guía dentro del juego: todas las pestañas del sitio en una ventana, con puntos en el mapa, misiones que se marcan solas, el talento que coger resaltado y los hechizos que comprar en el entrenador. Conectada con Questie (obligatorio), OneForAll y MapUtils. Gratis. <span class="pill">versión 1.10.18 · prueba</span></p>
+ <p data-l="fr">Emmène le guide dans le jeu : tous les onglets du site dans une fenêtre, avec des repères sur la carte, des quêtes qui se cochent toutes seules, le talent à prendre mis en évidence et les sorts à acheter chez le Trainer. Lié à Questie (obligatoire), OneForAll et MapUtils. Gratuit. <span class="pill">version 1.10.18 · test</span></p>
+ <div class="btns"><a class="btn" href="ForeverPathfinder.zip" download><span data-l="it">⬇ Scarica l’addon (.zip, 2 MB)</span><span data-l="en">⬇ Download the addon (.zip, 2 MB)</span><span data-l="es">⬇ Descargar el addon (.zip, 2 MB)</span><span data-l="fr">⬇ Télécharger l’addon (.zip, 2 Mo)</span></a><a class="btn sec" href="https://www.curseforge.com/wow/addons/forever-pathfinder" target="_blank" rel="noopener"><span data-l="it">CurseForge ↗</span><span data-l="en">CurseForge ↗</span><span data-l="es">CurseForge ↗</span><span data-l="fr">CurseForge ↗</span></a><a class="btn sec" href="./"><span data-l="it">Apri la guida sul sito</span><span data-l="en">Open the guide on the website</span><span data-l="es">Abrir la guía en el sitio</span><span data-l="fr">Ouvrir le guide sur le site</span></a></div>
 </header>
 
 <main>
@@ -84,7 +86,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <li><b>Profession:</b> legge dal gioco le profession che hai e la tua skill e mostra il percorso fino a 300 con il passo in cui sei: cosa craftare o raccogliere, quante volte, i materiali con quanti ne hai nelle borse, il trainer più vicino per ogni grado; con <b>OneForAll</b> un clic apre la ricetta. Al massimo del grado una riga in chat ti ricorda di impararne uno nuovo. Facoltativo: tutti i trainer e i reagent vendor delle tue profession sulla mappa del mondo.</li>
    <li><b>Trainer:</b> appena lo apri, scrive in chat gli spell della guida da comprare e li segna nell’elenco. Nella guida gli spell che conosci già sono in verde e la voce si spunta da sola quando li hai tutti.</li>
    <li><b>Opzioni</b> nel gioco: build, dungeon sì o no, cambio di continente, icona e ogni collegamento col gioco da accendere o spegnere.</li>
-   <li><b>Inglese o italiano</b>, a scelta nelle Opzioni o con <kbd>/fp lang</kbd> (di base inglese). In italiano i nomi di quest, NPC, spell e oggetti restano in inglese, come sul sito e nel gioco.</li>
+   <li><b>Inglese, italiano, spagnolo o francese</b>, a scelta nelle Opzioni o con <kbd>/fp lang</kbd> (di base la lingua del gioco se è spagnolo o francese, altrimenti inglese). In italiano i nomi di quest, NPC, spell e oggetti restano in inglese, come sul sito; in spagnolo e francese quest, NPC, oggetti e zone hanno i nomi del client del gioco, spell e talenti restano in inglese.</li>
   </ul>
   <p class="note">Quest, talenti e spell si riconoscono dal nome inglese: questi collegamenti funzionano con il gioco in inglese. Per la mappa interattiva e i calcolatori tieni aperto il sito sul telefono.</p>
  </div>
@@ -125,7 +127,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <tr><td><kbd>/fp cerca parola</kbd></td><td>Cerca in tutta la guida (es. <kbd>/fp cerca sentinel hill</kbd>): scrive le prime voci in chat e apre il Percorso sulla tappa della prima. Uguale: <kbd>/fp find</kbd>.</td></tr>
    <tr><td><kbd>/fp bug</kbd></td><td>Apre un riquadro col link della pagina per segnalare un errore (senza registrarti), già selezionato: copialo con Ctrl+C e aprilo nel browser. Lo stesso riquadro si apre con «Segnala un errore», nella colonna delle schede sopra Opzioni.</td></tr>
    <tr><td><kbd>/fp debug</kbd></td><td>Scrive in chat versione, razza e classe come le vede il gioco, guida riconosciuta, talenti, salvataggi e collegamenti col gioco (continenti, segnaposto, finestra dei talenti, quest nel registro). Se qualcosa non va, mandaci uno screenshot di queste righe dal link in fondo alla pagina.</td></tr>
-   <tr><td><kbd>/fp lang</kbd></td><td>Passa dall’inglese all’italiano e viceversa (anche <kbd>/fp lang it</kbd> o <kbd>/fp lang en</kbd>).</td></tr>
+   <tr><td><kbd>/fp lang</kbd></td><td>Torna alla lingua di prima; <kbd>/fp lang it</kbd>, <kbd>en</kbd>, <kbd>es</kbd> o <kbd>fr</kbd> ne sceglie una.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Riassunto dei comandi in chat.</td></tr>
   </table>
   <h3>Nella finestra</h3>
@@ -184,7 +186,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <li><b>Professions:</b> reads your professions and skill from the game and shows the route up to 300 with the step you are on: what to craft or gather, how many times, the materials with how many you have in your bags, the nearest trainer for each rank; with <b>OneForAll</b> one click opens the recipe. At the rank cap a chat line reminds you to learn the next one. Optional: all trainers and reagent vendors for your professions on the world map.</li>
    <li><b>Trainer:</b> as soon as you open it, it prints in chat the guide spells to buy and marks them in the list. In the guide the spells you already know are green, and the item ticks itself once you have them all.</li>
    <li><b>Options</b> in game: build, dungeons on or off, continent switch, icon and every game link to turn on or off.</li>
-   <li><b>English or Italian</b>, your choice in the Options or with <kbd>/fp lang</kbd> (English by default). In Italian the names of quests, NPCs, spells and items stay in English, as on the website and in the game.</li>
+   <li><b>English, Italian, Spanish or French</b>, your choice in the Options or with <kbd>/fp lang</kbd> (by default the game’s language if it is Spanish or French, English otherwise). In Italian the names of quests, NPCs, spells and items stay in English, as on the website; in Spanish and French quests, NPCs, items and zones have the game client’s names, while spells and talents stay in English.</li>
   </ul>
   <p class="note">Quests, talents and spells are recognized by their English name: these links work with the game in English. For the interactive map and the calculators keep the website open on your phone.</p>
  </div>
@@ -225,7 +227,7 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
    <tr><td><kbd>/fp find word</kbd></td><td>Searches the whole guide (e.g. <kbd>/fp find sentinel hill</kbd>): prints the first items in chat and opens the Route at the stage of the first one. Same: <kbd>/fp cerca</kbd>.</td></tr>
    <tr><td><kbd>/fp bug</kbd></td><td>Opens a box with the link to the page for reporting an error (no sign-up needed), already selected: copy it with Ctrl+C and open it in your browser. The same box opens with “Report an error”, in the tab column above Options.</td></tr>
    <tr><td><kbd>/fp debug</kbd></td><td>Prints version, race and class as the game sees them, detected guide, talents, saved data and game links (continents, waypoint, talent window, quests in the log). If something is wrong, send us a screenshot of these lines from the link at the bottom of the page.</td></tr>
-   <tr><td><kbd>/fp lang</kbd></td><td>Switches between English and Italian (also <kbd>/fp lang en</kbd> or <kbd>/fp lang it</kbd>).</td></tr>
+   <tr><td><kbd>/fp lang</kbd></td><td>Goes back to the previous language; <kbd>/fp lang en</kbd>, <kbd>it</kbd>, <kbd>es</kbd> or <kbd>fr</kbd> picks one.</td></tr>
    <tr><td><kbd>/fp help</kbd></td><td>Command summary in chat.</td></tr>
   </table>
   <h3>In the window</h3>
@@ -259,21 +261,222 @@ html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
  </div>
  <p class="note">Found a mistake or have an idea? <a href="report.html?d=Addon">Report it here</a>, no sign-up needed. Free personal project, not affiliated with Blizzard Entertainment. World of Warcraft © Blizzard Entertainment.</p>
 </div>
+
+<!-- ================= ESPAÑOL ================= -->
+<div data-l="es">
+ <h2>Qué hace</h2>
+ <div class="gal">
+  <figure><img src="addon/pubblicazione/gioco-percorso.webp" width="680" height="500" alt="Ruta: tareas marcadas solas (misiones entregadas) y hechizos del entrenador que ya conoces en verde." loading="lazy"><figcaption>Ruta: tareas marcadas solas (misiones entregadas) y hechizos del entrenador que ya conoces en verde.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-mappa.webp" width="1038" height="535" alt="Mapa del mundo: los puntos de la guía con borde morado (entrenador, misiones), junto a los iconos de Questie." loading="lazy"><figcaption>Mapa del mundo: los puntos de la guía con borde morado (entrenador, misiones), junto a los iconos de Questie.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-talenti.webp" width="680" height="500" alt="Talentos: “Abrir en OneForAll” carga la build en su calculadora; debajo, el orden de los puntos." loading="lazy"><figcaption>Talentos: “Abrir en OneForAll” carga la build en su calculadora; debajo, el orden de los puntos.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-dungeon.webp" width="680" height="500" alt="Mazmorras: “Mapa” abre el mapa en la entrada, “Jefes y botín” la mazmorra en OneForAll." loading="lazy"><figcaption>Mazmorras: “Mapa” abre el mapa en la entrada, “Jefes y botín” la mazmorra en OneForAll.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-opzioni.webp" width="684" height="500" alt="Opciones: build, mazmorras, cambio de continente, icono y enlaces con el juego." loading="lazy"><figcaption>Opciones: build, mazmorras, cambio de continente, icono y enlaces con el juego.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-minimappa.webp" width="412" height="300" alt="Icono del minimapa: un clic abre la guía, el clic derecho las opciones." loading="lazy"><figcaption>Icono del minimapa: un clic abre la guía, el clic derecho las opciones.</figcaption></figure>
+ </div>
+ <p class="note" style="text-align:center">Capturas del juego real, WoW: Forever (Gnome Mage a nivel 10, addon en inglés).</p>
+ <div class="card">
+  <ul>
+   <li><b>Icono del minimapa</b>, como otros addons: un clic abre la guía, el clic derecho las opciones; arrástralo por el borde.</li>
+   <li><b>Todas las pestañas del sitio</b> en una ventana negra y minimalista, con las pestañas en una columna a la izquierda: Ruta, Talentos, Mazmorras, Profesiones, Clase, Alts, Más, Info. Reconoce sola raza, clase y nivel.</li>
+   <li><b>Ruta:</b> lo siguiente que hacer en grande, con los botones Ver en el mapa, Questie y Hecho; después las demás tareas de la etapa, una por línea (un clic abre los detalles), guardadas por personaje, el talento que coger y las mazmorras de tu nivel, y las <b>zonas recomendadas</b>: las que tienen más misiones para tu raza y nivel, con un botón del mapa (se quitan en las Opciones).</li>
+   <li><b>Mapa y minimapa:</b> abre el mapa del mundo para ver los puntos de la etapa, con un icono por tipo y un borde morado para distinguirlos de los de Questie: icono de clase para los entrenadores, grifo o dracoleón para los Flight Masters, “!” o “?” para las misiones, una calavera para las mazmorras; pasa el ratón por un NPC para leer su nombre y las misiones que da o recibe. El botón del mapa junto a una tarea abre el mapa en la zona correcta con el punto elegido bien visible (borde dorado que late, NPC y misión debajo), pone la flecha del juego y escribe zona y coordenadas en el chat; se quita solo cuando llegas.</li>
+   <li><b>Misiones, con Questie:</b> junto a las tareas ves “en tu registro” o “lista para entregar”; la tarea se marca sola cuando entregas la misión, también las misiones hechas antes de instalar el addon. El botón del mapa de una tarea con misión lleva el punto al lugar exacto, de la base de datos de Questie: quien la da o, si está en tu registro, el objetivo o la entrega más cercana; el libro abre sus detalles en el Journey de Questie.</li>
+   <li><b>Talentos:</b> en la ventana de talentos del juego (también la nueva de Forever) el talento que coger tiene un borde brillante; con <b>OneForAll</b>, “Abrir en OneForAll” en la pestaña Talentos carga toda la build en su calculadora.</li>
+   <li><b>Mazmorras:</b> el menú pone arriba las mazmorras adecuadas para tu nivel, con las misiones que ya tienes; la página de una mazmorra tiene las secciones Misiones, Jefes y Cómo llegar, y cada misión con cadena muestra todos sus pasos numerados, con el que estás haciendo y su botón del mapa. “Mapa” abre el mapa del mundo en la entrada con el punto (con <b>MapUtils</b> un clic en su icono de entrada abre el mapa de la mazmorra); con <b>OneForAll</b> “Jefes y botín” abre la mazmorra en su pestaña.</li>
+   <li><b>Profesiones:</b> lee del juego tus profesiones y tu skill y muestra la ruta hasta 300 con el paso en el que estás: qué fabricar o recolectar, cuántas veces, los materiales con cuántos tienes en las bolsas, el entrenador más cercano para cada rango; con <b>OneForAll</b> un clic abre la receta. Al tope del rango, una línea en el chat te recuerda aprender el siguiente. Opcional: todos los entrenadores y reagent vendors de tus profesiones en el mapa del mundo.</li>
+   <li><b>Entrenador:</b> en cuanto lo abres, escribe en el chat los hechizos de la guía que comprar y los marca en la lista. En la guía los hechizos que ya conoces salen en verde, y la tarea se marca sola cuando los tienes todos.</li>
+   <li><b>Opciones</b> en el juego: build, mazmorras sí o no, cambio de continente, icono y cada enlace con el juego para activar o desactivar.</li>
+   <li><b>Inglés, italiano, español o francés</b>, a elegir en las Opciones o con <kbd>/fp lang</kbd> (de base el idioma del juego si está en español o francés, si no inglés). En español los nombres de misiones, NPCs, objetos y zonas son los del cliente del juego; hechizos y talentos siguen en inglés.</li>
+  </ul>
+  <p class="note">Talentos y hechizos se reconocen por su nombre en inglés: esos enlaces funcionan con el juego en inglés. Para el mapa interactivo y las calculadoras ten el sitio abierto en el móvil.</p>
+ </div>
+
+ <h2>Instalación</h2>
+ <p><b>Con la app de CurseForge</b> (lo más fácil): elige la versión <b>WoW Forever</b>, busca <a href="https://www.curseforge.com/wow/addons/forever-pathfinder" target="_blank" rel="noopener">Forever Pathfinder</a> e instálalo: Questie llega con él y las actualizaciones se descargan solas. Si no, a mano:</p>
+ <ol class="steps">
+  <li><b>Necesitas Questie</b> (la versión de WoW: Forever, de CurseForge): sin Questie el addon no se carga. <b>OneForAll</b> y <b>MapUtils</b> son opcionales: si están, aparecen sus botones.</li>
+  <li><b>Descarga</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> y <b>descomprímelo</b> (clic derecho → Extraer todo). Obtienes la carpeta <code>ForeverPathfinder</code> con <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>, <code>icon.tga</code> y la carpeta <code>Fonts</code> dentro.</li>
+  <li><b>Busca la carpeta del juego.</b> En la app de Battle.net elige WoW: Forever, haz clic en el engranaje ⚙ junto a “Jugar” → <b>Mostrar en el Explorador</b> (en Mac: Mostrar en el Finder). Suele ser <code>C:\Program Files (x86)\World of Warcraft\_forever_\</code>.</li>
+  <li><b>Copia la carpeta</b> <code>ForeverPathfinder</code> en <code>Interface\AddOns</code> de esa subcarpeta. Si <code>Interface</code> o <code>AddOns</code> no existen, créalas. Al final debes tener:
+   <pre>…\World of Warcraft\_forever_\Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</pre>
+   Comprueba que no te quede una carpeta dentro de otra (<code>ForeverPathfinder\ForeverPathfinder\…</code>): pasa a menudo al descomprimir el zip.</li>
+  <li><b>Inicia el juego</b> (si estaba abierto, ciérralo del todo y vuelve a abrirlo). En la pantalla de personajes haz clic en <b>AddOns</b> abajo a la izquierda y comprueba que <b>Forever Pathfinder</b> está marcado. Si aparece como “desactualizado”, marca <b>Cargar AddOns desactualizados</b> arriba.</li>
+ </ol>
+
+ <h2>Primer inicio y ajustes</h2>
+ <div class="card">
+  <ol class="steps">
+   <li>Entra con tu personaje: el chat muestra <i>“Forever Pathfinder cargado: haz clic en el icono del minimapa o escribe /fp para abrir la guía.”</i></li>
+   <li><b>Haz clic en el icono</b> del borde del minimapa (o escribe <kbd>/fp</kbd>): la guía se abre en la Ruta, en la etapa de tu nivel. <b>Arrástrala</b> donde no moleste.</li>
+   <li>Mira la cabecera: debe mostrar tu raza, clase y nivel. Si dice “Raza o clase no reconocida”, ponlas a mano con <kbd>/fp set raza-clase</kbd> (mira abajo).</li>
+   <li>Abre las <b>Opciones</b> (o clic derecho en el icono) y elige build, mazmorras y cambio de continente como en el sitio.</li>
+   <li>Mientras juegas, <b>marca</b> las tareas hechas; las misiones entregadas se marcan solas. Para cerrar: <b>×</b>, <kbd>Esc</kbd> o el icono otra vez.</li>
+  </ol>
+ </div>
+
+ <h2>Comandos</h2>
+ <div class="card" style="overflow-x:auto">
+  <table>
+   <tr><th>Comando</th><th>Qué hace</th></tr>
+   <tr><td><kbd>/fp</kbd></td><td>Abre o cierra la guía, como el clic en el icono del minimapa. Igual: <kbd>/pathfinder</kbd>.</td></tr>
+   <tr><td><kbd>/fp options</kbd></td><td>Abre las Opciones. Igual: <kbd>/fp opzioni</kbd>.</td></tr>
+   <tr><td><kbd>/fp set raza-clase</kbd></td><td>Elige la ruta a mano, si el reconocimiento automático se equivoca. Ejemplo: <kbd>/fp set skyborne_h-druid</kbd>. Solo para ese personaje.</td></tr>
+   <tr><td><kbd>/fp auto</kbd></td><td>Vuelve al reconocimiento automático de raza y clase.</td></tr>
+   <tr><td><kbd>/fp list</kbd></td><td>Escribe en el chat todas las combinaciones raza-clase disponibles.</td></tr>
+   <tr><td><kbd>/fp dungeon</kbd></td><td>Escribe las mazmorras recomendadas para tu nivel: veredicto, entrada y misiones que coger antes (también las de clase).</td></tr>
+   <tr><td><kbd>/fp find palabra</kbd></td><td>Busca en toda la guía (p. ej. <kbd>/fp find colina del centinela</kbd>): escribe las primeras tareas en el chat y abre la Ruta en la etapa de la primera. Igual: <kbd>/fp cerca</kbd>.</td></tr>
+   <tr><td><kbd>/fp bug</kbd></td><td>Abre un recuadro con el enlace a la página para informar de un error (sin registro), ya seleccionado: cópialo con Ctrl+C y ábrelo en tu navegador. El mismo recuadro se abre con “Informar de un error”, en la columna de pestañas encima de Opciones.</td></tr>
+   <tr><td><kbd>/fp debug</kbd></td><td>Escribe versión, raza y clase como las ve el juego, guía reconocida, talentos, datos guardados y enlaces con el juego (continentes, punto, ventana de talentos, misiones en el registro). Si algo falla, mándanos una captura de estas líneas desde el enlace al final de la página.</td></tr>
+   <tr><td><kbd>/fp lang</kbd></td><td>Vuelve al idioma anterior; <kbd>/fp lang es</kbd>, <kbd>fr</kbd>, <kbd>en</kbd> o <kbd>it</kbd> elige uno.</td></tr>
+   <tr><td><kbd>/fp help</kbd></td><td>Resumen de los comandos en el chat.</td></tr>
+  </table>
+  <h3>En la ventana</h3>
+  <table>
+   <tr><td><b>Pestañas</b></td><td>Como en el sitio: Ruta, Talentos, Clase, Profesiones, Mazmorras, Alts, Más, Info, Opciones.</td></tr>
+   <tr><td><b>&lt; &gt;</b></td><td>En la Ruta: etapa anterior / siguiente.</td></tr>
+   <tr><td><b>Casilla</b></td><td>Marca la tarea como hecha; guardada para ese personaje.</td></tr>
+   <tr><td><b>Mapa</b></td><td>El botón a la derecha de una tarea: punto en el mapa y el minimapa, zona y coordenadas en el chat.</td></tr>
+   <tr><td><b>×</b> o <kbd>Esc</kbd></td><td>Cierra la ventana.</td></tr>
+   <tr><td><b>Rueda del ratón</b></td><td>Desplaza la pestaña.</td></tr>
+  </table>
+ </div>
+ <details><summary>Combinaciones para /fp set</summary>
+  <p class="note">Escribe la combinación exactamente así (en minúsculas, con guion en medio). Skyborne: <code>skyborne_a</code> para la Alianza, <code>skyborne_h</code> para la Horda.</p>
+  <div class="keys" id="keysEs"></div>
+ </details>
+
+ <h2>Problemas frecuentes</h2>
+ <details><summary>No aparece en la lista de AddOns</summary><p>La carpeta está en el sitio equivocado o duplicada. Debes tener el archivo <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> dentro de la carpeta de <b>Forever</b> (no Retail ni Classic Era). Después cierra y vuelve a abrir el juego del todo.</p></details>
+ <details><summary>Está en la lista pero en rojo, “dependencia ausente”</summary><p>Falta <b>Questie</b> (o está desactivado): instálalo desde su página de CurseForge, la versión de WoW: Forever, y márcalo en la lista de AddOns.</p></details>
+ <details><summary>Aparece como “desactualizado”</summary><p>En la pantalla de AddOns marca <b>Cargar AddOns desactualizados</b>. Pasa cuando Blizzard actualiza el juego antes que nosotros; publicaremos una versión actualizada.</p></details>
+ <details><summary>“Raza o clase no reconocida”</summary><p>Pasa sobre todo con los Skyborne, cuyo nombre interno solo veremos en el lanzamiento. Usa <kbd>/fp set</kbd> con tu combinación (p. ej. <kbd>/fp set skyborne_a-mage</kbd>) y avísanos con una captura de <kbd>/fp debug</kbd>.</p></details>
+ <details><summary>El talento sugerido no es el que he cogido</summary><p>El addon sigue el orden de la build elegida en las Opciones y cuenta los puntos que has gastado. Si pones puntos en otro sitio, las sugerencias avanzan igual: cuenta cuántos puntos, no cuáles. Para otra build cámbiala en las Opciones.</p></details>
+ <details><summary>Puntos, misiones, talentos o entrenador no funcionan</summary><p>Las misiones se buscan en Questie con el nombre del cliente y, si no, con el inglés; talentos y hechizos se reconocen por su nombre en inglés, así que esos enlaces necesitan el juego en inglés. Comprueba también que el enlace esté activado en las Opciones. Si sigue sin funcionar, mándanos una captura de <kbd>/fp debug</kbd>: la última línea dice lo que ve el addon.</p></details>
+ <details><summary>Las marcas desaparecen al reiniciar</summary><p>La beta de Forever tenía un fallo: el juego no volvía a leer los datos guardados de los addons. Debería estar corregido en el lanzamiento; si sigue pasando, avísanos: en <kbd>/fp debug</kbd>, “cargas 1” incluso después de un <kbd>/reload</kbd> lo confirma.</p></details>
+
+ <h2>Actualizar y desinstalar</h2>
+ <div class="card">
+  <p><b>Actualizar:</b> vuelve a descargar el zip desde esta página y sustituye la carpeta <code>ForeverPathfinder</code> por la nueva, con el juego cerrado. Tus marcas se quedan: el juego las guarda aparte, en la carpeta <code>WTF</code>.</p>
+  <p><b>Desinstalar:</b> borra la carpeta <code>Interface\AddOns\ForeverPathfinder</code>.</p>
+ </div>
+ <p class="note">¿Has encontrado un error o tienes una idea? <a href="report.html?d=Addon">Cuéntalo aquí</a>, sin registro. Proyecto personal gratuito, no afiliado a Blizzard Entertainment. World of Warcraft © Blizzard Entertainment.</p>
+</div>
+
+<!-- ================= FRANÇAIS ================= -->
+<div data-l="fr">
+ <h2>Ce qu’il fait</h2>
+ <div class="gal">
+  <figure><img src="addon/pubblicazione/gioco-percorso.webp" width="680" height="500" alt="Parcours : tâches cochées toutes seules (quêtes rendues) et sorts du Trainer que vous connaissez déjà en vert." loading="lazy"><figcaption>Parcours : tâches cochées toutes seules (quêtes rendues) et sorts du Trainer que vous connaissez déjà en vert.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-mappa.webp" width="1038" height="535" alt="Carte du monde : les repères du guide avec une bordure violette (trainer, quêtes), à côté des icônes de Questie." loading="lazy"><figcaption>Carte du monde : les repères du guide avec une bordure violette (trainer, quêtes), à côté des icônes de Questie.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-talenti.webp" width="680" height="500" alt="Talents : « Ouvrir dans OneForAll » charge le build dans son calculateur ; en dessous, l’ordre des points." loading="lazy"><figcaption>Talents : « Ouvrir dans OneForAll » charge le build dans son calculateur ; en dessous, l’ordre des points.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-dungeon.webp" width="680" height="500" alt="Donjons : « Carte » ouvre la carte sur l’entrée, « Boss et butin » le donjon dans OneForAll." loading="lazy"><figcaption>Donjons : « Carte » ouvre la carte sur l’entrée, « Boss et butin » le donjon dans OneForAll.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-opzioni.webp" width="684" height="500" alt="Options : build, donjons, changement de continent, icône et liens avec le jeu." loading="lazy"><figcaption>Options : build, donjons, changement de continent, icône et liens avec le jeu.</figcaption></figure>
+  <figure><img src="addon/pubblicazione/gioco-minimappa.webp" width="412" height="300" alt="Icône de la minicarte : un clic ouvre le guide, le clic droit les options." loading="lazy"><figcaption>Icône de la minicarte : un clic ouvre le guide, le clic droit les options.</figcaption></figure>
+ </div>
+ <p class="note" style="text-align:center">Captures du vrai jeu, WoW: Forever (Gnome Mage niveau 10, addon en anglais).</p>
+ <div class="card">
+  <ul>
+   <li><b>Icône de la minicarte</b>, comme les autres addons : un clic ouvre le guide, le clic droit les options ; faites-la glisser le long du bord.</li>
+   <li><b>Tous les onglets du site</b> dans une fenêtre noire et minimaliste, avec les onglets en colonne à gauche : Parcours, Talents, Donjons, Métiers, Classe, Alts, Plus, Info. Il reconnaît tout seul race, classe et niveau.</li>
+   <li><b>Parcours :</b> la prochaine chose à faire en gros, avec les boutons Voir sur la carte, Questie et Fait ; puis les autres tâches de l’étape, une par ligne (un clic ouvre les détails), enregistrées par personnage, le talent à prendre et les donjons de votre niveau, et les <b>zones conseillées</b> : celles qui ont le plus de quêtes pour votre race et votre niveau, avec un bouton de carte (elles se retirent dans les Options).</li>
+   <li><b>Carte et minicarte :</b> ouvre la carte du monde pour voir les repères de l’étape, avec une icône par type et une bordure violette pour les distinguer de ceux de Questie : icône de classe pour les trainers, griffon ou wyverne pour les Flight Masters, « ! » ou « ? » pour les quêtes, un crâne pour les donjons ; survole un PNJ pour lire son nom et les quêtes qu’il donne ou reçoit. Le bouton de carte à côté d’une tâche ouvre la carte sur la bonne zone avec le repère choisi bien visible (bordure dorée qui pulse, PNJ et quête en dessous), place la flèche du jeu et écrit zone et coordonnées dans le chat ; il s’efface tout seul quand vous arrivez.</li>
+   <li><b>Quêtes, avec Questie :</b> à côté des tâches vous voyez « dans votre journal » ou « à rendre » ; la tâche se coche toute seule quand vous rendez la quête, même pour les quêtes faites avant d’installer l’addon. Le bouton de carte d’une tâche avec quête place le repère à l’endroit exact, d’après la base de données de Questie : qui la donne ou, si elle est dans votre journal, l’objectif ou le rendu le plus proche ; le livre ouvre ses détails dans le Journey de Questie.</li>
+   <li><b>Talents :</b> dans la fenêtre des talents du jeu (aussi la nouvelle de Forever), le talent à prendre a une bordure lumineuse ; avec <b>OneForAll</b>, « Ouvrir dans OneForAll » dans l’onglet Talents charge tout le build dans son calculateur.</li>
+   <li><b>Donjons :</b> le menu met en haut les donjons adaptés à votre niveau, avec les quêtes que vous avez déjà ; la page d’un donjon a les sections Quêtes, Boss et Comment y aller, et chaque quête à chaîne montre toutes ses étapes numérotées, avec celle où vous en êtes et son bouton de carte. « Carte » ouvre la carte du monde sur l’entrée avec le repère (avec <b>MapUtils</b>, un clic sur son icône d’entrée ouvre la carte du donjon) ; avec <b>OneForAll</b>, « Boss et butin » ouvre le donjon dans son onglet.</li>
+   <li><b>Métiers :</b> lit dans le jeu vos métiers et votre skill et montre le parcours jusqu’à 300 avec l’étape où vous êtes : quoi fabriquer ou récolter, combien de fois, les matériaux avec combien vous en avez dans vos sacs, le Trainer le plus proche pour chaque rang ; avec <b>OneForAll</b>, un clic ouvre la recette. Au plafond du rang, une ligne dans le chat vous rappelle d’apprendre le suivant. En option : tous les Trainers et reagent vendors de vos métiers sur la carte du monde.</li>
+   <li><b>Trainer :</b> dès que vous l’ouvrez, il écrit dans le chat les sorts du guide à acheter et les marque dans la liste. Dans le guide, les sorts que vous connaissez déjà sont en vert, et la tâche se coche toute seule quand vous les avez tous.</li>
+   <li><b>Options</b> en jeu : build, donjons oui ou non, changement de continent, icône et chaque lien avec le jeu à activer ou désactiver.</li>
+   <li><b>Anglais, italien, espagnol ou français</b>, au choix dans les Options ou avec <kbd>/fp lang</kbd> (par défaut la langue du jeu s’il est en espagnol ou en français, sinon l’anglais). En français, les noms des quêtes, PNJ, objets et zones sont ceux du client du jeu ; sorts et talents restent en anglais.</li>
+  </ul>
+  <p class="note">Talents et sorts sont reconnus par leur nom anglais : ces liens marchent avec le jeu en anglais. Pour la carte interactive et les calculateurs, gardez le site ouvert sur votre téléphone.</p>
+ </div>
+
+ <h2>Installation</h2>
+ <p><b>Avec l’application CurseForge</b> (le plus simple) : choisissez la version <b>WoW Forever</b>, cherchez <a href="https://www.curseforge.com/wow/addons/forever-pathfinder" target="_blank" rel="noopener">Forever Pathfinder</a> et installez-le : Questie arrive avec lui et les mises à jour se téléchargent toutes seules. Sinon, à la main :</p>
+ <ol class="steps">
+  <li><b>Il vous faut Questie</b> (la version WoW: Forever, sur CurseForge) : sans Questie l’addon ne se charge pas. <b>OneForAll</b> et <b>MapUtils</b> sont optionnels : s’ils sont là, leurs boutons apparaissent.</li>
+  <li><b>Téléchargez</b> <a href="ForeverPathfinder.zip" download>ForeverPathfinder.zip</a> et <b>décompressez-le</b> (clic droit → Extraire tout). Vous obtenez le dossier <code>ForeverPathfinder</code> avec <code>ForeverPathfinder.toc</code>, <code>Core.lua</code>, <code>Data.lua</code>, <code>icon.tga</code> et le dossier <code>Fonts</code> dedans.</li>
+  <li><b>Trouvez le dossier du jeu.</b> Dans l’application Battle.net, choisissez WoW: Forever, cliquez sur l’engrenage ⚙ à côté de « Jouer » → <b>Afficher dans l’explorateur</b> (sur Mac : Afficher dans le Finder). C’est en général <code>C:\Program Files (x86)\World of Warcraft\_forever_\</code>.</li>
+  <li><b>Copiez le dossier</b> <code>ForeverPathfinder</code> dans <code>Interface\AddOns</code> de ce sous-dossier. Si <code>Interface</code> ou <code>AddOns</code> n’existent pas, créez-les. À la fin vous devez avoir :
+   <pre>…\World of Warcraft\_forever_\Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</pre>
+   Vérifiez que vous n’avez pas un dossier dans un autre (<code>ForeverPathfinder\ForeverPathfinder\…</code>) : ça arrive souvent en décompressant le zip.</li>
+  <li><b>Lancez le jeu</b> (s’il était ouvert, fermez-le complètement et rouvrez-le). Sur l’écran des personnages, cliquez sur <b>AddOns</b> en bas à gauche et vérifiez que <b>Forever Pathfinder</b> est coché. S’il est indiqué « périmé », cochez <b>Charger les AddOns périmés</b> en haut.</li>
+ </ol>
+
+ <h2>Premier lancement et réglages</h2>
+ <div class="card">
+  <ol class="steps">
+   <li>Connectez-vous avec votre personnage : le chat affiche <i>« Forever Pathfinder chargé : clique sur l’icône de la minicarte ou tape /fp pour ouvrir le guide. »</i></li>
+   <li><b>Cliquez sur l’icône</b> au bord de la minicarte (ou tapez <kbd>/fp</kbd>) : le guide s’ouvre sur le Parcours, à l’étape de votre niveau. <b>Faites-le glisser</b> là où il ne gêne pas.</li>
+   <li>Regardez l’en-tête : il doit montrer votre race, votre classe et votre niveau. S’il dit « Race ou classe non reconnue », réglez-les à la main avec <kbd>/fp set race-classe</kbd> (voir plus bas).</li>
+   <li>Ouvrez les <b>Options</b> (ou clic droit sur l’icône) et choisissez build, donjons et changement de continent comme sur le site.</li>
+   <li>Pendant que vous jouez, <b>cochez</b> les tâches faites ; les quêtes rendues se cochent toutes seules. Pour fermer : <b>×</b>, <kbd>Échap</kbd> ou de nouveau l’icône.</li>
+  </ol>
+ </div>
+
+ <h2>Commandes</h2>
+ <div class="card" style="overflow-x:auto">
+  <table>
+   <tr><th>Commande</th><th>Ce qu’elle fait</th></tr>
+   <tr><td><kbd>/fp</kbd></td><td>Ouvre ou ferme le guide, comme le clic sur l’icône de la minicarte. Pareil : <kbd>/pathfinder</kbd>.</td></tr>
+   <tr><td><kbd>/fp options</kbd></td><td>Ouvre les Options. Pareil : <kbd>/fp opzioni</kbd>.</td></tr>
+   <tr><td><kbd>/fp set race-classe</kbd></td><td>Choisit le parcours à la main, si la détection automatique se trompe. Exemple : <kbd>/fp set skyborne_h-druid</kbd>. Seulement pour ce personnage.</td></tr>
+   <tr><td><kbd>/fp auto</kbd></td><td>Revient à la détection automatique de la race et de la classe.</td></tr>
+   <tr><td><kbd>/fp list</kbd></td><td>Écrit dans le chat toutes les combinaisons race-classe disponibles.</td></tr>
+   <tr><td><kbd>/fp dungeon</kbd></td><td>Écrit les donjons conseillés pour votre niveau : avis, entrée et quêtes à prendre avant (aussi celles de classe).</td></tr>
+   <tr><td><kbd>/fp find mot</kbd></td><td>Cherche dans tout le guide (ex. <kbd>/fp find colline des sentinelles</kbd>) : écrit les premières tâches dans le chat et ouvre le Parcours à l’étape de la première. Pareil : <kbd>/fp cerca</kbd>.</td></tr>
+   <tr><td><kbd>/fp bug</kbd></td><td>Ouvre un cadre avec le lien vers la page pour signaler une erreur (sans inscription), déjà sélectionné : copiez-le avec Ctrl+C et ouvrez-le dans votre navigateur. Le même cadre s’ouvre avec « Signaler une erreur », dans la colonne des onglets au-dessus des Options.</td></tr>
+   <tr><td><kbd>/fp debug</kbd></td><td>Écrit la version, la race et la classe vues par le jeu, le guide reconnu, les talents, les données enregistrées et les liens avec le jeu (continents, repère, fenêtre des talents, quêtes dans le journal). Si quelque chose ne va pas, envoyez-nous une capture de ces lignes depuis le lien en bas de la page.</td></tr>
+   <tr><td><kbd>/fp lang</kbd></td><td>Revient à la langue d’avant ; <kbd>/fp lang fr</kbd>, <kbd>es</kbd>, <kbd>en</kbd> ou <kbd>it</kbd> en choisit une.</td></tr>
+   <tr><td><kbd>/fp help</kbd></td><td>Résumé des commandes dans le chat.</td></tr>
+  </table>
+  <h3>Dans la fenêtre</h3>
+  <table>
+   <tr><td><b>Onglets</b></td><td>Comme sur le site : Parcours, Talents, Classe, Métiers, Donjons, Alts, Plus, Info, Options.</td></tr>
+   <tr><td><b>&lt; &gt;</b></td><td>Dans le Parcours : étape précédente / suivante.</td></tr>
+   <tr><td><b>Case</b></td><td>Marque la tâche comme faite ; enregistrée pour ce personnage.</td></tr>
+   <tr><td><b>Carte</b></td><td>Le bouton à droite d’une tâche : repère sur la carte et la minicarte, zone et coordonnées dans le chat.</td></tr>
+   <tr><td><b>×</b> ou <kbd>Échap</kbd></td><td>Ferme la fenêtre.</td></tr>
+   <tr><td><b>Molette de la souris</b></td><td>Fait défiler l’onglet.</td></tr>
+  </table>
+ </div>
+ <details><summary>Combinaisons pour /fp set</summary>
+  <p class="note">Tapez la combinaison exactement comme ceci (en minuscules, tiret au milieu). Skyborne : <code>skyborne_a</code> pour l’Alliance, <code>skyborne_h</code> pour la Horde.</p>
+  <div class="keys" id="keysFr"></div>
+ </details>
+
+ <h2>Problèmes fréquents</h2>
+ <details><summary>Il n’apparaît pas dans la liste des AddOns</summary><p>Le dossier n’est pas au bon endroit ou il est en double. Vous devez avoir le fichier <code>Interface\AddOns\ForeverPathfinder\ForeverPathfinder.toc</code> dans le dossier de <b>Forever</b> (pas Retail ni Classic Era). Ensuite fermez et rouvrez complètement le jeu.</p></details>
+ <details><summary>Il est dans la liste mais en rouge, « dépendance manquante »</summary><p>Il manque <b>Questie</b> (ou il est désactivé) : installez-le depuis sa page CurseForge, version WoW: Forever, et cochez-le dans la liste des AddOns.</p></details>
+ <details><summary>Il est indiqué « périmé »</summary><p>Sur l’écran des AddOns, cochez <b>Charger les AddOns périmés</b>. Ça arrive quand Blizzard met le jeu à jour avant nous ; nous publierons une version à jour.</p></details>
+ <details><summary>« Race ou classe non reconnue »</summary><p>Ça arrive surtout avec les Skyborne, dont nous ne verrons le nom interne qu’à la sortie. Utilisez <kbd>/fp set</kbd> avec votre combinaison (ex. <kbd>/fp set skyborne_a-mage</kbd>) et prévenez-nous avec une capture de <kbd>/fp debug</kbd>.</p></details>
+ <details><summary>Le talent proposé n’est pas celui que j’ai pris</summary><p>L’addon suit l’ordre du build choisi dans les Options et compte les points que vous avez dépensés. Si vous mettez des points ailleurs, les suggestions avancent quand même : il compte combien de points, pas lesquels. Pour un autre build, changez-le dans les Options.</p></details>
+ <details><summary>Repères, quêtes, talents ou trainer ne marchent pas</summary><p>Les quêtes sont cherchées dans Questie avec le nom du client, sinon avec le nom anglais ; talents et sorts sont reconnus par leur nom anglais, donc ces liens demandent le jeu en anglais. Vérifiez aussi que le lien est activé dans les Options. Si ça ne marche toujours pas, envoyez-nous une capture de <kbd>/fp debug</kbd> : la dernière ligne dit ce que voit l’addon.</p></details>
+ <details><summary>Les coches disparaissent après un redémarrage</summary><p>La bêta de Forever avait un bug : le jeu ne relisait pas les données enregistrées des addons. Ça devrait être corrigé à la sortie ; si ça arrive encore, prévenez-nous : dans <kbd>/fp debug</kbd>, « chargements 1 » même après un <kbd>/reload</kbd> le confirme.</p></details>
+
+ <h2>Mettre à jour et désinstaller</h2>
+ <div class="card">
+  <p><b>Mettre à jour :</b> téléchargez de nouveau le zip depuis cette page et remplacez le dossier <code>ForeverPathfinder</code> par le nouveau, jeu fermé. Vos coches restent : le jeu les enregistre à part, dans le dossier <code>WTF</code>.</p>
+  <p><b>Désinstaller :</b> supprimez le dossier <code>Interface\AddOns\ForeverPathfinder</code>.</p>
+ </div>
+ <p class="note">Vous avez trouvé une erreur ou vous avez une idée ? <a href="report.html?d=Addon">Signalez-la ici</a>, sans inscription. Projet personnel gratuit, non affilié à Blizzard Entertainment. World of Warcraft © Blizzard Entertainment.</p>
+</div>
 </main>
-<button class="totop" id="totop" type="button" aria-label="Torna in alto / Back to top"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 5l-7 7m7-7l7 7M12 5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="totop" id="totop" type="button" aria-label="Torna in alto / Back to top / Volver arriba / Retour en haut"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 5l-7 7m7-7l7 7M12 5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 
 <script>
 // combinazioni razza-classe dell'addon (stesse chiavi di Data.lua)
 var K='dwarf-hunter dwarf-paladin dwarf-priest dwarf-rogue dwarf-shaman dwarf-warrior gnome-mage gnome-priest gnome-rogue gnome-warlock gnome-warrior human-hunter human-mage human-paladin human-priest human-rogue human-warlock human-warrior nightelf-druid nightelf-hunter nightelf-priest nightelf-rogue nightelf-warrior orc-hunter orc-mage orc-rogue orc-shaman orc-warlock orc-warrior skyborne_a-druid skyborne_a-hunter skyborne_a-mage skyborne_a-rogue skyborne_a-warrior skyborne_h-druid skyborne_h-hunter skyborne_h-rogue skyborne_h-shaman skyborne_h-warrior tauren-druid tauren-hunter tauren-shaman tauren-warrior troll-hunter troll-mage troll-priest troll-rogue troll-shaman troll-warlock troll-warrior undead-mage undead-paladin undead-priest undead-rogue undead-warlock undead-warrior'.split(' ').map(function(k){return '<code>'+k+'</code>'}).join('');
-document.getElementById('keysIt').innerHTML=document.getElementById('keysEn').innerHTML=K;
+['keysIt','keysEn','keysEs','keysFr'].forEach(function(id){document.getElementById(id).innerHTML=K});
 // lingua: quella scelta con la bandierina (condivisa con la guida), altrimenti quella del browser
-function setLang(l){document.documentElement.lang=l;document.getElementById('flagEn').style.display=l==='it'?'':'none';document.getElementById('flagIt').style.display=l==='en'?'':'none'}
-var lg='it';try{lg=localStorage.getItem('wfcLang')||(/^it/i.test(navigator.language)?'it':'en')}catch(e){}
+var LS=['it','en','es','fr'],M=document.getElementById('lang');
+function setLang(l){document.documentElement.lang=l;[].forEach.call(M.querySelectorAll('a'),function(a){if(a.dataset.lang===l){a.setAttribute('aria-current','true');M.firstChild.innerHTML=a.querySelector('svg').outerHTML}else a.removeAttribute('aria-current')})}
+var lg='it';try{lg=localStorage.getItem('wfcLang');var lb=(navigator.language||'').slice(0,2).toLowerCase();if(LS.indexOf(lg)<0)lg=LS.indexOf(lb)>-1?lb:'en'}catch(e){}
 setLang(lg);
 // freccia "torna in alto"
 var tt=document.getElementById('totop'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 addEventListener('scroll',function(){tt.classList.toggle('on',scrollY>innerHeight*1.5)},{passive:true});
 tt.onclick=function(){scrollTo({top:0,behavior:rm?'auto':'smooth'})};
-document.getElementById('lang').onclick=function(){var l=document.documentElement.lang==='it'?'en':'it';setLang(l);try{localStorage.setItem('wfcLang',l)}catch(e){}};
+[].forEach.call(M.querySelectorAll('a'),function(a){a.onclick=function(e){e.preventDefault();setLang(a.dataset.lang);M.open=false;try{localStorage.setItem('wfcLang',a.dataset.lang)}catch(x){}}});
 </script>
 </body></html>

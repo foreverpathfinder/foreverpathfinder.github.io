@@ -92,7 +92,8 @@ ShowUIPanel = function(fr) fr:Show() end
 -- Questie finto: ID per nome, quest consegnate (QDONE), moduli interni che l'addon chiama (QCALLS registra le chiamate)
 QDONE, QCALLS = {}, {}
 function QID(name) local h = 0; for i = 1, #name do h = (h * 31 + name:byte(i)) % 100000 end; return h + 1 end
-LibQuestieDB = { Quest = { IdsByName = function(n) return { QID(n) } end } }
+-- Questie di un client inglese: i nomi spagnoli e francesi della guida (ENNAMES, più sotto) non li conosce, l'addon ripiega su quelli inglesi
+LibQuestieDB = { Quest = { IdsByName = function(n) if ENNAMES and ENNAMES[n] then return nil end return { QID(n) } end } }
 local readyCbs = {}
 Questie = { API = { isReady = false, RegisterOnReady = function(cb) if Questie.API.isReady then cb() else readyCbs[#readyCbs + 1] = cb end end }, db = { char = { complete = QDONE } } }
 function QUESTIE_READY() Questie.API.isReady = true; for _, cb in ipairs(readyCbs) do cb() end; readyCbs = {} end
@@ -140,7 +141,11 @@ f.scripts.OnEvent(f, "ADDON_LOADED", "ForeverPathfinder")
 f.scripts.OnEvent(f, "PLAYER_LOGIN")
 local fp = SlashCmdList.FOREVERPATHFINDER
 
-local lang = ADDON_LANG or "en"
+local lang = ADDON_LANG or ({ esES = "es", esMX = "es", frFR = "fr" })[LOCALE] or "en"
+local function L4(it, en, es, fr) return ({ it = it, en = en, es = es or en, fr = fr or en })[lang] end
+ENNAMES = ForeverPathfinderEN and ForeverPathfinderEN[lang]
+local FW = {}; for k, v in pairs(ENNAMES or {}) do FW[v] = k end
+local function N(s) return FW[s] or s end
 local D = ForeverPathfinderData[lang]
 local g = D[EXPECT_KEY]
 assert(g, "manca " .. EXPECT_KEY)
@@ -152,10 +157,11 @@ local function check(ok, what) if not ok then error("FALLITO: " .. what .. "\nul
 local function find(pred) for _, o in ipairs(frames) do if pred(o) then return o end end end
 local function boxes() local o = {} for _, x in ipairs(frames) do if x.kind == "CheckButton" and x.shown then o[#o + 1] = x end end return o end
 -- dalla 1.10 le schede sono scritte in maiuscolo: il confronto non guarda maiuscole e minuscole
-local function nav(label) return find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.fs.text:upper() == label:upper() and o.scripts.OnClick end) end
+local function U8(x) return (x:upper():gsub("\195([\160-\190])", function(c) return "\195" .. string.char(c:byte() - 32) end)) end
+local function nav(label) return find(function(o) return o.kind == "Button" and rawget(o, "fs") and U8(o.fs.text) == U8(label) and o.scripts.OnClick end) end
 
 -- 0) messaggio di benvenuto e icona sulla minimappa
-check(said(lang == "it" and "minimappa" or "minimap"), "messaggio di caricamento")
+check(said(L4("minimappa", "minimap", "minimapa", "minicarte")), "messaggio di caricamento")
 local mb = DBICON.ForeverPathfinder
 check(mb ~= nil and mb.shown, "icona sulla minimappa (LibDBIcon)")
 check(ForeverPathfinder_OnCompartment ~= nil, "voce nel riquadro degli addon")
@@ -181,7 +187,7 @@ if tals[2] then
   C_Traits = { GetConfigInfo = function() return { treeIDs = { 1 } } end, GetTreeNodes = function() return { 11, 12 } end,
     GetNodeInfo = function(_, n) return { ranksPurchased = n == 11 and 1 or 0 } end, GetTreeCurrencyInfo = function() return { { quantity = 0 } } end }
   f.scripts.OnEvent(f, "TRAIT_CONFIG_UPDATED")
-  check(has(tals[2]) and has(lang == "it" and "Prossimo talento al liv. 11" or "Next talent at lvl 11"), "talenti moderni: dopo un punto speso il talento successivo (" .. tals[2] .. ")")
+  check(has(tals[2]) and has(L4("Prossimo talento al liv. 11", "Next talent at lvl 11", "Próximo talento al nv. 11", "Prochain talent au niv. 11")), "talenti moderni: dopo un punto speso il talento successivo (" .. tals[2] .. ")")
   -- e la voce "Talent:" del livello 10 (primo punto della guida) si spunta da sola
   local tv, tt
   for _, x in pairs(g.v) do if x._tasks then tv = x end end
@@ -221,7 +227,7 @@ local again = false
 for _, x in ipairs(boxes()) do if x.id == id and x.checked then again = true end end
 check(again, "spunta ancora visibile")
 -- 3b) rimaste indietro: al livello 12 le voci non spuntate delle tappe prima stanno in cima; spuntandone una sparisce
-local function behind() for _, t in ipairs(shownTexts()) do t = t:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", ""); local n = t:match("^RIMASTE INDIETRO %((%d+)%)") or t:match("^LEFT BEHIND %((%d+)%)"); if n then return tonumber(n) end end end
+local function behind() for _, t in ipairs(shownTexts()) do t = t:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", ""); local n = t:match("^RIMASTE INDIETRO %((%d+)%)") or t:match("^LEFT BEHIND %((%d+)%)") or t:match("^PENDIENTES %((%d+)%)") or t:match("^EN RETARD %((%d+)%)"); if n then return tonumber(n) end end end
 LEVEL = 12; f.scripts.OnEvent(f, "PLAYER_LEVEL_UP")
 local nb = behind()
 check(nb and nb > 0, "card Rimaste indietro al livello 12")
@@ -238,7 +244,7 @@ for k in pairs(D) do if k:sub(1, 1) ~= "_" then keys[#keys + 1] = k end end
 table.sort(keys)
 local labels = {}
 for _, t in ipairs(D._tabs) do labels[#labels + 1] = t end
-labels[#labels + 1] = { "opzioni", lang == "it" and "Opzioni" or "Options" }
+labels[#labels + 1] = { "opzioni", L4("Opzioni", "Options", "Opciones", "Options") }
 for _, k in ipairs(keys) do
   fp("set " .. k); f.shown = true
   for _, t in ipairs(labels) do
@@ -257,10 +263,11 @@ end
 ForeverPathfinderChar.opt = {}
 -- 4b) ricerca e dungeon: lo Human Warrior trova i Deadmines nella guida, poi /fp dungeon (al 18) elenca le loro quest
 fp("set human-warrior"); f.shown = false
-fp("cerca deadmines")
-check(f.shown and said("Deadmines") and has("Deadmines"), "/fp cerca apre il Percorso sulla tappa giusta e scrive i risultati")
+local DM = (lang == "es" or lang == "fr") and N("The Deadmines") or "Deadmines" -- in spagnolo e francese il nome del client
+fp("cerca " .. DM:lower())
+check(f.shown and said(DM) and has(DM), "/fp cerca apre il Percorso sulla tappa giusta e scrive i risultati")
 local lv0 = LEVEL; LEVEL = 18; fp("dungeon"); LEVEL = lv0
-check(said("Red Silk Bandanas") and said("The Defias Brotherhood"), "/fp dungeon elenca le quest dei Deadmines")
+check(said(N("Red Silk Bandanas")) and said(N("The Defias Brotherhood")), "/fp dungeon elenca le quest dei Deadmines")
 local n0 = #chat; fp("find zzzzzz"); check(#chat == n0 + 1, "ricerca senza risultati: un solo messaggio")
 -- 4c) /fp debug: versioni, token di razza e guida riconosciuta
 fp("auto"); n0 = #chat; fp("debug")
@@ -287,16 +294,16 @@ local qname = L[qtask[4]].q[1]
 QUESTLOG = { { qname, 777, true } }
 f.scripts.OnEvent(f, "QUEST_LOG_UPDATE")
 LEVEL = qtask[1]; f.shown = false; fp("")
-check(has(lang == "it" and "da consegnare" or "ready to turn in"), "stato della quest nel registro: " .. qname)
+check(has(L4("da consegnare", "ready to turn in", "lista para entregar", "à rendre")), "stato della quest nel registro: " .. qname)
 for _, q in ipairs(L[qtask[4]].q) do QUESTLOG = { { q, 777, true } }; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.scripts.OnEvent(f, "QUEST_TURNED_IN", 777) end
 check(ForeverPathfinderChar.done["human-warrior:" .. qtask[5]] == true, "voce spuntata alla consegna di " .. qname)
 -- Questie pronto: le voci con quest già consegnate (storico di Questie) si spuntano da sole, con una riga sola in chat
 local qtask2
 for _, t in ipairs(hv._tasks) do if t ~= qtask and L[t[4]] and L[t[4]].q[1] and not L[t[4]].any and not ForeverPathfinderChar.done["human-warrior:" .. t[5]] then qtask2 = t; break end end
 check(qtask2 ~= nil, "un'altra voce con quest")
-for _, q in ipairs(L[qtask2[4]].q) do QDONE[QID(q)] = true end
+for _, q in ipairs(L[qtask2[4]].q) do QDONE[QID(ENNAMES and ENNAMES[q] or q)] = true end
 QUESTIE_READY()
-check(ForeverPathfinderChar.done["human-warrior:" .. qtask2[5]] == true and said(lang == "it" and "Spuntate" or "Ticked"), "voce spuntata dallo storico di Questie")
+check(ForeverPathfinderChar.done["human-warrior:" .. qtask2[5]] == true and said(L4("Spuntate", "Ticked", "Marcadas", "cochées")), "voce spuntata dallo storico di Questie")
 -- voci Trainer: si spuntano da sole quando conosci già tutte le loro spell (SPELLS_CHANGED)
 local ttask
 for _, t in ipairs(hv._tasks) do if t[3]:find("Trainer:", 1, true) and not ForeverPathfinderChar.done["human-warrior:" .. t[5]] then ttask = t; break end end
@@ -312,7 +319,7 @@ f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(ForeverPathfinderChar.done["human-warrior:" .. ttask[5]] == true, "voce Trainer spuntata con le spell già apprese: " .. table.concat(spells, ", "))
 -- lettera di classe: solo quella della propria classe e razza (Human Warrior: Simple Letter), che la spunta
 local ltask
-for _, t in ipairs(hv._tasks) do if t[3]:find(lang == "it" and "Lettera di classe" or "Class letter", 1, true) then ltask = t; break end end
+for _, t in ipairs(hv._tasks) do if t[3]:find(L4("Lettera di classe", "Class letter", "Carta de clase", "Lettre de classe"), 1, true) then ltask = t; break end end
 check(ltask ~= nil and L[ltask[4]] and #L[ltask[4]].q == 1 and L[ltask[4]].q[1] == "Simple Letter", "lettera di classe dello Human Warrior: Simple Letter")
 -- (la prova dello storico di Questie può averla già spuntata con tutte le lettere: si riparte da zero)
 for _, q in ipairs(L[ltask[4]].q) do QDONE[QID(q)] = nil; ForeverPathfinderChar.turned[q] = nil end
@@ -322,7 +329,7 @@ QDONE[QID("Simple Letter")] = true; f.scripts.OnEvent(f, "SPELLS_CHANGED")
 check(ForeverPathfinderChar.done["human-warrior:" .. ltask[5]] == true, "lettera di classe consegnata: voce spuntata")
 -- segnaposto di una voce: sulla zona del gioco (uiMapID da ForeverPathfinderZoneMaps), non dai bordi del continente di Wowhead
 LEVEL = 1; f.shown = false; fp("")
-local pinB = find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip2 == (lang == "it" and "Mostra sulla mappa e sulla minimappa" or "Show on the map and the minimap") end)
+local pinB = find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip2 == L4("Mostra sulla mappa e sulla minimappa", "Show on the map and the minimap", "Ver en el mapa y en el minimapa", "Voir sur la carte et la minicarte") end)
 check(pinB ~= nil, "pulsante del segnaposto di una voce")
 WAYPOINT = nil; WorldMapFrame.shown = false; pinB.scripts.OnClick(pinB)
 check(WorldMapFrame.shown and not f.shown, "il pulsante del segnaposto apre la mappa del mondo (e chiude la guida)")
@@ -333,14 +340,14 @@ check(inZM and WAYPOINT[2] >= 0 and WAYPOINT[2] <= 1 and WAYPOINT[3] >= 0 and WA
 -- pulsanti della voce con quest: mappa con le icone di Questie (chi la dà: NPC 4242 nella sua zona) e scheda nel Journey
 LEVEL = qtask[1]; QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); f.shown = false; fp("")
 local function mini(name, tip2) return find(function(o) return o.kind == "Button" and rawget(o, "fn") and o.shown and o.tip == name and (not tip2 or o.tip2:find(tip2, 1, true)) end) end
-local HOT = lang == "it" and "segnaposto evidenziato" or "highlighted waypoint"
+local HOT = L4("segnaposto evidenziato", "highlighted waypoint", "punto resaltado", "repère en évidence")
 local qMapB, qInfoB = mini(qname, HOT), mini(qname, "Journey")
 check(qMapB and qInfoB, "pulsanti mappa e scheda di Questie nella voce di " .. qname)
 -- 1.8: il pulsante mappa mette il nostro segnaposto sul punto esatto (chi dà la quest), con riga in chat e mappa sulla sua zona
 QCALLS = {}; WAYPOINT = nil; WorldMapFrame.shown = false; qMapB.scripts.OnClick(qMapB)
 check(QCALLS[1] == "start4242" and WAYPOINT and WAYPOINT[1] == 1429 and math.abs(WAYPOINT[2] - 0.418) < 0.001 and math.abs(WAYPOINT[3] - 0.672) < 0.001,
   "mappa: segnaposto su chi dà la quest (" .. table.concat(QCALLS, ",") .. ")")
-check(WorldMapFrame.shown and not f.shown and said(qname .. ": Gryan Stoutmantle"), "mappa aperta e riga in chat con quest e NPC")
+check(WorldMapFrame.shown and not f.shown and said(qname .. (lang == "fr" and " : " or ": ") .. "Gryan Stoutmantle"), "mappa aperta e riga in chat con quest e NPC")
 local function hotPin() return find(function(o) return o.kind == "Button" and rawget(o, "p") and rawget(o, "hot") and o.shown end) end
 check(hotPin() and hotPin().p.sub == qname, "segnaposto scelto evidenziato sulla mappa del mondo")
 -- arrivo: a meno di 10 yard dal punto il segnaposto scelto si toglie da solo
@@ -348,7 +355,7 @@ local oldPos = C_Map.GetPlayerMapPosition
 C_Map.GetPlayerMapPosition = function() return { GetXY = function() return 0.418, 0.672 end } end
 for _, o in ipairs(frames) do if o.kind == "Frame" and o ~= WorldMapFrame and o.scripts.OnUpdate then pcall(o.scripts.OnUpdate, o, 1) end end
 C_Map.GetPlayerMapPosition = oldPos
-check(not hotPin() and said(lang == "it" and "Sei arrivato" or "You have arrived"), "all'arrivo il segnaposto si toglie")
+check(not hotPin() and said(L4("Sei arrivato", "You have arrived", "Has llegado", "Vous êtes arrivé")), "all'arrivo il segnaposto si toglie")
 qMapB.scripts.OnClick(qMapB); check(hotPin() ~= nil, "segnaposto rimesso")
 hotPin().scripts.OnClick(hotPin())
 check(not hotPin(), "un clic sul segnaposto evidenziato lo toglie")
@@ -362,12 +369,12 @@ QUESTLOG = {}; f.scripts.OnEvent(f, "QUEST_LOG_UPDATE")
 -- Talent: "Apri in OneForAll" carica tutta la build (un punto per livello dal 10) con il suo Import
 local tabName = function(key) for _, t in ipairs(D._tabs) do if t[1] == key then return t[2] end end end
 nav(tabName("talent")).scripts.OnClick()
-local ofaB = nav((lang == "it" and "Apri in OneForAll" or "Open in OneForAll") .. " ›")
+local ofaB = nav(L4("Apri in OneForAll", "Open in OneForAll", "Abrir en OneForAll", "Ouvrir dans OneForAll") .. " ›")
 check(ofaB ~= nil, "pulsante Apri in OneForAll")
 ofaB.scripts.OnClick(ofaB)
 check(OFA.panel == "talents" and OFA.imported and OFA.n == #hv._tal and not OFA.export, "build importata in OneForAll (" .. tostring(OFA.n) .. "/" .. #hv._tal .. ")")
 -- Talent (dalla 1.6): livello mostrato, › passa al dopo, nodi dell'albero con rank e tooltip
-local function lvShown() for _, t in ipairs(shownTexts()) do local n = t:match("^" .. (lang == "it" and "Livello" or "Level") .. " (%d+)$"); if n then return tonumber(n) end end end
+local function lvShown() for _, t in ipairs(shownTexts()) do local n = t:match("^" .. L4("Livello", "Level", "Nivel", "Niveau") .. " (%d+)$"); if n then return tonumber(n) end end end
 local l0 = lvShown()
 check(l0 ~= nil, "livello nella scheda Talent")
 local nx = nav("+"); nx.scripts.OnClick(nx)
@@ -375,7 +382,7 @@ check(lvShown() == l0 + 1, "+ mostra il livello dopo (" .. tostring(l0) .. " →
 check(find(function(o) return o.kind == "Button" and rawget(o, "rk") and o.shown and o.t2 and o.t2 ~= "" end) ~= nil, "nodi dell'albero con descrizione")
 -- Classe (dalla 1.6): le quattro sezioni, ognuna con contenuto
 nav(tabName("classe")).scripts.OnClick()
-for _, s in ipairs(lang == "it" and { "Rotazione", "Spell", "Razza", "Consigli" } or { "Rotation", "Spells", "Race", "Tips" }) do
+for _, s in ipairs(L4({ "Rotazione", "Spell", "Razza", "Consigli" }, { "Rotation", "Spells", "Race", "Tips" }, { "Rotación", "Hechizos", "Raza", "Consejos" }, { "Rotation", "Sorts", "Race", "Conseils" })) do
   local b = nav(s); check(b ~= nil, "sezione " .. s .. " della scheda Classe")
   b.scripts.OnClick(b); check(#shownTexts() >= 6, "sezione " .. s .. " con contenuto")
 end
@@ -383,27 +390,29 @@ end
 -- con il segnaposto; "Boss e loot" apre il dungeon in OneForAll; le quest con la prima della catena (Questie)
 nav(tabName("dungeon")).scripts.OnClick()
 QDONE[776] = true
-check(has(lang == "it" and "Adatti al tuo livello adesso" or "Right for your level now"), "menu: riquadro dei dungeon adatti al livello")
-local dmMenu = nav("The Deadmines")
-check(dmMenu and nav("Hall of Thanes |cff7fd4b0•|r") and not nav(lang == "it" and "Ingresso" or "Entrance"), "menu dei dungeon (senza pulsanti Ingresso)")
+check(has(L4("Adatti al tuo livello adesso", "Right for your level now", "Adecuadas para tu nivel ahora", "Adaptés à votre niveau maintenant")), "menu: riquadro dei dungeon adatti al livello")
+local dmMenu = nav(N("The Deadmines"))
+check(dmMenu and nav(N("Hall of Thanes") .. " |cff7fd4b0•|r") and not nav(L4("Ingresso", "Entrance", "Entrada", "Entrée")), "menu dei dungeon (senza pulsanti Ingresso)")
 dmMenu.scripts.OnClick(dmMenu)
-check(nav(lang == "it" and "‹ Tutti i dungeon" or "‹ All dungeons") and has(lang == "it" and "da prendere" or "to pick up"), "scheda dei Deadmines: testata con le quest, ritorno al menu")
+check(nav(L4("‹ Tutti i dungeon", "‹ All dungeons", "‹ Todas las mazmorras", "‹ Tous les donjons")) and has(L4("da prendere", "to pick up", "por coger", "à prendre")), "scheda dei Deadmines: testata con le quest, ritorno al menu")
 if g.faction == "A" then
   -- 1.8.1: quest a gruppi; The Defias Brotherhood da sbloccare (776 fatta, 777 adesso, poi la quest del dungeon): riquadro Adesso
   -- con da chi andare, e l'elenco completo dei passi solo con "Tutti i passi"
-  check(has("Red Silk Bandanas") and has(lang == "it" and "Da sbloccare" or "To unlock") and has(lang == "it" and "passo 2 di 3" or "step 2 of 3")
-    and has("Gryan Stoutmantle") and not has("Messenger to Stormwind"), "quest dei Deadmines: gruppi e riga Adesso della catena")
-  local stepsB = nav(lang == "it" and "Tutti i passi" or "All steps")
+  -- (NPC e passi della catena vengono da Questie: nella prova sempre in inglese)
+  check(has(N("Red Silk Bandanas")), "quest dei Deadmines: " .. N("Red Silk Bandanas"))
+  check(has(L4("Da sbloccare", "To unlock", "Por desbloquear", "À débloquer")) and has(L4("passo 2 di 3", "step 2 of 3", "paso 2 de 3", "étape 2 sur 3")), "quest dei Deadmines: gruppi")
+  check(has("Gryan Stoutmantle") and not has("Messenger to Stormwind") and not has(N("Messenger to Stormwind")), "quest dei Deadmines: riga Adesso della catena")
+  local stepsB = nav(L4("Tutti i passi", "All steps", "Todos los pasos", "Toutes les étapes"))
   check(stepsB ~= nil, "pulsante Tutti i passi")
   stepsB.scripts.OnClick(stepsB)
   check(has("Messenger to Stormwind") and has("The Defias Traitor") and has("Gryan Stoutmantle, Westfall"), "elenco completo dei passi")
 end
 local function sec(prefix) return find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.shown and o.scripts.OnClick and o.fs.text:sub(1, #prefix) == prefix end) end
-local bossB, whereB = sec((lang == "it" and "Boss" or "Bosses") .. "  "), sec(lang == "it" and "Come arrivarci" or "How to get there")
+local bossB, whereB = sec(L4("Boss", "Bosses", "Jefes", "Boss") .. "  "), sec(L4("Come arrivarci", "How to get there", "Cómo llegar", "Comment y aller"))
 check(bossB and whereB, "sezioni Boss e Come arrivarci")
 bossB.scripts.OnClick(bossB); check(has("Rhahk'zor"), "sezione Boss")
-whereB.scripts.OnClick(whereB); check(has(lang == "it" and "Dove si trova" or "Where it is"), "sezione Come arrivarci")
-local dmB, lootB = nav(lang == "it" and "Ingresso" or "Entrance"), nav(lang == "it" and "Boss e loot" or "Bosses and loot")
+whereB.scripts.OnClick(whereB); check(has(L4("Dove si trova", "Where it is", "Dónde está", "Où il se trouve")), "sezione Come arrivarci")
+local dmB, lootB = nav(L4("Ingresso", "Entrance", "Entrada", "Entrée")), nav(L4("Boss e loot", "Bosses and loot", "Jefes y botín", "Boss et butin"))
 check(dmB and lootB, "pulsanti Mappa e Boss e loot nella scheda Dungeon")
 WorldMapFrame.shown = false; dmB.scripts.OnClick(dmB)
 check(WorldMapFrame.shown and said("zona") and said("MapUtils"), "mappa sull'ingresso, segnaposto e indicazione per MapUtils")
@@ -414,7 +423,7 @@ WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.point and o.point[2] == canvas end) ~= nil, "segnaposti sulla mappa del mondo")
 -- 1.9: zone consigliate nella scheda Percorso, e via con l'opzione spenta
 do
-  local zl = lang == "it" and "ZONE CONSIGLIATE AL LIVELLO" or "RECOMMENDED ZONES AT LEVEL"
+  local zl = L4("ZONE CONSIGLIATE AL LIVELLO", "RECOMMENDED ZONES AT LEVEL", "ZONAS RECOMENDADAS AL NIVEL", "ZONES CONSEILLÉES AU NIVEAU")
   f.shown = true; nav(tabName("livello")).scripts.OnClick()
   check(has(zl), "zone consigliate nella scheda Percorso")
   ForeverPathfinderChar.opt.nozones = true; nav(tabName("livello")).scripts.OnClick()
@@ -424,10 +433,10 @@ end
 -- 1.8.1: sotto l'NPC le quest che dà o ritira (da Questie), non quelle degli altri NPC della voce
 do
   local function stPin(n) return find(function(o) return o.kind == "Button" and rawget(o, "p") and o.shown and o.p[4] == n end) end
-  check(stPin("Marshal McBride") and stPin("Marshal McBride").p.sub == "Simple Letter" and stPin("Sam Sarsaparilla") and stPin("Sam Sarsaparilla").p.sub == nil,
+  check(stPin(N("Marshal McBride")) and (stPin(N("Marshal McBride")).p.sub == "Simple Letter" or stPin(N("Marshal McBride")).p.sub == N("Simple Letter")) and stPin(N("Sam Sarsaparilla")) and stPin(N("Sam Sarsaparilla")).p.sub == nil,
     "segnaposto: nome della quest sotto l'NPC che la dà")
-  local mc = stPin("Marshal McBride"); mc.scripts.OnClick(mc)
-  check(said("Simple Letter: Marshal McBride"), "riga in chat con quest e NPC del segnaposto")
+  local mc = stPin(N("Marshal McBride")); local mq = mc.p.sub; mc.scripts.OnClick(mc)
+  check(said(mq .. (lang == "fr" and " : " or ": ") .. N("Marshal McBride")), "riga in chat con quest e NPC del segnaposto")
   WorldMapFrame.scripts.OnShow(); hotPin().scripts.OnClick(hotPin())
 end
 -- dalla 1.6 anche tutti i trainer della classe (con il nome dell'NPC nel tooltip)
@@ -444,22 +453,22 @@ canvas.GetChildren = nil
 -- reagent vendor (da Questie) sulla mappa quando accesi
 f.shown = true
 nav(tabName("prof")).scripts.OnClick()
-check(has("Silver Skeleton Key") and has(lang == "it" and "sei qui" or "you are here"), "Profession: passo della skill 85 di Blacksmithing")
-check(has("Silver Bar |cff7fd4b0(20)"), "Profession: Silver Bar nelle borse (20 di 17)")
+check(has(N("Silver Skeleton Key")) and has(L4("sei qui", "you are here", "estás aquí", "vous êtes ici")), "Profession: passo della skill 85 di Blacksmithing")
+check(has(N("Silver Bar") .. " |cff7fd4b0(20)"), "Profession: Silver Bar nelle borse (20 di 17)")
 local nc = #chat
 f.scripts.OnEvent(f, "SKILL_LINES_CHANGED")
 check(said("Mining 75/75") and said("Journeyman") and not said("Blacksmithing 85"), "avviso al massimo del grado")
 f.scripts.OnEvent(f, "SKILL_LINES_CHANGED")
 check(#chat == nc + 1, "avviso una volta sola")
 nav("Mining  75").scripts.OnClick()
-check(has("Copper Vein") and has(lang == "it" and "Oppure fondendo (fino a |cffe0a074185|r)" or "Or by smelting (up to |cffe0a074185|r)"), "Profession: percorso di Mining con la fusione")
+check(has(N("Copper Vein")) and has(L4("Oppure fondendo (fino a |cffe0a074185|r)", "Or by smelting (up to |cffe0a074185|r)", "O fundiendo (hasta |cffe0a074185|r)", "Ou par fonte (jusqu’à |cffe0a074185|r)")), "Profession: percorso di Mining con la fusione")
 LibQuestieDB.Item = { vendors = function(id) return id == 2880 and { 1 } or nil end }
 LibQuestieDB.Npc = { friendlyToFaction = function() return "AH" end, name = function() return "Tharynn Bouden" end, spawns = function() return { [12] = { { 41.8, 67.2 } } } end }
 QMOD.ZoneDB.GetUiMapIdByAreaId = function() return 1429 end
 ForeverPathfinderChar.opt.ptr, ForeverPathfinderChar.opt.pvd = true, true
 WorldMapFrame.shown = true; WorldMapFrame.scripts.OnShow()
 check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p[4] == "Mining Trainer" and o.shown end) ~= nil, "trainer delle profession sulla mappa")
-check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who == "Tharynn Bouden" and o.p.small and (o.p.sells or ""):find("Weak Flux", 1, true) and o.shown end) ~= nil, "reagent vendor da Questie sulla mappa")
+check(find(function(o) return o.kind == "Button" and rawget(o, "p") and o.p.who == "Tharynn Bouden" and o.p.small and (o.p.sells or ""):find(N("Weak Flux"), 1, true) and o.shown end) ~= nil, "reagent vendor da Questie sulla mappa")
 -- 1.10.16: anche i reagent vendor che non vendono materiali delle tue profession (Data.lua, da QuestieDB), della tua fazione
 local myFac = UnitFactionGroup("player") == "Horde" and "H" or "A"
 local want; for _, v in ipairs(ForeverPathfinderVendors) do if v[2] == "R" and v[3] == myFac then want = v[1]; break end end
@@ -496,14 +505,16 @@ check(chat[#chat]:find("/fp set", 1, true) ~= nil, "messaggio per razza sconosci
 fp("auto")
 -- 6) clic destro sull'icona: Opzioni; trascinamento: l'icona cambia posto; /fp chiude
 mb.o.OnClick(nil, "RightButton")
-check(has(lang == "it" and "Opzioni" or "Options"), "clic destro apre le opzioni")
+check(has(L4("Opzioni", "Options", "Opciones", "Options")), "clic destro apre le opzioni")
 fp(""); check(not f.shown, "/fp chiude")
 -- 7) lingua solo nelle Opzioni (niente pulsante in testata): la casella dell'altra lingua cambia i nomi delle schede; /fp lang torna indietro
 fp("opzioni")
-local other = lang == "it" and "English" or "Italiano"
+local OL = lang == "en" and "it" or "en" -- l'altra lingua della prova
+local other = OL == "en" and "English" or "Italiano"
 check(find(function(o) return o.kind == "Button" and rawget(o, "fs") and o.fs.text == other and o.shown end) == nil, "nessun pulsante della lingua in testata")
 check(has(other), "voce " .. other .. " nelle Opzioni")
-fp("lang " .. (lang == "it" and "en" or "it"))
-check(has(lang == "it" and "Route" or "Percorso") and ForeverPathfinderDB.lang == (lang == "it" and "en" or "it"), "lingua cambiata")
-fp("lang"); check(ForeverPathfinderDB.lang == lang and has(lang == "it" and "Percorso" or "Route"), "/fp lang torna indietro")
+local ROUTE = { it = "Percorso", en = "Route", es = "Ruta", fr = "Parcours" }
+fp("lang " .. OL)
+check(has(ROUTE[OL]) and ForeverPathfinderDB.lang == OL, "lingua cambiata")
+fp("lang"); check(ForeverPathfinderDB.lang == lang and has(ROUTE[lang]), "/fp lang torna indietro")
 print("ok", LOCALE, "addon " .. lang, RACE, CLASS, #keys .. " combinazioni x " .. #labels .. " schede")

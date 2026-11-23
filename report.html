@@ -17,7 +17,7 @@ a{color:var(--ac)}
 .hero small{display:block;font:600 .8rem Cinzel,serif;letter-spacing:.3em;color:var(--ice)}
 .hero h1{margin:.1em 0 0;font:800 2.2rem/1.1 Cinzel,serif;background:linear-gradient(#ffe7a3,#e8b84a 55%,#a8761e);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{margin:.5em auto 0;max-width:34em;color:var(--mu)}
-.lang{position:absolute;top:12px;right:12px;display:flex;padding:5px 7px;border:1px solid var(--bd);border-radius:8px;background:#0b1626;cursor:pointer}
+.lang{position:absolute;top:12px;right:12px;z-index:3;text-align:left}.lang>summary{display:flex;align-items:center;gap:6px;padding:5px 7px;border:1px solid var(--bd);border-radius:8px;background:#0b1626;cursor:pointer;list-style:none;line-height:0}.lang>summary::-webkit-details-marker{display:none}.lang>summary:after{content:"";border:4px solid transparent;border-top-color:var(--mu);margin-top:4px}.lang>summary:hover,.lang[open]>summary{border-color:var(--gold)}.lang>div{position:absolute;right:0;top:calc(100% + 6px);display:grid;min-width:160px;padding:4px;border-radius:9px;background:#0b1626;border:1px solid var(--bd);box-shadow:0 10px 28px #000a}.lang a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:6px;color:var(--tx,#e7eef7);text-decoration:none;line-height:1.2}.lang a:hover,.lang a[aria-current]{background:var(--card2)}.lang a[aria-current]{color:var(--gold)}.lang svg{display:block;border-radius:2px;flex:none}
 .back{position:absolute;top:14px;left:14px;font-size:.85rem;text-decoration:none}
 main{max-width:760px;margin:0 auto;padding:6px 16px 40px}
 h2{font:800 1.35rem Cinzel,serif;color:var(--gold);margin:1.6em 0 .5em}
@@ -41,11 +41,11 @@ summary{cursor:pointer;padding:12px 0;font-weight:700}details[open]{padding-bott
 .gal img{display:block;width:auto;max-width:100%;height:auto;margin:0 auto;border-radius:6px;box-shadow:0 8px 24px #000a}
 .gal figcaption{color:var(--mu);font-size:.88rem;margin-top:8px;text-align:center}
 .keys{display:flex;flex-wrap:wrap;gap:6px}.keys code{font-size:.8rem}
-[data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en]{display:block}
-html[lang=it] span[data-l=it],html[lang=en] span[data-l=en]{display:inline}
+[data-l]{display:none}html[lang=it] [data-l=it],html[lang=en] [data-l=en],html[lang=es] [data-l=es],html[lang=fr] [data-l=fr]{display:block}
+html[lang=it] span[data-l=it],html[lang=en] span[data-l=en],html[lang=es] span[data-l=es],html[lang=fr] span[data-l=fr]{display:inline}
 .totop{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--card2);color:var(--gold);border:1px solid var(--gold);box-shadow:0 6px 18px #000a;cursor:pointer;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}.totop.on{opacity:1;transform:none;pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.totop{transition:none}html{scroll-behavior:auto}}
-@media(max-width:520px){.btn,.back,.lang{min-height:44px}.back{display:inline-flex;align-items:center;padding:0 6px}.lang{min-width:44px;align-items:center;justify-content:center}}
+@media(max-width:520px){.btn,.back,.lang>summary,.lang a{min-height:44px}.back{display:inline-flex;align-items:center;padding:0 6px}.lang>summary{min-width:44px;justify-content:center}}
 @media(max-width:480px){.hero h1{font-size:1.8rem}td:first-child{white-space:normal}}
 
 label{display:block;font-weight:700;margin:14px 0 6px}label small{font-weight:400;color:var(--mu)}
@@ -58,41 +58,46 @@ button.btn{cursor:pointer;margin-top:16px;min-height:44px}button.btn:disabled{op
 </style></head><body>
 
 <header class="hero">
- <a class="back" href="./"><span data-l="it">‹ Guida</span><span data-l="en">‹ Guide</span></a>
- <button class="lang" id="lang" type="button" aria-label="Lingua / Language"><svg id="flagEn" viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg><svg id="flagIt" viewBox="0 0 3 2" width="23" height="15" aria-hidden="true" style="display:none"><path fill="#009246" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#CE2B37" d="M2 0h1v2H2z"/></svg></button>
+ <a class="back" href="./"><span data-l="it">‹ Guida</span><span data-l="en">‹ Guide</span><span data-l="es">‹ Guía</span><span data-l="fr">‹ Guide</span></a>
+ <details class="lang" id="lang"><summary aria-label="Lingua · Language · Idioma · Langue"></summary><div><a href="#" data-lang="it" lang="it"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#009246" d="M0 0h20v30H0z"/><path fill="#fff" d="M20 0h20v30H20z"/><path fill="#CE2B37" d="M40 0h20v30H40z"/></svg>Italiano</a><a href="#" data-lang="en" lang="en"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30"/><path stroke="#C8102E" stroke-width="2" d="M0 0l60 30M60 0L0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>English</a><a href="#" data-lang="es" lang="es"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#AA151B" d="M0 0h60v30H0z"/><path fill="#F1BF00" d="M0 7.5h60v15H0z"/></svg>Español</a><a href="#" data-lang="fr" lang="fr"><svg viewBox="0 0 60 30" width="30" height="15" aria-hidden="true"><path fill="#002395" d="M0 0h20v30H0z"/><path fill="#fff" d="M20 0h20v30H20z"/><path fill="#ED2939" d="M40 0h20v30H40z"/></svg>Français</a></div></details>
  <small>Forever Pathfinder</small>
- <h1><span data-l="it">Segnala un errore</span><span data-l="en">Report an error</span></h1>
+ <h1><span data-l="it">Segnala un errore</span><span data-l="en">Report an error</span><span data-l="es">Informar de un error</span><span data-l="fr">Signaler une erreur</span></h1>
  <p data-l="it">Una quest sbagliata, un talento che non torna, un problema dell'addon o un'idea: scrivila qui. Non serve registrarsi.</p>
  <p data-l="en">A wrong quest, a talent that doesn't add up, an addon problem or an idea: write it here. No sign-up needed.</p>
+ <p data-l="es">Una quest equivocada, un talento que no cuadra, un problema del addon o una idea: escríbelo aquí. No hace falta registrarse.</p>
+ <p data-l="fr">Une quête fausse, un talent qui ne colle pas, un problème de l’addon ou une idée : écrivez-le ici. Pas besoin de s’inscrire.</p>
 </header>
 <main>
 <form class="card" id="f" novalidate>
- <label for="msg"><span data-l="it">Cosa non va?</span><span data-l="en">What is wrong?</span></label>
+ <label for="msg"><span data-l="it">Cosa non va?</span><span data-l="en">What is wrong?</span><span data-l="es">¿Qué falla?</span><span data-l="fr">Qu’est-ce qui ne va pas ?</span></label>
  <textarea id="msg" required></textarea>
- <label for="where"><span data-l="it">Dove</span><span data-l="en">Where</span></label>
- <select id="where"><option value="Sito">Sito · Website</option><option value="Addon">Addon</option><option value="Altro">Altro · Other</option></select>
- <label for="ctx"><span data-l="it">Personaggio, livello, scheda</span><span data-l="en">Character, level, tab</span> <small><span data-l="it">(facoltativo)</span><span data-l="en">(optional)</span></small></label>
+ <label for="where"><span data-l="it">Dove</span><span data-l="en">Where</span><span data-l="es">Dónde</span><span data-l="fr">Où</span></label>
+ <select id="where"><option value="Sito">Sito · Website · Sitio · Site</option><option value="Addon">Addon</option><option value="Altro">Altro · Other · Otro · Autre</option></select>
+ <label for="ctx"><span data-l="it">Personaggio, livello, scheda</span><span data-l="en">Character, level, tab</span><span data-l="es">Personaje, nivel, pestaña</span><span data-l="fr">Personnage, niveau, onglet</span> <small><span data-l="it">(facoltativo)</span><span data-l="en">(optional)</span><span data-l="es">(opcional)</span><span data-l="fr">(facultatif)</span></small></label>
  <input type="text" id="ctx" maxlength="200">
- <label for="user"><span data-l="it">Il tuo nome</span><span data-l="en">Your name</span> <small><span data-l="it">(facoltativo: nome in gioco, Discord… se vuoi una risposta)</span><span data-l="en">(optional: in-game name, Discord… if you want a reply)</span></small></label>
+ <label for="user"><span data-l="it">Il tuo nome</span><span data-l="en">Your name</span><span data-l="es">Tu nombre</span><span data-l="fr">Votre nom</span> <small><span data-l="it">(facoltativo: nome in gioco, Discord… se vuoi una risposta)</span><span data-l="en">(optional: in-game name, Discord… if you want a reply)</span><span data-l="es">(opcional: nombre en el juego, Discord… si quieres una respuesta)</span><span data-l="fr">(facultatif : nom en jeu, Discord… si vous voulez une réponse)</span></small></label>
  <input type="text" id="user" maxlength="80" autocomplete="nickname">
  <input type="text" id="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
- <button class="btn" id="send" type="submit"><span data-l="it">Invia</span><span data-l="en">Send</span></button>
- <p class="note" id="need" style="display:none"><span data-l="it">Scrivi prima cosa non va.</span><span data-l="en">Write what is wrong first.</span></p>
+ <button class="btn" id="send" type="submit"><span data-l="it">Invia</span><span data-l="en">Send</span><span data-l="es">Enviar</span><span data-l="fr">Envoyer</span></button>
+ <p class="note" id="need" style="display:none"><span data-l="it">Scrivi prima cosa non va.</span><span data-l="en">Write what is wrong first.</span><span data-l="es">Escribe primero qué falla.</span><span data-l="fr">Écrivez d’abord ce qui ne va pas.</span></p>
 </form>
-<div class="card" id="ok" role="status"><p data-l="it"><b>Grazie!</b> La segnalazione è arrivata. <a href="#" id="again">Segnalane un'altra</a> o <a href="./">torna alla guida</a>.</p><p data-l="en"><b>Thank you!</b> Your report has arrived. <a href="#" id="again2">Send another one</a> or <a href="./">go back to the guide</a>.</p></div>
-<div class="card" id="err" role="alert"><p data-l="it">Invio non riuscito: controlla la connessione e riprova.</p><p data-l="en">Sending failed: check your connection and try again.</p></div>
+<div class="card" id="ok" role="status"><p data-l="it"><b>Grazie!</b> La segnalazione è arrivata. <a href="#" id="again">Segnalane un'altra</a> o <a href="./">torna alla guida</a>.</p><p data-l="en"><b>Thank you!</b> Your report has arrived. <a href="#" id="again2">Send another one</a> or <a href="./">go back to the guide</a>.</p><p data-l="es"><b>¡Gracias!</b> El aviso ha llegado. <a href="#" id="again3">Envía otro</a> o <a href="./">vuelve a la guía</a>.</p><p data-l="fr"><b>Merci !</b> Votre signalement est arrivé. <a href="#" id="again4">Envoyez-en un autre</a> ou <a href="./">retournez au guide</a>.</p></div>
+<div class="card" id="err" role="alert"><p data-l="it">Invio non riuscito: controlla la connessione e riprova.</p><p data-l="en">Sending failed: check your connection and try again.</p><p data-l="es">No se ha podido enviar: comprueba la conexión y vuelve a intentarlo.</p><p data-l="fr">L’envoi a échoué : vérifiez votre connexion et réessayez.</p></div>
 <p class="note" data-l="it">Hai un account GitHub? Puoi anche <a href="https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues" target="_blank" rel="noopener">aprire una issue</a>.</p>
 <p class="note" data-l="en">Do you have a GitHub account? You can also <a href="https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues" target="_blank" rel="noopener">open an issue</a>.</p>
+<p class="note" data-l="es">¿Tienes una cuenta de GitHub? También puedes <a href="https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues" target="_blank" rel="noopener">abrir una issue</a>.</p>
+<p class="note" data-l="fr">Vous avez un compte GitHub ? Vous pouvez aussi <a href="https://github.com/foreverpathfinder/foreverpathfinder.github.io/issues" target="_blank" rel="noopener">ouvrir une issue</a>.</p>
 </main>
 
 <script>
 // Google Form che raccoglie le segnalazioni (risposte nel foglio Google collegato)
 var FORM='https://docs.google.com/forms/d/e/1FAIpQLSdPmLU4zYElMv8cEd97mvTNT2QvFY2yoViSMeZ3vhJrWIvomg/formResponse',E={msg:'entry.2073779074',where:'entry.1541280306',ctx:'entry.2078296171',user:'entry.1127451134'};
 function $(i){return document.getElementById(i)}
-function setLang(l){document.documentElement.lang=l;$('flagEn').style.display=l==='it'?'':'none';$('flagIt').style.display=l==='en'?'':'none'}
-var lg='it';try{lg=localStorage.getItem('wfcLang')||(/^it/i.test(navigator.language)?'it':'en')}catch(e){}
+var LS=['it','en','es','fr'],M=document.getElementById('lang');
+function setLang(l){document.documentElement.lang=l;[].forEach.call(M.querySelectorAll('a'),function(a){if(a.dataset.lang===l){a.setAttribute('aria-current','true');M.firstChild.innerHTML=a.querySelector('svg').outerHTML}else a.removeAttribute('aria-current')})}
+var lg='it';try{lg=localStorage.getItem('wfcLang');var lb=(navigator.language||'').slice(0,2).toLowerCase();if(LS.indexOf(lg)<0)lg=LS.indexOf(lb)>-1?lb:'en'}catch(e){}
 setLang(lg);
-$('lang').onclick=function(){var l=document.documentElement.lang==='it'?'en':'it';setLang(l);try{localStorage.setItem('wfcLang',l)}catch(e){}};
+[].forEach.call(M.querySelectorAll('a'),function(a){a.onclick=function(e){e.preventDefault();setLang(a.dataset.lang);M.open=false;try{localStorage.setItem('wfcLang',a.dataset.lang)}catch(x){}}});
 // dal sito e dall'addon arrivano ?c=contesto (personaggio, livello, versione) e ?d=Addon
 // (?a=versione-guida è il link corto dell'addon)
 var q=new URLSearchParams(location.search),a=q.get('a');$('ctx').value=a?'Addon v'+a:q.get('c')||'';if(a||q.get('d'))$('where').value=a?'Addon':q.get('d');
@@ -105,6 +110,6 @@ $('f').onsubmit=function(ev){ev.preventDefault();
  // Google non permette di leggere la risposta (no-cors): se la rete risponde, la segnalazione è arrivata
  fetch(FORM,{method:'POST',mode:'no-cors',body:b}).then(done,function(){$('err').style.display='block'}).finally(function(){$('send').disabled=false})};
 function done(){$('f').style.display='none';$('ok').style.display='block';$('msg').value=''}
-$('again').onclick=$('again2').onclick=function(e){e.preventDefault();$('ok').style.display='none';$('f').style.display='block';$('msg').focus()};
+$('again').onclick=$('again2').onclick=$('again3').onclick=$('again4').onclick=function(e){e.preventDefault();$('ok').style.display='none';$('f').style.display='block';$('msg').focus()};
 </script>
 </body></html>

@@ -253,7 +253,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .cbar .pre{flex:none;padding:3px 10px 3px 3px;font-size:.8rem}.cbar .pre img{width:28px;height:28px}
 .cbar .btn{flex:none;padding:6px 10px;font-size:.8rem}
 .cbar .pre.on{order:-1}
-.hero .lang{position:absolute;top:10px;right:12px;left:auto;z-index:3;margin:0;display:flex;padding:5px;border-radius:7px;background:rgba(8,17,29,.65);border:1px solid var(--bd);line-height:0}.hero .lang:hover{border-color:var(--gold)}.lang svg{display:block;border-radius:2px}
+.hero .lang{position:absolute;top:10px;right:12px;left:auto;z-index:3;margin:0;padding:0;background:none;border:0;border-radius:0}.hero .lang>summary{display:flex;align-items:center;gap:6px;padding:5px 7px 5px 5px;border-radius:7px;background:rgba(8,17,29,.65);border:1px solid var(--bd);line-height:0;font-weight:400}.hero .lang>summary:after{content:"";border:4px solid transparent;border-top-color:var(--mu);margin-top:4px}.hero .lang>summary:before{content:none}.hero .lang>summary:hover,.hero .lang[open]>summary{border-color:var(--gold)}.hero .lang[open]{padding:0}.lang>div{position:absolute;right:0;top:calc(100% + 6px);display:grid;min-width:160px;padding:4px;border-radius:9px;background:var(--deep);border:1px solid var(--bd);box-shadow:0 10px 28px rgba(0,0,0,.55)}.lang a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:6px;color:var(--tx);text-decoration:none;line-height:1.2}.lang a:hover{background:var(--card)}.lang a[aria-current]{color:var(--gold);background:var(--card)}.lang svg{display:block;border-radius:2px;flex:none}
 .visits{margin-top:1.5em;text-align:center}.visits img{height:28px;vertical-align:middle}
 .cbar .pers{background:var(--gold);border-color:var(--gold);color:var(--ongold);padding:5px 12px 5px 9px;text-align:left;line-height:1.1}
 .pers .pi{font-size:1.25rem}.pers b{display:block;font-size:.9rem}.pers small{display:block;font-size:.68rem;font-weight:600;opacity:.8}
@@ -264,7 +264,7 @@ body.home main,body.home nav,body.home #cbar,body:not(.home) #home{display:none}
 .cbar .addb{background:var(--card2);border-color:var(--ac);color:var(--tx);text-decoration:none}.addb small{color:var(--mu)}
 @media(max-width:520px){.cbar{flex-wrap:wrap}.cbar .pres{flex-basis:100%}.cbar .pers{flex:1;justify-content:center}}
 /* telefono: tutto ciò che si tocca è alto almeno 44px (si usa con un pollice mentre si gioca) */
-@media(max-width:520px){.btn,nav button,.go,.cbar .pre,#lfs{min-height:44px}.hero .lang{min-width:44px;min-height:44px;align-items:center;justify-content:center}input[type=range]{height:44px}.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:44px}}
+@media(max-width:520px){.btn,nav button,.go,.cbar .pre,#lfs{min-height:44px}.hero .lang>summary{min-width:44px;min-height:44px;justify-content:center}.lang a{min-height:44px}input[type=range]{height:44px}.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:44px}}
 /* chi ha chiesto meno animazioni al sistema: scorrimenti e barre arrivano subito (anche i voli della mappa, in engine.js) */
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.prog i{transition:none}}
 /* freccia per tornare in alto: compare dopo un po' di scorrimento, in basso a destra (sopra la barra di sistema del telefono) */

@@ -111,7 +111,8 @@ QuestieLoader = { ImportModule = function(_, n)
 end }
 -- build scelta: PVB="b" (di base la prima)
 if PVB ~= "" then ForeverPathfinderChar = { opt = { b = PVB } } end
-ForeverPathfinderDB = { lang = LOCALE == "itIT" and "it" or "en" } -- dalla 1.1 la lingua si sceglie nelle Opzioni (di base inglese)
+local PL = ({ itIT = "it", esES = "es", esMX = "es", frFR = "fr" })[LOCALE] or "en" -- lingua dell'anteprima
+ForeverPathfinderDB = { lang = PL } -- dalla 1.1 la lingua si sceglie nelle Opzioni
 assert(loadfile(DIR .. "/Data.lua"))()
 assert(loadfile(DIR .. "/Core.lua"))("ForeverPathfinder")
 local f = ForeverPathfinderFrame
@@ -174,10 +175,10 @@ local function findPill(label) for _, o in ipairs(all) do if o.kind == "Button" 
 f.scripts.OnEvent(f, "QUEST_LOG_UPDATE"); fp("")
 local n = 0
 for _, o in ipairs(all) do if o.kind == "CheckButton" and o.shown and n < 2 then n = n + 1; o.checked = true; o.scripts.OnClick(o) end end
-local L = ForeverPathfinderData[LOCALE == "itIT" and "it" or "en"]._tabs
+local L = ForeverPathfinderData[PL]._tabs
 local list = {}
 for _, t in ipairs(L) do list[#list + 1] = t end
-list[#list + 1] = { "opzioni", LOCALE == "itIT" and "Opzioni" or "Options" }
+list[#list + 1] = { "opzioni", ({ it = "Opzioni", es = "Opciones" })[PL] or "Options" }
 for _, t in ipairs(list) do
   if ONLY == "" or ONLY == t[1] then findPill(t[2]).scripts.OnClick(); snap(t[1]) end
 end
