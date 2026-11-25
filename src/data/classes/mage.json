@@ -4,7 +4,7 @@
  "resource": "Mana",
  "spec": "Frost",
  "specIcon": "spell_frost_frostbolt02",
- "summary": "Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, <b>397 ♥</b>, agg. 18 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a <b>wowforever.be</b> (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.",
+ "summary": "Frost fino al 48, poi Arcane per il Mana: è la build della guida mago più salvata su Mobalytics (Asuna_qt, <b>496 ♥</b>, agg. 25 nov), con l’ordine completo 10–60. Fino al 30 è quasi uguale a <b>wowforever.be</b> (letta dal client): Precision 3/3 subito (niente Miss sui mob del tuo livello), Ice Lance al 20, Ice Block al 25, Shatter e Fingers of Frost. Warcraft Tavern la definisce “la build Frost più forte al 30”.",
  "build": [
   "Improved Frostbolt",
   "Improved Frostbolt",
@@ -58,7 +58,7 @@
   "Arcane Concentration",
   "Arcane Concentration"
  ],
- "buildSource": "Mobalytics Asuna_qt «Frost Leveling 1-60» (397 ♥, Verified, agg. 18 nov): ordine 10–60 per livello. Fino al 5 nov: wowforever.be (client 70707), solo fino al 35.",
+ "buildSource": "Mobalytics Asuna_qt «Frost Leveling 1-60» (496 ♥, Verified, agg. 25 nov): ordine 10–60 per livello. Fino al 5 nov: wowforever.be (client 70707), solo fino al 35.",
  "why": {
   "Improved Frostbolt": "Frostbolt più rapido: è il 90% dei tuoi cast.",
   "Precision": "Niente “Resisted”: con 2 talent point niente Miss sui mob del tuo livello.",
@@ -81,7 +81,7 @@
   },
   {
    "source": "<b>Questa guida</b> (= Mobalytics – Asuna_qt)",
-   "signal": "397 ♥, “Verified”, agg. 18 nov",
+   "signal": "496 ♥, “Verified”, agg. 25 nov",
    "l10_19": "IFB 5 · Precision 3 · Frostbite 2",
    "l20": "Ice Lance",
    "l21_30": "Ice Shards 4 · Ice Block · Shatter 3 · Ice Shards 5 · FoF"
@@ -623,8 +623,8 @@
     {
      "name": "Mobalytics – Mage Leveling (Asuna_qt)",
      "url": "https://mobalytics.gg/wow-forever/classes/mage-leveling-guide",
-     "date": "18 nov 2026",
-     "signal": "397 ♥ · Verified",
+     "date": "25 nov 2026",
+     "signal": "496 ♥ · Verified",
      "used": "build A (10–60)"
     },
     {
@@ -670,17 +670,17 @@
     "ease": [
      4,
      "Icy Veins: rotazione single target semplice, Arcane Blast fino al proc e poi Arcane Missiles.",
-     "Icy Veins – Arcane Mage Leveling (4 nov)"
+     "Icy Veins – Arcane Mage Leveling (19 nov)"
     ],
     "survival": [
      2,
      "Icy Veins: «Lacks control & survivability».",
-     "Icy Veins – Arcane Mage Leveling (4 nov)"
+     "Icy Veins – Arcane Mage Leveling (19 nov)"
     ],
     "aoe": [
      4,
      "Icy Veins: Arcane Explosion rende più che nelle altre spec ai livelli alti, grazie ai talenti in fondo all'albero.",
-     "Icy Veins – Arcane Mage Leveling (4 nov)"
+     "Icy Veins – Arcane Mage Leveling (19 nov)"
     ]
    },
    "build": [
@@ -782,14 +782,14 @@
     {
      "name": "Mobalytics – Mage Leveling, Arcane Leveling 1-60 (Asuna_qt)",
      "url": "https://mobalytics.gg/wow-forever/classes/mage-leveling-guide",
-     "date": "18 nov 2026",
-     "signal": "397 ♥, la guida Mage più votata",
+     "date": "25 nov 2026",
+     "signal": "496 ♥, la guida Mage più votata",
      "used": "ordine talent 10–60"
     },
     {
      "name": "Icy Veins – Arcane Mage Leveling",
      "url": "https://www.icy-veins.com/wow-forever/arcane-mage-leveling",
-     "date": "4 nov 2026",
+     "date": "19 nov 2026",
      "signal": "ordine 10–60 dal link del calcolatore; rotazione, punti forti e deboli",
      "used": "rotazione, pro e contro (ordine talent fino al 18 nov)"
     }

@@ -8,7 +8,7 @@
 const TALENTI = `const W=ms=>new Promise(r=>setTimeout(r,ms)); await W(3000);
 const grp=a=>{const o=[];a.forEach(n=>{const l=o[o.length-1];if(l&&l[0]===n)l[1]++;else o.push([n,1])});return o.map(x=>x[0]+' '+x[1]).join(', ')};
 const parse=()=>{const t=document.body.innerText,k=t.indexOf('Points spent');if(k<0)return null;const seg=t.slice(k,k+3500).split('\\n').map(x=>x.trim()).filter(Boolean);const i=seg.indexOf('Leveling Path');const pts=seg.slice(2,i).join('');const out=[];for(let j=i+1;j+1<seg.length;j+=2){if(!/^\\d+$/.test(seg[j])||+seg[j]!==10+out.length)break;out.push(seg[j+1])}return pts+' ('+out.length+')|'+grp(out)};
-const t0=document.body.innerText,k0=t0.indexOf('Points spent');const before=t0.slice(0,k0).split('\\n').map(x=>x.trim()).filter(Boolean);const names=before.slice(before.lastIndexOf('Talents')+1);
+const t0=document.body.innerText,k0=t0.indexOf('Points spent');const before=t0.slice(0,k0).split('\\n').map(x=>x.trim()).filter(Boolean);const hd=Math.max(before.lastIndexOf('Talents'),...before.map((x,i)=>/Talent Builds?$/.test(x)?i:-1));const names=before.slice(hd+1);
 const res={data:t0.split('\\n').slice(0,24).filter(x=>/202\\d/.test(x)).join(' ')};
 if(!names.length||names.length>6)res._=parse();else for(const n of names){const el=[...document.querySelectorAll('*')].filter(e=>e.children.length===0&&e.textContent.trim()===n).pop();if(el){el.click();await W(900);res[n]=parse()}}
 JSON.stringify(res,null,1)`;

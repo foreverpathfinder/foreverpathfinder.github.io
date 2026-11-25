@@ -1,6 +1,6 @@
 # Forever Pathfinder: guida per chi ci lavora
 
-Aggiornato il 23 nov 2026 · **sito v29** · **addon 1.10.18** (spagnolo e francese; beta su CurseForge il 23 nov).
+Aggiornato il 25 nov 2026 · **sito v30** · **addon 1.10.19** (♥ e date delle guide del 25 nov, nota sul Journeyman Riding della mount di classe; beta su CurseForge al push).
 
 Guida al leveling 1–60 per **WoW: Forever** (Classic+ di Blizzard, uscito il 5 nov 2026): 10 razze, 9 classi, in italiano, inglese, spagnolo e francese.
 Due prodotti con gli stessi dati:
@@ -204,10 +204,11 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 
 **Siti e cosa prendere**:
 - **Build A di ogni classe**: la guida di leveling con più ♥ su https://mobalytics.gg/wow-forever/leveling-guides.
-  - Al 19 nov (Warlock al 22 nov): Warlock Crix (847 ♥, agg. 22 nov: la A ora è 40/11/0, senza Nightfall, con Demonic Sacrifice al 51; la sua variante Destruction è citata come scelta libera), Hunter Feor (649, 18 nov), Paladin yumytv (492, 12 nov), Shaman Tiqqle (435, 13 nov), Mage Asuna_qt (397, 18 nov), Warrior Ahlaundoh (392, 17 nov, scheda «Protection 1-60»; la B è la sua «Arms 1-60»), Druid yumytv (252, 14 nov), Priest DoubleZug (217, 9 nov), Rogue Djexde (187, 12 nov).
+  - Al 25 nov: Warlock Crix (922 ♥, agg. 23 nov; dal 22 nov la A è 40/11/0, senza Nightfall, con Demonic Sacrifice al 51; la sua variante Destruction è citata come scelta libera), Hunter Feor (775, 18 nov), Paladin yumytv (554, 12 nov), Shaman Tiqqle (505, 22 nov), Mage Asuna_qt (496, 25 nov), Warrior Ahlaundoh (473, 17 nov, scheda «Protection 1-60»; la B è la sua «Arms 1-60»), Druid yumytv (299, 14 nov), Priest DoubleZug (250, 9 nov; la sua guida non compare nei primi della lista ma resta la più votata, Twicks 147), Rogue Djexde (240, 12 nov). Il 25 nov i talenti di Warlock A e B, Shaman A e Mage A e B erano uguali ai nostri.
+  - Per aggiornare solo ♥ e date in tutti i testi (dati e traduzioni, anche i testi composti «data · signal» delle fonti): script come `hearts.js` del 25 nov, che cambia il numero solo dove compare «N ♥» e la data solo nelle stesse frasi; attenzione alle frasi storiche («Il 22 nov Crix ha tolto…»), da rimettere a mano.
   - Le build A sono tutte uguali alle loro. Dal 19 nov seguono le guide più votate anche Warlock B (Demonology di Crix), Mage B (scheda «Arcane Leveling 1-60» di Asuna_qt) e Rogue B (scheda «1-60 Subtlety» di Djexde); per le altre B e C restano Icy Veins o i dati del client.
   - ♥ e date compaiono nei testi delle classi (summary, buildSource, fonti): quando cambiano, aggiornali anche lì e in `en.json`.
-  - Come leggerle: nel browser integrato, sulla pagina della guida, esegui con `javascript_tool` il codice stampato da `node src/tools/mobalytics.js talenti` (o `rotazione`). Poi confronta con `node src/tools/mobalytics.js confronta <classe> a "<riga>"`.
+  - Come leggerle: nel browser integrato, sulla pagina della guida, esegui con `javascript_tool` il codice stampato da `node src/tools/mobalytics.js talenti` (o `rotazione`). Le schede sono le righe dopo l'ultimo «Talents» o «… Talent Builds» (dal 25 nov, per le guide con testo introduttivo come quella di Crix). Poi confronta con `node src/tools/mobalytics.js confronta <classe> a "<riga>"`.
 - **Alberi, spell, patch, dungeon**: https://foreverchanges.pro, che legge i dati del client.
   - Pagine utili: `/talents/<classe>` (con `fc.js`), `/spellbook/<classe>` (spell anticipate in Forever), `/patch-notes`, `/dungeons` (livelli di ogni dungeon e ala) e `/dungeons/<nome>` (boss).
 - **Quest**:
@@ -219,7 +220,7 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 - **Reagent vendor e Trade Supplies** (opzione della mappa nell'addon): `src/data/vendors.json` con `node src/tools/vendors.js <cartella QuestieDB>` (foreverNpcDB, foreverItemDB, lo strato generato foreverBaseNpc/foreverBaseItem e areaIdToUiMapId.lua). Reagent vendor = chi vende i reagent delle classi (Arcane Powder, Light Feather, candele, semi…), perché il sottotitolo in QuestieDB spesso manca; Trade Supplies dal sottotitolo. Se un giocatore segnala un vendor che lì non c'è, chiedigli il nome: QuestieDB può non averlo.
 - **Ingressi dei dungeon**: `src/data/entrances.json` (coordinate della zona, più ingressi = più voci, il primo è il principale) sostituisce in `build.js` i segnaposti di Wowhead. Wowhead, MapUtils e Twinmap a volte segnano il portale o l'icona della mappa e si copiano a vicenda (Krol'dok era sbagliato in tutti e tre): per i dungeon classici vale la porta di QuestieDB (`support/Forever/Zones/dungeons.lua`, già convertita per le zone cambiate) confermata dalla meeting stone (`foreverObjectDB`); per quelli nuovi servono due fonti che concordano o la prova nel gioco. Se non è sicuro, metti la meeting stone. Coordinate nei testi «Come arrivarci» uguali a quelle del file.
 - **Icy Veins, ordine dei talent**: il link «Open in Calculator» della guida ha l'ordine dei punti dopo `#tc-` (prima di `~`): ogni carattere è il `data-talenturlid` di un talento nel calcolatore. Apri il link nel browser integrato e leggi i nomi dagli `input[data-talenturlid]` (controlla che i conteggi coincidano con i ranghi mostrati).
-- **Altre**: Icy Veins (guide di leveling aggiornate il 13–17 nov, data in `dateModified`; Holy Paladin e Restoration Shaman ricontrollate il 19 nov: uguali alle nostre Paladin B e Shaman C; Arcane Mage e alcune altre ferme al 4 nov), Wowhead Forever (mappa, zone), wowforever.be (calcolatore, professioni), Warcraft Tavern e Conquest Capped (dungeon, giudizi).
+- **Altre**: Icy Veins (guide di leveling aggiornate il 13–17 nov, data in `dateModified`; Holy Paladin e Restoration Shaman ricontrollate il 19 nov: uguali alle nostre Paladin B e Shaman C; Arcane Mage aggiornata il 19 nov e ricontrollata il 25 nov: rotazione uguale alla nostra Mage B; Elemental 20 nov, Enhancement 21 nov e Fire Mage 19 nov, non usate), Wowhead Forever (mappa, zone), wowforever.be (calcolatore, professioni), Warcraft Tavern e Conquest Capped (dungeon, giudizi).
 
 ## 9. Regole dell'utente
 
@@ -270,4 +271,6 @@ Il nome è **Forever Pathfinder**. I file HTML tengono il vecchio nome «WoW_For
 7. **Dubbi aperti**:
    - build 31–60 da una sola fonte per alcune classi;
    - tappe delle rotte da una sola fonte e livelli di Zephras stimati;
-   - alcuni racial con valori discordi.
+   - alcuni racial con valori discordi;
+   - milestone comune del 60 «Journeyman Riding (circa 1000 g)»: dagli hotfix del 22–24 nov Paladin e Warlock lo imparano con la mount di classe (nota nelle loro milestone), ma le milestone comuni non hanno un filtro per classe, quindi la vedono ancora.
+   - Hotfix del 22–24 nov non messi nella guida perché la guida non ne parla: Oath of Light dura 1 ora, poisons del Rogue BoP e senza valore di vendita, Mortal Strike solo col talento.

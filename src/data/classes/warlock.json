@@ -4,7 +4,7 @@
  "resource": "Mana (+ Health via Life Tap) · Soul Shard",
  "spec": "Affliction",
  "specIcon": "spell_shadow_deathcoil",
- "summary": "Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 <b>Wrack</b> (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, <b>847 ♥</b>, agg. 22 nov, la guida Warlock più salvata): Soul Harvest al 19, drain dal 23, Siphon Life al 30, Wrack al 40, poi 11 punti in Demonology fino a Demonic Sacrifice (51) e Pandemic e Malevolence alla fine (40/11/0). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.",
+ "summary": "Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più consigliata: DoT istantanei, Life Tap e Drain Life tengono HP e Mana senza downtime, e dal 40 <b>Wrack</b> (rifatto con la hotfix del 10 nov) è il filler che fa danno e accelera i tuoi DoT. L'ordine dei talent è quello di Mobalytics – Crix (Verified, <b>922 ♥</b>, agg. 23 nov, la guida Warlock più salvata): Soul Harvest al 19, drain dal 23, Siphon Life al 30, Wrack al 40, poi 11 punti in Demonology fino a Demonic Sacrifice (51) e Pandemic e Malevolence alla fine (40/11/0). wowforever.be e Method (Pandemic/Malevolence prima, 17 ott) sono l'ordine di minoranza, riportato in alternatives.",
  "build": [
   "Improved Corruption",
   "Improved Corruption",
@@ -58,7 +58,7 @@
   "Malevolence",
   "Malevolence"
  ],
- "buildSource": "Mobalytics Crix «Affliction 1-60» (847 ♥, agg. 22 nov): ordine 10–60 per livello, 40/11/0. Il 22 nov Crix ha tolto Nightfall («sopravvalutato»: costa Mana e non conviene interrompere Wrack per lo Shadow Bolt) e la Destruction: Soul Harvest al 19–20, dal 41 Demonic Embrace, Fel Vitality e Demonic Aegis, al 51 Demonic Sacrifice (Imp sacrificato: +15% danni Shadow per 2 ore), poi Amplify Curse, Curse of Exhaustion, Pandemic e Malevolence. Scelte libere secondo Crix: Improved Life Tap al posto di Soul Harvest, Curse of Exhaustion prima sui server PvP, oppure gli 11 punti in Destruction (Bane, Molten Skin, Shadowburn). wowforever.be (client) e Method in alternatives.",
+ "buildSource": "Mobalytics Crix «Affliction 1-60» (922 ♥, agg. 23 nov): ordine 10–60 per livello, 40/11/0. Il 22 nov Crix ha tolto Nightfall («sopravvalutato»: costa Mana e non conviene interrompere Wrack per lo Shadow Bolt) e la Destruction: Soul Harvest al 19–20, dal 41 Demonic Embrace, Fel Vitality e Demonic Aegis, al 51 Demonic Sacrifice (Imp sacrificato: +15% danni Shadow per 2 ore), poi Amplify Curse, Curse of Exhaustion, Pandemic e Malevolence. Scelte libere secondo Crix: Improved Life Tap al posto di Soul Harvest, Curse of Exhaustion prima sui server PvP, oppure gli 11 punti in Destruction (Bane, Molten Skin, Shadowburn). wowforever.be (client) e Method in alternatives.",
  "why": {
   "Improved Corruption": "5 rank = Corruption istantanea (−2 s di cast) e +10% danno: la applichi in movimento su ogni mob. Tutte le fonti la prendono per prima.",
   "Suppression": "+1% Hit per rank (5% a 5/5) e meno threat: con 4 rank non manchi mai un mob del tuo livello, con 5 anche quelli più alti.",
@@ -94,7 +94,7 @@
  "compare": [
   {
    "source": "Mobalytics – Crix (Verified, 40/11/0)",
-   "signal": "847 ♥ (la guida Warlock più salvata) · agg. 22 nov",
+   "signal": "922 ♥ (la guida Warlock più salvata) · agg. 23 nov",
    "l10_19": "Improved Corruption 5 (10–14), Suppression 4 (15–18), Soul Harvest (19)",
    "l20": "Soul Harvest 2/2",
    "l21_30": "Improved Bane of Agony 2 (21–22), Improved Drains 3 (23–25), Fel Concentration 3 (26–28), Grim Reach (29), Siphon Life (30); 31–33 Soul Siphon, 34 Grim Reach, 35–39 Shadow Mastery, 40 Wrack; poi Demonic Embrace 5 (41–45), Fel Vitality 3, Demonic Aegis 2, Demonic Sacrifice (51), Amplify Curse, Curse of Exhaustion, Pandemic 3, Malevolence 4 (57–60)."
@@ -887,7 +887,7 @@
   },
   {
    "l": 60,
-   "t": "Bane of Doom, Ritual of Doom (Daio the Decrepit, Blasted Lands), Dreadsteed. Dati WGE = baseline Classic 🟡."
+   "t": "Bane of Doom, Ritual of Doom (Daio the Decrepit, Blasted Lands), Dreadsteed. Dati WGE = baseline Classic 🟡. ★ Con gli hotfix del 22–24 nov la mount di classe insegna anche Journeyman Riding."
   }
  ],
  "camp": [
@@ -975,8 +975,8 @@
    "name": "Mobalytics – Warlock Leveling Guide 1–60 (Crix, Verified)",
    "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
    "author": "Crix",
-   "date": "22 nov 2026",
-   "signal": "847 ♥ · 40/11/0",
+   "date": "23 nov 2026",
+   "signal": "922 ♥ · 40/11/0",
    "used": "Ordine dei talent 10–60 della build A e rotazione"
   },
   {
@@ -1191,8 +1191,8 @@
     {
      "name": "Mobalytics – Warlock Leveling (Crix)",
      "url": "https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide",
-     "date": "22 nov 2026",
-     "signal": "847 ♥",
+     "date": "23 nov 2026",
+     "signal": "922 ♥",
      "used": "build A (10–60)"
     },
     {

@@ -4,7 +4,7 @@
  "resource": "Mana",
  "spec": "Beast Mastery",
  "specIcon": "ability_hunter_beasttaming",
- "summary": "Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Zockify (25 ott) e la guida Hunter più votata di Mobalytics (Feor, <b>649 ♥</b>, Verified, agg. 18 nov), che dà l’ordine livello per livello dal 10 al 60. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. La build segue Feor: Pathfinding al 20–21, Summon Hawk al 25, Intimidation al 30, Bestial Wrath al 40, poi 20 punti in Marksmanship (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.",
+ "summary": "Beast Mastery è la spec più comoda per levellare da soli: la scelgono Warcraft Tavern, Method (Celz, 21 ott), Zockify (25 ott) e la guida Hunter più votata di Mobalytics (Feor, <b>775 ♥</b>, Verified, agg. 18 nov), che dà l’ordine livello per livello dal 10 al 60. Il Pet tiene la threat e tu spari a distanza: pochi morti e poco downtime. La build segue Feor: Pathfinding al 20–21, Summon Hawk al 25, Intimidation al 30, Bestial Wrath al 40, poi 20 punti in Marksmanship (31 BM + 20 MM). Pet consigliati: Cat (danno) o Boar (resistenza), da domare per livello e zona.",
  "build": [
   "Deadly Aspects",
   "Deadly Aspects",
@@ -58,7 +58,7 @@
   "Mortal Shots",
   "Mortal Shots"
  ],
- "buildSource": "Mobalytics Feor «Hunter Leveling Guide 1-60» (649 ♥, Verified, agg. 18 nov): ordine 10–60 per livello, 31/20/0 al 60. Fino all’8 nov: 10–30 da Method/wowforever.be (client 70707) e 31–60 da Zockify (25 ott), con la stessa suddivisione 31 BM + 20 MM.",
+ "buildSource": "Mobalytics Feor «Hunter Leveling Guide 1-60» (775 ♥, Verified, agg. 18 nov): ordine 10–60 per livello, 31/20/0 al 60. Fino all’8 nov: 10–30 da Method/wowforever.be (client 70707) e 31–60 da Zockify (25 ott), con la stessa suddivisione 31 BM + 20 MM.",
  "why": {
   "Deadly Aspects": "Con Aspect of the Hawk attivo Auto Shot ha il 2% per rank (10% al rank 5) di dare +30% ranged attack speed per 12 s: è il tuo danno di base. Tutte le fonti buone la prendono per prima.",
   "Focused Fire": "★ +1% per rank (2% max) a tutti i danni tuoi e del Pet finché il Pet è attivo.",
@@ -84,7 +84,7 @@
  "compare": [
   {
    "source": "Mobalytics – Feor, Hunter Leveling Guide 1-60 (Verified)",
-   "signal": "649 ♥ (guida Hunter più votata), agg. 18 nov, 31/20/0 al 60",
+   "signal": "775 ♥ (guida Hunter più votata), agg. 18 nov, 31/20/0 al 60",
    "l10_19": "Deadly Aspects 5 (10–14), Focused Fire 2 (15–16), Improved Revive Pet 2 (17–18), Endurance Training (19)",
    "l20": "Pathfinding 2 (20–21)",
    "l21_30": "Bestial Swiftness 22, Unleashed Fury 23–24 e 26–27, Summon Hawk 25, Ferocity 28–29, Intimidation 30. Poi Bestial Discipline 31–32, Ferocity 33–35, Frenzy 36–39, Bestial Wrath 40, Lethal Attacks 41–45, Careful Aim 46–50, Rapid Killing 51–52, Hawk Eye 53–55, Trueshot Aura 56, Mortal Shots 57–60."
@@ -845,7 +845,7 @@
    "url": "https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide",
    "author": "Feor",
    "date": "agg. 18 nov 2026",
-   "signal": "649 ♥, Verified: la guida Hunter più votata",
+   "signal": "775 ♥, Verified: la guida Hunter più votata",
    "used": "ordine dei talent 10–60 (dall’8 nov)"
   },
   {
@@ -954,7 +954,7 @@
  ],
  "doubts": [
   "🟡 Pathfinding: Crix e Zockify lo mettono al 18–19, ma la riga 3 richiede 10 punti spesi nell’albero e a 18 ne hai 8. Feor lo prende al 20–21, dopo Endurance Training: è legale. Fino all’8 nov la guida usava l’ordine di Method/wowforever.be (Endurance Training 2 al posto di Pathfinding).",
-  "🟡 Dall’8 nov l’ordine 10–60 è quello di Feor (Mobalytics, 649 ♥). Zockify ha la stessa suddivisione 31 BM + 20 MM ma mette Ferocity e Frenzy 5 al posto di Bestial Discipline 2 e Frenzy 4, e Hawk Eye prima di Rapid Killing.",
+  "🟡 Dall’8 nov l’ordine 10–60 è quello di Feor (Mobalytics, 775 ♥). Zockify ha la stessa suddivisione 31 BM + 20 MM ma mette Ferocity e Frenzy 5 al posto di Bestial Discipline 2 e Frenzy 4, e Hawk Eye prima di Rapid Killing.",
   "🟡 L’ordine di Method è stato decodificato dal link talent dell’embed (non c’è un elenco testuale). wowforever.be arriva solo al 35; Warcraft Tavern ha i talent solo in immagini.",
   "🟡 Pet: livelli e zone solo da Zockify (agg. 20 ott); l’esistenza dei mob è confermata sulla mappa Wowhead Forever (Kresh, Wailing Caverns, non c’è). Bear/Swipe e Carrion Bird da wow4evernews/topbuilds; i candidati 32–60 da Petopia via LePrestore, non testati.",
   "🟡 Tame Beast: il cast time è contraddittorio tra le fonti (canalizzato con armor −100% per Warcraft Tavern). La Happiness è buggata in beta (cala solo quando il Pet muore).",
@@ -1020,7 +1020,7 @@
      "name": "Mobalytics – Hunter Leveling Guide 1-60 (Feor)",
      "url": "https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide",
      "date": "agg. 18 nov 2026",
-     "signal": "649 ♥, Verified: la guida Hunter più votata",
+     "signal": "775 ♥, Verified: la guida Hunter più votata",
      "used": "ordine 10–60"
     },
     {
