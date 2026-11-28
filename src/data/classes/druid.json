@@ -144,7 +144,7 @@
  "alternatives": [
   {
    "title": "Perché non Balance e non Restoration",
-   "html": "<p><b>Balance</b> funziona ma è più lenta (Warcraft Tavern: 'molto più debole per leveling'; Mobalytics: 'Feral sarà molto più liscio'; i video di Tekn0de, 55k views, 29 set, e Psybear_tv, 50k, 7 ott, la trattano come opzione). Build: <b>Multi-DoT</b> (Improved Entangling Roots, Overgrowth 2 = 3 root, Insect Swarm al 25) o <b>Eclipse</b> (Improved Starfire + Eclipse: dopo il 30, 2 Starfire per 1 Wrath). <b>Restoration</b>: sconsigliata in solo per i tempi di kill lenti (Tavern); Mobalytics la dà 'abbastanza forte' ma senza danno né mobilità. Balance/Resto servono più come seconda spec da dungeon col Dual Talent Specialization (40).</p>"
+   "html": "<p><b>Balance</b> funziona ma è più lenta (Warcraft Tavern: 'molto più debole per leveling'; Mobalytics: 'Feral sarà molto più liscio'; i video di Tekn0de, 55k views, 29 set, e Psybear_tv, 50k, 7 ott, la trattano come opzione). Build: <b>Multi-DoT</b> (Improved Entangling Roots, Overgrowth 2 = 3 root, Insect Swarm al 25) o <b>Eclipse</b> (Starlight Wrath + Eclipse: dopo il 30, 2 Starfire per 1 Wrath). <b>Restoration</b>: sconsigliata in solo per i tempi di kill lenti (Tavern); Mobalytics la dà 'abbastanza forte' ma senza danno né mobilità. Balance/Resto servono più come seconda spec da dungeon col Dual Talent Specialization (40).</p>"
   },
   {
    "title": "Variante 'stile Tavern/Method' sul nuovo albero 🟡",
@@ -979,6 +979,7 @@
   "skyborne_horde": "Windshaper (Horde). Walk on Air, Wind Blessed, Elemental Insight, Skysight (+10–15% velocità, 15 s, CD 2 min 🟡 numeri discordanti). Method: Windshaper ottimo per Feral Cat e Balance grazie all'haste. Zephras Isle, poi trainer a Dalaran (Alfina Nightgaze) per la Horde."
  },
  "forever": [
+  "★ 25 nov (hotfix, build 1.60.1.71139; note Blizzard su foreverchanges.pro): albero Balance rifatto. Improved Wrath diventa Starlight Wrath (accorcia anche Starfire), Improved Moonfire diventa Moon and Stars, Improved Starfire scende a 2 punti e tiene solo lo stun (chi ne aveva 3 o più ha i talent resettati), Moonfury tolto e al suo posto Dreamstate (Innervate su un altro), Eclipse +20% crit di Wrath, Moonkin Form +10% danni Arcane e Nature.",
   "★ 30 ott (build 70707; wowforever.be news 31 ott, GitHub #455, Tactyks 15.8k views 31 ott): albero Druid rimescolato: Berserk rimosso, Furor/Heart of the Wild scambiati d'albero, Primal Bite 42/62/77 spostato a riga 7, Shifting Power CD 8 s, Leader of the Pack su tutti i crit, nuovi Lacerate/Predatory Discipline/Bloom.",
   "★ Pozioni e consumabili (anche Thistle Tea e mana potion) usabili in Bear/Cat senza uscire dalla forma; enchant arma e proc funzionano in forma; immuni a Disarm (1–8 ott, wofwforever 15 ott).",
   "★ Auto-attack da forma usa il DPS dell'arma (1.0 s Cat / 2.5 s Bear); Polearms nuovi al 20.",
@@ -1298,19 +1299,19 @@
     ]
    },
    "build": [
-    "Improved Wrath",
-    "Improved Wrath",
-    "Improved Wrath",
-    "Improved Wrath",
-    "Improved Wrath",
+    "Starlight Wrath",
+    "Starlight Wrath",
+    "Starlight Wrath",
+    "Starlight Wrath",
+    "Starlight Wrath",
     "Genesis",
     "Moonglow",
     "Moonglow",
     "Moonglow",
     "Nature's Reach",
     "Nature's Reach",
-    "Improved Moonfire",
-    "Improved Moonfire",
+    "Moon and Stars",
+    "Moon and Stars",
     "Nature's Majesty",
     "Nature's Majesty",
     "Insect Swarm",
@@ -1327,7 +1328,7 @@
     "Eclipse",
     "Eclipse",
     "Eclipse",
-    "Moonfury",
+    "Improved Starfire",
     "Moonkin Form",
     "Nature's Focus",
     "Nature's Focus",
@@ -1392,7 +1393,7 @@
     {
      "name": "wowforever.gg – Druid Balance Leveling Build",
      "url": "https://wowforever.gg/en/builds/druid-balance-leveling/",
-     "date": "nessuna data visibile",
+     "date": "26 nov 2026",
      "signal": "sito fan non ufficiale; calcolatore con checkpoint 10–60",
      "used": "ordine 10–60 (checkpoint); convalidato sull'albero client"
     },

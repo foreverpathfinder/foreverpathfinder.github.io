@@ -30,13 +30,14 @@ const NPCS = []; for (const M of Object.values(WM)) NPCS.push(...M.quests, ...M.
 const RN = k => { k = String(k).toLowerCase().replace(/[^a-z_]/g, ''); return k === 'skyborne_alliance' || k === 'skyborne_high_order' ? 'skyborne_a' : k === 'skyborne_horde' || k === 'skyborne_windshaper' || k === 'skyborne_windshapers' ? 'skyborne_h' : k; };
 const RFAC = { human: 1, dwarf: 1, gnome: 1, nightelf: 1, skyborne_a: 1, orc: 2, undead: 2, troll: 2, tauren: 2, skyborne_h: 2 };
 function npcPos(name, side) { const n = String(name).toLowerCase().trim(), m = NPCS.filter(x => x[0].toLowerCase() === n); return m.find(x => !side || x[1] === side || !x[1]) || m[0]; }
-// milestones: { "10": ["testo" | {t,r,f,npc}] } oppure [ {l,t,r,f,npc} ] → { 10: [{t, r?, f?, n?:[[npc,x,y]]}] }
+// milestones: { "10": ["testo" | {t,r,f,c,npc}] } oppure [ {l,t,r,f,c,npc} ] → { 10: [{t, r?, f?, n?:[[npc,x,y]]}] }
 function normMs(ms, side0, ctx) {
   const out = {}, add = (l, x) => {
     const o = typeof x === 'string' ? { t: x } : { t: x.t };
     if (x.r && x.r.length) o.r = x.r.map(RN);
     if (x.f) o.f = x.f;
     if (x.b) o.b = x.b; // solo con queste build (milestone di classe che parlano dei talenti della A)
+    if (x.c) o.c = x.c; // solo per queste classi
     const side = x.f ? (x.f === 'A' ? 1 : 2) : o.r ? RFAC[o.r[0]] : side0;
     if (x.npc && x.npc.length) o.n = x.npc.map(n => { const p = npcPos(n, side); if (!p) { W(ctx + ': NPC "' + n + '" (liv. ' + l + ') non trovato sulla mappa'); return null; } return [n, p[2], p[3]]; }).filter(Boolean);
     if (!o.t) return; (out[l] = out[l] || []).push(o);

@@ -1,16 +1,16 @@
 {
  "cls": "druid",
  "src": "https://foreverchanges.pro/talents/druid",
- "fetched": "2026-11-14",
- "wfSame": true,
+ "fetched": "2026-11-28",
+ "wfSame": false,
  "trees": [
   {
    "key": "balance",
    "name": "Balance",
    "nodes": {
-    "improved-wrath": {
+    "starlight-wrath": {
      "index": 0,
-     "name": "Improved Wrath",
+     "name": "Starlight Wrath",
      "icon": "spell_nature_abolishmagic",
      "row": 1,
      "col": 2,
@@ -19,8 +19,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the cast time of your Wrath spell by 0.1 sec and its Mana cost by 10%.",
-     "rmax": "Reduces the cast time of your Wrath spell by 0.5 sec and its Mana cost by 50%."
+     "r1": "Reduces the cast time of your Wrath and Starfire spells by 0.1 sec and the Mana cost of your Wrath spell by 10%.",
+     "rmax": "Reduces the cast time of your Wrath and Starfire spells by 0.5 sec and the Mana cost of your Wrath spell by 50%."
     },
     "genesis": {
      "index": 1,
@@ -50,9 +50,9 @@
      "r1": "Reduces the Mana cost of your damaging spells by 8%.",
      "rmax": "Reduces the Mana cost of your damaging spells by 25%."
     },
-    "improved-moonfire": {
+    "moon-and-stars": {
      "index": 3,
-     "name": "Improved Moonfire",
+     "name": "Moon and Stars",
      "icon": "spell_nature_starfall",
      "row": 2,
      "col": 2,
@@ -61,8 +61,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Increases the damage and critical strike chance of your Moonfire spell by 5%.",
-     "rmax": "Increases the damage and critical strike chance of your Moonfire spell by 10%."
+     "r1": "Increases the damage and critical strike chance of your Moonfire spell by 5% and gives your Starfire spell a 50% chance not to lose casting time from taking damage.",
+     "rmax": "Increases the damage and critical strike chance of your Moonfire spell by 10% and gives your Starfire spell a 100% chance not to lose casting time from taking damage."
     },
     "nature-s-majesty": {
      "index": 4,
@@ -142,7 +142,7 @@
      "col": 2,
      "max": 5,
      "needs": 15,
-     "req": "improved-moonfire",
+     "req": "moon-and-stars",
      "flag": "Changed from Classic",
      "cost": "",
      "r1": "Increases the critical strike damage bonus of your Arcane and Nature spells by 20%.",
@@ -154,13 +154,13 @@
      "icon": "spell_arcane_starfire",
      "row": 4,
      "col": 3,
-     "max": 5,
+     "max": 2,
      "needs": 15,
      "req": "",
      "flag": "Changed from Classic",
      "cost": "",
-     "r1": "Reduces the cast time of Starfire by 0.1 sec and Starfire has a 3% chance to stun its target for 3 sec.",
-     "rmax": "Reduces the cast time of Starfire by 0.5 sec and Starfire has a 15% chance to stun its target for 3 sec."
+     "r1": "Your Starfire spell has a 8% chance to stun its target for 3 sec.",
+     "rmax": "Your Starfire spell has a 15% chance to stun its target for 3 sec."
     },
     "overgrowth": {
      "index": 11,
@@ -201,22 +201,22 @@
      "req": "",
      "flag": "New in Forever",
      "cost": "",
-     "r1": "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.17 sec. Stores up to 4 charges. Lasts 15 sec.",
-     "rmax": "Your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.50 sec. Stores up to 4 charges. Lasts 15 sec."
+     "r1": "Increases the critical strike chance of your Wrath spell by 7%, and your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.17 sec. Stores up to 4 charges. Lasts 15 sec.",
+     "rmax": "Increases the critical strike chance of your Wrath spell by 20%, and your Wrath spell reduces the cast time of your next 2 Starfire spells by 0.50 sec. Stores up to 4 charges. Lasts 15 sec."
     },
-    "moonfury": {
+    "dreamstate": {
      "index": 14,
-     "name": "Moonfury",
-     "icon": "spell_nature_moonglow",
+     "name": "Dreamstate",
+     "icon": "ability_druid_dreamstate",
      "row": 6,
      "col": 2,
      "max": 5,
      "needs": 25,
      "req": "",
-     "flag": "Changed from Classic",
+     "flag": "New in Forever",
      "cost": "",
-     "r1": "Increases the damage done by your Arcane and Nature spells by 2%.",
-     "rmax": "Increases the damage done by your Arcane and Nature spells by 10%."
+     "r1": "When you cast Innervate on a target other than yourself, you gain 20% of the effect as well.",
+     "rmax": "When you cast Innervate on a target other than yourself, you gain 100% of the effect as well."
     },
     "moonkin-form": {
      "index": 15,
@@ -229,8 +229,8 @@
      "req": "",
      "flag": "Changed from Classic",
      "cost": "35% of base mana · Instant",
-     "r1": "Shapeshift into Moonkin Form, increasing Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
-     "rmax": "Shapeshift into Moonkin Form, increasing Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects."
+     "r1": "Shapeshift into Moonkin Form, increasing Arcane and Nature damage done by 10%, Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.",
+     "rmax": "Shapeshift into Moonkin Form, increasing Arcane and Nature damage done by 10%, Omen of Clarity's chance to trigger by 100%, Armor contribution from items by 360%, and all party or raid members within 45 yards have their Critical Strike chance increased by 3%. Also protects the caster from Polymorph effects and prevents the use of healing spells.\n\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects."
     }
    }
   },

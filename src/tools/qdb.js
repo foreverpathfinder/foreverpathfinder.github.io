@@ -18,7 +18,7 @@ function parse(src, i0) {
     let v = m[1] === 'nil' ? null : m[1] === 'true' ? true : m[1] === 'false' ? false : /^-?\d/.test(m[1]) ? +m[1] : m[1];
     ws();
     if (src[i] === '(') { i++; const a = []; ws(); while (src[i] !== ')') { a.push(val()); ws(); if (src[i] === ',') i++; ws(); } i++; v = a[0]; }
-    while (src[i] === '+') { i++; const r = val(); v = String(v) + '+' + String(r); ws(); }
+    while (src[i] === '+' || src[i] === '-') { const op = src[i++]; const r = val(); v = String(v) + op + String(r); ws(); }
     return v;
   };
   const tbl = () => {

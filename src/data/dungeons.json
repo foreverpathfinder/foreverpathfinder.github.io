@@ -1046,11 +1046,11 @@
     "A": [
      [
       "Take Two With Water",
-      "Loremaster Dibbs, Hillsbrad Foothills"
+      "Loremaster Dibbs, Hillsbrad Foothills, dopo An Acquaintance in Southshore"
      ],
      [
       "Magics of the Drowned City",
-      "Loremaster Dibbs, Hillsbrad Foothills"
+      "Loremaster Dibbs, Hillsbrad Foothills, dopo An Acquaintance in Southshore"
      ],
      [
       "Ancient Gurubashi Secrets",
@@ -1060,11 +1060,11 @@
     "H": [
      [
       "The Only Good Brinescale...",
-      "Commander Aggro'gosh, Stranglethorn Vale"
+      "Commander Aggro'gosh, Stranglethorn Vale, dopo Locating the Lost City e Enemies in the Water"
      ],
      [
       "The Drowned City",
-      "Kin'weelay, Stranglethorn Vale"
+      "Kin'weelay, Stranglethorn Vale, dopo Locating the Lost City"
      ],
      [
       "Ancient Gurubashi Idol",
@@ -1277,23 +1277,23 @@
     "A": [
      [
       "Key Ingredients",
-      "Alphonse Dumas, Riverglades"
+      "Alphonse Dumas, Riverglades, dopo Krol'dok Moulding"
      ],
      [
       "Twilight Mementos",
-      "Sergeant Riftan, Riverglades"
+      "Sergeant Riftan, Riverglades, dopo Bring Me His Head"
      ],
      [
       "Lingering Essence",
-      "Sergeant Riftan, Riverglades"
+      "Sergeant Riftan, Riverglades, dopo Twilight Mementos"
      ],
      [
       "Curios of Curiosity",
-      "Ashe Amberhall, Riverglades"
+      "Ashe Amberhall, Riverglades, dopo Lingering Essence"
      ],
      [
       "Tome of Twilight",
-      "Ashe Amberhall, Riverglades"
+      "Ashe Amberhall, Riverglades, dopo A Small Favor"
      ],
      [
       "Eye of Mugg",
@@ -1307,19 +1307,19 @@
     "H": [
      [
       "Key Ingredients",
-      "Kreza Darkthorn, Riverglades"
+      "Kreza Darkthorn, Riverglades, dopo Krol'dok Moulding"
      ],
      [
       "A Token of Vengeance",
-      "Da'grosh"
+      "Da'grosh, dopo Bring Me His Head"
      ],
      [
       "Tome of Twilight",
-      "Tran'gul, Riverglades"
+      "Tran'gul, Riverglades, dopo It Is Time, Brother..."
      ],
      [
       "Eye of Mugg",
-      "Krom'rosh, Riverglades"
+      "Krom'rosh, Riverglades, dopo It Is Time, Brother..."
      ]
     ]
    },
@@ -1533,11 +1533,11 @@
     "A": [
      [
       "The Secret Prison",
-      "Sully McCleary"
+      "Sully McCleary, dopo The Return of the King?"
      ],
      [
       "A Bit of Wet Work",
-      "Sully McCleary"
+      "Sully McCleary, dopo The Return of the King?"
      ],
      [
       "The Dragon's Journal",
@@ -1547,15 +1547,15 @@
     "H": [
      [
       "No Orc Left Behind",
-      "Sergeant Ulka"
+      "Sergeant Ulka, dopo Right Place, Wrong Time"
      ],
      [
       "A Little Payback",
-      "Sergeant Ulka"
+      "Sergeant Ulka, dopo Right Place, Wrong Time"
      ],
      [
       "Blood Red Bandanas",
-      "Sergeant Ulka"
+      "Sergeant Ulka, dopo Right Place, Wrong Time"
      ],
      [
       "State Secrets",
@@ -1953,7 +1953,7 @@
     "A": [
      [
       "Get to the Roots of It",
-      "Mathrengyl Bearwalker, Darnassus"
+      "Mathrengyl Bearwalker, Darnassus, dopo Beneath Nordrassil"
      ],
      [
       "Blackmaw Magic",
@@ -1963,7 +1963,7 @@
     "H": [
      [
       "Get to the Roots of It",
-      "Nara Wildmane, Thunder Bluff"
+      "Nara Wildmane, Thunder Bluff, dopo Beneath Nordrassil"
      ],
      [
       "Blackmaw Magic",

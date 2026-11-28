@@ -2217,7 +2217,16 @@
   },
   {
    "l": 60,
-   "t": "<b>Journeyman Riding</b> (circa 1000 g): mount veloce. 🟡"
+   "t": "<b>Journeyman Riding</b> (circa 1000 g): mount veloce. 🟡",
+   "c": [
+    "druid",
+    "hunter",
+    "mage",
+    "priest",
+    "rogue",
+    "shaman",
+    "warrior"
+   ]
   }
  ]
 }

@@ -1,4 +1,6 @@
-### 1.10.19
+### 1.10.20
 
-- Guide data of Nov 25: updated favorites and dates of the Mobalytics leveling guides used for the main builds (no talent order changes), Icy Veins Arcane Mage source of Nov 19.
-- Paladin and Warlock level 60 milestones: since the Nov 22–24 hotfixes, Summon Charger and Summon Dreadsteed also teach Journeyman Riding.
+- Druid Balance build (B) updated for the Nov 25 hotfix (build 1.60.1.71139): Starlight Wrath and Moon and Stars replace Improved Wrath and Improved Moonfire, and the point that went into Moonfury (removed) now goes into Improved Starfire at 39, as in the wowforever.gg build of Nov 26. New Balance tree from the client data.
+- Dungeon quests of The Drowned City, Krol'dok Stronghold, Blackmaw Hold and Alcaz Prison: prerequisite quests added (QuestieDB of Nov 28).
+- Level 60 milestone "Journeyman Riding (about 1000 g)" no longer shown to Paladins and Warlocks, who learn it with their class mount quest.
+- Warrior: date of the Mobalytics guide by Ahlaundoh corrected to Nov 19 (talents checked on Nov 28: unchanged).

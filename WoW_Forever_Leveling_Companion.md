@@ -1,6 +1,6 @@
-# Forever Pathfinder – WoW: Forever leveling 1–60 (v30)
+# Forever Pathfinder – WoW: Forever leveling 1–60 (v31)
 
-> Aggiornato: **25 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
+> Aggiornato: **28 novembre 2026**. Riepilogo della pagina `WoW_Forever_Leveling_Companion.html` (aprila per mappa, calcolatore talent e planner per livello).
 > Lancio: undefined. Legenda: ✔ confermato · 🟡 fonte singola · ★ novità di Forever.
 
 ## Razze e classi
@@ -222,7 +222,7 @@ Affliction (drain tank con Voidwalker/Succubus) è la spec di leveling più cons
 - 57–60: Malevolence 4/5
 
 ### Warrior – Protection
-Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 214 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (473 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 473 ♥, agg. 17 nov); Fury non decolla prima del 36–40.
+Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics ha la guida Warrior più salvata proprio su Protection (KallTorak, 214 ♥), Icy Veins la chiama "the fastest Warrior spec for leveling" e la raccomanda (snippet), Zockify (28 ott) la dà più forte fino al ~40, e wowforever.be (client 1.60.1.70707) costruisce tutta la rotta 10–40 su Protection. L’ordine 10–60 è quello della «Protection 1-60» di Ahlaundoh, la guida Warrior più votata (473 ♥). Condizioni: Revenge sfrutta block/dodge/parry, Shield Specialization e Master of Defense danno Rage dai colpi subiti, ed è sicura nei pack. Arms (due mani) resta la scelta per gruppo/duo (Method, Icy Veins, Mobalytics Ahlaundoh 473 ♥, agg. 19 nov); Fury non decolla prima del 36–40.
 
 - 10–14: Shield Specialization 5/5
 - 15–17: Improved Revenge 3/3
@@ -468,7 +468,7 @@ Protection (one-hand + shield) è la spec da solo più consigliata: Mobalytics h
 - [Mobalytics – Warlock Leveling Guide 1–60 (Crix, Verified)](https://mobalytics.gg/wow-forever/classes/warlock-leveling-guide) · 23 nov 2026 · 922 ♥ · 40/11/0
 - [wowforever.be – Warlock leveling (dati client 1.60.1.70707)](https://wowforever.be/leveling/warlock/) · 1 nov 2026 · dati client
 - [Method – Warlock Leveling Guide & Talents (Roguery)](https://www.method.gg/wow-forever/wow-forever-warlock-leveling-guide-and-talents) · 17 ott 2026 · Method (reputazione alta)
-- [Mobalytics – Warrior Leveling 1-60, Protection 1-60 (Ahlaundoh)](https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide) · agg. 17 nov 2026 · 473 ♥: la guida Warrior più votata
+- [Mobalytics – Warrior Leveling 1-60, Protection 1-60 (Ahlaundoh)](https://mobalytics.gg/wow-forever/classes/warrior-leveling-guide) · agg. 19 nov 2026 · 473 ♥: la guida Warrior più votata
 - [wowforever.be – Build di leveling Warrior](https://wowforever.be/leveling/warrior/) · 1 nov (client 1.60.1.70707) · dati client
 - [Mobalytics – classifica preferiti (mobalytics.md) (KallTorak (Prot 82 ♥, 30 ott, 0/0/21); Ahlaundoh (Warrior 1-60 Verified 48 ♥, 35/14/2); Kargoz (Prot 15 ♥, 14 ott, 5/6/40))](https://mobalytics.gg/wow-forever/classes/protection-warrior-guide-kalltorak) · 14–30 ott · 82 / 48 / 15 ♥
 - [wowforever.be – talent e build di leveling (dati client)](https://wowforever.be/leveling/) · client 1.60.1.70707
